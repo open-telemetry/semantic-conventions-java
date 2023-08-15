@@ -20,28 +20,28 @@ dependencies {
   testImplementation("org.assertj:assertj-core")
 }
 
-val specificationVersion = "1.20.0"
+val semanticConventionsVersion = "1.21.0"
 var generatorVersion = "0.18.0"
 
-val specificationRepoZip = "https://github.com/open-telemetry/opentelemetry-specification/archive/v$specificationVersion.zip"
-val schemaUrl = "https://opentelemetry.io/schemas/$specificationVersion"
+val semanticConventionsRepoZip = "https://github.com/open-telemetry/semantic-conventions/archive/v$semanticConventionsVersion.zip"
+val schemaUrl = "https://opentelemetry.io/schemas/$semanticConventionsVersion"
 
-val downloadSpecification by tasks.registering(Download::class) {
-  src(specificationRepoZip)
-  dest("$buildDir/opentelemetry-specification/opentelemetry-specification.zip")
+val downloadSemanticConventions by tasks.registering(Download::class) {
+  src(semanticConventionsRepoZip)
+  dest("$buildDir/semantic-conventions/semantic-conventions.zip")
   overwrite(false)
 }
 
 val unzipConfigurationSchema by tasks.registering(Copy::class) {
-  dependsOn(downloadSpecification)
+  dependsOn(downloadSemanticConventions)
 
-  from(zipTree(downloadSpecification.get().dest))
+  from(zipTree(downloadSemanticConventions.get().dest))
   eachFile(closureOf<FileCopyDetails> {
-    // Remove the top level folder "/opentelemetry-specification-$semanticConventionsVersion"
+    // Remove the top level folder "/semantic-conventions-$semanticConventionsVersion"
     val pathParts = path.split("/")
     path = pathParts.subList(1, pathParts.size).joinToString("/")
   })
-  into("$buildDir/opentelemetry-specification/")
+  into("$buildDir/semantic-conventions/")
 }
 
 val generateSemanticAttributes by tasks.registering(Exec::class) {
@@ -52,7 +52,7 @@ val generateSemanticAttributes by tasks.registering(Exec::class) {
   setArgs(listOf(
     "run",
     "--rm",
-    "-v", "$buildDir/opentelemetry-specification/semantic_conventions:/source",
+    "-v", "$buildDir/semantic-conventions/model:/source",
     "-v", "$projectDir/buildscripts/templates:/templates",
     "-v", "$projectDir/src/main/java/io/opentelemetry/semconv/trace/attributes/:/output",
     "otel/semconvgen:$generatorVersion",
@@ -74,7 +74,7 @@ val generateResourceAttributes by tasks.registering(Exec::class) {
   setArgs(listOf(
     "run",
     "--rm",
-    "-v", "$buildDir/opentelemetry-specification/semantic_conventions:/source",
+    "-v", "$buildDir/semantic-conventions/model:/source",
     "-v", "$projectDir/buildscripts/templates:/templates",
     "-v", "$projectDir/src/main/java/io/opentelemetry/semconv/resource/attributes/:/output",
     "otel/semconvgen:$generatorVersion",
