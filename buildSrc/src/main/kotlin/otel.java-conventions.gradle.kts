@@ -105,5 +105,6 @@ tasks {
 configurations.configureEach {
   resolutionStrategy {
     failOnVersionConflict()
+    preferProjectModules()
   }
 }
