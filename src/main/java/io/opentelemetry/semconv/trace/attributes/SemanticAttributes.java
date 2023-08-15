@@ -2621,159 +2621,6 @@ public final class SemanticAttributes {
   }
 
   /**
-   * HTTP request method.
-   *
-   * @deprecated This item has been removed in 1.21.0 version of the semantic conventions. Use
-   *     {@link SemanticAttributes#HTTP_REQUEST_METHOD} instead.
-   */
-  @Deprecated public static final AttributeKey<String> HTTP_METHOD = stringKey("http.method");
-
-  /**
-   * <a href="https://tools.ietf.org/html/rfc7231#section-6">HTTP response status code</a>.
-   *
-   * @deprecated This item has been removed in 1.21.0 version of the semantic conventions. Use
-   *     {@link SemanticAttributes#HTTP_RESPONSE_STATUS_CODE} instead.
-   */
-  @Deprecated public static final AttributeKey<Long> HTTP_STATUS_CODE = longKey("http.status_code");
-
-  /**
-   * The URI scheme identifying the used protocol.
-   *
-   * @deprecated This item has been removed in 1.21.0 version of the semantic conventions. Use
-   *     {@link SemanticAttributes#URL_SCHEME} instead.
-   */
-  @Deprecated public static final AttributeKey<String> HTTP_SCHEME = stringKey("http.scheme");
-
-  /**
-   * Transport protocol used. See note below.
-   *
-   * @deprecated This item has been removed in 1.21.0 version of the semantic conventions. There is
-   *     no direct replacement but see {@link SemanticAttributes#NETWORK_TRANSPORT}.
-   */
-  @Deprecated public static final AttributeKey<String> NET_TRANSPORT = stringKey("net.transport");
-
-  /**
-   * Application layer protocol used. The value SHOULD be normalized to lowercase.
-   *
-   * @deprecated This item has been removed in 1.21.0 version of the semantic conventions. Use
-   *     {@link SemanticAttributes#NETWORK_PROTOCOL_NAME} instead.
-   */
-  @Deprecated
-  public static final AttributeKey<String> NET_PROTOCOL_NAME = stringKey("net.protocol.name");
-
-  /**
-   * Version of the application layer protocol used. See note below.
-   *
-   * <p>Notes:
-   *
-   * <ul>
-   *   <li>{@code net.protocol.version} refers to the version of the protocol used and might be
-   *       different from the protocol client's version. If the HTTP client used has a version of
-   *       {@code 0.27.2}, but sends HTTP version {@code 1.1}, this attribute should be set to
-   *       {@code 1.1}.
-   * </ul>
-   *
-   * @deprecated This item has been removed in 1.21.0 version of the semantic conventions. Use
-   *     {@link SemanticAttributes#NETWORK_PROTOCOL_VERSION} instead.
-   */
-  @Deprecated
-  public static final AttributeKey<String> NET_PROTOCOL_VERSION = stringKey("net.protocol.version");
-
-  /**
-   * Remote socket peer name.
-   *
-   * @deprecated This item has been removed in 1.21.0 version of the semantic conventions. Use
-   *     {@link SemanticAttributes#SERVER_SOCKET_DOMAIN} instead.
-   */
-  @Deprecated
-  public static final AttributeKey<String> NET_SOCK_PEER_NAME = stringKey("net.sock.peer.name");
-
-  /**
-   * Remote socket peer address: IPv4 or IPv6 for internet protocols, path for local communication,
-   * <a href="https://man7.org/linux/man-pages/man7/address_families.7.html">etc</a>.
-   *
-   * @deprecated This item has been removed in 1.21.0 version of the semantic conventions. Use
-   *     {@link SemanticAttributes#SERVER_SOCKET_ADDRESS} instead.
-   */
-  @Deprecated
-  public static final AttributeKey<String> NET_SOCK_PEER_ADDR = stringKey("net.sock.peer.addr");
-
-  /**
-   * Remote socket peer port.
-   *
-   * @deprecated This item has been removed in 1.21.0 version of the semantic conventions. Use
-   *     {@link SemanticAttributes#SERVER_SOCKET_PORT} instead.
-   */
-  @Deprecated
-  public static final AttributeKey<Long> NET_SOCK_PEER_PORT = longKey("net.sock.peer.port");
-
-  /**
-   * Protocol <a href="https://man7.org/linux/man-pages/man7/address_families.7.html">address
-   * family</a> which is used for communication.
-   *
-   * @deprecated This item has been removed in 1.21.0 version of the semantic conventions.
-   */
-  @Deprecated
-  public static final AttributeKey<String> NET_SOCK_FAMILY = stringKey("net.sock.family");
-
-  /**
-   * Logical remote hostname, see note below.
-   *
-   * <p>Notes:
-   *
-   * <ul>
-   *   <li>{@code net.peer.name} SHOULD NOT be set if capturing it would require an extra DNS
-   *       lookup.
-   * </ul>
-   *
-   * @deprecated This item has been removed in 1.21.0 version of the semantic conventions. Use
-   *     {@link SemanticAttributes#SERVER_ADDRESS} instead.
-   */
-  @Deprecated public static final AttributeKey<String> NET_PEER_NAME = stringKey("net.peer.name");
-
-  /**
-   * Logical remote port number.
-   *
-   * @deprecated This item has been removed in 1.21.0 version of the semantic conventions. Use
-   *     {@link SemanticAttributes#SERVER_PORT} instead.
-   */
-  @Deprecated public static final AttributeKey<Long> NET_PEER_PORT = longKey("net.peer.port");
-
-  /**
-   * Logical local hostname or similar, see note below.
-   *
-   * @deprecated This item has been removed in 1.21.0 version of the semantic conventions. Use
-   *     {@link SemanticAttributes#SERVER_ADDRESS} instead.
-   */
-  @Deprecated public static final AttributeKey<String> NET_HOST_NAME = stringKey("net.host.name");
-
-  /**
-   * Logical local port number, preferably the one that the peer used to connect.
-   *
-   * @deprecated This item has been removed in 1.21.0 version of the semantic conventions. Use
-   *     {@link SemanticAttributes#SERVER_PORT} instead.
-   */
-  @Deprecated public static final AttributeKey<Long> NET_HOST_PORT = longKey("net.host.port");
-
-  /**
-   * Local socket address. Useful in case of a multi-IP host.
-   *
-   * @deprecated This item has been removed in 1.21.0 version of the semantic conventions. Use
-   *     {@link SemanticAttributes#SERVER_SOCKET_ADDRESS} instead.
-   */
-  @Deprecated
-  public static final AttributeKey<String> NET_SOCK_HOST_ADDR = stringKey("net.sock.host.addr");
-
-  /**
-   * Local socket port number.
-   *
-   * @deprecated This item has been removed in 1.21.0 version of the semantic conventions. Use
-   *     {@link SemanticAttributes#SERVER_SOCKET_PORT} instead.
-   */
-  @Deprecated
-  public static final AttributeKey<Long> NET_SOCK_HOST_PORT = longKey("net.sock.host.port");
-
-  /**
    * The internet connection type currently being used by the host.
    *
    * @deprecated This item has been removed in 1.21.0 version of the semantic conventions. Use
@@ -2830,59 +2677,6 @@ public final class SemanticAttributes {
    */
   @Deprecated
   public static final AttributeKey<String> NET_HOST_CARRIER_ICC = stringKey("net.host.carrier.icc");
-
-  /**
-   * The size of the request payload body in bytes. This is the number of bytes transferred
-   * excluding headers and is often, but not always, present as the <a
-   * href="https://www.rfc-editor.org/rfc/rfc9110.html#field.content-length">Content-Length</a>
-   * header. For requests using transport encoding, this should be the compressed size.
-   *
-   * @deprecated This item has been removed in 1.21.0 version of the semantic conventions. Use
-   *     {@link SemanticAttributes#HTTP_REQUEST_BODY_SIZE} instead.
-   */
-  @Deprecated
-  public static final AttributeKey<Long> HTTP_REQUEST_CONTENT_LENGTH =
-      longKey("http.request_content_length");
-
-  /**
-   * The size of the response payload body in bytes. This is the number of bytes transferred
-   * excluding headers and is often, but not always, present as the <a
-   * href="https://www.rfc-editor.org/rfc/rfc9110.html#field.content-length">Content-Length</a>
-   * header. For requests using transport encoding, this should be the compressed size.
-   *
-   * @deprecated This item has been removed in 1.21.0 version of the semantic conventions. Use
-   *     {@link SemanticAttributes#HTTP_RESPONSE_BODY_SIZE} instead.
-   */
-  @Deprecated
-  public static final AttributeKey<Long> HTTP_RESPONSE_CONTENT_LENGTH =
-      longKey("http.response_content_length");
-
-  /**
-   * Full HTTP request URL in the form {@code scheme://host[:port]/path?query[#fragment]}. Usually
-   * the fragment is not transmitted over HTTP, but if it is known, it should be included
-   * nevertheless.
-   *
-   * <p>Notes:
-   *
-   * <ul>
-   *   <li>{@code http.url} MUST NOT contain credentials passed via URL in form of {@code
-   *       https://username:password@www.example.com/}. In such case the attribute's value should be
-   *       {@code https://www.example.com/}.
-   * </ul>
-   *
-   * @deprecated This item has been removed in 1.21.0 version of the semantic conventions. Use
-   *     {@link SemanticAttributes#URL_FULL} instead.
-   */
-  @Deprecated public static final AttributeKey<String> HTTP_URL = stringKey("http.url");
-
-  /**
-   * The full request target as passed in a HTTP request line or equivalent.
-   *
-   * @deprecated This item has been removed in 1.21.0 version of the semantic conventions. Use
-   *     {@link SemanticAttributes#URL_PATH}, {@link SemanticAttributes#URL_QUERY}, and {@link
-   *     SemanticAttributes#URL_FRAGMENT} instead.
-   */
-  @Deprecated public static final AttributeKey<String> HTTP_TARGET = stringKey("http.target");
 
   /**
    * The IP address of the original client behind all proxies, if known (e.g. from <a
@@ -3005,60 +2799,10 @@ public final class SemanticAttributes {
       stringKey("messaging.rocketmq.client_id");
 
   /**
-   * Enum values for {@link #NET_TRANSPORT}.
-   *
-   * @deprecated This item has been removed as of 1.21.0 of the semantic conventions. Use {@link
-   *     SemanticAttributes#NetworkTransportValues} instead.
-   */
-  @Deprecated
-  public static final class NetTransportValues {
-    /** ip_tcp. */
-    public static final String IP_TCP = "ip_tcp";
-
-    /** ip_udp. */
-    public static final String IP_UDP = "ip_udp";
-
-    /** Named or anonymous pipe. See note below. */
-    public static final String PIPE = "pipe";
-
-    /** In-process communication. */
-    public static final String INPROC = "inproc";
-
-    /** Something else (non IP-based). */
-    public static final String OTHER = "other";
-
-    public static final String IP = "ip";
-
-    public static final String UNIX = "unix";
-
-    private NetTransportValues() {}
-  }
-
-  /**
-   * Enum values for {@link #NET_SOCK_FAMILY}.
-   *
-   * @deprecated This item has been removed as of 1.21.0 of the semantic conventions. Use {@link
-   *     SemanticAttributes#NetworkTypeValues} instead.
-   */
-  @Deprecated
-  public static final class NetSockFamilyValues {
-    /** IPv4 address. */
-    public static final String INET = "inet";
-
-    /** IPv6 address. */
-    public static final String INET6 = "inet6";
-
-    /** Unix domain socket path. */
-    public static final String UNIX = "unix";
-
-    private NetSockFamilyValues() {}
-  }
-
-  /**
    * Enum values for {@link #NET_HOST_CONNECTION_TYPE}.
    *
    * @deprecated This item has been removed as of 1.21.0 of the semantic conventions. Use {@link
-   *     SemanticAttributes#NetworkConnectionTypeValues} instead.
+   *     NetworkConnectionTypeValues} instead.
    */
   @Deprecated
   public static final class NetHostConnectionTypeValues {
@@ -3084,7 +2828,7 @@ public final class SemanticAttributes {
    * Enum values for {@link #NET_HOST_CONNECTION_SUBTYPE}.
    *
    * @deprecated This item has been removed as of 1.21.0 of the semantic conventions. Use {@link
-   *     SemanticAttributes#NetworkConnectionSubtypeValues} instead.
+   *     NetworkConnectionSubtypeValues} instead.
    */
   @Deprecated
   public static final class NetHostConnectionSubtypeValues {
