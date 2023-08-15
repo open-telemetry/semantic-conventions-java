@@ -1,6 +1,7 @@
 pluginManagement {
   plugins {
     id("com.gradle.enterprise") version "3.14.1"
+    id("de.undercouch.download") version "5.4.0"
   }
 }
 
