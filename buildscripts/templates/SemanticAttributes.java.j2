@@ -69,7 +69,7 @@ public final class {{class}} {
     {%- if attribute.note %}
   *
   * <p>Notes:
-        <ul> {{attribute.note | replace(">", "") | render_markdown(code="{{@code {0}}}", paragraph="<li>{0}</li>", list="{0}")}} </ul>
+        <ul> {{attribute.note | replace("> ", "") | render_markdown(code="{{@code {0}}}", paragraph="<li>{0}</li>", list="{0}")}} </ul>
 
     {%- endif %}
     {%- if (attribute.stability | string())  == "StabilityLevel.DEPRECATED" %}

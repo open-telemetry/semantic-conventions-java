@@ -128,7 +128,7 @@ public final class ResourceAttributes {
    *       href="https://docs.microsoft.com/en-us/rest/api/resources/resources/get-by-id">Fully
    *       Qualified Resource ID</a> of the invoked function, <em>not</em> the function app, having
    *       the form {@code
-   *       /subscriptions/<SUBSCIPTION_GUID/resourceGroups/<RG/providers/Microsoft.Web/sites/<FUNCAPP/functions/<FUNC}.
+   *       /subscriptions/<SUBSCIPTION_GUID>/resourceGroups/<RG>/providers/Microsoft.Web/sites/<FUNCAPP>/functions/<FUNC>}.
    *       This means that a span attribute MUST be used, as an Azure function app can host multiple
    *       functions that would usually share a TracerProvider.
    * </ul>
@@ -427,7 +427,7 @@ public final class ResourceAttributes {
    *   <li>For some cloud providers, the above definition is ambiguous. The following definition of
    *       function name MUST be used for this attribute (and consequently the span name) for the
    *       listed cloud providers/products:
-   *   <li><strong>Azure:</strong> The full name {@code <FUNCAPP/<FUNC}, i.e., function app name
+   *   <li><strong>Azure:</strong> The full name {@code <FUNCAPP>/<FUNC>}, i.e., function app name
    *       followed by a forward slash followed by the function name (this form can also be seen in
    *       the resource JSON for the function). This means that a span attribute MUST be used, as an
    *       Azure function app can host multiple functions that would usually share a TracerProvider
