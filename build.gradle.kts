@@ -5,7 +5,7 @@ plugins {
 }
 
 dependencies {
-  implementation(platform("io.opentelemetry:opentelemetry-bom:1.28.0"))
+  implementation(platform("io.opentelemetry:opentelemetry-bom:1.29.0"))
   implementation("io.opentelemetry:opentelemetry-api")
 
   testImplementation(platform("org.junit:junit-bom:5.10.0"))

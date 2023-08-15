@@ -62,7 +62,6 @@ tasks {
       showCauses = true
       showStackTraces = true
     }
-    maxHeapSize = "1500m"
   }
 
   withType<Javadoc>().configureEach {
@@ -106,6 +105,5 @@ tasks {
 configurations.configureEach {
   resolutionStrategy {
     failOnVersionConflict()
-    preferProjectModules()
   }
 }
