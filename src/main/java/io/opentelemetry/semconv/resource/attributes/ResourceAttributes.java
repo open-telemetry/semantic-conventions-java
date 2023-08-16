@@ -18,7 +18,7 @@ import java.util.List;
 @SuppressWarnings("unused")
 public final class ResourceAttributes {
   /** The URL of the OpenTelemetry schema for these keys and values. */
-  public static final String SCHEMA_URL = "https://opentelemetry.io/schemas/1.20.0";
+  public static final String SCHEMA_URL = "https://opentelemetry.io/schemas/1.21.0";
 
   /**
    * Array of brand name and version separated by a space
@@ -244,6 +244,41 @@ public final class ResourceAttributes {
   public static final AttributeKey<List<String>> AWS_LOG_STREAM_ARNS =
       stringArrayKey("aws.log.stream.arns");
 
+  /**
+   * The name of the Cloud Run <a
+   * href="https://cloud.google.com/run/docs/managing/job-executions">execution</a> being run for
+   * the Job, as set by the <a
+   * href="https://cloud.google.com/run/docs/container-contract#jobs-env-vars">{@code
+   * CLOUD_RUN_EXECUTION}</a> environment variable.
+   */
+  public static final AttributeKey<String> GCP_CLOUD_RUN_JOB_EXECUTION =
+      stringKey("gcp.cloud_run.job.execution");
+
+  /**
+   * The index for a task within an execution as provided by the <a
+   * href="https://cloud.google.com/run/docs/container-contract#jobs-env-vars">{@code
+   * CLOUD_RUN_TASK_INDEX}</a> environment variable.
+   */
+  public static final AttributeKey<Long> GCP_CLOUD_RUN_JOB_TASK_INDEX =
+      longKey("gcp.cloud_run.job.task_index");
+
+  /**
+   * The instance name of a GCE instance. This is the value provided by {@code host.name}, the
+   * visible name of the instance in the Cloud Console UI, and the prefix for the default hostname
+   * of the instance as defined by the <a
+   * href="https://cloud.google.com/compute/docs/internal-dns#instance-fully-qualified-domain-names">default
+   * internal DNS name</a>.
+   */
+  public static final AttributeKey<String> GCP_GCE_INSTANCE_NAME =
+      stringKey("gcp.gce.instance.name");
+
+  /**
+   * The hostname of a GCE instance. This is the full value of the default or <a
+   * href="https://cloud.google.com/compute/docs/instances/custom-hostname-vm">custom hostname</a>.
+   */
+  public static final AttributeKey<String> GCP_GCE_INSTANCE_HOSTNAME =
+      stringKey("gcp.gce.instance.hostname");
+
   /** Time and date the release was created */
   public static final AttributeKey<String> HEROKU_RELEASE_CREATION_TIMESTAMP =
       stringKey("heroku.release.creation_timestamp");
@@ -273,6 +308,45 @@ public final class ResourceAttributes {
 
   /** Container image tag. */
   public static final AttributeKey<String> CONTAINER_IMAGE_TAG = stringKey("container.image.tag");
+
+  /**
+   * Runtime specific image identifier. Usually a hash algorithm followed by a UUID.
+   *
+   * <p>Notes:
+   *
+   * <ul>
+   *   <li>Docker defines a sha256 of the image id; {@code container.image.id} corresponds to the
+   *       {@code Image} field from the Docker container inspect <a
+   *       href="https://docs.docker.com/engine/api/v1.43/#tag/Container/operation/ContainerInspect">API</a>
+   *       endpoint. K8s defines a link to the container registry repository with digest {@code
+   *       "imageID": "registry.azurecr.io
+   *       /namespace/service/dockerfile@sha256:bdeabd40c3a8a492eaf9e8e44d0ebbb84bac7ee25ac0cf8a7159d25f62555625"}.
+   *       OCI defines a digest of manifest.
+   * </ul>
+   */
+  public static final AttributeKey<String> CONTAINER_IMAGE_ID = stringKey("container.image.id");
+
+  /**
+   * The command used to run the container (i.e. the command name).
+   *
+   * <p>Notes:
+   *
+   * <ul>
+   *   <li>If using embedded credentials or sensitive data, it is recommended to remove them to
+   *       prevent potential leakage.
+   * </ul>
+   */
+  public static final AttributeKey<String> CONTAINER_COMMAND = stringKey("container.command");
+
+  /** The full command run by the container as a single string representing the full command. [2] */
+  public static final AttributeKey<String> CONTAINER_COMMAND_LINE =
+      stringKey("container.command_line");
+
+  /**
+   * All the command arguments (including the command/executable itself) run by the container. [2]
+   */
+  public static final AttributeKey<List<String>> CONTAINER_COMMAND_ARGS =
+      stringArrayKey("container.command_args");
 
   /**
    * Name of the <a href="https://en.wikipedia.org/wiki/Deployment_environment">deployment
@@ -348,7 +422,7 @@ public final class ResourceAttributes {
    * <ul>
    *   <li>This is the name of the function as configured/deployed on the FaaS platform and is
    *       usually different from the name of the callback function (which may be stored in the <a
-   *       href="../../trace/semantic_conventions/span-general.md#source-code-attributes">{@code
+   *       href="/docs/general/general-attributes.md#source-code-attributes">{@code
    *       code.namespace}/{@code code.function}</a> span attributes).
    *   <li>For some cloud providers, the above definition is ambiguous. The following definition of
    *       function name MUST be used for this attribute (and consequently the span name) for the
@@ -372,7 +446,7 @@ public final class ResourceAttributes {
    *   <li><strong>AWS Lambda:</strong> The <a
    *       href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-versions.html">function
    *       version</a> (an integer represented as a decimal string).
-   *   <li><strong>Google Cloud Run:</strong> The <a
+   *   <li><strong>Google Cloud Run (Services):</strong> The <a
    *       href="https://cloud.google.com/run/docs/managing/revisions">revision</a> (i.e., the
    *       function name plus the revision suffix).
    *   <li><strong>Google Cloud Functions:</strong> The value of the <a
@@ -431,17 +505,42 @@ public final class ResourceAttributes {
   /** Name of the VM image or OS install the host was instantiated from. */
   public static final AttributeKey<String> HOST_IMAGE_NAME = stringKey("host.image.name");
 
-  /** VM image ID. For Cloud, this value is from the provider. */
+  /** VM image ID or host OS image ID. For Cloud, this value is from the provider. */
   public static final AttributeKey<String> HOST_IMAGE_ID = stringKey("host.image.id");
 
   /**
-   * The version string of the VM image as defined in <a href="README.md#version-attributes">Version
-   * Attributes</a>.
+   * The version string of the VM image or host OS as defined in <a
+   * href="README.md#version-attributes">Version Attributes</a>.
    */
   public static final AttributeKey<String> HOST_IMAGE_VERSION = stringKey("host.image.version");
 
   /** The name of the cluster. */
   public static final AttributeKey<String> K8S_CLUSTER_NAME = stringKey("k8s.cluster.name");
+
+  /**
+   * A pseudo-ID for the cluster, set to the UID of the {@code kube-system} namespace.
+   *
+   * <p>Notes:
+   *
+   * <ul>
+   *   <li>K8s does not have support for obtaining a cluster ID. If this is ever added, we will
+   *       recommend collecting the {@code k8s.cluster.uid} through the official APIs. In the
+   *       meantime, we are able to use the {@code uid} of the {@code kube-system} namespace as a
+   *       proxy for cluster ID. Read on for the rationale.
+   *   <li>Every object created in a K8s cluster is assigned a distinct UID. The {@code kube-system}
+   *       namespace is used by Kubernetes itself and will exist for the lifetime of the cluster.
+   *       Using the {@code uid} of the {@code kube-system} namespace is a reasonable proxy for the
+   *       K8s ClusterID as it will only change if the cluster is rebuilt. Furthermore, Kubernetes
+   *       UIDs are UUIDs as standardized by <a
+   *       href="https://www.itu.int/ITU-T/studygroups/com17/oid.html">ISO/IEC 9834-8 and ITU-T
+   *       X.667</a>. Which states:
+   *   <li>If generated according to one of the mechanisms defined in Rec. ITU-T X.667 | ISO/IEC
+   *       9834-8, a UUID is either guaranteed to be different from all other UUIDs generated before
+   *       3603 A.D., or is extremely likely to be different (depending on the mechanism chosen).
+   *   <li>Therefore, UIDs between clusters should be extremely unlikely to conflict.
+   * </ul>
+   */
+  public static final AttributeKey<String> K8S_CLUSTER_UID = stringKey("k8s.cluster.uid");
 
   /** The name of the Node. */
   public static final AttributeKey<String> K8S_NODE_NAME = stringKey("k8s.node.name");
@@ -521,7 +620,7 @@ public final class ResourceAttributes {
 
   /**
    * The version string of the operating system as defined in <a
-   * href="../../resource/semantic_conventions/README.md#version-attributes">Version Attributes</a>.
+   * href="/docs/resource/README.md#version-attributes">Version Attributes</a>.
    */
   public static final AttributeKey<String> OS_VERSION = stringKey("os.version");
 
@@ -608,6 +707,12 @@ public final class ResourceAttributes {
   public static final AttributeKey<String> SERVICE_NAME = stringKey("service.name");
 
   /**
+   * The version string of the service API or implementation. The format is not defined by these
+   * conventions.
+   */
+  public static final AttributeKey<String> SERVICE_VERSION = stringKey("service.version");
+
+  /**
    * A namespace for {@code service.name}.
    *
    * <p>Notes:
@@ -643,10 +748,21 @@ public final class ResourceAttributes {
    */
   public static final AttributeKey<String> SERVICE_INSTANCE_ID = stringKey("service.instance.id");
 
-  /** The version string of the service API or implementation. */
-  public static final AttributeKey<String> SERVICE_VERSION = stringKey("service.version");
-
-  /** The name of the telemetry SDK as defined above. */
+  /**
+   * The name of the telemetry SDK as defined above.
+   *
+   * <p>Notes:
+   *
+   * <ul>
+   *   <li>The OpenTelemetry SDK MUST set the {@code telemetry.sdk.name} attribute to {@code
+   *       opentelemetry}. If another SDK, like a fork or a vendor-provided implementation, is used,
+   *       this SDK MUST set the {@code telemetry.sdk.name} attribute to the fully-qualified class
+   *       or module name of this SDK's main entry point or another suitable identifier depending on
+   *       the language. The identifier {@code opentelemetry} is reserved and MUST NOT be used in
+   *       this case. All custom identifiers SHOULD be stable across different versions of an
+   *       implementation.
+   * </ul>
+   */
   public static final AttributeKey<String> TELEMETRY_SDK_NAME = stringKey("telemetry.sdk.name");
 
   /** The language of the telemetry SDK. */
@@ -767,6 +883,9 @@ public final class ResourceAttributes {
 
     /** Azure Red Hat OpenShift. */
     public static final String AZURE_OPENSHIFT = "azure_openshift";
+
+    /** Google Bare Metal Solution (BMS). */
+    public static final String GCP_BARE_METAL_SOLUTION = "gcp_bare_metal_solution";
 
     /** Google Cloud Compute Engine (GCE). */
     public static final String GCP_COMPUTE_ENGINE = "gcp_compute_engine";
@@ -904,11 +1023,14 @@ public final class ResourceAttributes {
     /** ruby. */
     public static final String RUBY = "ruby";
 
-    /** webjs. */
-    public static final String WEBJS = "webjs";
+    /** rust. */
+    public static final String RUST = "rust";
 
     /** swift. */
     public static final String SWIFT = "swift";
+
+    /** webjs. */
+    public static final String WEBJS = "webjs";
 
     private TelemetrySdkLanguageValues() {}
   }

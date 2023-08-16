@@ -69,7 +69,10 @@ public final class {{class}} {
     {%- if attribute.note %}
   *
   * <p>Notes:
-    <ul> {{attribute.note | render_markdown(code="{{@code {0}}}", paragraph="<li>{0}</li>", list="{0}")}} </ul>
+        {# NOTE: replace("> ", "") removes the following problematic characters which produce mangled javadoc:  #}
+        {# https://github.com/open-telemetry/semantic-conventions/blob/c83a10a9c33c18a769835e959200d0e24dc708fe/model/resource/k8s.yaml#L34-L38  #}
+        <ul> {{attribute.note | replace("> ", "") | render_markdown(code="{{@code {0}}}", paragraph="<li>{0}</li>", list="{0}")}} </ul>
+
     {%- endif %}
     {%- if (attribute.stability | string())  == "StabilityLevel.DEPRECATED" %}
   *
@@ -93,16 +96,6 @@ public final class {{class}} {
       public static final {{ type }} {{ member.member_id | to_const_name }} = {{ print_value(type, member.value) }};
 
     {%- endfor %}
-
-    {%- if class_name == "NetTransportValues" %}
-    /** @deprecated This item has been removed as of 1.13.0 of the semantic conventions. */
-    @Deprecated
-    public static final String IP = "ip";
-
-    /** @deprecated This item has been removed as of 1.13.0 of the semantic conventions. */
-    @Deprecated
-    public static final String UNIX = "unix";
-    {%- endif %}
 
       private {{ class_name }}() {}
   }
@@ -422,6 +415,256 @@ public final class {{class}} {
     public static final String TOPIC = "topic";
 
     private MessagingSourceKindValues() {}
+  }
+
+  /**
+   * The internet connection type currently being used by the host.
+   * @deprecated This item has been removed in 1.21.0 version of the semantic conventions. Use {@link SemanticAttributes#NETWORK_CONNECTION_TYPE} instead.
+   */
+  @Deprecated
+  public static final AttributeKey<String> NET_HOST_CONNECTION_TYPE =
+      stringKey("net.host.connection.type");
+
+  /**
+   * This describes more details regarding the connection.type. It may be the type of cell
+   * technology connection, but it could be used for describing details about a wifi connection.
+   * @deprecated This item has been removed in 1.21.0 version of the semantic conventions. Use {@link SemanticAttributes#NETWORK_CONNECTION_SUBTYPE} instead.
+   */
+  @Deprecated
+  public static final AttributeKey<String> NET_HOST_CONNECTION_SUBTYPE =
+      stringKey("net.host.connection.subtype");
+
+  /**
+   * The name of the mobile carrier.
+   * @deprecated This item has been removed in 1.21.0 version of the semantic conventions. Use {@link SemanticAttributes#NETWORK_CARRIER_NAME} instead.
+   */
+  @Deprecated
+  public static final AttributeKey<String> NET_HOST_CARRIER_NAME =
+      stringKey("net.host.carrier.name");
+
+  /**
+   * The mobile carrier country code.
+   * @deprecated This item has been removed in 1.21.0 version of the semantic conventions. Use {@link SemanticAttributes#NETWORK_CARRIER_MCC} instead.
+   */
+  @Deprecated
+  public static final AttributeKey<String> NET_HOST_CARRIER_MCC = stringKey("net.host.carrier.mcc");
+
+  /**
+   * The mobile carrier network code.
+   * @deprecated This item has been removed in 1.21.0 version of the semantic conventions. Use {@link SemanticAttributes#NETWORK_CARRIER_MNC} instead.
+   */
+  @Deprecated
+  public static final AttributeKey<String> NET_HOST_CARRIER_MNC = stringKey("net.host.carrier.mnc");
+
+  /**
+   * The ISO 3166-1 alpha-2 2-character country code associated with the mobile carrier network.
+   * @deprecated This item has been removed in 1.21.0 version of the semantic conventions. Use {@link SemanticAttributes#NETWORK_CARRIER_ICC} instead.
+   */
+  @Deprecated
+  public static final AttributeKey<String> NET_HOST_CARRIER_ICC = stringKey("net.host.carrier.icc");
+
+  /**
+   * The IP address of the original client behind all proxies, if known (e.g. from <a
+   * href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Forwarded-For">X-Forwarded-For</a>).
+   *
+   * <p>Notes:
+   *
+   * <ul>
+   *   <li>This is not necessarily the same as {@code net.sock.peer.addr}, which would identify the
+   *       network-level peer, which may be a proxy.
+   *   <li>This attribute should be set when a source of information different from the one used for
+   *       {@code net.sock.peer.addr}, is available even if that other source just confirms the same
+   *       value as {@code net.sock.peer.addr}. Rationale: For {@code net.sock.peer.addr}, one
+   *       typically does not know if it comes from a proxy, reverse proxy, or the actual client.
+   *       Setting {@code http.client_ip} when it's the same as {@code net.sock.peer.addr} means
+   *       that one is at least somewhat confident that the address is not that of the closest
+   *       proxy.
+   * </ul>
+   * @deprecated This item has been removed in 1.21.0 version of the semantic conventions. Use {@link SemanticAttributes#CLIENT_ADDRESS} instead.
+   */
+  @Deprecated
+  public static final AttributeKey<String> HTTP_CLIENT_IP = stringKey("http.client_ip");
+
+  /**
+   * The message source name.
+   *
+   * <p>Notes:
+   *
+   * <ul>
+   *   <li>Source name SHOULD uniquely identify a specific queue, topic, or other entity within the
+   *       broker. If the broker does not have such notion, the source name SHOULD uniquely identify
+   *       the broker.
+   * </ul>
+   * @deprecated This item has been removed in 1.21.0 version of the semantic conventions.
+   */
+  @Deprecated
+  public static final AttributeKey<String> MESSAGING_SOURCE_NAME =
+      stringKey("messaging.source.name");
+
+  /**
+   * Low cardinality representation of the messaging source name.
+   *
+   * <p>Notes:
+   *
+   * <ul>
+   *   <li>Source names could be constructed from templates. An example would be a source name
+   *       involving a user name or product id. Although the source name in this case is of high
+   *       cardinality, the underlying template is of low cardinality and can be effectively used
+   *       for grouping and aggregation.
+   * </ul>
+   * @deprecated This item has been removed in 1.21.0 version of the semantic conventions.
+   */
+  @Deprecated
+  public static final AttributeKey<String> MESSAGING_SOURCE_TEMPLATE =
+      stringKey("messaging.source.template");
+
+  /**
+   * A boolean that is true if the message source is temporary and might not exist anymore after
+   * messages are processed.
+   * @deprecated This item has been removed in 1.21.0 version of the semantic conventions.
+   */
+  @Deprecated
+  public static final AttributeKey<Boolean> MESSAGING_SOURCE_TEMPORARY =
+      booleanKey("messaging.source.temporary");
+
+  /**
+   * A boolean that is true if the message source is anonymous (could be unnamed or have
+   * auto-generated name).
+   * @deprecated This item has been removed in 1.21.0 version of the semantic conventions.
+   */
+  @Deprecated
+  public static final AttributeKey<Boolean> MESSAGING_SOURCE_ANONYMOUS =
+      booleanKey("messaging.source.anonymous");
+
+  /**
+   * The identifier for the consumer receiving a message. For Kafka, set it to {@code
+   * {messaging.kafka.consumer.group} - {messaging.kafka.client_id}}, if both are present, or only
+   * {@code messaging.kafka.consumer.group}. For brokers, such as RabbitMQ and Artemis, set it to
+   * the {@code client_id} of the client consuming the message.
+   * @deprecated This item has been removed in 1.21.0 version of the semantic conventions. See {@link SemanticAttributes#MESSAGING_CLIENT_ID}.
+   */
+  @Deprecated
+  public static final AttributeKey<String> MESSAGING_CONSUMER_ID =
+      stringKey("messaging.consumer.id");
+
+  /**
+   * Client Id for the Consumer or Producer that is handling the message.
+   * @deprecated This item has been removed in 1.21.0 version of the semantic conventions. See {@link SemanticAttributes#MESSAGING_CLIENT_ID}.
+   */
+  @Deprecated
+  public static final AttributeKey<String> MESSAGING_KAFKA_CLIENT_ID =
+      stringKey("messaging.kafka.client_id");
+
+  /**
+   * Partition the message is received from.
+   * @deprecated This item has been removed in 1.21.0 version of the semantic conventions.
+   */
+  @Deprecated
+  public static final AttributeKey<Long> MESSAGING_KAFKA_SOURCE_PARTITION =
+      longKey("messaging.kafka.source.partition");
+
+  /**
+   * The unique identifier for each client.
+   * @deprecated This item has been removed in 1.21.0 version of the semantic conventions. See {@link SemanticAttributes#MESSAGING_CLIENT_ID}.
+   */
+  @Deprecated
+  public static final AttributeKey<String> MESSAGING_ROCKETMQ_CLIENT_ID =
+      stringKey("messaging.rocketmq.client_id");
+
+  /**
+   * Enum values for {@link #NET_HOST_CONNECTION_TYPE}.
+   * @deprecated This item has been removed as of 1.21.0 of the semantic conventions. Use {@link NetworkConnectionTypeValues} instead.
+   */
+  @Deprecated
+  public static final class NetHostConnectionTypeValues {
+    /** wifi. */
+    public static final String WIFI = "wifi";
+
+    /** wired. */
+    public static final String WIRED = "wired";
+
+    /** cell. */
+    public static final String CELL = "cell";
+
+    /** unavailable. */
+    public static final String UNAVAILABLE = "unavailable";
+
+    /** unknown. */
+    public static final String UNKNOWN = "unknown";
+
+    private NetHostConnectionTypeValues() {}
+  }
+
+  /**
+   * Enum values for {@link #NET_HOST_CONNECTION_SUBTYPE}.
+   * @deprecated This item has been removed as of 1.21.0 of the semantic conventions. Use {@link NetworkConnectionSubtypeValues} instead.
+   */
+  @Deprecated
+  public static final class NetHostConnectionSubtypeValues {
+    /** GPRS. */
+    public static final String GPRS = "gprs";
+
+    /** EDGE. */
+    public static final String EDGE = "edge";
+
+    /** UMTS. */
+    public static final String UMTS = "umts";
+
+    /** CDMA. */
+    public static final String CDMA = "cdma";
+
+    /** EVDO Rel. 0. */
+    public static final String EVDO_0 = "evdo_0";
+
+    /** EVDO Rev. A. */
+    public static final String EVDO_A = "evdo_a";
+
+    /** CDMA2000 1XRTT. */
+    public static final String CDMA2000_1XRTT = "cdma2000_1xrtt";
+
+    /** HSDPA. */
+    public static final String HSDPA = "hsdpa";
+
+    /** HSUPA. */
+    public static final String HSUPA = "hsupa";
+
+    /** HSPA. */
+    public static final String HSPA = "hspa";
+
+    /** IDEN. */
+    public static final String IDEN = "iden";
+
+    /** EVDO Rev. B. */
+    public static final String EVDO_B = "evdo_b";
+
+    /** LTE. */
+    public static final String LTE = "lte";
+
+    /** EHRPD. */
+    public static final String EHRPD = "ehrpd";
+
+    /** HSPAP. */
+    public static final String HSPAP = "hspap";
+
+    /** GSM. */
+    public static final String GSM = "gsm";
+
+    /** TD-SCDMA. */
+    public static final String TD_SCDMA = "td_scdma";
+
+    /** IWLAN. */
+    public static final String IWLAN = "iwlan";
+
+    /** 5G NR (New Radio). */
+    public static final String NR = "nr";
+
+    /** 5G NRNSA (New Radio Non-Standalone). */
+    public static final String NRNSA = "nrnsa";
+
+    /** LTE CA. */
+    public static final String LTE_CA = "lte_ca";
+
+    private NetHostConnectionSubtypeValues() {}
   }
 
   {% endif %}
