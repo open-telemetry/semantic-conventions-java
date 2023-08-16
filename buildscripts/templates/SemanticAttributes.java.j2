@@ -69,6 +69,8 @@ public final class {{class}} {
     {%- if attribute.note %}
   *
   * <p>Notes:
+        {# NOTE: replace("> ", "") removes the following problematic characters which produce mangled javadoc:  #}
+        {# https://github.com/open-telemetry/semantic-conventions/blob/c83a10a9c33c18a769835e959200d0e24dc708fe/model/resource/k8s.yaml#L34-L38  #}
         <ul> {{attribute.note | replace("> ", "") | render_markdown(code="{{@code {0}}}", paragraph="<li>{0}</li>", list="{0}")}} </ul>
 
     {%- endif %}
