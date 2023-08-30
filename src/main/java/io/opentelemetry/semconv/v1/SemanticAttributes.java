@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-package io.opentelemetry.semconv.trace.attributes;
+package io.opentelemetry.semconv.v1;
 
 import static io.opentelemetry.api.common.AttributeKey.booleanKey;
 import static io.opentelemetry.api.common.AttributeKey.doubleKey;
@@ -15,7 +15,7 @@ import io.opentelemetry.api.common.AttributeKey;
 import java.util.List;
 
 // DO NOT EDIT, this is an Auto-generated file from
-// buildscripts/semantic-convention/templates/SemanticAttributes.java.j2
+// buildscripts/templates/SemanticAttributes.java.j2
 @SuppressWarnings("unused")
 public final class SemanticAttributes {
   /** The URL of the OpenTelemetry schema for these keys and values. */
@@ -2454,7 +2454,7 @@ public final class SemanticAttributes {
    * The name of the instrumentation scope - ({@code InstrumentationScope.Name} in OTLP).
    *
    * @deprecated This item has been moved, use {@link
-   *     io.opentelemetry.semconv.resource.attributes.ResourceAttributes#OTEL_SCOPE_NAME} instead.
+   *     io.opentelemetry.semconv.v1.ResourceAttributes#OTEL_SCOPE_NAME} instead.
    */
   @Deprecated
   public static final AttributeKey<String> OTEL_SCOPE_NAME = stringKey("otel.scope.name");
@@ -2463,8 +2463,7 @@ public final class SemanticAttributes {
    * The version of the instrumentation scope - ({@code InstrumentationScope.Version} in OTLP).
    *
    * @deprecated This item has been moved, use {@link
-   *     io.opentelemetry.semconv.resource.attributes.ResourceAttributes#OTEL_SCOPE_VERSION}
-   *     instead.
+   *     io.opentelemetry.semconv.v1.ResourceAttributes#OTEL_SCOPE_VERSION} instead.
    */
   @Deprecated
   public static final AttributeKey<String> OTEL_SCOPE_VERSION = stringKey("otel.scope.version");
@@ -2491,7 +2490,7 @@ public final class SemanticAttributes {
    * Deprecated.
    *
    * @deprecated Deprecated, use the {@link
-   *     io.opentelemetry.semconv.resource.attributes.ResourceAttributes#OTEL_SCOPE_NAME} attribute.
+   *     io.opentelemetry.semconv.v1.ResourceAttributes#OTEL_SCOPE_NAME} attribute.
    */
   @Deprecated
   public static final AttributeKey<String> OTEL_LIBRARY_NAME = stringKey("otel.library.name");
@@ -2500,8 +2499,7 @@ public final class SemanticAttributes {
    * Deprecated.
    *
    * @deprecated Deprecated, use the {@link
-   *     io.opentelemetry.semconv.resource.attributes.ResourceAttributes#OTEL_SCOPE_VERSION}
-   *     attribute.
+   *     io.opentelemetry.semconv.v1.ResourceAttributes#OTEL_SCOPE_VERSION} attribute.
    */
   @Deprecated
   public static final AttributeKey<String> OTEL_LIBRARY_VERSION = stringKey("otel.library.version");

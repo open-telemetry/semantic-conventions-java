@@ -55,7 +55,7 @@ import static io.opentelemetry.api.common.AttributeKey.stringArrayKey;
 import io.opentelemetry.api.common.AttributeKey;
 import java.util.List;
 
-// DO NOT EDIT, this is an Auto-generated file from buildscripts/semantic-convention{{template}}
+// DO NOT EDIT, this is an Auto-generated file from buildscripts{{template}}
 @SuppressWarnings("unused")
 public final class {{class}} {
   /**
@@ -271,14 +271,14 @@ public final class {{class}} {
 
   /** 
    * The name of the instrumentation scope - ({@code InstrumentationScope.Name} in OTLP).
-   * @deprecated This item has been moved, use {@link io.opentelemetry.semconv.resource.attributes.ResourceAttributes#OTEL_SCOPE_NAME} instead.
+   * @deprecated This item has been moved, use {@link io.opentelemetry.semconv.v1.ResourceAttributes#OTEL_SCOPE_NAME} instead.
    */
   @Deprecated
   public static final AttributeKey<String> OTEL_SCOPE_NAME = stringKey("otel.scope.name");
 
   /** 
    * The version of the instrumentation scope - ({@code InstrumentationScope.Version} in OTLP).
-   * @deprecated This item has been moved, use {@link io.opentelemetry.semconv.resource.attributes.ResourceAttributes#OTEL_SCOPE_VERSION} instead.
+   * @deprecated This item has been moved, use {@link io.opentelemetry.semconv.v1.ResourceAttributes#OTEL_SCOPE_VERSION} instead.
    */
   @Deprecated
   public static final AttributeKey<String> OTEL_SCOPE_VERSION = stringKey("otel.scope.version");
@@ -303,7 +303,7 @@ public final class {{class}} {
   /**
    * Deprecated.
    *
-   * @deprecated Deprecated, use the {@link io.opentelemetry.semconv.resource.attributes.ResourceAttributes#OTEL_SCOPE_NAME} attribute.
+   * @deprecated Deprecated, use the {@link io.opentelemetry.semconv.v1.ResourceAttributes#OTEL_SCOPE_NAME} attribute.
    */
   @Deprecated
   public static final AttributeKey<String> OTEL_LIBRARY_NAME = stringKey("otel.library.name");
@@ -311,7 +311,7 @@ public final class {{class}} {
   /**
    * Deprecated.
    *
-   * @deprecated Deprecated, use the {@link io.opentelemetry.semconv.resource.attributes.ResourceAttributes#OTEL_SCOPE_VERSION} attribute.
+   * @deprecated Deprecated, use the {@link io.opentelemetry.semconv.v1.ResourceAttributes#OTEL_SCOPE_VERSION} attribute.
    */
   @Deprecated
   public static final AttributeKey<String> OTEL_LIBRARY_VERSION = stringKey("otel.library.version");
@@ -688,7 +688,7 @@ public final class {{class}} {
    *       to retrieve brands and platform individually from the User-Agent Client Hints API. To
    *       retrieve the value, the legacy {@code navigator.userAgent} API can be used.
    * </ul>
-   * @deprecated This item has been renamed in 1.19.0 version of the semantic conventions. Use {@link io.opentelemetry.semconv.trace.attributes.SemanticAttributes#USER_AGENT_ORIGINAL} instead.
+   * @deprecated This item has been renamed in 1.19.0 version of the semantic conventions. Use {@link io.opentelemetry.semconv.v1.SemanticAttributes#USER_AGENT_ORIGINAL} instead.
    */
   @Deprecated
   public static final AttributeKey<String> BROWSER_USER_AGENT = stringKey("browser.user_agent");
