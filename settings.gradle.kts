@@ -2,6 +2,7 @@ pluginManagement {
   plugins {
     id("com.gradle.enterprise") version "3.14.1"
     id("de.undercouch.download") version "5.4.0"
+    id("io.github.gradle-nexus.publish-plugin") version "1.3.0"
   }
 }
 

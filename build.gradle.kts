@@ -1,12 +1,31 @@
 import de.undercouch.gradle.tasks.download.Download
+import java.time.Duration
 
 plugins {
   id("otel.java-conventions")
+  id("otel.publish-conventions")
 
   id("otel.animalsniffer-conventions")
 
   id("de.undercouch.download")
+  id("io.github.gradle-nexus.publish-plugin")
 }
+
+// start - updated by ./.github/workflows/prepare-release-branch.yml
+val snapshot = true
+// end
+
+// The release version of https://github.com/open-telemetry/semantic-conventions used to generate classes
+var semanticConventionsVersion = "1.21.0"
+
+// Compute the artifact version, which includes the "-alpha" suffix and includes "-SNAPSHOT" suffix if not releasing
+// Release example: version=1.21.0-alpha
+// Snapshot example: version=1.21.0-alpha-SNAPSHOT
+var releaseVersion = semanticConventionsVersion + "-alpha"
+if (snapshot) {
+  releaseVersion += "-SNAPSHOT"
+}
+version = releaseVersion
 
 dependencies {
   implementation(platform("io.opentelemetry:opentelemetry-bom:1.29.0"))
@@ -20,9 +39,29 @@ dependencies {
   testImplementation("org.assertj:assertj-core")
 }
 
-val semanticConventionsVersion = "1.21.0"
-var generatorVersion = "0.18.0"
+nexusPublishing {
+  packageGroup.set("io.opentelemetry.semconv")
 
+  repositories {
+    sonatype {
+      username.set(System.getenv("SONATYPE_USER"))
+      password.set(System.getenv("SONATYPE_KEY"))
+    }
+  }
+
+  connectTimeout.set(Duration.ofMinutes(5))
+  clientTimeout.set(Duration.ofMinutes(5))
+
+  transitionCheckOptions {
+    // We have many artifacts so Maven Central takes a long time on its compliance checks. This sets
+    // the timeout for waiting for the repository to close to a comfortable 50 minutes.
+    maxRetries.set(300)
+    delayBetween.set(Duration.ofSeconds(10))
+  }
+}
+
+// start - define tasks to download, unzip, and generate from opentelemetry/semantic-conventions
+var generatorVersion = "0.18.0"
 val semanticConventionsRepoZip = "https://github.com/open-telemetry/semantic-conventions/archive/v$semanticConventionsVersion.zip"
 val schemaUrl = "https://opentelemetry.io/schemas/$semanticConventionsVersion"
 
@@ -91,3 +130,4 @@ val generateSemanticConventions by tasks.registering {
   dependsOn(generateSemanticAttributes)
   dependsOn(generateResourceAttributes)
 }
+// end
