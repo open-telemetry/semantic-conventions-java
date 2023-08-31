@@ -44,7 +44,8 @@ jobs:
           distribution: temurin
           java-version: 17
 
-      - uses: gradle/gradle-build-action@v2
+      - name: build
+        uses: gradle/gradle-build-action@v2
         with:
           arguments: |
             build
@@ -52,6 +53,34 @@ jobs:
             -Porg.gradle.java.installations.paths=${{ steps.setup-java-test.outputs.path }},${{ steps.setup-java.outputs.path }}
         env:
           GRADLE_ENTERPRISE_ACCESS_KEY: ${{ secrets.GRADLE_ENTERPRISE_ACCESS_KEY }}
+
+      - name: generate
+        # Skip running on macos-latest which doesn't have docker
+        if: matrix.os == 'ubuntu-latest'
+        uses: gradle/gradle-build-action@v2
+        with:
+          arguments: |
+            generateSemanticConventions --console=plain
+      # Run spotless after generate to format generated code
+      - name: spotless
+        uses: gradle/gradle-build-action@v2
+        with:
+          arguments: |
+            spotlessApply
+
+      - name: Check for diff
+        run: |
+          # need to "git add" in case any generated files did not already exist
+          git add src
+          if git diff --cached --quiet
+          then 
+            echo "No diff detected."
+          else 
+            echo "Diff detected - did you run './gradlew generateSemanticConventions spotlessApply'?"
+            echo $(git diff --cached --name-only)
+            echo $(git diff --cached)
+            exit 1
+          fi
 
   markdown-link-check:
     # release branches are excluded to avoid unnecessary maintenance
