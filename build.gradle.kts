@@ -93,7 +93,7 @@ val generateSemanticAttributes by tasks.registering(Exec::class) {
     "--rm",
     "-v", "$buildDir/semantic-conventions/model:/source",
     "-v", "$projectDir/buildscripts/templates:/templates",
-    "-v", "$projectDir/src/main/java/io/opentelemetry/semconv/trace/attributes/:/output",
+    "-v", "$projectDir/src/main/java/io/opentelemetry/semconv/:/output",
     "otel/semconvgen:$generatorVersion",
     "--only", "span,event,attribute_group,scope",
     "-f", "/source", "code",
@@ -102,7 +102,7 @@ val generateSemanticAttributes by tasks.registering(Exec::class) {
     "-Dsemconv=trace",
     "-Dclass=SemanticAttributes",
     "-DschemaUrl=$schemaUrl",
-    "-Dpkg=io.opentelemetry.semconv.trace.attributes"))
+    "-Dpkg=io.opentelemetry.semconv"))
 }
 
 val generateResourceAttributes by tasks.registering(Exec::class) {
@@ -115,7 +115,7 @@ val generateResourceAttributes by tasks.registering(Exec::class) {
     "--rm",
     "-v", "$buildDir/semantic-conventions/model:/source",
     "-v", "$projectDir/buildscripts/templates:/templates",
-    "-v", "$projectDir/src/main/java/io/opentelemetry/semconv/resource/attributes/:/output",
+    "-v", "$projectDir/src/main/java/io/opentelemetry/semconv/:/output",
     "otel/semconvgen:$generatorVersion",
     "--only", "resource",
     "-f", "/source", "code",
@@ -123,7 +123,7 @@ val generateResourceAttributes by tasks.registering(Exec::class) {
     "--output", "/output/ResourceAttributes.java",
     "-Dclass=ResourceAttributes",
     "-DschemaUrl=$schemaUrl",
-    "-Dpkg=io.opentelemetry.semconv.resource.attributes"))
+    "-Dpkg=io.opentelemetry.semconv"))
 }
 
 val generateSemanticConventions by tasks.registering {
