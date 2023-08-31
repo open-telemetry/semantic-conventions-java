@@ -14,8 +14,8 @@ public class AvailabilityTest {
 
   @Test
   void available() {
-    classAvailable("io.opentelemetry.semconv.resource.attributes.ResourceAttributes");
-    classAvailable("io.opentelemetry.semconv.trace.attributes.SemanticAttributes");
+    classAvailable("io.opentelemetry.semconv.ResourceAttributes");
+    classAvailable("io.opentelemetry.semconv.SemanticAttributes");
   }
 
   private static void classAvailable(String fqcn) {

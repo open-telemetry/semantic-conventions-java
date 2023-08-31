@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-package io.opentelemetry.semconv.resource.attributes;
+package io.opentelemetry.semconv;
 
 import static io.opentelemetry.api.common.AttributeKey.booleanKey;
 import static io.opentelemetry.api.common.AttributeKey.longKey;
@@ -14,7 +14,7 @@ import io.opentelemetry.api.common.AttributeKey;
 import java.util.List;
 
 // DO NOT EDIT, this is an Auto-generated file from
-// buildscripts/semantic-convention/templates/SemanticAttributes.java.j2
+// buildscripts/templates/SemanticAttributes.java.j2
 @SuppressWarnings("unused")
 public final class ResourceAttributes {
   /** The URL of the OpenTelemetry schema for these keys and values. */
@@ -1055,8 +1055,7 @@ public final class ResourceAttributes {
    * </ul>
    *
    * @deprecated This item has been renamed in 1.19.0 version of the semantic conventions. Use
-   *     {@link io.opentelemetry.semconv.trace.attributes.SemanticAttributes#USER_AGENT_ORIGINAL}
-   *     instead.
+   *     {@link io.opentelemetry.semconv.SemanticAttributes#USER_AGENT_ORIGINAL} instead.
    */
   @Deprecated
   public static final AttributeKey<String> BROWSER_USER_AGENT = stringKey("browser.user_agent");
