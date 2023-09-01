@@ -30,12 +30,12 @@ jobs:
       - name: Create release branch
         run: |
           version=$(.github/scripts/get-version.sh)
-          if [[ $version =~ ^([0-9]+)\.([0-9]+)\.0$ ]]; then
+          if [[ $version =~ ^([0-9]+)\.([0-9]+)\.([0-9]+)$ ]]; then
             release_branch_name="release/v${version}"
-            git ls-remote --exit-code --heads origin refs/heads/$release_branch_name
-            if [ "$?" == "0" ] ; then 
+            release_branch_exists=$(git ls-remote --heads origin refs/heads/$release_branch_name)
+            if [[ $release_branch_exists != "" ]] ; then
               echo "release branch $release_branch_name already exists"
-              exit 1 
+              exit 1
             fi
           else
             echo "unexpected version: $version"
