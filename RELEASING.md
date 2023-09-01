@@ -9,7 +9,7 @@ Applies to major, minor and patch releases of `open-telemetry/semantic-conventio
 
 * Merge a PR to `main` with the following changes:
   * Update the `CHANGELOG.md`
-    * The heading for the unreleased entires should be `## Unreleased`
+    * The heading for the unreleased entries should be `## Unreleased`
   * Bump the `semanticConventionsVersion` variable in `build.gradle.kts` to version
     of `semantic-conventions` to be released
   * Follow the instructions
