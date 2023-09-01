@@ -24,8 +24,8 @@ jobs:
       - name: Build and publish artifacts
         uses: gradle/gradle-build-action@v2
         with:
-          # TODO(jack-berg): add following arguments when confident in release process: closeAndReleaseSonatypeStagingRepository
-          arguments: assemble publishToSonatype
+          # TODO(jack-berg): remove closeSonatypeStagingRepository and add closeAndReleaseSonatypeStagingRepository when confident in release process
+          arguments: assemble publishToSonatype closeSonatypeStagingRepository
         env:
           SONATYPE_USER: ${{ secrets.SONATYPE_USER }}
           SONATYPE_KEY: ${{ secrets.SONATYPE_KEY }}

@@ -65,7 +65,7 @@ tasks {
   }
 
   withType<Javadoc>().configureEach {
-    exclude("io/opentelemetry/**/internal/**")
+    exclude("io/opentelemetry/semconv/**/internal/**")
 
     with(options as StandardJavadocDocletOptions) {
       source = "8"
@@ -86,7 +86,7 @@ tasks {
         "Automatic-Module-Name" to "io.opentelemetry.semconv",
         "Built-By" to System.getProperty("user.name"),
         "Built-JDK" to System.getProperty("java.version"),
-        "Implementation-Title" to project.name,
+        "Implementation-Title" to project.base.archivesName,
         "Implementation-Version" to project.version)
     }
   }
