@@ -1,13 +1,14 @@
 # OpenTelemetry Semantic Conventions for Java
 [![Continuous Build][ci-image]][ci-url]
+[![Maven Central][maven-image]][maven-url]
 
 Java code-generation for the [OpenTelemetry Semantic Conventions](https://github.com/open-telemetry/semantic-conventions).
 
 ## Published released
 
-Published releases are available on maven central.
+Published releases are available on maven central. Replace `{{version}}` with the latest released version:
 
-TODO(jack-berg): insert maven badge indicating latest available release
+![GitHub release (with filter)](https://img.shields.io/github/v/release/open-telemetry/semantic-conventions-java)
 
 ### Maven
 
@@ -69,6 +70,6 @@ for code owners.
 
 [ci-image]: https://github.com/open-telemetry/semantic-conventions-java/workflows/Build/badge.svg
 [ci-url]: https://github.com/open-telemetry/semantic-conventions-java/actions?query=workflow%3Abuild+branch%3Amain
+[maven-url]: https://maven-badges.herokuapp.com/maven-central/io.opentelemetry.semconv/opentelemetry-semconv
 
 TODO(jack-berg): add code coverage badge?
-TODO(jack-berg): add maven badge after first release
