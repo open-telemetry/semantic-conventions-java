@@ -70,6 +70,7 @@ for code owners.
 
 [ci-image]: https://github.com/open-telemetry/semantic-conventions-java/workflows/Build/badge.svg
 [ci-url]: https://github.com/open-telemetry/semantic-conventions-java/actions?query=workflow%3Abuild+branch%3Amain
+[maven-image]: https://maven-badges.herokuapp.com/maven-central/io.opentelemetry.semconv/opentelemetry-semconv/badge.svg
 [maven-url]: https://maven-badges.herokuapp.com/maven-central/io.opentelemetry.semconv/opentelemetry-semconv
 
 TODO(jack-berg): add code coverage badge?
