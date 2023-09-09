@@ -8,7 +8,7 @@ Java code-generation for the [OpenTelemetry Semantic Conventions](https://github
 
 Published releases are available on maven central. Replace `{{version}}` with the latest released version:
 
-![GitHub release (with filter)](https://img.shields.io/github/v/release/open-telemetry/semantic-conventions-java)
+[![Maven Central][maven-image]][maven-url]
 
 ### Maven
 
