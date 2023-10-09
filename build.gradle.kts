@@ -54,7 +54,7 @@ nexusPublishing {
 }
 
 dependencies {
-  implementation(platform("io.opentelemetry:opentelemetry-bom:1.30.1"))
+  implementation(platform("io.opentelemetry:opentelemetry-bom:1.31.0"))
   implementation("io.opentelemetry:opentelemetry-api")
 
   testImplementation(platform("org.junit:junit-bom:5.10.0"))
