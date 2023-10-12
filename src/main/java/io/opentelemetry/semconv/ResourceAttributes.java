@@ -18,7 +18,14 @@ import java.util.List;
 @SuppressWarnings("unused")
 public final class ResourceAttributes {
   /** The URL of the OpenTelemetry schema for these keys and values. */
-  public static final String SCHEMA_URL = "https://opentelemetry.io/schemas/1.21.0";
+  public static final String SCHEMA_URL = "https://opentelemetry.io/schemas/1.22.0";
+
+  /**
+   * Uniquely identifies the framework API revision offered by a version ({@code os.version}) of the
+   * android operating system. More information can be found <a
+   * href="https://developer.android.com/guide/topics/manifest/uses-sdk-element#ApiLevels">here</a>.
+   */
+  public static final AttributeKey<String> ANDROID_OS_API_LEVEL = stringKey("android.os.api_level");
 
   /**
    * Array of brand name and version separated by a space
@@ -32,6 +39,30 @@ public final class ResourceAttributes {
    * </ul>
    */
   public static final AttributeKey<List<String>> BROWSER_BRANDS = stringArrayKey("browser.brands");
+
+  /**
+   * Preferred language of the user using the browser
+   *
+   * <p>Notes:
+   *
+   * <ul>
+   *   <li>This value is intended to be taken from the Navigator API {@code navigator.language}.
+   * </ul>
+   */
+  public static final AttributeKey<String> BROWSER_LANGUAGE = stringKey("browser.language");
+
+  /**
+   * A boolean that is true if the browser is running on a mobile device
+   *
+   * <p>Notes:
+   *
+   * <ul>
+   *   <li>This value is intended to be taken from the <a
+   *       href="https://wicg.github.io/ua-client-hints/#interface">UA client hints API</a> ({@code
+   *       navigator.userAgentData.mobile}). If unavailable, this attribute SHOULD be left unset.
+   * </ul>
+   */
+  public static final AttributeKey<Boolean> BROWSER_MOBILE = booleanKey("browser.mobile");
 
   /**
    * The platform on which the browser is running
@@ -53,35 +84,35 @@ public final class ResourceAttributes {
    */
   public static final AttributeKey<String> BROWSER_PLATFORM = stringKey("browser.platform");
 
-  /**
-   * A boolean that is true if the browser is running on a mobile device
-   *
-   * <p>Notes:
-   *
-   * <ul>
-   *   <li>This value is intended to be taken from the <a
-   *       href="https://wicg.github.io/ua-client-hints/#interface">UA client hints API</a> ({@code
-   *       navigator.userAgentData.mobile}). If unavailable, this attribute SHOULD be left unset.
-   * </ul>
-   */
-  public static final AttributeKey<Boolean> BROWSER_MOBILE = booleanKey("browser.mobile");
+  /** The cloud account ID the resource is assigned to. */
+  public static final AttributeKey<String> CLOUD_ACCOUNT_ID = stringKey("cloud.account.id");
 
   /**
-   * Preferred language of the user using the browser
+   * Cloud regions often have multiple, isolated locations known as zones to increase availability.
+   * Availability zone represents the zone where the resource is running.
    *
    * <p>Notes:
    *
    * <ul>
-   *   <li>This value is intended to be taken from the Navigator API {@code navigator.language}.
+   *   <li>Availability zones are called &quot;zones&quot; on Alibaba Cloud and Google Cloud.
    * </ul>
    */
-  public static final AttributeKey<String> BROWSER_LANGUAGE = stringKey("browser.language");
+  public static final AttributeKey<String> CLOUD_AVAILABILITY_ZONE =
+      stringKey("cloud.availability_zone");
+
+  /**
+   * The cloud platform in use.
+   *
+   * <p>Notes:
+   *
+   * <ul>
+   *   <li>The prefix of the service SHOULD match the one specified in {@code cloud.provider}.
+   * </ul>
+   */
+  public static final AttributeKey<String> CLOUD_PLATFORM = stringKey("cloud.platform");
 
   /** Name of the cloud provider. */
   public static final AttributeKey<String> CLOUD_PROVIDER = stringKey("cloud.provider");
-
-  /** The cloud account ID the resource is assigned to. */
-  public static final AttributeKey<String> CLOUD_ACCOUNT_ID = stringKey("cloud.account.id");
 
   /**
    * The geographical region the resource is running.
@@ -136,28 +167,11 @@ public final class ResourceAttributes {
   public static final AttributeKey<String> CLOUD_RESOURCE_ID = stringKey("cloud.resource_id");
 
   /**
-   * Cloud regions often have multiple, isolated locations known as zones to increase availability.
-   * Availability zone represents the zone where the resource is running.
-   *
-   * <p>Notes:
-   *
-   * <ul>
-   *   <li>Availability zones are called &quot;zones&quot; on Alibaba Cloud and Google Cloud.
-   * </ul>
+   * The ARN of an <a
+   * href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/clusters.html">ECS
+   * cluster</a>.
    */
-  public static final AttributeKey<String> CLOUD_AVAILABILITY_ZONE =
-      stringKey("cloud.availability_zone");
-
-  /**
-   * The cloud platform in use.
-   *
-   * <p>Notes:
-   *
-   * <ul>
-   *   <li>The prefix of the service SHOULD match the one specified in {@code cloud.provider}.
-   * </ul>
-   */
-  public static final AttributeKey<String> CLOUD_PLATFORM = stringKey("cloud.platform");
+  public static final AttributeKey<String> AWS_ECS_CLUSTER_ARN = stringKey("aws.ecs.cluster.arn");
 
   /**
    * The Amazon Resource Name (ARN) of an <a
@@ -166,13 +180,6 @@ public final class ResourceAttributes {
    */
   public static final AttributeKey<String> AWS_ECS_CONTAINER_ARN =
       stringKey("aws.ecs.container.arn");
-
-  /**
-   * The ARN of an <a
-   * href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/clusters.html">ECS
-   * cluster</a>.
-   */
-  public static final AttributeKey<String> AWS_ECS_CLUSTER_ARN = stringKey("aws.ecs.cluster.arn");
 
   /**
    * The <a
@@ -199,19 +206,6 @@ public final class ResourceAttributes {
   public static final AttributeKey<String> AWS_EKS_CLUSTER_ARN = stringKey("aws.eks.cluster.arn");
 
   /**
-   * The name(s) of the AWS log group(s) an application is writing to.
-   *
-   * <p>Notes:
-   *
-   * <ul>
-   *   <li>Multiple log groups must be supported for cases like multi-container applications, where
-   *       a single application has sidecar containers, and each write to their own log group.
-   * </ul>
-   */
-  public static final AttributeKey<List<String>> AWS_LOG_GROUP_NAMES =
-      stringArrayKey("aws.log.group.names");
-
-  /**
    * The Amazon Resource Name(s) (ARN) of the AWS log group(s).
    *
    * <p>Notes:
@@ -225,9 +219,18 @@ public final class ResourceAttributes {
   public static final AttributeKey<List<String>> AWS_LOG_GROUP_ARNS =
       stringArrayKey("aws.log.group.arns");
 
-  /** The name(s) of the AWS log stream(s) an application is writing to. */
-  public static final AttributeKey<List<String>> AWS_LOG_STREAM_NAMES =
-      stringArrayKey("aws.log.stream.names");
+  /**
+   * The name(s) of the AWS log group(s) an application is writing to.
+   *
+   * <p>Notes:
+   *
+   * <ul>
+   *   <li>Multiple log groups must be supported for cases like multi-container applications, where
+   *       a single application has sidecar containers, and each write to their own log group.
+   * </ul>
+   */
+  public static final AttributeKey<List<String>> AWS_LOG_GROUP_NAMES =
+      stringArrayKey("aws.log.group.names");
 
   /**
    * The ARN(s) of the AWS log stream(s).
@@ -243,6 +246,10 @@ public final class ResourceAttributes {
    */
   public static final AttributeKey<List<String>> AWS_LOG_STREAM_ARNS =
       stringArrayKey("aws.log.stream.arns");
+
+  /** The name(s) of the AWS log stream(s) an application is writing to. */
+  public static final AttributeKey<List<String>> AWS_LOG_STREAM_NAMES =
+      stringArrayKey("aws.log.stream.names");
 
   /**
    * The name of the Cloud Run <a
@@ -263,6 +270,13 @@ public final class ResourceAttributes {
       longKey("gcp.cloud_run.job.task_index");
 
   /**
+   * The hostname of a GCE instance. This is the full value of the default or <a
+   * href="https://cloud.google.com/compute/docs/instances/custom-hostname-vm">custom hostname</a>.
+   */
+  public static final AttributeKey<String> GCP_GCE_INSTANCE_HOSTNAME =
+      stringKey("gcp.gce.instance.hostname");
+
+  /**
    * The instance name of a GCE instance. This is the value provided by {@code host.name}, the
    * visible name of the instance in the Cloud Console UI, and the prefix for the default hostname
    * of the instance as defined by the <a
@@ -272,59 +286,16 @@ public final class ResourceAttributes {
   public static final AttributeKey<String> GCP_GCE_INSTANCE_NAME =
       stringKey("gcp.gce.instance.name");
 
-  /**
-   * The hostname of a GCE instance. This is the full value of the default or <a
-   * href="https://cloud.google.com/compute/docs/instances/custom-hostname-vm">custom hostname</a>.
-   */
-  public static final AttributeKey<String> GCP_GCE_INSTANCE_HOSTNAME =
-      stringKey("gcp.gce.instance.hostname");
-
-  /** Time and date the release was created */
-  public static final AttributeKey<String> HEROKU_RELEASE_CREATION_TIMESTAMP =
-      stringKey("heroku.release.creation_timestamp");
+  /** Unique identifier for the application */
+  public static final AttributeKey<String> HEROKU_APP_ID = stringKey("heroku.app.id");
 
   /** Commit hash for the current release */
   public static final AttributeKey<String> HEROKU_RELEASE_COMMIT =
       stringKey("heroku.release.commit");
 
-  /** Unique identifier for the application */
-  public static final AttributeKey<String> HEROKU_APP_ID = stringKey("heroku.app.id");
-
-  /** Container name used by container runtime. */
-  public static final AttributeKey<String> CONTAINER_NAME = stringKey("container.name");
-
-  /**
-   * Container ID. Usually a UUID, as for example used to <a
-   * href="https://docs.docker.com/engine/reference/run/#container-identification">identify Docker
-   * containers</a>. The UUID might be abbreviated.
-   */
-  public static final AttributeKey<String> CONTAINER_ID = stringKey("container.id");
-
-  /** The container runtime managing this container. */
-  public static final AttributeKey<String> CONTAINER_RUNTIME = stringKey("container.runtime");
-
-  /** Name of the image the container was built on. */
-  public static final AttributeKey<String> CONTAINER_IMAGE_NAME = stringKey("container.image.name");
-
-  /** Container image tag. */
-  public static final AttributeKey<String> CONTAINER_IMAGE_TAG = stringKey("container.image.tag");
-
-  /**
-   * Runtime specific image identifier. Usually a hash algorithm followed by a UUID.
-   *
-   * <p>Notes:
-   *
-   * <ul>
-   *   <li>Docker defines a sha256 of the image id; {@code container.image.id} corresponds to the
-   *       {@code Image} field from the Docker container inspect <a
-   *       href="https://docs.docker.com/engine/api/v1.43/#tag/Container/operation/ContainerInspect">API</a>
-   *       endpoint. K8s defines a link to the container registry repository with digest {@code
-   *       "imageID": "registry.azurecr.io
-   *       /namespace/service/dockerfile@sha256:bdeabd40c3a8a492eaf9e8e44d0ebbb84bac7ee25ac0cf8a7159d25f62555625"}.
-   *       OCI defines a digest of manifest.
-   * </ul>
-   */
-  public static final AttributeKey<String> CONTAINER_IMAGE_ID = stringKey("container.image.id");
+  /** Time and date the release was created */
+  public static final AttributeKey<String> HEROKU_RELEASE_CREATION_TIMESTAMP =
+      stringKey("heroku.release.creation_timestamp");
 
   /**
    * The command used to run the container (i.e. the command name).
@@ -338,15 +309,75 @@ public final class ResourceAttributes {
    */
   public static final AttributeKey<String> CONTAINER_COMMAND = stringKey("container.command");
 
-  /** The full command run by the container as a single string representing the full command. [2] */
-  public static final AttributeKey<String> CONTAINER_COMMAND_LINE =
-      stringKey("container.command_line");
-
   /**
    * All the command arguments (including the command/executable itself) run by the container. [2]
    */
   public static final AttributeKey<List<String>> CONTAINER_COMMAND_ARGS =
       stringArrayKey("container.command_args");
+
+  /** The full command run by the container as a single string representing the full command. [2] */
+  public static final AttributeKey<String> CONTAINER_COMMAND_LINE =
+      stringKey("container.command_line");
+
+  /**
+   * Container ID. Usually a UUID, as for example used to <a
+   * href="https://docs.docker.com/engine/reference/run/#container-identification">identify Docker
+   * containers</a>. The UUID might be abbreviated.
+   */
+  public static final AttributeKey<String> CONTAINER_ID = stringKey("container.id");
+
+  /**
+   * Runtime specific image identifier. Usually a hash algorithm followed by a UUID.
+   *
+   * <p>Notes:
+   *
+   * <ul>
+   *   <li>Docker defines a sha256 of the image id; {@code container.image.id} corresponds to the
+   *       {@code Image} field from the Docker container inspect <a
+   *       href="https://docs.docker.com/engine/api/v1.43/#tag/Container/operation/ContainerInspect">API</a>
+   *       endpoint. K8s defines a link to the container registry repository with digest {@code
+   *       "imageID": "registry.azurecr.io
+   *       /namespace/service/dockerfile@sha256:bdeabd40c3a8a492eaf9e8e44d0ebbb84bac7ee25ac0cf8a7159d25f62555625"}.
+   *       The ID is assinged by the container runtime and can vary in different environments.
+   *       Consider using {@code oci.manifest.digest} if it is important to identify the same image
+   *       in different environments/runtimes.
+   * </ul>
+   */
+  public static final AttributeKey<String> CONTAINER_IMAGE_ID = stringKey("container.image.id");
+
+  /** Name of the image the container was built on. */
+  public static final AttributeKey<String> CONTAINER_IMAGE_NAME = stringKey("container.image.name");
+
+  /**
+   * Repo digests of the container image as provided by the container runtime.
+   *
+   * <p>Notes:
+   *
+   * <ul>
+   *   <li><a
+   *       href="https://docs.docker.com/engine/api/v1.43/#tag/Image/operation/ImageInspect">Docker</a>
+   *       and <a
+   *       href="https://github.com/kubernetes/cri-api/blob/c75ef5b473bbe2d0a4fc92f82235efd665ea8e9f/pkg/apis/runtime/v1/api.proto#L1237-L1238">CRI</a>
+   *       report those under the {@code RepoDigests} field.
+   * </ul>
+   */
+  public static final AttributeKey<List<String>> CONTAINER_IMAGE_REPO_DIGESTS =
+      stringArrayKey("container.image.repo_digests");
+
+  /**
+   * Container image tags. An example can be found in <a
+   * href="https://docs.docker.com/engine/api/v1.43/#tag/Image/operation/ImageInspect">Docker Image
+   * Inspect</a>. Should be only the {@code <tag>} section of the full name for example from {@code
+   * registry.example.com/my-org/my-image:<tag>}.
+   */
+  public static final AttributeKey<List<String>> CONTAINER_IMAGE_TAGS =
+      stringArrayKey("container.image.tags");
+
+  /** Container name used by container runtime. */
+  public static final AttributeKey<String> CONTAINER_NAME = stringKey("container.name");
+
+  /** The container runtime managing this container. */
+  public static final AttributeKey<String> CONTAINER_RUNTIME = stringKey("container.runtime");
 
   /**
    * Name of the <a href="https://en.wikipedia.org/wiki/Deployment_environment">deployment
@@ -377,6 +408,19 @@ public final class ResourceAttributes {
   public static final AttributeKey<String> DEVICE_ID = stringKey("device.id");
 
   /**
+   * The name of the device manufacturer
+   *
+   * <p>Notes:
+   *
+   * <ul>
+   *   <li>The Android OS provides this field via <a
+   *       href="https://developer.android.com/reference/android/os/Build#MANUFACTURER">Build</a>.
+   *       iOS apps SHOULD hardcode the value {@code Apple}.
+   * </ul>
+   */
+  public static final AttributeKey<String> DEVICE_MANUFACTURER = stringKey("device.manufacturer");
+
+  /**
    * The model identifier for the device
    *
    * <p>Notes:
@@ -402,17 +446,30 @@ public final class ResourceAttributes {
   public static final AttributeKey<String> DEVICE_MODEL_NAME = stringKey("device.model.name");
 
   /**
-   * The name of the device manufacturer
+   * The execution environment ID as a string, that will be potentially reused for other invocations
+   * to the same function/function version.
    *
    * <p>Notes:
    *
    * <ul>
-   *   <li>The Android OS provides this field via <a
-   *       href="https://developer.android.com/reference/android/os/Build#MANUFACTURER">Build</a>.
-   *       iOS apps SHOULD hardcode the value {@code Apple}.
+   *   <li><strong>AWS Lambda:</strong> Use the (full) log stream name.
    * </ul>
    */
-  public static final AttributeKey<String> DEVICE_MANUFACTURER = stringKey("device.manufacturer");
+  public static final AttributeKey<String> FAAS_INSTANCE = stringKey("faas.instance");
+
+  /**
+   * The amount of memory available to the serverless function converted to Bytes.
+   *
+   * <p>Notes:
+   *
+   * <ul>
+   *   <li>It's recommended to set this attribute since e.g. too little memory can easily stop a
+   *       Java AWS Lambda function from working correctly. On AWS Lambda, the environment variable
+   *       {@code AWS_LAMBDA_FUNCTION_MEMORY_SIZE} provides this information (which must be
+   *       multiplied by 1,048,576).
+   * </ul>
+   */
+  public static final AttributeKey<Long> FAAS_MAX_MEMORY = longKey("faas.max_memory");
 
   /**
    * The name of the single function that this runtime instance executes.
@@ -422,8 +479,8 @@ public final class ResourceAttributes {
    * <ul>
    *   <li>This is the name of the function as configured/deployed on the FaaS platform and is
    *       usually different from the name of the callback function (which may be stored in the <a
-   *       href="/docs/general/general-attributes.md#source-code-attributes">{@code
-   *       code.namespace}/{@code code.function}</a> span attributes).
+   *       href="/docs/general/attributes.md#source-code-attributes">{@code code.namespace}/{@code
+   *       code.function}</a> span attributes).
    *   <li>For some cloud providers, the above definition is ambiguous. The following definition of
    *       function name MUST be used for this attribute (and consequently the span name) for the
    *       listed cloud providers/products:
@@ -457,31 +514,8 @@ public final class ResourceAttributes {
    */
   public static final AttributeKey<String> FAAS_VERSION = stringKey("faas.version");
 
-  /**
-   * The execution environment ID as a string, that will be potentially reused for other invocations
-   * to the same function/function version.
-   *
-   * <p>Notes:
-   *
-   * <ul>
-   *   <li><strong>AWS Lambda:</strong> Use the (full) log stream name.
-   * </ul>
-   */
-  public static final AttributeKey<String> FAAS_INSTANCE = stringKey("faas.instance");
-
-  /**
-   * The amount of memory available to the serverless function converted to Bytes.
-   *
-   * <p>Notes:
-   *
-   * <ul>
-   *   <li>It's recommended to set this attribute since e.g. too little memory can easily stop a
-   *       Java AWS Lambda function from working correctly. On AWS Lambda, the environment variable
-   *       {@code AWS_LAMBDA_FUNCTION_MEMORY_SIZE} provides this information (which must be
-   *       multiplied by 1,048,576).
-   * </ul>
-   */
-  public static final AttributeKey<Long> FAAS_MAX_MEMORY = longKey("faas.max_memory");
+  /** The CPU architecture the host system is running on. */
+  public static final AttributeKey<String> HOST_ARCH = stringKey("host.arch");
 
   /**
    * Unique host ID. For Cloud, this must be the instance_id assigned by the cloud provider. For
@@ -489,6 +523,31 @@ public final class ResourceAttributes {
    * sources to use to determine the {@code machine-id} based on operating system.
    */
   public static final AttributeKey<String> HOST_ID = stringKey("host.id");
+
+  /** VM image ID or host OS image ID. For Cloud, this value is from the provider. */
+  public static final AttributeKey<String> HOST_IMAGE_ID = stringKey("host.image.id");
+
+  /** Name of the VM image or OS install the host was instantiated from. */
+  public static final AttributeKey<String> HOST_IMAGE_NAME = stringKey("host.image.name");
+
+  /**
+   * The version string of the VM image or host OS as defined in <a
+   * href="README.md#version-attributes">Version Attributes</a>.
+   */
+  public static final AttributeKey<String> HOST_IMAGE_VERSION = stringKey("host.image.version");
+
+  /**
+   * Available IP addresses of the host, excluding loopback interfaces.
+   *
+   * <p>Notes:
+   *
+   * <ul>
+   *   <li>IPv4 Addresses MUST be specified in dotted-quad notation. IPv6 addresses MUST be
+   *       specified in the <a href="https://www.rfc-editor.org/rfc/rfc5952.html">RFC 5952</a>
+   *       format.
+   * </ul>
+   */
+  public static final AttributeKey<List<String>> HOST_IP = stringArrayKey("host.ip");
 
   /**
    * Name of the host. On Unix systems, it may contain what the hostname command returns, or the
@@ -499,20 +558,36 @@ public final class ResourceAttributes {
   /** Type of host. For Cloud, this must be the machine type. */
   public static final AttributeKey<String> HOST_TYPE = stringKey("host.type");
 
-  /** The CPU architecture the host system is running on. */
-  public static final AttributeKey<String> HOST_ARCH = stringKey("host.arch");
+  /** The amount of level 2 memory cache available to the processor (in Bytes). */
+  public static final AttributeKey<Long> HOST_CPU_CACHE_L2_SIZE = longKey("host.cpu.cache.l2.size");
 
-  /** Name of the VM image or OS install the host was instantiated from. */
-  public static final AttributeKey<String> HOST_IMAGE_NAME = stringKey("host.image.name");
-
-  /** VM image ID or host OS image ID. For Cloud, this value is from the provider. */
-  public static final AttributeKey<String> HOST_IMAGE_ID = stringKey("host.image.id");
+  /** Numeric value specifying the family or generation of the CPU. */
+  public static final AttributeKey<Long> HOST_CPU_FAMILY = longKey("host.cpu.family");
 
   /**
-   * The version string of the VM image or host OS as defined in <a
-   * href="README.md#version-attributes">Version Attributes</a>.
+   * Model identifier. It provides more granular information about the CPU, distinguishing it from
+   * other CPUs within the same family.
    */
-  public static final AttributeKey<String> HOST_IMAGE_VERSION = stringKey("host.image.version");
+  public static final AttributeKey<Long> HOST_CPU_MODEL_ID = longKey("host.cpu.model.id");
+
+  /** Model designation of the processor. */
+  public static final AttributeKey<String> HOST_CPU_MODEL_NAME = stringKey("host.cpu.model.name");
+
+  /** Stepping or core revisions. */
+  public static final AttributeKey<Long> HOST_CPU_STEPPING = longKey("host.cpu.stepping");
+
+  /**
+   * Processor manufacturer identifier. A maximum 12-character string.
+   *
+   * <p>Notes:
+   *
+   * <ul>
+   *   <li><a href="https://wiki.osdev.org/CPUID">CPUID</a> command returns the vendor ID string in
+   *       EBX, EDX and ECX registers. Writing these to memory in this order results in a
+   *       12-character string.
+   * </ul>
+   */
+  public static final AttributeKey<String> HOST_CPU_VENDOR_ID = stringKey("host.cpu.vendor.id");
 
   /** The name of the cluster. */
   public static final AttributeKey<String> K8S_CLUSTER_NAME = stringKey("k8s.cluster.name");
@@ -551,11 +626,11 @@ public final class ResourceAttributes {
   /** The name of the namespace that the pod is running in. */
   public static final AttributeKey<String> K8S_NAMESPACE_NAME = stringKey("k8s.namespace.name");
 
-  /** The UID of the Pod. */
-  public static final AttributeKey<String> K8S_POD_UID = stringKey("k8s.pod.uid");
-
   /** The name of the Pod. */
   public static final AttributeKey<String> K8S_POD_NAME = stringKey("k8s.pod.name");
+
+  /** The UID of the Pod. */
+  public static final AttributeKey<String> K8S_POD_UID = stringKey("k8s.pod.uid");
 
   /**
    * The name of the Container from Pod specification, must be unique within a Pod. Container
@@ -570,44 +645,61 @@ public final class ResourceAttributes {
   public static final AttributeKey<Long> K8S_CONTAINER_RESTART_COUNT =
       longKey("k8s.container.restart_count");
 
-  /** The UID of the ReplicaSet. */
-  public static final AttributeKey<String> K8S_REPLICASET_UID = stringKey("k8s.replicaset.uid");
-
   /** The name of the ReplicaSet. */
   public static final AttributeKey<String> K8S_REPLICASET_NAME = stringKey("k8s.replicaset.name");
 
-  /** The UID of the Deployment. */
-  public static final AttributeKey<String> K8S_DEPLOYMENT_UID = stringKey("k8s.deployment.uid");
+  /** The UID of the ReplicaSet. */
+  public static final AttributeKey<String> K8S_REPLICASET_UID = stringKey("k8s.replicaset.uid");
 
   /** The name of the Deployment. */
   public static final AttributeKey<String> K8S_DEPLOYMENT_NAME = stringKey("k8s.deployment.name");
 
-  /** The UID of the StatefulSet. */
-  public static final AttributeKey<String> K8S_STATEFULSET_UID = stringKey("k8s.statefulset.uid");
+  /** The UID of the Deployment. */
+  public static final AttributeKey<String> K8S_DEPLOYMENT_UID = stringKey("k8s.deployment.uid");
 
   /** The name of the StatefulSet. */
   public static final AttributeKey<String> K8S_STATEFULSET_NAME = stringKey("k8s.statefulset.name");
 
-  /** The UID of the DaemonSet. */
-  public static final AttributeKey<String> K8S_DAEMONSET_UID = stringKey("k8s.daemonset.uid");
+  /** The UID of the StatefulSet. */
+  public static final AttributeKey<String> K8S_STATEFULSET_UID = stringKey("k8s.statefulset.uid");
 
   /** The name of the DaemonSet. */
   public static final AttributeKey<String> K8S_DAEMONSET_NAME = stringKey("k8s.daemonset.name");
 
-  /** The UID of the Job. */
-  public static final AttributeKey<String> K8S_JOB_UID = stringKey("k8s.job.uid");
+  /** The UID of the DaemonSet. */
+  public static final AttributeKey<String> K8S_DAEMONSET_UID = stringKey("k8s.daemonset.uid");
 
   /** The name of the Job. */
   public static final AttributeKey<String> K8S_JOB_NAME = stringKey("k8s.job.name");
 
-  /** The UID of the CronJob. */
-  public static final AttributeKey<String> K8S_CRONJOB_UID = stringKey("k8s.cronjob.uid");
+  /** The UID of the Job. */
+  public static final AttributeKey<String> K8S_JOB_UID = stringKey("k8s.job.uid");
 
   /** The name of the CronJob. */
   public static final AttributeKey<String> K8S_CRONJOB_NAME = stringKey("k8s.cronjob.name");
 
-  /** The operating system type. */
-  public static final AttributeKey<String> OS_TYPE = stringKey("os.type");
+  /** The UID of the CronJob. */
+  public static final AttributeKey<String> K8S_CRONJOB_UID = stringKey("k8s.cronjob.uid");
+
+  /**
+   * The digest of the OCI image manifest. For container images specifically is the digest by which
+   * the container image is known.
+   *
+   * <p>Notes:
+   *
+   * <ul>
+   *   <li>Follows <a href="https://github.com/opencontainers/image-spec/blob/main/manifest.md">OCI
+   *       Image Manifest Specification</a>, and specifically the <a
+   *       href="https://github.com/opencontainers/image-spec/blob/main/descriptor.md#digests">Digest
+   *       property</a>. An example can be found in <a
+   *       href="https://docs.docker.com/registry/spec/manifest-v2-2/#example-image-manifest">Example
+   *       Image Manifest</a>.
+   * </ul>
+   */
+  public static final AttributeKey<String> OCI_MANIFEST_DIGEST = stringKey("oci.manifest.digest");
+
+  /** Unique identifier for a particular build or compilation of the operating system. */
+  public static final AttributeKey<String> OS_BUILD_ID = stringKey("os.build_id");
 
   /**
    * Human readable (not intended to be parsed) OS version information, like e.g. reported by {@code
@@ -618,17 +710,37 @@ public final class ResourceAttributes {
   /** Human readable operating system name. */
   public static final AttributeKey<String> OS_NAME = stringKey("os.name");
 
+  /** The operating system type. */
+  public static final AttributeKey<String> OS_TYPE = stringKey("os.type");
+
   /**
    * The version string of the operating system as defined in <a
    * href="/docs/resource/README.md#version-attributes">Version Attributes</a>.
    */
   public static final AttributeKey<String> OS_VERSION = stringKey("os.version");
 
-  /** Process identifier (PID). */
-  public static final AttributeKey<Long> PROCESS_PID = longKey("process.pid");
+  /**
+   * The command used to launch the process (i.e. the command name). On Linux based systems, can be
+   * set to the zeroth string in {@code proc/[pid]/cmdline}. On Windows, can be set to the first
+   * parameter extracted from {@code GetCommandLineW}.
+   */
+  public static final AttributeKey<String> PROCESS_COMMAND = stringKey("process.command");
 
-  /** Parent Process identifier (PID). */
-  public static final AttributeKey<Long> PROCESS_PARENT_PID = longKey("process.parent_pid");
+  /**
+   * All the command arguments (including the command/executable itself) as received by the process.
+   * On Linux-based systems (and some other Unixoid systems supporting procfs), can be set according
+   * to the list of null-delimited strings extracted from {@code proc/[pid]/cmdline}. For libc-based
+   * executables, this would be the full argv vector passed to {@code main}.
+   */
+  public static final AttributeKey<List<String>> PROCESS_COMMAND_ARGS =
+      stringArrayKey("process.command_args");
+
+  /**
+   * The full command used to launch the process as a single string representing the full command.
+   * On Windows, can be set to the result of {@code GetCommandLineW}. Do not set this if you have to
+   * assemble it just for monitoring; use {@code process.command_args} instead.
+   */
+  public static final AttributeKey<String> PROCESS_COMMAND_LINE = stringKey("process.command_line");
 
   /**
    * The name of the process executable. On Linux based systems, can be set to the {@code Name} in
@@ -646,31 +758,21 @@ public final class ResourceAttributes {
   public static final AttributeKey<String> PROCESS_EXECUTABLE_PATH =
       stringKey("process.executable.path");
 
-  /**
-   * The command used to launch the process (i.e. the command name). On Linux based systems, can be
-   * set to the zeroth string in {@code proc/[pid]/cmdline}. On Windows, can be set to the first
-   * parameter extracted from {@code GetCommandLineW}.
-   */
-  public static final AttributeKey<String> PROCESS_COMMAND = stringKey("process.command");
-
-  /**
-   * The full command used to launch the process as a single string representing the full command.
-   * On Windows, can be set to the result of {@code GetCommandLineW}. Do not set this if you have to
-   * assemble it just for monitoring; use {@code process.command_args} instead.
-   */
-  public static final AttributeKey<String> PROCESS_COMMAND_LINE = stringKey("process.command_line");
-
-  /**
-   * All the command arguments (including the command/executable itself) as received by the process.
-   * On Linux-based systems (and some other Unixoid systems supporting procfs), can be set according
-   * to the list of null-delimited strings extracted from {@code proc/[pid]/cmdline}. For libc-based
-   * executables, this would be the full argv vector passed to {@code main}.
-   */
-  public static final AttributeKey<List<String>> PROCESS_COMMAND_ARGS =
-      stringArrayKey("process.command_args");
-
   /** The username of the user that owns the process. */
   public static final AttributeKey<String> PROCESS_OWNER = stringKey("process.owner");
+
+  /** Parent Process identifier (PID). */
+  public static final AttributeKey<Long> PROCESS_PARENT_PID = longKey("process.parent_pid");
+
+  /** Process identifier (PID). */
+  public static final AttributeKey<Long> PROCESS_PID = longKey("process.pid");
+
+  /**
+   * An additional description about the runtime of the process, for example a specific vendor
+   * customization of the runtime environment.
+   */
+  public static final AttributeKey<String> PROCESS_RUNTIME_DESCRIPTION =
+      stringKey("process.runtime.description");
 
   /**
    * The name of the runtime of this process. For compiled native binaries, this SHOULD be the name
@@ -683,13 +785,6 @@ public final class ResourceAttributes {
    */
   public static final AttributeKey<String> PROCESS_RUNTIME_VERSION =
       stringKey("process.runtime.version");
-
-  /**
-   * An additional description about the runtime of the process, for example a specific vendor
-   * customization of the runtime environment.
-   */
-  public static final AttributeKey<String> PROCESS_RUNTIME_DESCRIPTION =
-      stringKey("process.runtime.description");
 
   /**
    * Logical name of the service.
@@ -713,22 +808,6 @@ public final class ResourceAttributes {
   public static final AttributeKey<String> SERVICE_VERSION = stringKey("service.version");
 
   /**
-   * A namespace for {@code service.name}.
-   *
-   * <p>Notes:
-   *
-   * <ul>
-   *   <li>A string value having a meaning that helps to distinguish a group of services, for
-   *       example the team name that owns a group of services. {@code service.name} is expected to
-   *       be unique within the same namespace. If {@code service.namespace} is not specified in the
-   *       Resource then {@code service.name} is expected to be unique for all services that have no
-   *       explicit namespace defined (so the empty/unspecified namespace is simply one more valid
-   *       namespace). Zero-length namespace string is assumed equal to unspecified namespace.
-   * </ul>
-   */
-  public static final AttributeKey<String> SERVICE_NAMESPACE = stringKey("service.namespace");
-
-  /**
    * The string ID of the service instance.
    *
    * <p>Notes:
@@ -749,6 +828,26 @@ public final class ResourceAttributes {
   public static final AttributeKey<String> SERVICE_INSTANCE_ID = stringKey("service.instance.id");
 
   /**
+   * A namespace for {@code service.name}.
+   *
+   * <p>Notes:
+   *
+   * <ul>
+   *   <li>A string value having a meaning that helps to distinguish a group of services, for
+   *       example the team name that owns a group of services. {@code service.name} is expected to
+   *       be unique within the same namespace. If {@code service.namespace} is not specified in the
+   *       Resource then {@code service.name} is expected to be unique for all services that have no
+   *       explicit namespace defined (so the empty/unspecified namespace is simply one more valid
+   *       namespace). Zero-length namespace string is assumed equal to unspecified namespace.
+   * </ul>
+   */
+  public static final AttributeKey<String> SERVICE_NAMESPACE = stringKey("service.namespace");
+
+  /** The language of the telemetry SDK. */
+  public static final AttributeKey<String> TELEMETRY_SDK_LANGUAGE =
+      stringKey("telemetry.sdk.language");
+
+  /**
    * The name of the telemetry SDK as defined above.
    *
    * <p>Notes:
@@ -765,27 +864,37 @@ public final class ResourceAttributes {
    */
   public static final AttributeKey<String> TELEMETRY_SDK_NAME = stringKey("telemetry.sdk.name");
 
-  /** The language of the telemetry SDK. */
-  public static final AttributeKey<String> TELEMETRY_SDK_LANGUAGE =
-      stringKey("telemetry.sdk.language");
-
   /** The version string of the telemetry SDK. */
   public static final AttributeKey<String> TELEMETRY_SDK_VERSION =
       stringKey("telemetry.sdk.version");
 
-  /** The version string of the auto instrumentation agent, if used. */
-  public static final AttributeKey<String> TELEMETRY_AUTO_VERSION =
-      stringKey("telemetry.auto.version");
+  /**
+   * The name of the auto instrumentation agent or distribution, if used.
+   *
+   * <p>Notes:
+   *
+   * <ul>
+   *   <li>Official auto instrumentation agents and distributions SHOULD set the {@code
+   *       telemetry.distro.name} attribute to a string starting with {@code opentelemetry-}, e.g.
+   *       {@code opentelemetry-java-instrumentation}.
+   * </ul>
+   */
+  public static final AttributeKey<String> TELEMETRY_DISTRO_NAME =
+      stringKey("telemetry.distro.name");
+
+  /** The version string of the auto instrumentation agent or distribution, if used. */
+  public static final AttributeKey<String> TELEMETRY_DISTRO_VERSION =
+      stringKey("telemetry.distro.version");
+
+  /** Additional description of the web engine (e.g. detailed version and edition information). */
+  public static final AttributeKey<String> WEBENGINE_DESCRIPTION =
+      stringKey("webengine.description");
 
   /** The name of the web engine. */
   public static final AttributeKey<String> WEBENGINE_NAME = stringKey("webengine.name");
 
   /** The version of the web engine. */
   public static final AttributeKey<String> WEBENGINE_VERSION = stringKey("webengine.version");
-
-  /** Additional description of the web engine (e.g. detailed version and edition information). */
-  public static final AttributeKey<String> WEBENGINE_DESCRIPTION =
-      stringKey("webengine.description");
 
   /** The name of the instrumentation scope - ({@code InstrumentationScope.Name} in OTLP). */
   public static final AttributeKey<String> OTEL_SCOPE_NAME = stringKey("otel.scope.name");
@@ -810,31 +919,6 @@ public final class ResourceAttributes {
   public static final AttributeKey<String> OTEL_LIBRARY_VERSION = stringKey("otel.library.version");
 
   // Enum definitions
-  public static final class CloudProviderValues {
-    /** Alibaba Cloud. */
-    public static final String ALIBABA_CLOUD = "alibaba_cloud";
-
-    /** Amazon Web Services. */
-    public static final String AWS = "aws";
-
-    /** Microsoft Azure. */
-    public static final String AZURE = "azure";
-
-    /** Google Cloud Platform. */
-    public static final String GCP = "gcp";
-
-    /** Heroku Platform as a Service. */
-    public static final String HEROKU = "heroku";
-
-    /** IBM Cloud. */
-    public static final String IBM_CLOUD = "ibm_cloud";
-
-    /** Tencent Cloud. */
-    public static final String TENCENT_CLOUD = "tencent_cloud";
-
-    private CloudProviderValues() {}
-  }
-
   public static final class CloudPlatformValues {
     /** Alibaba Cloud Elastic Compute Service. */
     public static final String ALIBABA_CLOUD_ECS = "alibaba_cloud_ecs";
@@ -918,6 +1002,31 @@ public final class ResourceAttributes {
     public static final String TENCENT_CLOUD_SCF = "tencent_cloud_scf";
 
     private CloudPlatformValues() {}
+  }
+
+  public static final class CloudProviderValues {
+    /** Alibaba Cloud. */
+    public static final String ALIBABA_CLOUD = "alibaba_cloud";
+
+    /** Amazon Web Services. */
+    public static final String AWS = "aws";
+
+    /** Microsoft Azure. */
+    public static final String AZURE = "azure";
+
+    /** Google Cloud Platform. */
+    public static final String GCP = "gcp";
+
+    /** Heroku Platform as a Service. */
+    public static final String HEROKU = "heroku";
+
+    /** IBM Cloud. */
+    public static final String IBM_CLOUD = "ibm_cloud";
+
+    /** Tencent Cloud. */
+    public static final String TENCENT_CLOUD = "tencent_cloud";
+
+    private CloudProviderValues() {}
   }
 
   public static final class AwsEcsLaunchtypeValues {
