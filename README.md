@@ -66,6 +66,8 @@ strategy, [japicmp](./buildSrc/src/main/kotlin/otel.japicmp-conventions.gradle.k
 as a build check. It will ensure that only binary / source compatible changes are made. **NOTE: this
 checking of binary / source compatibility is not required and will change in the future.**
 
+To check compatibility, run `./gradlew build` after updating the template and running the generation task as documented above.
+
 ## Contributing
 
 Before you start - see OpenTelemetry
