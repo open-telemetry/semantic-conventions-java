@@ -667,6 +667,134 @@ public final class {{class}} {
     private NetHostConnectionSubtypeValues() {}
   }
 
+  /**
+   * Immediate client peer port number.
+   *
+   * @deprecated This item has renamed in 1.22.0 of the semantic conventions. Use {@link SemanticAttributes#NETWORK_PEER_PORT} instead.
+   */
+  @Deprecated
+  public static final AttributeKey<Long> CLIENT_SOCKET_PORT = longKey("client.socket.port");
+
+  /**
+   * Name of the memory pool.
+   *
+   * <p>Notes:
+   *
+   * <ul>
+   *   <li>Pool names are generally obtained via <a
+   *       href="https://docs.oracle.com/en/java/javase/11/docs/api/java.management/java/lang/management/MemoryPoolMXBean.html#getName()">MemoryPoolMXBean#getName()</a>.
+   * </ul>
+   * @deprecated This item has renamed in 1.22.0 of the semantic conventions. Use {@link SemanticAttributes#JVM_MEMORY_POOL_NAME} instead.
+   */
+  @Deprecated
+  public static final AttributeKey<String> POOL = stringKey("pool");
+
+  /**
+   * The domain name of the source system.
+   *
+   * <p>Notes:
+   *
+   * <ul>
+   *   <li>This value may be a host name, a fully qualified domain name, or another host naming
+   *       format.
+   * </ul>
+   * @deprecated This item has renamed in 1.22.0 of the semantic conventions.
+   */
+  @Deprecated
+  public static final AttributeKey<String> SOURCE_DOMAIN = stringKey("source.domain");
+
+  /**
+   * Physical server IP address or Unix socket address. If set from the client, should simply use
+   * the socket's peer address, and not attempt to find any actual server IP (i.e., if set from
+   * client, this may represent some proxy server instead of the logical server).
+   *
+   * @deprecated This item has renamed in 1.22.0 of the semantic conventions. Use {@link SemanticAttributes#NETWORK_LOCAL_ADDRESS} instead.
+   */
+  @Deprecated
+  public static final AttributeKey<String> SERVER_SOCKET_ADDRESS =
+      stringKey("server.socket.address");
+
+  /**
+   * The (uncompressed) size of the message payload in bytes. Also use this attribute if it is
+   * unknown whether the compressed or uncompressed payload size is reported.
+   *
+   * @deprecated This item has renamed in 1.22.0 of the semantic conventions. Use {@link SemanticAttributes#MESSAGING_MESSAGE_BODY_SIZE} instead.
+   */
+  @Deprecated
+  public static final AttributeKey<Long> MESSAGING_MESSAGE_PAYLOAD_SIZE_BYTES =
+      longKey("messaging.message.payload_size_bytes");
+
+  /**
+   * The domain name of the destination system.
+   *
+   * @deprecated This item has renamed in 1.22.0 of the semantic conventions.
+   */
+  @Deprecated
+  public static final AttributeKey<String> DESTINATION_DOMAIN = stringKey("destination.domain");
+
+  /**
+   * The compressed size of the message payload in bytes.
+   *
+   * @deprecated This item has renamed in 1.22.0 of the semantic conventions.
+   */
+  @Deprecated
+  public static final AttributeKey<Long> MESSAGING_MESSAGE_PAYLOAD_COMPRESSED_SIZE_BYTES =
+      longKey("messaging.message.payload_compressed_size_bytes");
+
+  /**
+   * The domain name of an immediate peer.
+   *
+   * <p>Notes:
+   *
+   * <ul>
+   *   <li>Typically observed from the client side, and represents a proxy or other intermediary
+   *       domain name.
+   * </ul>
+   *
+   * @deprecated This item has renamed in 1.22.0 of the semantic conventions.
+   */
+  @Deprecated
+  public static final AttributeKey<String> SERVER_SOCKET_DOMAIN = stringKey("server.socket.domain");
+
+  /**
+   * The type of memory.
+   *
+   * @deprecated This item has renamed in 1.22.0 of the semantic conventions. Use {@link SemanticAttributes#JVM_MEMORY_TYPE} instead.
+   */
+  @Deprecated
+  public static final AttributeKey<String> TYPE = stringKey("type");
+
+  /**
+   * Physical server port.
+   *
+   * @deprecated This item has renamed in 1.22.0 of the semantic conventions. Use {@link SemanticAttributes#NETWORK_LOCAL_PORT} instead.
+   */
+  @Deprecated
+  public static final AttributeKey<Long> SERVER_SOCKET_PORT = longKey("server.socket.port");
+
+  /**
+   * Immediate client peer address - unix domain socket name, IPv4 or IPv6 address.
+   *
+   * @deprecated This item has renamed in 1.22.0 of the semantic conventions. Use {@link SemanticAttributes#NETWORK_PEER_ADDRESS} instead.
+   */
+  @Deprecated
+  public static final AttributeKey<String> CLIENT_SOCKET_ADDRESS =
+      stringKey("client.socket.address");
+
+  /**
+   * @deprecated This item has been removed as of 1.21.0 of the semantic conventions. Use {@link JvmMemoryTypeValues} instead.
+   */
+  @Deprecated
+  public static final class TypeValues {
+    /** Heap memory. */
+    public static final String HEAP = "heap";
+
+    /** Non-heap memory. */
+    public static final String NON_HEAP = "non_heap";
+
+    private TypeValues() {}
+  }
+
   {% endif %}
 
   {%- if class == "ResourceAttributes" %}
@@ -722,6 +850,22 @@ public final class {{class}} {
    */
   @Deprecated
   public static final AttributeKey<String> FAAS_ID = stringKey("faas.id");
+
+  /**
+   * The version string of the auto instrumentation agent, if used.
+   *
+   * @deprecated This item has renamed in 1.22.0 of the semantic conventions. Use {@link ResourceAttributes#TELEMETRY_DISTRO_VERSION} instead.
+   */
+  @Deprecated
+  public static final AttributeKey<String> TELEMETRY_AUTO_VERSION = stringKey("telemetry.auto.version");
+
+  /**
+   * Container image tag.
+   *
+   * @deprecated This item has renamed in 1.22.0 of the semantic conventions. Use {@link ResourceAttributes#CONTAINER_IMAGE_TAGS} instead.
+   */
+  @Deprecated
+  public static final AttributeKey<String> CONTAINER_IMAGE_TAG = stringKey("container.image.tag");
 
   {% endif %}
 

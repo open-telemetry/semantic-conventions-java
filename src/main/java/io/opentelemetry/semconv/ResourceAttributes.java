@@ -1200,5 +1200,24 @@ public final class ResourceAttributes {
    */
   @Deprecated public static final AttributeKey<String> FAAS_ID = stringKey("faas.id");
 
+  /**
+   * The version string of the auto instrumentation agent, if used.
+   *
+   * @deprecated This item has renamed in 1.22.0 of the semantic conventions. Use {@link
+   *     ResourceAttributes#TELEMETRY_DISTRO_VERSION} instead.
+   */
+  @Deprecated
+  public static final AttributeKey<String> TELEMETRY_AUTO_VERSION =
+      stringKey("telemetry.auto.version");
+
+  /**
+   * Container image tag.
+   *
+   * @deprecated This item has renamed in 1.22.0 of the semantic conventions. Use {@link
+   *     ResourceAttributes#CONTAINER_IMAGE_TAGS} instead.
+   */
+  @Deprecated
+  public static final AttributeKey<String> CONTAINER_IMAGE_TAG = stringKey("container.image.tag");
+
   private ResourceAttributes() {}
 }

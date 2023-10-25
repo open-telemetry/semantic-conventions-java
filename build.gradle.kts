@@ -4,6 +4,7 @@ import java.time.Duration
 plugins {
   id("otel.java-conventions")
   id("otel.publish-conventions")
+  id("otel.japicmp-conventions")
 
   id("otel.animalsniffer-conventions")
 
