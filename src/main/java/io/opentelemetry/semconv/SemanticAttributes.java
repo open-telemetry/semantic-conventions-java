@@ -3263,8 +3263,9 @@ public final class SemanticAttributes {
   /**
    * Immediate client peer port number.
    *
-   * @deprecated This item has renamed in 1.22.0 of the semantic conventions. Use {@link
-   *     SemanticAttributes#NETWORK_PEER_PORT} instead.
+   * @deprecated This item has been renamed in 1.22.0 of the semantic conventions. Use {@link
+   *     SemanticAttributes#NETWORK_PEER_PORT} on server telemetry and {@link
+   *     SemanticAttributes#NETWORK_LOCAL_PORT} on client telemetry instead.
    */
   @Deprecated
   public static final AttributeKey<Long> CLIENT_SOCKET_PORT = longKey("client.socket.port");
@@ -3279,7 +3280,7 @@ public final class SemanticAttributes {
    *       href="https://docs.oracle.com/en/java/javase/11/docs/api/java.management/java/lang/management/MemoryPoolMXBean.html#getName()">MemoryPoolMXBean#getName()</a>.
    * </ul>
    *
-   * @deprecated This item has renamed in 1.22.0 of the semantic conventions. Use {@link
+   * @deprecated This item has been renamed in 1.22.0 of the semantic conventions. Use {@link
    *     SemanticAttributes#JVM_MEMORY_POOL_NAME} instead.
    */
   @Deprecated public static final AttributeKey<String> POOL = stringKey("pool");
@@ -3294,7 +3295,7 @@ public final class SemanticAttributes {
    *       format.
    * </ul>
    *
-   * @deprecated This item has renamed in 1.22.0 of the semantic conventions.
+   * @deprecated This item has been removed in 1.22.0 of the semantic conventions.
    */
   @Deprecated public static final AttributeKey<String> SOURCE_DOMAIN = stringKey("source.domain");
 
@@ -3303,8 +3304,9 @@ public final class SemanticAttributes {
    * the socket's peer address, and not attempt to find any actual server IP (i.e., if set from
    * client, this may represent some proxy server instead of the logical server).
    *
-   * @deprecated This item has renamed in 1.22.0 of the semantic conventions. Use {@link
-   *     SemanticAttributes#NETWORK_LOCAL_ADDRESS} instead.
+   * @deprecated This item has been renamed in 1.22.0 of the semantic conventions. Use {@link
+   *     SemanticAttributes#NETWORK_LOCAL_ADDRESS} on server telemetry and {@link
+   *     SemanticAttributes#NETWORK_PEER_ADDRESS} on client telemetry instead.
    */
   @Deprecated
   public static final AttributeKey<String> SERVER_SOCKET_ADDRESS =
@@ -3314,7 +3316,7 @@ public final class SemanticAttributes {
    * The (uncompressed) size of the message payload in bytes. Also use this attribute if it is
    * unknown whether the compressed or uncompressed payload size is reported.
    *
-   * @deprecated This item has renamed in 1.22.0 of the semantic conventions. Use {@link
+   * @deprecated This item has been renamed in 1.22.0 of the semantic conventions. Use {@link
    *     SemanticAttributes#MESSAGING_MESSAGE_BODY_SIZE} instead.
    */
   @Deprecated
@@ -3324,7 +3326,7 @@ public final class SemanticAttributes {
   /**
    * The domain name of the destination system.
    *
-   * @deprecated This item has renamed in 1.22.0 of the semantic conventions.
+   * @deprecated This item has been removed in 1.22.0 of the semantic conventions.
    */
   @Deprecated
   public static final AttributeKey<String> DESTINATION_DOMAIN = stringKey("destination.domain");
@@ -3332,7 +3334,7 @@ public final class SemanticAttributes {
   /**
    * The compressed size of the message payload in bytes.
    *
-   * @deprecated This item has renamed in 1.22.0 of the semantic conventions.
+   * @deprecated This item has been removed in 1.22.0 of the semantic conventions.
    */
   @Deprecated
   public static final AttributeKey<Long> MESSAGING_MESSAGE_PAYLOAD_COMPRESSED_SIZE_BYTES =
@@ -3348,7 +3350,7 @@ public final class SemanticAttributes {
    *       domain name.
    * </ul>
    *
-   * @deprecated This item has renamed in 1.22.0 of the semantic conventions.
+   * @deprecated This item has been removed in 1.22.0 of the semantic conventions.
    */
   @Deprecated
   public static final AttributeKey<String> SERVER_SOCKET_DOMAIN = stringKey("server.socket.domain");
@@ -3356,7 +3358,7 @@ public final class SemanticAttributes {
   /**
    * The type of memory.
    *
-   * @deprecated This item has renamed in 1.22.0 of the semantic conventions. Use {@link
+   * @deprecated This item has been renamed in 1.22.0 of the semantic conventions. Use {@link
    *     SemanticAttributes#JVM_MEMORY_TYPE} instead.
    */
   @Deprecated public static final AttributeKey<String> TYPE = stringKey("type");
@@ -3364,8 +3366,9 @@ public final class SemanticAttributes {
   /**
    * Physical server port.
    *
-   * @deprecated This item has renamed in 1.22.0 of the semantic conventions. Use {@link
-   *     SemanticAttributes#NETWORK_LOCAL_PORT} instead.
+   * @deprecated This item has been renamed in 1.22.0 of the semantic conventions. Use {@link
+   *     SemanticAttributes#NETWORK_LOCAL_PORT} on server telemetry and {@link
+   *     SemanticAttributes#NETWORK_PEER_PORT} on client telemetry instead.
    */
   @Deprecated
   public static final AttributeKey<Long> SERVER_SOCKET_PORT = longKey("server.socket.port");
@@ -3373,15 +3376,16 @@ public final class SemanticAttributes {
   /**
    * Immediate client peer address - unix domain socket name, IPv4 or IPv6 address.
    *
-   * @deprecated This item has renamed in 1.22.0 of the semantic conventions. Use {@link
-   *     SemanticAttributes#NETWORK_PEER_ADDRESS} instead.
+   * @deprecated This item has been renamed in 1.22.0 of the semantic conventions. Use {@link
+   *     SemanticAttributes#NETWORK_PEER_ADDRESS} on server telemetry and {@link
+   *     SemanticAttributes#NETWORK_LOCAL_ADDRESS} on client telemetry instead.
    */
   @Deprecated
   public static final AttributeKey<String> CLIENT_SOCKET_ADDRESS =
       stringKey("client.socket.address");
 
   /**
-   * @deprecated This item has been removed as of 1.21.0 of the semantic conventions. Use {@link
+   * @deprecated This item has been renamed as of 1.21.0 of the semantic conventions. Use {@link
    *     JvmMemoryTypeValues} instead.
    */
   @Deprecated

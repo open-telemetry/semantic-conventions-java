@@ -1203,7 +1203,7 @@ public final class ResourceAttributes {
   /**
    * The version string of the auto instrumentation agent, if used.
    *
-   * @deprecated This item has renamed in 1.22.0 of the semantic conventions. Use {@link
+   * @deprecated This item has been renamed in 1.22.0 of the semantic conventions. Use {@link
    *     ResourceAttributes#TELEMETRY_DISTRO_VERSION} instead.
    */
   @Deprecated
@@ -1213,7 +1213,7 @@ public final class ResourceAttributes {
   /**
    * Container image tag.
    *
-   * @deprecated This item has renamed in 1.22.0 of the semantic conventions. Use {@link
+   * @deprecated This item has been renamed in 1.22.0 of the semantic conventions. Use {@link
    *     ResourceAttributes#CONTAINER_IMAGE_TAGS} instead.
    */
   @Deprecated
