@@ -53,9 +53,12 @@ nexusPublishing {
   }
 }
 
+val opentelemetryJavaVersion = "1.31.0"
+
 dependencies {
-  implementation(platform("io.opentelemetry:opentelemetry-bom:1.31.0"))
-  implementation("io.opentelemetry:opentelemetry-api")
+  compileOnly("io.opentelemetry:opentelemetry-api:$opentelemetryJavaVersion")
+
+  testImplementation("io.opentelemetry:opentelemetry-api:$opentelemetryJavaVersion")
 
   testImplementation(platform("org.junit:junit-bom:5.10.0"))
   testImplementation("org.junit.jupiter:junit-jupiter-api")
