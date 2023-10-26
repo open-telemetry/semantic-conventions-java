@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+## Version 1.22.0 (2023-10-26)
+
 * Update to semconv 1.22
   ([#29](https://github.com/open-telemetry/semantic-conventions-java/pull/29))
 * Compile only opentelemetry-api dependency
