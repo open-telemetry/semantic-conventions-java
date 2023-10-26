@@ -4,6 +4,7 @@ import java.time.Duration
 plugins {
   id("otel.java-conventions")
   id("otel.publish-conventions")
+  id("otel.japicmp-conventions")
 
   id("otel.animalsniffer-conventions")
 
@@ -16,7 +17,7 @@ val snapshot = true
 // end
 
 // The release version of https://github.com/open-telemetry/semantic-conventions used to generate classes
-var semanticConventionsVersion = "1.21.0"
+var semanticConventionsVersion = "1.22.0"
 
 // Compute the artifact version, which includes the "-alpha" suffix and includes "-SNAPSHOT" suffix if not releasing
 // Release example: version=1.21.0-alpha
@@ -66,7 +67,7 @@ dependencies {
 }
 
 // start - define tasks to download, unzip, and generate from opentelemetry/semantic-conventions
-var generatorVersion = "0.18.0"
+var generatorVersion = "0.22.0"
 val semanticConventionsRepoZip = "https://github.com/open-telemetry/semantic-conventions/archive/v$semanticConventionsVersion.zip"
 val schemaUrl = "https://opentelemetry.io/schemas/$semanticConventionsVersion"
 
