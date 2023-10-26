@@ -37,6 +37,10 @@ dependencies {
 Java 17 or higher is required to build the projects in this repository. The built artifacts can be
 used on Java 8 or higher.
 
+To use this artifact you must also depend on `io.opentelemetry:opentelemetry-api:{{version}}`.
+See [opentelemetry-java releases](https://github.com/open-telemetry/opentelemetry-java#releases) for
+more information.
+
 ## Generating semantic conventions
 
 Requires docker.
