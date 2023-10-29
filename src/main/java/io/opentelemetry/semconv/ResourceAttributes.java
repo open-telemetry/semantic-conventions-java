@@ -9,6 +9,7 @@ import static io.opentelemetry.api.common.AttributeKey.booleanKey;
 import static io.opentelemetry.api.common.AttributeKey.longKey;
 import static io.opentelemetry.api.common.AttributeKey.stringArrayKey;
 import static io.opentelemetry.api.common.AttributeKey.stringKey;
+import static io.opentelemetry.semconv.AttributeKeyTemplate.stringKeyTemplate;
 
 import io.opentelemetry.api.common.AttributeKey;
 import java.util.List;
@@ -917,6 +918,10 @@ public final class ResourceAttributes {
    */
   @Deprecated
   public static final AttributeKey<String> OTEL_LIBRARY_VERSION = stringKey("otel.library.version");
+
+  /** Container labels, {@code <key>} being the label name, the value being the label value. */
+  public static final AttributeKeyTemplate<String> CONTAINER_LABELS =
+      stringKeyTemplate("container.labels");
 
   // Enum definitions
   public static final class CloudPlatformValues {

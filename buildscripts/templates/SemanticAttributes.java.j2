@@ -52,6 +52,9 @@ import static io.opentelemetry.api.common.AttributeKey.longKey;
 import static io.opentelemetry.api.common.AttributeKey.stringKey;
 import static io.opentelemetry.api.common.AttributeKey.stringArrayKey;
 
+import static io.opentelemetry.semconv.AttributeKeyTemplate.stringArrayKeyTemplate;
+import static io.opentelemetry.semconv.AttributeKeyTemplate.stringKeyTemplate;
+
 import io.opentelemetry.api.common.AttributeKey;
 import java.util.List;
 
@@ -83,6 +86,28 @@ public final class {{class}} {
   @Deprecated
     {%- endif %}
   public static final AttributeKey<{{upFirst(to_java_return_type(attribute.attr_type | string))}}> {{attribute.fqn | to_const_name}} = {{to_java_key_type(attribute.attr_type | string)}}("{{attribute.fqn}}");
+  {%- endfor %}
+  {%- for attribute_template in attribute_templates if attribute_template.is_local and not attribute_template.ref %}
+
+  /**
+  * {{attribute_template.brief | render_markdown(code="{{@code {0}}}", paragraph="{0}")}}
+    {%- if attribute_template.note %}
+  *
+  * <p>Notes:
+        {# NOTE: replace("> ", "") removes the following problematic characters which produce mangled javadoc:  #}
+        {# https://github.com/open-telemetry/semantic-conventions/blob/c83a10a9c33c18a769835e959200d0e24dc708fe/model/resource/k8s.yaml#L34-L38  #}
+        <ul> {{attribute_template.note | replace("> ", "") | render_markdown(code="{{@code {0}}}", paragraph="<li>{0}</li>", list="{0}")}} </ul>
+
+    {%- endif %}
+    {%- if (attribute_template.stability | string())  == "StabilityLevel.DEPRECATED" %}
+  *
+  * @deprecated {{attribute_template.brief | to_doc_brief}}.
+    {%- endif %}
+  */
+    {%- if (attribute_template.stability | string()) == "StabilityLevel.DEPRECATED"  %}
+  @Deprecated
+    {%- endif %}
+  public static final AttributeKeyTemplate<{{upFirst(to_java_return_type(attribute_template.instantiated_type | string))}}> {{attribute_template.fqn | to_const_name}} = {{to_java_key_type(attribute_template.instantiated_type | string)}}Template("{{attribute_template.fqn}}");
   {%- endfor %}
 
   // Enum definitions
