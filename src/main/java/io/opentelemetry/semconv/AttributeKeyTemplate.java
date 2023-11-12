@@ -14,9 +14,9 @@ import java.util.function.Function;
 
 public final class AttributeKeyTemplate<T> {
 
-  private final ConcurrentMap<String, AttributeKey<T>> keysCache = new ConcurrentHashMap<>();
   private final String prefix;
   private final Function<String, AttributeKey<T>> keyBuilder;
+  private ConcurrentMap<String, AttributeKey<T>> keysCache;
 
   AttributeKeyTemplate(String prefix, Function<String, AttributeKey<T>> keyBuilder) {
     this.prefix = prefix;
@@ -56,11 +56,26 @@ public final class AttributeKeyTemplate<T> {
   }
 
   private AttributeKey<T> createAttributeKey(String keyName) {
-    String key = prefix + "." + keyName.toLowerCase(Locale.ROOT).replace('-', '_');
+    String key = prefix + "." + keyName.toLowerCase(Locale.ROOT);
     return keyBuilder.apply(key);
   }
 
+  /**
+   * Returns an {@link AttributeKey} object for the given attribute key whereby the key is the
+   * variable part of the full attribute name in a template-typed attribute, for example
+   * <b>http.request.header.&lt;key&gt;</b>.
+   *
+   * <p>{@link AttributeKey} objets are being created and cached on the first invocation of this
+   * method for a certain key. Subsequent invocations of this method with the same key return the
+   * cached object.
+   *
+   * @param key The variable part of the template-typed attribute name.
+   * @return An {@link AttributeKey} object for the given key.
+   */
   public AttributeKey<T> getAttributeKey(String key) {
+    if (keysCache == null) {
+      keysCache = new ConcurrentHashMap<>(1);
+    }
     return keysCache.computeIfAbsent(key, this::createAttributeKey);
   }
 }
