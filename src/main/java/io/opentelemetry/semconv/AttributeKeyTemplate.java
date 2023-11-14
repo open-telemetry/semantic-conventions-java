@@ -7,11 +7,20 @@ package io.opentelemetry.semconv;
 
 import io.opentelemetry.api.common.AttributeKey;
 import java.util.List;
-import java.util.Locale;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentMap;
 import java.util.function.Function;
 
+/**
+ * This class provides a handle for creating and caching dynamic / template-type attributes of the
+ * form <b>&lt;prefix&gt;.&lt;key&gt;</b>. The &lt;prefix&gt; is fixed for a template instance while
+ * {@link AttributeKey}s can be created and are cached for different values of the &lt;key&gt; part.
+ *
+ * <p>An example template-type attribute is the set of attributes for HTTP headers:
+ * <b>http.request.header.&lt;key&gt;</b>
+ *
+ * @param <T> The type of the nested {@link AttributeKey}s.
+ */
 public final class AttributeKeyTemplate<T> {
 
   private final String prefix;
@@ -56,7 +65,7 @@ public final class AttributeKeyTemplate<T> {
   }
 
   private AttributeKey<T> createAttributeKey(String keyName) {
-    String key = prefix + "." + keyName.toLowerCase(Locale.ROOT);
+    String key = prefix + "." + keyName;
     return keyBuilder.apply(key);
   }
 
