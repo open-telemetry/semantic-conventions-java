@@ -16,7 +16,7 @@ public final class AttributeKeyTemplate<T> {
 
   private final String prefix;
   private final Function<String, AttributeKey<T>> keyBuilder;
-  private ConcurrentMap<String, AttributeKey<T>> keysCache;
+  private final ConcurrentMap<String, AttributeKey<T>> keysCache = new ConcurrentHashMap<>(1);
 
   AttributeKeyTemplate(String prefix, Function<String, AttributeKey<T>> keyBuilder) {
     this.prefix = prefix;
@@ -73,9 +73,6 @@ public final class AttributeKeyTemplate<T> {
    * @return An {@link AttributeKey} object for the given key.
    */
   public AttributeKey<T> getAttributeKey(String key) {
-    if (keysCache == null) {
-      keysCache = new ConcurrentHashMap<>(1);
-    }
     return keysCache.computeIfAbsent(key, this::createAttributeKey);
   }
 }
