@@ -104,7 +104,7 @@ val generateSemanticAttributes by tasks.registering(Exec::class) {
     "-v", "$projectDir/buildscripts/templates:/templates",
     "-v", "$projectDir/src/main/java/io/opentelemetry/semconv/:/output",
     "otel/semconvgen:$generatorVersion",
-    "--only", "span,event,attribute_group,scope",
+    "--only", "span,event,attribute_group,scope,metric",
     "--yaml-root", "/source", "code",
     "--template", "/templates/SemanticAttributes.java.j2",
     "--output", "/output/SemanticAttributes.java",
