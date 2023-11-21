@@ -10,6 +10,8 @@ import static io.opentelemetry.api.common.AttributeKey.doubleKey;
 import static io.opentelemetry.api.common.AttributeKey.longKey;
 import static io.opentelemetry.api.common.AttributeKey.stringArrayKey;
 import static io.opentelemetry.api.common.AttributeKey.stringKey;
+import static io.opentelemetry.semconv.AttributeKeyTemplate.stringArrayKeyTemplate;
+import static io.opentelemetry.semconv.AttributeKeyTemplate.stringKeyTemplate;
 
 import io.opentelemetry.api.common.AttributeKey;
 import java.util.List;
@@ -1737,6 +1739,121 @@ public final class SemanticAttributes {
    * </ul>
    */
   public static final AttributeKey<Boolean> EXCEPTION_ESCAPED = booleanKey("exception.escaped");
+
+  /**
+   * HTTP request headers, {@code <key>} being the normalized HTTP Header name (lowercase), the
+   * value being the header values.
+   *
+   * <p>Notes:
+   *
+   * <ul>
+   *   <li>Instrumentations SHOULD require an explicit configuration of which headers are to be
+   *       captured. Including all request headers can be a security risk - explicit configuration
+   *       helps avoid leaking sensitive information. The {@code User-Agent} header is already
+   *       captured in the {@code user_agent.original} attribute. Users MAY explicitly configure
+   *       instrumentations to capture them even though it is not recommended. The attribute value
+   *       MUST consist of either multiple header values as an array of strings or a single-item
+   *       array containing a possibly comma-concatenated string, depending on the way the HTTP
+   *       library provides access to headers.
+   * </ul>
+   */
+  public static final AttributeKeyTemplate<List<String>> HTTP_REQUEST_HEADER =
+      stringArrayKeyTemplate("http.request.header");
+
+  /**
+   * HTTP response headers, {@code <key>} being the normalized HTTP Header name (lowercase), the
+   * value being the header values.
+   *
+   * <p>Notes:
+   *
+   * <ul>
+   *   <li>Instrumentations SHOULD require an explicit configuration of which headers are to be
+   *       captured. Including all response headers can be a security risk - explicit configuration
+   *       helps avoid leaking sensitive information. Users MAY explicitly configure
+   *       instrumentations to capture them even though it is not recommended. The attribute value
+   *       MUST consist of either multiple header values as an array of strings or a single-item
+   *       array containing a possibly comma-concatenated string, depending on the way the HTTP
+   *       library provides access to headers.
+   * </ul>
+   */
+  public static final AttributeKeyTemplate<List<String>> HTTP_RESPONSE_HEADER =
+      stringArrayKeyTemplate("http.response.header");
+
+  /**
+   * Connect request metadata, {@code <key>} being the normalized Connect Metadata key (lowercase),
+   * the value being the metadata values.
+   *
+   * <p>Notes:
+   *
+   * <ul>
+   *   <li>Instrumentations SHOULD require an explicit configuration of which metadata values are to
+   *       be captured. Including all request metadata values can be a security risk - explicit
+   *       configuration helps avoid leaking sensitive information.
+   * </ul>
+   */
+  public static final AttributeKeyTemplate<List<String>> RPC_CONNECT_RPC_REQUEST_METADATA =
+      stringArrayKeyTemplate("rpc.connect_rpc.request.metadata");
+
+  /**
+   * Connect response metadata, {@code <key>} being the normalized Connect Metadata key (lowercase),
+   * the value being the metadata values.
+   *
+   * <p>Notes:
+   *
+   * <ul>
+   *   <li>Instrumentations SHOULD require an explicit configuration of which metadata values are to
+   *       be captured. Including all response metadata values can be a security risk - explicit
+   *       configuration helps avoid leaking sensitive information.
+   * </ul>
+   */
+  public static final AttributeKeyTemplate<List<String>> RPC_CONNECT_RPC_RESPONSE_METADATA =
+      stringArrayKeyTemplate("rpc.connect_rpc.response.metadata");
+
+  /**
+   * gRPC request metadata, {@code <key>} being the normalized gRPC Metadata key (lowercase), the
+   * value being the metadata values.
+   *
+   * <p>Notes:
+   *
+   * <ul>
+   *   <li>Instrumentations SHOULD require an explicit configuration of which metadata values are to
+   *       be captured. Including all request metadata values can be a security risk - explicit
+   *       configuration helps avoid leaking sensitive information.
+   * </ul>
+   */
+  public static final AttributeKeyTemplate<List<String>> RPC_GRPC_REQUEST_METADATA =
+      stringArrayKeyTemplate("rpc.grpc.request.metadata");
+
+  /**
+   * gRPC response metadata, {@code <key>} being the normalized gRPC Metadata key (lowercase), the
+   * value being the metadata values.
+   *
+   * <p>Notes:
+   *
+   * <ul>
+   *   <li>Instrumentations SHOULD require an explicit configuration of which metadata values are to
+   *       be captured. Including all response metadata values can be a security risk - explicit
+   *       configuration helps avoid leaking sensitive information.
+   * </ul>
+   */
+  public static final AttributeKeyTemplate<List<String>> RPC_GRPC_RESPONSE_METADATA =
+      stringArrayKeyTemplate("rpc.grpc.response.metadata");
+
+  /**
+   * A dynamic value in the url path.
+   *
+   * <p>Notes:
+   *
+   * <ul>
+   *   <li>Many Elasticsearch url paths allow dynamic values. These SHOULD be recorded in span
+   *       attributes in the format {@code db.elasticsearch.path_parts.<key>}, where {@code <key>}
+   *       is the url path part name. The implementation SHOULD reference the <a
+   *       href="https://raw.githubusercontent.com/elastic/elasticsearch-specification/main/output/schema/schema.json">elasticsearch
+   *       schema</a> in order to map the path part values to their names.
+   * </ul>
+   */
+  public static final AttributeKeyTemplate<String> DB_ELASTICSEARCH_PATH_PARTS =
+      stringKeyTemplate("db.elasticsearch.path_parts");
 
   // Enum definitions
   public static final class ErrorTypeValues {
