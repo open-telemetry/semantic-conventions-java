@@ -2,6 +2,11 @@
 
 ## Unreleased
 
+* Extended jinja template to generate template-type semantic attributes.
+  ([#24](https://github.com/open-telemetry/semantic-conventions-java/pull/24))
+* Update to semconv 1.23.1
+  ([#36](https://github.com/open-telemetry/semantic-conventions-java/pull/36))
+
 ## Version 1.22.0 (2023-10-26)
 
 * Update to semconv 1.22
