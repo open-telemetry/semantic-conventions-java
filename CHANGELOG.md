@@ -1,6 +1,6 @@
 # Changelog
 
-## Unreleased
+## Version 1.23.1 (2023-11-21)
 
 * Extended jinja template to generate template-type semantic attributes.
   ([#24](https://github.com/open-telemetry/semantic-conventions-java/pull/24))
