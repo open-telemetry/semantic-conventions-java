@@ -17,7 +17,7 @@ val snapshot = true
 // end
 
 // The release version of https://github.com/open-telemetry/semantic-conventions used to generate classes
-var semanticConventionsVersion = "1.22.0"
+var semanticConventionsVersion = "1.23.1"
 
 // Compute the artifact version, which includes the "-alpha" suffix and includes "-SNAPSHOT" suffix if not releasing
 // Release example: version=1.21.0-alpha
@@ -71,7 +71,7 @@ dependencies {
 }
 
 // start - define tasks to download, unzip, and generate from opentelemetry/semantic-conventions
-var generatorVersion = "0.22.0"
+var generatorVersion = "0.23.0"
 val semanticConventionsRepoZip = "https://github.com/open-telemetry/semantic-conventions/archive/v$semanticConventionsVersion.zip"
 val schemaUrl = "https://opentelemetry.io/schemas/$semanticConventionsVersion"
 
@@ -105,11 +105,10 @@ val generateSemanticAttributes by tasks.registering(Exec::class) {
     "-v", "$projectDir/buildscripts/templates:/templates",
     "-v", "$projectDir/src/main/java/io/opentelemetry/semconv/:/output",
     "otel/semconvgen:$generatorVersion",
-    "--only", "span,event,attribute_group,scope",
-    "-f", "/source", "code",
+    "--only", "span,event,attribute_group,scope,metric",
+    "--yaml-root", "/source", "code",
     "--template", "/templates/SemanticAttributes.java.j2",
     "--output", "/output/SemanticAttributes.java",
-    "-Dsemconv=trace",
     "-Dclass=SemanticAttributes",
     "-DschemaUrl=$schemaUrl",
     "-Dpkg=io.opentelemetry.semconv"))
@@ -128,7 +127,7 @@ val generateResourceAttributes by tasks.registering(Exec::class) {
     "-v", "$projectDir/src/main/java/io/opentelemetry/semconv/:/output",
     "otel/semconvgen:$generatorVersion",
     "--only", "resource",
-    "-f", "/source", "code",
+    "--yaml-root", "/source", "code",
     "--template", "/templates/SemanticAttributes.java.j2",
     "--output", "/output/ResourceAttributes.java",
     "-Dclass=ResourceAttributes",

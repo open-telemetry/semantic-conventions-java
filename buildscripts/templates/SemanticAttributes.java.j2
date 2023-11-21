@@ -122,6 +122,30 @@ public final class {{class}} {
 
     {%- endfor %}
 
+    {%- if class_name == "MessagingOperationValues" %}
+
+      /**
+       * process.
+       *
+       * @deprecated this value has been removed as of 1.23.1 of the semantic conventions.
+       */
+      @Deprecated
+      public static final String PROCESS = "process";
+
+    {% endif %}
+
+    {%- if class_name == "SystemMemoryStateValues" %}
+
+      /**
+       * total.
+       *
+       * @deprecated this value has been removed as of 1.23.1 of the semantic conventions.
+       */
+      @Deprecated
+      public static final String TOTAL = "total";
+
+    {% endif %}
+
       private {{ class_name }}() {}
   }
 
@@ -819,6 +843,30 @@ public final class {{class}} {
 
     private TypeValues() {}
   }
+
+  /**
+   * Whether the thread is daemon or not.
+   *
+   * @deprecated This item has been renamed in 1.23.1 of the semantic conventions. Use {@link SemanticAttributes#JVM_THREAD_DAEMON} instead.
+   */
+  @Deprecated
+  public static final AttributeKey<Boolean> THREAD_DAEMON = booleanKey("thread.daemon");
+
+  /**
+   * The ordinal number of request resending attempt (for any reason, including redirects).
+   *
+   * <p>Notes:
+   *
+   * <ul>
+   *   <li>The resend count SHOULD be updated each time an HTTP request gets resent by the client,
+   *       regardless of what was the cause of the resending (e.g. redirection, authorization
+   *       failure, 503 Server Unavailable, network issues, or any other).
+   * </ul>
+   *
+   * @deprecated This item has been renamed in 1.23.1 of the semantic conventions. Use {@link SemanticAttributes#HTTP_REQUEST_RESEND_COUNT} instead.
+   */
+  @Deprecated
+  public static final AttributeKey<Long> HTTP_RESEND_COUNT = longKey("http.resend_count");
 
   {% endif %}
 
