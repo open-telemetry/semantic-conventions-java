@@ -28,7 +28,7 @@ public final class AttributeKeyTemplate<T> {
   private final Function<String, AttributeKey<T>> keyBuilder;
   private final ConcurrentMap<String, AttributeKey<T>> keysCache = new ConcurrentHashMap<>(1);
 
-  AttributeKeyTemplate(String prefix, Function<String, AttributeKey<T>> keyBuilder) {
+  private AttributeKeyTemplate(String prefix, Function<String, AttributeKey<T>> keyBuilder) {
     this.prefix = prefix;
     this.keyBuilder = keyBuilder;
   }
