@@ -63,6 +63,7 @@ dependencies {
 
   testImplementation(platform("org.junit:junit-bom:5.10.0"))
   testImplementation("org.junit.jupiter:junit-jupiter-api")
+  testImplementation("org.junit.jupiter:junit-jupiter-params")
   testImplementation("org.junit.jupiter:junit-jupiter-engine")
 
   testImplementation(platform("org.assertj:assertj-bom:3.24.2"))
