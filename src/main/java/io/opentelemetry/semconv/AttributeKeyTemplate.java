@@ -6,6 +6,7 @@
 package io.opentelemetry.semconv;
 
 import io.opentelemetry.api.common.AttributeKey;
+import io.opentelemetry.api.common.AttributeType;
 import java.util.List;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentMap;
@@ -32,36 +33,68 @@ public final class AttributeKeyTemplate<T> {
     this.keyBuilder = keyBuilder;
   }
 
-  static AttributeKeyTemplate<String> stringKeyTemplate(String prefix) {
-    return new AttributeKeyTemplate<String>(prefix, AttributeKey::stringKey);
+  /**
+   * Create an {@link AttributeKeyTemplate} with type {@link AttributeType#STRING} and the given
+   * {@code prefix}.
+   */
+  public static AttributeKeyTemplate<String> stringKeyTemplate(String prefix) {
+    return new AttributeKeyTemplate<>(prefix, AttributeKey::stringKey);
   }
 
-  static AttributeKeyTemplate<List<String>> stringArrayKeyTemplate(String prefix) {
-    return new AttributeKeyTemplate<List<String>>(prefix, AttributeKey::stringArrayKey);
+  /**
+   * Create an {@link AttributeKeyTemplate} with type {@link AttributeType#STRING_ARRAY} and the
+   * given {@code prefix}.
+   */
+  public static AttributeKeyTemplate<List<String>> stringArrayKeyTemplate(String prefix) {
+    return new AttributeKeyTemplate<>(prefix, AttributeKey::stringArrayKey);
   }
 
-  static AttributeKeyTemplate<Boolean> booleanKeyTemplate(String prefix) {
-    return new AttributeKeyTemplate<Boolean>(prefix, AttributeKey::booleanKey);
+  /**
+   * Create an {@link AttributeKeyTemplate} with type {@link AttributeType#BOOLEAN} and the given
+   * {@code prefix}.
+   */
+  public static AttributeKeyTemplate<Boolean> booleanKeyTemplate(String prefix) {
+    return new AttributeKeyTemplate<>(prefix, AttributeKey::booleanKey);
   }
 
-  static AttributeKeyTemplate<List<Boolean>> booleanArrayKeyTemplate(String prefix) {
-    return new AttributeKeyTemplate<List<Boolean>>(prefix, AttributeKey::booleanArrayKey);
+  /**
+   * Create an {@link AttributeKeyTemplate} with type {@link AttributeType#BOOLEAN_ARRAY} and the
+   * given {@code prefix}.
+   */
+  public static AttributeKeyTemplate<List<Boolean>> booleanArrayKeyTemplate(String prefix) {
+    return new AttributeKeyTemplate<>(prefix, AttributeKey::booleanArrayKey);
   }
 
-  static AttributeKeyTemplate<Long> longKeyTemplate(String prefix) {
-    return new AttributeKeyTemplate<Long>(prefix, AttributeKey::longKey);
+  /**
+   * Create an {@link AttributeKeyTemplate} with type {@link AttributeType#LONG} and the given
+   * {@code prefix}.
+   */
+  public static AttributeKeyTemplate<Long> longKeyTemplate(String prefix) {
+    return new AttributeKeyTemplate<>(prefix, AttributeKey::longKey);
   }
 
-  static AttributeKeyTemplate<List<Long>> longArrayKeyTemplate(String prefix) {
-    return new AttributeKeyTemplate<List<Long>>(prefix, AttributeKey::longArrayKey);
+  /**
+   * Create an {@link AttributeKeyTemplate} with type {@link AttributeType#LONG_ARRAY} and the given
+   * {@code prefix}.
+   */
+  public static AttributeKeyTemplate<List<Long>> longArrayKeyTemplate(String prefix) {
+    return new AttributeKeyTemplate<>(prefix, AttributeKey::longArrayKey);
   }
 
-  static AttributeKeyTemplate<Double> doubleKeyTemplate(String prefix) {
-    return new AttributeKeyTemplate<Double>(prefix, AttributeKey::doubleKey);
+  /**
+   * Create an {@link AttributeKeyTemplate} with type {@link AttributeType#DOUBLE} and the given
+   * {@code prefix}.
+   */
+  public static AttributeKeyTemplate<Double> doubleKeyTemplate(String prefix) {
+    return new AttributeKeyTemplate<>(prefix, AttributeKey::doubleKey);
   }
 
-  static AttributeKeyTemplate<List<Double>> doubleArrayKeyTemplate(String prefix) {
-    return new AttributeKeyTemplate<List<Double>>(prefix, AttributeKey::doubleArrayKey);
+  /**
+   * Create an {@link AttributeKeyTemplate} with type {@link AttributeType#DOUBLE_ARRAY} and the
+   * given {@code prefix}.
+   */
+  public static AttributeKeyTemplate<List<Double>> doubleArrayKeyTemplate(String prefix) {
+    return new AttributeKeyTemplate<>(prefix, AttributeKey::doubleArrayKey);
   }
 
   private AttributeKey<T> createAttributeKey(String keyName) {
