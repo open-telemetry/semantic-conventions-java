@@ -10,7 +10,7 @@ import static io.opentelemetry.api.common.AttributeKey.stringKey;
 import io.opentelemetry.api.common.AttributeKey;
 
 // DO NOT EDIT, this is an Auto-generated file from
-// buildscripts/templates/SemanticAttributes.experimental.java.j2
+// buildscripts/templates/SemanticAttributes.java.j2
 @SuppressWarnings("unused")
 public final class EnduserAttributes {
 
@@ -38,6 +38,5 @@ public final class EnduserAttributes {
   public static final AttributeKey<String> ENDUSER_SCOPE = stringKey("enduser.scope");
 
   // Enum definitions
-
   private EnduserAttributes() {}
 }

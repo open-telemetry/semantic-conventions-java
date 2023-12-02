@@ -10,7 +10,7 @@ import static io.opentelemetry.api.common.AttributeKey.longKey;
 import io.opentelemetry.api.common.AttributeKey;
 
 // DO NOT EDIT, this is an Auto-generated file from
-// buildscripts/templates/SemanticAttributes.experimental.java.j2
+// buildscripts/templates/SemanticAttributes.java.j2
 @SuppressWarnings("unused")
 public final class HttpAttributes {
 
@@ -32,6 +32,5 @@ public final class HttpAttributes {
       longKey("http.response.body.size");
 
   // Enum definitions
-
   private HttpAttributes() {}
 }

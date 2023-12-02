@@ -14,7 +14,7 @@ import io.opentelemetry.semconv.AttributeKeyTemplate;
 import java.util.List;
 
 // DO NOT EDIT, this is an Auto-generated file from
-// buildscripts/templates/SemanticAttributes.experimental.java.j2
+// buildscripts/templates/SemanticAttributes.java.j2
 @SuppressWarnings("unused")
 public final class ContainerAttributes {
 
@@ -94,17 +94,16 @@ public final class ContainerAttributes {
   public static final AttributeKey<List<String>> CONTAINER_IMAGE_TAGS =
       stringArrayKey("container.image.tags");
 
+  /** Container labels, {@code <key>} being the label name, the value being the label value. */
+  public static final AttributeKeyTemplate<String> CONTAINER_LABELS =
+      stringKeyTemplate("container.labels");
+
   /** Container name used by container runtime. */
   public static final AttributeKey<String> CONTAINER_NAME = stringKey("container.name");
 
   /** The container runtime managing this container. */
   public static final AttributeKey<String> CONTAINER_RUNTIME = stringKey("container.runtime");
 
-  /** Container labels, {@code <key>} being the label name, the value being the label value. */
-  public static final AttributeKeyTemplate<String> CONTAINER_LABELS =
-      stringKeyTemplate("container.labels");
-
   // Enum definitions
-
   private ContainerAttributes() {}
 }

@@ -13,7 +13,7 @@ import io.opentelemetry.api.common.AttributeKey;
 import java.util.List;
 
 // DO NOT EDIT, this is an Auto-generated file from
-// buildscripts/templates/SemanticAttributes.experimental.java.j2
+// buildscripts/templates/SemanticAttributes.java.j2
 @SuppressWarnings("unused")
 public final class BrowserAttributes {
 
@@ -75,6 +75,5 @@ public final class BrowserAttributes {
   public static final AttributeKey<String> BROWSER_PLATFORM = stringKey("browser.platform");
 
   // Enum definitions
-
   private BrowserAttributes() {}
 }

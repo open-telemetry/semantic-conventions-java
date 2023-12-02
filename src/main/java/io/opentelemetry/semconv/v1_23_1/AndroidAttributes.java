@@ -10,9 +10,16 @@ import static io.opentelemetry.api.common.AttributeKey.stringKey;
 import io.opentelemetry.api.common.AttributeKey;
 
 // DO NOT EDIT, this is an Auto-generated file from
-// buildscripts/templates/SemanticAttributes.experimental.java.j2
+// buildscripts/templates/SemanticAttributes.java.j2
 @SuppressWarnings("unused")
 public final class AndroidAttributes {
+
+  /**
+   * Uniquely identifies the framework API revision offered by a version ({@code os.version}) of the
+   * android operating system. More information can be found <a
+   * href="https://developer.android.com/guide/topics/manifest/uses-sdk-element#ApiLevels">here</a>.
+   */
+  public static final AttributeKey<String> ANDROID_OS_API_LEVEL = stringKey("android.os.api_level");
 
   /**
    * This attribute represents the state the application has transitioned into at the occurrence of
@@ -27,13 +34,6 @@ public final class AndroidAttributes {
    * </ul>
    */
   public static final AttributeKey<String> ANDROID_STATE = stringKey("android.state");
-
-  /**
-   * Uniquely identifies the framework API revision offered by a version ({@code os.version}) of the
-   * android operating system. More information can be found <a
-   * href="https://developer.android.com/guide/topics/manifest/uses-sdk-element#ApiLevels">here</a>.
-   */
-  public static final AttributeKey<String> ANDROID_OS_API_LEVEL = stringKey("android.os.api_level");
 
   // Enum definitions
   public static final class AndroidStateValues {

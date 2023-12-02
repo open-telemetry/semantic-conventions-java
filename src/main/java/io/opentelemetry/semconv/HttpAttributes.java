@@ -13,9 +13,29 @@ import io.opentelemetry.api.common.AttributeKey;
 import java.util.List;
 
 // DO NOT EDIT, this is an Auto-generated file from
-// buildscripts/templates/SemanticAttributes.stable.java.j2
+// buildscripts/templates/SemanticAttributes.java.j2
 @SuppressWarnings("unused")
 public final class HttpAttributes {
+
+  /**
+   * HTTP request headers, {@code <key>} being the normalized HTTP Header name (lowercase), the
+   * value being the header values.
+   *
+   * <p>Notes:
+   *
+   * <ul>
+   *   <li>Instrumentations SHOULD require an explicit configuration of which headers are to be
+   *       captured. Including all request headers can be a security risk - explicit configuration
+   *       helps avoid leaking sensitive information. The {@code User-Agent} header is already
+   *       captured in the {@code user_agent.original} attribute. Users MAY explicitly configure
+   *       instrumentations to capture them even though it is not recommended. The attribute value
+   *       MUST consist of either multiple header values as an array of strings or a single-item
+   *       array containing a possibly comma-concatenated string, depending on the way the HTTP
+   *       library provides access to headers.
+   * </ul>
+   */
+  public static final AttributeKeyTemplate<List<String>> HTTP_REQUEST_HEADER =
+      stringArrayKeyTemplate("http.request.header");
 
   /**
    * HTTP request method.
@@ -62,45 +82,6 @@ public final class HttpAttributes {
   public static final AttributeKey<Long> HTTP_REQUEST_RESEND_COUNT =
       longKey("http.request.resend_count");
 
-  /** <a href="https://tools.ietf.org/html/rfc7231#section-6">HTTP response status code</a>. */
-  public static final AttributeKey<Long> HTTP_RESPONSE_STATUS_CODE =
-      longKey("http.response.status_code");
-
-  /**
-   * The matched route, that is, the path template in the format used by the respective server
-   * framework.
-   *
-   * <p>Notes:
-   *
-   * <ul>
-   *   <li>MUST NOT be populated when this is not supported by the HTTP server framework as the
-   *       route attribute should have low-cardinality and the URI path can NOT substitute it.
-   *       SHOULD include the <a href="/docs/http/http-spans.md#http-server-definitions">application
-   *       root</a> if there is one.
-   * </ul>
-   */
-  public static final AttributeKey<String> HTTP_ROUTE = stringKey("http.route");
-
-  /**
-   * HTTP request headers, {@code <key>} being the normalized HTTP Header name (lowercase), the
-   * value being the header values.
-   *
-   * <p>Notes:
-   *
-   * <ul>
-   *   <li>Instrumentations SHOULD require an explicit configuration of which headers are to be
-   *       captured. Including all request headers can be a security risk - explicit configuration
-   *       helps avoid leaking sensitive information. The {@code User-Agent} header is already
-   *       captured in the {@code user_agent.original} attribute. Users MAY explicitly configure
-   *       instrumentations to capture them even though it is not recommended. The attribute value
-   *       MUST consist of either multiple header values as an array of strings or a single-item
-   *       array containing a possibly comma-concatenated string, depending on the way the HTTP
-   *       library provides access to headers.
-   * </ul>
-   */
-  public static final AttributeKeyTemplate<List<String>> HTTP_REQUEST_HEADER =
-      stringArrayKeyTemplate("http.request.header");
-
   /**
    * HTTP response headers, {@code <key>} being the normalized HTTP Header name (lowercase), the
    * value being the header values.
@@ -119,6 +100,25 @@ public final class HttpAttributes {
    */
   public static final AttributeKeyTemplate<List<String>> HTTP_RESPONSE_HEADER =
       stringArrayKeyTemplate("http.response.header");
+
+  /** <a href="https://tools.ietf.org/html/rfc7231#section-6">HTTP response status code</a>. */
+  public static final AttributeKey<Long> HTTP_RESPONSE_STATUS_CODE =
+      longKey("http.response.status_code");
+
+  /**
+   * The matched route, that is, the path template in the format used by the respective server
+   * framework.
+   *
+   * <p>Notes:
+   *
+   * <ul>
+   *   <li>MUST NOT be populated when this is not supported by the HTTP server framework as the
+   *       route attribute should have low-cardinality and the URI path can NOT substitute it.
+   *       SHOULD include the <a href="/docs/http/http-spans.md#http-server-definitions">application
+   *       root</a> if there is one.
+   * </ul>
+   */
+  public static final AttributeKey<String> HTTP_ROUTE = stringKey("http.route");
 
   // Enum definitions
   public static final class HttpRequestMethodValues {

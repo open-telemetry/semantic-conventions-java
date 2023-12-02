@@ -14,7 +14,7 @@ import io.opentelemetry.semconv.AttributeKeyTemplate;
 import java.util.List;
 
 // DO NOT EDIT, this is an Auto-generated file from
-// buildscripts/templates/SemanticAttributes.experimental.java.j2
+// buildscripts/templates/SemanticAttributes.java.j2
 @SuppressWarnings("unused")
 public final class RpcAttributes {
 
@@ -24,66 +24,6 @@ public final class RpcAttributes {
    */
   public static final AttributeKey<String> RPC_CONNECT_RPC_ERROR_CODE =
       stringKey("rpc.connect_rpc.error_code");
-
-  /**
-   * The <a href="https://github.com/grpc/grpc/blob/v1.33.2/doc/statuscodes.md">numeric status
-   * code</a> of the gRPC request.
-   */
-  public static final AttributeKey<Long> RPC_GRPC_STATUS_CODE = longKey("rpc.grpc.status_code");
-
-  /** {@code error.code} property of response if it is an error response. */
-  public static final AttributeKey<Long> RPC_JSONRPC_ERROR_CODE = longKey("rpc.jsonrpc.error_code");
-
-  /** {@code error.message} property of response if it is an error response. */
-  public static final AttributeKey<String> RPC_JSONRPC_ERROR_MESSAGE =
-      stringKey("rpc.jsonrpc.error_message");
-
-  /**
-   * {@code id} property of request or response. Since protocol allows id to be int, string, {@code
-   * null} or missing (for notifications), value is expected to be cast to string for simplicity.
-   * Use empty string in case of {@code null} value. Omit entirely if this is a notification.
-   */
-  public static final AttributeKey<String> RPC_JSONRPC_REQUEST_ID =
-      stringKey("rpc.jsonrpc.request_id");
-
-  /**
-   * Protocol version as in {@code jsonrpc} property of request/response. Since JSON-RPC 1.0 doesn't
-   * specify this, the value can be omitted.
-   */
-  public static final AttributeKey<String> RPC_JSONRPC_VERSION = stringKey("rpc.jsonrpc.version");
-
-  /**
-   * The name of the (logical) method being called, must be equal to the $method part in the span
-   * name.
-   *
-   * <p>Notes:
-   *
-   * <ul>
-   *   <li>This is the logical name of the method from the RPC interface perspective, which can be
-   *       different from the name of any implementing method/function. The {@code code.function}
-   *       attribute may be used to store the latter (e.g., method actually executing the call on
-   *       the server side, RPC client stub method on the client side).
-   * </ul>
-   */
-  public static final AttributeKey<String> RPC_METHOD = stringKey("rpc.method");
-
-  /**
-   * The full (logical) name of the service being called, including its package name, if applicable.
-   *
-   * <p>Notes:
-   *
-   * <ul>
-   *   <li>This is the logical name of the service from the RPC interface perspective, which can be
-   *       different from the name of any implementing class. The {@code code.namespace} attribute
-   *       may be used to store the latter (despite the attribute name, it may include a class name;
-   *       e.g., class with method actually executing the call on the server side, RPC client stub
-   *       class on the client side).
-   * </ul>
-   */
-  public static final AttributeKey<String> RPC_SERVICE = stringKey("rpc.service");
-
-  /** A string identifying the remoting system. See below for a list of well-known identifiers. */
-  public static final AttributeKey<String> RPC_SYSTEM = stringKey("rpc.system");
 
   /**
    * Connect request metadata, {@code <key>} being the normalized Connect Metadata key (lowercase),
@@ -144,6 +84,66 @@ public final class RpcAttributes {
    */
   public static final AttributeKeyTemplate<List<String>> RPC_GRPC_RESPONSE_METADATA =
       stringArrayKeyTemplate("rpc.grpc.response.metadata");
+
+  /**
+   * The <a href="https://github.com/grpc/grpc/blob/v1.33.2/doc/statuscodes.md">numeric status
+   * code</a> of the gRPC request.
+   */
+  public static final AttributeKey<Long> RPC_GRPC_STATUS_CODE = longKey("rpc.grpc.status_code");
+
+  /** {@code error.code} property of response if it is an error response. */
+  public static final AttributeKey<Long> RPC_JSONRPC_ERROR_CODE = longKey("rpc.jsonrpc.error_code");
+
+  /** {@code error.message} property of response if it is an error response. */
+  public static final AttributeKey<String> RPC_JSONRPC_ERROR_MESSAGE =
+      stringKey("rpc.jsonrpc.error_message");
+
+  /**
+   * {@code id} property of request or response. Since protocol allows id to be int, string, {@code
+   * null} or missing (for notifications), value is expected to be cast to string for simplicity.
+   * Use empty string in case of {@code null} value. Omit entirely if this is a notification.
+   */
+  public static final AttributeKey<String> RPC_JSONRPC_REQUEST_ID =
+      stringKey("rpc.jsonrpc.request_id");
+
+  /**
+   * Protocol version as in {@code jsonrpc} property of request/response. Since JSON-RPC 1.0 doesn't
+   * specify this, the value can be omitted.
+   */
+  public static final AttributeKey<String> RPC_JSONRPC_VERSION = stringKey("rpc.jsonrpc.version");
+
+  /**
+   * The name of the (logical) method being called, must be equal to the $method part in the span
+   * name.
+   *
+   * <p>Notes:
+   *
+   * <ul>
+   *   <li>This is the logical name of the method from the RPC interface perspective, which can be
+   *       different from the name of any implementing method/function. The {@code code.function}
+   *       attribute may be used to store the latter (e.g., method actually executing the call on
+   *       the server side, RPC client stub method on the client side).
+   * </ul>
+   */
+  public static final AttributeKey<String> RPC_METHOD = stringKey("rpc.method");
+
+  /**
+   * The full (logical) name of the service being called, including its package name, if applicable.
+   *
+   * <p>Notes:
+   *
+   * <ul>
+   *   <li>This is the logical name of the service from the RPC interface perspective, which can be
+   *       different from the name of any implementing class. The {@code code.namespace} attribute
+   *       may be used to store the latter (despite the attribute name, it may include a class name;
+   *       e.g., class with method actually executing the call on the server side, RPC client stub
+   *       class on the client side).
+   * </ul>
+   */
+  public static final AttributeKey<String> RPC_SERVICE = stringKey("rpc.service");
+
+  /** A string identifying the remoting system. See below for a list of well-known identifiers. */
+  public static final AttributeKey<String> RPC_SYSTEM = stringKey("rpc.system");
 
   // Enum definitions
   public static final class RpcConnectRpcErrorCodeValues {

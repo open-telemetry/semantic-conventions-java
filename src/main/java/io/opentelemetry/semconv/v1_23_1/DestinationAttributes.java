@@ -11,7 +11,7 @@ import static io.opentelemetry.api.common.AttributeKey.stringKey;
 import io.opentelemetry.api.common.AttributeKey;
 
 // DO NOT EDIT, this is an Auto-generated file from
-// buildscripts/templates/SemanticAttributes.experimental.java.j2
+// buildscripts/templates/SemanticAttributes.java.j2
 @SuppressWarnings("unused")
 public final class DestinationAttributes {
 
@@ -33,6 +33,5 @@ public final class DestinationAttributes {
   public static final AttributeKey<Long> DESTINATION_PORT = longKey("destination.port");
 
   // Enum definitions
-
   private DestinationAttributes() {}
 }

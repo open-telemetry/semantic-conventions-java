@@ -18,7 +18,7 @@ val snapshot = true
 
 // The release version of https://github.com/open-telemetry/semantic-conventions used to generate classes
 var semanticConventionsVersion = "1.23.1"
-val semanticConventionsVersionEscaped = "v1_23_1"
+val semanticConventionsVersionEscaped = "v" + semanticConventionsVersion.replace(".", "_")
 
 // Compute the artifact version, which includes the "-alpha" suffix and includes "-SNAPSHOT" suffix if not releasing
 // Release example: version=1.21.0-alpha
@@ -72,7 +72,7 @@ dependencies {
 }
 
 // start - define tasks to download, unzip, and generate from opentelemetry/semantic-conventions
-var generatorVersion = "foo5"
+var generatorVersion = "foo9"
 val semanticConventionsRepoZip = "https://github.com/open-telemetry/semantic-conventions/archive/v$semanticConventionsVersion.zip"
 val schemaUrl = "https://opentelemetry.io/schemas/$semanticConventionsVersion"
 
@@ -106,10 +106,12 @@ val generateStableSemanticAttributes by tasks.registering(Exec::class) {
     "-v", "$projectDir/buildscripts/templates:/templates",
     "-v", "$projectDir/src/main/java/io/opentelemetry/semconv/:/output",
     "semconvgen:$generatorVersion",
-    "--yaml-root", "/source", "code_easy",
-    "--template", "/templates/SemanticAttributes.stable.java.j2",
+    "--yaml-root", "/source", "code",
+    "--template", "/templates/SemanticAttributes.java.j2",
     "--output", "/output/Attributes.java",
+    "--file-per-group", "root_namespace",
     "-DschemaUrl=$schemaUrl",
+    "-Dattr_filter=is_stable",
     "-Dpkg=io.opentelemetry.semconv"))
 }
 
@@ -125,10 +127,12 @@ val generateExperimentalSemanticAttributes by tasks.registering(Exec::class) {
     "-v", "$projectDir/buildscripts/templates:/templates",
     "-v", "$projectDir/src/main/java/io/opentelemetry/semconv/$semanticConventionsVersionEscaped/:/output",
     "semconvgen:$generatorVersion",
-    "--yaml-root", "/source", "code_easy",
-    "--template", "/templates/SemanticAttributes.experimental.java.j2",
+    "--yaml-root", "/source", "code",
+    "--template", "/templates/SemanticAttributes.java.j2",
     "--output", "/output/Attributes.java",
+    "--file-per-group", "root_namespace",
     "-DschemaUrl=$schemaUrl",
+    "-Dattr_filter=is_experimental",
     "-Dpkg=io.opentelemetry.semconv.$semanticConventionsVersionEscaped"))
 }
 

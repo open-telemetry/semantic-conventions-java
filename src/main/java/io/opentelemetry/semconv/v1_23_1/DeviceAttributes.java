@@ -10,7 +10,7 @@ import static io.opentelemetry.api.common.AttributeKey.stringKey;
 import io.opentelemetry.api.common.AttributeKey;
 
 // DO NOT EDIT, this is an Auto-generated file from
-// buildscripts/templates/SemanticAttributes.experimental.java.j2
+// buildscripts/templates/SemanticAttributes.java.j2
 @SuppressWarnings("unused")
 public final class DeviceAttributes {
 
@@ -74,6 +74,5 @@ public final class DeviceAttributes {
   public static final AttributeKey<String> DEVICE_MODEL_NAME = stringKey("device.model.name");
 
   // Enum definitions
-
   private DeviceAttributes() {}
 }

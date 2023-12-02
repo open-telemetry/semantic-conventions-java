@@ -15,81 +15,9 @@ import io.opentelemetry.api.common.AttributeKey;
 import io.opentelemetry.semconv.AttributeKeyTemplate;
 
 // DO NOT EDIT, this is an Auto-generated file from
-// buildscripts/templates/SemanticAttributes.experimental.java.j2
+// buildscripts/templates/SemanticAttributes.java.j2
 @SuppressWarnings("unused")
 public final class DbAttributes {
-
-  /**
-   * The connection string used to connect to the database. It is recommended to remove embedded
-   * credentials.
-   */
-  public static final AttributeKey<String> DB_CONNECTION_STRING = stringKey("db.connection_string");
-
-  /**
-   * The fully-qualified class name of the <a
-   * href="https://docs.oracle.com/javase/8/docs/technotes/guides/jdbc/">Java Database Connectivity
-   * (JDBC)</a> driver used to connect.
-   */
-  public static final AttributeKey<String> DB_JDBC_DRIVER_CLASSNAME =
-      stringKey("db.jdbc.driver_classname");
-
-  /**
-   * This attribute is used to report the name of the database being accessed. For commands that
-   * switch the database, this should be set to the target database (even if the command fails).
-   *
-   * <p>Notes:
-   *
-   * <ul>
-   *   <li>In some SQL databases, the database name to be used is called &quot;schema name&quot;. In
-   *       case there are multiple layers that could be considered for database name (e.g. Oracle
-   *       instance name and schema name), the database name to be used is the more specific layer
-   *       (e.g. Oracle schema name).
-   * </ul>
-   */
-  public static final AttributeKey<String> DB_NAME = stringKey("db.name");
-
-  /**
-   * The name of the operation being executed, e.g. the <a
-   * href="https://docs.mongodb.com/manual/reference/command/#database-operations">MongoDB command
-   * name</a> such as {@code findAndModify}, or the SQL keyword.
-   *
-   * <p>Notes:
-   *
-   * <ul>
-   *   <li>When setting this to an SQL keyword, it is not recommended to attempt any client-side
-   *       parsing of {@code db.statement} just to get this property, but it should be set if the
-   *       operation name is provided by the library being instrumented. If the SQL statement has an
-   *       ambiguous operation, or performs more than one operation, this value may be omitted.
-   * </ul>
-   */
-  public static final AttributeKey<String> DB_OPERATION = stringKey("db.operation");
-
-  /** The database statement being executed. */
-  public static final AttributeKey<String> DB_STATEMENT = stringKey("db.statement");
-
-  /**
-   * An identifier for the database management system (DBMS) product being used. See below for a
-   * list of well-known identifiers.
-   */
-  public static final AttributeKey<String> DB_SYSTEM = stringKey("db.system");
-
-  /** Username for accessing the database. */
-  public static final AttributeKey<String> DB_USER = stringKey("db.user");
-
-  /**
-   * The Microsoft SQL Server <a
-   * href="https://docs.microsoft.com/sql/connect/jdbc/building-the-connection-url?view=sql-server-ver15">instance
-   * name</a> connecting to. This name is used to determine the port of a named instance.
-   *
-   * <p>Notes:
-   *
-   * <ul>
-   *   <li>If setting a {@code db.mssql.instance_name}, {@code server.port} is no longer required
-   *       (but still recommended if non-standard).
-   * </ul>
-   */
-  public static final AttributeKey<String> DB_MSSQL_INSTANCE_NAME =
-      stringKey("db.mssql.instance_name");
 
   /**
    * The consistency level of the query. Based on consistency values from <a
@@ -137,41 +65,10 @@ public final class DbAttributes {
   public static final AttributeKey<String> DB_CASSANDRA_TABLE = stringKey("db.cassandra.table");
 
   /**
-   * The index of the database being accessed as used in the <a
-   * href="https://redis.io/commands/select">{@code SELECT} command</a>, provided as an integer. To
-   * be used instead of the generic {@code db.name} attribute.
+   * The connection string used to connect to the database. It is recommended to remove embedded
+   * credentials.
    */
-  public static final AttributeKey<Long> DB_REDIS_DATABASE_INDEX =
-      longKey("db.redis.database_index");
-
-  /** The collection being accessed within the database stated in {@code db.name}. */
-  public static final AttributeKey<String> DB_MONGODB_COLLECTION =
-      stringKey("db.mongodb.collection");
-
-  /** Represents the identifier of an Elasticsearch cluster. */
-  public static final AttributeKey<String> DB_ELASTICSEARCH_CLUSTER_NAME =
-      stringKey("db.elasticsearch.cluster.name");
-
-  /**
-   * Represents the human-readable identifier of the node/instance to which a request was routed.
-   */
-  public static final AttributeKey<String> DB_ELASTICSEARCH_NODE_NAME =
-      stringKey("db.elasticsearch.node.name");
-
-  /**
-   * The name of the primary table that the operation is acting upon, including the database name
-   * (if applicable).
-   *
-   * <p>Notes:
-   *
-   * <ul>
-   *   <li>It is not recommended to attempt any client-side parsing of {@code db.statement} just to
-   *       get this property, but it should be set if it is provided by the library being
-   *       instrumented. If the operation is acting upon an anonymous table, or more than one table,
-   *       this value MUST NOT be set.
-   * </ul>
-   */
-  public static final AttributeKey<String> DB_SQL_TABLE = stringKey("db.sql.table");
+  public static final AttributeKey<String> DB_CONNECTION_STRING = stringKey("db.connection_string");
 
   /** Unique Cosmos client instance id. */
   public static final AttributeKey<String> DB_COSMOSDB_CLIENT_ID =
@@ -205,6 +102,16 @@ public final class DbAttributes {
   public static final AttributeKey<Long> DB_COSMOSDB_SUB_STATUS_CODE =
       longKey("db.cosmosdb.sub_status_code");
 
+  /** Represents the identifier of an Elasticsearch cluster. */
+  public static final AttributeKey<String> DB_ELASTICSEARCH_CLUSTER_NAME =
+      stringKey("db.elasticsearch.cluster.name");
+
+  /**
+   * Represents the human-readable identifier of the node/instance to which a request was routed.
+   */
+  public static final AttributeKey<String> DB_ELASTICSEARCH_NODE_NAME =
+      stringKey("db.elasticsearch.node.name");
+
   /**
    * A dynamic value in the url path.
    *
@@ -221,7 +128,196 @@ public final class DbAttributes {
   public static final AttributeKeyTemplate<String> DB_ELASTICSEARCH_PATH_PARTS =
       stringKeyTemplate("db.elasticsearch.path_parts");
 
+  /**
+   * The fully-qualified class name of the <a
+   * href="https://docs.oracle.com/javase/8/docs/technotes/guides/jdbc/">Java Database Connectivity
+   * (JDBC)</a> driver used to connect.
+   */
+  public static final AttributeKey<String> DB_JDBC_DRIVER_CLASSNAME =
+      stringKey("db.jdbc.driver_classname");
+
+  /** The collection being accessed within the database stated in {@code db.name}. */
+  public static final AttributeKey<String> DB_MONGODB_COLLECTION =
+      stringKey("db.mongodb.collection");
+
+  /**
+   * The Microsoft SQL Server <a
+   * href="https://docs.microsoft.com/sql/connect/jdbc/building-the-connection-url?view=sql-server-ver15">instance
+   * name</a> connecting to. This name is used to determine the port of a named instance.
+   *
+   * <p>Notes:
+   *
+   * <ul>
+   *   <li>If setting a {@code db.mssql.instance_name}, {@code server.port} is no longer required
+   *       (but still recommended if non-standard).
+   * </ul>
+   */
+  public static final AttributeKey<String> DB_MSSQL_INSTANCE_NAME =
+      stringKey("db.mssql.instance_name");
+
+  /**
+   * This attribute is used to report the name of the database being accessed. For commands that
+   * switch the database, this should be set to the target database (even if the command fails).
+   *
+   * <p>Notes:
+   *
+   * <ul>
+   *   <li>In some SQL databases, the database name to be used is called &quot;schema name&quot;. In
+   *       case there are multiple layers that could be considered for database name (e.g. Oracle
+   *       instance name and schema name), the database name to be used is the more specific layer
+   *       (e.g. Oracle schema name).
+   * </ul>
+   */
+  public static final AttributeKey<String> DB_NAME = stringKey("db.name");
+
+  /**
+   * The name of the operation being executed, e.g. the <a
+   * href="https://docs.mongodb.com/manual/reference/command/#database-operations">MongoDB command
+   * name</a> such as {@code findAndModify}, or the SQL keyword.
+   *
+   * <p>Notes:
+   *
+   * <ul>
+   *   <li>When setting this to an SQL keyword, it is not recommended to attempt any client-side
+   *       parsing of {@code db.statement} just to get this property, but it should be set if the
+   *       operation name is provided by the library being instrumented. If the SQL statement has an
+   *       ambiguous operation, or performs more than one operation, this value may be omitted.
+   * </ul>
+   */
+  public static final AttributeKey<String> DB_OPERATION = stringKey("db.operation");
+
+  /**
+   * The index of the database being accessed as used in the <a
+   * href="https://redis.io/commands/select">{@code SELECT} command</a>, provided as an integer. To
+   * be used instead of the generic {@code db.name} attribute.
+   */
+  public static final AttributeKey<Long> DB_REDIS_DATABASE_INDEX =
+      longKey("db.redis.database_index");
+
+  /**
+   * The name of the primary table that the operation is acting upon, including the database name
+   * (if applicable).
+   *
+   * <p>Notes:
+   *
+   * <ul>
+   *   <li>It is not recommended to attempt any client-side parsing of {@code db.statement} just to
+   *       get this property, but it should be set if it is provided by the library being
+   *       instrumented. If the operation is acting upon an anonymous table, or more than one table,
+   *       this value MUST NOT be set.
+   * </ul>
+   */
+  public static final AttributeKey<String> DB_SQL_TABLE = stringKey("db.sql.table");
+
+  /** The database statement being executed. */
+  public static final AttributeKey<String> DB_STATEMENT = stringKey("db.statement");
+
+  /**
+   * An identifier for the database management system (DBMS) product being used. See below for a
+   * list of well-known identifiers.
+   */
+  public static final AttributeKey<String> DB_SYSTEM = stringKey("db.system");
+
+  /** Username for accessing the database. */
+  public static final AttributeKey<String> DB_USER = stringKey("db.user");
+
   // Enum definitions
+  public static final class DbCassandraConsistencyLevelValues {
+    /** all. */
+    public static final String ALL = "all";
+
+    /** each_quorum. */
+    public static final String EACH_QUORUM = "each_quorum";
+
+    /** quorum. */
+    public static final String QUORUM = "quorum";
+
+    /** local_quorum. */
+    public static final String LOCAL_QUORUM = "local_quorum";
+
+    /** one. */
+    public static final String ONE = "one";
+
+    /** two. */
+    public static final String TWO = "two";
+
+    /** three. */
+    public static final String THREE = "three";
+
+    /** local_one. */
+    public static final String LOCAL_ONE = "local_one";
+
+    /** any. */
+    public static final String ANY = "any";
+
+    /** serial. */
+    public static final String SERIAL = "serial";
+
+    /** local_serial. */
+    public static final String LOCAL_SERIAL = "local_serial";
+
+    private DbCassandraConsistencyLevelValues() {}
+  }
+
+  public static final class DbCosmosdbConnectionModeValues {
+    /** Gateway (HTTP) connections mode. */
+    public static final String GATEWAY = "gateway";
+
+    /** Direct connection. */
+    public static final String DIRECT = "direct";
+
+    private DbCosmosdbConnectionModeValues() {}
+  }
+
+  public static final class DbCosmosdbOperationTypeValues {
+    /** invalid. */
+    public static final String INVALID = "Invalid";
+
+    /** create. */
+    public static final String CREATE = "Create";
+
+    /** patch. */
+    public static final String PATCH = "Patch";
+
+    /** read. */
+    public static final String READ = "Read";
+
+    /** read_feed. */
+    public static final String READ_FEED = "ReadFeed";
+
+    /** delete. */
+    public static final String DELETE = "Delete";
+
+    /** replace. */
+    public static final String REPLACE = "Replace";
+
+    /** execute. */
+    public static final String EXECUTE = "Execute";
+
+    /** query. */
+    public static final String QUERY = "Query";
+
+    /** head. */
+    public static final String HEAD = "Head";
+
+    /** head_feed. */
+    public static final String HEAD_FEED = "HeadFeed";
+
+    /** upsert. */
+    public static final String UPSERT = "Upsert";
+
+    /** batch. */
+    public static final String BATCH = "Batch";
+
+    /** query_plan. */
+    public static final String QUERY_PLAN = "QueryPlan";
+
+    /** execute_javascript. */
+    public static final String EXECUTE_JAVASCRIPT = "ExecuteJavaScript";
+
+    private DbCosmosdbOperationTypeValues() {}
+  }
+
   public static final class DbSystemValues {
     /** Some other SQL database. Fallback only. See notes. */
     public static final String OTHER_SQL = "other_sql";
@@ -380,102 +476,6 @@ public final class DbAttributes {
     public static final String TRINO = "trino";
 
     private DbSystemValues() {}
-  }
-
-  public static final class DbCassandraConsistencyLevelValues {
-    /** all. */
-    public static final String ALL = "all";
-
-    /** each_quorum. */
-    public static final String EACH_QUORUM = "each_quorum";
-
-    /** quorum. */
-    public static final String QUORUM = "quorum";
-
-    /** local_quorum. */
-    public static final String LOCAL_QUORUM = "local_quorum";
-
-    /** one. */
-    public static final String ONE = "one";
-
-    /** two. */
-    public static final String TWO = "two";
-
-    /** three. */
-    public static final String THREE = "three";
-
-    /** local_one. */
-    public static final String LOCAL_ONE = "local_one";
-
-    /** any. */
-    public static final String ANY = "any";
-
-    /** serial. */
-    public static final String SERIAL = "serial";
-
-    /** local_serial. */
-    public static final String LOCAL_SERIAL = "local_serial";
-
-    private DbCassandraConsistencyLevelValues() {}
-  }
-
-  public static final class DbCosmosdbConnectionModeValues {
-    /** Gateway (HTTP) connections mode. */
-    public static final String GATEWAY = "gateway";
-
-    /** Direct connection. */
-    public static final String DIRECT = "direct";
-
-    private DbCosmosdbConnectionModeValues() {}
-  }
-
-  public static final class DbCosmosdbOperationTypeValues {
-    /** invalid. */
-    public static final String INVALID = "Invalid";
-
-    /** create. */
-    public static final String CREATE = "Create";
-
-    /** patch. */
-    public static final String PATCH = "Patch";
-
-    /** read. */
-    public static final String READ = "Read";
-
-    /** read_feed. */
-    public static final String READ_FEED = "ReadFeed";
-
-    /** delete. */
-    public static final String DELETE = "Delete";
-
-    /** replace. */
-    public static final String REPLACE = "Replace";
-
-    /** execute. */
-    public static final String EXECUTE = "Execute";
-
-    /** query. */
-    public static final String QUERY = "Query";
-
-    /** head. */
-    public static final String HEAD = "Head";
-
-    /** head_feed. */
-    public static final String HEAD_FEED = "HeadFeed";
-
-    /** upsert. */
-    public static final String UPSERT = "Upsert";
-
-    /** batch. */
-    public static final String BATCH = "Batch";
-
-    /** query_plan. */
-    public static final String QUERY_PLAN = "QueryPlan";
-
-    /** execute_javascript. */
-    public static final String EXECUTE_JAVASCRIPT = "ExecuteJavaScript";
-
-    private DbCosmosdbOperationTypeValues() {}
   }
 
   private DbAttributes() {}

@@ -13,12 +13,43 @@ import io.opentelemetry.api.common.AttributeKey;
 import java.util.List;
 
 // DO NOT EDIT, this is an Auto-generated file from
-// buildscripts/templates/SemanticAttributes.experimental.java.j2
+// buildscripts/templates/SemanticAttributes.java.j2
 @SuppressWarnings("unused")
 public final class HostAttributes {
 
   /** The CPU architecture the host system is running on. */
   public static final AttributeKey<String> HOST_ARCH = stringKey("host.arch");
+
+  /** The amount of level 2 memory cache available to the processor (in Bytes). */
+  public static final AttributeKey<Long> HOST_CPU_CACHE_L2_SIZE = longKey("host.cpu.cache.l2.size");
+
+  /** Numeric value specifying the family or generation of the CPU. */
+  public static final AttributeKey<Long> HOST_CPU_FAMILY = longKey("host.cpu.family");
+
+  /**
+   * Model identifier. It provides more granular information about the CPU, distinguishing it from
+   * other CPUs within the same family.
+   */
+  public static final AttributeKey<Long> HOST_CPU_MODEL_ID = longKey("host.cpu.model.id");
+
+  /** Model designation of the processor. */
+  public static final AttributeKey<String> HOST_CPU_MODEL_NAME = stringKey("host.cpu.model.name");
+
+  /** Stepping or core revisions. */
+  public static final AttributeKey<Long> HOST_CPU_STEPPING = longKey("host.cpu.stepping");
+
+  /**
+   * Processor manufacturer identifier. A maximum 12-character string.
+   *
+   * <p>Notes:
+   *
+   * <ul>
+   *   <li><a href="https://wiki.osdev.org/CPUID">CPUID</a> command returns the vendor ID string in
+   *       EBX, EDX and ECX registers. Writing these to memory in this order results in a
+   *       12-character string.
+   * </ul>
+   */
+  public static final AttributeKey<String> HOST_CPU_VENDOR_ID = stringKey("host.cpu.vendor.id");
 
   /**
    * Unique host ID. For Cloud, this must be the instance_id assigned by the cloud provider. For
@@ -74,37 +105,6 @@ public final class HostAttributes {
 
   /** Type of host. For Cloud, this must be the machine type. */
   public static final AttributeKey<String> HOST_TYPE = stringKey("host.type");
-
-  /** The amount of level 2 memory cache available to the processor (in Bytes). */
-  public static final AttributeKey<Long> HOST_CPU_CACHE_L2_SIZE = longKey("host.cpu.cache.l2.size");
-
-  /** Numeric value specifying the family or generation of the CPU. */
-  public static final AttributeKey<Long> HOST_CPU_FAMILY = longKey("host.cpu.family");
-
-  /**
-   * Model identifier. It provides more granular information about the CPU, distinguishing it from
-   * other CPUs within the same family.
-   */
-  public static final AttributeKey<Long> HOST_CPU_MODEL_ID = longKey("host.cpu.model.id");
-
-  /** Model designation of the processor. */
-  public static final AttributeKey<String> HOST_CPU_MODEL_NAME = stringKey("host.cpu.model.name");
-
-  /** Stepping or core revisions. */
-  public static final AttributeKey<Long> HOST_CPU_STEPPING = longKey("host.cpu.stepping");
-
-  /**
-   * Processor manufacturer identifier. A maximum 12-character string.
-   *
-   * <p>Notes:
-   *
-   * <ul>
-   *   <li><a href="https://wiki.osdev.org/CPUID">CPUID</a> command returns the vendor ID string in
-   *       EBX, EDX and ECX registers. Writing these to memory in this order results in a
-   *       12-character string.
-   * </ul>
-   */
-  public static final AttributeKey<String> HOST_CPU_VENDOR_ID = stringKey("host.cpu.vendor.id");
 
   // Enum definitions
   public static final class HostArchValues {

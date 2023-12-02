@@ -11,7 +11,7 @@ import static io.opentelemetry.api.common.AttributeKey.stringKey;
 import io.opentelemetry.api.common.AttributeKey;
 
 // DO NOT EDIT, this is an Auto-generated file from
-// buildscripts/templates/SemanticAttributes.experimental.java.j2
+// buildscripts/templates/SemanticAttributes.java.j2
 @SuppressWarnings("unused")
 public final class JvmAttributes {
 
@@ -26,21 +26,6 @@ public final class JvmAttributes {
    * </ul>
    */
   public static final AttributeKey<String> JVM_BUFFER_POOL_NAME = stringKey("jvm.buffer.pool.name");
-
-  /**
-   * Name of the memory pool.
-   *
-   * <p>Notes:
-   *
-   * <ul>
-   *   <li>Pool names are generally obtained via <a
-   *       href="https://docs.oracle.com/en/java/javase/11/docs/api/java.management/java/lang/management/MemoryPoolMXBean.html#getName()">MemoryPoolMXBean#getName()</a>.
-   * </ul>
-   */
-  public static final AttributeKey<String> JVM_MEMORY_POOL_NAME = stringKey("jvm.memory.pool.name");
-
-  /** The type of memory. */
-  public static final AttributeKey<String> JVM_MEMORY_TYPE = stringKey("jvm.memory.type");
 
   /**
    * Name of the garbage collector action.
@@ -65,6 +50,21 @@ public final class JvmAttributes {
    * </ul>
    */
   public static final AttributeKey<String> JVM_GC_NAME = stringKey("jvm.gc.name");
+
+  /**
+   * Name of the memory pool.
+   *
+   * <p>Notes:
+   *
+   * <ul>
+   *   <li>Pool names are generally obtained via <a
+   *       href="https://docs.oracle.com/en/java/javase/11/docs/api/java.management/java/lang/management/MemoryPoolMXBean.html#getName()">MemoryPoolMXBean#getName()</a>.
+   * </ul>
+   */
+  public static final AttributeKey<String> JVM_MEMORY_POOL_NAME = stringKey("jvm.memory.pool.name");
+
+  /** The type of memory. */
+  public static final AttributeKey<String> JVM_MEMORY_TYPE = stringKey("jvm.memory.type");
 
   /** Whether the thread is daemon or not. */
   public static final AttributeKey<Boolean> JVM_THREAD_DAEMON = booleanKey("jvm.thread.daemon");

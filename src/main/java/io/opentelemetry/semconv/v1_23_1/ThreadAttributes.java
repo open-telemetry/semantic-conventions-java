@@ -11,7 +11,7 @@ import static io.opentelemetry.api.common.AttributeKey.stringKey;
 import io.opentelemetry.api.common.AttributeKey;
 
 // DO NOT EDIT, this is an Auto-generated file from
-// buildscripts/templates/SemanticAttributes.experimental.java.j2
+// buildscripts/templates/SemanticAttributes.java.j2
 @SuppressWarnings("unused")
 public final class ThreadAttributes {
 
@@ -22,6 +22,5 @@ public final class ThreadAttributes {
   public static final AttributeKey<String> THREAD_NAME = stringKey("thread.name");
 
   // Enum definitions
-
   private ThreadAttributes() {}
 }

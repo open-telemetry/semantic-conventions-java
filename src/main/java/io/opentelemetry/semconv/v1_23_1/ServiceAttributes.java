@@ -10,30 +10,9 @@ import static io.opentelemetry.api.common.AttributeKey.stringKey;
 import io.opentelemetry.api.common.AttributeKey;
 
 // DO NOT EDIT, this is an Auto-generated file from
-// buildscripts/templates/SemanticAttributes.experimental.java.j2
+// buildscripts/templates/SemanticAttributes.java.j2
 @SuppressWarnings("unused")
 public final class ServiceAttributes {
-
-  /**
-   * Logical name of the service.
-   *
-   * <p>Notes:
-   *
-   * <ul>
-   *   <li>MUST be the same for all instances of horizontally scaled services. If the value was not
-   *       specified, SDKs MUST fallback to {@code unknown_service:} concatenated with <a
-   *       href="process.md#process">{@code process.executable.name}</a>, e.g. {@code
-   *       unknown_service:bash}. If {@code process.executable.name} is not available, the value
-   *       MUST be set to {@code unknown_service}.
-   * </ul>
-   */
-  public static final AttributeKey<String> SERVICE_NAME = stringKey("service.name");
-
-  /**
-   * The version string of the service API or implementation. The format is not defined by these
-   * conventions.
-   */
-  public static final AttributeKey<String> SERVICE_VERSION = stringKey("service.version");
 
   /**
    * The string ID of the service instance.
@@ -56,6 +35,21 @@ public final class ServiceAttributes {
   public static final AttributeKey<String> SERVICE_INSTANCE_ID = stringKey("service.instance.id");
 
   /**
+   * Logical name of the service.
+   *
+   * <p>Notes:
+   *
+   * <ul>
+   *   <li>MUST be the same for all instances of horizontally scaled services. If the value was not
+   *       specified, SDKs MUST fallback to {@code unknown_service:} concatenated with <a
+   *       href="process.md#process">{@code process.executable.name}</a>, e.g. {@code
+   *       unknown_service:bash}. If {@code process.executable.name} is not available, the value
+   *       MUST be set to {@code unknown_service}.
+   * </ul>
+   */
+  public static final AttributeKey<String> SERVICE_NAME = stringKey("service.name");
+
+  /**
    * A namespace for {@code service.name}.
    *
    * <p>Notes:
@@ -71,7 +65,12 @@ public final class ServiceAttributes {
    */
   public static final AttributeKey<String> SERVICE_NAMESPACE = stringKey("service.namespace");
 
-  // Enum definitions
+  /**
+   * The version string of the service API or implementation. The format is not defined by these
+   * conventions.
+   */
+  public static final AttributeKey<String> SERVICE_VERSION = stringKey("service.version");
 
+  // Enum definitions
   private ServiceAttributes() {}
 }

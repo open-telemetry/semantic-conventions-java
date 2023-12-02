@@ -10,7 +10,7 @@ import static io.opentelemetry.api.common.AttributeKey.stringKey;
 import io.opentelemetry.api.common.AttributeKey;
 
 // DO NOT EDIT, this is an Auto-generated file from
-// buildscripts/templates/SemanticAttributes.experimental.java.j2
+// buildscripts/templates/SemanticAttributes.java.j2
 @SuppressWarnings("unused")
 public final class PoolAttributes {
 
@@ -23,6 +23,5 @@ public final class PoolAttributes {
   public static final AttributeKey<String> POOL_NAME = stringKey("pool.name");
 
   // Enum definitions
-
   private PoolAttributes() {}
 }
