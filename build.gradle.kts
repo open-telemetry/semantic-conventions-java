@@ -18,6 +18,7 @@ val snapshot = true
 
 // The release version of https://github.com/open-telemetry/semantic-conventions used to generate classes
 var semanticConventionsVersion = "1.23.1"
+val semanticConventionsVersionEscaped = "v1_23_1"
 
 // Compute the artifact version, which includes the "-alpha" suffix and includes "-SNAPSHOT" suffix if not releasing
 // Release example: version=1.21.0-alpha
@@ -71,7 +72,7 @@ dependencies {
 }
 
 // start - define tasks to download, unzip, and generate from opentelemetry/semantic-conventions
-var generatorVersion = "0.23.0"
+var generatorVersion = "foo5"
 val semanticConventionsRepoZip = "https://github.com/open-telemetry/semantic-conventions/archive/v$semanticConventionsVersion.zip"
 val schemaUrl = "https://opentelemetry.io/schemas/$semanticConventionsVersion"
 
@@ -93,7 +94,7 @@ val unzipConfigurationSchema by tasks.registering(Copy::class) {
   into("$buildDir/semantic-conventions/")
 }
 
-val generateSemanticAttributes by tasks.registering(Exec::class) {
+val generateStableSemanticAttributes by tasks.registering(Exec::class) {
   dependsOn(unzipConfigurationSchema)
 
   standardOutput = System.out
@@ -104,17 +105,15 @@ val generateSemanticAttributes by tasks.registering(Exec::class) {
     "-v", "$buildDir/semantic-conventions/model:/source",
     "-v", "$projectDir/buildscripts/templates:/templates",
     "-v", "$projectDir/src/main/java/io/opentelemetry/semconv/:/output",
-    "otel/semconvgen:$generatorVersion",
-    "--only", "span,event,attribute_group,scope,metric",
-    "--yaml-root", "/source", "code",
-    "--template", "/templates/SemanticAttributes.java.j2",
-    "--output", "/output/SemanticAttributes.java",
-    "-Dclass=SemanticAttributes",
+    "semconvgen:$generatorVersion",
+    "--yaml-root", "/source", "code_easy",
+    "--template", "/templates/SemanticAttributes.stable.java.j2",
+    "--output", "/output/Attributes.java",
     "-DschemaUrl=$schemaUrl",
     "-Dpkg=io.opentelemetry.semconv"))
 }
 
-val generateResourceAttributes by tasks.registering(Exec::class) {
+val generateExperimentalSemanticAttributes by tasks.registering(Exec::class) {
   dependsOn(unzipConfigurationSchema)
 
   standardOutput = System.out
@@ -124,19 +123,17 @@ val generateResourceAttributes by tasks.registering(Exec::class) {
     "--rm",
     "-v", "$buildDir/semantic-conventions/model:/source",
     "-v", "$projectDir/buildscripts/templates:/templates",
-    "-v", "$projectDir/src/main/java/io/opentelemetry/semconv/:/output",
-    "otel/semconvgen:$generatorVersion",
-    "--only", "resource",
-    "--yaml-root", "/source", "code",
-    "--template", "/templates/SemanticAttributes.java.j2",
-    "--output", "/output/ResourceAttributes.java",
-    "-Dclass=ResourceAttributes",
+    "-v", "$projectDir/src/main/java/io/opentelemetry/semconv/$semanticConventionsVersionEscaped/:/output",
+    "semconvgen:$generatorVersion",
+    "--yaml-root", "/source", "code_easy",
+    "--template", "/templates/SemanticAttributes.experimental.java.j2",
+    "--output", "/output/Attributes.java",
     "-DschemaUrl=$schemaUrl",
-    "-Dpkg=io.opentelemetry.semconv"))
+    "-Dpkg=io.opentelemetry.semconv.$semanticConventionsVersionEscaped"))
 }
 
 val generateSemanticConventions by tasks.registering {
-  dependsOn(generateSemanticAttributes)
-  dependsOn(generateResourceAttributes)
+  dependsOn(generateStableSemanticAttributes)
+  dependsOn(generateExperimentalSemanticAttributes)
 }
 // end

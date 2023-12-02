@@ -1,0 +1,111 @@
+{%- macro to_java_return_type(type) -%}
+  {%- if type == "string" -%}
+    String
+  {%- elif type == "string[]" -%}
+    List<String>
+  {%- elif type == "boolean" -%}
+    boolean
+  {%- elif type == "int" -%}
+    long
+  {%- elif type == "double" -%}
+    double
+  {%- else -%}
+    {{type}}
+  {%- endif -%}
+{%- endmacro %}
+{%- macro to_java_key_type(type) -%}
+  {%- if type == "string" -%}
+    stringKey
+  {%- elif type == "string[]" -%}
+    stringArrayKey
+  {%- elif type == "boolean" -%}
+    booleanKey
+  {%- elif type == "int" -%}
+    longKey
+  {%- elif type == "double" -%}
+    doubleKey
+  {%- else -%}
+    {{type | to_camelcase(False)}}Key
+  {%- endif -%}
+{%- endmacro %}
+{%- macro print_value(type, value) -%}
+  {{ "\"" if type == "String"}}{{value}}{{ "\"" if type == "String"}}
+{%- endmacro %}
+{%- set experimental_attributes = attributes | reject("is_stable") | list %}
+{%- set experimental_attribute_templates = attribute_templates | reject("is_stable") | list %}
+{%- if experimental_attributes | count > 0 or experimental_attribute_templates | count > 0 %}
+/*
+ * Copyright The OpenTelemetry Authors
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+package {{pkg | trim}};
+
+import static io.opentelemetry.api.common.AttributeKey.booleanKey;
+import static io.opentelemetry.api.common.AttributeKey.doubleKey;
+import static io.opentelemetry.api.common.AttributeKey.longKey;
+import static io.opentelemetry.api.common.AttributeKey.stringKey;
+import static io.opentelemetry.api.common.AttributeKey.stringArrayKey;
+
+import static io.opentelemetry.semconv.AttributeKeyTemplate.stringArrayKeyTemplate;
+import static io.opentelemetry.semconv.AttributeKeyTemplate.stringKeyTemplate;
+
+import io.opentelemetry.api.common.AttributeKey;
+import io.opentelemetry.semconv.AttributeKeyTemplate;
+import java.util.List;
+
+// DO NOT EDIT, this is an Auto-generated file from buildscripts{{template}}
+@SuppressWarnings("unused")
+public final class {{ group | to_camelcase(True) }}Attributes {
+  {%- for attribute in experimental_attributes | reject("is_deprecated")  %}
+
+  /**
+  * {{attribute.brief | render_markdown(code="{{@code {0}}}", paragraph="{0}")}}
+    {%- if attribute.note %}
+  *
+  * <p>Notes:
+        {# NOTE: replace("> ", "") removes the following problematic characters which produce mangled javadoc:  #}
+        {# https://github.com/open-telemetry/semantic-conventions/blob/c83a10a9c33c18a769835e959200d0e24dc708fe/model/resource/k8s.yaml#L34-L38  #}
+        <ul> {{attribute.note | replace("> ", "") | render_markdown(code="{{@code {0}}}", paragraph="<li>{0}</li>", list="{0}")}} </ul>
+
+    {%- endif %}
+  */
+  public static final AttributeKey<{{to_java_return_type(attribute.attr_type | string) | first_up}}> {{attribute.fqn | to_const_name}} = {{to_java_key_type(attribute.attr_type | string)}}("{{attribute.fqn}}");
+  {%- endfor %}
+  {%- for attribute_template in experimental_attribute_templates %}
+
+  /**
+  * {{attribute_template.brief | render_markdown(code="{{@code {0}}}", paragraph="{0}")}}
+    {%- if attribute_template.note %}
+  *
+  * <p>Notes:
+        {# NOTE: replace("> ", "") removes the following problematic characters which produce mangled javadoc:  #}
+        {# https://github.com/open-telemetry/semantic-conventions/blob/c83a10a9c33c18a769835e959200d0e24dc708fe/model/resource/k8s.yaml#L34-L38  #}
+        <ul> {{attribute_template.note | replace("> ", "") | render_markdown(code="{{@code {0}}}", paragraph="<li>{0}</li>", list="{0}")}} </ul>
+
+    {%- endif %}
+  */
+  public static final AttributeKeyTemplate<{{to_java_return_type(attribute_template.instantiated_type | string) | first_up}}> {{attribute_template.fqn | to_const_name}} = {{to_java_key_type(attribute_template.instantiated_type | string)}}Template("{{attribute_template.fqn}}");
+  {%- endfor %}
+
+  // Enum definitions
+  {%- for attribute in experimental_attributes %}
+  {%- if attribute.is_enum %}
+  {%- set class_name = attribute.fqn | to_camelcase(True) ~ "Values" %}
+  {%- set type = to_java_return_type(attribute.attr_type.enum_type) %}
+  public static final class {{class_name}} {
+    {%- for member in attribute.attr_type.members %}
+      /** {% filter escape %}{{member.brief | to_doc_brief}}.{% endfilter %} */
+      public static final {{ type }} {{ member.member_id | to_const_name }} = {{ print_value(type, member.value) }};
+
+    {%- endfor %}
+
+      private {{class_name}}() {}
+  }
+
+  {% endif %}
+  {%- endfor %}
+
+  private {{ group | to_camelcase(True) }}Attributes() {}
+}
+{%- endif %}
