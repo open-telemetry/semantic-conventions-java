@@ -72,7 +72,7 @@ dependencies {
 }
 
 // start - define tasks to download, unzip, and generate from opentelemetry/semantic-conventions
-var generatorVersion = "foo9"
+var generatorVersion = "foo10"
 val semanticConventionsRepoZip = "https://github.com/open-telemetry/semantic-conventions/archive/v$semanticConventionsVersion.zip"
 val schemaUrl = "https://opentelemetry.io/schemas/$semanticConventionsVersion"
 
@@ -110,7 +110,6 @@ val generateStableSemanticAttributes by tasks.registering(Exec::class) {
     "--template", "/templates/SemanticAttributes.java.j2",
     "--output", "/output/Attributes.java",
     "--file-per-group", "root_namespace",
-    "-DschemaUrl=$schemaUrl",
     "-Dattr_filter=is_stable",
     "-Dpkg=io.opentelemetry.semconv"))
 }
@@ -131,13 +130,27 @@ val generateExperimentalSemanticAttributes by tasks.registering(Exec::class) {
     "--template", "/templates/SemanticAttributes.java.j2",
     "--output", "/output/Attributes.java",
     "--file-per-group", "root_namespace",
-    "-DschemaUrl=$schemaUrl",
     "-Dattr_filter=is_experimental",
     "-Dpkg=io.opentelemetry.semconv.$semanticConventionsVersionEscaped"))
+}
+
+// check if SchemaURLs file contains the new schema URL
+val checkSchemaUrls by tasks.registering {
+  val schemaUrlsFile = File("$projectDir/src/main/java/io/opentelemetry/semconv/SchemaUrls.java")
+  if (!schemaUrlsFile.exists()) {
+    throw GradleException("SchemaUrls file does not exist")
+  }
+
+  val schemaUrls = schemaUrlsFile.readLines()
+  if (!schemaUrls.contains(schemaUrl)) {
+    throw GradleException("SchemaUrls file does not contain $schemaUrl")
+  }
 }
 
 val generateSemanticConventions by tasks.registering {
   dependsOn(generateStableSemanticAttributes)
   dependsOn(generateExperimentalSemanticAttributes)
+  dependsOn(checkSchemaUrls)
 }
+
 // end
