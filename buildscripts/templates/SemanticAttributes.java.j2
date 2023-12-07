@@ -31,7 +31,7 @@
 {%- macro print_value(type, value) -%}
   {{ "\"" if type == "String"}}{{value}}{{ "\"" if type == "String"}}
 {%- endmacro %}
-{%- set filtered_attributes = attributes_and_templates | select(attr_filter) | list %}
+{%- set filtered_attributes = attributes_and_templates | select(filter) | list %}
 {%- if filtered_attributes | count > 0 %}
 /*
  * Copyright The OpenTelemetry Authors

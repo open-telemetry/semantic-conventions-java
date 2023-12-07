@@ -7,6 +7,7 @@
   <!-- Suppress Javadoc-related checks in non-public code. -->
   <suppress checks="JavadocParagraph|JavadocMethod" files="[\\/](jmh|test)[\\/]" />
   <suppress checks="SummaryJavadoc" files=".*Attributes"/>
+  <suppress checks="SummaryJavadoc" files=".*Metrics"/>
   <suppress checks="RedundantImport" files="[\\/]build[\\/]"/>
   <suppress checks="PackageName" files=".*Attributes"/>
 </suppressions>
