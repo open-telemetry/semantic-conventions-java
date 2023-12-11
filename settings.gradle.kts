@@ -17,6 +17,9 @@ dependencyResolutionManagement {
   }
 }
 
+rootProject.name = "semantic-conventions-java"
+include(":dependencyManagement")
+
 val gradleEnterpriseServer = "https://ge.opentelemetry.io"
 val isCI = System.getenv("CI") != null
 val geAccessKey = System.getenv("GRADLE_ENTERPRISE_ACCESS_KEY") ?: ""

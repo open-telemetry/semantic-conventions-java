@@ -108,3 +108,34 @@ configurations.configureEach {
     preferProjectModules()
   }
 }
+
+val dependencyManagement by configurations.creating {
+  isCanBeConsumed = false
+  isCanBeResolved = false
+  isVisible = false
+}
+
+dependencies {
+  dependencyManagement(platform(project(":dependencyManagement")))
+  afterEvaluate {
+    configurations.configureEach {
+      if (isCanBeResolved && !isCanBeConsumed) {
+        extendsFrom(dependencyManagement)
+      }
+    }
+  }
+}
+
+testing {
+  suites.withType(JvmTestSuite::class).configureEach {
+    dependencies {
+      implementation(project(project.path))
+
+      implementation("org.junit.jupiter:junit-jupiter-api")
+      implementation("org.junit.jupiter:junit-jupiter-params")
+      runtimeOnly("org.junit.jupiter:junit-jupiter-engine")
+
+      implementation("org.assertj:assertj-core")
+    }
+  }
+}

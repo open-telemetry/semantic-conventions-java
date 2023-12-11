@@ -54,20 +54,10 @@ nexusPublishing {
   }
 }
 
-val opentelemetryJavaVersion = "1.31.0"
-
 dependencies {
-  compileOnly("io.opentelemetry:opentelemetry-api:$opentelemetryJavaVersion")
+  compileOnly("io.opentelemetry:opentelemetry-api")
 
-  testImplementation("io.opentelemetry:opentelemetry-api:$opentelemetryJavaVersion")
-
-  testImplementation(platform("org.junit:junit-bom:5.10.0"))
-  testImplementation("org.junit.jupiter:junit-jupiter-api")
-  testImplementation("org.junit.jupiter:junit-jupiter-params")
-  testImplementation("org.junit.jupiter:junit-jupiter-engine")
-
-  testImplementation(platform("org.assertj:assertj-bom:3.24.2"))
-  testImplementation("org.assertj:assertj-core")
+  testImplementation("io.opentelemetry:opentelemetry-api")
 }
 
 // start - define tasks to download, unzip, and generate from opentelemetry/semantic-conventions
