@@ -12,6 +12,7 @@ val snapshot = true
 
 // The release version of https://github.com/open-telemetry/semantic-conventions used to generate classes
 var semanticConventionsVersion = "1.23.1"
+val schemaUrlVersions = listOf(semanticConventionsVersion, "1.22.0")
 
 // Compute the artifact version, which includes the "-alpha" suffix and includes "-SNAPSHOT" suffix if not releasing
 // Release example: version=1.21.0-alpha
@@ -106,13 +107,30 @@ generateTask("generateIncubatingSemanticAttributes", false, true)
 generateTask("generateStableResourceAttributes", true, false)
 generateTask("generateIncubatingResourceAttributes", true, true)
 
+tasks.register("checkSchemaUrls") {
+  val schemaUrlsClass = File("$projectDir/semconv/src/main/java/io/opentelemetry/semconv/SchemaUrls.java")
+  if (!schemaUrlsClass.exists()) {
+    throw GradleException("SchemaUrls file does not exist")
+  }
+
+  for (schemaUrlVersion: String in schemaUrlVersions) {
+    val expectedLine = "public static final String V" + schemaUrlVersion.replace(".", "_") + " = \"https://opentelemetry.io/schemas/" + schemaUrlVersion + "\";"
+    if (!schemaUrlsClass.readLines().any { it.contains(expectedLine) }) {
+      throw GradleException("SchemaUrls file does not contain: $expectedLine")
+    }
+  }
+}
+
 val generateSemanticConventions by tasks.registering {
   dependsOn(tasks.getByName("generateStableSemanticAttributes"))
   dependsOn(tasks.getByName("generateIncubatingSemanticAttributes"))
   dependsOn(tasks.getByName("generateStableResourceAttributes"))
   dependsOn(tasks.getByName("generateIncubatingResourceAttributes"))
+  dependsOn(tasks.getByName("checkSchemaUrls"))
 }
 
-// TODO: restore schemaURL
+tasks.register("build") {
+  dependsOn(tasks.getByName("checkSchemaUrls"))
+}
 
 // end
