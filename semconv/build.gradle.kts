@@ -11,6 +11,7 @@ base {
   description = "OpenTelemetry Stable Semantic Conventions generated classes for Java"
   archivesName.set("opentelemetry-semconv")
 }
+otelJava.moduleName.set("io.opentelemetry.semconv")
 
 dependencies {
   compileOnly("io.opentelemetry:opentelemetry-api")

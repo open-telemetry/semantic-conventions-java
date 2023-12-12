@@ -48,6 +48,8 @@ nexusPublishing {
 }
 
 // start - define tasks to download, unzip, and generate from opentelemetry/semantic-conventions
+// TODO: currently uses local build of https://github.com/open-telemetry/build-tools/pull/244
+// Replace with published version of generator when available
 var generatorVersion = "foo14"
 val semanticConventionsRepoZip = "https://github.com/open-telemetry/semantic-conventions/archive/v$semanticConventionsVersion.zip"
 // val semanticConventionsRepoZip = "https://github.com/lmolkova/semantic-conventions/archive/bd833aa5ff13996293654dc45a4a61354b0bbe5d.zip"
