@@ -19,6 +19,8 @@ dependencyResolutionManagement {
 
 rootProject.name = "semantic-conventions-java"
 include(":dependencyManagement")
+include(":semconv-incubating")
+include(":semconv")
 
 val gradleEnterpriseServer = "https://ge.opentelemetry.io"
 val isCI = System.getenv("CI") != null
