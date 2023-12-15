@@ -16,7 +16,6 @@ import java.util.List;
 // buildscripts/templates/SemanticAttributes.java.j2
 @SuppressWarnings("unused")
 public final class SemanticAttributes {
-
   /**
    * Client address - domain name if available without reverse DNS lookup; otherwise, IP address or
    * Unix domain socket name.

@@ -19,7 +19,6 @@ import java.util.List;
 // buildscripts/templates/SemanticAttributes.java.j2
 @SuppressWarnings("unused")
 public final class IncubatingResourceAttributes {
-
   /** The cloud account ID the resource is assigned to. */
   public static final AttributeKey<String> CLOUD_ACCOUNT_ID = stringKey("cloud.account.id");
 

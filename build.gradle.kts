@@ -48,9 +48,7 @@ nexusPublishing {
 }
 
 // start - define tasks to download, unzip, and generate from opentelemetry/semantic-conventions
-// TODO: currently uses local build of https://github.com/open-telemetry/build-tools/pull/244
-// Replace with published version of generator when available
-var generatorVersion = "foo14"
+var generatorVersion = "0.23.0"
 val semanticConventionsRepoZip = "https://github.com/open-telemetry/semantic-conventions/archive/v$semanticConventionsVersion.zip"
 // val semanticConventionsRepoZip = "https://github.com/lmolkova/semantic-conventions/archive/bd833aa5ff13996293654dc45a4a61354b0bbe5d.zip"
 val schemaUrl = "https://opentelemetry.io/schemas/$semanticConventionsVersion"
@@ -84,7 +82,7 @@ fun generateTask(taskName: String, resource: Boolean, incubating: Boolean) {
     val classNamePrefix = if (incubating) "Incubating" else ""
     var className = if (resource) "${classNamePrefix}ResourceAttributes" else "${classNamePrefix}SemanticAttributes"
     val outputDir = if (incubating) "semconv-incubating/src/main/java/io/opentelemetry/semconv/incubating/" else "semconv/src/main/java/io/opentelemetry/semconv/"
-    val filterArg = if (incubating) "is_experimental" else "is_stable"
+    val stability = if (incubating) "StabilityLevel.EXPERIMENTAL" else "StabilityLevel.STABLE"
     val packageNameArg = if (incubating) "io.opentelemetry.semconv.incubating" else "io.opentelemetry.semconv"
 
     setArgs(listOf(
@@ -93,13 +91,13 @@ fun generateTask(taskName: String, resource: Boolean, incubating: Boolean) {
         "-v", "$buildDir/semantic-conventions/model:/source",
         "-v", "$projectDir/buildscripts/templates:/templates",
         "-v", "$projectDir/$outputDir:/output",
-        "semconvgen:$generatorVersion",
+        "otel/semconvgen:$generatorVersion",
         "--only", onlyArg,
         "--yaml-root", "/source", "code",
         "--template", "/templates/SemanticAttributes.java.j2",
         "--output", "/output/$className.java",
         "-Dclass=$className",
-        "-Dfilter=$filterArg",
+        "-Dstability=${stability}",
         "-Dpkg=$packageNameArg"))
   }
 }

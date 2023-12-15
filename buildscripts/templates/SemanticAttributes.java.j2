@@ -63,8 +63,7 @@ import java.util.List;
 @SuppressWarnings("unused")
 public final class {{class}} {
 
-  {% set filtered_attributes = attributes | select(filter) | list %}
-  {%- for attribute in filtered_attributes if attribute.is_local and not attribute.ref %}
+  {%- for attribute in attributes if attribute.is_local and not attribute.ref and (attribute.stability | string()) == stability %}
   /**
   * {{attribute.brief | render_markdown(code="{{@code {0}}}", paragraph="{0}")}}
     {%- if attribute.note %}
@@ -86,8 +85,7 @@ public final class {{class}} {
   public static final AttributeKey<{{upFirst(to_java_return_type(attribute.attr_type | string))}}> {{attribute.fqn | to_const_name}} = {{to_java_key_type(attribute.attr_type | string)}}("{{attribute.fqn}}");
   {%- endfor %}
 
-  {% set filtered_attribute_templates = attribute_templates | select(filter) | list %}
-  {%- for attribute_template in filtered_attribute_templates if attribute_template.is_local and not attribute_template.ref %}
+  {%- for attribute_template in attribute_templates if attribute_template.is_local and not attribute_template.ref and (attribute_template.stability | string()) == stability %}
 
   /**
   * {{attribute_template.brief | render_markdown(code="{{@code {0}}}", paragraph="{0}")}}
@@ -111,7 +109,7 @@ public final class {{class}} {
   {%- endfor %}
 
   // Enum definitions
-  {%- for attribute in filtered_attributes if attribute.is_local and not attribute.ref and attribute.is_enum%}
+  {%- for attribute in attributes if attribute.is_local and not attribute.ref and attribute.is_enum and (attribute.stability | string()) == stability%}
   {%- set class_name = attribute.fqn | to_camelcase(True) ~ "Values" %}
   {%- set type = to_java_return_type(attribute.attr_type.enum_type) %}
   public static final class {{class_name}} {
