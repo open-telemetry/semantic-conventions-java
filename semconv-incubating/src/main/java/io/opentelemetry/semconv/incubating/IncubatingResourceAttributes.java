@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-package io.opentelemetry.semconv;
+package io.opentelemetry.semconv.incubating;
 
 import static io.opentelemetry.api.common.AttributeKey.booleanKey;
 import static io.opentelemetry.api.common.AttributeKey.longKey;
@@ -12,15 +12,13 @@ import static io.opentelemetry.api.common.AttributeKey.stringKey;
 import static io.opentelemetry.semconv.AttributeKeyTemplate.stringKeyTemplate;
 
 import io.opentelemetry.api.common.AttributeKey;
+import io.opentelemetry.semconv.AttributeKeyTemplate;
 import java.util.List;
 
 // DO NOT EDIT, this is an Auto-generated file from
 // buildscripts/templates/SemanticAttributes.java.j2
 @SuppressWarnings("unused")
-public final class ResourceAttributes {
-  /** The URL of the OpenTelemetry schema for these keys and values. */
-  public static final String SCHEMA_URL = "https://opentelemetry.io/schemas/1.23.1";
-
+public final class IncubatingResourceAttributes {
   /** The cloud account ID the resource is assigned to. */
   public static final AttributeKey<String> CLOUD_ACCOUNT_ID = stringKey("cloud.account.id");
 
@@ -916,22 +914,6 @@ public final class ResourceAttributes {
   /** The version of the instrumentation scope - ({@code InstrumentationScope.Version} in OTLP). */
   public static final AttributeKey<String> OTEL_SCOPE_VERSION = stringKey("otel.scope.version");
 
-  /**
-   * Deprecated, use the {@code otel.scope.name} attribute.
-   *
-   * @deprecated Deprecated, use the `otel.scope.name` attribute.
-   */
-  @Deprecated
-  public static final AttributeKey<String> OTEL_LIBRARY_NAME = stringKey("otel.library.name");
-
-  /**
-   * Deprecated, use the {@code otel.scope.version} attribute.
-   *
-   * @deprecated Deprecated, use the `otel.scope.version` attribute.
-   */
-  @Deprecated
-  public static final AttributeKey<String> OTEL_LIBRARY_VERSION = stringKey("otel.library.version");
-
   /** Container labels, {@code <key>} being the label name, the value being the label value. */
   public static final AttributeKeyTemplate<String> CONTAINER_LABELS =
       stringKeyTemplate("container.labels");
@@ -1162,80 +1144,5 @@ public final class ResourceAttributes {
     private TelemetrySdkLanguageValues() {}
   }
 
-  /**
-   * Red Hat OpenShift on Google Cloud.
-   *
-   * @deprecated This item has been removed as of 1.18.0 of the semantic conventions. Use {@link
-   *     ResourceAttributes#GCP_OPENSHIFT} instead.
-   */
-  @Deprecated public static final String GCP_OPENSHIFT = "gcp_openshift";
-
-  /**
-   * Full user-agent string provided by the browser
-   *
-   * <p>Notes:
-   *
-   * <ul>
-   *   <li>The user-agent value SHOULD be provided only from browsers that do not have a mechanism
-   *       to retrieve brands and platform individually from the User-Agent Client Hints API. To
-   *       retrieve the value, the legacy {@code navigator.userAgent} API can be used.
-   * </ul>
-   *
-   * @deprecated This item has been renamed in 1.19.0 version of the semantic conventions. Use
-   *     {@link io.opentelemetry.semconv.SemanticAttributes#USER_AGENT_ORIGINAL} instead.
-   */
-  @Deprecated
-  public static final AttributeKey<String> BROWSER_USER_AGENT = stringKey("browser.user_agent");
-
-  /**
-   * The unique ID of the single function that this runtime instance executes.
-   *
-   * <p>Notes:
-   *
-   * <ul>
-   *   <li>On some cloud providers, it may not be possible to determine the full ID at startup, so
-   *       consider setting {@code faas.id} as a span attribute instead.
-   *   <li>The exact value to use for {@code faas.id} depends on the cloud provider:
-   *   <li><strong>AWS Lambda:</strong> The function <a
-   *       href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">ARN</a>.
-   *       Take care not to use the &quot;invoked ARN&quot; directly but replace any <a
-   *       href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-aliases.html">alias
-   *       suffix</a> with the resolved function version, as the same runtime instance may be
-   *       invokable with multiple different aliases.
-   *   <li><strong>GCP:</strong> The <a
-   *       href="https://cloud.google.com/iam/docs/full-resource-names">URI of the resource</a>
-   *   <li><strong>Azure:</strong> The <a
-   *       href="https://docs.microsoft.com/en-us/rest/api/resources/resources/get-by-id">Fully
-   *       Qualified Resource ID</a> of the invoked function, <em>not</em> the function app, having
-   *       the form {@code
-   *       /subscriptions/<SUBSCIPTION_GUID>/resourceGroups/<RG>/providers/Microsoft.Web/sites/<FUNCAPP>/functions/<FUNC>}.
-   *       This means that a span attribute MUST be used, as an Azure function app can host multiple
-   *       functions that would usually share a TracerProvider.
-   * </ul>
-   *
-   * @deprecated This item has been removed in 1.19.0 version of the semantic conventions. Use
-   *     {@link ResourceAttributes#CLOUD_RESOURCE_ID} instead.
-   */
-  @Deprecated public static final AttributeKey<String> FAAS_ID = stringKey("faas.id");
-
-  /**
-   * The version string of the auto instrumentation agent, if used.
-   *
-   * @deprecated This item has been renamed in 1.22.0 of the semantic conventions. Use {@link
-   *     ResourceAttributes#TELEMETRY_DISTRO_VERSION} instead.
-   */
-  @Deprecated
-  public static final AttributeKey<String> TELEMETRY_AUTO_VERSION =
-      stringKey("telemetry.auto.version");
-
-  /**
-   * Container image tag.
-   *
-   * @deprecated This item has been renamed in 1.22.0 of the semantic conventions. Use {@link
-   *     ResourceAttributes#CONTAINER_IMAGE_TAGS} instead.
-   */
-  @Deprecated
-  public static final AttributeKey<String> CONTAINER_IMAGE_TAG = stringKey("container.image.tag");
-
-  private ResourceAttributes() {}
+  private IncubatingResourceAttributes() {}
 }

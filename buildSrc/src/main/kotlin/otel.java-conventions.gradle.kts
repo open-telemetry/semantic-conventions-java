@@ -1,3 +1,4 @@
+import io.opentelemetry.gradle.OtelJavaExtension
 import org.gradle.api.tasks.testing.logging.TestExceptionFormat
 
 plugins {
@@ -9,6 +10,8 @@ plugins {
 
   id("otel.spotless-conventions")
 }
+
+val otelJava = extensions.create<OtelJavaExtension>("otelJava")
 
 java {
   toolchain {
@@ -81,9 +84,11 @@ tasks {
   }
 
   withType<Jar>().configureEach {
+    inputs.property("moduleName", otelJava.moduleName)
+
     manifest {
       attributes(
-        "Automatic-Module-Name" to "io.opentelemetry.semconv",
+          "Automatic-Module-Name" to otelJava.moduleName,
         "Built-By" to System.getProperty("user.name"),
         "Built-JDK" to System.getProperty("java.version"),
         "Implementation-Title" to project.base.archivesName,
@@ -106,5 +111,36 @@ configurations.configureEach {
   resolutionStrategy {
     failOnVersionConflict()
     preferProjectModules()
+  }
+}
+
+val dependencyManagement by configurations.creating {
+  isCanBeConsumed = false
+  isCanBeResolved = false
+  isVisible = false
+}
+
+dependencies {
+  dependencyManagement(platform(project(":dependencyManagement")))
+  afterEvaluate {
+    configurations.configureEach {
+      if (isCanBeResolved && !isCanBeConsumed) {
+        extendsFrom(dependencyManagement)
+      }
+    }
+  }
+}
+
+testing {
+  suites.withType(JvmTestSuite::class).configureEach {
+    dependencies {
+      implementation(project(project.path))
+
+      implementation("org.junit.jupiter:junit-jupiter-api")
+      implementation("org.junit.jupiter:junit-jupiter-params")
+      runtimeOnly("org.junit.jupiter:junit-jupiter-engine")
+
+      implementation("org.assertj:assertj-core")
+    }
   }
 }

@@ -15,9 +15,16 @@ Published releases are available on maven central. Replace `{{version}}` with th
 ```xml
 <project>
   <dependencies>
+    <!-- Stable semantic conventions. Note: generated code is still subject to breaking changes while published with "-alpha" suffix. -->
     <dependency>
       <groupId>io.opentelemetry.semconv</groupId>
       <artifactId>opentelemetry-semconv</artifactId>
+      <version>{{version}}</version>
+    </dependency>
+    <!-- Incubating semantic conventions. Breaking changes expected. Library instrumentation SHOULD NOT depend on this. -->
+    <dependency>
+      <groupId>io.opentelemetry.semconv</groupId>
+      <artifactId>opentelemetry-semconv.incubating</artifactId>
       <version>{{version}}</version>
     </dependency>
   </dependencies>
@@ -28,7 +35,10 @@ Published releases are available on maven central. Replace `{{version}}` with th
 
 ```groovy
 dependencies {
+  // Stable semantic conventions. Note: generated code is still subject to breaking changes while published with "-alpha" suffix.
   implementation platform("io.opentelemetry.semconv:opentelemetry-semconv:{{version}}")
+  // Incubating semantic conventions. Breaking changes expected. Library instrumentation SHOULD NOT depend on this.
+  implementation platform("io.opentelemetry.semconv:opentelemetry-semconv-incubating:{{version}}")
 }
 ```
 
@@ -37,7 +47,7 @@ dependencies {
 Java 17 or higher is required to build the projects in this repository. The built artifacts can be
 used on Java 8 or higher.
 
-To use this artifact you must also depend on `io.opentelemetry:opentelemetry-api:{{version}}`.
+To use these artifacts, you must also depend on `io.opentelemetry:opentelemetry-api:{{version}}`.
 See [opentelemetry-java releases](https://github.com/open-telemetry/opentelemetry-java#releases) for
 more information.
 
@@ -56,6 +66,8 @@ This will download the version
 of [open-telemetry/semantic-conventions](https://github.com/open-telemetry/semantic-conventions)
 defined in the `semanticConventionsVersion` variable of [build.gradle.kts](./build.gradle.kts) and
 generate semantic conventions classes from the release contents.
+
+TODO: Update the following paragraph with new strategy for managing compatibility
 
 This repository publishes `-alpha` artifacts and as discussed
 in [opentelemetry-java/VERSIONING.md](https://github.com/open-telemetry/opentelemetry-java/blob/main/VERSIONING.md),

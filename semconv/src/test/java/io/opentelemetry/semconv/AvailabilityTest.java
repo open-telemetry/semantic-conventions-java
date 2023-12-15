@@ -16,6 +16,7 @@ public class AvailabilityTest {
   void available() {
     classAvailable("io.opentelemetry.semconv.ResourceAttributes");
     classAvailable("io.opentelemetry.semconv.SemanticAttributes");
+    classAvailable("io.opentelemetry.semconv.SchemaUrls");
   }
 
   private static void classAvailable(String fqcn) {

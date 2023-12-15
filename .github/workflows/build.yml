@@ -71,7 +71,8 @@ jobs:
       - name: Check for diff
         run: |
           # need to "git add" in case any generated files did not already exist
-          git add src
+          # select files from both /semconv and /semconv-incubating
+          git add semconv**
           if git diff --cached --quiet
           then 
             echo "No diff detected."
