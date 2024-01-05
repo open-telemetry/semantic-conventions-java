@@ -28,7 +28,7 @@ Published releases are available on maven central. Replace `{{version}}` with th
 
 ```groovy
 dependencies {
-  implementation platform("io.opentelemetry.semconv:opentelemetry-semconv:{{version}}")
+  implementation "io.opentelemetry.semconv:opentelemetry-semconv:{{version}}"
 }
 ```
 
