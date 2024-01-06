@@ -18,6 +18,7 @@ val snapshot = true
 
 // The release version of https://github.com/open-telemetry/semantic-conventions used to generate classes
 var semanticConventionsVersion = "1.23.1"
+val semanticConventionsVersionEscaped = "v" + semanticConventionsVersion.replace(".", "_")
 
 // Compute the artifact version, which includes the "-alpha" suffix and includes "-SNAPSHOT" suffix if not releasing
 // Release example: version=1.21.0-alpha
@@ -71,7 +72,7 @@ dependencies {
 }
 
 // start - define tasks to download, unzip, and generate from opentelemetry/semantic-conventions
-var generatorVersion = "0.23.0"
+var generatorVersion = "foo14"
 val semanticConventionsRepoZip = "https://github.com/open-telemetry/semantic-conventions/archive/v$semanticConventionsVersion.zip"
 val schemaUrl = "https://opentelemetry.io/schemas/$semanticConventionsVersion"
 
@@ -93,7 +94,7 @@ val unzipConfigurationSchema by tasks.registering(Copy::class) {
   into("$buildDir/semantic-conventions/")
 }
 
-val generateSemanticAttributes by tasks.registering(Exec::class) {
+val generateStableSemanticAttributes by tasks.registering(Exec::class) {
   dependsOn(unzipConfigurationSchema)
 
   standardOutput = System.out
@@ -104,17 +105,16 @@ val generateSemanticAttributes by tasks.registering(Exec::class) {
     "-v", "$buildDir/semantic-conventions/model:/source",
     "-v", "$projectDir/buildscripts/templates:/templates",
     "-v", "$projectDir/src/main/java/io/opentelemetry/semconv/:/output",
-    "otel/semconvgen:$generatorVersion",
-    "--only", "span,event,attribute_group,scope,metric",
+    "semconvgen:$generatorVersion",
     "--yaml-root", "/source", "code",
     "--template", "/templates/SemanticAttributes.java.j2",
-    "--output", "/output/SemanticAttributes.java",
-    "-Dclass=SemanticAttributes",
-    "-DschemaUrl=$schemaUrl",
+    "--output", "/output/Attributes.java",
+    "--file-per-group", "root_namespace",
+    "-Dfilter=is_stable",
     "-Dpkg=io.opentelemetry.semconv"))
 }
 
-val generateResourceAttributes by tasks.registering(Exec::class) {
+val generateStableSemanticMetrics by tasks.registering(Exec::class) {
   dependsOn(unzipConfigurationSchema)
 
   standardOutput = System.out
@@ -125,18 +125,74 @@ val generateResourceAttributes by tasks.registering(Exec::class) {
     "-v", "$buildDir/semantic-conventions/model:/source",
     "-v", "$projectDir/buildscripts/templates:/templates",
     "-v", "$projectDir/src/main/java/io/opentelemetry/semconv/:/output",
-    "otel/semconvgen:$generatorVersion",
-    "--only", "resource",
+    "semconvgen:$generatorVersion",
+    "--yaml-root", "/source", "code",
+    "--template", "/templates/SemanticMetrics.java.j2",
+    "--output", "/output/Metrics.java",
+    "--file-per-group", "root_namespace",
+    "-Dfilter=is_stable",
+    "-Dpkg=io.opentelemetry.semconv"))
+}
+
+val generateExperimentalSemanticAttributes by tasks.registering(Exec::class) {
+  dependsOn(unzipConfigurationSchema)
+
+  standardOutput = System.out
+  executable = "docker"
+  setArgs(listOf(
+    "run",
+    "--rm",
+    "-v", "$buildDir/semantic-conventions/model:/source",
+    "-v", "$projectDir/buildscripts/templates:/templates",
+    "-v", "$projectDir/src/main/java/io/opentelemetry/semconv/$semanticConventionsVersionEscaped/:/output",
+    "semconvgen:$generatorVersion",
     "--yaml-root", "/source", "code",
     "--template", "/templates/SemanticAttributes.java.j2",
-    "--output", "/output/ResourceAttributes.java",
-    "-Dclass=ResourceAttributes",
-    "-DschemaUrl=$schemaUrl",
-    "-Dpkg=io.opentelemetry.semconv"))
+    "--output", "/output/Attributes.java",
+    "--file-per-group", "root_namespace",
+    "-Dfilter=is_experimental",
+    "-Dpkg=io.opentelemetry.semconv.$semanticConventionsVersionEscaped"))
+}
+
+val generateExperimentalSemanticMetrics by tasks.registering(Exec::class) {
+  dependsOn(unzipConfigurationSchema)
+
+  standardOutput = System.out
+  executable = "docker"
+  setArgs(listOf(
+    "run",
+    "--rm",
+    "-v", "$buildDir/semantic-conventions/model:/source",
+    "-v", "$projectDir/buildscripts/templates:/templates",
+    "-v", "$projectDir/src/main/java/io/opentelemetry/semconv/$semanticConventionsVersionEscaped/:/output",
+    "semconvgen:$generatorVersion",
+    "--yaml-root", "/source", "code",
+    "--template", "/templates/SemanticMetrics.java.j2",
+    "--output", "/output/Metrics.java",
+    "--file-per-group", "root_namespace",
+    "-Dfilter=is_experimental",
+    "-Dpkg=io.opentelemetry.semconv.$semanticConventionsVersionEscaped"))
+}
+
+// check if SchemaURLs file contains the new schema URL
+val checkSchemaUrls by tasks.registering {
+  val schemaUrlsFile = File("$projectDir/src/main/java/io/opentelemetry/semconv/SchemaUrls.java")
+  if (!schemaUrlsFile.exists()) {
+    throw GradleException("SchemaUrls file does not exist")
+  }
+
+  val schemaUrls = schemaUrlsFile.readLines()
+  if (!schemaUrls.any { it.contains(schemaUrl) }) {
+    throw GradleException("SchemaUrls file does not contain $schemaUrl")
+  }
 }
 
 val generateSemanticConventions by tasks.registering {
-  dependsOn(generateSemanticAttributes)
-  dependsOn(generateResourceAttributes)
+  dependsOn(generateStableSemanticAttributes)
+  dependsOn(generateExperimentalSemanticAttributes)
+  // dependsOn(generateStableSemanticMetrics)
+  dependsOn(generateExperimentalSemanticMetrics)
+  dependsOn(checkSchemaUrls)
 }
+
 // end

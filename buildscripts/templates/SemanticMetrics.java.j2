@@ -1,0 +1,50 @@
+{%- macro to_java_instrument_builder_factory(instrument) -%}
+  {%- if instrument == "counter" -%}
+    counterBuilder
+  {%- elif instrument == "histogram" -%}
+    histogramBuilder
+  {%- elif instrument == "updowncounter" -%}
+    upDownCounterBuilder
+  {%- elif instrument == "gauge" -%}
+    gaugeBuilder
+  {%- endif -%}
+{%- endmacro %}
+{%- macro to_java_instrument_builder_type(instrument) -%}
+  {%- if instrument == "counter" -%}
+    LongCounterBuilder
+  {%- elif instrument == "histogram" -%}
+    DoubleHistogramBuilder
+  {%- elif instrument == "updowncounter" -%}
+    LongUpDownCounterBuilder
+  {%- elif instrument == "gauge" -%}
+    DoubleGaugeBuilder
+  {%- endif -%}
+{%- endmacro %}
+{%- set filtered_metrics = metrics | select(filter) | list %}
+{%- if filtered_metrics | count > 0 %}
+/*
+ * Copyright The OpenTelemetry Authors
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+package io.opentelemetry.instrumentation.api.semconv;
+
+import io.opentelemetry.api.metrics.DoubleGaugeBuilder;
+import io.opentelemetry.api.metrics.DoubleHistogramBuilder;
+import io.opentelemetry.api.metrics.LongCounterBuilder;
+import io.opentelemetry.api.metrics.LongUpDownCounterBuilder;
+import io.opentelemetry.api.metrics.Meter;
+
+class {{ root_namespace | to_camelcase(True) }}Metrics {
+{%- for metric in filtered_metrics %}
+  /**
+  * {{metric.brief | to_doc_brief}}
+  */
+  public static final {{ to_java_instrument_builder_type(metric.instrument) }} create{{metric.metric_name | to_camelcase(True)}}(Meter meter) {
+    return meter.{{to_java_instrument_builder_factory(metric.instrument)}}("{{ metric.metric_name }}")
+            .setDescription("{{ metric.brief }}")
+            .setUnit("{{ metric.unit }}");
+  }
+{% endfor %}
+}
+{%endif%}
