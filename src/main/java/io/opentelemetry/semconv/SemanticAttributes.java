@@ -2949,26 +2949,26 @@ public final class SemanticAttributes {
 
   /**
    * @deprecated This item has been removed as of 1.13.0 of the semantic conventions. Please use
-   *     {@link SemanticAttributes#NET_HOST_NAME} instead.
+   *     {@link SemanticAttributes#SERVER_ADDRESS} instead.
    */
   @Deprecated
   public static final AttributeKey<String> HTTP_SERVER_NAME = stringKey("http.server_name");
 
   /**
    * @deprecated This item has been removed as of 1.13.0 of the semantic conventions. Please use
-   *     {@link SemanticAttributes#NET_HOST_NAME} instead.
+   *     {@link SemanticAttributes#SERVER_ADDRESS} instead.
    */
   @Deprecated public static final AttributeKey<String> HTTP_HOST = stringKey("http.host");
 
   /**
    * @deprecated This item has been removed as of 1.13.0 of the semantic conventions. Please use
-   *     {@link SemanticAttributes#NET_SOCK_PEER_ADDR} instead.
+   *     {@link SemanticAttributes#NETWORK_PEER_ADDRESS} instead.
    */
   @Deprecated public static final AttributeKey<String> NET_PEER_IP = stringKey("net.peer.ip");
 
   /**
    * @deprecated This item has been removed as of 1.13.0 of the semantic conventions. Please use
-   *     {@link SemanticAttributes#NET_SOCK_HOST_ADDR} instead.
+   *     {@link SemanticAttributes#NETWORK_LOCAL_ADDRESS} instead.
    */
   @Deprecated public static final AttributeKey<String> NET_HOST_IP = stringKey("net.host.ip");
 
@@ -2976,7 +2976,7 @@ public final class SemanticAttributes {
    * The ordinal number of request re-sending attempt.
    *
    * @deprecated This item has been removed as of 1.15.0 of the semantic conventions. Use {@link
-   *     SemanticAttributes#HTTP_RESEND_COUNT} instead.
+   *     SemanticAttributes#HTTP_REQUEST_RESEND_COUNT} instead.
    */
   @Deprecated public static final AttributeKey<Long> HTTP_RETRY_COUNT = longKey("http.retry_count");
 
@@ -3004,7 +3004,7 @@ public final class SemanticAttributes {
    * The name of the transport protocol.
    *
    * @deprecated This item has been removed as of 1.17.0 of the semantic conventions. Use {@link
-   *     SemanticAttributes#NET_PROTOCOL_NAME} instead.
+   *     SemanticAttributes#NETWORK_PROTOCOL_NAME} instead.
    */
   @Deprecated
   public static final AttributeKey<String> MESSAGING_PROTOCOL = stringKey("messaging.protocol");
@@ -3013,7 +3013,7 @@ public final class SemanticAttributes {
    * The version of the transport protocol.
    *
    * @deprecated This item has been removed as of 1.17.0 of the semantic conventions. Use {@link
-   *     SemanticAttributes#NET_PROTOCOL_VERSION} instead.
+   *     SemanticAttributes#NETWORK_PROTOCOL_VERSION} instead.
    */
   @Deprecated
   public static final AttributeKey<String> MESSAGING_PROTOCOL_VERSION =
@@ -3052,7 +3052,7 @@ public final class SemanticAttributes {
    * Partition the message is received from.
    *
    * @deprecated This item has been removed as of 1.17.0 of the semantic conventions. Use {@link
-   *     SemanticAttributes#MESSAGING_KAFKA_SOURCE_PARTITION} instead.
+   *     SemanticAttributes#MESSAGING_KAFKA_DESTINATION_PARTITION} instead.
    */
   @Deprecated
   public static final AttributeKey<Long> MESSAGING_KAFKA_PARTITION =
@@ -3145,14 +3145,16 @@ public final class SemanticAttributes {
   /**
    * Kind of HTTP protocol used.
    *
-   * @deprecated This item has been removed as of 1.20.0 of the semantic conventions.
+   * @deprecated This item has been removed as of 1.20.0 of the semantic conventions. Use {@link
+   *     SemanticAttributes#NETWORK_PROTOCOL_NAME} instead.
    */
   @Deprecated public static final AttributeKey<String> HTTP_FLAVOR = stringKey("http.flavor");
 
   /**
    * Enum definitions for {@link #HTTP_FLAVOR}.
    *
-   * @deprecated This item has been removed as of 1.20.0 of the semantic conventions.
+   * @deprecated This item has been removed as of 1.20.0 of the semantic conventions. Use {@link
+   *     SemanticAttributes#NETWORK_PROTOCOL_NAME} instead.
    */
   @Deprecated
   public static final class HttpFlavorValues {
@@ -3181,7 +3183,7 @@ public final class SemanticAttributes {
    * Application layer protocol used. The value SHOULD be normalized to lowercase.
    *
    * @deprecated This item has been removed as of 1.20.0 of the semantic conventions. Use {@link
-   *     SemanticAttributes#NET_PROTOCOL_NAME} instead.
+   *     SemanticAttributes#NETWORK_PROTOCOL_NAME} instead.
    */
   @Deprecated
   public static final AttributeKey<String> NET_APP_PROTOCOL_NAME =
@@ -3200,7 +3202,7 @@ public final class SemanticAttributes {
    * </ul>
    *
    * @deprecated This item has been removed as of 1.20.0 of the semantic conventions. Use {@link
-   *     SemanticAttributes#NET_PROTOCOL_VERSION} instead.
+   *     SemanticAttributes#NETWORK_PROTOCOL_VERSION} instead.
    */
   @Deprecated
   public static final AttributeKey<String> NET_APP_PROTOCOL_VERSION =
@@ -3209,7 +3211,8 @@ public final class SemanticAttributes {
   /**
    * The kind of message destination.
    *
-   * @deprecated This item has been removed as of 1.20.0 of the semantic conventions.
+   * @deprecated This item has been removed as of 1.20.0 of the semantic conventions. There is no
+   *     replacement.
    */
   @Deprecated
   public static final AttributeKey<String> MESSAGING_DESTINATION_KIND =
@@ -3218,7 +3221,8 @@ public final class SemanticAttributes {
   /**
    * Enum values for {@link #MESSAGING_DESTINATION_KIND}.
    *
-   * @deprecated This item has been removed as of 1.20.0 of the semantic conventions.
+   * @deprecated This item has been removed as of 1.20.0 of the semantic conventions. There is no
+   *     replacement.
    */
   @Deprecated
   public static final class MessagingDestinationKindValues {
@@ -3234,7 +3238,8 @@ public final class SemanticAttributes {
   /**
    * The kind of message source.
    *
-   * @deprecated This item has been removed as of 1.20.0 of the semantic conventions.
+   * @deprecated This item has been removed as of 1.20.0 of the semantic conventions. There is no
+   *     replacement.
    */
   @Deprecated
   public static final AttributeKey<String> MESSAGING_SOURCE_KIND =
@@ -3243,7 +3248,8 @@ public final class SemanticAttributes {
   /**
    * Enum values for {@link #MESSAGING_SOURCE_KIND}.
    *
-   * @deprecated This item has been removed as of 1.20.0 of the semantic conventions.
+   * @deprecated This item has been removed as of 1.20.0 of the semantic conventions. There is no
+   *     replacement.
    */
   @Deprecated
   public static final class MessagingSourceKindValues {
@@ -3348,7 +3354,8 @@ public final class SemanticAttributes {
    *       the broker.
    * </ul>
    *
-   * @deprecated This item has been removed in 1.21.0 version of the semantic conventions.
+   * @deprecated This item has been removed in 1.21.0 version of the semantic conventions. There is
+   *     no replacement.
    */
   @Deprecated
   public static final AttributeKey<String> MESSAGING_SOURCE_NAME =
@@ -3366,7 +3373,8 @@ public final class SemanticAttributes {
    *       for grouping and aggregation.
    * </ul>
    *
-   * @deprecated This item has been removed in 1.21.0 version of the semantic conventions.
+   * @deprecated This item has been removed in 1.21.0 version of the semantic conventions. There is
+   *     no replacement.
    */
   @Deprecated
   public static final AttributeKey<String> MESSAGING_SOURCE_TEMPLATE =
@@ -3376,7 +3384,8 @@ public final class SemanticAttributes {
    * A boolean that is true if the message source is temporary and might not exist anymore after
    * messages are processed.
    *
-   * @deprecated This item has been removed in 1.21.0 version of the semantic conventions.
+   * @deprecated This item has been removed in 1.21.0 version of the semantic conventions. There is
+   *     no replacement.
    */
   @Deprecated
   public static final AttributeKey<Boolean> MESSAGING_SOURCE_TEMPORARY =
@@ -3386,7 +3395,8 @@ public final class SemanticAttributes {
    * A boolean that is true if the message source is anonymous (could be unnamed or have
    * auto-generated name).
    *
-   * @deprecated This item has been removed in 1.21.0 version of the semantic conventions.
+   * @deprecated This item has been removed in 1.21.0 version of the semantic conventions. There is
+   *     no replacement.
    */
   @Deprecated
   public static final AttributeKey<Boolean> MESSAGING_SOURCE_ANONYMOUS =
@@ -3418,7 +3428,8 @@ public final class SemanticAttributes {
   /**
    * Partition the message is received from.
    *
-   * @deprecated This item has been removed in 1.21.0 version of the semantic conventions.
+   * @deprecated This item has been removed in 1.21.0 version of the semantic conventions. There is
+   *     no replacement.
    */
   @Deprecated
   public static final AttributeKey<Long> MESSAGING_KAFKA_SOURCE_PARTITION =
@@ -3538,8 +3549,8 @@ public final class SemanticAttributes {
    * Immediate client peer port number.
    *
    * @deprecated This item has been renamed in 1.22.0 of the semantic conventions. Use {@link
-   *     SemanticAttributes#NETWORK_PEER_PORT} on server telemetry and {@link
-   *     SemanticAttributes#NETWORK_LOCAL_PORT} on client telemetry instead.
+   *     SemanticAttributes#NETWORK_LOCAL_PORT} for local network telemetry and {@link
+   *     SemanticAttributes#NETWORK_PEER_PORT} for peer network telemetry instead.
    */
   @Deprecated
   public static final AttributeKey<Long> CLIENT_SOCKET_PORT = longKey("client.socket.port");
@@ -3579,8 +3590,8 @@ public final class SemanticAttributes {
    * client, this may represent some proxy server instead of the logical server).
    *
    * @deprecated This item has been renamed in 1.22.0 of the semantic conventions. Use {@link
-   *     SemanticAttributes#NETWORK_LOCAL_ADDRESS} on server telemetry and {@link
-   *     SemanticAttributes#NETWORK_PEER_ADDRESS} on client telemetry instead.
+   *     SemanticAttributes#NETWORK_LOCAL_ADDRESS} for local network telemetry and {@link
+   *     SemanticAttributes#NETWORK_PEER_ADDRESS} for peer network telemetry instead.
    */
   @Deprecated
   public static final AttributeKey<String> SERVER_SOCKET_ADDRESS =
@@ -3600,7 +3611,8 @@ public final class SemanticAttributes {
   /**
    * The domain name of the destination system.
    *
-   * @deprecated This item has been removed in 1.22.0 of the semantic conventions.
+   * @deprecated This item has been removed in 1.22.0 of the semantic conventions. There is no
+   *     replacement.
    */
   @Deprecated
   public static final AttributeKey<String> DESTINATION_DOMAIN = stringKey("destination.domain");
@@ -3608,7 +3620,8 @@ public final class SemanticAttributes {
   /**
    * The compressed size of the message payload in bytes.
    *
-   * @deprecated This item has been removed in 1.22.0 of the semantic conventions.
+   * @deprecated This item has been removed in 1.22.0 of the semantic conventions. There is no
+   *     replacement.
    */
   @Deprecated
   public static final AttributeKey<Long> MESSAGING_MESSAGE_PAYLOAD_COMPRESSED_SIZE_BYTES =
@@ -3624,7 +3637,8 @@ public final class SemanticAttributes {
    *       domain name.
    * </ul>
    *
-   * @deprecated This item has been removed in 1.22.0 of the semantic conventions.
+   * @deprecated This item has been removed in 1.22.0 of the semantic conventions. There is no
+   *     replacement.
    */
   @Deprecated
   public static final AttributeKey<String> SERVER_SOCKET_DOMAIN = stringKey("server.socket.domain");
@@ -3641,8 +3655,8 @@ public final class SemanticAttributes {
    * Physical server port.
    *
    * @deprecated This item has been renamed in 1.22.0 of the semantic conventions. Use {@link
-   *     SemanticAttributes#NETWORK_LOCAL_PORT} on server telemetry and {@link
-   *     SemanticAttributes#NETWORK_PEER_PORT} on client telemetry instead.
+   *     SemanticAttributes#NETWORK_LOCAL_PORT} for local network telemetry and {@link
+   *     SemanticAttributes#NETWORK_PEER_PORT} for peer network telemetry instead.
    */
   @Deprecated
   public static final AttributeKey<Long> SERVER_SOCKET_PORT = longKey("server.socket.port");
@@ -3651,8 +3665,8 @@ public final class SemanticAttributes {
    * Immediate client peer address - unix domain socket name, IPv4 or IPv6 address.
    *
    * @deprecated This item has been renamed in 1.22.0 of the semantic conventions. Use {@link
-   *     SemanticAttributes#NETWORK_PEER_ADDRESS} on server telemetry and {@link
-   *     SemanticAttributes#NETWORK_LOCAL_ADDRESS} on client telemetry instead.
+   *     SemanticAttributes#NETWORK_LOCAL_ADDRESS} for local network telemetry and {@link
+   *     SemanticAttributes#NETWORK_PEER_ADDRESS} for peer network telemetry instead.
    */
   @Deprecated
   public static final AttributeKey<String> CLIENT_SOCKET_ADDRESS =
