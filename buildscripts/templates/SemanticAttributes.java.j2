@@ -367,7 +367,7 @@ public final class {{class}} {
 
   /**
    * Kind of HTTP protocol used.
-   * @deprecated This item has been removed as of 1.20.0 of the semantic conventions.
+   * @deprecated This item has been removed as of 1.20.0 of the semantic conventions. Use {@link SemanticAttributes#NETWORK_PROTOCOL_NAME} instead.
    */
   @Deprecated
   public static final AttributeKey<String> HTTP_FLAVOR = stringKey("http.flavor");
@@ -424,14 +424,14 @@ public final class {{class}} {
 
   /**
    * The kind of message destination.
-   * @deprecated This item has been removed as of 1.20.0 of the semantic conventions.
+   * @deprecated This item has been removed as of 1.20.0 of the semantic conventions. There is no replacement.
    */
   @Deprecated
   public static final AttributeKey<String> MESSAGING_DESTINATION_KIND = stringKey("messaging.destination.kind");
 
   /**
    * Enum values for {@link #MESSAGING_DESTINATION_KIND}.
-   * @deprecated This item has been removed as of 1.20.0 of the semantic conventions.
+   * @deprecated This item has been removed as of 1.20.0 of the semantic conventions. There is no replacement.
    */
   @Deprecated
   public static final class MessagingDestinationKindValues {
@@ -446,14 +446,14 @@ public final class {{class}} {
 
   /**
    * The kind of message source.
-   * @deprecated This item has been removed as of 1.20.0 of the semantic conventions.
+   * @deprecated This item has been removed as of 1.20.0 of the semantic conventions. There is no replacement.
    */
   @Deprecated
   public static final AttributeKey<String> MESSAGING_SOURCE_KIND = stringKey("messaging.source.kind");
 
   /**
    * Enum values for {@link #MESSAGING_SOURCE_KIND}.
-   * @deprecated This item has been removed as of 1.20.0 of the semantic conventions.
+   * @deprecated This item has been removed as of 1.20.0 of the semantic conventions. There is no replacement.
    */
   @Deprecated
   public static final class MessagingSourceKindValues {
@@ -544,7 +544,7 @@ public final class {{class}} {
    *       broker. If the broker does not have such notion, the source name SHOULD uniquely identify
    *       the broker.
    * </ul>
-   * @deprecated This item has been removed in 1.21.0 version of the semantic conventions.
+   * @deprecated This item has been removed in 1.21.0 version of the semantic conventions. There is no replacement.
    */
   @Deprecated
   public static final AttributeKey<String> MESSAGING_SOURCE_NAME =
@@ -561,7 +561,7 @@ public final class {{class}} {
    *       cardinality, the underlying template is of low cardinality and can be effectively used
    *       for grouping and aggregation.
    * </ul>
-   * @deprecated This item has been removed in 1.21.0 version of the semantic conventions.
+   * @deprecated This item has been removed in 1.21.0 version of the semantic conventions. There is no replacement.
    */
   @Deprecated
   public static final AttributeKey<String> MESSAGING_SOURCE_TEMPLATE =
@@ -570,7 +570,7 @@ public final class {{class}} {
   /**
    * A boolean that is true if the message source is temporary and might not exist anymore after
    * messages are processed.
-   * @deprecated This item has been removed in 1.21.0 version of the semantic conventions.
+   * @deprecated This item has been removed in 1.21.0 version of the semantic conventions. There is no replacement.
    */
   @Deprecated
   public static final AttributeKey<Boolean> MESSAGING_SOURCE_TEMPORARY =
@@ -579,7 +579,7 @@ public final class {{class}} {
   /**
    * A boolean that is true if the message source is anonymous (could be unnamed or have
    * auto-generated name).
-   * @deprecated This item has been removed in 1.21.0 version of the semantic conventions.
+   * @deprecated This item has been removed in 1.21.0 version of the semantic conventions. There is no replacement.
    */
   @Deprecated
   public static final AttributeKey<Boolean> MESSAGING_SOURCE_ANONYMOUS =
@@ -606,7 +606,7 @@ public final class {{class}} {
 
   /**
    * Partition the message is received from.
-   * @deprecated This item has been removed in 1.21.0 version of the semantic conventions.
+   * @deprecated This item has been removed in 1.21.0 version of the semantic conventions. There is no replacement.
    */
   @Deprecated
   public static final AttributeKey<Long> MESSAGING_KAFKA_SOURCE_PARTITION =
@@ -776,7 +776,7 @@ public final class {{class}} {
   /**
    * The domain name of the destination system.
    *
-   * @deprecated This item has been removed in 1.22.0 of the semantic conventions.
+   * @deprecated This item has been removed in 1.22.0 of the semantic conventions. There is no replacement.
    */
   @Deprecated
   public static final AttributeKey<String> DESTINATION_DOMAIN = stringKey("destination.domain");
@@ -784,7 +784,7 @@ public final class {{class}} {
   /**
    * The compressed size of the message payload in bytes.
    *
-   * @deprecated This item has been removed in 1.22.0 of the semantic conventions.
+   * @deprecated This item has been removed in 1.22.0 of the semantic conventions. There is no replacement.
    */
   @Deprecated
   public static final AttributeKey<Long> MESSAGING_MESSAGE_PAYLOAD_COMPRESSED_SIZE_BYTES =
@@ -800,7 +800,7 @@ public final class {{class}} {
    *       domain name.
    * </ul>
    *
-   * @deprecated This item has been removed in 1.22.0 of the semantic conventions.
+   * @deprecated This item has been removed in 1.22.0 of the semantic conventions. There is no replacement.
    */
   @Deprecated
   public static final AttributeKey<String> SERVER_SOCKET_DOMAIN = stringKey("server.socket.domain");
