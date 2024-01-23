@@ -198,33 +198,33 @@ public final class {{class}} {
 
   /**
    * @deprecated This item has been removed as of 1.13.0 of the semantic conventions. Please use
-   *     {@link SemanticAttributes#NET_HOST_NAME} instead.
+   *     {@link SemanticAttributes#SERVER_ADDRESS} instead.
    */
   @Deprecated
   public static final AttributeKey<String> HTTP_SERVER_NAME = stringKey("http.server_name");
 
   /**
    * @deprecated This item has been removed as of 1.13.0 of the semantic conventions. Please use
-   *     {@link SemanticAttributes#NET_HOST_NAME} instead.
+   *     {@link SemanticAttributes#SERVER_ADDRESS} instead.
    */
   @Deprecated
   public static final AttributeKey<String> HTTP_HOST = stringKey("http.host");
 
   /**
-   * @deprecated This item has been removed as of 1.13.0 of the semantic conventions. Please use {@link SemanticAttributes#NET_SOCK_PEER_ADDR} instead.
+   * @deprecated This item has been removed as of 1.13.0 of the semantic conventions. Please use {@link SemanticAttributes#NETWORK_PEER_ADDRESS} instead.
    */
   @Deprecated
   public static final AttributeKey<String> NET_PEER_IP = stringKey("net.peer.ip");
 
   /**
-   * @deprecated This item has been removed as of 1.13.0 of the semantic conventions. Please use {@link SemanticAttributes#NET_SOCK_HOST_ADDR} instead.
+   * @deprecated This item has been removed as of 1.13.0 of the semantic conventions. Please use {@link SemanticAttributes#NETWORK_LOCAL_ADDRESS} instead.
    */
   @Deprecated
   public static final AttributeKey<String> NET_HOST_IP = stringKey("net.host.ip");
 
   /**
    * The ordinal number of request re-sending attempt.
-   * @deprecated This item has been removed as of 1.15.0 of the semantic conventions. Use {@link SemanticAttributes#HTTP_RESEND_COUNT} instead.
+   * @deprecated This item has been removed as of 1.15.0 of the semantic conventions. Use {@link SemanticAttributes#HTTP_REQUEST_RESEND_COUNT} instead.
    */
   @Deprecated
   public static final AttributeKey<Long> HTTP_RETRY_COUNT = longKey("http.retry_count");
@@ -248,14 +248,14 @@ public final class {{class}} {
 
  /**
   * The name of the transport protocol.
-  * @deprecated This item has been removed as of 1.17.0 of the semantic conventions. Use {@link SemanticAttributes#NET_PROTOCOL_NAME} instead.
+  * @deprecated This item has been removed as of 1.17.0 of the semantic conventions. Use {@link SemanticAttributes#NETWORK_PROTOCOL_NAME} instead.
   */
   @Deprecated
   public static final AttributeKey<String> MESSAGING_PROTOCOL = stringKey("messaging.protocol");
 
   /**
   * The version of the transport protocol.
-  * @deprecated This item has been removed as of 1.17.0 of the semantic conventions. Use {@link SemanticAttributes#NET_PROTOCOL_VERSION} instead.
+  * @deprecated This item has been removed as of 1.17.0 of the semantic conventions. Use {@link SemanticAttributes#NETWORK_PROTOCOL_VERSION} instead.
   */
   @Deprecated
   public static final AttributeKey<String> MESSAGING_PROTOCOL_VERSION =
@@ -287,7 +287,7 @@ public final class {{class}} {
 
   /**
    * Partition the message is received from.
-   * @deprecated This item has been removed as of 1.17.0 of the semantic conventions. Use {@link SemanticAttributes#MESSAGING_KAFKA_SOURCE_PARTITION} instead.
+   * @deprecated This item has been removed as of 1.17.0 of the semantic conventions. Use {@link SemanticAttributes#MESSAGING_KAFKA_DESTINATION_PARTITION} instead.
    */
    @Deprecated
   public static final AttributeKey<Long> MESSAGING_KAFKA_PARTITION =
@@ -401,7 +401,7 @@ public final class {{class}} {
 
   /**
    * Application layer protocol used. The value SHOULD be normalized to lowercase.
-   * @deprecated This item has been removed as of 1.20.0 of the semantic conventions. Use {@link SemanticAttributes#NET_PROTOCOL_NAME} instead.
+   * @deprecated This item has been removed as of 1.20.0 of the semantic conventions. Use {@link SemanticAttributes#NETWORK_PROTOCOL_NAME} instead.
    */
   @Deprecated
   public static final AttributeKey<String> NET_APP_PROTOCOL_NAME = stringKey("net.app.protocol.name");
@@ -417,7 +417,7 @@ public final class {{class}} {
    *       {@code 0.27.2}, but sends HTTP version {@code 1.1}, this attribute should be set to
    *       {@code 1.1}.
    * </ul>
-   * @deprecated This item has been removed as of 1.20.0 of the semantic conventions. Use {@link SemanticAttributes#NET_PROTOCOL_VERSION} instead.
+   * @deprecated This item has been removed as of 1.20.0 of the semantic conventions. Use {@link SemanticAttributes#NETWORK_PROTOCOL_VERSION} instead.
    */
   @Deprecated
   public static final AttributeKey<String> NET_APP_PROTOCOL_VERSION = stringKey("net.app.protocol.version");
