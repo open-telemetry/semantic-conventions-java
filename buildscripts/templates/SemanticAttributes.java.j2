@@ -719,7 +719,7 @@ public final class {{class}} {
   /**
    * Immediate client peer port number.
    *
-   * @deprecated This item has been renamed in 1.22.0 of the semantic conventions. Use {@link SemanticAttributes#NETWORK_PEER_PORT} on server telemetry and {@link SemanticAttributes#NETWORK_LOCAL_PORT} on client telemetry instead.
+   * @deprecated This item has been renamed in 1.22.0 of the semantic conventions. Use {@link SemanticAttributes#NETWORK_LOCAL_PORT} for local network telemetry and {@link SemanticAttributes#NETWORK_PEER_PORT} for peer network telemetry instead.
    */
   @Deprecated
   public static final AttributeKey<Long> CLIENT_SOCKET_PORT = longKey("client.socket.port");
@@ -757,7 +757,7 @@ public final class {{class}} {
    * the socket's peer address, and not attempt to find any actual server IP (i.e., if set from
    * client, this may represent some proxy server instead of the logical server).
    *
-   * @deprecated This item has been renamed in 1.22.0 of the semantic conventions. Use {@link SemanticAttributes#NETWORK_LOCAL_ADDRESS} on server telemetry and {@link SemanticAttributes#NETWORK_PEER_ADDRESS} on client telemetry instead.
+   * @deprecated This item has been renamed in 1.22.0 of the semantic conventions. Use {@link SemanticAttributes#NETWORK_LOCAL_ADDRESS} for local network telemetry and {@link SemanticAttributes#NETWORK_PEER_ADDRESS} for peer network telemetry instead.
    */
   @Deprecated
   public static final AttributeKey<String> SERVER_SOCKET_ADDRESS =
@@ -816,7 +816,7 @@ public final class {{class}} {
   /**
    * Physical server port.
    *
-   * @deprecated This item has been renamed in 1.22.0 of the semantic conventions. Use {@link SemanticAttributes#NETWORK_LOCAL_PORT} on server telemetry and {@link SemanticAttributes#NETWORK_PEER_PORT} on client telemetry instead.
+   * @deprecated This item has been renamed in 1.22.0 of the semantic conventions. Use {@link SemanticAttributes#NETWORK_LOCAL_PORT} for local network telemetry and {@link SemanticAttributes#NETWORK_PEER_PORT} for peer network telemetry instead.
    */
   @Deprecated
   public static final AttributeKey<Long> SERVER_SOCKET_PORT = longKey("server.socket.port");
@@ -824,7 +824,7 @@ public final class {{class}} {
   /**
    * Immediate client peer address - unix domain socket name, IPv4 or IPv6 address.
    *
-   * @deprecated This item has been renamed in 1.22.0 of the semantic conventions. Use {@link SemanticAttributes#NETWORK_PEER_ADDRESS} on server telemetry and {@link SemanticAttributes#NETWORK_LOCAL_ADDRESS} on client telemetry instead.
+   * @deprecated This item has been renamed in 1.22.0 of the semantic conventions. Use {@link SemanticAttributes#NETWORK_LOCAL_ADDRESS} for local network telemetry and {@link SemanticAttributes#NETWORK_PEER_ADDRESS} for peer network telemetry instead.
    */
   @Deprecated
   public static final AttributeKey<String> CLIENT_SOCKET_ADDRESS =
