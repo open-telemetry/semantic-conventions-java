@@ -2,12 +2,6 @@ import de.undercouch.gradle.tasks.download.Download
 import java.time.Duration
 
 plugins {
-  id("otel.java-conventions")
-  id("otel.publish-conventions")
-  id("otel.japicmp-conventions")
-
-  id("otel.animalsniffer-conventions")
-
   id("de.undercouch.download")
   id("io.github.gradle-nexus.publish-plugin")
 }
@@ -18,6 +12,7 @@ val snapshot = true
 
 // The release version of https://github.com/open-telemetry/semantic-conventions used to generate classes
 var semanticConventionsVersion = "1.23.1"
+val schemaUrlVersions = listOf(semanticConventionsVersion, "1.22.0")
 
 // Compute the artifact version, which includes the "-alpha" suffix and includes "-SNAPSHOT" suffix if not releasing
 // Release example: version=1.21.0-alpha
@@ -27,10 +22,8 @@ if (snapshot) {
   releaseVersion += "-SNAPSHOT"
 }
 
-base {
+allprojects {
   version = releaseVersion
-  description = "OpenTelemetry Semantic Conventions generated classes for Java"
-  archivesName.set("opentelemetry-semconv")
 }
 
 nexusPublishing {
@@ -52,22 +45,6 @@ nexusPublishing {
     maxRetries.set(300)
     delayBetween.set(Duration.ofSeconds(10))
   }
-}
-
-val opentelemetryJavaVersion = "1.31.0"
-
-dependencies {
-  compileOnly("io.opentelemetry:opentelemetry-api:$opentelemetryJavaVersion")
-
-  testImplementation("io.opentelemetry:opentelemetry-api:$opentelemetryJavaVersion")
-
-  testImplementation(platform("org.junit:junit-bom:5.10.0"))
-  testImplementation("org.junit.jupiter:junit-jupiter-api")
-  testImplementation("org.junit.jupiter:junit-jupiter-params")
-  testImplementation("org.junit.jupiter:junit-jupiter-engine")
-
-  testImplementation(platform("org.assertj:assertj-bom:3.24.2"))
-  testImplementation("org.assertj:assertj-core")
 }
 
 // start - define tasks to download, unzip, and generate from opentelemetry/semantic-conventions
@@ -93,50 +70,66 @@ val unzipConfigurationSchema by tasks.registering(Copy::class) {
   into("$buildDir/semantic-conventions/")
 }
 
-val generateSemanticAttributes by tasks.registering(Exec::class) {
-  dependsOn(unzipConfigurationSchema)
+fun generateTask(taskName: String, resource: Boolean, incubating: Boolean) {
+  tasks.register(taskName, Exec::class) {
+    dependsOn(unzipConfigurationSchema)
 
-  standardOutput = System.out
-  executable = "docker"
-  setArgs(listOf(
-    "run",
-    "--rm",
-    "-v", "$buildDir/semantic-conventions/model:/source",
-    "-v", "$projectDir/buildscripts/templates:/templates",
-    "-v", "$projectDir/src/main/java/io/opentelemetry/semconv/:/output",
-    "otel/semconvgen:$generatorVersion",
-    "--only", "span,event,attribute_group,scope,metric",
-    "--yaml-root", "/source", "code",
-    "--template", "/templates/SemanticAttributes.java.j2",
-    "--output", "/output/SemanticAttributes.java",
-    "-Dclass=SemanticAttributes",
-    "-DschemaUrl=$schemaUrl",
-    "-Dpkg=io.opentelemetry.semconv"))
+    standardOutput = System.out
+    executable = "docker"
+
+    val onlyArg = if (resource) "resource" else "span,event,attribute_group,scope,metric"
+    val classNamePrefix = if (incubating) "Incubating" else ""
+    var className = if (resource) "${classNamePrefix}ResourceAttributes" else "${classNamePrefix}SemanticAttributes"
+    val outputDir = if (incubating) "semconv-incubating/src/main/java/io/opentelemetry/semconv/incubating/" else "semconv/src/main/java/io/opentelemetry/semconv/"
+    val stability = if (incubating) "StabilityLevel.EXPERIMENTAL" else "StabilityLevel.STABLE"
+    val packageNameArg = if (incubating) "io.opentelemetry.semconv.incubating" else "io.opentelemetry.semconv"
+
+    setArgs(listOf(
+        "run",
+        "--rm",
+        "-v", "$buildDir/semantic-conventions/model:/source",
+        "-v", "$projectDir/buildscripts/templates:/templates",
+        "-v", "$projectDir/$outputDir:/output",
+        "otel/semconvgen:$generatorVersion",
+        "--only", onlyArg,
+        "--yaml-root", "/source", "code",
+        "--template", "/templates/SemanticAttributes.java.j2",
+        "--output", "/output/$className.java",
+        "-Dclass=$className",
+        "-Dstability=${stability}",
+        "-Dpkg=$packageNameArg"))
+  }
 }
 
-val generateResourceAttributes by tasks.registering(Exec::class) {
-  dependsOn(unzipConfigurationSchema)
+generateTask("generateStableSemanticAttributes", false, false)
+generateTask("generateIncubatingSemanticAttributes", false, true)
+generateTask("generateStableResourceAttributes", true, false)
+generateTask("generateIncubatingResourceAttributes", true, true)
 
-  standardOutput = System.out
-  executable = "docker"
-  setArgs(listOf(
-    "run",
-    "--rm",
-    "-v", "$buildDir/semantic-conventions/model:/source",
-    "-v", "$projectDir/buildscripts/templates:/templates",
-    "-v", "$projectDir/src/main/java/io/opentelemetry/semconv/:/output",
-    "otel/semconvgen:$generatorVersion",
-    "--only", "resource",
-    "--yaml-root", "/source", "code",
-    "--template", "/templates/SemanticAttributes.java.j2",
-    "--output", "/output/ResourceAttributes.java",
-    "-Dclass=ResourceAttributes",
-    "-DschemaUrl=$schemaUrl",
-    "-Dpkg=io.opentelemetry.semconv"))
+tasks.register("checkSchemaUrls") {
+  val schemaUrlsClass = File("$projectDir/semconv/src/main/java/io/opentelemetry/semconv/SchemaUrls.java")
+  if (!schemaUrlsClass.exists()) {
+    throw GradleException("SchemaUrls file does not exist")
+  }
+
+  for (schemaUrlVersion: String in schemaUrlVersions) {
+    val expectedLine = "public static final String V" + schemaUrlVersion.replace(".", "_") + " = \"https://opentelemetry.io/schemas/" + schemaUrlVersion + "\";"
+    if (!schemaUrlsClass.readLines().any { it.contains(expectedLine) }) {
+      throw GradleException("SchemaUrls file does not contain: $expectedLine")
+    }
+  }
 }
 
 val generateSemanticConventions by tasks.registering {
-  dependsOn(generateSemanticAttributes)
-  dependsOn(generateResourceAttributes)
+  dependsOn(tasks.getByName("generateStableSemanticAttributes"))
+  dependsOn(tasks.getByName("generateIncubatingSemanticAttributes"))
+  dependsOn(tasks.getByName("generateStableResourceAttributes"))
+  dependsOn(tasks.getByName("generateIncubatingResourceAttributes"))
+  dependsOn(tasks.getByName("checkSchemaUrls"))
 }
+
+tasks.register("build") {
+  dependsOn(tasks.getByName("checkSchemaUrls"))
+}
+
 // end
