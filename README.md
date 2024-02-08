@@ -36,9 +36,9 @@ Published releases are available on maven central. Replace `{{version}}` with th
 ```groovy
 dependencies {
   // Stable semantic conventions. Note: generated code is still subject to breaking changes while published with "-alpha" suffix.
-  implementation platform("io.opentelemetry.semconv:opentelemetry-semconv:{{version}}")
+  implementation "io.opentelemetry.semconv:opentelemetry-semconv:{{version}}"
   // Incubating semantic conventions. Breaking changes expected. Library instrumentation SHOULD NOT depend on this.
-  implementation platform("io.opentelemetry.semconv:opentelemetry-semconv-incubating:{{version}}")
+  implementation "io.opentelemetry.semconv:opentelemetry-semconv-incubating:{{version}}"
 }
 ```
 
