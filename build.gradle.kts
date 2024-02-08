@@ -50,7 +50,6 @@ nexusPublishing {
 // start - define tasks to download, unzip, and generate from opentelemetry/semantic-conventions
 var generatorVersion = "0.23.0"
 val semanticConventionsRepoZip = "https://github.com/open-telemetry/semantic-conventions/archive/v$semanticConventionsVersion.zip"
-// val semanticConventionsRepoZip = "https://github.com/lmolkova/semantic-conventions/archive/bd833aa5ff13996293654dc45a4a61354b0bbe5d.zip"
 val schemaUrl = "https://opentelemetry.io/schemas/$semanticConventionsVersion"
 
 val downloadSemanticConventions by tasks.registering(Download::class) {

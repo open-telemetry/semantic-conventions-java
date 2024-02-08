@@ -24,7 +24,7 @@ Published releases are available on maven central. Replace `{{version}}` with th
     <!-- Incubating semantic conventions. Breaking changes expected. Library instrumentation SHOULD NOT depend on this. -->
     <dependency>
       <groupId>io.opentelemetry.semconv</groupId>
-      <artifactId>opentelemetry-semconv.incubating</artifactId>
+      <artifactId>opentelemetry-semconv-incubating</artifactId>
       <version>{{version}}</version>
     </dependency>
   </dependencies>
