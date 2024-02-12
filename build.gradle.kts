@@ -48,9 +48,9 @@ nexusPublishing {
 }
 
 // start - define tasks to download, unzip, and generate from opentelemetry/semantic-conventions
-// TODO: build locally from https://github.com/open-telemetry/build-tools/tree/feature/codegen-by-namespace branch
-// Blocked on release of this: https://github.com/open-telemetry/build-tools/pull/243#issuecomment-1936446767
-var generatorVersion = "codegen-by-namespace"
+// Using image built from feature branch: https://github.com/open-telemetry/build-tools/tree/feature/codegen-by-namespace
+// TODO: upgrade to official release when features are incorporated into main
+var generatorVersion = "feature-codegen-by-namespace"
 val semanticConventionsRepoZip = "https://github.com/open-telemetry/semantic-conventions/archive/v$semanticConventionsVersion.zip"
 val schemaUrl = "https://opentelemetry.io/schemas/$semanticConventionsVersion"
 
@@ -90,7 +90,7 @@ fun generateTask(taskName: String, incubating: Boolean) {
         "-v", "$buildDir/semantic-conventions/model:/source",
         "-v", "$projectDir/buildscripts/templates:/templates",
         "-v", "$projectDir/$outputDir:/output",
-        "semconvgen:$generatorVersion",
+        "otel/semconvgen:$generatorVersion",
         "--yaml-root", "/source", "code",
         "--template", "/templates/SemanticAttributes.java.j2",
         "--output", "/output/${classPrefix}Attributes.java",
