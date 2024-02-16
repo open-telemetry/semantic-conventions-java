@@ -93,7 +93,7 @@ fun generateTask(taskName: String, incubating: Boolean) {
         "otel/semconvgen:$generatorVersion",
         "--yaml-root", "/source", "code",
         "--template", "/templates/SemanticAttributes.java.j2",
-        "--output", "/output/${classPrefix}Attributes.java",
+        "--output", "/output/{{pascal_prefix}}${classPrefix}Attributes.java",
         "--file-per-group", "root_namespace",
         "-Dfilter=${filter}",
         "-DclassPrefix=${classPrefix}",
