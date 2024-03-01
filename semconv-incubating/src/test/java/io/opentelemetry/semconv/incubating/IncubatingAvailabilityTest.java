@@ -41,6 +41,7 @@ public class IncubatingAvailabilityTest {
     isValidClass("io.opentelemetry.semconv.incubating.K8sIncubatingAttributes");
     isValidClass("io.opentelemetry.semconv.incubating.LogIncubatingAttributes");
     isValidClass("io.opentelemetry.semconv.incubating.MessageIncubatingAttributes");
+    isValidClass("io.opentelemetry.semconv.incubating.NetIncubatingAttributes");
     isValidClass("io.opentelemetry.semconv.incubating.MessagingIncubatingAttributes");
     isValidClass("io.opentelemetry.semconv.incubating.NetworkIncubatingAttributes");
     isValidClass("io.opentelemetry.semconv.incubating.OciIncubatingAttributes");

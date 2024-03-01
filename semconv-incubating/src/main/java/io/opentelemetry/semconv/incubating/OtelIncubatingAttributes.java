@@ -14,6 +14,12 @@ import io.opentelemetry.api.common.AttributeKey;
 @SuppressWarnings("unused")
 public final class OtelIncubatingAttributes {
 
+  /** Deprecated, use the {@code otel.scope.name} attribute. */
+  public static final AttributeKey<String> OTEL_LIBRARY_NAME = stringKey("otel.library.name");
+
+  /** Deprecated, use the {@code otel.scope.version} attribute. */
+  public static final AttributeKey<String> OTEL_LIBRARY_VERSION = stringKey("otel.library.version");
+
   /** The name of the instrumentation scope - ({@code InstrumentationScope.Name} in OTLP). */
   public static final AttributeKey<String> OTEL_SCOPE_NAME = stringKey("otel.scope.name");
 
