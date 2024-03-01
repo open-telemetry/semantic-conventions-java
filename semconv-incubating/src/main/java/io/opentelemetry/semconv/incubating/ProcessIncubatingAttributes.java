@@ -59,7 +59,7 @@ public final class ProcessIncubatingAttributes {
   /** The username of the user that owns the process. */
   public static final AttributeKey<String> PROCESS_OWNER = stringKey("process.owner");
 
-  /** Parent Process identifier (PID). */
+  /** Parent Process identifier (PPID). */
   public static final AttributeKey<Long> PROCESS_PARENT_PID = longKey("process.parent_pid");
 
   /** Process identifier (PID). */

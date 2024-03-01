@@ -18,8 +18,23 @@ import java.util.List;
 @SuppressWarnings("unused")
 public final class HttpIncubatingAttributes {
 
-  /** Deprecated, use {@code http.request.method} instead. */
-  public static final AttributeKey<String> HTTP_METHOD = stringKey("http.method");
+  /** State of the HTTP connection in the HTTP connection pool. */
+  public static final AttributeKey<String> HTTP_CONNECTION_STATE =
+      stringKey("http.connection.state");
+
+  /**
+   * Deprecated, use {@code network.protocol.name} instead.
+   *
+   * @deprecated Deprecated, use `network.protocol.name` instead.
+   */
+  @Deprecated public static final AttributeKey<String> HTTP_FLAVOR = stringKey("http.flavor");
+
+  /**
+   * Deprecated, use {@code http.request.method} instead.
+   *
+   * @deprecated Deprecated, use `http.request.method` instead.
+   */
+  @Deprecated public static final AttributeKey<String> HTTP_METHOD = stringKey("http.method");
 
   /**
    * The size of the request payload body in bytes. This is the number of bytes transferred
@@ -112,7 +127,12 @@ public final class HttpIncubatingAttributes {
   public static final AttributeKey<Long> HTTP_REQUEST_RESEND_COUNT =
       longKey("http.request.resend_count");
 
-  /** Deprecated, use {@code http.request.header.content-length} instead. */
+  /**
+   * Deprecated, use {@code http.request.header.content-length} instead.
+   *
+   * @deprecated Deprecated, use `http.request.header.content-length` instead.
+   */
+  @Deprecated
   public static final AttributeKey<Long> HTTP_REQUEST_CONTENT_LENGTH =
       longKey("http.request_content_length");
 
@@ -158,7 +178,12 @@ public final class HttpIncubatingAttributes {
   public static final AttributeKey<Long> HTTP_RESPONSE_STATUS_CODE =
       longKey("http.response.status_code");
 
-  /** Deprecated, use {@code http.response.header.content-length} instead. */
+  /**
+   * Deprecated, use {@code http.response.header.content-length} instead.
+   *
+   * @deprecated Deprecated, use `http.response.header.content-length` instead.
+   */
+  @Deprecated
   public static final AttributeKey<Long> HTTP_RESPONSE_CONTENT_LENGTH =
       longKey("http.response_content_length");
 
@@ -180,19 +205,75 @@ public final class HttpIncubatingAttributes {
    */
   @Deprecated public static final AttributeKey<String> HTTP_ROUTE = stringKey("http.route");
 
-  /** Deprecated, use {@code url.scheme} instead. */
-  public static final AttributeKey<String> HTTP_SCHEME = stringKey("http.scheme");
+  /**
+   * Deprecated, use {@code url.scheme} instead.
+   *
+   * @deprecated Deprecated, use `url.scheme` instead.
+   */
+  @Deprecated public static final AttributeKey<String> HTTP_SCHEME = stringKey("http.scheme");
 
-  /** Deprecated, use {@code http.response.status_code} instead. */
-  public static final AttributeKey<Long> HTTP_STATUS_CODE = longKey("http.status_code");
+  /**
+   * Deprecated, use {@code http.response.status_code} instead.
+   *
+   * @deprecated Deprecated, use `http.response.status_code` instead.
+   */
+  @Deprecated public static final AttributeKey<Long> HTTP_STATUS_CODE = longKey("http.status_code");
 
-  /** Deprecated, use {@code url.path} and {@code url.query} instead. */
-  public static final AttributeKey<String> HTTP_TARGET = stringKey("http.target");
+  /**
+   * Deprecated, use {@code url.path} and {@code url.query} instead.
+   *
+   * @deprecated Deprecated, use `url.path` and `url.query` instead.
+   */
+  @Deprecated public static final AttributeKey<String> HTTP_TARGET = stringKey("http.target");
 
-  /** Deprecated, use {@code url.full} instead. */
-  public static final AttributeKey<String> HTTP_URL = stringKey("http.url");
+  /**
+   * Deprecated, use {@code url.full} instead.
+   *
+   * @deprecated Deprecated, use `url.full` instead.
+   */
+  @Deprecated public static final AttributeKey<String> HTTP_URL = stringKey("http.url");
+
+  /**
+   * Deprecated, use {@code user_agent.original} instead.
+   *
+   * @deprecated Deprecated, use `user_agent.original` instead.
+   */
+  @Deprecated
+  public static final AttributeKey<String> HTTP_USER_AGENT = stringKey("http.user_agent");
 
   // Enum definitions
+  public static final class HttpConnectionStateValues {
+    /** active state. */
+    public static final String ACTIVE = "active";
+
+    /** idle state. */
+    public static final String IDLE = "idle";
+
+    private HttpConnectionStateValues() {}
+  }
+
+  public static final class HttpFlavorValues {
+    /** HTTP/1.0. */
+    public static final String HTTP_1_0 = "1.0";
+
+    /** HTTP/1.1. */
+    public static final String HTTP_1_1 = "1.1";
+
+    /** HTTP/2. */
+    public static final String HTTP_2_0 = "2.0";
+
+    /** HTTP/3. */
+    public static final String HTTP_3_0 = "3.0";
+
+    /** SPDY protocol. */
+    public static final String SPDY = "SPDY";
+
+    /** QUIC protocol. */
+    public static final String QUIC = "QUIC";
+
+    private HttpFlavorValues() {}
+  }
+
   public static final class HttpRequestMethodValues {
     /** CONNECT method. */
     public static final String CONNECT = "CONNECT";

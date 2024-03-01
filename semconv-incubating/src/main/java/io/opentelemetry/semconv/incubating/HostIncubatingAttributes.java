@@ -23,14 +23,14 @@ public final class HostIncubatingAttributes {
   /** The amount of level 2 memory cache available to the processor (in Bytes). */
   public static final AttributeKey<Long> HOST_CPU_CACHE_L2_SIZE = longKey("host.cpu.cache.l2.size");
 
-  /** Numeric value specifying the family or generation of the CPU. */
-  public static final AttributeKey<Long> HOST_CPU_FAMILY = longKey("host.cpu.family");
+  /** Family or generation of the CPU. */
+  public static final AttributeKey<String> HOST_CPU_FAMILY = stringKey("host.cpu.family");
 
   /**
    * Model identifier. It provides more granular information about the CPU, distinguishing it from
    * other CPUs within the same family.
    */
-  public static final AttributeKey<Long> HOST_CPU_MODEL_ID = longKey("host.cpu.model.id");
+  public static final AttributeKey<String> HOST_CPU_MODEL_ID = stringKey("host.cpu.model.id");
 
   /** Model designation of the processor. */
   public static final AttributeKey<String> HOST_CPU_MODEL_NAME = stringKey("host.cpu.model.name");
@@ -66,7 +66,7 @@ public final class HostIncubatingAttributes {
 
   /**
    * The version string of the VM image or host OS as defined in <a
-   * href="README.md#version-attributes">Version Attributes</a>.
+   * href="/docs/resource/README.md#version-attributes">Version Attributes</a>.
    */
   public static final AttributeKey<String> HOST_IMAGE_VERSION = stringKey("host.image.version");
 

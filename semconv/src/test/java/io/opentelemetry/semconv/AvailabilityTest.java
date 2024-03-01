@@ -19,6 +19,7 @@ public class AvailabilityTest {
     isValidClass("io.opentelemetry.semconv.ClientAttributes");
     isValidClass("io.opentelemetry.semconv.ErrorAttributes");
     isValidClass("io.opentelemetry.semconv.HttpAttributes");
+    isValidClass("io.opentelemetry.semconv.JvmAttributes");
     isValidClass("io.opentelemetry.semconv.NetworkAttributes");
     isValidClass("io.opentelemetry.semconv.ServerAttributes");
     isValidClass("io.opentelemetry.semconv.UrlAttributes");

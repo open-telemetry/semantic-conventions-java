@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-package io.opentelemetry.semconv.incubating;
+package io.opentelemetry.semconv;
 
 import static io.opentelemetry.api.common.AttributeKey.booleanKey;
 import static io.opentelemetry.api.common.AttributeKey.stringKey;
@@ -13,19 +13,7 @@ import io.opentelemetry.api.common.AttributeKey;
 // DO NOT EDIT, this is an Auto-generated file from
 // buildscripts/templates/SemanticAttributes.java.j2
 @SuppressWarnings("unused")
-public final class JvmIncubatingAttributes {
-
-  /**
-   * Name of the buffer pool.
-   *
-   * <p>Notes:
-   *
-   * <ul>
-   *   <li>Pool names are generally obtained via <a
-   *       href="https://docs.oracle.com/en/java/javase/11/docs/api/java.management/java/lang/management/BufferPoolMXBean.html#getName()">BufferPoolMXBean#getName()</a>.
-   * </ul>
-   */
-  public static final AttributeKey<String> JVM_BUFFER_POOL_NAME = stringKey("jvm.buffer.pool.name");
+public final class JvmAttributes {
 
   /**
    * Name of the garbage collector action.
@@ -36,11 +24,8 @@ public final class JvmIncubatingAttributes {
    *   <li>Garbage collector action is generally obtained via <a
    *       href="https://docs.oracle.com/en/java/javase/11/docs/api/jdk.management/com/sun/management/GarbageCollectionNotificationInfo.html#getGcAction()">GarbageCollectionNotificationInfo#getGcAction()</a>.
    * </ul>
-   *
-   * @deprecated deprecated in favor of stable {@link
-   *     io.opentelemetry.semconv.JvmAttributes#JVM_GC_ACTION} attribute.
    */
-  @Deprecated public static final AttributeKey<String> JVM_GC_ACTION = stringKey("jvm.gc.action");
+  public static final AttributeKey<String> JVM_GC_ACTION = stringKey("jvm.gc.action");
 
   /**
    * Name of the garbage collector.
@@ -51,11 +36,8 @@ public final class JvmIncubatingAttributes {
    *   <li>Garbage collector name is generally obtained via <a
    *       href="https://docs.oracle.com/en/java/javase/11/docs/api/jdk.management/com/sun/management/GarbageCollectionNotificationInfo.html#getGcName()">GarbageCollectionNotificationInfo#getGcName()</a>.
    * </ul>
-   *
-   * @deprecated deprecated in favor of stable {@link
-   *     io.opentelemetry.semconv.JvmAttributes#JVM_GC_NAME} attribute.
    */
-  @Deprecated public static final AttributeKey<String> JVM_GC_NAME = stringKey("jvm.gc.name");
+  public static final AttributeKey<String> JVM_GC_NAME = stringKey("jvm.gc.name");
 
   /**
    * Name of the memory pool.
@@ -66,38 +48,16 @@ public final class JvmIncubatingAttributes {
    *   <li>Pool names are generally obtained via <a
    *       href="https://docs.oracle.com/en/java/javase/11/docs/api/java.management/java/lang/management/MemoryPoolMXBean.html#getName()">MemoryPoolMXBean#getName()</a>.
    * </ul>
-   *
-   * @deprecated deprecated in favor of stable {@link
-   *     io.opentelemetry.semconv.JvmAttributes#JVM_MEMORY_POOL_NAME} attribute.
    */
-  @Deprecated
   public static final AttributeKey<String> JVM_MEMORY_POOL_NAME = stringKey("jvm.memory.pool.name");
 
-  /**
-   * The type of memory.
-   *
-   * @deprecated deprecated in favor of stable {@link
-   *     io.opentelemetry.semconv.JvmAttributes#JVM_MEMORY_TYPE} attribute.
-   */
-  @Deprecated
+  /** The type of memory. */
   public static final AttributeKey<String> JVM_MEMORY_TYPE = stringKey("jvm.memory.type");
 
-  /**
-   * Whether the thread is daemon or not.
-   *
-   * @deprecated deprecated in favor of stable {@link
-   *     io.opentelemetry.semconv.JvmAttributes#JVM_THREAD_DAEMON} attribute.
-   */
-  @Deprecated
+  /** Whether the thread is daemon or not. */
   public static final AttributeKey<Boolean> JVM_THREAD_DAEMON = booleanKey("jvm.thread.daemon");
 
-  /**
-   * State of the thread.
-   *
-   * @deprecated deprecated in favor of stable {@link
-   *     io.opentelemetry.semconv.JvmAttributes#JVM_THREAD_STATE} attribute.
-   */
-  @Deprecated
+  /** State of the thread. */
   public static final AttributeKey<String> JVM_THREAD_STATE = stringKey("jvm.thread.state");
 
   // Enum definitions
@@ -139,5 +99,5 @@ public final class JvmIncubatingAttributes {
     private JvmThreadStateValues() {}
   }
 
-  private JvmIncubatingAttributes() {}
+  private JvmAttributes() {}
 }

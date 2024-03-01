@@ -38,6 +38,9 @@ public final class NetworkIncubatingAttributes {
   public static final AttributeKey<String> NETWORK_CONNECTION_TYPE =
       stringKey("network.connection.type");
 
+  /** The network IO operation direction. */
+  public static final AttributeKey<String> NETWORK_IO_DIRECTION = stringKey("network.io.direction");
+
   /**
    * Local address of the network connection - IP address or Unix domain socket name.
    *
@@ -229,6 +232,16 @@ public final class NetworkIncubatingAttributes {
     public static final String UNKNOWN = "unknown";
 
     private NetworkConnectionTypeValues() {}
+  }
+
+  public static final class NetworkIoDirectionValues {
+    /** transmit. */
+    public static final String TRANSMIT = "transmit";
+
+    /** receive. */
+    public static final String RECEIVE = "receive";
+
+    private NetworkIoDirectionValues() {}
   }
 
   public static final class NetworkTransportValues {
