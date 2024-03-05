@@ -14,6 +14,7 @@ import io.opentelemetry.api.common.AttributeKey;
 // buildscripts/templates/SemanticAttributes.java.j2
 @SuppressWarnings("unused")
 public final class SourceIncubatingAttributes {
+
   /**
    * Source address - domain name if available without reverse DNS lookup; otherwise, IP address or
    * Unix domain socket name.

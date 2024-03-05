@@ -13,6 +13,7 @@ import io.opentelemetry.api.common.AttributeKey;
 // buildscripts/templates/SemanticAttributes.java.j2
 @SuppressWarnings("unused")
 public final class ServiceIncubatingAttributes {
+
   /**
    * The string ID of the service instance.
    *

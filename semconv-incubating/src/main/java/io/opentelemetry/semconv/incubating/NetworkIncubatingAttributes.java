@@ -14,6 +14,7 @@ import io.opentelemetry.api.common.AttributeKey;
 // buildscripts/templates/SemanticAttributes.java.j2
 @SuppressWarnings("unused")
 public final class NetworkIncubatingAttributes {
+
   /** The ISO 3166-1 alpha-2 2-character country code associated with the mobile carrier network. */
   public static final AttributeKey<String> NETWORK_CARRIER_ICC = stringKey("network.carrier.icc");
 

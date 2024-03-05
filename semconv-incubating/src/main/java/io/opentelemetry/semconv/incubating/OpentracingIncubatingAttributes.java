@@ -13,6 +13,7 @@ import io.opentelemetry.api.common.AttributeKey;
 // buildscripts/templates/SemanticAttributes.java.j2
 @SuppressWarnings("unused")
 public final class OpentracingIncubatingAttributes {
+
   /**
    * Parent-child Reference type
    *

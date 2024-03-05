@@ -13,6 +13,7 @@ import io.opentelemetry.api.common.AttributeKey;
 // buildscripts/templates/SemanticAttributes.java.j2
 @SuppressWarnings("unused")
 public final class AndroidIncubatingAttributes {
+
   /**
    * Uniquely identifies the framework API revision offered by a version ({@code os.version}) of the
    * android operating system. More information can be found <a

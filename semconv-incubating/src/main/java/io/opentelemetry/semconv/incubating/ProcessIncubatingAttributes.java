@@ -16,6 +16,7 @@ import java.util.List;
 // buildscripts/templates/SemanticAttributes.java.j2
 @SuppressWarnings("unused")
 public final class ProcessIncubatingAttributes {
+
   /**
    * The command used to launch the process (i.e. the command name). On Linux based systems, can be
    * set to the zeroth string in {@code proc/[pid]/cmdline}. On Windows, can be set to the first

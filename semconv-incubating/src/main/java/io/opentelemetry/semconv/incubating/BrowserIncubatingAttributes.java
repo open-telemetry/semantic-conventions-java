@@ -16,6 +16,7 @@ import java.util.List;
 // buildscripts/templates/SemanticAttributes.java.j2
 @SuppressWarnings("unused")
 public final class BrowserIncubatingAttributes {
+
   /**
    * Array of brand name and version separated by a space
    *

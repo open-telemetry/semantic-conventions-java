@@ -13,6 +13,7 @@ import io.opentelemetry.api.common.AttributeKey;
 // buildscripts/templates/SemanticAttributes.java.j2
 @SuppressWarnings("unused")
 public final class EventIncubatingAttributes {
+
   /**
    * The domain identifies the business context for the events.
    *

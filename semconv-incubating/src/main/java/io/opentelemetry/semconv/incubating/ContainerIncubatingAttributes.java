@@ -17,6 +17,7 @@ import java.util.List;
 // buildscripts/templates/SemanticAttributes.java.j2
 @SuppressWarnings("unused")
 public final class ContainerIncubatingAttributes {
+
   /**
    * The command used to run the container (i.e. the command name).
    *

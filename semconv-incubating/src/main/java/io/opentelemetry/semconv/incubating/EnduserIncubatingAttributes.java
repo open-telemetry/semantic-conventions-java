@@ -13,6 +13,7 @@ import io.opentelemetry.api.common.AttributeKey;
 // buildscripts/templates/SemanticAttributes.java.j2
 @SuppressWarnings("unused")
 public final class EnduserIncubatingAttributes {
+
   /**
    * Username or client_id extracted from the access token or <a
    * href="https://tools.ietf.org/html/rfc7235#section-4.2">Authorization</a> header in the inbound

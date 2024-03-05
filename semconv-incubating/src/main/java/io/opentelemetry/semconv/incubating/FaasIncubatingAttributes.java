@@ -15,6 +15,7 @@ import io.opentelemetry.api.common.AttributeKey;
 // buildscripts/templates/SemanticAttributes.java.j2
 @SuppressWarnings("unused")
 public final class FaasIncubatingAttributes {
+
   /**
    * A boolean that is true if the serverless function is executed for the first time (aka
    * cold-start).

@@ -17,6 +17,7 @@ import java.util.List;
 // buildscripts/templates/SemanticAttributes.java.j2
 @SuppressWarnings("unused")
 public final class HttpIncubatingAttributes {
+
   /** Deprecated, use {@code http.request.method} instead. */
   public static final AttributeKey<String> HTTP_METHOD = stringKey("http.method");
 

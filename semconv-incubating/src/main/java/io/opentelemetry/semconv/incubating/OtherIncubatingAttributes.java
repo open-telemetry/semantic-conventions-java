@@ -13,6 +13,7 @@ import io.opentelemetry.api.common.AttributeKey;
 // buildscripts/templates/SemanticAttributes.java.j2
 @SuppressWarnings("unused")
 public final class OtherIncubatingAttributes {
+
   /** The state of a connection in the pool */
   public static final AttributeKey<String> STATE = stringKey("state");
 

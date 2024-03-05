@@ -58,7 +58,7 @@ import java.util.List;
 public final class {{ root_namespace | to_camelcase(True) }}{{ classPrefix }}Attributes {
   {%- for attribute in filtered_attributes %}
 
-  {%- set attribute_const_name = attribute.fqn | to_const_name -%}
+  {% set attribute_const_name = attribute.fqn | to_const_name -%}
   /**
   * {{attribute.brief | render_markdown(code="{{@code {0}}}", paragraph="{0}")}}
     {%- if attribute.note %}

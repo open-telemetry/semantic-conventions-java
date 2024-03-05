@@ -13,6 +13,7 @@ import io.opentelemetry.api.common.AttributeKey;
 // buildscripts/templates/SemanticAttributes.java.j2
 @SuppressWarnings("unused")
 public final class IosIncubatingAttributes {
+
   /**
    * This attribute represents the state the application has transitioned into at the occurrence of
    * the event.
