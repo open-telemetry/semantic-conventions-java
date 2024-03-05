@@ -14,7 +14,6 @@ import io.opentelemetry.api.common.AttributeKey;
 // buildscripts/templates/SemanticAttributes.java.j2
 @SuppressWarnings("unused")
 public final class MessageIncubatingAttributes {
-
   /** Compressed size of the message in bytes. */
   public static final AttributeKey<Long> MESSAGE_COMPRESSED_SIZE =
       longKey("message.compressed_size");

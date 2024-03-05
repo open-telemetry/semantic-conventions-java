@@ -13,7 +13,6 @@ import io.opentelemetry.api.common.AttributeKey;
 // buildscripts/templates/SemanticAttributes.java.j2
 @SuppressWarnings("unused")
 public final class LogIncubatingAttributes {
-
   /** The basename of the file. */
   public static final AttributeKey<String> LOG_FILE_NAME = stringKey("log.file.name");
 

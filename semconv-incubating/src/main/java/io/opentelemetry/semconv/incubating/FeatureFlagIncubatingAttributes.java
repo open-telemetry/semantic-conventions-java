@@ -13,7 +13,6 @@ import io.opentelemetry.api.common.AttributeKey;
 // buildscripts/templates/SemanticAttributes.java.j2
 @SuppressWarnings("unused")
 public final class FeatureFlagIncubatingAttributes {
-
   /** The unique identifier of the feature flag. */
   public static final AttributeKey<String> FEATURE_FLAG_KEY = stringKey("feature_flag.key");
 

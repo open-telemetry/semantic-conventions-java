@@ -13,7 +13,6 @@ import io.opentelemetry.api.common.AttributeKey;
 // buildscripts/templates/SemanticAttributes.java.j2
 @SuppressWarnings("unused")
 public final class PeerIncubatingAttributes {
-
   /**
    * The <a href="/docs/resource/README.md#service">{@code service.name}</a> of the remote service.
    * SHOULD be equal to the actual {@code service.name} resource attribute of the remote service if

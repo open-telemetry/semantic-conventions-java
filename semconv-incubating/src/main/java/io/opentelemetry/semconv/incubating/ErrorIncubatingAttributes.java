@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-package io.opentelemetry.semconv;
+package io.opentelemetry.semconv.incubating;
 
 import static io.opentelemetry.api.common.AttributeKey.stringKey;
 
@@ -12,7 +12,7 @@ import io.opentelemetry.api.common.AttributeKey;
 // DO NOT EDIT, this is an Auto-generated file from
 // buildscripts/templates/SemanticAttributes.java.j2
 @SuppressWarnings("unused")
-public final class ErrorAttributes {
+public final class ErrorIncubatingAttributes {
   /**
    * Describes a class of error the operation ended with.
    *
@@ -33,6 +33,9 @@ public final class ErrorAttributes {
    *   <li>Set {@code error.type} to capture all errors, regardless of whether they are defined
    *       within the domain-specific set or not.
    * </ul>
+   *
+   * @deprecated deprecated in favor of stable {@link
+   *     io.opentelemetry.semconv.ErrorAttributes#ERROR_TYPE} attribute.
    */
   public static final AttributeKey<String> ERROR_TYPE = stringKey("error.type");
 
@@ -46,5 +49,5 @@ public final class ErrorAttributes {
     private ErrorTypeValues() {}
   }
 
-  private ErrorAttributes() {}
+  private ErrorIncubatingAttributes() {}
 }

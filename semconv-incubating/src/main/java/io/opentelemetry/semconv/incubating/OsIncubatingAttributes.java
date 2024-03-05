@@ -13,7 +13,6 @@ import io.opentelemetry.api.common.AttributeKey;
 // buildscripts/templates/SemanticAttributes.java.j2
 @SuppressWarnings("unused")
 public final class OsIncubatingAttributes {
-
   /** Unique identifier for a particular build or compilation of the operating system. */
   public static final AttributeKey<String> OS_BUILD_ID = stringKey("os.build_id");
 

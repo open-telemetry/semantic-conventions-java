@@ -18,7 +18,6 @@ import io.opentelemetry.semconv.AttributeKeyTemplate;
 // buildscripts/templates/SemanticAttributes.java.j2
 @SuppressWarnings("unused")
 public final class DbIncubatingAttributes {
-
   /**
    * The consistency level of the query. Based on consistency values from <a
    * href="https://docs.datastax.com/en/cassandra-oss/3.0/cassandra/dml/dmlConfigConsistency.html">CQL</a>.

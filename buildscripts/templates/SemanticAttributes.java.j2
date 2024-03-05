@@ -28,8 +28,8 @@
     {{type | to_camelcase(False)}}Key
   {%- endif -%}
 {%- endmacro %}
-{%- macro print_value(type, value) -%}
-  {{ "\"" if type == "String"}}{{value}}{{ "\"" if type == "String"}}
+{%- macro stable_class_ref(const_name) -%}
+{{stablePkg}}.{{file_name[:-5].replace("Incubating", "")}}#{{const_name}}
 {%- endmacro %}
 {%- set filtered_attributes = attributes_and_templates | select(filter) | list %}
 {%- if filtered_attributes | count > 0 %}
@@ -58,6 +58,7 @@ import java.util.List;
 public final class {{ root_namespace | to_camelcase(True) }}{{ classPrefix }}Attributes {
   {%- for attribute in filtered_attributes %}
 
+  {%- set attribute_const_name = attribute.fqn | to_const_name -%}
   /**
   * {{attribute.brief | render_markdown(code="{{@code {0}}}", paragraph="{0}")}}
     {%- if attribute.note %}
@@ -71,15 +72,17 @@ public final class {{ root_namespace | to_camelcase(True) }}{{ classPrefix }}Att
     {%- if attribute | is_deprecated %}
   *
   * @deprecated {{attribute.brief | to_doc_brief}}.
+    {%- elif attribute | is_stable and stablePkg != "" %}
+  * @deprecated deprecated in favor of stable {@link {{stable_class_ref(attribute_const_name)}}} attribute.
     {%- endif %}
   */
     {%- if attribute | is_deprecated %}
   @Deprecated
     {%- endif %}
     {%- if attribute | is_template %}
-  public static final AttributeKeyTemplate<{{to_java_return_type(attribute.instantiated_type | string) | first_up}}> {{attribute.fqn | to_const_name}} = {{to_java_key_type(attribute.instantiated_type | string)}}Template("{{attribute.fqn}}");
+  public static final AttributeKeyTemplate<{{to_java_return_type(attribute.instantiated_type | string) | first_up}}> {{attribute_const_name}} = {{to_java_key_type(attribute.instantiated_type | string)}}Template("{{attribute.fqn}}");
     {%- else %}
-  public static final AttributeKey<{{to_java_return_type(attribute.attr_type | string) | first_up}}> {{attribute.fqn | to_const_name}} = {{to_java_key_type(attribute.attr_type | string)}}("{{attribute.fqn}}");
+  public static final AttributeKey<{{to_java_return_type(attribute.attr_type | string) | first_up}}> {{attribute_const_name}} = {{to_java_key_type(attribute.attr_type | string)}}("{{attribute.fqn}}");
     {%- endif %}
   {%- endfor %}
 
@@ -90,7 +93,7 @@ public final class {{ root_namespace | to_camelcase(True) }}{{ classPrefix }}Att
   public static final class {{class_name}} {
     {%- for member in attribute.attr_type.members %}
       /** {% filter escape %}{{member.brief | to_doc_brief}}.{% endfilter %} */
-      public static final {{ type }} {{ member.member_id | to_const_name }} = {{ print_value(type, member.value) }};
+      public static final {{ type }} {{ member.member_id | to_const_name }} = {{ attribute | print_member_value(member) }};
 
     {%- endfor %}
 

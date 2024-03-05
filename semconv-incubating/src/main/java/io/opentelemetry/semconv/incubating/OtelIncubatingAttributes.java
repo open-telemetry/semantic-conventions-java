@@ -13,7 +13,6 @@ import io.opentelemetry.api.common.AttributeKey;
 // buildscripts/templates/SemanticAttributes.java.j2
 @SuppressWarnings("unused")
 public final class OtelIncubatingAttributes {
-
   /** Deprecated, use the {@code otel.scope.name} attribute. */
   public static final AttributeKey<String> OTEL_LIBRARY_NAME = stringKey("otel.library.name");
 

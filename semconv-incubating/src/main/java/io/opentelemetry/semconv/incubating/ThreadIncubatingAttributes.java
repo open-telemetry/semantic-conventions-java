@@ -14,7 +14,6 @@ import io.opentelemetry.api.common.AttributeKey;
 // buildscripts/templates/SemanticAttributes.java.j2
 @SuppressWarnings("unused")
 public final class ThreadIncubatingAttributes {
-
   /** Current &quot;managed&quot; thread ID (as opposed to OS thread ID). */
   public static final AttributeKey<Long> THREAD_ID = longKey("thread.id");
 

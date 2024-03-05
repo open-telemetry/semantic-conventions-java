@@ -17,7 +17,6 @@ import java.util.List;
 // buildscripts/templates/SemanticAttributes.java.j2
 @SuppressWarnings("unused")
 public final class MessagingIncubatingAttributes {
-
   /**
    * The number of messages sent, received, or processed in the scope of the batching operation.
    *

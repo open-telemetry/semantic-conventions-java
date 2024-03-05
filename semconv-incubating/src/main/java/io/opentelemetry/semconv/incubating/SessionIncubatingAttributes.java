@@ -13,7 +13,6 @@ import io.opentelemetry.api.common.AttributeKey;
 // buildscripts/templates/SemanticAttributes.java.j2
 @SuppressWarnings("unused")
 public final class SessionIncubatingAttributes {
-
   /** A unique id to identify a session. */
   public static final AttributeKey<String> SESSION_ID = stringKey("session.id");
 

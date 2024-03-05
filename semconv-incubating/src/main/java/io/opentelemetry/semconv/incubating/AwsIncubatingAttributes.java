@@ -18,7 +18,6 @@ import java.util.List;
 // buildscripts/templates/SemanticAttributes.java.j2
 @SuppressWarnings("unused")
 public final class AwsIncubatingAttributes {
-
   /** The JSON-serialized value of each item in the {@code AttributeDefinitions} request field. */
   public static final AttributeKey<List<String>> AWS_DYNAMODB_ATTRIBUTE_DEFINITIONS =
       stringArrayKey("aws.dynamodb.attribute_definitions");

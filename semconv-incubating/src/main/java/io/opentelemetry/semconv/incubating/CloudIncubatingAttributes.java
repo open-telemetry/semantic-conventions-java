@@ -13,7 +13,6 @@ import io.opentelemetry.api.common.AttributeKey;
 // buildscripts/templates/SemanticAttributes.java.j2
 @SuppressWarnings("unused")
 public final class CloudIncubatingAttributes {
-
   /** The cloud account ID the resource is assigned to. */
   public static final AttributeKey<String> CLOUD_ACCOUNT_ID = stringKey("cloud.account.id");
 

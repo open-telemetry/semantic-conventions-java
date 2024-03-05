@@ -13,7 +13,6 @@ import io.opentelemetry.api.common.AttributeKey;
 // buildscripts/templates/SemanticAttributes.java.j2
 @SuppressWarnings("unused")
 public final class WebengineIncubatingAttributes {
-
   /** Additional description of the web engine (e.g. detailed version and edition information). */
   public static final AttributeKey<String> WEBENGINE_DESCRIPTION =
       stringKey("webengine.description");

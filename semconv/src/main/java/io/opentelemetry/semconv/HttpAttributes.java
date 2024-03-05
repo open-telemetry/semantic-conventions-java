@@ -16,7 +16,6 @@ import java.util.List;
 // buildscripts/templates/SemanticAttributes.java.j2
 @SuppressWarnings("unused")
 public final class HttpAttributes {
-
   /**
    * HTTP request headers, {@code <key>} being the normalized HTTP Header name (lowercase), the
    * value being the header values.

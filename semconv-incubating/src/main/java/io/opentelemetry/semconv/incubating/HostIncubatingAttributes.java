@@ -16,7 +16,6 @@ import java.util.List;
 // buildscripts/templates/SemanticAttributes.java.j2
 @SuppressWarnings("unused")
 public final class HostIncubatingAttributes {
-
   /** The CPU architecture the host system is running on. */
   public static final AttributeKey<String> HOST_ARCH = stringKey("host.arch");
 

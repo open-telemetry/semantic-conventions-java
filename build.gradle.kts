@@ -50,7 +50,7 @@ nexusPublishing {
 // start - define tasks to download, unzip, and generate from opentelemetry/semantic-conventions
 // Using image built from feature branch: https://github.com/open-telemetry/build-tools/tree/feature/codegen-by-namespace
 // TODO: upgrade to official release when features are incorporated into main
-var generatorVersion = "feature-codegen-by-namespace"
+var generatorVersion = "0.0.7"
 val semanticConventionsRepoZip = "https://github.com/open-telemetry/semantic-conventions/archive/v$semanticConventionsVersion.zip"
 val schemaUrl = "https://opentelemetry.io/schemas/$semanticConventionsVersion"
 
@@ -79,10 +79,11 @@ fun generateTask(taskName: String, incubating: Boolean) {
     standardOutput = System.out
     executable = "docker"
 
-    var filter = if (incubating) "is_experimental" else "is_stable"
+    var filter = if (incubating) "any" else "is_stable"
     var classPrefix = if (incubating) "Incubating" else ""
     val outputDir = if (incubating) "semconv-incubating/src/main/java/io/opentelemetry/semconv/incubating/" else "semconv/src/main/java/io/opentelemetry/semconv/"
     val packageNameArg = if (incubating) "io.opentelemetry.semconv.incubating" else "io.opentelemetry.semconv"
+    val stablePackageNameArg = if (incubating) "io.opentelemetry.semconv" else ""
 
     setArgs(listOf(
         "run",
@@ -90,7 +91,7 @@ fun generateTask(taskName: String, incubating: Boolean) {
         "-v", "$buildDir/semantic-conventions/model:/source",
         "-v", "$projectDir/buildscripts/templates:/templates",
         "-v", "$projectDir/$outputDir:/output",
-        "otel/semconvgen:$generatorVersion",
+        "semconvgen:$generatorVersion",
         "--yaml-root", "/source",
         "--strict-validation", "false",
         "code",
@@ -99,7 +100,8 @@ fun generateTask(taskName: String, incubating: Boolean) {
         "--file-per-group", "root_namespace",
         "-Dfilter=${filter}",
         "-DclassPrefix=${classPrefix}",
-        "-Dpkg=$packageNameArg"))
+        "-Dpkg=$packageNameArg",
+        "-DstablePkg=$stablePackageNameArg"))
   }
 }
 

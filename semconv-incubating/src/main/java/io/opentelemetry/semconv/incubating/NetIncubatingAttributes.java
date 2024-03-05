@@ -14,7 +14,6 @@ import io.opentelemetry.api.common.AttributeKey;
 // buildscripts/templates/SemanticAttributes.java.j2
 @SuppressWarnings("unused")
 public final class NetIncubatingAttributes {
-
   /** Deprecated, use {@code server.address}. */
   public static final AttributeKey<String> NET_HOST_NAME = stringKey("net.host.name");
 

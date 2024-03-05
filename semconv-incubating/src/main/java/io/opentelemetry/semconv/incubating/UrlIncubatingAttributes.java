@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-package io.opentelemetry.semconv;
+package io.opentelemetry.semconv.incubating;
 
 import static io.opentelemetry.api.common.AttributeKey.stringKey;
 
@@ -12,8 +12,13 @@ import io.opentelemetry.api.common.AttributeKey;
 // DO NOT EDIT, this is an Auto-generated file from
 // buildscripts/templates/SemanticAttributes.java.j2
 @SuppressWarnings("unused")
-public final class UrlAttributes {
-  /** The <a href="https://www.rfc-editor.org/rfc/rfc3986#section-3.5">URI fragment</a> component */
+public final class UrlIncubatingAttributes {
+  /**
+   * The <a href="https://www.rfc-editor.org/rfc/rfc3986#section-3.5">URI fragment</a> component
+   *
+   * @deprecated deprecated in favor of stable {@link
+   *     io.opentelemetry.semconv.UrlAttributes#URL_FRAGMENT} attribute.
+   */
   public static final AttributeKey<String> URL_FRAGMENT = stringKey("url.fragment");
 
   /**
@@ -32,10 +37,18 @@ public final class UrlAttributes {
    *       URL when it is available (or can be reconstructed) and SHOULD NOT be validated or
    *       modified except for sanitizing purposes.
    * </ul>
+   *
+   * @deprecated deprecated in favor of stable {@link
+   *     io.opentelemetry.semconv.UrlAttributes#URL_FULL} attribute.
    */
   public static final AttributeKey<String> URL_FULL = stringKey("url.full");
 
-  /** The <a href="https://www.rfc-editor.org/rfc/rfc3986#section-3.3">URI path</a> component */
+  /**
+   * The <a href="https://www.rfc-editor.org/rfc/rfc3986#section-3.3">URI path</a> component
+   *
+   * @deprecated deprecated in favor of stable {@link
+   *     io.opentelemetry.semconv.UrlAttributes#URL_PATH} attribute.
+   */
   public static final AttributeKey<String> URL_PATH = stringKey("url.path");
 
   /**
@@ -47,16 +60,22 @@ public final class UrlAttributes {
    *   <li>Sensitive content provided in query string SHOULD be scrubbed when instrumentations can
    *       identify it.
    * </ul>
+   *
+   * @deprecated deprecated in favor of stable {@link
+   *     io.opentelemetry.semconv.UrlAttributes#URL_QUERY} attribute.
    */
   public static final AttributeKey<String> URL_QUERY = stringKey("url.query");
 
   /**
    * The <a href="https://www.rfc-editor.org/rfc/rfc3986#section-3.1">URI scheme</a> component
    * identifying the used protocol.
+   *
+   * @deprecated deprecated in favor of stable {@link
+   *     io.opentelemetry.semconv.UrlAttributes#URL_SCHEME} attribute.
    */
   public static final AttributeKey<String> URL_SCHEME = stringKey("url.scheme");
 
   // Enum definitions
 
-  private UrlAttributes() {}
+  private UrlIncubatingAttributes() {}
 }

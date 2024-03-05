@@ -14,7 +14,6 @@ import io.opentelemetry.api.common.AttributeKey;
 // buildscripts/templates/SemanticAttributes.java.j2
 @SuppressWarnings("unused")
 public final class NetworkAttributes {
-
   /** Local address of the network connection - IP address or Unix domain socket name. */
   public static final AttributeKey<String> NETWORK_LOCAL_ADDRESS =
       stringKey("network.local.address");

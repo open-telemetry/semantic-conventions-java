@@ -14,7 +14,6 @@ import io.opentelemetry.api.common.AttributeKey;
 // buildscripts/templates/SemanticAttributes.java.j2
 @SuppressWarnings("unused")
 public final class CodeIncubatingAttributes {
-
   /**
    * The column number in {@code code.filepath} best representing the operation. It SHOULD point
    * within the code unit named in {@code code.function}.

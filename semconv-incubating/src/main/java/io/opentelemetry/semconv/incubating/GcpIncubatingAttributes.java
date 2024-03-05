@@ -14,7 +14,6 @@ import io.opentelemetry.api.common.AttributeKey;
 // buildscripts/templates/SemanticAttributes.java.j2
 @SuppressWarnings("unused")
 public final class GcpIncubatingAttributes {
-
   /**
    * The name of the Cloud Run <a
    * href="https://cloud.google.com/run/docs/managing/job-executions">execution</a> being run for

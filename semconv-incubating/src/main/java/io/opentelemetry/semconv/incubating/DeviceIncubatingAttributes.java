@@ -13,7 +13,6 @@ import io.opentelemetry.api.common.AttributeKey;
 // buildscripts/templates/SemanticAttributes.java.j2
 @SuppressWarnings("unused")
 public final class DeviceIncubatingAttributes {
-
   /**
    * A unique identifier representing the device
    *

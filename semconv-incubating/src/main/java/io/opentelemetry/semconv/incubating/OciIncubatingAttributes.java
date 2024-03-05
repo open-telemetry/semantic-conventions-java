@@ -13,7 +13,6 @@ import io.opentelemetry.api.common.AttributeKey;
 // buildscripts/templates/SemanticAttributes.java.j2
 @SuppressWarnings("unused")
 public final class OciIncubatingAttributes {
-
   /**
    * The digest of the OCI image manifest. For container images specifically is the digest by which
    * the container image is known.

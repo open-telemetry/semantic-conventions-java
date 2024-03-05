@@ -14,7 +14,6 @@ import io.opentelemetry.api.common.AttributeKey;
 // buildscripts/templates/SemanticAttributes.java.j2
 @SuppressWarnings("unused")
 public final class ExceptionIncubatingAttributes {
-
   /**
    * SHOULD be set to true if the exception event is recorded at a point where it is known that the
    * exception is escaping the scope of the span.
