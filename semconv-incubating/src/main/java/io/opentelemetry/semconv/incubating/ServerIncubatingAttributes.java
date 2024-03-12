@@ -30,7 +30,7 @@ public final class ServerIncubatingAttributes {
    * @deprecated deprecated in favor of stable {@link
    *     io.opentelemetry.semconv.ServerAttributes#SERVER_ADDRESS} attribute.
    */
-  public static final AttributeKey<String> SERVER_ADDRESS = stringKey("server.address");
+  @Deprecated public static final AttributeKey<String> SERVER_ADDRESS = stringKey("server.address");
 
   /**
    * Server port number.
@@ -46,7 +46,7 @@ public final class ServerIncubatingAttributes {
    * @deprecated deprecated in favor of stable {@link
    *     io.opentelemetry.semconv.ServerAttributes#SERVER_PORT} attribute.
    */
-  public static final AttributeKey<Long> SERVER_PORT = longKey("server.port");
+  @Deprecated public static final AttributeKey<Long> SERVER_PORT = longKey("server.port");
 
   // Enum definitions
 

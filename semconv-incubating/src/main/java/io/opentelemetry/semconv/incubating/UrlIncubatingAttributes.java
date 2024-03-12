@@ -20,7 +20,7 @@ public final class UrlIncubatingAttributes {
    * @deprecated deprecated in favor of stable {@link
    *     io.opentelemetry.semconv.UrlAttributes#URL_FRAGMENT} attribute.
    */
-  public static final AttributeKey<String> URL_FRAGMENT = stringKey("url.fragment");
+  @Deprecated public static final AttributeKey<String> URL_FRAGMENT = stringKey("url.fragment");
 
   /**
    * Absolute URL describing a network resource according to <a
@@ -42,7 +42,7 @@ public final class UrlIncubatingAttributes {
    * @deprecated deprecated in favor of stable {@link
    *     io.opentelemetry.semconv.UrlAttributes#URL_FULL} attribute.
    */
-  public static final AttributeKey<String> URL_FULL = stringKey("url.full");
+  @Deprecated public static final AttributeKey<String> URL_FULL = stringKey("url.full");
 
   /**
    * The <a href="https://www.rfc-editor.org/rfc/rfc3986#section-3.3">URI path</a> component
@@ -50,7 +50,7 @@ public final class UrlIncubatingAttributes {
    * @deprecated deprecated in favor of stable {@link
    *     io.opentelemetry.semconv.UrlAttributes#URL_PATH} attribute.
    */
-  public static final AttributeKey<String> URL_PATH = stringKey("url.path");
+  @Deprecated public static final AttributeKey<String> URL_PATH = stringKey("url.path");
 
   /**
    * The <a href="https://www.rfc-editor.org/rfc/rfc3986#section-3.4">URI query</a> component
@@ -65,7 +65,7 @@ public final class UrlIncubatingAttributes {
    * @deprecated deprecated in favor of stable {@link
    *     io.opentelemetry.semconv.UrlAttributes#URL_QUERY} attribute.
    */
-  public static final AttributeKey<String> URL_QUERY = stringKey("url.query");
+  @Deprecated public static final AttributeKey<String> URL_QUERY = stringKey("url.query");
 
   /**
    * The <a href="https://www.rfc-editor.org/rfc/rfc3986#section-3.1">URI scheme</a> component
@@ -74,7 +74,7 @@ public final class UrlIncubatingAttributes {
    * @deprecated deprecated in favor of stable {@link
    *     io.opentelemetry.semconv.UrlAttributes#URL_SCHEME} attribute.
    */
-  public static final AttributeKey<String> URL_SCHEME = stringKey("url.scheme");
+  @Deprecated public static final AttributeKey<String> URL_SCHEME = stringKey("url.scheme");
 
   // Enum definitions
 

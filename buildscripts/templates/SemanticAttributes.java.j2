@@ -29,9 +29,13 @@
   {%- endif -%}
 {%- endmacro %}
 {%- macro stable_class_ref(const_name) -%}
-{{stablePkg}}.{{file_name[:-5].replace("Incubating", "")}}#{{const_name}}
+{{stablePkg}}.{{ root_namespace | to_camelcase(True) }}Attributes#{{const_name}}
 {%- endmacro %}
+{%- if filter != 'any' %}
 {%- set filtered_attributes = attributes_and_templates | select(filter) | list %}
+{%- else %}
+{%- set filtered_attributes = attributes_and_templates | list %}
+{%- endif %}
 {%- if filtered_attributes | count > 0 %}
 /*
  * Copyright The OpenTelemetry Authors
@@ -76,7 +80,7 @@ public final class {{ root_namespace | to_camelcase(True) }}{{ classPrefix }}Att
   * @deprecated deprecated in favor of stable {@link {{stable_class_ref(attribute_const_name)}}} attribute.
     {%- endif %}
   */
-    {%- if attribute | is_deprecated %}
+    {%- if attribute | is_deprecated or attribute | is_stable and stablePkg != "" %}
   @Deprecated
     {%- endif %}
     {%- if attribute | is_template %}
