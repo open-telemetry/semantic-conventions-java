@@ -170,6 +170,7 @@ public final class FaasIncubatingAttributes {
   public static final AttributeKey<String> FAAS_VERSION = stringKey("faas.version");
 
   // Enum definitions
+  /** Values for {@link #FAAS_DOCUMENT_OPERATION}. */
   public static final class FaasDocumentOperationValues {
     /** When a new object is created. */
     public static final String INSERT = "insert";
@@ -183,6 +184,7 @@ public final class FaasIncubatingAttributes {
     private FaasDocumentOperationValues() {}
   }
 
+  /** Values for {@link #FAAS_INVOKED_PROVIDER}. */
   public static final class FaasInvokedProviderValues {
     /** Alibaba Cloud. */
     public static final String ALIBABA_CLOUD = "alibaba_cloud";
@@ -202,6 +204,7 @@ public final class FaasIncubatingAttributes {
     private FaasInvokedProviderValues() {}
   }
 
+  /** Values for {@link #FAAS_TRIGGER}. */
   public static final class FaasTriggerValues {
     /** A response to some data source operation such as a database or filesystem read/write. */
     public static final String DATASOURCE = "datasource";

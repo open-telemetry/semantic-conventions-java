@@ -32,7 +32,5 @@ public final class SourceIncubatingAttributes {
   /** Source port number */
   public static final AttributeKey<Long> SOURCE_PORT = longKey("source.port");
 
-  // Enum definitions
-
   private SourceIncubatingAttributes() {}
 }

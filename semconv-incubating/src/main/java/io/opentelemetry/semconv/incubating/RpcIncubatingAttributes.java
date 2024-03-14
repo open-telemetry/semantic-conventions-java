@@ -146,6 +146,7 @@ public final class RpcIncubatingAttributes {
   public static final AttributeKey<String> RPC_SYSTEM = stringKey("rpc.system");
 
   // Enum definitions
+  /** Values for {@link #RPC_CONNECT_RPC_ERROR_CODE}. */
   public static final class RpcConnectRpcErrorCodeValues {
     /** cancelled. */
     public static final String CANCELLED = "cancelled";
@@ -198,6 +199,7 @@ public final class RpcIncubatingAttributes {
     private RpcConnectRpcErrorCodeValues() {}
   }
 
+  /** Values for {@link #RPC_GRPC_STATUS_CODE}. */
   public static final class RpcGrpcStatusCodeValues {
     /** OK. */
     public static final long OK = 0;
@@ -253,6 +255,7 @@ public final class RpcIncubatingAttributes {
     private RpcGrpcStatusCodeValues() {}
   }
 
+  /** Values for {@link #RPC_SYSTEM}. */
   public static final class RpcSystemValues {
     /** gRPC. */
     public static final String GRPC = "grpc";

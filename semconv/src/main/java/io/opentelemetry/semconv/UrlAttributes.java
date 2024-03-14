@@ -57,7 +57,5 @@ public final class UrlAttributes {
    */
   public static final AttributeKey<String> URL_SCHEME = stringKey("url.scheme");
 
-  // Enum definitions
-
   private UrlAttributes() {}
 }

@@ -36,6 +36,7 @@ public final class AndroidIncubatingAttributes {
   public static final AttributeKey<String> ANDROID_STATE = stringKey("android.state");
 
   // Enum definitions
+  /** Values for {@link #ANDROID_STATE}. */
   public static final class AndroidStateValues {
     /**
      * Any time before Activity.onResume() or, if the app has no Activity, Context.startService()

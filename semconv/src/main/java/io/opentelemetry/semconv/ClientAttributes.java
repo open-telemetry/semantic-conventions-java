@@ -42,7 +42,5 @@ public final class ClientAttributes {
    */
   public static final AttributeKey<Long> CLIENT_PORT = longKey("client.port");
 
-  // Enum definitions
-
   private ClientAttributes() {}
 }

@@ -24,7 +24,5 @@ public final class UserAgentIncubatingAttributes {
   @Deprecated
   public static final AttributeKey<String> USER_AGENT_ORIGINAL = stringKey("user_agent.original");
 
-  // Enum definitions
-
   private UserAgentIncubatingAttributes() {}
 }

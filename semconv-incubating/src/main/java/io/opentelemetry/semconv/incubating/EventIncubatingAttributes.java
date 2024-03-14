@@ -30,6 +30,7 @@ public final class EventIncubatingAttributes {
   public static final AttributeKey<String> EVENT_NAME = stringKey("event.name");
 
   // Enum definitions
+  /** Values for {@link #EVENT_DOMAIN}. */
   public static final class EventDomainValues {
     /** Events from browser apps. */
     public static final String BROWSER = "browser";
