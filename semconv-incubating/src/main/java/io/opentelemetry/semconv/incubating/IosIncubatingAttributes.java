@@ -29,6 +29,7 @@ public final class IosIncubatingAttributes {
   public static final AttributeKey<String> IOS_STATE = stringKey("ios.state");
 
   // Enum definitions
+  /** Values for {@link #IOS_STATE}. */
   public static final class IosStateValues {
     /**
      * The app has become `active`. Associated with UIKit notification `applicationDidBecomeActive`.

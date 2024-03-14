@@ -26,6 +26,7 @@ public final class SignalrIncubatingAttributes {
   public static final AttributeKey<String> SIGNALR_TRANSPORT = stringKey("signalr.transport");
 
   // Enum definitions
+  /** Values for {@link #SIGNALR_CONNECTION_STATUS}. */
   public static final class SignalrConnectionStatusValues {
     /** The connection was closed normally. */
     public static final String NORMAL_CLOSURE = "normal_closure";
@@ -39,6 +40,7 @@ public final class SignalrIncubatingAttributes {
     private SignalrConnectionStatusValues() {}
   }
 
+  /** Values for {@link #SIGNALR_TRANSPORT}. */
   public static final class SignalrTransportValues {
     /** ServerSentEvents protocol. */
     public static final String SERVER_SENT_EVENTS = "server_sent_events";

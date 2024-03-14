@@ -231,6 +231,7 @@ public final class DbIncubatingAttributes {
   public static final AttributeKey<String> DB_USER = stringKey("db.user");
 
   // Enum definitions
+  /** Values for {@link #DB_CASSANDRA_CONSISTENCY_LEVEL}. */
   public static final class DbCassandraConsistencyLevelValues {
     /** all. */
     public static final String ALL = "all";
@@ -268,6 +269,7 @@ public final class DbIncubatingAttributes {
     private DbCassandraConsistencyLevelValues() {}
   }
 
+  /** Values for {@link #DB_COSMOSDB_CONNECTION_MODE}. */
   public static final class DbCosmosdbConnectionModeValues {
     /** Gateway (HTTP) connections mode. */
     public static final String GATEWAY = "gateway";
@@ -278,6 +280,7 @@ public final class DbIncubatingAttributes {
     private DbCosmosdbConnectionModeValues() {}
   }
 
+  /** Values for {@link #DB_COSMOSDB_OPERATION_TYPE}. */
   public static final class DbCosmosdbOperationTypeValues {
     /** invalid. */
     public static final String INVALID = "Invalid";
@@ -327,6 +330,7 @@ public final class DbIncubatingAttributes {
     private DbCosmosdbOperationTypeValues() {}
   }
 
+  /** Values for {@link #DB_SYSTEM}. */
   public static final class DbSystemValues {
     /** Some other SQL database. Fallback only. See notes. */
     public static final String OTHER_SQL = "other_sql";

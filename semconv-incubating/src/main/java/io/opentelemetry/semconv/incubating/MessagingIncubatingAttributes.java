@@ -246,6 +246,7 @@ public final class MessagingIncubatingAttributes {
   public static final AttributeKey<String> MESSAGING_SYSTEM = stringKey("messaging.system");
 
   // Enum definitions
+  /** Values for {@link #MESSAGING_OPERATION}. */
   public static final class MessagingOperationValues {
     /**
      * One or more messages are provided for publishing to an intermediary. If a single message is
@@ -275,6 +276,7 @@ public final class MessagingIncubatingAttributes {
     private MessagingOperationValues() {}
   }
 
+  /** Values for {@link #MESSAGING_ROCKETMQ_CONSUMPTION_MODEL}. */
   public static final class MessagingRocketmqConsumptionModelValues {
     /** Clustering consumption model. */
     public static final String CLUSTERING = "clustering";
@@ -285,6 +287,7 @@ public final class MessagingIncubatingAttributes {
     private MessagingRocketmqConsumptionModelValues() {}
   }
 
+  /** Values for {@link #MESSAGING_ROCKETMQ_MESSAGE_TYPE}. */
   public static final class MessagingRocketmqMessageTypeValues {
     /** Normal message. */
     public static final String NORMAL = "normal";
@@ -301,6 +304,7 @@ public final class MessagingIncubatingAttributes {
     private MessagingRocketmqMessageTypeValues() {}
   }
 
+  /** Values for {@link #MESSAGING_SYSTEM}. */
   public static final class MessagingSystemValues {
     /** Apache ActiveMQ. */
     public static final String ACTIVEMQ = "activemq";

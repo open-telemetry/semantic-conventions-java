@@ -101,6 +101,13 @@ public final class JvmIncubatingAttributes {
   public static final AttributeKey<String> JVM_THREAD_STATE = stringKey("jvm.thread.state");
 
   // Enum definitions
+  /**
+   * Values for {@link #JVM_MEMORY_TYPE}.
+   *
+   * @deprecated deprecated in favor of stable {@link
+   *     io.opentelemetry.semconv.JvmAttributes.JvmMemoryTypeValues} attribute.
+   */
+  @Deprecated
   public static final class JvmMemoryTypeValues {
     /** Heap memory. */
     public static final String HEAP = "heap";
@@ -111,6 +118,13 @@ public final class JvmIncubatingAttributes {
     private JvmMemoryTypeValues() {}
   }
 
+  /**
+   * Values for {@link #JVM_THREAD_STATE}.
+   *
+   * @deprecated deprecated in favor of stable {@link
+   *     io.opentelemetry.semconv.JvmAttributes.JvmThreadStateValues} attribute.
+   */
+  @Deprecated
   public static final class JvmThreadStateValues {
     /** A thread that has not yet started is in this state. */
     public static final String NEW = "new";

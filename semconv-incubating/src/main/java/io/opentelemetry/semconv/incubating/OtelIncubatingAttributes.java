@@ -37,6 +37,7 @@ public final class OtelIncubatingAttributes {
       stringKey("otel.status_description");
 
   // Enum definitions
+  /** Values for {@link #OTEL_STATUS_CODE}. */
   public static final class OtelStatusCodeValues {
     /**
      * The operation has been validated by an Application developer or Operator to have completed

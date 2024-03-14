@@ -242,6 +242,7 @@ public final class HttpIncubatingAttributes {
   public static final AttributeKey<String> HTTP_USER_AGENT = stringKey("http.user_agent");
 
   // Enum definitions
+  /** Values for {@link #HTTP_CONNECTION_STATE}. */
   public static final class HttpConnectionStateValues {
     /** active state. */
     public static final String ACTIVE = "active";
@@ -252,6 +253,12 @@ public final class HttpIncubatingAttributes {
     private HttpConnectionStateValues() {}
   }
 
+  /**
+   * Values for {@link #HTTP_FLAVOR}.
+   *
+   * @deprecated Deprecated, use `network.protocol.name` instead.
+   */
+  @Deprecated
   public static final class HttpFlavorValues {
     /** HTTP/1.0. */
     public static final String HTTP_1_0 = "1.0";
@@ -274,6 +281,13 @@ public final class HttpIncubatingAttributes {
     private HttpFlavorValues() {}
   }
 
+  /**
+   * Values for {@link #HTTP_REQUEST_METHOD}.
+   *
+   * @deprecated deprecated in favor of stable {@link
+   *     io.opentelemetry.semconv.HttpAttributes.HttpRequestMethodValues} attribute.
+   */
+  @Deprecated
   public static final class HttpRequestMethodValues {
     /** CONNECT method. */
     public static final String CONNECT = "CONNECT";

@@ -39,7 +39,5 @@ public final class FeatureFlagIncubatingAttributes {
    */
   public static final AttributeKey<String> FEATURE_FLAG_VARIANT = stringKey("feature_flag.variant");
 
-  // Enum definitions
-
   private FeatureFlagIncubatingAttributes() {}
 }

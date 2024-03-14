@@ -61,6 +61,7 @@ public final class JvmAttributes {
   public static final AttributeKey<String> JVM_THREAD_STATE = stringKey("jvm.thread.state");
 
   // Enum definitions
+  /** Values for {@link #JVM_MEMORY_TYPE}. */
   public static final class JvmMemoryTypeValues {
     /** Heap memory. */
     public static final String HEAP = "heap";
@@ -71,6 +72,7 @@ public final class JvmAttributes {
     private JvmMemoryTypeValues() {}
   }
 
+  /** Values for {@link #JVM_THREAD_STATE}. */
   public static final class JvmThreadStateValues {
     /** A thread that has not yet started is in this state. */
     public static final String NEW = "new";

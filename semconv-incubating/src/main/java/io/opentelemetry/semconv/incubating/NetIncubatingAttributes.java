@@ -117,6 +117,12 @@ public final class NetIncubatingAttributes {
   @Deprecated public static final AttributeKey<String> NET_TRANSPORT = stringKey("net.transport");
 
   // Enum definitions
+  /**
+   * Values for {@link #NET_SOCK_FAMILY}.
+   *
+   * @deprecated Deprecated, use `network.transport` and `network.type`.
+   */
+  @Deprecated
   public static final class NetSockFamilyValues {
     /** IPv4 address. */
     public static final String INET = "inet";
@@ -130,6 +136,12 @@ public final class NetIncubatingAttributes {
     private NetSockFamilyValues() {}
   }
 
+  /**
+   * Values for {@link #NET_TRANSPORT}.
+   *
+   * @deprecated Deprecated, use `network.transport`.
+   */
+  @Deprecated
   public static final class NetTransportValues {
     /** ip_tcp. */
     public static final String IP_TCP = "ip_tcp";

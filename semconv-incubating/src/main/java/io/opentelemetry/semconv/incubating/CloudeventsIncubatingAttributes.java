@@ -53,7 +53,5 @@ public final class CloudeventsIncubatingAttributes {
   public static final AttributeKey<String> CLOUDEVENTS_EVENT_TYPE =
       stringKey("cloudevents.event_type");
 
-  // Enum definitions
-
   private CloudeventsIncubatingAttributes() {}
 }

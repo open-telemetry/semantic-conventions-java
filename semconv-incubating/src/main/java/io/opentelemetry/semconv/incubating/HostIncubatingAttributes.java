@@ -107,6 +107,7 @@ public final class HostIncubatingAttributes {
   public static final AttributeKey<String> HOST_TYPE = stringKey("host.type");
 
   // Enum definitions
+  /** Values for {@link #HOST_ARCH}. */
   public static final class HostArchValues {
     /** AMD64. */
     public static final String AMD64 = "amd64";

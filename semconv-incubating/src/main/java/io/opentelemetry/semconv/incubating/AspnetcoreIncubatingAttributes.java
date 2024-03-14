@@ -48,6 +48,7 @@ public final class AspnetcoreIncubatingAttributes {
       stringKey("aspnetcore.routing.match_status");
 
   // Enum definitions
+  /** Values for {@link #ASPNETCORE_DIAGNOSTICS_EXCEPTION_RESULT}. */
   public static final class AspnetcoreDiagnosticsExceptionResultValues {
     /** Exception was handled by the exception handling middleware. */
     public static final String HANDLED = "handled";
@@ -64,6 +65,7 @@ public final class AspnetcoreIncubatingAttributes {
     private AspnetcoreDiagnosticsExceptionResultValues() {}
   }
 
+  /** Values for {@link #ASPNETCORE_RATE_LIMITING_RESULT}. */
   public static final class AspnetcoreRateLimitingResultValues {
     /** Lease was acquired. */
     public static final String ACQUIRED = "acquired";
@@ -80,6 +82,7 @@ public final class AspnetcoreIncubatingAttributes {
     private AspnetcoreRateLimitingResultValues() {}
   }
 
+  /** Values for {@link #ASPNETCORE_ROUTING_MATCH_STATUS}. */
   public static final class AspnetcoreRoutingMatchStatusValues {
     /** Match succeeded. */
     public static final String SUCCESS = "success";

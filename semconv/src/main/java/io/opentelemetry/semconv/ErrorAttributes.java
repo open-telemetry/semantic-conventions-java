@@ -38,6 +38,7 @@ public final class ErrorAttributes {
   public static final AttributeKey<String> ERROR_TYPE = stringKey("error.type");
 
   // Enum definitions
+  /** Values for {@link #ERROR_TYPE}. */
   public static final class ErrorTypeValues {
     /**
      * A fallback error value to be used when the instrumentation doesn&#39;t define a custom value.

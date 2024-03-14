@@ -42,7 +42,5 @@ public final class ServerAttributes {
    */
   public static final AttributeKey<Long> SERVER_PORT = longKey("server.port");
 
-  // Enum definitions
-
   private ServerAttributes() {}
 }

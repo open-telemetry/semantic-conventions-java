@@ -51,7 +51,5 @@ public final class CodeIncubatingAttributes {
    */
   public static final AttributeKey<String> CODE_STACKTRACE = stringKey("code.stacktrace");
 
-  // Enum definitions
-
   private CodeIncubatingAttributes() {}
 }

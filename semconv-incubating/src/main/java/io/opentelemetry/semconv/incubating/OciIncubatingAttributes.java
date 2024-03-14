@@ -31,7 +31,5 @@ public final class OciIncubatingAttributes {
    */
   public static final AttributeKey<String> OCI_MANIFEST_DIGEST = stringKey("oci.manifest.digest");
 
-  // Enum definitions
-
   private OciIncubatingAttributes() {}
 }

@@ -194,6 +194,7 @@ public final class TlsIncubatingAttributes {
   public static final AttributeKey<String> TLS_SERVER_SUBJECT = stringKey("tls.server.subject");
 
   // Enum definitions
+  /** Values for {@link #TLS_PROTOCOL_NAME}. */
   public static final class TlsProtocolNameValues {
     /** ssl. */
     public static final String SSL = "ssl";

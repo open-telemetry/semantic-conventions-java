@@ -66,6 +66,7 @@ public final class SystemIncubatingAttributes {
       stringKey("system.processes.status");
 
   // Enum definitions
+  /** Values for {@link #SYSTEM_CPU_STATE}. */
   public static final class SystemCpuStateValues {
     /** user. */
     public static final String USER = "user";
@@ -91,6 +92,7 @@ public final class SystemIncubatingAttributes {
     private SystemCpuStateValues() {}
   }
 
+  /** Values for {@link #SYSTEM_FILESYSTEM_STATE}. */
   public static final class SystemFilesystemStateValues {
     /** used. */
     public static final String USED = "used";
@@ -104,6 +106,7 @@ public final class SystemIncubatingAttributes {
     private SystemFilesystemStateValues() {}
   }
 
+  /** Values for {@link #SYSTEM_FILESYSTEM_TYPE}. */
   public static final class SystemFilesystemTypeValues {
     /** fat32. */
     public static final String FAT32 = "fat32";
@@ -126,6 +129,7 @@ public final class SystemIncubatingAttributes {
     private SystemFilesystemTypeValues() {}
   }
 
+  /** Values for {@link #SYSTEM_MEMORY_STATE}. */
   public static final class SystemMemoryStateValues {
     /** used. */
     public static final String USED = "used";
@@ -145,6 +149,7 @@ public final class SystemIncubatingAttributes {
     private SystemMemoryStateValues() {}
   }
 
+  /** Values for {@link #SYSTEM_NETWORK_STATE}. */
   public static final class SystemNetworkStateValues {
     /** close. */
     public static final String CLOSE = "close";
@@ -185,6 +190,7 @@ public final class SystemIncubatingAttributes {
     private SystemNetworkStateValues() {}
   }
 
+  /** Values for {@link #SYSTEM_PAGING_DIRECTION}. */
   public static final class SystemPagingDirectionValues {
     /** in. */
     public static final String IN = "in";
@@ -195,6 +201,7 @@ public final class SystemIncubatingAttributes {
     private SystemPagingDirectionValues() {}
   }
 
+  /** Values for {@link #SYSTEM_PAGING_STATE}. */
   public static final class SystemPagingStateValues {
     /** used. */
     public static final String USED = "used";
@@ -205,6 +212,7 @@ public final class SystemIncubatingAttributes {
     private SystemPagingStateValues() {}
   }
 
+  /** Values for {@link #SYSTEM_PAGING_TYPE}. */
   public static final class SystemPagingTypeValues {
     /** major. */
     public static final String MAJOR = "major";
@@ -215,6 +223,7 @@ public final class SystemIncubatingAttributes {
     private SystemPagingTypeValues() {}
   }
 
+  /** Values for {@link #SYSTEM_PROCESSES_STATUS}. */
   public static final class SystemProcessesStatusValues {
     /** running. */
     public static final String RUNNING = "running";
