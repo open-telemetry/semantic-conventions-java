@@ -48,7 +48,9 @@ nexusPublishing {
 }
 
 // start - define tasks to download, unzip, and generate from opentelemetry/semantic-conventions
-var generatorVersion = "0.23.0"
+// Using image built from feature branch: https://github.com/open-telemetry/build-tools/tree/feature/codegen-by-namespace
+// TODO: upgrade to official release when features are incorporated into main
+var generatorVersion = "feature-codegen-by-namespace"
 val semanticConventionsRepoZip = "https://github.com/open-telemetry/semantic-conventions/archive/v$semanticConventionsVersion.zip"
 val schemaUrl = "https://opentelemetry.io/schemas/$semanticConventionsVersion"
 
@@ -70,19 +72,18 @@ val unzipConfigurationSchema by tasks.registering(Copy::class) {
   into("$buildDir/semantic-conventions/")
 }
 
-fun generateTask(taskName: String, resource: Boolean, incubating: Boolean) {
+fun generateTask(taskName: String, incubating: Boolean) {
   tasks.register(taskName, Exec::class) {
     dependsOn(unzipConfigurationSchema)
 
     standardOutput = System.out
     executable = "docker"
 
-    val onlyArg = if (resource) "resource" else "span,event,attribute_group,scope,metric"
-    val classNamePrefix = if (incubating) "Incubating" else ""
-    var className = if (resource) "${classNamePrefix}ResourceAttributes" else "${classNamePrefix}SemanticAttributes"
+    var filter = if (incubating) "any" else "is_stable"
+    var classPrefix = if (incubating) "Incubating" else ""
     val outputDir = if (incubating) "semconv-incubating/src/main/java/io/opentelemetry/semconv/incubating/" else "semconv/src/main/java/io/opentelemetry/semconv/"
-    val stability = if (incubating) "StabilityLevel.EXPERIMENTAL" else "StabilityLevel.STABLE"
     val packageNameArg = if (incubating) "io.opentelemetry.semconv.incubating" else "io.opentelemetry.semconv"
+    val stablePackageNameArg = if (incubating) "io.opentelemetry.semconv" else ""
 
     setArgs(listOf(
         "run",
@@ -91,20 +92,21 @@ fun generateTask(taskName: String, resource: Boolean, incubating: Boolean) {
         "-v", "$projectDir/buildscripts/templates:/templates",
         "-v", "$projectDir/$outputDir:/output",
         "otel/semconvgen:$generatorVersion",
-        "--only", onlyArg,
-        "--yaml-root", "/source", "code",
+        "--yaml-root", "/source",
+        "--strict-validation", "false",
+        "code",
         "--template", "/templates/SemanticAttributes.java.j2",
-        "--output", "/output/$className.java",
-        "-Dclass=$className",
-        "-Dstability=${stability}",
-        "-Dpkg=$packageNameArg"))
+        "--output", "/output/{{pascal_prefix}}${classPrefix}Attributes.java",
+        "--file-per-group", "root_namespace",
+        "-Dfilter=${filter}",
+        "-DclassPrefix=${classPrefix}",
+        "-Dpkg=$packageNameArg",
+        "-DstablePkg=$stablePackageNameArg"))
   }
 }
 
-generateTask("generateStableSemanticAttributes", false, false)
-generateTask("generateIncubatingSemanticAttributes", false, true)
-generateTask("generateStableResourceAttributes", true, false)
-generateTask("generateIncubatingResourceAttributes", true, true)
+generateTask("generateStableSemanticAttributes", false)
+generateTask("generateIncubatingSemanticAttributes", true)
 
 tasks.register("checkSchemaUrls") {
   val schemaUrlsClass = File("$projectDir/semconv/src/main/java/io/opentelemetry/semconv/SchemaUrls.java")
@@ -123,8 +125,6 @@ tasks.register("checkSchemaUrls") {
 val generateSemanticConventions by tasks.registering {
   dependsOn(tasks.getByName("generateStableSemanticAttributes"))
   dependsOn(tasks.getByName("generateIncubatingSemanticAttributes"))
-  dependsOn(tasks.getByName("generateStableResourceAttributes"))
-  dependsOn(tasks.getByName("generateIncubatingResourceAttributes"))
   dependsOn(tasks.getByName("checkSchemaUrls"))
 }
 

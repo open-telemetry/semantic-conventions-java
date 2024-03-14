@@ -1,9 +1,3 @@
-/*
- * Copyright The OpenTelemetry Authors
- * SPDX-License-Identifier: Apache-2.0
- */
-
-
 {%- macro to_java_return_type(type) -%}
   {%- if type == "string" -%}
     String
@@ -31,18 +25,22 @@
   {%- elif type == "double" -%}
     doubleKey
   {%- else -%}
-    {{lowerFirst(type)}}Key
+    {{type | to_camelcase(False)}}Key
   {%- endif -%}
 {%- endmacro %}
-{%- macro print_value(type, value) -%}
-  {{ "\"" if type == "String"}}{{value}}{{ "\"" if type == "String"}}
+{%- macro stable_class_ref(const_name) -%}
+{{stablePkg}}.{{ root_namespace | to_camelcase(True) }}Attributes#{{const_name}}
 {%- endmacro %}
-{%- macro upFirst(text) -%}
-  {{ text[0]|upper}}{{text[1:] }}
-{%- endmacro %}
-{%- macro lowerFirst(text) -%}
-  {{ text[0]|lower}}{{text[1:] }}
-{%- endmacro %}
+{%- if filter != 'any' %}
+{%- set filtered_attributes = attributes_and_templates | select(filter) | list %}
+{%- else %}
+{%- set filtered_attributes = attributes_and_templates | list %}
+{%- endif %}
+{%- if filtered_attributes | count > 0 %}
+/*
+ * Copyright The OpenTelemetry Authors
+ * SPDX-License-Identifier: Apache-2.0
+ */
 
 package {{pkg | trim}};
 
@@ -61,9 +59,10 @@ import java.util.List;
 
 // DO NOT EDIT, this is an Auto-generated file from buildscripts{{template}}
 @SuppressWarnings("unused")
-public final class {{class}} {
+public final class {{ root_namespace | to_camelcase(True) }}{{ classPrefix }}Attributes {
+  {%- for attribute in filtered_attributes %}
 
-  {%- for attribute in attributes if attribute.is_local and not attribute.ref and (attribute.stability | string()) == stability %}
+  {% set attribute_const_name = attribute.fqn | to_const_name -%}
   /**
   * {{attribute.brief | render_markdown(code="{{@code {0}}}", paragraph="{0}")}}
     {%- if attribute.note %}
@@ -74,48 +73,31 @@ public final class {{class}} {
         <ul> {{attribute.note | replace("> ", "") | render_markdown(code="{{@code {0}}}", paragraph="<li>{0}</li>", list="{0}")}} </ul>
 
     {%- endif %}
-    {%- if (attribute.stability | string())  == "StabilityLevel.DEPRECATED" %}
+    {%- if attribute | is_deprecated %}
   *
   * @deprecated {{attribute.brief | to_doc_brief}}.
+    {%- elif attribute | is_stable and stablePkg != "" %}
+  * @deprecated deprecated in favor of stable {@link {{stable_class_ref(attribute_const_name)}}} attribute.
     {%- endif %}
   */
-    {%- if (attribute.stability | string()) == "StabilityLevel.DEPRECATED"  %}
+    {%- if attribute | is_deprecated or attribute | is_stable and stablePkg != "" %}
   @Deprecated
     {%- endif %}
-  public static final AttributeKey<{{upFirst(to_java_return_type(attribute.attr_type | string))}}> {{attribute.fqn | to_const_name}} = {{to_java_key_type(attribute.attr_type | string)}}("{{attribute.fqn}}");
-  {%- endfor %}
-
-  {%- for attribute_template in attribute_templates if attribute_template.is_local and not attribute_template.ref and (attribute_template.stability | string()) == stability %}
-
-  /**
-  * {{attribute_template.brief | render_markdown(code="{{@code {0}}}", paragraph="{0}")}}
-    {%- if attribute_template.note %}
-  *
-  * <p>Notes:
-        {# NOTE: replace("> ", "") removes the following problematic characters which produce mangled javadoc:  #}
-        {# https://github.com/open-telemetry/semantic-conventions/blob/c83a10a9c33c18a769835e959200d0e24dc708fe/model/resource/k8s.yaml#L34-L38  #}
-        <ul> {{attribute_template.note | replace("> ", "") | render_markdown(code="{{@code {0}}}", paragraph="<li>{0}</li>", list="{0}")}} </ul>
-
+    {%- if attribute | is_template %}
+  public static final AttributeKeyTemplate<{{to_java_return_type(attribute.instantiated_type | string) | first_up}}> {{attribute_const_name}} = {{to_java_key_type(attribute.instantiated_type | string)}}Template("{{attribute.fqn}}");
+    {%- else %}
+  public static final AttributeKey<{{to_java_return_type(attribute.attr_type | string) | first_up}}> {{attribute_const_name}} = {{to_java_key_type(attribute.attr_type | string)}}("{{attribute.fqn}}");
     {%- endif %}
-    {%- if (attribute_template.stability | string())  == "StabilityLevel.DEPRECATED" %}
-  *
-  * @deprecated {{attribute_template.brief | to_doc_brief}}.
-    {%- endif %}
-  */
-    {%- if (attribute_template.stability | string()) == "StabilityLevel.DEPRECATED"  %}
-  @Deprecated
-    {%- endif %}
-  public static final AttributeKeyTemplate<{{upFirst(to_java_return_type(attribute_template.instantiated_type | string))}}> {{attribute_template.fqn | to_const_name}} = {{to_java_key_type(attribute_template.instantiated_type | string)}}Template("{{attribute_template.fqn}}");
   {%- endfor %}
 
   // Enum definitions
-  {%- for attribute in attributes if attribute.is_local and not attribute.ref and attribute.is_enum and (attribute.stability | string()) == stability%}
+  {%- for attribute in filtered_attributes if attribute.is_enum %}
   {%- set class_name = attribute.fqn | to_camelcase(True) ~ "Values" %}
   {%- set type = to_java_return_type(attribute.attr_type.enum_type) %}
   public static final class {{class_name}} {
     {%- for member in attribute.attr_type.members %}
       /** {% filter escape %}{{member.brief | to_doc_brief}}.{% endfilter %} */
-      public static final {{ type }} {{ member.member_id | to_const_name }} = {{ print_value(type, member.value) }};
+      public static final {{ type }} {{ member.member_id | to_const_name }} = {{ attribute | print_member_value(member) }};
 
     {%- endfor %}
 
@@ -124,5 +106,6 @@ public final class {{class}} {
 
   {%- endfor %}
 
-  private {{class}}() {}
+  private {{ root_namespace | to_camelcase(True) }}{{ classPrefix }}Attributes() {}
 }
+{%- endif %}
