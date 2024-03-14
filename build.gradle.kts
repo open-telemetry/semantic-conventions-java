@@ -56,7 +56,7 @@ val schemaUrl = "https://opentelemetry.io/schemas/$semanticConventionsVersion"
 
 val downloadSemanticConventions by tasks.registering(Download::class) {
   src(semanticConventionsRepoZip)
-  dest("$buildDir/semantic-conventions/semantic-conventions.zip")
+  dest("$buildDir/semantic-conventions-${semanticConventionsVersion}/semantic-conventions.zip")
   overwrite(false)
 }
 
@@ -69,7 +69,7 @@ val unzipConfigurationSchema by tasks.registering(Copy::class) {
     val pathParts = path.split("/")
     path = pathParts.subList(1, pathParts.size).joinToString("/")
   })
-  into("$buildDir/semantic-conventions/")
+  into("$buildDir/semantic-conventions-${semanticConventionsVersion}/")
 }
 
 fun generateTask(taskName: String, incubating: Boolean) {
@@ -88,7 +88,7 @@ fun generateTask(taskName: String, incubating: Boolean) {
     setArgs(listOf(
         "run",
         "--rm",
-        "-v", "$buildDir/semantic-conventions/model:/source",
+        "-v", "$buildDir/semantic-conventions-${semanticConventionsVersion}/model:/source",
         "-v", "$projectDir/buildscripts/templates:/templates",
         "-v", "$projectDir/$outputDir:/output",
         "otel/semconvgen:$generatorVersion",
