@@ -48,7 +48,5 @@ public final class ServerIncubatingAttributes {
    */
   @Deprecated public static final AttributeKey<Long> SERVER_PORT = longKey("server.port");
 
-  // Enum definitions
-
   private ServerIncubatingAttributes() {}
 }

@@ -121,6 +121,7 @@ public final class HttpAttributes {
   public static final AttributeKey<String> HTTP_ROUTE = stringKey("http.route");
 
   // Enum definitions
+  /** Values for {@link #HTTP_REQUEST_METHOD}. */
   public static final class HttpRequestMethodValues {
     /** CONNECT method. */
     public static final String CONNECT = "CONNECT";

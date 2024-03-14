@@ -71,7 +71,5 @@ public final class ServiceIncubatingAttributes {
    */
   public static final AttributeKey<String> SERVICE_VERSION = stringKey("service.version");
 
-  // Enum definitions
-
   private ServiceIncubatingAttributes() {}
 }

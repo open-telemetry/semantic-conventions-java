@@ -58,6 +58,7 @@ public final class TelemetryIncubatingAttributes {
       stringKey("telemetry.sdk.version");
 
   // Enum definitions
+  /** Values for {@link #TELEMETRY_SDK_LANGUAGE}. */
   public static final class TelemetrySdkLanguageValues {
     /** cpp. */
     public static final String CPP = "cpp";

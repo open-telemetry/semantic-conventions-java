@@ -20,7 +20,5 @@ public final class UserAgentAttributes {
    */
   public static final AttributeKey<String> USER_AGENT_ORIGINAL = stringKey("user_agent.original");
 
-  // Enum definitions
-
   private UserAgentAttributes() {}
 }

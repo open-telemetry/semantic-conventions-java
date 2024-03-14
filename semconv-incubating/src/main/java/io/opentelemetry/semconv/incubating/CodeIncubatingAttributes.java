@@ -45,7 +45,5 @@ public final class CodeIncubatingAttributes {
    */
   public static final AttributeKey<String> CODE_NAMESPACE = stringKey("code.namespace");
 
-  // Enum definitions
-
   private CodeIncubatingAttributes() {}
 }

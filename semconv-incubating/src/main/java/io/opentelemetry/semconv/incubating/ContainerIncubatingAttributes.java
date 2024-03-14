@@ -104,7 +104,5 @@ public final class ContainerIncubatingAttributes {
   /** The container runtime managing this container. */
   public static final AttributeKey<String> CONTAINER_RUNTIME = stringKey("container.runtime");
 
-  // Enum definitions
-
   private ContainerIncubatingAttributes() {}
 }

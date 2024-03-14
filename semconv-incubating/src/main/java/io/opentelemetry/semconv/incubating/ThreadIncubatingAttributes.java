@@ -21,7 +21,5 @@ public final class ThreadIncubatingAttributes {
   /** Current thread name. */
   public static final AttributeKey<String> THREAD_NAME = stringKey("thread.name");
 
-  // Enum definitions
-
   private ThreadIncubatingAttributes() {}
 }

@@ -40,6 +40,7 @@ public final class MessageIncubatingAttributes {
       longKey("message.uncompressed_size");
 
   // Enum definitions
+  /** Values for {@link #MESSAGE_TYPE}. */
   public static final class MessageTypeValues {
     /** sent. */
     public static final String SENT = "SENT";

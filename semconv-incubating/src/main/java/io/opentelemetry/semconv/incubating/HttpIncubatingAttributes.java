@@ -193,6 +193,13 @@ public final class HttpIncubatingAttributes {
   public static final AttributeKey<String> HTTP_URL = stringKey("http.url");
 
   // Enum definitions
+  /**
+   * Values for {@link #HTTP_REQUEST_METHOD}.
+   *
+   * @deprecated deprecated in favor of stable {@link
+   *     io.opentelemetry.semconv.HttpAttributes.HttpRequestMethodValues} attribute.
+   */
+  @Deprecated
   public static final class HttpRequestMethodValues {
     /** CONNECT method. */
     public static final String CONNECT = "CONNECT";

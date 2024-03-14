@@ -76,7 +76,5 @@ public final class UrlIncubatingAttributes {
    */
   @Deprecated public static final AttributeKey<String> URL_SCHEME = stringKey("url.scheme");
 
-  // Enum definitions
-
   private UrlIncubatingAttributes() {}
 }

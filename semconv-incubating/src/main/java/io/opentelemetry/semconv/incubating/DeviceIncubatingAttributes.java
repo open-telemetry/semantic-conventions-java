@@ -73,7 +73,5 @@ public final class DeviceIncubatingAttributes {
    */
   public static final AttributeKey<String> DEVICE_MODEL_NAME = stringKey("device.model.name");
 
-  // Enum definitions
-
   private DeviceIncubatingAttributes() {}
 }

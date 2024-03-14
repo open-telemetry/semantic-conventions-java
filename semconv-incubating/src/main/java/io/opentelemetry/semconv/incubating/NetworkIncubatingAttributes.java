@@ -145,6 +145,7 @@ public final class NetworkIncubatingAttributes {
   @Deprecated public static final AttributeKey<String> NETWORK_TYPE = stringKey("network.type");
 
   // Enum definitions
+  /** Values for {@link #NETWORK_CONNECTION_SUBTYPE}. */
   public static final class NetworkConnectionSubtypeValues {
     /** GPRS. */
     public static final String GPRS = "gprs";
@@ -212,6 +213,7 @@ public final class NetworkIncubatingAttributes {
     private NetworkConnectionSubtypeValues() {}
   }
 
+  /** Values for {@link #NETWORK_CONNECTION_TYPE}. */
   public static final class NetworkConnectionTypeValues {
     /** wifi. */
     public static final String WIFI = "wifi";
@@ -231,6 +233,13 @@ public final class NetworkIncubatingAttributes {
     private NetworkConnectionTypeValues() {}
   }
 
+  /**
+   * Values for {@link #NETWORK_TRANSPORT}.
+   *
+   * @deprecated deprecated in favor of stable {@link
+   *     io.opentelemetry.semconv.NetworkAttributes.NetworkTransportValues} attribute.
+   */
+  @Deprecated
   public static final class NetworkTransportValues {
     /** TCP. */
     public static final String TCP = "tcp";
@@ -247,6 +256,13 @@ public final class NetworkIncubatingAttributes {
     private NetworkTransportValues() {}
   }
 
+  /**
+   * Values for {@link #NETWORK_TYPE}.
+   *
+   * @deprecated deprecated in favor of stable {@link
+   *     io.opentelemetry.semconv.NetworkAttributes.NetworkTypeValues} attribute.
+   */
+  @Deprecated
   public static final class NetworkTypeValues {
     /** IPv4. */
     public static final String IPV4 = "ipv4";

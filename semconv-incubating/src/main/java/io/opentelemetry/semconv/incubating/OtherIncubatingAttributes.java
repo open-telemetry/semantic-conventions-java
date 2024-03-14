@@ -18,6 +18,7 @@ public final class OtherIncubatingAttributes {
   public static final AttributeKey<String> STATE = stringKey("state");
 
   // Enum definitions
+  /** Values for {@link #STATE}. */
   public static final class StateValues {
     /** idle. */
     public static final String IDLE = "idle";

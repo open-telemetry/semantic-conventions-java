@@ -74,7 +74,5 @@ public final class BrowserIncubatingAttributes {
    */
   public static final AttributeKey<String> BROWSER_PLATFORM = stringKey("browser.platform");
 
-  // Enum definitions
-
   private BrowserIncubatingAttributes() {}
 }
