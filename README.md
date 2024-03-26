@@ -1,6 +1,5 @@
 # OpenTelemetry Semantic Conventions for Java
 [![Continuous Build][ci-image]][ci-url]
-[![Maven Central][maven-image]][maven-url]
 
 Java code-generation for the [OpenTelemetry Semantic Conventions](https://github.com/open-telemetry/semantic-conventions).
 
@@ -8,7 +7,11 @@ Java code-generation for the [OpenTelemetry Semantic Conventions](https://github
 
 Published releases are available on maven central. Replace `{{version}}` with the latest released version:
 
-[![Maven Central][maven-image]][maven-url]
+| Artifact `{group}:{artifcatId}:{version}`                               | Latest Version                                           | Description                                                                                                                                                                                                                                                                                      |
+|-------------------------------------------------------------------------|----------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `io.opentelemetry.semconv:opentelemetry-semconv:{{version}}`            | [![Maven Central][maven-image-stable]][maven-url-stable] | Generated code for stable semantic conventions.</br>**NOTE:** Although this is for stable semantic conventions, the artifact still has the [-alpha][versioning] and comes with no compatibility guarantees. The goal is to mark this artifact stable.                                            |        
+| `io.opentelemetry.semconv:opentelemetry-semconv-incubating:{{version}}` | TODO: add badge after first publish                      | Generated code for experimental semantic conventions.</br>**NOTE:** This artifact has the [-alpha][versioning] and comes with no compatibility guarantees. Libraries can use this for testing, but should make copies of the attributes to avoid possible runtime errors from version conflicts. |        
+
 
 ### Maven
 
@@ -67,23 +70,6 @@ of [open-telemetry/semantic-conventions](https://github.com/open-telemetry/seman
 defined in the `semanticConventionsVersion` variable of [build.gradle.kts](./build.gradle.kts) and
 generate semantic conventions classes from the release contents.
 
-TODO: Update the following paragraph with new strategy for managing compatibility
-
-This repository publishes `-alpha` artifacts and as discussed
-in [opentelemetry-java/VERSIONING.md](https://github.com/open-telemetry/opentelemetry-java/blob/main/VERSIONING.md),
-we make no compatibility guarantees. However, by convention we've been keeping attribute constants
-around with `@Deprecated` annotation while we work towards formalizing the strategy (
-see [#6](https://github.com/open-telemetry/semantic-conventions-java/issues/6)). The process for
-retaining removed attributes is to carefully add entries to
-the [SemanticAttributes.java.j2](./buildscripts/templates/SemanticAttributes.java.j2) template. This
-is meticulous and error prone, hence the desire to fix it. To ensure we don't accidentally delete
-any constants while we work our a permanent
-strategy, [japicmp](./buildSrc/src/main/kotlin/otel.japicmp-conventions.gradle.kts) has been added
-as a build check. It will ensure that only binary / source compatible changes are made. **NOTE: this
-checking of binary / source compatibility is not required and will change in the future.**
-
-To check compatibility, run `./gradlew build` after updating the template and running the generation task as documented above.
-
 ## Contributing
 
 Before you start - see OpenTelemetry
@@ -101,7 +87,8 @@ for code owners.
 
 [ci-image]: https://github.com/open-telemetry/semantic-conventions-java/workflows/Build/badge.svg
 [ci-url]: https://github.com/open-telemetry/semantic-conventions-java/actions?query=workflow%3Abuild+branch%3Amain
-[maven-image]: https://maven-badges.herokuapp.com/maven-central/io.opentelemetry.semconv/opentelemetry-semconv/badge.svg
-[maven-url]: https://maven-badges.herokuapp.com/maven-central/io.opentelemetry.semconv/opentelemetry-semconv
+[maven-image-stable]: https://maven-badges.herokuapp.com/maven-central/io.opentelemetry.semconv/opentelemetry-semconv/badge.svg
+[maven-url-stable]: https://maven-badges.herokuapp.com/maven-central/io.opentelemetry.semconv/opentelemetry-semconv
+[versioning]: https://github.com/open-telemetry/opentelemetry-java/blob/main/VERSIONING.md
 
 TODO(jack-berg): add code coverage badge?
