@@ -37,7 +37,8 @@
 {%- set filtered_attributes = attributes_and_templates | list %}
 {%- endif %}
 {%- set filtered_enums = filtered_attributes | selectattr('is_enum', 'equalto', true) | list %}
-{%- if filtered_attributes | count > 0 %}
+{%- set excluded_namespaces_list = excluded_namespaces.replace("\"", "").split(' ') %}
+{%- if root_namespace not in excluded_namespaces_list and filtered_attributes | count > 0 %}
 /*
  * Copyright The OpenTelemetry Authors
  * SPDX-License-Identifier: Apache-2.0

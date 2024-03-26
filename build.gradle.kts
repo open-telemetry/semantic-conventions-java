@@ -98,6 +98,8 @@ fun generateTask(taskName: String, incubating: Boolean) {
         "--template", "/templates/SemanticAttributes.java.j2",
         "--output", "/output/{{pascal_prefix}}${classPrefix}Attributes.java",
         "--file-per-group", "root_namespace",
+        // Space delimited list of root namespaces to excluded (i.e. "foo bar")
+        "-Dexcluded_namespaces=\"ios\"",
         "-Dfilter=${filter}",
         "-DclassPrefix=${classPrefix}",
         "-Dpkg=$packageNameArg",
