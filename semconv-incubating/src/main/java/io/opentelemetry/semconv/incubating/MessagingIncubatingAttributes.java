@@ -102,6 +102,13 @@ public final class MessagingIncubatingAttributes {
       stringKey("messaging.destination_publish.name");
 
   /**
+   * The ordering key for a given message. If the attribute is not present, the message does not
+   * have an ordering key.
+   */
+  public static final AttributeKey<String> MESSAGING_GCP_PUBSUB_MESSAGE_ORDERING_KEY =
+      stringKey("messaging.gcp_pubsub.message.ordering_key");
+
+  /**
    * Name of the Kafka Consumer Group that is handling the message. Only applies to consumers, not
    * producers.
    */
@@ -232,7 +239,10 @@ public final class MessagingIncubatingAttributes {
   public static final AttributeKey<String> MESSAGING_ROCKETMQ_NAMESPACE =
       stringKey("messaging.rocketmq.namespace");
 
-  /** A string identifying the messaging system. */
+  /**
+   * An identifier for the messaging system being used. See below for a list of well-known
+   * identifiers.
+   */
   public static final AttributeKey<String> MESSAGING_SYSTEM = stringKey("messaging.system");
 
   // Enum definitions
@@ -292,6 +302,41 @@ public final class MessagingIncubatingAttributes {
     public static final String TRANSACTION = "transaction";
 
     private MessagingRocketmqMessageTypeValues() {}
+  }
+
+  /** Values for {@link #MESSAGING_SYSTEM}. */
+  public static final class MessagingSystemValues {
+    /** Apache ActiveMQ. */
+    public static final String ACTIVEMQ = "activemq";
+
+    /** Amazon Simple Queue Service (SQS). */
+    public static final String AWS_SQS = "aws_sqs";
+
+    /** Azure Event Grid. */
+    public static final String AZURE_EVENTGRID = "azure_eventgrid";
+
+    /** Azure Event Hubs. */
+    public static final String AZURE_EVENTHUBS = "azure_eventhubs";
+
+    /** Azure Service Bus. */
+    public static final String AZURE_SERVICEBUS = "azure_servicebus";
+
+    /** Google Cloud Pub/Sub. */
+    public static final String GCP_PUBSUB = "gcp_pubsub";
+
+    /** Java Message Service. */
+    public static final String JMS = "jms";
+
+    /** Apache Kafka. */
+    public static final String KAFKA = "kafka";
+
+    /** RabbitMQ. */
+    public static final String RABBITMQ = "rabbitmq";
+
+    /** Apache RocketMQ. */
+    public static final String ROCKETMQ = "rocketmq";
+
+    private MessagingSystemValues() {}
   }
 
   private MessagingIncubatingAttributes() {}

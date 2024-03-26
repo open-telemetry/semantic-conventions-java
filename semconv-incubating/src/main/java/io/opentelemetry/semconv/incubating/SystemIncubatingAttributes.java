@@ -25,10 +25,6 @@ public final class SystemIncubatingAttributes {
   /** The device identifier */
   public static final AttributeKey<String> SYSTEM_DEVICE = stringKey("system.device");
 
-  /** The disk operation direction */
-  public static final AttributeKey<String> SYSTEM_DISK_DIRECTION =
-      stringKey("system.disk.direction");
-
   /** The filesystem mode */
   public static final AttributeKey<String> SYSTEM_FILESYSTEM_MODE =
       stringKey("system.filesystem.mode");
@@ -47,10 +43,6 @@ public final class SystemIncubatingAttributes {
 
   /** The memory state */
   public static final AttributeKey<String> SYSTEM_MEMORY_STATE = stringKey("system.memory.state");
-
-  /** */
-  public static final AttributeKey<String> SYSTEM_NETWORK_DIRECTION =
-      stringKey("system.network.direction");
 
   /** A stateless protocol MUST NOT set this attribute */
   public static final AttributeKey<String> SYSTEM_NETWORK_STATE = stringKey("system.network.state");
@@ -98,17 +90,6 @@ public final class SystemIncubatingAttributes {
     public static final String STEAL = "steal";
 
     private SystemCpuStateValues() {}
-  }
-
-  /** Values for {@link #SYSTEM_DISK_DIRECTION}. */
-  public static final class SystemDiskDirectionValues {
-    /** read. */
-    public static final String READ = "read";
-
-    /** write. */
-    public static final String WRITE = "write";
-
-    private SystemDiskDirectionValues() {}
   }
 
   /** Values for {@link #SYSTEM_FILESYSTEM_STATE}. */
@@ -166,17 +147,6 @@ public final class SystemIncubatingAttributes {
     public static final String CACHED = "cached";
 
     private SystemMemoryStateValues() {}
-  }
-
-  /** Values for {@link #SYSTEM_NETWORK_DIRECTION}. */
-  public static final class SystemNetworkDirectionValues {
-    /** transmit. */
-    public static final String TRANSMIT = "transmit";
-
-    /** receive. */
-    public static final String RECEIVE = "receive";
-
-    private SystemNetworkDirectionValues() {}
   }
 
   /** Values for {@link #SYSTEM_NETWORK_STATE}. */

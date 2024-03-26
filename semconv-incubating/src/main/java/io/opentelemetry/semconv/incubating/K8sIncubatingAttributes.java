@@ -7,8 +7,10 @@ package io.opentelemetry.semconv.incubating;
 
 import static io.opentelemetry.api.common.AttributeKey.longKey;
 import static io.opentelemetry.api.common.AttributeKey.stringKey;
+import static io.opentelemetry.semconv.AttributeKeyTemplate.stringKeyTemplate;
 
 import io.opentelemetry.api.common.AttributeKey;
+import io.opentelemetry.semconv.AttributeKeyTemplate;
 
 // DO NOT EDIT, this is an Auto-generated file from
 // buildscripts/templates/SemanticAttributes.java.j2
@@ -88,6 +90,20 @@ public final class K8sIncubatingAttributes {
 
   /** The UID of the Node. */
   public static final AttributeKey<String> K8S_NODE_UID = stringKey("k8s.node.uid");
+
+  /**
+   * The annotation key-value pairs placed on the Pod, the {@code <key>} being the annotation name,
+   * the value being the annotation value.
+   */
+  public static final AttributeKeyTemplate<String> K8S_POD_ANNOTATION =
+      stringKeyTemplate("k8s.pod.annotation");
+
+  /**
+   * The labels placed on the Pod, the {@code <key>} being the label name, the value being the label
+   * value.
+   */
+  public static final AttributeKeyTemplate<String> K8S_POD_LABELS =
+      stringKeyTemplate("k8s.pod.labels");
 
   /** The name of the Pod. */
   public static final AttributeKey<String> K8S_POD_NAME = stringKey("k8s.pod.name");

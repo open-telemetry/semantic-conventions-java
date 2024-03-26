@@ -11,8 +11,11 @@ val snapshot = true
 // end
 
 // The release version of https://github.com/open-telemetry/semantic-conventions used to generate classes
-var semanticConventionsVersion = "1.23.1"
-val schemaUrlVersions = listOf(semanticConventionsVersion, "1.22.0")
+var semanticConventionsVersion = "1.24.0"
+val schemaUrlVersions = listOf(
+    semanticConventionsVersion,
+    "1.23.1",
+    "1.22.0")
 
 // Compute the artifact version, which includes the "-alpha" suffix and includes "-SNAPSHOT" suffix if not releasing
 // Release example: version=1.21.0-alpha
@@ -48,8 +51,6 @@ nexusPublishing {
 }
 
 // start - define tasks to download, unzip, and generate from opentelemetry/semantic-conventions
-// Using image built from feature branch: https://github.com/open-telemetry/build-tools/tree/feature/codegen-by-namespace
-// TODO: upgrade to official release when features are incorporated into main
 var generatorVersion = "0.24.0"
 val semanticConventionsRepoZip = "https://github.com/open-telemetry/semantic-conventions/archive/v$semanticConventionsVersion.zip"
 val schemaUrl = "https://opentelemetry.io/schemas/$semanticConventionsVersion"
@@ -99,7 +100,7 @@ fun generateTask(taskName: String, incubating: Boolean) {
         "--output", "/output/{{pascal_prefix}}${classPrefix}Attributes.java",
         "--file-per-group", "root_namespace",
         // Space delimited list of root namespaces to excluded (i.e. "foo bar")
-        "-Dexcluded_namespaces=\"ios\"",
+        "-Dexcluded_namespaces=\"ios aspnetcore signalr\"",
         "-Dfilter=${filter}",
         "-DclassPrefix=${classPrefix}",
         "-Dpkg=$packageNameArg",

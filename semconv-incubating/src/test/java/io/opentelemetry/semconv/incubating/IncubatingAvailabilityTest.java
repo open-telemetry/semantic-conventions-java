@@ -26,6 +26,8 @@ public class IncubatingAvailabilityTest {
     isValidClass("io.opentelemetry.semconv.incubating.DeploymentIncubatingAttributes");
     isValidClass("io.opentelemetry.semconv.incubating.DestinationIncubatingAttributes");
     isValidClass("io.opentelemetry.semconv.incubating.DeviceIncubatingAttributes");
+    isValidClass("io.opentelemetry.semconv.incubating.DiskIncubatingAttributes");
+    isValidClass("io.opentelemetry.semconv.incubating.DnsIncubatingAttributes");
     isValidClass("io.opentelemetry.semconv.incubating.EnduserIncubatingAttributes");
     isValidClass("io.opentelemetry.semconv.incubating.EventIncubatingAttributes");
     isValidClass("io.opentelemetry.semconv.incubating.ExceptionIncubatingAttributes");
@@ -58,6 +60,7 @@ public class IncubatingAvailabilityTest {
     isValidClass("io.opentelemetry.semconv.incubating.SystemIncubatingAttributes");
     isValidClass("io.opentelemetry.semconv.incubating.TelemetryIncubatingAttributes");
     isValidClass("io.opentelemetry.semconv.incubating.ThreadIncubatingAttributes");
+    isValidClass("io.opentelemetry.semconv.incubating.TlsIncubatingAttributes");
     isValidClass("io.opentelemetry.semconv.incubating.WebengineIncubatingAttributes");
     isValidClass("io.opentelemetry.semconv.SchemaUrls");
   }

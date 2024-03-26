@@ -49,8 +49,8 @@ public final class DbIncubatingAttributes {
       longKey("db.cassandra.speculative_execution_count");
 
   /**
-   * The name of the primary table that the operation is acting upon, including the keyspace name
-   * (if applicable).
+   * The name of the primary Cassandra table that the operation is acting upon, including the
+   * keyspace name (if applicable).
    *
    * <p>Notes:
    *
@@ -129,6 +129,15 @@ public final class DbIncubatingAttributes {
       stringKeyTemplate("db.elasticsearch.path_parts");
 
   /**
+   * An identifier (address, unique name, or any other identifier) of the database instance that is
+   * executing queries or mutations on the current connection. This is useful in cases where the
+   * database is running in a clustered environment and the instrumentation is able to record the
+   * node executing the query. The client may obtain this value in databases like MySQL using
+   * queries like {@code select @@hostname}.
+   */
+  public static final AttributeKey<String> DB_INSTANCE_ID = stringKey("db.instance.id");
+
+  /**
    * The fully-qualified class name of the <a
    * href="https://docs.oracle.com/javase/8/docs/technotes/guides/jdbc/">Java Database Connectivity
    * (JDBC)</a> driver used to connect.
@@ -136,7 +145,7 @@ public final class DbIncubatingAttributes {
   public static final AttributeKey<String> DB_JDBC_DRIVER_CLASSNAME =
       stringKey("db.jdbc.driver_classname");
 
-  /** The collection being accessed within the database stated in {@code db.name}. */
+  /** The MongoDB collection being accessed within the database stated in {@code db.name}. */
   public static final AttributeKey<String> DB_MONGODB_COLLECTION =
       stringKey("db.mongodb.collection");
 

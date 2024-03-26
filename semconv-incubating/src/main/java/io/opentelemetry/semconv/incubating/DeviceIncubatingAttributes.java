@@ -54,7 +54,7 @@ public final class DeviceIncubatingAttributes {
    * <p>Notes:
    *
    * <ul>
-   *   <li>It's recommended this value represents a machine readable version of the model identifier
+   *   <li>It's recommended this value represents a machine-readable version of the model identifier
    *       rather than the market or consumer-friendly name of the device.
    * </ul>
    */
@@ -67,8 +67,8 @@ public final class DeviceIncubatingAttributes {
    * <p>Notes:
    *
    * <ul>
-   *   <li>It's recommended this value represents a human readable version of the device model
-   *       rather than a machine readable alternative.
+   *   <li>It's recommended this value represents a human-readable version of the device model
+   *       rather than a machine-readable alternative.
    * </ul>
    */
   public static final AttributeKey<String> DEVICE_MODEL_NAME = stringKey("device.model.name");

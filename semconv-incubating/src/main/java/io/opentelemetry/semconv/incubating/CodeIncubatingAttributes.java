@@ -45,5 +45,11 @@ public final class CodeIncubatingAttributes {
    */
   public static final AttributeKey<String> CODE_NAMESPACE = stringKey("code.namespace");
 
+  /**
+   * A stacktrace as a string in the natural representation for the language runtime. The
+   * representation is to be determined and documented by each language SIG.
+   */
+  public static final AttributeKey<String> CODE_STACKTRACE = stringKey("code.stacktrace");
+
   private CodeIncubatingAttributes() {}
 }

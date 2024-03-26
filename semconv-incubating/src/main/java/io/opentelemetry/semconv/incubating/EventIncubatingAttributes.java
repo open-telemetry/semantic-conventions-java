@@ -15,34 +15,19 @@ import io.opentelemetry.api.common.AttributeKey;
 public final class EventIncubatingAttributes {
 
   /**
-   * The domain identifies the business context for the events.
+   * Identifies the class / type of event.
    *
    * <p>Notes:
    *
    * <ul>
-   *   <li>Events across different domains may have same {@code event.name}, yet be unrelated
-   *       events.
+   *   <li>Event names are subject to the same rules as <a
+   *       href="https://github.com/open-telemetry/opentelemetry-specification/tree/v1.26.0/specification/common/attribute-naming.md">attribute
+   *       names</a>. Notably, event names are namespaced to avoid collisions and provide a clean
+   *       separation of semantics for events in separate domains like browser, mobile, and
+   *       kubernetes.
    * </ul>
    */
-  public static final AttributeKey<String> EVENT_DOMAIN = stringKey("event.domain");
-
-  /** The name identifies the event. */
   public static final AttributeKey<String> EVENT_NAME = stringKey("event.name");
-
-  // Enum definitions
-  /** Values for {@link #EVENT_DOMAIN}. */
-  public static final class EventDomainValues {
-    /** Events from browser apps. */
-    public static final String BROWSER = "browser";
-
-    /** Events from mobile apps. */
-    public static final String DEVICE = "device";
-
-    /** Events from Kubernetes. */
-    public static final String K8S = "k8s";
-
-    private EventDomainValues() {}
-  }
 
   private EventIncubatingAttributes() {}
 }
