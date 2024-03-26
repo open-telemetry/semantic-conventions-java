@@ -2,7 +2,10 @@
 
 ## Unreleased
 
-**NOTICE:** This release contains a significant restructuring of this repository and the generated classes as we evolve it towards a first stable artifact (although there is no stable artifact as of this release). Please read the notes carefully and refer to the PRs and associated issues for more details. Additionally, the [README](README.md) contains useful information that should be reviewed.
+**NOTICE:** This release contains a significant restructuring of this repository and the generated
+classes as we evolve it towards a first stable artifact (although there is no stable artifact as of
+this release). Please read the notes carefully and refer to the PRs and associated issues for more
+details. Additionally, the [README](README.md) contains useful information that should be reviewed.
 
 * BREAKING: Split out incubating artifact. This repo now
   publishes `io.opentelemetry.semconv:opentelemetry-semconv:{{version}}` for semantic conventions
@@ -30,7 +33,7 @@
 * Exclude namespaces that aren't useful in jvm environments
   ([#54](https://github.com/open-telemetry/semantic-conventions-java/pull/54))
 * Update to `semantic-conventions` 1.24.0
-  ([#46](https://github.com/open-telemetry/semantic-conventions-java/pull/46))%
+  ([#46](https://github.com/open-telemetry/semantic-conventions-java/pull/46))
 
 ## Version 1.23.1 (2023-11-21)
 
