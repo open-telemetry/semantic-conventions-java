@@ -1,6 +1,6 @@
 # Changelog
 
-## Unreleased
+## Version 1.24.0 (2024-03-27)
 
 **NOTICE:** This release contains a significant restructuring of this repository and the generated
 classes as we evolve it towards a first stable artifact (although there is no stable artifact as of
