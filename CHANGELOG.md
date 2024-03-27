@@ -14,9 +14,9 @@ details. Additionally, the [README](README.md) contains useful information that 
   which are stable (the artifact itself is not yet stable but we aim to stabilize eventually),
   and `io.opentelemetry.semconv:opentelemetry-semconv-incubating:{{version}}` for semantic
   conventions which are incubating (experimental) (this artifact will always have the `-alpha`
-  designation). As a part of this restructuring, old attributes which do not exist
-  in [semantic-conventions](https://github.com/open-telemetry/semantic-conventions), but which we
-  had retained manually with deprecated annotations, have been removed.
+  designation). As a part of this restructuring, old attributes which were removed from
+  [semantic-conventions](https://github.com/open-telemetry/semantic-conventions) (without being
+  deprecated there) have been removed.
   ([#41](https://github.com/open-telemetry/semantic-conventions-java/pull/41))
 * BREAKING: Generate classes by root namespace. Where previously all attributes were contained in
   two classes, `ResourceAttributes` and `SemanticAttributes`, they are now organized by their root
