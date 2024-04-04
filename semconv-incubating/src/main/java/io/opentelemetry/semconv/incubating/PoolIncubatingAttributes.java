@@ -16,9 +16,9 @@ public final class PoolIncubatingAttributes {
 
   /**
    * The name of the connection pool; unique within the instrumented application. In case the
-   * connection pool implementation doesn't provide a name, then the <a
-   * href="/docs/database/database-spans.md#connection-level-attributes">db.connection_string</a>
-   * should be used
+   * connection pool implementation doesn't provide a name, instrumentation should use a combination
+   * of {@code server.address} and {@code server.port} attributes formatted as {@code
+   * server.address:server.port}.
    */
   public static final AttributeKey<String> POOL_NAME = stringKey("pool.name");
 

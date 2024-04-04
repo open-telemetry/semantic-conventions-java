@@ -131,6 +131,9 @@ public final class CloudIncubatingAttributes {
     /** Azure Virtual Machines. */
     public static final String AZURE_VM = "azure_vm";
 
+    /** Azure Container Apps. */
+    public static final String AZURE_CONTAINER_APPS = "azure_container_apps";
+
     /** Azure Container Instances. */
     public static final String AZURE_CONTAINER_INSTANCES = "azure_container_instances";
 

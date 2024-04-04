@@ -18,10 +18,14 @@ public class AvailabilityTest {
   void available() {
     isValidClass("io.opentelemetry.semconv.ClientAttributes");
     isValidClass("io.opentelemetry.semconv.ErrorAttributes");
+    isValidClass("io.opentelemetry.semconv.ExceptionAttributes");
     isValidClass("io.opentelemetry.semconv.HttpAttributes");
     isValidClass("io.opentelemetry.semconv.JvmAttributes");
     isValidClass("io.opentelemetry.semconv.NetworkAttributes");
+    isValidClass("io.opentelemetry.semconv.OtelAttributes");
     isValidClass("io.opentelemetry.semconv.ServerAttributes");
+    isValidClass("io.opentelemetry.semconv.ServiceAttributes");
+    isValidClass("io.opentelemetry.semconv.TelemetryAttributes");
     isValidClass("io.opentelemetry.semconv.UrlAttributes");
     isValidClass("io.opentelemetry.semconv.UserAgentAttributes");
     isValidClass("io.opentelemetry.semconv.SchemaUrls");

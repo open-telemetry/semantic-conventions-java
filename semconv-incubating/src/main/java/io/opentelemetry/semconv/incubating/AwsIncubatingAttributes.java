@@ -43,7 +43,7 @@ public final class AwsIncubatingAttributes {
       stringKey("aws.dynamodb.exclusive_start_table");
 
   /**
-   * The JSON-serialized value of each item in the the {@code GlobalSecondaryIndexUpdates} request
+   * The JSON-serialized value of each item in the {@code GlobalSecondaryIndexUpdates} request
    * field.
    */
   public static final AttributeKey<List<String>> AWS_DYNAMODB_GLOBAL_SECONDARY_INDEX_UPDATES =
@@ -94,7 +94,7 @@ public final class AwsIncubatingAttributes {
   /** The value of the {@code Select} request parameter. */
   public static final AttributeKey<String> AWS_DYNAMODB_SELECT = stringKey("aws.dynamodb.select");
 
-  /** The the number of items in the {@code TableNames} response parameter. */
+  /** The number of items in the {@code TableNames} response parameter. */
   public static final AttributeKey<Long> AWS_DYNAMODB_TABLE_COUNT =
       longKey("aws.dynamodb.table_count");
 
@@ -129,16 +129,23 @@ public final class AwsIncubatingAttributes {
   public static final AttributeKey<String> AWS_ECS_LAUNCHTYPE = stringKey("aws.ecs.launchtype");
 
   /**
-   * The ARN of an <a
-   * href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definitions.html">ECS
-   * task definition</a>.
+   * The ARN of a running <a
+   * href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-account-settings.html#ecs-resource-ids">ECS
+   * task</a>.
    */
   public static final AttributeKey<String> AWS_ECS_TASK_ARN = stringKey("aws.ecs.task.arn");
 
-  /** The task definition family this task definition is a member of. */
+  /**
+   * The family name of the <a
+   * href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definitions.html">ECS
+   * task definition</a> used to create the ECS task.
+   */
   public static final AttributeKey<String> AWS_ECS_TASK_FAMILY = stringKey("aws.ecs.task.family");
 
-  /** The revision for this task definition. */
+  /** The ID of a running ECS task. The ID MUST be extracted from {@code task.arn}. */
+  public static final AttributeKey<String> AWS_ECS_TASK_ID = stringKey("aws.ecs.task.id");
+
+  /** The revision for the task definition used to create the ECS task. */
   public static final AttributeKey<String> AWS_ECS_TASK_REVISION =
       stringKey("aws.ecs.task.revision");
 

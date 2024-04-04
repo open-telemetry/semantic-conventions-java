@@ -99,9 +99,18 @@ public final class K8sIncubatingAttributes {
       stringKeyTemplate("k8s.pod.annotation");
 
   /**
-   * The labels placed on the Pod, the {@code <key>} being the label name, the value being the label
-   * value.
+   * The label key-value pairs placed on the Pod, the {@code <key>} being the label name, the value
+   * being the label value.
    */
+  public static final AttributeKeyTemplate<String> K8S_POD_LABEL =
+      stringKeyTemplate("k8s.pod.label");
+
+  /**
+   * Deprecated, use {@code k8s.pod.label} instead.
+   *
+   * @deprecated Deprecated, use `k8s.pod.label` instead.
+   */
+  @Deprecated
   public static final AttributeKeyTemplate<String> K8S_POD_LABELS =
       stringKeyTemplate("k8s.pod.labels");
 

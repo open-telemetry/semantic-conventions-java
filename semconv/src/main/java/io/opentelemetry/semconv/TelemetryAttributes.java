@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-package io.opentelemetry.semconv.incubating;
+package io.opentelemetry.semconv;
 
 import static io.opentelemetry.api.common.AttributeKey.stringKey;
 
@@ -12,33 +12,9 @@ import io.opentelemetry.api.common.AttributeKey;
 // DO NOT EDIT, this is an Auto-generated file from
 // buildscripts/templates/SemanticAttributes.java.j2
 @SuppressWarnings("unused")
-public final class TelemetryIncubatingAttributes {
+public final class TelemetryAttributes {
 
-  /**
-   * The name of the auto instrumentation agent or distribution, if used.
-   *
-   * <p>Notes:
-   *
-   * <ul>
-   *   <li>Official auto instrumentation agents and distributions SHOULD set the {@code
-   *       telemetry.distro.name} attribute to a string starting with {@code opentelemetry-}, e.g.
-   *       {@code opentelemetry-java-instrumentation}.
-   * </ul>
-   */
-  public static final AttributeKey<String> TELEMETRY_DISTRO_NAME =
-      stringKey("telemetry.distro.name");
-
-  /** The version string of the auto instrumentation agent or distribution, if used. */
-  public static final AttributeKey<String> TELEMETRY_DISTRO_VERSION =
-      stringKey("telemetry.distro.version");
-
-  /**
-   * The language of the telemetry SDK.
-   *
-   * @deprecated deprecated in favor of stable {@link
-   *     io.opentelemetry.semconv.TelemetryAttributes#TELEMETRY_SDK_LANGUAGE} attribute.
-   */
-  @Deprecated
+  /** The language of the telemetry SDK. */
   public static final AttributeKey<String> TELEMETRY_SDK_LANGUAGE =
       stringKey("telemetry.sdk.language");
 
@@ -56,31 +32,15 @@ public final class TelemetryIncubatingAttributes {
    *       this case. All custom identifiers SHOULD be stable across different versions of an
    *       implementation.
    * </ul>
-   *
-   * @deprecated deprecated in favor of stable {@link
-   *     io.opentelemetry.semconv.TelemetryAttributes#TELEMETRY_SDK_NAME} attribute.
    */
-  @Deprecated
   public static final AttributeKey<String> TELEMETRY_SDK_NAME = stringKey("telemetry.sdk.name");
 
-  /**
-   * The version string of the telemetry SDK.
-   *
-   * @deprecated deprecated in favor of stable {@link
-   *     io.opentelemetry.semconv.TelemetryAttributes#TELEMETRY_SDK_VERSION} attribute.
-   */
-  @Deprecated
+  /** The version string of the telemetry SDK. */
   public static final AttributeKey<String> TELEMETRY_SDK_VERSION =
       stringKey("telemetry.sdk.version");
 
   // Enum definitions
-  /**
-   * Values for {@link #TELEMETRY_SDK_LANGUAGE}.
-   *
-   * @deprecated deprecated in favor of stable {@link
-   *     io.opentelemetry.semconv.TelemetryAttributes.TelemetrySdkLanguageValues} attribute.
-   */
-  @Deprecated
+  /** Values for {@link #TELEMETRY_SDK_LANGUAGE}. */
   public static final class TelemetrySdkLanguageValues {
     /** cpp. */
     public static final String CPP = "cpp";
@@ -121,5 +81,5 @@ public final class TelemetryIncubatingAttributes {
     private TelemetrySdkLanguageValues() {}
   }
 
-  private TelemetryIncubatingAttributes() {}
+  private TelemetryAttributes() {}
 }

@@ -36,7 +36,7 @@ public final class HostIncubatingAttributes {
   public static final AttributeKey<String> HOST_CPU_MODEL_NAME = stringKey("host.cpu.model.name");
 
   /** Stepping or core revisions. */
-  public static final AttributeKey<Long> HOST_CPU_STEPPING = longKey("host.cpu.stepping");
+  public static final AttributeKey<String> HOST_CPU_STEPPING = stringKey("host.cpu.stepping");
 
   /**
    * Processor manufacturer identifier. A maximum 12-character string.

@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-package io.opentelemetry.semconv.incubating;
+package io.opentelemetry.semconv;
 
 import static io.opentelemetry.api.common.AttributeKey.booleanKey;
 import static io.opentelemetry.api.common.AttributeKey.stringKey;
@@ -13,7 +13,7 @@ import io.opentelemetry.api.common.AttributeKey;
 // DO NOT EDIT, this is an Auto-generated file from
 // buildscripts/templates/SemanticAttributes.java.j2
 @SuppressWarnings("unused")
-public final class ExceptionIncubatingAttributes {
+public final class ExceptionAttributes {
 
   /**
    * SHOULD be set to true if the exception event is recorded at a point where it is known that the
@@ -35,40 +35,23 @@ public final class ExceptionIncubatingAttributes {
    *       exception.escaped} attribute was not set or set to false, since the event might have been
    *       recorded at a time where it was not clear whether the exception will escape.
    * </ul>
-   *
-   * @deprecated deprecated in favor of stable {@link
-   *     io.opentelemetry.semconv.ExceptionAttributes#EXCEPTION_ESCAPED} attribute.
    */
-  @Deprecated
   public static final AttributeKey<Boolean> EXCEPTION_ESCAPED = booleanKey("exception.escaped");
 
-  /**
-   * The exception message.
-   *
-   * @deprecated deprecated in favor of stable {@link
-   *     io.opentelemetry.semconv.ExceptionAttributes#EXCEPTION_MESSAGE} attribute.
-   */
-  @Deprecated
+  /** The exception message. */
   public static final AttributeKey<String> EXCEPTION_MESSAGE = stringKey("exception.message");
 
   /**
    * A stacktrace as a string in the natural representation for the language runtime. The
    * representation is to be determined and documented by each language SIG.
-   *
-   * @deprecated deprecated in favor of stable {@link
-   *     io.opentelemetry.semconv.ExceptionAttributes#EXCEPTION_STACKTRACE} attribute.
    */
-  @Deprecated
   public static final AttributeKey<String> EXCEPTION_STACKTRACE = stringKey("exception.stacktrace");
 
   /**
    * The type of the exception (its fully-qualified class name, if applicable). The dynamic type of
    * the exception should be preferred over the static type in languages that support it.
-   *
-   * @deprecated deprecated in favor of stable {@link
-   *     io.opentelemetry.semconv.ExceptionAttributes#EXCEPTION_TYPE} attribute.
    */
-  @Deprecated public static final AttributeKey<String> EXCEPTION_TYPE = stringKey("exception.type");
+  public static final AttributeKey<String> EXCEPTION_TYPE = stringKey("exception.type");
 
-  private ExceptionIncubatingAttributes() {}
+  private ExceptionAttributes() {}
 }

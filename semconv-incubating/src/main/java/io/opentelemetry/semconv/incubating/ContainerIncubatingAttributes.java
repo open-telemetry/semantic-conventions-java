@@ -40,6 +40,9 @@ public final class ContainerIncubatingAttributes {
   public static final AttributeKey<String> CONTAINER_COMMAND_LINE =
       stringKey("container.command_line");
 
+  /** The CPU state for this data point. */
+  public static final AttributeKey<String> CONTAINER_CPU_STATE = stringKey("container.cpu.state");
+
   /**
    * Container ID. Usually a UUID, as for example used to <a
    * href="https://docs.docker.com/engine/reference/run/#container-identification">identify Docker
@@ -95,6 +98,15 @@ public final class ContainerIncubatingAttributes {
       stringArrayKey("container.image.tags");
 
   /** Container labels, {@code <key>} being the label name, the value being the label value. */
+  public static final AttributeKeyTemplate<String> CONTAINER_LABEL =
+      stringKeyTemplate("container.label");
+
+  /**
+   * Deprecated, use {@code container.label} instead.
+   *
+   * @deprecated Deprecated, use `container.label` instead.
+   */
+  @Deprecated
   public static final AttributeKeyTemplate<String> CONTAINER_LABELS =
       stringKeyTemplate("container.labels");
 
@@ -103,6 +115,27 @@ public final class ContainerIncubatingAttributes {
 
   /** The container runtime managing this container. */
   public static final AttributeKey<String> CONTAINER_RUNTIME = stringKey("container.runtime");
+
+  // Enum definitions
+  /** Values for {@link #CONTAINER_CPU_STATE}. */
+  public static final class ContainerCpuStateValues {
+    /**
+     * When tasks of the cgroup are in user mode (Linux). When all container processes are in user
+     * mode (Windows).
+     */
+    public static final String USER = "user";
+
+    /** When CPU is used by the system (host OS). */
+    public static final String SYSTEM = "system";
+
+    /**
+     * When tasks of the cgroup are in kernel mode (Linux). When all container processes are in
+     * kernel mode (Windows).
+     */
+    public static final String KERNEL = "kernel";
+
+    private ContainerCpuStateValues() {}
+  }
 
   private ContainerIncubatingAttributes() {}
 }

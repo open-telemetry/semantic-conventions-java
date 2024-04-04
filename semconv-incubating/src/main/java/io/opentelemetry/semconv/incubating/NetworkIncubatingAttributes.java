@@ -96,14 +96,15 @@ public final class NetworkIncubatingAttributes {
       stringKey("network.protocol.name");
 
   /**
-   * Version of the protocol specified in {@code network.protocol.name}.
+   * The actual version of the protocol used for network communication.
    *
    * <p>Notes:
    *
    * <ul>
-   *   <li>{@code network.protocol.version} refers to the version of the protocol used and might be
-   *       different from the protocol client's version. If the HTTP client has a version of {@code
-   *       0.27.2}, but sends HTTP version {@code 1.1}, this attribute should be set to {@code 1.1}.
+   *   <li>If protocol version is subject to negotiation (for example using <a
+   *       href="https://www.rfc-editor.org/rfc/rfc7301.html">ALPN</a>), this attribute SHOULD be
+   *       set to the negotiated version. If the actual protocol version is not known, this
+   *       attribute SHOULD NOT be set.
    * </ul>
    *
    * @deprecated deprecated in favor of stable {@link
