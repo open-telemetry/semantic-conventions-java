@@ -15,17 +15,18 @@ import io.opentelemetry.api.common.AttributeKey;
 import java.util.List;
 
 /**
- * @deprecated This class is deprecated and will be removed in a future release. It is only provided as a
- * convenience to help migration to the new semantic conventions classes structure that was introduced
- * in version 1.24.0.
+ * @deprecated This class is deprecated and will be removed in a future release. It is only provided
+ *     as a convenience to help migration to the new semantic conventions classes structure that was
+ *     introduced in version 1.24.0.
  */
 @Deprecated
 @SuppressWarnings("unused")
 public final class ResourceAttributes {
   /** The URL of the OpenTelemetry schema for these keys and values. */
-  public static final String SCHEMA_URL = "https://opentelemetry.io/schemas/1.23.1";
+  @Deprecated public static final String SCHEMA_URL = "https://opentelemetry.io/schemas/1.23.1";
 
   /** The cloud account ID the resource is assigned to. */
+  @Deprecated
   public static final AttributeKey<String> CLOUD_ACCOUNT_ID = stringKey("cloud.account.id");
 
   /**
@@ -38,6 +39,7 @@ public final class ResourceAttributes {
    *   <li>Availability zones are called &quot;zones&quot; on Alibaba Cloud and Google Cloud.
    * </ul>
    */
+  @Deprecated
   public static final AttributeKey<String> CLOUD_AVAILABILITY_ZONE =
       stringKey("cloud.availability_zone");
 
@@ -50,10 +52,10 @@ public final class ResourceAttributes {
    *   <li>The prefix of the service SHOULD match the one specified in {@code cloud.provider}.
    * </ul>
    */
-  public static final AttributeKey<String> CLOUD_PLATFORM = stringKey("cloud.platform");
+  @Deprecated public static final AttributeKey<String> CLOUD_PLATFORM = stringKey("cloud.platform");
 
   /** Name of the cloud provider. */
-  public static final AttributeKey<String> CLOUD_PROVIDER = stringKey("cloud.provider");
+  @Deprecated public static final AttributeKey<String> CLOUD_PROVIDER = stringKey("cloud.provider");
 
   /**
    * The geographical region the resource is running.
@@ -70,7 +72,7 @@ public final class ResourceAttributes {
    *       href="https://www.tencentcloud.com/document/product/213/6091">Tencent Cloud regions</a>.
    * </ul>
    */
-  public static final AttributeKey<String> CLOUD_REGION = stringKey("cloud.region");
+  @Deprecated public static final AttributeKey<String> CLOUD_REGION = stringKey("cloud.region");
 
   /**
    * Cloud provider-specific native identifier of the monitored cloud resource (e.g. an <a
@@ -104,6 +106,7 @@ public final class ResourceAttributes {
    *       functions that would usually share a TracerProvider.
    * </ul>
    */
+  @Deprecated
   public static final AttributeKey<String> CLOUD_RESOURCE_ID = stringKey("cloud.resource_id");
 
   /**
@@ -116,15 +119,18 @@ public final class ResourceAttributes {
    *       prevent potential leakage.
    * </ul>
    */
+  @Deprecated
   public static final AttributeKey<String> CONTAINER_COMMAND = stringKey("container.command");
 
   /**
    * All the command arguments (including the command/executable itself) run by the container. [2]
    */
+  @Deprecated
   public static final AttributeKey<List<String>> CONTAINER_COMMAND_ARGS =
       stringArrayKey("container.command_args");
 
   /** The full command run by the container as a single string representing the full command. [2] */
+  @Deprecated
   public static final AttributeKey<String> CONTAINER_COMMAND_LINE =
       stringKey("container.command_line");
 
@@ -133,7 +139,7 @@ public final class ResourceAttributes {
    * href="https://docs.docker.com/engine/reference/run/#container-identification">identify Docker
    * containers</a>. The UUID might be abbreviated.
    */
-  public static final AttributeKey<String> CONTAINER_ID = stringKey("container.id");
+  @Deprecated public static final AttributeKey<String> CONTAINER_ID = stringKey("container.id");
 
   /**
    * Runtime specific image identifier. Usually a hash algorithm followed by a UUID.
@@ -152,9 +158,11 @@ public final class ResourceAttributes {
    *       in different environments/runtimes.
    * </ul>
    */
+  @Deprecated
   public static final AttributeKey<String> CONTAINER_IMAGE_ID = stringKey("container.image.id");
 
   /** Name of the image the container was built on. */
+  @Deprecated
   public static final AttributeKey<String> CONTAINER_IMAGE_NAME = stringKey("container.image.name");
 
   /**
@@ -170,6 +178,7 @@ public final class ResourceAttributes {
    *       report those under the {@code RepoDigests} field.
    * </ul>
    */
+  @Deprecated
   public static final AttributeKey<List<String>> CONTAINER_IMAGE_REPO_DIGESTS =
       stringArrayKey("container.image.repo_digests");
 
@@ -179,13 +188,15 @@ public final class ResourceAttributes {
    * Inspect</a>. Should be only the {@code <tag>} section of the full name for example from {@code
    * registry.example.com/my-org/my-image:<tag>}.
    */
+  @Deprecated
   public static final AttributeKey<List<String>> CONTAINER_IMAGE_TAGS =
       stringArrayKey("container.image.tags");
 
   /** Container name used by container runtime. */
-  public static final AttributeKey<String> CONTAINER_NAME = stringKey("container.name");
+  @Deprecated public static final AttributeKey<String> CONTAINER_NAME = stringKey("container.name");
 
   /** The container runtime managing this container. */
+  @Deprecated
   public static final AttributeKey<String> CONTAINER_RUNTIME = stringKey("container.runtime");
 
   /**
@@ -203,6 +214,7 @@ public final class ResourceAttributes {
    *       Image Manifest</a>.
    * </ul>
    */
+  @Deprecated
   public static final AttributeKey<String> OCI_MANIFEST_DIGEST = stringKey("oci.manifest.digest");
 
   /**
@@ -210,6 +222,7 @@ public final class ResourceAttributes {
    * android operating system. More information can be found <a
    * href="https://developer.android.com/guide/topics/manifest/uses-sdk-element#ApiLevels">here</a>.
    */
+  @Deprecated
   public static final AttributeKey<String> ANDROID_OS_API_LEVEL = stringKey("android.os.api_level");
 
   /**
@@ -223,6 +236,7 @@ public final class ResourceAttributes {
    *       navigator.userAgentData.brands}).
    * </ul>
    */
+  @Deprecated
   public static final AttributeKey<List<String>> BROWSER_BRANDS = stringArrayKey("browser.brands");
 
   /**
@@ -234,6 +248,7 @@ public final class ResourceAttributes {
    *   <li>This value is intended to be taken from the Navigator API {@code navigator.language}.
    * </ul>
    */
+  @Deprecated
   public static final AttributeKey<String> BROWSER_LANGUAGE = stringKey("browser.language");
 
   /**
@@ -247,6 +262,7 @@ public final class ResourceAttributes {
    *       navigator.userAgentData.mobile}). If unavailable, this attribute SHOULD be left unset.
    * </ul>
    */
+  @Deprecated
   public static final AttributeKey<Boolean> BROWSER_MOBILE = booleanKey("browser.mobile");
 
   /**
@@ -267,6 +283,7 @@ public final class ResourceAttributes {
    *       capture the exact value that the user agent provides.
    * </ul>
    */
+  @Deprecated
   public static final AttributeKey<String> BROWSER_PLATFORM = stringKey("browser.platform");
 
   /**
@@ -274,6 +291,7 @@ public final class ResourceAttributes {
    * href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/clusters.html">ECS
    * cluster</a>.
    */
+  @Deprecated
   public static final AttributeKey<String> AWS_ECS_CLUSTER_ARN = stringKey("aws.ecs.cluster.arn");
 
   /**
@@ -281,6 +299,7 @@ public final class ResourceAttributes {
    * href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ECS_instances.html">ECS
    * container instance</a>.
    */
+  @Deprecated
   public static final AttributeKey<String> AWS_ECS_CONTAINER_ARN =
       stringKey("aws.ecs.container.arn");
 
@@ -289,6 +308,7 @@ public final class ResourceAttributes {
    * href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html">launch
    * type</a> for an ECS task.
    */
+  @Deprecated
   public static final AttributeKey<String> AWS_ECS_LAUNCHTYPE = stringKey("aws.ecs.launchtype");
 
   /**
@@ -296,16 +316,20 @@ public final class ResourceAttributes {
    * href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definitions.html">ECS
    * task definition</a>.
    */
+  @Deprecated
   public static final AttributeKey<String> AWS_ECS_TASK_ARN = stringKey("aws.ecs.task.arn");
 
   /** The task definition family this task definition is a member of. */
+  @Deprecated
   public static final AttributeKey<String> AWS_ECS_TASK_FAMILY = stringKey("aws.ecs.task.family");
 
   /** The revision for this task definition. */
+  @Deprecated
   public static final AttributeKey<String> AWS_ECS_TASK_REVISION =
       stringKey("aws.ecs.task.revision");
 
   /** The ARN of an EKS cluster. */
+  @Deprecated
   public static final AttributeKey<String> AWS_EKS_CLUSTER_ARN = stringKey("aws.eks.cluster.arn");
 
   /**
@@ -319,6 +343,7 @@ public final class ResourceAttributes {
    *       group ARN format documentation</a>.
    * </ul>
    */
+  @Deprecated
   public static final AttributeKey<List<String>> AWS_LOG_GROUP_ARNS =
       stringArrayKey("aws.log.group.arns");
 
@@ -332,6 +357,7 @@ public final class ResourceAttributes {
    *       a single application has sidecar containers, and each write to their own log group.
    * </ul>
    */
+  @Deprecated
   public static final AttributeKey<List<String>> AWS_LOG_GROUP_NAMES =
       stringArrayKey("aws.log.group.names");
 
@@ -347,10 +373,12 @@ public final class ResourceAttributes {
    *       these ARNs necessarily identify both a log group and a log stream.
    * </ul>
    */
+  @Deprecated
   public static final AttributeKey<List<String>> AWS_LOG_STREAM_ARNS =
       stringArrayKey("aws.log.stream.arns");
 
   /** The name(s) of the AWS log stream(s) an application is writing to. */
+  @Deprecated
   public static final AttributeKey<List<String>> AWS_LOG_STREAM_NAMES =
       stringArrayKey("aws.log.stream.names");
 
@@ -361,6 +389,7 @@ public final class ResourceAttributes {
    * href="https://cloud.google.com/run/docs/container-contract#jobs-env-vars">{@code
    * CLOUD_RUN_EXECUTION}</a> environment variable.
    */
+  @Deprecated
   public static final AttributeKey<String> GCP_CLOUD_RUN_JOB_EXECUTION =
       stringKey("gcp.cloud_run.job.execution");
 
@@ -369,6 +398,7 @@ public final class ResourceAttributes {
    * href="https://cloud.google.com/run/docs/container-contract#jobs-env-vars">{@code
    * CLOUD_RUN_TASK_INDEX}</a> environment variable.
    */
+  @Deprecated
   public static final AttributeKey<Long> GCP_CLOUD_RUN_JOB_TASK_INDEX =
       longKey("gcp.cloud_run.job.task_index");
 
@@ -376,6 +406,7 @@ public final class ResourceAttributes {
    * The hostname of a GCE instance. This is the full value of the default or <a
    * href="https://cloud.google.com/compute/docs/instances/custom-hostname-vm">custom hostname</a>.
    */
+  @Deprecated
   public static final AttributeKey<String> GCP_GCE_INSTANCE_HOSTNAME =
       stringKey("gcp.gce.instance.hostname");
 
@@ -386,17 +417,20 @@ public final class ResourceAttributes {
    * href="https://cloud.google.com/compute/docs/internal-dns#instance-fully-qualified-domain-names">default
    * internal DNS name</a>.
    */
+  @Deprecated
   public static final AttributeKey<String> GCP_GCE_INSTANCE_NAME =
       stringKey("gcp.gce.instance.name");
 
   /** Unique identifier for the application */
-  public static final AttributeKey<String> HEROKU_APP_ID = stringKey("heroku.app.id");
+  @Deprecated public static final AttributeKey<String> HEROKU_APP_ID = stringKey("heroku.app.id");
 
   /** Commit hash for the current release */
+  @Deprecated
   public static final AttributeKey<String> HEROKU_RELEASE_COMMIT =
       stringKey("heroku.release.commit");
 
   /** Time and date the release was created */
+  @Deprecated
   public static final AttributeKey<String> HEROKU_RELEASE_CREATION_TIMESTAMP =
       stringKey("heroku.release.creation_timestamp");
 
@@ -404,6 +438,7 @@ public final class ResourceAttributes {
    * Name of the <a href="https://wikipedia.org/wiki/Deployment_environment">deployment
    * environment</a> (aka deployment tier).
    */
+  @Deprecated
   public static final AttributeKey<String> DEPLOYMENT_ENVIRONMENT =
       stringKey("deployment.environment");
 
@@ -426,7 +461,7 @@ public final class ResourceAttributes {
    *       ensure you do your own due diligence.
    * </ul>
    */
-  public static final AttributeKey<String> DEVICE_ID = stringKey("device.id");
+  @Deprecated public static final AttributeKey<String> DEVICE_ID = stringKey("device.id");
 
   /**
    * The name of the device manufacturer
@@ -439,6 +474,7 @@ public final class ResourceAttributes {
    *       iOS apps SHOULD hardcode the value {@code Apple}.
    * </ul>
    */
+  @Deprecated
   public static final AttributeKey<String> DEVICE_MANUFACTURER = stringKey("device.manufacturer");
 
   /**
@@ -451,6 +487,7 @@ public final class ResourceAttributes {
    *       rather than the market or consumer-friendly name of the device.
    * </ul>
    */
+  @Deprecated
   public static final AttributeKey<String> DEVICE_MODEL_IDENTIFIER =
       stringKey("device.model.identifier");
 
@@ -464,6 +501,7 @@ public final class ResourceAttributes {
    *       rather than a machine readable alternative.
    * </ul>
    */
+  @Deprecated
   public static final AttributeKey<String> DEVICE_MODEL_NAME = stringKey("device.model.name");
 
   /**
@@ -476,7 +514,7 @@ public final class ResourceAttributes {
    *   <li><strong>AWS Lambda:</strong> Use the (full) log stream name.
    * </ul>
    */
-  public static final AttributeKey<String> FAAS_INSTANCE = stringKey("faas.instance");
+  @Deprecated public static final AttributeKey<String> FAAS_INSTANCE = stringKey("faas.instance");
 
   /**
    * The amount of memory available to the serverless function converted to Bytes.
@@ -490,7 +528,7 @@ public final class ResourceAttributes {
    *       multiplied by 1,048,576).
    * </ul>
    */
-  public static final AttributeKey<Long> FAAS_MAX_MEMORY = longKey("faas.max_memory");
+  @Deprecated public static final AttributeKey<Long> FAAS_MAX_MEMORY = longKey("faas.max_memory");
 
   /**
    * The name of the single function that this runtime instance executes.
@@ -512,7 +550,7 @@ public final class ResourceAttributes {
    *       (see also the {@code cloud.resource_id} attribute).
    * </ul>
    */
-  public static final AttributeKey<String> FAAS_NAME = stringKey("faas.name");
+  @Deprecated public static final AttributeKey<String> FAAS_NAME = stringKey("faas.name");
 
   /**
    * The immutable version of the function being executed.
@@ -533,28 +571,30 @@ public final class ResourceAttributes {
    *   <li><strong>Azure Functions:</strong> Not applicable. Do not set this attribute.
    * </ul>
    */
-  public static final AttributeKey<String> FAAS_VERSION = stringKey("faas.version");
+  @Deprecated public static final AttributeKey<String> FAAS_VERSION = stringKey("faas.version");
 
   /** The CPU architecture the host system is running on. */
-  public static final AttributeKey<String> HOST_ARCH = stringKey("host.arch");
+  @Deprecated public static final AttributeKey<String> HOST_ARCH = stringKey("host.arch");
 
   /**
    * Unique host ID. For Cloud, this must be the instance_id assigned by the cloud provider. For
    * non-containerized systems, this should be the {@code machine-id}. See the table below for the
    * sources to use to determine the {@code machine-id} based on operating system.
    */
-  public static final AttributeKey<String> HOST_ID = stringKey("host.id");
+  @Deprecated public static final AttributeKey<String> HOST_ID = stringKey("host.id");
 
   /** VM image ID or host OS image ID. For Cloud, this value is from the provider. */
-  public static final AttributeKey<String> HOST_IMAGE_ID = stringKey("host.image.id");
+  @Deprecated public static final AttributeKey<String> HOST_IMAGE_ID = stringKey("host.image.id");
 
   /** Name of the VM image or OS install the host was instantiated from. */
+  @Deprecated
   public static final AttributeKey<String> HOST_IMAGE_NAME = stringKey("host.image.name");
 
   /**
    * The version string of the VM image or host OS as defined in <a
    * href="README.md#version-attributes">Version Attributes</a>.
    */
+  @Deprecated
   public static final AttributeKey<String> HOST_IMAGE_VERSION = stringKey("host.image.version");
 
   /**
@@ -568,7 +608,7 @@ public final class ResourceAttributes {
    *       format.
    * </ul>
    */
-  public static final AttributeKey<List<String>> HOST_IP = stringArrayKey("host.ip");
+  @Deprecated public static final AttributeKey<List<String>> HOST_IP = stringArrayKey("host.ip");
 
   /**
    * Available MAC addresses of the host, excluding loopback interfaces.
@@ -582,33 +622,37 @@ public final class ResourceAttributes {
    *       most to least significant.
    * </ul>
    */
-  public static final AttributeKey<List<String>> HOST_MAC = stringArrayKey("host.mac");
+  @Deprecated public static final AttributeKey<List<String>> HOST_MAC = stringArrayKey("host.mac");
 
   /**
    * Name of the host. On Unix systems, it may contain what the hostname command returns, or the
    * fully qualified hostname, or another name specified by the user.
    */
-  public static final AttributeKey<String> HOST_NAME = stringKey("host.name");
+  @Deprecated public static final AttributeKey<String> HOST_NAME = stringKey("host.name");
 
   /** Type of host. For Cloud, this must be the machine type. */
-  public static final AttributeKey<String> HOST_TYPE = stringKey("host.type");
+  @Deprecated public static final AttributeKey<String> HOST_TYPE = stringKey("host.type");
 
   /** The amount of level 2 memory cache available to the processor (in Bytes). */
+  @Deprecated
   public static final AttributeKey<Long> HOST_CPU_CACHE_L2_SIZE = longKey("host.cpu.cache.l2.size");
 
   /** Numeric value specifying the family or generation of the CPU. */
-  public static final AttributeKey<Long> HOST_CPU_FAMILY = longKey("host.cpu.family");
+  @Deprecated public static final AttributeKey<Long> HOST_CPU_FAMILY = longKey("host.cpu.family");
 
   /**
    * Model identifier. It provides more granular information about the CPU, distinguishing it from
    * other CPUs within the same family.
    */
+  @Deprecated
   public static final AttributeKey<Long> HOST_CPU_MODEL_ID = longKey("host.cpu.model.id");
 
   /** Model designation of the processor. */
+  @Deprecated
   public static final AttributeKey<String> HOST_CPU_MODEL_NAME = stringKey("host.cpu.model.name");
 
   /** Stepping or core revisions. */
+  @Deprecated
   public static final AttributeKey<Long> HOST_CPU_STEPPING = longKey("host.cpu.stepping");
 
   /**
@@ -622,9 +666,11 @@ public final class ResourceAttributes {
    *       12-character string.
    * </ul>
    */
+  @Deprecated
   public static final AttributeKey<String> HOST_CPU_VENDOR_ID = stringKey("host.cpu.vendor.id");
 
   /** The name of the cluster. */
+  @Deprecated
   public static final AttributeKey<String> K8S_CLUSTER_NAME = stringKey("k8s.cluster.name");
 
   /**
@@ -650,98 +696,113 @@ public final class ResourceAttributes {
    *   <li>Therefore, UIDs between clusters should be extremely unlikely to conflict.
    * </ul>
    */
+  @Deprecated
   public static final AttributeKey<String> K8S_CLUSTER_UID = stringKey("k8s.cluster.uid");
 
   /** The name of the Node. */
-  public static final AttributeKey<String> K8S_NODE_NAME = stringKey("k8s.node.name");
+  @Deprecated public static final AttributeKey<String> K8S_NODE_NAME = stringKey("k8s.node.name");
 
   /** The UID of the Node. */
-  public static final AttributeKey<String> K8S_NODE_UID = stringKey("k8s.node.uid");
+  @Deprecated public static final AttributeKey<String> K8S_NODE_UID = stringKey("k8s.node.uid");
 
   /** The name of the namespace that the pod is running in. */
+  @Deprecated
   public static final AttributeKey<String> K8S_NAMESPACE_NAME = stringKey("k8s.namespace.name");
 
   /** The name of the Pod. */
-  public static final AttributeKey<String> K8S_POD_NAME = stringKey("k8s.pod.name");
+  @Deprecated public static final AttributeKey<String> K8S_POD_NAME = stringKey("k8s.pod.name");
 
   /** The UID of the Pod. */
-  public static final AttributeKey<String> K8S_POD_UID = stringKey("k8s.pod.uid");
+  @Deprecated public static final AttributeKey<String> K8S_POD_UID = stringKey("k8s.pod.uid");
 
   /**
    * The name of the Container from Pod specification, must be unique within a Pod. Container
    * runtime usually uses different globally unique name ({@code container.name}).
    */
+  @Deprecated
   public static final AttributeKey<String> K8S_CONTAINER_NAME = stringKey("k8s.container.name");
 
   /**
    * Number of times the container was restarted. This attribute can be used to identify a
    * particular container (running or stopped) within a container spec.
    */
+  @Deprecated
   public static final AttributeKey<Long> K8S_CONTAINER_RESTART_COUNT =
       longKey("k8s.container.restart_count");
 
   /** The name of the ReplicaSet. */
+  @Deprecated
   public static final AttributeKey<String> K8S_REPLICASET_NAME = stringKey("k8s.replicaset.name");
 
   /** The UID of the ReplicaSet. */
+  @Deprecated
   public static final AttributeKey<String> K8S_REPLICASET_UID = stringKey("k8s.replicaset.uid");
 
   /** The name of the Deployment. */
+  @Deprecated
   public static final AttributeKey<String> K8S_DEPLOYMENT_NAME = stringKey("k8s.deployment.name");
 
   /** The UID of the Deployment. */
+  @Deprecated
   public static final AttributeKey<String> K8S_DEPLOYMENT_UID = stringKey("k8s.deployment.uid");
 
   /** The name of the StatefulSet. */
+  @Deprecated
   public static final AttributeKey<String> K8S_STATEFULSET_NAME = stringKey("k8s.statefulset.name");
 
   /** The UID of the StatefulSet. */
+  @Deprecated
   public static final AttributeKey<String> K8S_STATEFULSET_UID = stringKey("k8s.statefulset.uid");
 
   /** The name of the DaemonSet. */
+  @Deprecated
   public static final AttributeKey<String> K8S_DAEMONSET_NAME = stringKey("k8s.daemonset.name");
 
   /** The UID of the DaemonSet. */
+  @Deprecated
   public static final AttributeKey<String> K8S_DAEMONSET_UID = stringKey("k8s.daemonset.uid");
 
   /** The name of the Job. */
-  public static final AttributeKey<String> K8S_JOB_NAME = stringKey("k8s.job.name");
+  @Deprecated public static final AttributeKey<String> K8S_JOB_NAME = stringKey("k8s.job.name");
 
   /** The UID of the Job. */
-  public static final AttributeKey<String> K8S_JOB_UID = stringKey("k8s.job.uid");
+  @Deprecated public static final AttributeKey<String> K8S_JOB_UID = stringKey("k8s.job.uid");
 
   /** The name of the CronJob. */
+  @Deprecated
   public static final AttributeKey<String> K8S_CRONJOB_NAME = stringKey("k8s.cronjob.name");
 
   /** The UID of the CronJob. */
+  @Deprecated
   public static final AttributeKey<String> K8S_CRONJOB_UID = stringKey("k8s.cronjob.uid");
 
   /** Unique identifier for a particular build or compilation of the operating system. */
-  public static final AttributeKey<String> OS_BUILD_ID = stringKey("os.build_id");
+  @Deprecated public static final AttributeKey<String> OS_BUILD_ID = stringKey("os.build_id");
 
   /**
    * Human readable (not intended to be parsed) OS version information, like e.g. reported by {@code
    * ver} or {@code lsb_release -a} commands.
    */
-  public static final AttributeKey<String> OS_DESCRIPTION = stringKey("os.description");
+  @Deprecated public static final AttributeKey<String> OS_DESCRIPTION = stringKey("os.description");
 
   /** Human readable operating system name. */
-  public static final AttributeKey<String> OS_NAME = stringKey("os.name");
+  @Deprecated public static final AttributeKey<String> OS_NAME = stringKey("os.name");
 
   /** The operating system type. */
-  public static final AttributeKey<String> OS_TYPE = stringKey("os.type");
+  @Deprecated public static final AttributeKey<String> OS_TYPE = stringKey("os.type");
 
   /**
    * The version string of the operating system as defined in <a
    * href="/docs/resource/README.md#version-attributes">Version Attributes</a>.
    */
-  public static final AttributeKey<String> OS_VERSION = stringKey("os.version");
+  @Deprecated public static final AttributeKey<String> OS_VERSION = stringKey("os.version");
 
   /**
    * The command used to launch the process (i.e. the command name). On Linux based systems, can be
    * set to the zeroth string in {@code proc/[pid]/cmdline}. On Windows, can be set to the first
    * parameter extracted from {@code GetCommandLineW}.
    */
+  @Deprecated
   public static final AttributeKey<String> PROCESS_COMMAND = stringKey("process.command");
 
   /**
@@ -750,6 +811,7 @@ public final class ResourceAttributes {
    * to the list of null-delimited strings extracted from {@code proc/[pid]/cmdline}. For libc-based
    * executables, this would be the full argv vector passed to {@code main}.
    */
+  @Deprecated
   public static final AttributeKey<List<String>> PROCESS_COMMAND_ARGS =
       stringArrayKey("process.command_args");
 
@@ -758,6 +820,7 @@ public final class ResourceAttributes {
    * On Windows, can be set to the result of {@code GetCommandLineW}. Do not set this if you have to
    * assemble it just for monitoring; use {@code process.command_args} instead.
    */
+  @Deprecated
   public static final AttributeKey<String> PROCESS_COMMAND_LINE = stringKey("process.command_line");
 
   /**
@@ -765,6 +828,7 @@ public final class ResourceAttributes {
    * {@code proc/[pid]/status}. On Windows, can be set to the base name of {@code
    * GetProcessImageFileNameW}.
    */
+  @Deprecated
   public static final AttributeKey<String> PROCESS_EXECUTABLE_NAME =
       stringKey("process.executable.name");
 
@@ -773,22 +837,25 @@ public final class ResourceAttributes {
    * {@code proc/[pid]/exe}. On Windows, can be set to the result of {@code
    * GetProcessImageFileNameW}.
    */
+  @Deprecated
   public static final AttributeKey<String> PROCESS_EXECUTABLE_PATH =
       stringKey("process.executable.path");
 
   /** The username of the user that owns the process. */
-  public static final AttributeKey<String> PROCESS_OWNER = stringKey("process.owner");
+  @Deprecated public static final AttributeKey<String> PROCESS_OWNER = stringKey("process.owner");
 
   /** Parent Process identifier (PID). */
+  @Deprecated
   public static final AttributeKey<Long> PROCESS_PARENT_PID = longKey("process.parent_pid");
 
   /** Process identifier (PID). */
-  public static final AttributeKey<Long> PROCESS_PID = longKey("process.pid");
+  @Deprecated public static final AttributeKey<Long> PROCESS_PID = longKey("process.pid");
 
   /**
    * An additional description about the runtime of the process, for example a specific vendor
    * customization of the runtime environment.
    */
+  @Deprecated
   public static final AttributeKey<String> PROCESS_RUNTIME_DESCRIPTION =
       stringKey("process.runtime.description");
 
@@ -796,11 +863,13 @@ public final class ResourceAttributes {
    * The name of the runtime of this process. For compiled native binaries, this SHOULD be the name
    * of the compiler.
    */
+  @Deprecated
   public static final AttributeKey<String> PROCESS_RUNTIME_NAME = stringKey("process.runtime.name");
 
   /**
    * The version of the runtime of this process, as returned by the runtime without modification.
    */
+  @Deprecated
   public static final AttributeKey<String> PROCESS_RUNTIME_VERSION =
       stringKey("process.runtime.version");
 
@@ -817,12 +886,13 @@ public final class ResourceAttributes {
    *       MUST be set to {@code unknown_service}.
    * </ul>
    */
-  public static final AttributeKey<String> SERVICE_NAME = stringKey("service.name");
+  @Deprecated public static final AttributeKey<String> SERVICE_NAME = stringKey("service.name");
 
   /**
    * The version string of the service API or implementation. The format is not defined by these
    * conventions.
    */
+  @Deprecated
   public static final AttributeKey<String> SERVICE_VERSION = stringKey("service.version");
 
   /**
@@ -843,6 +913,7 @@ public final class ResourceAttributes {
    *       Version 5, see RFC 4122 for more recommendations).
    * </ul>
    */
+  @Deprecated
   public static final AttributeKey<String> SERVICE_INSTANCE_ID = stringKey("service.instance.id");
 
   /**
@@ -859,9 +930,11 @@ public final class ResourceAttributes {
    *       namespace). Zero-length namespace string is assumed equal to unspecified namespace.
    * </ul>
    */
+  @Deprecated
   public static final AttributeKey<String> SERVICE_NAMESPACE = stringKey("service.namespace");
 
   /** The language of the telemetry SDK. */
+  @Deprecated
   public static final AttributeKey<String> TELEMETRY_SDK_LANGUAGE =
       stringKey("telemetry.sdk.language");
 
@@ -880,9 +953,11 @@ public final class ResourceAttributes {
    *       implementation.
    * </ul>
    */
+  @Deprecated
   public static final AttributeKey<String> TELEMETRY_SDK_NAME = stringKey("telemetry.sdk.name");
 
   /** The version string of the telemetry SDK. */
+  @Deprecated
   public static final AttributeKey<String> TELEMETRY_SDK_VERSION =
       stringKey("telemetry.sdk.version");
 
@@ -897,27 +972,33 @@ public final class ResourceAttributes {
    *       {@code opentelemetry-java-instrumentation}.
    * </ul>
    */
+  @Deprecated
   public static final AttributeKey<String> TELEMETRY_DISTRO_NAME =
       stringKey("telemetry.distro.name");
 
   /** The version string of the auto instrumentation agent or distribution, if used. */
+  @Deprecated
   public static final AttributeKey<String> TELEMETRY_DISTRO_VERSION =
       stringKey("telemetry.distro.version");
 
   /** Additional description of the web engine (e.g. detailed version and edition information). */
+  @Deprecated
   public static final AttributeKey<String> WEBENGINE_DESCRIPTION =
       stringKey("webengine.description");
 
   /** The name of the web engine. */
-  public static final AttributeKey<String> WEBENGINE_NAME = stringKey("webengine.name");
+  @Deprecated public static final AttributeKey<String> WEBENGINE_NAME = stringKey("webengine.name");
 
   /** The version of the web engine. */
+  @Deprecated
   public static final AttributeKey<String> WEBENGINE_VERSION = stringKey("webengine.version");
 
   /** The name of the instrumentation scope - ({@code InstrumentationScope.Name} in OTLP). */
+  @Deprecated
   public static final AttributeKey<String> OTEL_SCOPE_NAME = stringKey("otel.scope.name");
 
   /** The version of the instrumentation scope - ({@code InstrumentationScope.Version} in OTLP). */
+  @Deprecated
   public static final AttributeKey<String> OTEL_SCOPE_VERSION = stringKey("otel.scope.version");
 
   /**
@@ -937,231 +1018,238 @@ public final class ResourceAttributes {
   public static final AttributeKey<String> OTEL_LIBRARY_VERSION = stringKey("otel.library.version");
 
   /** Container labels, {@code <key>} being the label name, the value being the label value. */
+  @Deprecated
   public static final AttributeKeyTemplate<String> CONTAINER_LABELS =
       stringKeyTemplate("container.labels");
 
   // Enum definitions
+  @Deprecated
   public static final class CloudPlatformValues {
     /** Alibaba Cloud Elastic Compute Service. */
-    public static final String ALIBABA_CLOUD_ECS = "alibaba_cloud_ecs";
+    @Deprecated public static final String ALIBABA_CLOUD_ECS = "alibaba_cloud_ecs";
 
     /** Alibaba Cloud Function Compute. */
-    public static final String ALIBABA_CLOUD_FC = "alibaba_cloud_fc";
+    @Deprecated public static final String ALIBABA_CLOUD_FC = "alibaba_cloud_fc";
 
     /** Red Hat OpenShift on Alibaba Cloud. */
-    public static final String ALIBABA_CLOUD_OPENSHIFT = "alibaba_cloud_openshift";
+    @Deprecated public static final String ALIBABA_CLOUD_OPENSHIFT = "alibaba_cloud_openshift";
 
     /** AWS Elastic Compute Cloud. */
-    public static final String AWS_EC2 = "aws_ec2";
+    @Deprecated public static final String AWS_EC2 = "aws_ec2";
 
     /** AWS Elastic Container Service. */
-    public static final String AWS_ECS = "aws_ecs";
+    @Deprecated public static final String AWS_ECS = "aws_ecs";
 
     /** AWS Elastic Kubernetes Service. */
-    public static final String AWS_EKS = "aws_eks";
+    @Deprecated public static final String AWS_EKS = "aws_eks";
 
     /** AWS Lambda. */
-    public static final String AWS_LAMBDA = "aws_lambda";
+    @Deprecated public static final String AWS_LAMBDA = "aws_lambda";
 
     /** AWS Elastic Beanstalk. */
-    public static final String AWS_ELASTIC_BEANSTALK = "aws_elastic_beanstalk";
+    @Deprecated public static final String AWS_ELASTIC_BEANSTALK = "aws_elastic_beanstalk";
 
     /** AWS App Runner. */
-    public static final String AWS_APP_RUNNER = "aws_app_runner";
+    @Deprecated public static final String AWS_APP_RUNNER = "aws_app_runner";
 
     /** Red Hat OpenShift on AWS (ROSA). */
-    public static final String AWS_OPENSHIFT = "aws_openshift";
+    @Deprecated public static final String AWS_OPENSHIFT = "aws_openshift";
 
     /** Azure Virtual Machines. */
-    public static final String AZURE_VM = "azure_vm";
+    @Deprecated public static final String AZURE_VM = "azure_vm";
 
     /** Azure Container Instances. */
-    public static final String AZURE_CONTAINER_INSTANCES = "azure_container_instances";
+    @Deprecated public static final String AZURE_CONTAINER_INSTANCES = "azure_container_instances";
 
     /** Azure Kubernetes Service. */
-    public static final String AZURE_AKS = "azure_aks";
+    @Deprecated public static final String AZURE_AKS = "azure_aks";
 
     /** Azure Functions. */
-    public static final String AZURE_FUNCTIONS = "azure_functions";
+    @Deprecated public static final String AZURE_FUNCTIONS = "azure_functions";
 
     /** Azure App Service. */
-    public static final String AZURE_APP_SERVICE = "azure_app_service";
+    @Deprecated public static final String AZURE_APP_SERVICE = "azure_app_service";
 
     /** Azure Red Hat OpenShift. */
-    public static final String AZURE_OPENSHIFT = "azure_openshift";
+    @Deprecated public static final String AZURE_OPENSHIFT = "azure_openshift";
 
     /** Google Bare Metal Solution (BMS). */
-    public static final String GCP_BARE_METAL_SOLUTION = "gcp_bare_metal_solution";
+    @Deprecated public static final String GCP_BARE_METAL_SOLUTION = "gcp_bare_metal_solution";
 
     /** Google Cloud Compute Engine (GCE). */
-    public static final String GCP_COMPUTE_ENGINE = "gcp_compute_engine";
+    @Deprecated public static final String GCP_COMPUTE_ENGINE = "gcp_compute_engine";
 
     /** Google Cloud Run. */
-    public static final String GCP_CLOUD_RUN = "gcp_cloud_run";
+    @Deprecated public static final String GCP_CLOUD_RUN = "gcp_cloud_run";
 
     /** Google Cloud Kubernetes Engine (GKE). */
-    public static final String GCP_KUBERNETES_ENGINE = "gcp_kubernetes_engine";
+    @Deprecated public static final String GCP_KUBERNETES_ENGINE = "gcp_kubernetes_engine";
 
     /** Google Cloud Functions (GCF). */
-    public static final String GCP_CLOUD_FUNCTIONS = "gcp_cloud_functions";
+    @Deprecated public static final String GCP_CLOUD_FUNCTIONS = "gcp_cloud_functions";
 
     /** Google Cloud App Engine (GAE). */
-    public static final String GCP_APP_ENGINE = "gcp_app_engine";
+    @Deprecated public static final String GCP_APP_ENGINE = "gcp_app_engine";
 
     /** Red Hat OpenShift on Google Cloud. */
-    public static final String GCP_OPENSHIFT = "gcp_openshift";
+    @Deprecated public static final String GCP_OPENSHIFT = "gcp_openshift";
 
     /** Red Hat OpenShift on IBM Cloud. */
-    public static final String IBM_CLOUD_OPENSHIFT = "ibm_cloud_openshift";
+    @Deprecated public static final String IBM_CLOUD_OPENSHIFT = "ibm_cloud_openshift";
 
     /** Tencent Cloud Cloud Virtual Machine (CVM). */
-    public static final String TENCENT_CLOUD_CVM = "tencent_cloud_cvm";
+    @Deprecated public static final String TENCENT_CLOUD_CVM = "tencent_cloud_cvm";
 
     /** Tencent Cloud Elastic Kubernetes Service (EKS). */
-    public static final String TENCENT_CLOUD_EKS = "tencent_cloud_eks";
+    @Deprecated public static final String TENCENT_CLOUD_EKS = "tencent_cloud_eks";
 
     /** Tencent Cloud Serverless Cloud Function (SCF). */
-    public static final String TENCENT_CLOUD_SCF = "tencent_cloud_scf";
+    @Deprecated public static final String TENCENT_CLOUD_SCF = "tencent_cloud_scf";
 
     private CloudPlatformValues() {}
   }
 
+  @Deprecated
   public static final class CloudProviderValues {
     /** Alibaba Cloud. */
-    public static final String ALIBABA_CLOUD = "alibaba_cloud";
+    @Deprecated public static final String ALIBABA_CLOUD = "alibaba_cloud";
 
     /** Amazon Web Services. */
-    public static final String AWS = "aws";
+    @Deprecated public static final String AWS = "aws";
 
     /** Microsoft Azure. */
-    public static final String AZURE = "azure";
+    @Deprecated public static final String AZURE = "azure";
 
     /** Google Cloud Platform. */
-    public static final String GCP = "gcp";
+    @Deprecated public static final String GCP = "gcp";
 
     /** Heroku Platform as a Service. */
-    public static final String HEROKU = "heroku";
+    @Deprecated public static final String HEROKU = "heroku";
 
     /** IBM Cloud. */
-    public static final String IBM_CLOUD = "ibm_cloud";
+    @Deprecated public static final String IBM_CLOUD = "ibm_cloud";
 
     /** Tencent Cloud. */
-    public static final String TENCENT_CLOUD = "tencent_cloud";
+    @Deprecated public static final String TENCENT_CLOUD = "tencent_cloud";
 
     private CloudProviderValues() {}
   }
 
+  @Deprecated
   public static final class AwsEcsLaunchtypeValues {
     /** ec2. */
-    public static final String EC2 = "ec2";
+    @Deprecated public static final String EC2 = "ec2";
 
     /** fargate. */
-    public static final String FARGATE = "fargate";
+    @Deprecated public static final String FARGATE = "fargate";
 
     private AwsEcsLaunchtypeValues() {}
   }
 
+  @Deprecated
   public static final class HostArchValues {
     /** AMD64. */
-    public static final String AMD64 = "amd64";
+    @Deprecated public static final String AMD64 = "amd64";
 
     /** ARM32. */
-    public static final String ARM32 = "arm32";
+    @Deprecated public static final String ARM32 = "arm32";
 
     /** ARM64. */
-    public static final String ARM64 = "arm64";
+    @Deprecated public static final String ARM64 = "arm64";
 
     /** Itanium. */
-    public static final String IA64 = "ia64";
+    @Deprecated public static final String IA64 = "ia64";
 
     /** 32-bit PowerPC. */
-    public static final String PPC32 = "ppc32";
+    @Deprecated public static final String PPC32 = "ppc32";
 
     /** 64-bit PowerPC. */
-    public static final String PPC64 = "ppc64";
+    @Deprecated public static final String PPC64 = "ppc64";
 
     /** IBM z/Architecture. */
-    public static final String S390X = "s390x";
+    @Deprecated public static final String S390X = "s390x";
 
     /** 32-bit x86. */
-    public static final String X86 = "x86";
+    @Deprecated public static final String X86 = "x86";
 
     private HostArchValues() {}
   }
 
+  @Deprecated
   public static final class OsTypeValues {
     /** Microsoft Windows. */
-    public static final String WINDOWS = "windows";
+    @Deprecated public static final String WINDOWS = "windows";
 
     /** Linux. */
-    public static final String LINUX = "linux";
+    @Deprecated public static final String LINUX = "linux";
 
     /** Apple Darwin. */
-    public static final String DARWIN = "darwin";
+    @Deprecated public static final String DARWIN = "darwin";
 
     /** FreeBSD. */
-    public static final String FREEBSD = "freebsd";
+    @Deprecated public static final String FREEBSD = "freebsd";
 
     /** NetBSD. */
-    public static final String NETBSD = "netbsd";
+    @Deprecated public static final String NETBSD = "netbsd";
 
     /** OpenBSD. */
-    public static final String OPENBSD = "openbsd";
+    @Deprecated public static final String OPENBSD = "openbsd";
 
     /** DragonFly BSD. */
-    public static final String DRAGONFLYBSD = "dragonflybsd";
+    @Deprecated public static final String DRAGONFLYBSD = "dragonflybsd";
 
     /** HP-UX (Hewlett Packard Unix). */
-    public static final String HPUX = "hpux";
+    @Deprecated public static final String HPUX = "hpux";
 
     /** AIX (Advanced Interactive eXecutive). */
-    public static final String AIX = "aix";
+    @Deprecated public static final String AIX = "aix";
 
     /** SunOS, Oracle Solaris. */
-    public static final String SOLARIS = "solaris";
+    @Deprecated public static final String SOLARIS = "solaris";
 
     /** IBM z/OS. */
-    public static final String Z_OS = "z_os";
+    @Deprecated public static final String Z_OS = "z_os";
 
     private OsTypeValues() {}
   }
 
+  @Deprecated
   public static final class TelemetrySdkLanguageValues {
     /** cpp. */
-    public static final String CPP = "cpp";
+    @Deprecated public static final String CPP = "cpp";
 
     /** dotnet. */
-    public static final String DOTNET = "dotnet";
+    @Deprecated public static final String DOTNET = "dotnet";
 
     /** erlang. */
-    public static final String ERLANG = "erlang";
+    @Deprecated public static final String ERLANG = "erlang";
 
     /** go. */
-    public static final String GO = "go";
+    @Deprecated public static final String GO = "go";
 
     /** java. */
-    public static final String JAVA = "java";
+    @Deprecated public static final String JAVA = "java";
 
     /** nodejs. */
-    public static final String NODEJS = "nodejs";
+    @Deprecated public static final String NODEJS = "nodejs";
 
     /** php. */
-    public static final String PHP = "php";
+    @Deprecated public static final String PHP = "php";
 
     /** python. */
-    public static final String PYTHON = "python";
+    @Deprecated public static final String PYTHON = "python";
 
     /** ruby. */
-    public static final String RUBY = "ruby";
+    @Deprecated public static final String RUBY = "ruby";
 
     /** rust. */
-    public static final String RUST = "rust";
+    @Deprecated public static final String RUST = "rust";
 
     /** swift. */
-    public static final String SWIFT = "swift";
+    @Deprecated public static final String SWIFT = "swift";
 
     /** webjs. */
-    public static final String WEBJS = "webjs";
+    @Deprecated public static final String WEBJS = "webjs";
 
     private TelemetrySdkLanguageValues() {}
   }

@@ -17,15 +17,15 @@ import io.opentelemetry.api.common.AttributeKey;
 import java.util.List;
 
 /**
- * @deprecated This class is deprecated and will be removed in a future release. It is only provided as a
- * convenience to help migration to the new semantic conventions classes structure that was introduced
- * in version 1.24.0.
+ * @deprecated This class is deprecated and will be removed in a future release. It is only provided
+ *     as a convenience to help migration to the new semantic conventions classes structure that was
+ *     introduced in version 1.24.0.
  */
 @Deprecated
 @SuppressWarnings("unused")
 public final class SemanticAttributes {
   /** The URL of the OpenTelemetry schema for these keys and values. */
-  public static final String SCHEMA_URL = "https://opentelemetry.io/schemas/1.23.1";
+  @Deprecated public static final String SCHEMA_URL = "https://opentelemetry.io/schemas/1.23.1";
 
   /**
    * Client address - domain name if available without reverse DNS lookup; otherwise, IP address or
@@ -39,7 +39,7 @@ public final class SemanticAttributes {
    *       example proxies, if it's available.
    * </ul>
    */
-  public static final AttributeKey<String> CLIENT_ADDRESS = stringKey("client.address");
+  @Deprecated public static final AttributeKey<String> CLIENT_ADDRESS = stringKey("client.address");
 
   /**
    * Client port number.
@@ -52,7 +52,7 @@ public final class SemanticAttributes {
    *       example proxies, if it's available.
    * </ul>
    */
-  public static final AttributeKey<Long> CLIENT_PORT = longKey("client.port");
+  @Deprecated public static final AttributeKey<Long> CLIENT_PORT = longKey("client.port");
 
   /**
    * Destination address - domain name if available without reverse DNS lookup; otherwise, IP
@@ -66,10 +66,11 @@ public final class SemanticAttributes {
    *       intermediaries, for example proxies, if it's available.
    * </ul>
    */
+  @Deprecated
   public static final AttributeKey<String> DESTINATION_ADDRESS = stringKey("destination.address");
 
   /** Destination port number */
-  public static final AttributeKey<Long> DESTINATION_PORT = longKey("destination.port");
+  @Deprecated public static final AttributeKey<Long> DESTINATION_PORT = longKey("destination.port");
 
   /**
    * Describes a class of error the operation ended with.
@@ -92,22 +93,24 @@ public final class SemanticAttributes {
    *       within the domain-specific set or not.
    * </ul>
    */
-  public static final AttributeKey<String> ERROR_TYPE = stringKey("error.type");
+  @Deprecated public static final AttributeKey<String> ERROR_TYPE = stringKey("error.type");
 
   /** The exception message. */
+  @Deprecated
   public static final AttributeKey<String> EXCEPTION_MESSAGE = stringKey("exception.message");
 
   /**
    * A stacktrace as a string in the natural representation for the language runtime. The
    * representation is to be determined and documented by each language SIG.
    */
+  @Deprecated
   public static final AttributeKey<String> EXCEPTION_STACKTRACE = stringKey("exception.stacktrace");
 
   /**
    * The type of the exception (its fully-qualified class name, if applicable). The dynamic type of
    * the exception should be preferred over the static type in languages that support it.
    */
-  public static final AttributeKey<String> EXCEPTION_TYPE = stringKey("exception.type");
+  @Deprecated public static final AttributeKey<String> EXCEPTION_TYPE = stringKey("exception.type");
 
   /**
    * The name of the invoked function.
@@ -118,6 +121,7 @@ public final class SemanticAttributes {
    *   <li>SHOULD be equal to the {@code faas.name} resource attribute of the invoked function.
    * </ul>
    */
+  @Deprecated
   public static final AttributeKey<String> FAAS_INVOKED_NAME = stringKey("faas.invoked_name");
 
   /**
@@ -129,6 +133,7 @@ public final class SemanticAttributes {
    *   <li>SHOULD be equal to the {@code cloud.provider} resource attribute of the invoked function.
    * </ul>
    */
+  @Deprecated
   public static final AttributeKey<String> FAAS_INVOKED_PROVIDER =
       stringKey("faas.invoked_provider");
 
@@ -141,30 +146,31 @@ public final class SemanticAttributes {
    *   <li>SHOULD be equal to the {@code cloud.region} resource attribute of the invoked function.
    * </ul>
    */
+  @Deprecated
   public static final AttributeKey<String> FAAS_INVOKED_REGION = stringKey("faas.invoked_region");
 
   /** Type of the trigger which caused this function invocation. */
-  public static final AttributeKey<String> FAAS_TRIGGER = stringKey("faas.trigger");
+  @Deprecated public static final AttributeKey<String> FAAS_TRIGGER = stringKey("faas.trigger");
 
   /**
    * The <a href="/docs/resource/README.md#service">{@code service.name}</a> of the remote service.
    * SHOULD be equal to the actual {@code service.name} resource attribute of the remote service if
    * any.
    */
-  public static final AttributeKey<String> PEER_SERVICE = stringKey("peer.service");
+  @Deprecated public static final AttributeKey<String> PEER_SERVICE = stringKey("peer.service");
 
   /**
    * Username or client_id extracted from the access token or <a
    * href="https://tools.ietf.org/html/rfc7235#section-4.2">Authorization</a> header in the inbound
    * request from outside the system.
    */
-  public static final AttributeKey<String> ENDUSER_ID = stringKey("enduser.id");
+  @Deprecated public static final AttributeKey<String> ENDUSER_ID = stringKey("enduser.id");
 
   /**
    * Actual/assumed role the client is making the request under extracted from token or application
    * security context.
    */
-  public static final AttributeKey<String> ENDUSER_ROLE = stringKey("enduser.role");
+  @Deprecated public static final AttributeKey<String> ENDUSER_ROLE = stringKey("enduser.role");
 
   /**
    * Scopes or granted authorities the client currently possesses extracted from token or
@@ -174,7 +180,7 @@ public final class SemanticAttributes {
    * href="http://docs.oasis-open.org/security/saml/Post2.0/sstc-saml-tech-overview-2.0.html">SAML
    * 2.0 Assertion</a>.
    */
-  public static final AttributeKey<String> ENDUSER_SCOPE = stringKey("enduser.scope");
+  @Deprecated public static final AttributeKey<String> ENDUSER_SCOPE = stringKey("enduser.scope");
 
   /**
    * The domain identifies the business context for the events.
@@ -186,10 +192,10 @@ public final class SemanticAttributes {
    *       events.
    * </ul>
    */
-  public static final AttributeKey<String> EVENT_DOMAIN = stringKey("event.domain");
+  @Deprecated public static final AttributeKey<String> EVENT_DOMAIN = stringKey("event.domain");
 
   /** The name identifies the event. */
-  public static final AttributeKey<String> EVENT_NAME = stringKey("event.name");
+  @Deprecated public static final AttributeKey<String> EVENT_NAME = stringKey("event.name");
 
   /**
    * A unique identifier for the Log Record.
@@ -204,22 +210,24 @@ public final class SemanticAttributes {
    *       UUID) may be used as needed.
    * </ul>
    */
-  public static final AttributeKey<String> LOG_RECORD_UID = stringKey("log.record.uid");
+  @Deprecated public static final AttributeKey<String> LOG_RECORD_UID = stringKey("log.record.uid");
 
   /** The stream associated with the log. See below for a list of well-known values. */
-  public static final AttributeKey<String> LOG_IOSTREAM = stringKey("log.iostream");
+  @Deprecated public static final AttributeKey<String> LOG_IOSTREAM = stringKey("log.iostream");
 
   /** The basename of the file. */
-  public static final AttributeKey<String> LOG_FILE_NAME = stringKey("log.file.name");
+  @Deprecated public static final AttributeKey<String> LOG_FILE_NAME = stringKey("log.file.name");
 
   /** The basename of the file, with symlinks resolved. */
+  @Deprecated
   public static final AttributeKey<String> LOG_FILE_NAME_RESOLVED =
       stringKey("log.file.name_resolved");
 
   /** The full path to the file. */
-  public static final AttributeKey<String> LOG_FILE_PATH = stringKey("log.file.path");
+  @Deprecated public static final AttributeKey<String> LOG_FILE_PATH = stringKey("log.file.path");
 
   /** The full path to the file, with symlinks resolved. */
+  @Deprecated
   public static final AttributeKey<String> LOG_FILE_PATH_RESOLVED =
       stringKey("log.file.path_resolved");
 
@@ -235,7 +243,7 @@ public final class SemanticAttributes {
    *       documentation</a>, and from which the {@code OS terminology} column values are derived.
    * </ul>
    */
-  public static final AttributeKey<String> IOS_STATE = stringKey("ios.state");
+  @Deprecated public static final AttributeKey<String> IOS_STATE = stringKey("ios.state");
 
   /**
    * This attribute represents the state the application has transitioned into at the occurrence of
@@ -249,7 +257,7 @@ public final class SemanticAttributes {
    *       lifecycle callbacks</a>, and from which the {@code OS identifiers} are derived.
    * </ul>
    */
-  public static final AttributeKey<String> ANDROID_STATE = stringKey("android.state");
+  @Deprecated public static final AttributeKey<String> ANDROID_STATE = stringKey("android.state");
 
   /**
    * The name of the connection pool; unique within the instrumented application. In case the
@@ -257,10 +265,10 @@ public final class SemanticAttributes {
    * href="/docs/database/database-spans.md#connection-level-attributes">db.connection_string</a>
    * should be used
    */
-  public static final AttributeKey<String> POOL_NAME = stringKey("pool.name");
+  @Deprecated public static final AttributeKey<String> POOL_NAME = stringKey("pool.name");
 
   /** The state of a connection in the pool */
-  public static final AttributeKey<String> STATE = stringKey("state");
+  @Deprecated public static final AttributeKey<String> STATE = stringKey("state");
 
   /**
    * Name of the buffer pool.
@@ -272,6 +280,7 @@ public final class SemanticAttributes {
    *       href="https://docs.oracle.com/en/java/javase/11/docs/api/java.management/java/lang/management/BufferPoolMXBean.html#getName()">BufferPoolMXBean#getName()</a>.
    * </ul>
    */
+  @Deprecated
   public static final AttributeKey<String> JVM_BUFFER_POOL_NAME = stringKey("jvm.buffer.pool.name");
 
   /**
@@ -284,9 +293,11 @@ public final class SemanticAttributes {
    *       href="https://docs.oracle.com/en/java/javase/11/docs/api/java.management/java/lang/management/MemoryPoolMXBean.html#getName()">MemoryPoolMXBean#getName()</a>.
    * </ul>
    */
+  @Deprecated
   public static final AttributeKey<String> JVM_MEMORY_POOL_NAME = stringKey("jvm.memory.pool.name");
 
   /** The type of memory. */
+  @Deprecated
   public static final AttributeKey<String> JVM_MEMORY_TYPE = stringKey("jvm.memory.type");
 
   /**
@@ -299,7 +310,7 @@ public final class SemanticAttributes {
    *       href="https://docs.oracle.com/en/java/javase/11/docs/api/jdk.management/com/sun/management/GarbageCollectionNotificationInfo.html#getGcAction()">GarbageCollectionNotificationInfo#getGcAction()</a>.
    * </ul>
    */
-  public static final AttributeKey<String> JVM_GC_ACTION = stringKey("jvm.gc.action");
+  @Deprecated public static final AttributeKey<String> JVM_GC_ACTION = stringKey("jvm.gc.action");
 
   /**
    * Name of the garbage collector.
@@ -311,62 +322,77 @@ public final class SemanticAttributes {
    *       href="https://docs.oracle.com/en/java/javase/11/docs/api/jdk.management/com/sun/management/GarbageCollectionNotificationInfo.html#getGcName()">GarbageCollectionNotificationInfo#getGcName()</a>.
    * </ul>
    */
-  public static final AttributeKey<String> JVM_GC_NAME = stringKey("jvm.gc.name");
+  @Deprecated public static final AttributeKey<String> JVM_GC_NAME = stringKey("jvm.gc.name");
 
   /** Whether the thread is daemon or not. */
+  @Deprecated
   public static final AttributeKey<Boolean> JVM_THREAD_DAEMON = booleanKey("jvm.thread.daemon");
 
   /** State of the thread. */
+  @Deprecated
   public static final AttributeKey<String> JVM_THREAD_STATE = stringKey("jvm.thread.state");
 
   /** The device identifier */
-  public static final AttributeKey<String> SYSTEM_DEVICE = stringKey("system.device");
+  @Deprecated public static final AttributeKey<String> SYSTEM_DEVICE = stringKey("system.device");
 
   /** The logical CPU number [0..n-1] */
+  @Deprecated
   public static final AttributeKey<Long> SYSTEM_CPU_LOGICAL_NUMBER =
       longKey("system.cpu.logical_number");
 
   /** The state of the CPU */
+  @Deprecated
   public static final AttributeKey<String> SYSTEM_CPU_STATE = stringKey("system.cpu.state");
 
   /** The memory state */
+  @Deprecated
   public static final AttributeKey<String> SYSTEM_MEMORY_STATE = stringKey("system.memory.state");
 
   /** The paging access direction */
+  @Deprecated
   public static final AttributeKey<String> SYSTEM_PAGING_DIRECTION =
       stringKey("system.paging.direction");
 
   /** The memory paging state */
+  @Deprecated
   public static final AttributeKey<String> SYSTEM_PAGING_STATE = stringKey("system.paging.state");
 
   /** The memory paging type */
+  @Deprecated
   public static final AttributeKey<String> SYSTEM_PAGING_TYPE = stringKey("system.paging.type");
 
   /** The disk operation direction */
+  @Deprecated
   public static final AttributeKey<String> SYSTEM_DISK_DIRECTION =
       stringKey("system.disk.direction");
 
   /** The filesystem mode */
+  @Deprecated
   public static final AttributeKey<String> SYSTEM_FILESYSTEM_MODE =
       stringKey("system.filesystem.mode");
 
   /** The filesystem mount path */
+  @Deprecated
   public static final AttributeKey<String> SYSTEM_FILESYSTEM_MOUNTPOINT =
       stringKey("system.filesystem.mountpoint");
 
   /** The filesystem state */
+  @Deprecated
   public static final AttributeKey<String> SYSTEM_FILESYSTEM_STATE =
       stringKey("system.filesystem.state");
 
   /** The filesystem type */
+  @Deprecated
   public static final AttributeKey<String> SYSTEM_FILESYSTEM_TYPE =
       stringKey("system.filesystem.type");
 
   /** */
+  @Deprecated
   public static final AttributeKey<String> SYSTEM_NETWORK_DIRECTION =
       stringKey("system.network.direction");
 
   /** A stateless protocol MUST NOT set this attribute */
+  @Deprecated
   public static final AttributeKey<String> SYSTEM_NETWORK_STATE = stringKey("system.network.state");
 
   /**
@@ -374,6 +400,7 @@ public final class SemanticAttributes {
    * href="https://man7.org/linux/man-pages/man1/ps.1.html#PROCESS_STATE_CODES">Linux Process State
    * Codes</a>
    */
+  @Deprecated
   public static final AttributeKey<String> SYSTEM_PROCESSES_STATUS =
       stringKey("system.processes.status");
 
@@ -381,31 +408,31 @@ public final class SemanticAttributes {
    * The column number in {@code code.filepath} best representing the operation. It SHOULD point
    * within the code unit named in {@code code.function}.
    */
-  public static final AttributeKey<Long> CODE_COLUMN = longKey("code.column");
+  @Deprecated public static final AttributeKey<Long> CODE_COLUMN = longKey("code.column");
 
   /**
    * The source code file name that identifies the code unit as uniquely as possible (preferably an
    * absolute file path).
    */
-  public static final AttributeKey<String> CODE_FILEPATH = stringKey("code.filepath");
+  @Deprecated public static final AttributeKey<String> CODE_FILEPATH = stringKey("code.filepath");
 
   /**
    * The method or function name, or equivalent (usually rightmost part of the code unit's name).
    */
-  public static final AttributeKey<String> CODE_FUNCTION = stringKey("code.function");
+  @Deprecated public static final AttributeKey<String> CODE_FUNCTION = stringKey("code.function");
 
   /**
    * The line number in {@code code.filepath} best representing the operation. It SHOULD point
    * within the code unit named in {@code code.function}.
    */
-  public static final AttributeKey<Long> CODE_LINENO = longKey("code.lineno");
+  @Deprecated public static final AttributeKey<Long> CODE_LINENO = longKey("code.lineno");
 
   /**
    * The &quot;namespace&quot; within which {@code code.function} is defined. Usually the qualified
    * class or module name, such that {@code code.namespace} + some separator + {@code code.function}
    * form a unique identifier for the code unit.
    */
-  public static final AttributeKey<String> CODE_NAMESPACE = stringKey("code.namespace");
+  @Deprecated public static final AttributeKey<String> CODE_NAMESPACE = stringKey("code.namespace");
 
   /**
    * Deprecated, use {@code http.request.method} instead.
@@ -567,6 +594,7 @@ public final class SemanticAttributes {
    * href="https://www.rfc-editor.org/rfc/rfc9110.html#field.content-length">Content-Length</a>
    * header. For requests using transport encoding, this should be the compressed size.
    */
+  @Deprecated
   public static final AttributeKey<Long> HTTP_REQUEST_BODY_SIZE = longKey("http.request.body.size");
 
   /**
@@ -594,9 +622,11 @@ public final class SemanticAttributes {
    *       to the original value.
    * </ul>
    */
+  @Deprecated
   public static final AttributeKey<String> HTTP_REQUEST_METHOD = stringKey("http.request.method");
 
   /** Original HTTP method sent by the client in the request line. */
+  @Deprecated
   public static final AttributeKey<String> HTTP_REQUEST_METHOD_ORIGINAL =
       stringKey("http.request.method_original");
 
@@ -611,6 +641,7 @@ public final class SemanticAttributes {
    *       failure, 503 Server Unavailable, network issues, or any other).
    * </ul>
    */
+  @Deprecated
   public static final AttributeKey<Long> HTTP_REQUEST_RESEND_COUNT =
       longKey("http.request.resend_count");
 
@@ -620,10 +651,12 @@ public final class SemanticAttributes {
    * href="https://www.rfc-editor.org/rfc/rfc9110.html#field.content-length">Content-Length</a>
    * header. For requests using transport encoding, this should be the compressed size.
    */
+  @Deprecated
   public static final AttributeKey<Long> HTTP_RESPONSE_BODY_SIZE =
       longKey("http.response.body.size");
 
   /** <a href="https://tools.ietf.org/html/rfc7231#section-6">HTTP response status code</a>. */
+  @Deprecated
   public static final AttributeKey<Long> HTTP_RESPONSE_STATUS_CODE =
       longKey("http.response.status_code");
 
@@ -640,7 +673,7 @@ public final class SemanticAttributes {
    *       root</a> if there is one.
    * </ul>
    */
-  public static final AttributeKey<String> HTTP_ROUTE = stringKey("http.route");
+  @Deprecated public static final AttributeKey<String> HTTP_ROUTE = stringKey("http.route");
 
   /**
    * The number of messages sent, received, or processed in the scope of the batching operation.
@@ -655,16 +688,19 @@ public final class SemanticAttributes {
    *       APIs.
    * </ul>
    */
+  @Deprecated
   public static final AttributeKey<Long> MESSAGING_BATCH_MESSAGE_COUNT =
       longKey("messaging.batch.message_count");
 
   /** A unique identifier for the client that consumes or produces a message. */
+  @Deprecated
   public static final AttributeKey<String> MESSAGING_CLIENT_ID = stringKey("messaging.client_id");
 
   /**
    * A boolean that is true if the message destination is anonymous (could be unnamed or have
    * auto-generated name).
    */
+  @Deprecated
   public static final AttributeKey<Boolean> MESSAGING_DESTINATION_ANONYMOUS =
       booleanKey("messaging.destination.anonymous");
 
@@ -679,6 +715,7 @@ public final class SemanticAttributes {
    *       identify the broker.
    * </ul>
    */
+  @Deprecated
   public static final AttributeKey<String> MESSAGING_DESTINATION_NAME =
       stringKey("messaging.destination.name");
 
@@ -694,6 +731,7 @@ public final class SemanticAttributes {
    *       used for grouping and aggregation.
    * </ul>
    */
+  @Deprecated
   public static final AttributeKey<String> MESSAGING_DESTINATION_TEMPLATE =
       stringKey("messaging.destination.template");
 
@@ -701,6 +739,7 @@ public final class SemanticAttributes {
    * A boolean that is true if the message destination is temporary and might not exist anymore
    * after messages are processed.
    */
+  @Deprecated
   public static final AttributeKey<Boolean> MESSAGING_DESTINATION_TEMPORARY =
       booleanKey("messaging.destination.temporary");
 
@@ -708,6 +747,7 @@ public final class SemanticAttributes {
    * A boolean that is true if the publish message destination is anonymous (could be unnamed or
    * have auto-generated name).
    */
+  @Deprecated
   public static final AttributeKey<Boolean> MESSAGING_DESTINATION_PUBLISH_ANONYMOUS =
       booleanKey("messaging.destination_publish.anonymous");
 
@@ -722,6 +762,7 @@ public final class SemanticAttributes {
    *       uniquely identify the broker.
    * </ul>
    */
+  @Deprecated
   public static final AttributeKey<String> MESSAGING_DESTINATION_PUBLISH_NAME =
       stringKey("messaging.destination_publish.name");
 
@@ -729,10 +770,12 @@ public final class SemanticAttributes {
    * Name of the Kafka Consumer Group that is handling the message. Only applies to consumers, not
    * producers.
    */
+  @Deprecated
   public static final AttributeKey<String> MESSAGING_KAFKA_CONSUMER_GROUP =
       stringKey("messaging.kafka.consumer.group");
 
   /** Partition the message is sent to. */
+  @Deprecated
   public static final AttributeKey<Long> MESSAGING_KAFKA_DESTINATION_PARTITION =
       longKey("messaging.kafka.destination.partition");
 
@@ -748,14 +791,17 @@ public final class SemanticAttributes {
    *       attribute. If the key has no unambiguous, canonical string form, don't include its value.
    * </ul>
    */
+  @Deprecated
   public static final AttributeKey<String> MESSAGING_KAFKA_MESSAGE_KEY =
       stringKey("messaging.kafka.message.key");
 
   /** The offset of a record in the corresponding Kafka partition. */
+  @Deprecated
   public static final AttributeKey<Long> MESSAGING_KAFKA_MESSAGE_OFFSET =
       longKey("messaging.kafka.message.offset");
 
   /** A boolean that is true if the message is a tombstone. */
+  @Deprecated
   public static final AttributeKey<Boolean> MESSAGING_KAFKA_MESSAGE_TOMBSTONE =
       booleanKey("messaging.kafka.message.tombstone");
 
@@ -769,6 +815,7 @@ public final class SemanticAttributes {
    *       the uncompressed body size should be used.
    * </ul>
    */
+  @Deprecated
   public static final AttributeKey<Long> MESSAGING_MESSAGE_BODY_SIZE =
       longKey("messaging.message.body.size");
 
@@ -776,6 +823,7 @@ public final class SemanticAttributes {
    * The conversation ID identifying the conversation to which the message belongs, represented as a
    * string. Sometimes called &quot;Correlation ID&quot;.
    */
+  @Deprecated
   public static final AttributeKey<String> MESSAGING_MESSAGE_CONVERSATION_ID =
       stringKey("messaging.message.conversation_id");
 
@@ -789,12 +837,14 @@ public final class SemanticAttributes {
    *       uncompressed size should be used.
    * </ul>
    */
+  @Deprecated
   public static final AttributeKey<Long> MESSAGING_MESSAGE_ENVELOPE_SIZE =
       longKey("messaging.message.envelope.size");
 
   /**
    * A value used by the messaging system as an identifier for the message, represented as a string.
    */
+  @Deprecated
   public static final AttributeKey<String> MESSAGING_MESSAGE_ID = stringKey("messaging.message.id");
 
   /**
@@ -806,9 +856,11 @@ public final class SemanticAttributes {
    *   <li>If a custom value is used, it MUST be of low cardinality.
    * </ul>
    */
+  @Deprecated
   public static final AttributeKey<String> MESSAGING_OPERATION = stringKey("messaging.operation");
 
   /** RabbitMQ message routing key. */
+  @Deprecated
   public static final AttributeKey<String> MESSAGING_RABBITMQ_DESTINATION_ROUTING_KEY =
       stringKey("messaging.rabbitmq.destination.routing_key");
 
@@ -816,20 +868,24 @@ public final class SemanticAttributes {
    * Name of the RocketMQ producer/consumer group that is handling the message. The client type is
    * identified by the SpanKind.
    */
+  @Deprecated
   public static final AttributeKey<String> MESSAGING_ROCKETMQ_CLIENT_GROUP =
       stringKey("messaging.rocketmq.client_group");
 
   /** Model of message consumption. This only applies to consumer spans. */
+  @Deprecated
   public static final AttributeKey<String> MESSAGING_ROCKETMQ_CONSUMPTION_MODEL =
       stringKey("messaging.rocketmq.consumption_model");
 
   /** The delay time level for delay message, which determines the message delay time. */
+  @Deprecated
   public static final AttributeKey<Long> MESSAGING_ROCKETMQ_MESSAGE_DELAY_TIME_LEVEL =
       longKey("messaging.rocketmq.message.delay_time_level");
 
   /**
    * The timestamp in milliseconds that the delay message is expected to be delivered to consumer.
    */
+  @Deprecated
   public static final AttributeKey<Long> MESSAGING_ROCKETMQ_MESSAGE_DELIVERY_TIMESTAMP =
       longKey("messaging.rocketmq.message.delivery_timestamp");
 
@@ -837,62 +893,78 @@ public final class SemanticAttributes {
    * It is essential for FIFO message. Messages that belong to the same message group are always
    * processed one by one within the same consumer group.
    */
+  @Deprecated
   public static final AttributeKey<String> MESSAGING_ROCKETMQ_MESSAGE_GROUP =
       stringKey("messaging.rocketmq.message.group");
 
   /** Key(s) of message, another way to mark message besides message id. */
+  @Deprecated
   public static final AttributeKey<List<String>> MESSAGING_ROCKETMQ_MESSAGE_KEYS =
       stringArrayKey("messaging.rocketmq.message.keys");
 
   /** The secondary classifier of message besides topic. */
+  @Deprecated
   public static final AttributeKey<String> MESSAGING_ROCKETMQ_MESSAGE_TAG =
       stringKey("messaging.rocketmq.message.tag");
 
   /** Type of message. */
+  @Deprecated
   public static final AttributeKey<String> MESSAGING_ROCKETMQ_MESSAGE_TYPE =
       stringKey("messaging.rocketmq.message.type");
 
   /** Namespace of RocketMQ resources, resources in different namespaces are individual. */
+  @Deprecated
   public static final AttributeKey<String> MESSAGING_ROCKETMQ_NAMESPACE =
       stringKey("messaging.rocketmq.namespace");
 
   /** A string identifying the messaging system. */
+  @Deprecated
   public static final AttributeKey<String> MESSAGING_SYSTEM = stringKey("messaging.system");
 
   /** The ISO 3166-1 alpha-2 2-character country code associated with the mobile carrier network. */
+  @Deprecated
   public static final AttributeKey<String> NETWORK_CARRIER_ICC = stringKey("network.carrier.icc");
 
   /** The mobile carrier country code. */
+  @Deprecated
   public static final AttributeKey<String> NETWORK_CARRIER_MCC = stringKey("network.carrier.mcc");
 
   /** The mobile carrier network code. */
+  @Deprecated
   public static final AttributeKey<String> NETWORK_CARRIER_MNC = stringKey("network.carrier.mnc");
 
   /** The name of the mobile carrier. */
+  @Deprecated
   public static final AttributeKey<String> NETWORK_CARRIER_NAME = stringKey("network.carrier.name");
 
   /**
    * This describes more details regarding the connection.type. It may be the type of cell
    * technology connection, but it could be used for describing details about a wifi connection.
    */
+  @Deprecated
   public static final AttributeKey<String> NETWORK_CONNECTION_SUBTYPE =
       stringKey("network.connection.subtype");
 
   /** The internet connection type. */
+  @Deprecated
   public static final AttributeKey<String> NETWORK_CONNECTION_TYPE =
       stringKey("network.connection.type");
 
   /** Local address of the network connection - IP address or Unix domain socket name. */
+  @Deprecated
   public static final AttributeKey<String> NETWORK_LOCAL_ADDRESS =
       stringKey("network.local.address");
 
   /** Local port number of the network connection. */
+  @Deprecated
   public static final AttributeKey<Long> NETWORK_LOCAL_PORT = longKey("network.local.port");
 
   /** Peer address of the network connection - IP address or Unix domain socket name. */
+  @Deprecated
   public static final AttributeKey<String> NETWORK_PEER_ADDRESS = stringKey("network.peer.address");
 
   /** Peer port number of the network connection. */
+  @Deprecated
   public static final AttributeKey<Long> NETWORK_PEER_PORT = longKey("network.peer.port");
 
   /**
@@ -905,6 +977,7 @@ public final class SemanticAttributes {
    *   <li>The value SHOULD be normalized to lowercase.
    * </ul>
    */
+  @Deprecated
   public static final AttributeKey<String> NETWORK_PROTOCOL_NAME =
       stringKey("network.protocol.name");
 
@@ -919,6 +992,7 @@ public final class SemanticAttributes {
    *       0.27.2}, but sends HTTP version {@code 1.1}, this attribute should be set to {@code 1.1}.
    * </ul>
    */
+  @Deprecated
   public static final AttributeKey<String> NETWORK_PROTOCOL_VERSION =
       stringKey("network.protocol.version");
 
@@ -936,6 +1010,7 @@ public final class SemanticAttributes {
    *       listening on TCP port 12345 and UDP port 12345.
    * </ul>
    */
+  @Deprecated
   public static final AttributeKey<String> NETWORK_TRANSPORT = stringKey("network.transport");
 
   /**
@@ -947,12 +1022,13 @@ public final class SemanticAttributes {
    *   <li>The value SHOULD be normalized to lowercase.
    * </ul>
    */
-  public static final AttributeKey<String> NETWORK_TYPE = stringKey("network.type");
+  @Deprecated public static final AttributeKey<String> NETWORK_TYPE = stringKey("network.type");
 
   /**
    * The <a href="https://connect.build/docs/protocol/#error-codes">error codes</a> of the Connect
    * request. Error codes are always string values.
    */
+  @Deprecated
   public static final AttributeKey<String> RPC_CONNECT_RPC_ERROR_CODE =
       stringKey("rpc.connect_rpc.error_code");
 
@@ -960,12 +1036,15 @@ public final class SemanticAttributes {
    * The <a href="https://github.com/grpc/grpc/blob/v1.33.2/doc/statuscodes.md">numeric status
    * code</a> of the gRPC request.
    */
+  @Deprecated
   public static final AttributeKey<Long> RPC_GRPC_STATUS_CODE = longKey("rpc.grpc.status_code");
 
   /** {@code error.code} property of response if it is an error response. */
+  @Deprecated
   public static final AttributeKey<Long> RPC_JSONRPC_ERROR_CODE = longKey("rpc.jsonrpc.error_code");
 
   /** {@code error.message} property of response if it is an error response. */
+  @Deprecated
   public static final AttributeKey<String> RPC_JSONRPC_ERROR_MESSAGE =
       stringKey("rpc.jsonrpc.error_message");
 
@@ -974,6 +1053,7 @@ public final class SemanticAttributes {
    * null} or missing (for notifications), value is expected to be cast to string for simplicity.
    * Use empty string in case of {@code null} value. Omit entirely if this is a notification.
    */
+  @Deprecated
   public static final AttributeKey<String> RPC_JSONRPC_REQUEST_ID =
       stringKey("rpc.jsonrpc.request_id");
 
@@ -981,6 +1061,7 @@ public final class SemanticAttributes {
    * Protocol version as in {@code jsonrpc} property of request/response. Since JSON-RPC 1.0 doesn't
    * specify this, the value can be omitted.
    */
+  @Deprecated
   public static final AttributeKey<String> RPC_JSONRPC_VERSION = stringKey("rpc.jsonrpc.version");
 
   /**
@@ -996,7 +1077,7 @@ public final class SemanticAttributes {
    *       the server side, RPC client stub method on the client side).
    * </ul>
    */
-  public static final AttributeKey<String> RPC_METHOD = stringKey("rpc.method");
+  @Deprecated public static final AttributeKey<String> RPC_METHOD = stringKey("rpc.method");
 
   /**
    * The full (logical) name of the service being called, including its package name, if applicable.
@@ -1011,19 +1092,19 @@ public final class SemanticAttributes {
    *       class on the client side).
    * </ul>
    */
-  public static final AttributeKey<String> RPC_SERVICE = stringKey("rpc.service");
+  @Deprecated public static final AttributeKey<String> RPC_SERVICE = stringKey("rpc.service");
 
   /** A string identifying the remoting system. See below for a list of well-known identifiers. */
-  public static final AttributeKey<String> RPC_SYSTEM = stringKey("rpc.system");
+  @Deprecated public static final AttributeKey<String> RPC_SYSTEM = stringKey("rpc.system");
 
   /** Current &quot;managed&quot; thread ID (as opposed to OS thread ID). */
-  public static final AttributeKey<Long> THREAD_ID = longKey("thread.id");
+  @Deprecated public static final AttributeKey<Long> THREAD_ID = longKey("thread.id");
 
   /** Current thread name. */
-  public static final AttributeKey<String> THREAD_NAME = stringKey("thread.name");
+  @Deprecated public static final AttributeKey<String> THREAD_NAME = stringKey("thread.name");
 
   /** The <a href="https://www.rfc-editor.org/rfc/rfc3986#section-3.5">URI fragment</a> component */
-  public static final AttributeKey<String> URL_FRAGMENT = stringKey("url.fragment");
+  @Deprecated public static final AttributeKey<String> URL_FRAGMENT = stringKey("url.fragment");
 
   /**
    * Absolute URL describing a network resource according to <a
@@ -1042,10 +1123,10 @@ public final class SemanticAttributes {
    *       modified except for sanitizing purposes.
    * </ul>
    */
-  public static final AttributeKey<String> URL_FULL = stringKey("url.full");
+  @Deprecated public static final AttributeKey<String> URL_FULL = stringKey("url.full");
 
   /** The <a href="https://www.rfc-editor.org/rfc/rfc3986#section-3.3">URI path</a> component */
-  public static final AttributeKey<String> URL_PATH = stringKey("url.path");
+  @Deprecated public static final AttributeKey<String> URL_PATH = stringKey("url.path");
 
   /**
    * The <a href="https://www.rfc-editor.org/rfc/rfc3986#section-3.4">URI query</a> component
@@ -1057,18 +1138,19 @@ public final class SemanticAttributes {
    *       identify it.
    * </ul>
    */
-  public static final AttributeKey<String> URL_QUERY = stringKey("url.query");
+  @Deprecated public static final AttributeKey<String> URL_QUERY = stringKey("url.query");
 
   /**
    * The <a href="https://www.rfc-editor.org/rfc/rfc3986#section-3.1">URI scheme</a> component
    * identifying the used protocol.
    */
-  public static final AttributeKey<String> URL_SCHEME = stringKey("url.scheme");
+  @Deprecated public static final AttributeKey<String> URL_SCHEME = stringKey("url.scheme");
 
   /**
    * Value of the <a href="https://www.rfc-editor.org/rfc/rfc9110.html#field.user-agent">HTTP
    * User-Agent</a> header sent by the client.
    */
+  @Deprecated
   public static final AttributeKey<String> USER_AGENT_ORIGINAL = stringKey("user_agent.original");
 
   /**
@@ -1083,7 +1165,7 @@ public final class SemanticAttributes {
    *       example proxies, if it's available.
    * </ul>
    */
-  public static final AttributeKey<String> SERVER_ADDRESS = stringKey("server.address");
+  @Deprecated public static final AttributeKey<String> SERVER_ADDRESS = stringKey("server.address");
 
   /**
    * Server port number.
@@ -1096,12 +1178,13 @@ public final class SemanticAttributes {
    *       example proxies, if it's available.
    * </ul>
    */
-  public static final AttributeKey<Long> SERVER_PORT = longKey("server.port");
+  @Deprecated public static final AttributeKey<Long> SERVER_PORT = longKey("server.port");
 
   /** A unique id to identify a session. */
-  public static final AttributeKey<String> SESSION_ID = stringKey("session.id");
+  @Deprecated public static final AttributeKey<String> SESSION_ID = stringKey("session.id");
 
   /** The previous {@code session.id} for this user, when known. */
+  @Deprecated
   public static final AttributeKey<String> SESSION_PREVIOUS_ID = stringKey("session.previous_id");
 
   /**
@@ -1116,10 +1199,10 @@ public final class SemanticAttributes {
    *       example proxies, if it's available.
    * </ul>
    */
-  public static final AttributeKey<String> SOURCE_ADDRESS = stringKey("source.address");
+  @Deprecated public static final AttributeKey<String> SOURCE_ADDRESS = stringKey("source.address");
 
   /** Source port number */
-  public static final AttributeKey<Long> SOURCE_PORT = longKey("source.port");
+  @Deprecated public static final AttributeKey<Long> SOURCE_PORT = longKey("source.port");
 
   /**
    * The full invoked ARN as provided on the {@code Context} passed to the function ({@code
@@ -1132,6 +1215,7 @@ public final class SemanticAttributes {
    *   <li>This may be different from {@code cloud.resource_id} if an alias is involved.
    * </ul>
    */
+  @Deprecated
   public static final AttributeKey<String> AWS_LAMBDA_INVOKED_ARN =
       stringKey("aws.lambda.invoked_arn");
 
@@ -1140,6 +1224,7 @@ public final class SemanticAttributes {
    * href="https://github.com/cloudevents/spec/blob/v1.0.2/cloudevents/spec.md#id">event_id</a>
    * uniquely identifies the event.
    */
+  @Deprecated
   public static final AttributeKey<String> CLOUDEVENTS_EVENT_ID = stringKey("cloudevents.event_id");
 
   /**
@@ -1147,6 +1232,7 @@ public final class SemanticAttributes {
    * href="https://github.com/cloudevents/spec/blob/v1.0.2/cloudevents/spec.md#source-1">source</a>
    * identifies the context in which an event happened.
    */
+  @Deprecated
   public static final AttributeKey<String> CLOUDEVENTS_EVENT_SOURCE =
       stringKey("cloudevents.event_source");
 
@@ -1155,6 +1241,7 @@ public final class SemanticAttributes {
    * href="https://github.com/cloudevents/spec/blob/v1.0.2/cloudevents/spec.md#specversion">version
    * of the CloudEvents specification</a> which the event uses.
    */
+  @Deprecated
   public static final AttributeKey<String> CLOUDEVENTS_EVENT_SPEC_VERSION =
       stringKey("cloudevents.event_spec_version");
 
@@ -1163,6 +1250,7 @@ public final class SemanticAttributes {
    * href="https://github.com/cloudevents/spec/blob/v1.0.2/cloudevents/spec.md#subject">subject</a>
    * of the event in the context of the event producer (identified by source).
    */
+  @Deprecated
   public static final AttributeKey<String> CLOUDEVENTS_EVENT_SUBJECT =
       stringKey("cloudevents.event_subject");
 
@@ -1171,6 +1259,7 @@ public final class SemanticAttributes {
    * href="https://github.com/cloudevents/spec/blob/v1.0.2/cloudevents/spec.md#type">event_type</a>
    * contains a value describing the type of event related to the originating occurrence.
    */
+  @Deprecated
   public static final AttributeKey<String> CLOUDEVENTS_EVENT_TYPE =
       stringKey("cloudevents.event_type");
 
@@ -1183,12 +1272,14 @@ public final class SemanticAttributes {
    *   <li>The causal relationship between a child Span and a parent Span.
    * </ul>
    */
+  @Deprecated
   public static final AttributeKey<String> OPENTRACING_REF_TYPE = stringKey("opentracing.ref_type");
 
   /**
    * The connection string used to connect to the database. It is recommended to remove embedded
    * credentials.
    */
+  @Deprecated
   public static final AttributeKey<String> DB_CONNECTION_STRING = stringKey("db.connection_string");
 
   /**
@@ -1196,6 +1287,7 @@ public final class SemanticAttributes {
    * href="https://docs.oracle.com/javase/8/docs/technotes/guides/jdbc/">Java Database Connectivity
    * (JDBC)</a> driver used to connect.
    */
+  @Deprecated
   public static final AttributeKey<String> DB_JDBC_DRIVER_CLASSNAME =
       stringKey("db.jdbc.driver_classname");
 
@@ -1212,7 +1304,7 @@ public final class SemanticAttributes {
    *       (e.g. Oracle schema name).
    * </ul>
    */
-  public static final AttributeKey<String> DB_NAME = stringKey("db.name");
+  @Deprecated public static final AttributeKey<String> DB_NAME = stringKey("db.name");
 
   /**
    * The name of the operation being executed, e.g. the <a
@@ -1228,19 +1320,19 @@ public final class SemanticAttributes {
    *       ambiguous operation, or performs more than one operation, this value may be omitted.
    * </ul>
    */
-  public static final AttributeKey<String> DB_OPERATION = stringKey("db.operation");
+  @Deprecated public static final AttributeKey<String> DB_OPERATION = stringKey("db.operation");
 
   /** The database statement being executed. */
-  public static final AttributeKey<String> DB_STATEMENT = stringKey("db.statement");
+  @Deprecated public static final AttributeKey<String> DB_STATEMENT = stringKey("db.statement");
 
   /**
    * An identifier for the database management system (DBMS) product being used. See below for a
    * list of well-known identifiers.
    */
-  public static final AttributeKey<String> DB_SYSTEM = stringKey("db.system");
+  @Deprecated public static final AttributeKey<String> DB_SYSTEM = stringKey("db.system");
 
   /** Username for accessing the database. */
-  public static final AttributeKey<String> DB_USER = stringKey("db.user");
+  @Deprecated public static final AttributeKey<String> DB_USER = stringKey("db.user");
 
   /**
    * The Microsoft SQL Server <a
@@ -1254,6 +1346,7 @@ public final class SemanticAttributes {
    *       (but still recommended if non-standard).
    * </ul>
    */
+  @Deprecated
   public static final AttributeKey<String> DB_MSSQL_INSTANCE_NAME =
       stringKey("db.mssql.instance_name");
 
@@ -1261,28 +1354,34 @@ public final class SemanticAttributes {
    * The consistency level of the query. Based on consistency values from <a
    * href="https://docs.datastax.com/en/cassandra-oss/3.0/cassandra/dml/dmlConfigConsistency.html">CQL</a>.
    */
+  @Deprecated
   public static final AttributeKey<String> DB_CASSANDRA_CONSISTENCY_LEVEL =
       stringKey("db.cassandra.consistency_level");
 
   /** The data center of the coordinating node for a query. */
+  @Deprecated
   public static final AttributeKey<String> DB_CASSANDRA_COORDINATOR_DC =
       stringKey("db.cassandra.coordinator.dc");
 
   /** The ID of the coordinating node for a query. */
+  @Deprecated
   public static final AttributeKey<String> DB_CASSANDRA_COORDINATOR_ID =
       stringKey("db.cassandra.coordinator.id");
 
   /** Whether or not the query is idempotent. */
+  @Deprecated
   public static final AttributeKey<Boolean> DB_CASSANDRA_IDEMPOTENCE =
       booleanKey("db.cassandra.idempotence");
 
   /** The fetch size used for paging, i.e. how many rows will be returned at once. */
+  @Deprecated
   public static final AttributeKey<Long> DB_CASSANDRA_PAGE_SIZE = longKey("db.cassandra.page_size");
 
   /**
    * The number of times a query was speculatively executed. Not set or {@code 0} if the query was
    * not executed speculatively.
    */
+  @Deprecated
   public static final AttributeKey<Long> DB_CASSANDRA_SPECULATIVE_EXECUTION_COUNT =
       longKey("db.cassandra.speculative_execution_count");
 
@@ -1300,6 +1399,7 @@ public final class SemanticAttributes {
    *       MUST NOT be set.
    * </ul>
    */
+  @Deprecated
   public static final AttributeKey<String> DB_CASSANDRA_TABLE = stringKey("db.cassandra.table");
 
   /**
@@ -1307,20 +1407,24 @@ public final class SemanticAttributes {
    * href="https://redis.io/commands/select">{@code SELECT} command</a>, provided as an integer. To
    * be used instead of the generic {@code db.name} attribute.
    */
+  @Deprecated
   public static final AttributeKey<Long> DB_REDIS_DATABASE_INDEX =
       longKey("db.redis.database_index");
 
   /** The collection being accessed within the database stated in {@code db.name}. */
+  @Deprecated
   public static final AttributeKey<String> DB_MONGODB_COLLECTION =
       stringKey("db.mongodb.collection");
 
   /** Represents the identifier of an Elasticsearch cluster. */
+  @Deprecated
   public static final AttributeKey<String> DB_ELASTICSEARCH_CLUSTER_NAME =
       stringKey("db.elasticsearch.cluster.name");
 
   /**
    * Represents the human-readable identifier of the node/instance to which a request was routed.
    */
+  @Deprecated
   public static final AttributeKey<String> DB_ELASTICSEARCH_NODE_NAME =
       stringKey("db.elasticsearch.node.name");
 
@@ -1337,37 +1441,45 @@ public final class SemanticAttributes {
    *       this value MUST NOT be set.
    * </ul>
    */
-  public static final AttributeKey<String> DB_SQL_TABLE = stringKey("db.sql.table");
+  @Deprecated public static final AttributeKey<String> DB_SQL_TABLE = stringKey("db.sql.table");
 
   /** Unique Cosmos client instance id. */
+  @Deprecated
   public static final AttributeKey<String> DB_COSMOSDB_CLIENT_ID =
       stringKey("db.cosmosdb.client_id");
 
   /** Cosmos client connection mode. */
+  @Deprecated
   public static final AttributeKey<String> DB_COSMOSDB_CONNECTION_MODE =
       stringKey("db.cosmosdb.connection_mode");
 
   /** Cosmos DB container name. */
+  @Deprecated
   public static final AttributeKey<String> DB_COSMOSDB_CONTAINER =
       stringKey("db.cosmosdb.container");
 
   /** CosmosDB Operation Type. */
+  @Deprecated
   public static final AttributeKey<String> DB_COSMOSDB_OPERATION_TYPE =
       stringKey("db.cosmosdb.operation_type");
 
   /** RU consumed for that operation */
+  @Deprecated
   public static final AttributeKey<Double> DB_COSMOSDB_REQUEST_CHARGE =
       doubleKey("db.cosmosdb.request_charge");
 
   /** Request payload size in bytes */
+  @Deprecated
   public static final AttributeKey<Long> DB_COSMOSDB_REQUEST_CONTENT_LENGTH =
       longKey("db.cosmosdb.request_content_length");
 
   /** Cosmos DB status code. */
+  @Deprecated
   public static final AttributeKey<Long> DB_COSMOSDB_STATUS_CODE =
       longKey("db.cosmosdb.status_code");
 
   /** Cosmos DB sub status code. */
+  @Deprecated
   public static final AttributeKey<Long> DB_COSMOSDB_SUB_STATUS_CODE =
       longKey("db.cosmosdb.sub_status_code");
 
@@ -1375,19 +1487,23 @@ public final class SemanticAttributes {
    * Name of the code, either &quot;OK&quot; or &quot;ERROR&quot;. MUST NOT be set if the status
    * code is UNSET.
    */
+  @Deprecated
   public static final AttributeKey<String> OTEL_STATUS_CODE = stringKey("otel.status_code");
 
   /** Description of the Status if it has a value, otherwise not set. */
+  @Deprecated
   public static final AttributeKey<String> OTEL_STATUS_DESCRIPTION =
       stringKey("otel.status_description");
 
   /** The invocation ID of the current function invocation. */
+  @Deprecated
   public static final AttributeKey<String> FAAS_INVOCATION_ID = stringKey("faas.invocation_id");
 
   /**
    * The name of the source on which the triggering operation was performed. For example, in Cloud
    * Storage or S3 corresponds to the bucket name, and in Cosmos DB to the database name.
    */
+  @Deprecated
   public static final AttributeKey<String> FAAS_DOCUMENT_COLLECTION =
       stringKey("faas.document.collection");
 
@@ -1395,9 +1511,11 @@ public final class SemanticAttributes {
    * The document name/table subjected to the operation. For example, in Cloud Storage or S3 is the
    * name of the file, and in Cosmos DB the table name.
    */
+  @Deprecated
   public static final AttributeKey<String> FAAS_DOCUMENT_NAME = stringKey("faas.document.name");
 
   /** Describes the type of the operation that was performed on the data. */
+  @Deprecated
   public static final AttributeKey<String> FAAS_DOCUMENT_OPERATION =
       stringKey("faas.document.operation");
 
@@ -1406,6 +1524,7 @@ public final class SemanticAttributes {
    * href="https://www.iso.org/iso-8601-date-and-time-format.html">ISO 8601</a> format expressed in
    * <a href="https://www.w3.org/TR/NOTE-datetime">UTC</a>.
    */
+  @Deprecated
   public static final AttributeKey<String> FAAS_DOCUMENT_TIME = stringKey("faas.document.time");
 
   /**
@@ -1413,25 +1532,28 @@ public final class SemanticAttributes {
    * href="https://docs.oracle.com/cd/E12058_01/doc/doc.1014/e12030/cron_expressions.htm">Cron
    * Expression</a>.
    */
-  public static final AttributeKey<String> FAAS_CRON = stringKey("faas.cron");
+  @Deprecated public static final AttributeKey<String> FAAS_CRON = stringKey("faas.cron");
 
   /**
    * A string containing the function invocation time in the <a
    * href="https://www.iso.org/iso-8601-date-and-time-format.html">ISO 8601</a> format expressed in
    * <a href="https://www.w3.org/TR/NOTE-datetime">UTC</a>.
    */
-  public static final AttributeKey<String> FAAS_TIME = stringKey("faas.time");
+  @Deprecated public static final AttributeKey<String> FAAS_TIME = stringKey("faas.time");
 
   /**
    * A boolean that is true if the serverless function is executed for the first time (aka
    * cold-start).
    */
+  @Deprecated
   public static final AttributeKey<Boolean> FAAS_COLDSTART = booleanKey("faas.coldstart");
 
   /** The unique identifier of the feature flag. */
+  @Deprecated
   public static final AttributeKey<String> FEATURE_FLAG_KEY = stringKey("feature_flag.key");
 
   /** The name of the service provider that performs the flag evaluation. */
+  @Deprecated
   public static final AttributeKey<String> FEATURE_FLAG_PROVIDER_NAME =
       stringKey("feature_flag.provider_name");
 
@@ -1451,91 +1573,113 @@ public final class SemanticAttributes {
    *       implementer.
    * </ul>
    */
+  @Deprecated
   public static final AttributeKey<String> FEATURE_FLAG_VARIANT = stringKey("feature_flag.variant");
 
   /**
    * The AWS request ID as returned in the response headers {@code x-amz-request-id} or {@code
    * x-amz-requestid}.
    */
-  public static final AttributeKey<String> AWS_REQUEST_ID = stringKey("aws.request_id");
+  @Deprecated public static final AttributeKey<String> AWS_REQUEST_ID = stringKey("aws.request_id");
 
   /** The value of the {@code AttributesToGet} request parameter. */
+  @Deprecated
   public static final AttributeKey<List<String>> AWS_DYNAMODB_ATTRIBUTES_TO_GET =
       stringArrayKey("aws.dynamodb.attributes_to_get");
 
   /** The value of the {@code ConsistentRead} request parameter. */
+  @Deprecated
   public static final AttributeKey<Boolean> AWS_DYNAMODB_CONSISTENT_READ =
       booleanKey("aws.dynamodb.consistent_read");
 
   /** The JSON-serialized value of each item in the {@code ConsumedCapacity} response field. */
+  @Deprecated
   public static final AttributeKey<List<String>> AWS_DYNAMODB_CONSUMED_CAPACITY =
       stringArrayKey("aws.dynamodb.consumed_capacity");
 
   /** The value of the {@code IndexName} request parameter. */
+  @Deprecated
   public static final AttributeKey<String> AWS_DYNAMODB_INDEX_NAME =
       stringKey("aws.dynamodb.index_name");
 
   /** The JSON-serialized value of the {@code ItemCollectionMetrics} response field. */
+  @Deprecated
   public static final AttributeKey<String> AWS_DYNAMODB_ITEM_COLLECTION_METRICS =
       stringKey("aws.dynamodb.item_collection_metrics");
 
   /** The value of the {@code Limit} request parameter. */
+  @Deprecated
   public static final AttributeKey<Long> AWS_DYNAMODB_LIMIT = longKey("aws.dynamodb.limit");
 
   /** The value of the {@code ProjectionExpression} request parameter. */
+  @Deprecated
   public static final AttributeKey<String> AWS_DYNAMODB_PROJECTION =
       stringKey("aws.dynamodb.projection");
 
   /** The value of the {@code ProvisionedThroughput.ReadCapacityUnits} request parameter. */
+  @Deprecated
   public static final AttributeKey<Double> AWS_DYNAMODB_PROVISIONED_READ_CAPACITY =
       doubleKey("aws.dynamodb.provisioned_read_capacity");
 
   /** The value of the {@code ProvisionedThroughput.WriteCapacityUnits} request parameter. */
+  @Deprecated
   public static final AttributeKey<Double> AWS_DYNAMODB_PROVISIONED_WRITE_CAPACITY =
       doubleKey("aws.dynamodb.provisioned_write_capacity");
 
   /** The value of the {@code Select} request parameter. */
+  @Deprecated
   public static final AttributeKey<String> AWS_DYNAMODB_SELECT = stringKey("aws.dynamodb.select");
 
   /** The keys in the {@code RequestItems} object field. */
+  @Deprecated
   public static final AttributeKey<List<String>> AWS_DYNAMODB_TABLE_NAMES =
       stringArrayKey("aws.dynamodb.table_names");
 
   /** The JSON-serialized value of each item of the {@code GlobalSecondaryIndexes} request field */
+  @Deprecated
   public static final AttributeKey<List<String>> AWS_DYNAMODB_GLOBAL_SECONDARY_INDEXES =
       stringArrayKey("aws.dynamodb.global_secondary_indexes");
 
   /** The JSON-serialized value of each item of the {@code LocalSecondaryIndexes} request field. */
+  @Deprecated
   public static final AttributeKey<List<String>> AWS_DYNAMODB_LOCAL_SECONDARY_INDEXES =
       stringArrayKey("aws.dynamodb.local_secondary_indexes");
 
   /** The value of the {@code ExclusiveStartTableName} request parameter. */
+  @Deprecated
   public static final AttributeKey<String> AWS_DYNAMODB_EXCLUSIVE_START_TABLE =
       stringKey("aws.dynamodb.exclusive_start_table");
 
   /** The the number of items in the {@code TableNames} response parameter. */
+  @Deprecated
   public static final AttributeKey<Long> AWS_DYNAMODB_TABLE_COUNT =
       longKey("aws.dynamodb.table_count");
 
   /** The value of the {@code ScanIndexForward} request parameter. */
+  @Deprecated
   public static final AttributeKey<Boolean> AWS_DYNAMODB_SCAN_FORWARD =
       booleanKey("aws.dynamodb.scan_forward");
 
   /** The value of the {@code Count} response parameter. */
+  @Deprecated
   public static final AttributeKey<Long> AWS_DYNAMODB_COUNT = longKey("aws.dynamodb.count");
 
   /** The value of the {@code ScannedCount} response parameter. */
+  @Deprecated
   public static final AttributeKey<Long> AWS_DYNAMODB_SCANNED_COUNT =
       longKey("aws.dynamodb.scanned_count");
 
   /** The value of the {@code Segment} request parameter. */
+  @Deprecated
   public static final AttributeKey<Long> AWS_DYNAMODB_SEGMENT = longKey("aws.dynamodb.segment");
 
   /** The value of the {@code TotalSegments} request parameter. */
+  @Deprecated
   public static final AttributeKey<Long> AWS_DYNAMODB_TOTAL_SEGMENTS =
       longKey("aws.dynamodb.total_segments");
 
   /** The JSON-serialized value of each item in the {@code AttributeDefinitions} request field. */
+  @Deprecated
   public static final AttributeKey<List<String>> AWS_DYNAMODB_ATTRIBUTE_DEFINITIONS =
       stringArrayKey("aws.dynamodb.attribute_definitions");
 
@@ -1543,6 +1687,7 @@ public final class SemanticAttributes {
    * The JSON-serialized value of each item in the the {@code GlobalSecondaryIndexUpdates} request
    * field.
    */
+  @Deprecated
   public static final AttributeKey<List<String>> AWS_DYNAMODB_GLOBAL_SECONDARY_INDEX_UPDATES =
       stringArrayKey("aws.dynamodb.global_secondary_index_updates");
 
@@ -1559,7 +1704,7 @@ public final class SemanticAttributes {
    *       operations except {@code list-buckets}.
    * </ul>
    */
-  public static final AttributeKey<String> AWS_S3_BUCKET = stringKey("aws.s3.bucket");
+  @Deprecated public static final AttributeKey<String> AWS_S3_BUCKET = stringKey("aws.s3.bucket");
 
   /**
    * The source object (in the form {@code bucket}/{@code key}) for the copy operation.
@@ -1577,6 +1722,7 @@ public final class SemanticAttributes {
    *       href="https://docs.aws.amazon.com/cli/latest/reference/s3api/upload-part-copy.html">upload-part-copy</a>
    * </ul>
    */
+  @Deprecated
   public static final AttributeKey<String> AWS_S3_COPY_SOURCE = stringKey("aws.s3.copy_source");
 
   /**
@@ -1593,7 +1739,7 @@ public final class SemanticAttributes {
    *       operation within the S3 API</a>.
    * </ul>
    */
-  public static final AttributeKey<String> AWS_S3_DELETE = stringKey("aws.s3.delete");
+  @Deprecated public static final AttributeKey<String> AWS_S3_DELETE = stringKey("aws.s3.delete");
 
   /**
    * The S3 object key the request refers to. Corresponds to the {@code --key} parameter of the <a
@@ -1633,7 +1779,7 @@ public final class SemanticAttributes {
    *       href="https://docs.aws.amazon.com/cli/latest/reference/s3api/upload-part-copy.html">upload-part-copy</a>
    * </ul>
    */
-  public static final AttributeKey<String> AWS_S3_KEY = stringKey("aws.s3.key");
+  @Deprecated public static final AttributeKey<String> AWS_S3_KEY = stringKey("aws.s3.key");
 
   /**
    * The part number of the part being uploaded in a multipart-upload operation. This is a positive
@@ -1652,6 +1798,7 @@ public final class SemanticAttributes {
    *       operation within the S3 API</a>.
    * </ul>
    */
+  @Deprecated
   public static final AttributeKey<Long> AWS_S3_PART_NUMBER = longKey("aws.s3.part_number");
 
   /**
@@ -1676,6 +1823,7 @@ public final class SemanticAttributes {
    *       href="https://docs.aws.amazon.com/cli/latest/reference/s3api/upload-part-copy.html">upload-part-copy</a>
    * </ul>
    */
+  @Deprecated
   public static final AttributeKey<String> AWS_S3_UPLOAD_ID = stringKey("aws.s3.upload_id");
 
   /**
@@ -1687,17 +1835,21 @@ public final class SemanticAttributes {
    *   <li>The value may be sanitized to exclude sensitive information.
    * </ul>
    */
+  @Deprecated
   public static final AttributeKey<String> GRAPHQL_DOCUMENT = stringKey("graphql.document");
 
   /** The name of the operation being executed. */
+  @Deprecated
   public static final AttributeKey<String> GRAPHQL_OPERATION_NAME =
       stringKey("graphql.operation.name");
 
   /** The type of the operation being executed. */
+  @Deprecated
   public static final AttributeKey<String> GRAPHQL_OPERATION_TYPE =
       stringKey("graphql.operation.type");
 
   /** Compressed size of the message in bytes. */
+  @Deprecated
   public static final AttributeKey<Long> MESSAGE_COMPRESSED_SIZE =
       longKey("message.compressed_size");
 
@@ -1712,12 +1864,13 @@ public final class SemanticAttributes {
    *       implementations.
    * </ul>
    */
-  public static final AttributeKey<Long> MESSAGE_ID = longKey("message.id");
+  @Deprecated public static final AttributeKey<Long> MESSAGE_ID = longKey("message.id");
 
   /** Whether this is a received or sent message. */
-  public static final AttributeKey<String> MESSAGE_TYPE = stringKey("message.type");
+  @Deprecated public static final AttributeKey<String> MESSAGE_TYPE = stringKey("message.type");
 
   /** Uncompressed size of the message in bytes. */
+  @Deprecated
   public static final AttributeKey<Long> MESSAGE_UNCOMPRESSED_SIZE =
       longKey("message.uncompressed_size");
 
@@ -1742,6 +1895,7 @@ public final class SemanticAttributes {
    *       recorded at a time where it was not clear whether the exception will escape.
    * </ul>
    */
+  @Deprecated
   public static final AttributeKey<Boolean> EXCEPTION_ESCAPED = booleanKey("exception.escaped");
 
   /**
@@ -1761,6 +1915,7 @@ public final class SemanticAttributes {
    *       library provides access to headers.
    * </ul>
    */
+  @Deprecated
   public static final AttributeKeyTemplate<List<String>> HTTP_REQUEST_HEADER =
       stringArrayKeyTemplate("http.request.header");
 
@@ -1780,6 +1935,7 @@ public final class SemanticAttributes {
    *       library provides access to headers.
    * </ul>
    */
+  @Deprecated
   public static final AttributeKeyTemplate<List<String>> HTTP_RESPONSE_HEADER =
       stringArrayKeyTemplate("http.response.header");
 
@@ -1795,6 +1951,7 @@ public final class SemanticAttributes {
    *       configuration helps avoid leaking sensitive information.
    * </ul>
    */
+  @Deprecated
   public static final AttributeKeyTemplate<List<String>> RPC_CONNECT_RPC_REQUEST_METADATA =
       stringArrayKeyTemplate("rpc.connect_rpc.request.metadata");
 
@@ -1810,6 +1967,7 @@ public final class SemanticAttributes {
    *       configuration helps avoid leaking sensitive information.
    * </ul>
    */
+  @Deprecated
   public static final AttributeKeyTemplate<List<String>> RPC_CONNECT_RPC_RESPONSE_METADATA =
       stringArrayKeyTemplate("rpc.connect_rpc.response.metadata");
 
@@ -1825,6 +1983,7 @@ public final class SemanticAttributes {
    *       configuration helps avoid leaking sensitive information.
    * </ul>
    */
+  @Deprecated
   public static final AttributeKeyTemplate<List<String>> RPC_GRPC_REQUEST_METADATA =
       stringArrayKeyTemplate("rpc.grpc.request.metadata");
 
@@ -1840,6 +1999,7 @@ public final class SemanticAttributes {
    *       configuration helps avoid leaking sensitive information.
    * </ul>
    */
+  @Deprecated
   public static final AttributeKeyTemplate<List<String>> RPC_GRPC_RESPONSE_METADATA =
       stringArrayKeyTemplate("rpc.grpc.response.metadata");
 
@@ -1856,221 +2016,234 @@ public final class SemanticAttributes {
    *       schema</a> in order to map the path part values to their names.
    * </ul>
    */
+  @Deprecated
   public static final AttributeKeyTemplate<String> DB_ELASTICSEARCH_PATH_PARTS =
       stringKeyTemplate("db.elasticsearch.path_parts");
 
   // Enum definitions
+  @Deprecated
   public static final class ErrorTypeValues {
     /**
      * A fallback error value to be used when the instrumentation doesn&#39;t define a custom value.
      */
-    public static final String OTHER = "_OTHER";
+    @Deprecated public static final String OTHER = "_OTHER";
 
     private ErrorTypeValues() {}
   }
 
+  @Deprecated
   public static final class FaasInvokedProviderValues {
     /** Alibaba Cloud. */
-    public static final String ALIBABA_CLOUD = "alibaba_cloud";
+    @Deprecated public static final String ALIBABA_CLOUD = "alibaba_cloud";
 
     /** Amazon Web Services. */
-    public static final String AWS = "aws";
+    @Deprecated public static final String AWS = "aws";
 
     /** Microsoft Azure. */
-    public static final String AZURE = "azure";
+    @Deprecated public static final String AZURE = "azure";
 
     /** Google Cloud Platform. */
-    public static final String GCP = "gcp";
+    @Deprecated public static final String GCP = "gcp";
 
     /** Tencent Cloud. */
-    public static final String TENCENT_CLOUD = "tencent_cloud";
+    @Deprecated public static final String TENCENT_CLOUD = "tencent_cloud";
 
     private FaasInvokedProviderValues() {}
   }
 
+  @Deprecated
   public static final class FaasTriggerValues {
     /** A response to some data source operation such as a database or filesystem read/write. */
-    public static final String DATASOURCE = "datasource";
+    @Deprecated public static final String DATASOURCE = "datasource";
 
     /** To provide an answer to an inbound HTTP request. */
-    public static final String HTTP = "http";
+    @Deprecated public static final String HTTP = "http";
 
     /** A function is set to be executed when messages are sent to a messaging system. */
-    public static final String PUBSUB = "pubsub";
+    @Deprecated public static final String PUBSUB = "pubsub";
 
     /** A function is scheduled to be executed regularly. */
-    public static final String TIMER = "timer";
+    @Deprecated public static final String TIMER = "timer";
 
     /** If none of the others apply. */
-    public static final String OTHER = "other";
+    @Deprecated public static final String OTHER = "other";
 
     private FaasTriggerValues() {}
   }
 
+  @Deprecated
   public static final class EventDomainValues {
     /** Events from browser apps. */
-    public static final String BROWSER = "browser";
+    @Deprecated public static final String BROWSER = "browser";
 
     /** Events from mobile apps. */
-    public static final String DEVICE = "device";
+    @Deprecated public static final String DEVICE = "device";
 
     /** Events from Kubernetes. */
-    public static final String K8S = "k8s";
+    @Deprecated public static final String K8S = "k8s";
 
     private EventDomainValues() {}
   }
 
+  @Deprecated
   public static final class LogIostreamValues {
     /** Logs from stdout stream. */
-    public static final String STDOUT = "stdout";
+    @Deprecated public static final String STDOUT = "stdout";
 
     /** Events from stderr stream. */
-    public static final String STDERR = "stderr";
+    @Deprecated public static final String STDERR = "stderr";
 
     private LogIostreamValues() {}
   }
 
+  @Deprecated
   public static final class IosStateValues {
     /**
      * The app has become `active`. Associated with UIKit notification `applicationDidBecomeActive`.
      */
-    public static final String ACTIVE = "active";
+    @Deprecated public static final String ACTIVE = "active";
 
     /**
      * The app is now `inactive`. Associated with UIKit notification `applicationWillResignActive`.
      */
-    public static final String INACTIVE = "inactive";
+    @Deprecated public static final String INACTIVE = "inactive";
 
     /**
      * The app is now in the background. This value is associated with UIKit notification
      * `applicationDidEnterBackground`.
      */
-    public static final String BACKGROUND = "background";
+    @Deprecated public static final String BACKGROUND = "background";
 
     /**
      * The app is now in the foreground. This value is associated with UIKit notification
      * `applicationWillEnterForeground`.
      */
-    public static final String FOREGROUND = "foreground";
+    @Deprecated public static final String FOREGROUND = "foreground";
 
     /**
      * The app is about to terminate. Associated with UIKit notification `applicationWillTerminate`.
      */
-    public static final String TERMINATE = "terminate";
+    @Deprecated public static final String TERMINATE = "terminate";
 
     private IosStateValues() {}
   }
 
+  @Deprecated
   public static final class AndroidStateValues {
     /**
      * Any time before Activity.onResume() or, if the app has no Activity, Context.startService()
      * has been called in the app for the first time.
      */
-    public static final String CREATED = "created";
+    @Deprecated public static final String CREATED = "created";
 
     /**
      * Any time after Activity.onPause() or, if the app has no Activity, Context.stopService() has
      * been called when the app was in the foreground state.
      */
-    public static final String BACKGROUND = "background";
+    @Deprecated public static final String BACKGROUND = "background";
 
     /**
      * Any time after Activity.onResume() or, if the app has no Activity, Context.startService() has
      * been called when the app was in either the created or background states.
      */
-    public static final String FOREGROUND = "foreground";
+    @Deprecated public static final String FOREGROUND = "foreground";
 
     private AndroidStateValues() {}
   }
 
+  @Deprecated
   public static final class StateValues {
     /** idle. */
-    public static final String IDLE = "idle";
+    @Deprecated public static final String IDLE = "idle";
 
     /** used. */
-    public static final String USED = "used";
+    @Deprecated public static final String USED = "used";
 
     private StateValues() {}
   }
 
+  @Deprecated
   public static final class JvmMemoryTypeValues {
     /** Heap memory. */
-    public static final String HEAP = "heap";
+    @Deprecated public static final String HEAP = "heap";
 
     /** Non-heap memory. */
-    public static final String NON_HEAP = "non_heap";
+    @Deprecated public static final String NON_HEAP = "non_heap";
 
     private JvmMemoryTypeValues() {}
   }
 
+  @Deprecated
   public static final class JvmThreadStateValues {
     /** A thread that has not yet started is in this state. */
-    public static final String NEW = "new";
+    @Deprecated public static final String NEW = "new";
 
     /** A thread executing in the Java virtual machine is in this state. */
-    public static final String RUNNABLE = "runnable";
+    @Deprecated public static final String RUNNABLE = "runnable";
 
     /** A thread that is blocked waiting for a monitor lock is in this state. */
-    public static final String BLOCKED = "blocked";
+    @Deprecated public static final String BLOCKED = "blocked";
 
     /**
      * A thread that is waiting indefinitely for another thread to perform a particular action is in
      * this state.
      */
-    public static final String WAITING = "waiting";
+    @Deprecated public static final String WAITING = "waiting";
 
     /**
      * A thread that is waiting for another thread to perform an action for up to a specified
      * waiting time is in this state.
      */
-    public static final String TIMED_WAITING = "timed_waiting";
+    @Deprecated public static final String TIMED_WAITING = "timed_waiting";
 
     /** A thread that has exited is in this state. */
-    public static final String TERMINATED = "terminated";
+    @Deprecated public static final String TERMINATED = "terminated";
 
     private JvmThreadStateValues() {}
   }
 
+  @Deprecated
   public static final class SystemCpuStateValues {
     /** user. */
-    public static final String USER = "user";
+    @Deprecated public static final String USER = "user";
 
     /** system. */
-    public static final String SYSTEM = "system";
+    @Deprecated public static final String SYSTEM = "system";
 
     /** nice. */
-    public static final String NICE = "nice";
+    @Deprecated public static final String NICE = "nice";
 
     /** idle. */
-    public static final String IDLE = "idle";
+    @Deprecated public static final String IDLE = "idle";
 
     /** iowait. */
-    public static final String IOWAIT = "iowait";
+    @Deprecated public static final String IOWAIT = "iowait";
 
     /** interrupt. */
-    public static final String INTERRUPT = "interrupt";
+    @Deprecated public static final String INTERRUPT = "interrupt";
 
     /** steal. */
-    public static final String STEAL = "steal";
+    @Deprecated public static final String STEAL = "steal";
 
     private SystemCpuStateValues() {}
   }
 
+  @Deprecated
   public static final class SystemMemoryStateValues {
     /** used. */
-    public static final String USED = "used";
+    @Deprecated public static final String USED = "used";
 
     /** free. */
-    public static final String FREE = "free";
+    @Deprecated public static final String FREE = "free";
 
     /** shared. */
-    public static final String SHARED = "shared";
+    @Deprecated public static final String SHARED = "shared";
 
     /** buffers. */
-    public static final String BUFFERS = "buffers";
+    @Deprecated public static final String BUFFERS = "buffers";
 
     /** cached. */
-    public static final String CACHED = "cached";
+    @Deprecated public static final String CACHED = "cached";
 
     /**
      * total.
@@ -2082,238 +2255,251 @@ public final class SemanticAttributes {
     private SystemMemoryStateValues() {}
   }
 
+  @Deprecated
   public static final class SystemPagingDirectionValues {
     /** in. */
-    public static final String IN = "in";
+    @Deprecated public static final String IN = "in";
 
     /** out. */
-    public static final String OUT = "out";
+    @Deprecated public static final String OUT = "out";
 
     private SystemPagingDirectionValues() {}
   }
 
+  @Deprecated
   public static final class SystemPagingStateValues {
     /** used. */
-    public static final String USED = "used";
+    @Deprecated public static final String USED = "used";
 
     /** free. */
-    public static final String FREE = "free";
+    @Deprecated public static final String FREE = "free";
 
     private SystemPagingStateValues() {}
   }
 
+  @Deprecated
   public static final class SystemPagingTypeValues {
     /** major. */
-    public static final String MAJOR = "major";
+    @Deprecated public static final String MAJOR = "major";
 
     /** minor. */
-    public static final String MINOR = "minor";
+    @Deprecated public static final String MINOR = "minor";
 
     private SystemPagingTypeValues() {}
   }
 
+  @Deprecated
   public static final class SystemDiskDirectionValues {
     /** read. */
-    public static final String READ = "read";
+    @Deprecated public static final String READ = "read";
 
     /** write. */
-    public static final String WRITE = "write";
+    @Deprecated public static final String WRITE = "write";
 
     private SystemDiskDirectionValues() {}
   }
 
+  @Deprecated
   public static final class SystemFilesystemStateValues {
     /** used. */
-    public static final String USED = "used";
+    @Deprecated public static final String USED = "used";
 
     /** free. */
-    public static final String FREE = "free";
+    @Deprecated public static final String FREE = "free";
 
     /** reserved. */
-    public static final String RESERVED = "reserved";
+    @Deprecated public static final String RESERVED = "reserved";
 
     private SystemFilesystemStateValues() {}
   }
 
+  @Deprecated
   public static final class SystemFilesystemTypeValues {
     /** fat32. */
-    public static final String FAT32 = "fat32";
+    @Deprecated public static final String FAT32 = "fat32";
 
     /** exfat. */
-    public static final String EXFAT = "exfat";
+    @Deprecated public static final String EXFAT = "exfat";
 
     /** ntfs. */
-    public static final String NTFS = "ntfs";
+    @Deprecated public static final String NTFS = "ntfs";
 
     /** refs. */
-    public static final String REFS = "refs";
+    @Deprecated public static final String REFS = "refs";
 
     /** hfsplus. */
-    public static final String HFSPLUS = "hfsplus";
+    @Deprecated public static final String HFSPLUS = "hfsplus";
 
     /** ext4. */
-    public static final String EXT4 = "ext4";
+    @Deprecated public static final String EXT4 = "ext4";
 
     private SystemFilesystemTypeValues() {}
   }
 
+  @Deprecated
   public static final class SystemNetworkDirectionValues {
     /** transmit. */
-    public static final String TRANSMIT = "transmit";
+    @Deprecated public static final String TRANSMIT = "transmit";
 
     /** receive. */
-    public static final String RECEIVE = "receive";
+    @Deprecated public static final String RECEIVE = "receive";
 
     private SystemNetworkDirectionValues() {}
   }
 
+  @Deprecated
   public static final class SystemNetworkStateValues {
     /** close. */
-    public static final String CLOSE = "close";
+    @Deprecated public static final String CLOSE = "close";
 
     /** close_wait. */
-    public static final String CLOSE_WAIT = "close_wait";
+    @Deprecated public static final String CLOSE_WAIT = "close_wait";
 
     /** closing. */
-    public static final String CLOSING = "closing";
+    @Deprecated public static final String CLOSING = "closing";
 
     /** delete. */
-    public static final String DELETE = "delete";
+    @Deprecated public static final String DELETE = "delete";
 
     /** established. */
-    public static final String ESTABLISHED = "established";
+    @Deprecated public static final String ESTABLISHED = "established";
 
     /** fin_wait_1. */
-    public static final String FIN_WAIT_1 = "fin_wait_1";
+    @Deprecated public static final String FIN_WAIT_1 = "fin_wait_1";
 
     /** fin_wait_2. */
-    public static final String FIN_WAIT_2 = "fin_wait_2";
+    @Deprecated public static final String FIN_WAIT_2 = "fin_wait_2";
 
     /** last_ack. */
-    public static final String LAST_ACK = "last_ack";
+    @Deprecated public static final String LAST_ACK = "last_ack";
 
     /** listen. */
-    public static final String LISTEN = "listen";
+    @Deprecated public static final String LISTEN = "listen";
 
     /** syn_recv. */
-    public static final String SYN_RECV = "syn_recv";
+    @Deprecated public static final String SYN_RECV = "syn_recv";
 
     /** syn_sent. */
-    public static final String SYN_SENT = "syn_sent";
+    @Deprecated public static final String SYN_SENT = "syn_sent";
 
     /** time_wait. */
-    public static final String TIME_WAIT = "time_wait";
+    @Deprecated public static final String TIME_WAIT = "time_wait";
 
     private SystemNetworkStateValues() {}
   }
 
+  @Deprecated
   public static final class SystemProcessesStatusValues {
     /** running. */
-    public static final String RUNNING = "running";
+    @Deprecated public static final String RUNNING = "running";
 
     /** sleeping. */
-    public static final String SLEEPING = "sleeping";
+    @Deprecated public static final String SLEEPING = "sleeping";
 
     /** stopped. */
-    public static final String STOPPED = "stopped";
+    @Deprecated public static final String STOPPED = "stopped";
 
     /** defunct. */
-    public static final String DEFUNCT = "defunct";
+    @Deprecated public static final String DEFUNCT = "defunct";
 
     private SystemProcessesStatusValues() {}
   }
 
+  @Deprecated
   public static final class NetSockFamilyValues {
     /** IPv4 address. */
-    public static final String INET = "inet";
+    @Deprecated public static final String INET = "inet";
 
     /** IPv6 address. */
-    public static final String INET6 = "inet6";
+    @Deprecated public static final String INET6 = "inet6";
 
     /** Unix domain socket path. */
-    public static final String UNIX = "unix";
+    @Deprecated public static final String UNIX = "unix";
 
     private NetSockFamilyValues() {}
   }
 
+  @Deprecated
   public static final class NetTransportValues {
     /** ip_tcp. */
-    public static final String IP_TCP = "ip_tcp";
+    @Deprecated public static final String IP_TCP = "ip_tcp";
 
     /** ip_udp. */
-    public static final String IP_UDP = "ip_udp";
+    @Deprecated public static final String IP_UDP = "ip_udp";
 
     /** Named or anonymous pipe. */
-    public static final String PIPE = "pipe";
+    @Deprecated public static final String PIPE = "pipe";
 
     /** In-process communication. */
-    public static final String INPROC = "inproc";
+    @Deprecated public static final String INPROC = "inproc";
 
     /** Something else (non IP-based). */
-    public static final String OTHER = "other";
+    @Deprecated public static final String OTHER = "other";
 
     private NetTransportValues() {}
   }
 
+  @Deprecated
   public static final class HttpRequestMethodValues {
     /** CONNECT method. */
-    public static final String CONNECT = "CONNECT";
+    @Deprecated public static final String CONNECT = "CONNECT";
 
     /** DELETE method. */
-    public static final String DELETE = "DELETE";
+    @Deprecated public static final String DELETE = "DELETE";
 
     /** GET method. */
-    public static final String GET = "GET";
+    @Deprecated public static final String GET = "GET";
 
     /** HEAD method. */
-    public static final String HEAD = "HEAD";
+    @Deprecated public static final String HEAD = "HEAD";
 
     /** OPTIONS method. */
-    public static final String OPTIONS = "OPTIONS";
+    @Deprecated public static final String OPTIONS = "OPTIONS";
 
     /** PATCH method. */
-    public static final String PATCH = "PATCH";
+    @Deprecated public static final String PATCH = "PATCH";
 
     /** POST method. */
-    public static final String POST = "POST";
+    @Deprecated public static final String POST = "POST";
 
     /** PUT method. */
-    public static final String PUT = "PUT";
+    @Deprecated public static final String PUT = "PUT";
 
     /** TRACE method. */
-    public static final String TRACE = "TRACE";
+    @Deprecated public static final String TRACE = "TRACE";
 
     /** Any HTTP method that the instrumentation has no prior knowledge of. */
-    public static final String OTHER = "_OTHER";
+    @Deprecated public static final String OTHER = "_OTHER";
 
     private HttpRequestMethodValues() {}
   }
 
+  @Deprecated
   public static final class MessagingOperationValues {
     /**
      * One or more messages are provided for publishing to an intermediary. If a single message is
      * published, the context of the &#34;Publish&#34; span can be used as the creation context and
      * no &#34;Create&#34; span needs to be created.
      */
-    public static final String PUBLISH = "publish";
+    @Deprecated public static final String PUBLISH = "publish";
 
     /**
      * A message is created. &#34;Create&#34; spans always refer to a single message and are used to
      * provide a unique creation context for messages in batch publishing scenarios.
      */
-    public static final String CREATE = "create";
+    @Deprecated public static final String CREATE = "create";
 
     /**
      * One or more messages are requested by a consumer. This operation refers to pull-based
      * scenarios, where consumers explicitly call methods of messaging SDKs to receive messages.
      */
-    public static final String RECEIVE = "receive";
+    @Deprecated public static final String RECEIVE = "receive";
 
     /**
      * One or more messages are passed to a consumer. This operation refers to push-based scenarios,
      * where consumer register callbacks which get called by messaging SDKs.
      */
-    public static final String DELIVER = "deliver";
+    @Deprecated public static final String DELIVER = "deliver";
 
     /**
      * process.
@@ -2325,581 +2511,599 @@ public final class SemanticAttributes {
     private MessagingOperationValues() {}
   }
 
+  @Deprecated
   public static final class MessagingRocketmqConsumptionModelValues {
     /** Clustering consumption model. */
-    public static final String CLUSTERING = "clustering";
+    @Deprecated public static final String CLUSTERING = "clustering";
 
     /** Broadcasting consumption model. */
-    public static final String BROADCASTING = "broadcasting";
+    @Deprecated public static final String BROADCASTING = "broadcasting";
 
     private MessagingRocketmqConsumptionModelValues() {}
   }
 
+  @Deprecated
   public static final class MessagingRocketmqMessageTypeValues {
     /** Normal message. */
-    public static final String NORMAL = "normal";
+    @Deprecated public static final String NORMAL = "normal";
 
     /** FIFO message. */
-    public static final String FIFO = "fifo";
+    @Deprecated public static final String FIFO = "fifo";
 
     /** Delay message. */
-    public static final String DELAY = "delay";
+    @Deprecated public static final String DELAY = "delay";
 
     /** Transaction message. */
-    public static final String TRANSACTION = "transaction";
+    @Deprecated public static final String TRANSACTION = "transaction";
 
     private MessagingRocketmqMessageTypeValues() {}
   }
 
+  @Deprecated
   public static final class NetworkConnectionSubtypeValues {
     /** GPRS. */
-    public static final String GPRS = "gprs";
+    @Deprecated public static final String GPRS = "gprs";
 
     /** EDGE. */
-    public static final String EDGE = "edge";
+    @Deprecated public static final String EDGE = "edge";
 
     /** UMTS. */
-    public static final String UMTS = "umts";
+    @Deprecated public static final String UMTS = "umts";
 
     /** CDMA. */
-    public static final String CDMA = "cdma";
+    @Deprecated public static final String CDMA = "cdma";
 
     /** EVDO Rel. 0. */
-    public static final String EVDO_0 = "evdo_0";
+    @Deprecated public static final String EVDO_0 = "evdo_0";
 
     /** EVDO Rev. A. */
-    public static final String EVDO_A = "evdo_a";
+    @Deprecated public static final String EVDO_A = "evdo_a";
 
     /** CDMA2000 1XRTT. */
-    public static final String CDMA2000_1XRTT = "cdma2000_1xrtt";
+    @Deprecated public static final String CDMA2000_1XRTT = "cdma2000_1xrtt";
 
     /** HSDPA. */
-    public static final String HSDPA = "hsdpa";
+    @Deprecated public static final String HSDPA = "hsdpa";
 
     /** HSUPA. */
-    public static final String HSUPA = "hsupa";
+    @Deprecated public static final String HSUPA = "hsupa";
 
     /** HSPA. */
-    public static final String HSPA = "hspa";
+    @Deprecated public static final String HSPA = "hspa";
 
     /** IDEN. */
-    public static final String IDEN = "iden";
+    @Deprecated public static final String IDEN = "iden";
 
     /** EVDO Rev. B. */
-    public static final String EVDO_B = "evdo_b";
+    @Deprecated public static final String EVDO_B = "evdo_b";
 
     /** LTE. */
-    public static final String LTE = "lte";
+    @Deprecated public static final String LTE = "lte";
 
     /** EHRPD. */
-    public static final String EHRPD = "ehrpd";
+    @Deprecated public static final String EHRPD = "ehrpd";
 
     /** HSPAP. */
-    public static final String HSPAP = "hspap";
+    @Deprecated public static final String HSPAP = "hspap";
 
     /** GSM. */
-    public static final String GSM = "gsm";
+    @Deprecated public static final String GSM = "gsm";
 
     /** TD-SCDMA. */
-    public static final String TD_SCDMA = "td_scdma";
+    @Deprecated public static final String TD_SCDMA = "td_scdma";
 
     /** IWLAN. */
-    public static final String IWLAN = "iwlan";
+    @Deprecated public static final String IWLAN = "iwlan";
 
     /** 5G NR (New Radio). */
-    public static final String NR = "nr";
+    @Deprecated public static final String NR = "nr";
 
     /** 5G NRNSA (New Radio Non-Standalone). */
-    public static final String NRNSA = "nrnsa";
+    @Deprecated public static final String NRNSA = "nrnsa";
 
     /** LTE CA. */
-    public static final String LTE_CA = "lte_ca";
+    @Deprecated public static final String LTE_CA = "lte_ca";
 
     private NetworkConnectionSubtypeValues() {}
   }
 
+  @Deprecated
   public static final class NetworkConnectionTypeValues {
     /** wifi. */
-    public static final String WIFI = "wifi";
+    @Deprecated public static final String WIFI = "wifi";
 
     /** wired. */
-    public static final String WIRED = "wired";
+    @Deprecated public static final String WIRED = "wired";
 
     /** cell. */
-    public static final String CELL = "cell";
+    @Deprecated public static final String CELL = "cell";
 
     /** unavailable. */
-    public static final String UNAVAILABLE = "unavailable";
+    @Deprecated public static final String UNAVAILABLE = "unavailable";
 
     /** unknown. */
-    public static final String UNKNOWN = "unknown";
+    @Deprecated public static final String UNKNOWN = "unknown";
 
     private NetworkConnectionTypeValues() {}
   }
 
+  @Deprecated
   public static final class NetworkTransportValues {
     /** TCP. */
-    public static final String TCP = "tcp";
+    @Deprecated public static final String TCP = "tcp";
 
     /** UDP. */
-    public static final String UDP = "udp";
+    @Deprecated public static final String UDP = "udp";
 
     /** Named or anonymous pipe. */
-    public static final String PIPE = "pipe";
+    @Deprecated public static final String PIPE = "pipe";
 
     /** Unix domain socket. */
-    public static final String UNIX = "unix";
+    @Deprecated public static final String UNIX = "unix";
 
     private NetworkTransportValues() {}
   }
 
+  @Deprecated
   public static final class NetworkTypeValues {
     /** IPv4. */
-    public static final String IPV4 = "ipv4";
+    @Deprecated public static final String IPV4 = "ipv4";
 
     /** IPv6. */
-    public static final String IPV6 = "ipv6";
+    @Deprecated public static final String IPV6 = "ipv6";
 
     private NetworkTypeValues() {}
   }
 
+  @Deprecated
   public static final class RpcConnectRpcErrorCodeValues {
     /** cancelled. */
-    public static final String CANCELLED = "cancelled";
+    @Deprecated public static final String CANCELLED = "cancelled";
 
     /** unknown. */
-    public static final String UNKNOWN = "unknown";
+    @Deprecated public static final String UNKNOWN = "unknown";
 
     /** invalid_argument. */
-    public static final String INVALID_ARGUMENT = "invalid_argument";
+    @Deprecated public static final String INVALID_ARGUMENT = "invalid_argument";
 
     /** deadline_exceeded. */
-    public static final String DEADLINE_EXCEEDED = "deadline_exceeded";
+    @Deprecated public static final String DEADLINE_EXCEEDED = "deadline_exceeded";
 
     /** not_found. */
-    public static final String NOT_FOUND = "not_found";
+    @Deprecated public static final String NOT_FOUND = "not_found";
 
     /** already_exists. */
-    public static final String ALREADY_EXISTS = "already_exists";
+    @Deprecated public static final String ALREADY_EXISTS = "already_exists";
 
     /** permission_denied. */
-    public static final String PERMISSION_DENIED = "permission_denied";
+    @Deprecated public static final String PERMISSION_DENIED = "permission_denied";
 
     /** resource_exhausted. */
-    public static final String RESOURCE_EXHAUSTED = "resource_exhausted";
+    @Deprecated public static final String RESOURCE_EXHAUSTED = "resource_exhausted";
 
     /** failed_precondition. */
-    public static final String FAILED_PRECONDITION = "failed_precondition";
+    @Deprecated public static final String FAILED_PRECONDITION = "failed_precondition";
 
     /** aborted. */
-    public static final String ABORTED = "aborted";
+    @Deprecated public static final String ABORTED = "aborted";
 
     /** out_of_range. */
-    public static final String OUT_OF_RANGE = "out_of_range";
+    @Deprecated public static final String OUT_OF_RANGE = "out_of_range";
 
     /** unimplemented. */
-    public static final String UNIMPLEMENTED = "unimplemented";
+    @Deprecated public static final String UNIMPLEMENTED = "unimplemented";
 
     /** internal. */
-    public static final String INTERNAL = "internal";
+    @Deprecated public static final String INTERNAL = "internal";
 
     /** unavailable. */
-    public static final String UNAVAILABLE = "unavailable";
+    @Deprecated public static final String UNAVAILABLE = "unavailable";
 
     /** data_loss. */
-    public static final String DATA_LOSS = "data_loss";
+    @Deprecated public static final String DATA_LOSS = "data_loss";
 
     /** unauthenticated. */
-    public static final String UNAUTHENTICATED = "unauthenticated";
+    @Deprecated public static final String UNAUTHENTICATED = "unauthenticated";
 
     private RpcConnectRpcErrorCodeValues() {}
   }
 
+  @Deprecated
   public static final class RpcGrpcStatusCodeValues {
     /** OK. */
-    public static final long OK = 0;
+    @Deprecated public static final long OK = 0;
 
     /** CANCELLED. */
-    public static final long CANCELLED = 1;
+    @Deprecated public static final long CANCELLED = 1;
 
     /** UNKNOWN. */
-    public static final long UNKNOWN = 2;
+    @Deprecated public static final long UNKNOWN = 2;
 
     /** INVALID_ARGUMENT. */
-    public static final long INVALID_ARGUMENT = 3;
+    @Deprecated public static final long INVALID_ARGUMENT = 3;
 
     /** DEADLINE_EXCEEDED. */
-    public static final long DEADLINE_EXCEEDED = 4;
+    @Deprecated public static final long DEADLINE_EXCEEDED = 4;
 
     /** NOT_FOUND. */
-    public static final long NOT_FOUND = 5;
+    @Deprecated public static final long NOT_FOUND = 5;
 
     /** ALREADY_EXISTS. */
-    public static final long ALREADY_EXISTS = 6;
+    @Deprecated public static final long ALREADY_EXISTS = 6;
 
     /** PERMISSION_DENIED. */
-    public static final long PERMISSION_DENIED = 7;
+    @Deprecated public static final long PERMISSION_DENIED = 7;
 
     /** RESOURCE_EXHAUSTED. */
-    public static final long RESOURCE_EXHAUSTED = 8;
+    @Deprecated public static final long RESOURCE_EXHAUSTED = 8;
 
     /** FAILED_PRECONDITION. */
-    public static final long FAILED_PRECONDITION = 9;
+    @Deprecated public static final long FAILED_PRECONDITION = 9;
 
     /** ABORTED. */
-    public static final long ABORTED = 10;
+    @Deprecated public static final long ABORTED = 10;
 
     /** OUT_OF_RANGE. */
-    public static final long OUT_OF_RANGE = 11;
+    @Deprecated public static final long OUT_OF_RANGE = 11;
 
     /** UNIMPLEMENTED. */
-    public static final long UNIMPLEMENTED = 12;
+    @Deprecated public static final long UNIMPLEMENTED = 12;
 
     /** INTERNAL. */
-    public static final long INTERNAL = 13;
+    @Deprecated public static final long INTERNAL = 13;
 
     /** UNAVAILABLE. */
-    public static final long UNAVAILABLE = 14;
+    @Deprecated public static final long UNAVAILABLE = 14;
 
     /** DATA_LOSS. */
-    public static final long DATA_LOSS = 15;
+    @Deprecated public static final long DATA_LOSS = 15;
 
     /** UNAUTHENTICATED. */
-    public static final long UNAUTHENTICATED = 16;
+    @Deprecated public static final long UNAUTHENTICATED = 16;
 
     private RpcGrpcStatusCodeValues() {}
   }
 
+  @Deprecated
   public static final class RpcSystemValues {
     /** gRPC. */
-    public static final String GRPC = "grpc";
+    @Deprecated public static final String GRPC = "grpc";
 
     /** Java RMI. */
-    public static final String JAVA_RMI = "java_rmi";
+    @Deprecated public static final String JAVA_RMI = "java_rmi";
 
     /** .NET WCF. */
-    public static final String DOTNET_WCF = "dotnet_wcf";
+    @Deprecated public static final String DOTNET_WCF = "dotnet_wcf";
 
     /** Apache Dubbo. */
-    public static final String APACHE_DUBBO = "apache_dubbo";
+    @Deprecated public static final String APACHE_DUBBO = "apache_dubbo";
 
     /** Connect RPC. */
-    public static final String CONNECT_RPC = "connect_rpc";
+    @Deprecated public static final String CONNECT_RPC = "connect_rpc";
 
     private RpcSystemValues() {}
   }
 
+  @Deprecated
   public static final class OpentracingRefTypeValues {
     /** The parent Span depends on the child Span in some capacity. */
-    public static final String CHILD_OF = "child_of";
+    @Deprecated public static final String CHILD_OF = "child_of";
 
     /** The parent Span doesn&#39;t depend in any way on the result of the child Span. */
-    public static final String FOLLOWS_FROM = "follows_from";
+    @Deprecated public static final String FOLLOWS_FROM = "follows_from";
 
     private OpentracingRefTypeValues() {}
   }
 
+  @Deprecated
   public static final class DbSystemValues {
     /** Some other SQL database. Fallback only. See notes. */
-    public static final String OTHER_SQL = "other_sql";
+    @Deprecated public static final String OTHER_SQL = "other_sql";
 
     /** Microsoft SQL Server. */
-    public static final String MSSQL = "mssql";
+    @Deprecated public static final String MSSQL = "mssql";
 
     /** Microsoft SQL Server Compact. */
-    public static final String MSSQLCOMPACT = "mssqlcompact";
+    @Deprecated public static final String MSSQLCOMPACT = "mssqlcompact";
 
     /** MySQL. */
-    public static final String MYSQL = "mysql";
+    @Deprecated public static final String MYSQL = "mysql";
 
     /** Oracle Database. */
-    public static final String ORACLE = "oracle";
+    @Deprecated public static final String ORACLE = "oracle";
 
     /** IBM Db2. */
-    public static final String DB2 = "db2";
+    @Deprecated public static final String DB2 = "db2";
 
     /** PostgreSQL. */
-    public static final String POSTGRESQL = "postgresql";
+    @Deprecated public static final String POSTGRESQL = "postgresql";
 
     /** Amazon Redshift. */
-    public static final String REDSHIFT = "redshift";
+    @Deprecated public static final String REDSHIFT = "redshift";
 
     /** Apache Hive. */
-    public static final String HIVE = "hive";
+    @Deprecated public static final String HIVE = "hive";
 
     /** Cloudscape. */
-    public static final String CLOUDSCAPE = "cloudscape";
+    @Deprecated public static final String CLOUDSCAPE = "cloudscape";
 
     /** HyperSQL DataBase. */
-    public static final String HSQLDB = "hsqldb";
+    @Deprecated public static final String HSQLDB = "hsqldb";
 
     /** Progress Database. */
-    public static final String PROGRESS = "progress";
+    @Deprecated public static final String PROGRESS = "progress";
 
     /** SAP MaxDB. */
-    public static final String MAXDB = "maxdb";
+    @Deprecated public static final String MAXDB = "maxdb";
 
     /** SAP HANA. */
-    public static final String HANADB = "hanadb";
+    @Deprecated public static final String HANADB = "hanadb";
 
     /** Ingres. */
-    public static final String INGRES = "ingres";
+    @Deprecated public static final String INGRES = "ingres";
 
     /** FirstSQL. */
-    public static final String FIRSTSQL = "firstsql";
+    @Deprecated public static final String FIRSTSQL = "firstsql";
 
     /** EnterpriseDB. */
-    public static final String EDB = "edb";
+    @Deprecated public static final String EDB = "edb";
 
     /** InterSystems Caché. */
-    public static final String CACHE = "cache";
+    @Deprecated public static final String CACHE = "cache";
 
     /** Adabas (Adaptable Database System). */
-    public static final String ADABAS = "adabas";
+    @Deprecated public static final String ADABAS = "adabas";
 
     /** Firebird. */
-    public static final String FIREBIRD = "firebird";
+    @Deprecated public static final String FIREBIRD = "firebird";
 
     /** Apache Derby. */
-    public static final String DERBY = "derby";
+    @Deprecated public static final String DERBY = "derby";
 
     /** FileMaker. */
-    public static final String FILEMAKER = "filemaker";
+    @Deprecated public static final String FILEMAKER = "filemaker";
 
     /** Informix. */
-    public static final String INFORMIX = "informix";
+    @Deprecated public static final String INFORMIX = "informix";
 
     /** InstantDB. */
-    public static final String INSTANTDB = "instantdb";
+    @Deprecated public static final String INSTANTDB = "instantdb";
 
     /** InterBase. */
-    public static final String INTERBASE = "interbase";
+    @Deprecated public static final String INTERBASE = "interbase";
 
     /** MariaDB. */
-    public static final String MARIADB = "mariadb";
+    @Deprecated public static final String MARIADB = "mariadb";
 
     /** Netezza. */
-    public static final String NETEZZA = "netezza";
+    @Deprecated public static final String NETEZZA = "netezza";
 
     /** Pervasive PSQL. */
-    public static final String PERVASIVE = "pervasive";
+    @Deprecated public static final String PERVASIVE = "pervasive";
 
     /** PointBase. */
-    public static final String POINTBASE = "pointbase";
+    @Deprecated public static final String POINTBASE = "pointbase";
 
     /** SQLite. */
-    public static final String SQLITE = "sqlite";
+    @Deprecated public static final String SQLITE = "sqlite";
 
     /** Sybase. */
-    public static final String SYBASE = "sybase";
+    @Deprecated public static final String SYBASE = "sybase";
 
     /** Teradata. */
-    public static final String TERADATA = "teradata";
+    @Deprecated public static final String TERADATA = "teradata";
 
     /** Vertica. */
-    public static final String VERTICA = "vertica";
+    @Deprecated public static final String VERTICA = "vertica";
 
     /** H2. */
-    public static final String H2 = "h2";
+    @Deprecated public static final String H2 = "h2";
 
     /** ColdFusion IMQ. */
-    public static final String COLDFUSION = "coldfusion";
+    @Deprecated public static final String COLDFUSION = "coldfusion";
 
     /** Apache Cassandra. */
-    public static final String CASSANDRA = "cassandra";
+    @Deprecated public static final String CASSANDRA = "cassandra";
 
     /** Apache HBase. */
-    public static final String HBASE = "hbase";
+    @Deprecated public static final String HBASE = "hbase";
 
     /** MongoDB. */
-    public static final String MONGODB = "mongodb";
+    @Deprecated public static final String MONGODB = "mongodb";
 
     /** Redis. */
-    public static final String REDIS = "redis";
+    @Deprecated public static final String REDIS = "redis";
 
     /** Couchbase. */
-    public static final String COUCHBASE = "couchbase";
+    @Deprecated public static final String COUCHBASE = "couchbase";
 
     /** CouchDB. */
-    public static final String COUCHDB = "couchdb";
+    @Deprecated public static final String COUCHDB = "couchdb";
 
     /** Microsoft Azure Cosmos DB. */
-    public static final String COSMOSDB = "cosmosdb";
+    @Deprecated public static final String COSMOSDB = "cosmosdb";
 
     /** Amazon DynamoDB. */
-    public static final String DYNAMODB = "dynamodb";
+    @Deprecated public static final String DYNAMODB = "dynamodb";
 
     /** Neo4j. */
-    public static final String NEO4J = "neo4j";
+    @Deprecated public static final String NEO4J = "neo4j";
 
     /** Apache Geode. */
-    public static final String GEODE = "geode";
+    @Deprecated public static final String GEODE = "geode";
 
     /** Elasticsearch. */
-    public static final String ELASTICSEARCH = "elasticsearch";
+    @Deprecated public static final String ELASTICSEARCH = "elasticsearch";
 
     /** Memcached. */
-    public static final String MEMCACHED = "memcached";
+    @Deprecated public static final String MEMCACHED = "memcached";
 
     /** CockroachDB. */
-    public static final String COCKROACHDB = "cockroachdb";
+    @Deprecated public static final String COCKROACHDB = "cockroachdb";
 
     /** OpenSearch. */
-    public static final String OPENSEARCH = "opensearch";
+    @Deprecated public static final String OPENSEARCH = "opensearch";
 
     /** ClickHouse. */
-    public static final String CLICKHOUSE = "clickhouse";
+    @Deprecated public static final String CLICKHOUSE = "clickhouse";
 
     /** Cloud Spanner. */
-    public static final String SPANNER = "spanner";
+    @Deprecated public static final String SPANNER = "spanner";
 
     /** Trino. */
-    public static final String TRINO = "trino";
+    @Deprecated public static final String TRINO = "trino";
 
     private DbSystemValues() {}
   }
 
+  @Deprecated
   public static final class DbCassandraConsistencyLevelValues {
     /** all. */
-    public static final String ALL = "all";
+    @Deprecated public static final String ALL = "all";
 
     /** each_quorum. */
-    public static final String EACH_QUORUM = "each_quorum";
+    @Deprecated public static final String EACH_QUORUM = "each_quorum";
 
     /** quorum. */
-    public static final String QUORUM = "quorum";
+    @Deprecated public static final String QUORUM = "quorum";
 
     /** local_quorum. */
-    public static final String LOCAL_QUORUM = "local_quorum";
+    @Deprecated public static final String LOCAL_QUORUM = "local_quorum";
 
     /** one. */
-    public static final String ONE = "one";
+    @Deprecated public static final String ONE = "one";
 
     /** two. */
-    public static final String TWO = "two";
+    @Deprecated public static final String TWO = "two";
 
     /** three. */
-    public static final String THREE = "three";
+    @Deprecated public static final String THREE = "three";
 
     /** local_one. */
-    public static final String LOCAL_ONE = "local_one";
+    @Deprecated public static final String LOCAL_ONE = "local_one";
 
     /** any. */
-    public static final String ANY = "any";
+    @Deprecated public static final String ANY = "any";
 
     /** serial. */
-    public static final String SERIAL = "serial";
+    @Deprecated public static final String SERIAL = "serial";
 
     /** local_serial. */
-    public static final String LOCAL_SERIAL = "local_serial";
+    @Deprecated public static final String LOCAL_SERIAL = "local_serial";
 
     private DbCassandraConsistencyLevelValues() {}
   }
 
+  @Deprecated
   public static final class DbCosmosdbConnectionModeValues {
     /** Gateway (HTTP) connections mode. */
-    public static final String GATEWAY = "gateway";
+    @Deprecated public static final String GATEWAY = "gateway";
 
     /** Direct connection. */
-    public static final String DIRECT = "direct";
+    @Deprecated public static final String DIRECT = "direct";
 
     private DbCosmosdbConnectionModeValues() {}
   }
 
+  @Deprecated
   public static final class DbCosmosdbOperationTypeValues {
     /** invalid. */
-    public static final String INVALID = "Invalid";
+    @Deprecated public static final String INVALID = "Invalid";
 
     /** create. */
-    public static final String CREATE = "Create";
+    @Deprecated public static final String CREATE = "Create";
 
     /** patch. */
-    public static final String PATCH = "Patch";
+    @Deprecated public static final String PATCH = "Patch";
 
     /** read. */
-    public static final String READ = "Read";
+    @Deprecated public static final String READ = "Read";
 
     /** read_feed. */
-    public static final String READ_FEED = "ReadFeed";
+    @Deprecated public static final String READ_FEED = "ReadFeed";
 
     /** delete. */
-    public static final String DELETE = "Delete";
+    @Deprecated public static final String DELETE = "Delete";
 
     /** replace. */
-    public static final String REPLACE = "Replace";
+    @Deprecated public static final String REPLACE = "Replace";
 
     /** execute. */
-    public static final String EXECUTE = "Execute";
+    @Deprecated public static final String EXECUTE = "Execute";
 
     /** query. */
-    public static final String QUERY = "Query";
+    @Deprecated public static final String QUERY = "Query";
 
     /** head. */
-    public static final String HEAD = "Head";
+    @Deprecated public static final String HEAD = "Head";
 
     /** head_feed. */
-    public static final String HEAD_FEED = "HeadFeed";
+    @Deprecated public static final String HEAD_FEED = "HeadFeed";
 
     /** upsert. */
-    public static final String UPSERT = "Upsert";
+    @Deprecated public static final String UPSERT = "Upsert";
 
     /** batch. */
-    public static final String BATCH = "Batch";
+    @Deprecated public static final String BATCH = "Batch";
 
     /** query_plan. */
-    public static final String QUERY_PLAN = "QueryPlan";
+    @Deprecated public static final String QUERY_PLAN = "QueryPlan";
 
     /** execute_javascript. */
-    public static final String EXECUTE_JAVASCRIPT = "ExecuteJavaScript";
+    @Deprecated public static final String EXECUTE_JAVASCRIPT = "ExecuteJavaScript";
 
     private DbCosmosdbOperationTypeValues() {}
   }
 
+  @Deprecated
   public static final class OtelStatusCodeValues {
     /**
      * The operation has been validated by an Application developer or Operator to have completed
      * successfully.
      */
-    public static final String OK = "OK";
+    @Deprecated public static final String OK = "OK";
 
     /** The operation contains an error. */
-    public static final String ERROR = "ERROR";
+    @Deprecated public static final String ERROR = "ERROR";
 
     private OtelStatusCodeValues() {}
   }
 
+  @Deprecated
   public static final class FaasDocumentOperationValues {
     /** When a new object is created. */
-    public static final String INSERT = "insert";
+    @Deprecated public static final String INSERT = "insert";
 
     /** When an object is modified. */
-    public static final String EDIT = "edit";
+    @Deprecated public static final String EDIT = "edit";
 
     /** When an object is deleted. */
-    public static final String DELETE = "delete";
+    @Deprecated public static final String DELETE = "delete";
 
     private FaasDocumentOperationValues() {}
   }
 
+  @Deprecated
   public static final class GraphqlOperationTypeValues {
     /** GraphQL query. */
-    public static final String QUERY = "query";
+    @Deprecated public static final String QUERY = "query";
 
     /** GraphQL mutation. */
-    public static final String MUTATION = "mutation";
+    @Deprecated public static final String MUTATION = "mutation";
 
     /** GraphQL subscription. */
-    public static final String SUBSCRIPTION = "subscription";
+    @Deprecated public static final String SUBSCRIPTION = "subscription";
 
     private GraphqlOperationTypeValues() {}
   }
 
+  @Deprecated
   public static final class MessageTypeValues {
     /** sent. */
-    public static final String SENT = "SENT";
+    @Deprecated public static final String SENT = "SENT";
 
     /** received. */
-    public static final String RECEIVED = "RECEIVED";
+    @Deprecated public static final String RECEIVED = "RECEIVED";
 
     private MessageTypeValues() {}
   }
@@ -2911,7 +3115,7 @@ public final class SemanticAttributes {
    * <p>Typically an event with that name should not be manually created. Instead {@link
    * io.opentelemetry.api.trace.Span#recordException(Throwable)} should be used.
    */
-  public static final String EXCEPTION_EVENT_NAME = "exception";
+  @Deprecated public static final String EXCEPTION_EVENT_NAME = "exception";
 
   /**
    * The name of the keyspace being accessed.
@@ -3161,22 +3365,22 @@ public final class SemanticAttributes {
   @Deprecated
   public static final class HttpFlavorValues {
     /** HTTP/1.0. */
-    public static final String HTTP_1_0 = "1.0";
+    @Deprecated public static final String HTTP_1_0 = "1.0";
 
     /** HTTP/1.1. */
-    public static final String HTTP_1_1 = "1.1";
+    @Deprecated public static final String HTTP_1_1 = "1.1";
 
     /** HTTP/2. */
-    public static final String HTTP_2_0 = "2.0";
+    @Deprecated public static final String HTTP_2_0 = "2.0";
 
     /** HTTP/3. */
-    public static final String HTTP_3_0 = "3.0";
+    @Deprecated public static final String HTTP_3_0 = "3.0";
 
     /** SPDY protocol. */
-    public static final String SPDY = "SPDY";
+    @Deprecated public static final String SPDY = "SPDY";
 
     /** QUIC protocol. */
-    public static final String QUIC = "QUIC";
+    @Deprecated public static final String QUIC = "QUIC";
 
     private HttpFlavorValues() {}
   }
@@ -3227,10 +3431,10 @@ public final class SemanticAttributes {
   @Deprecated
   public static final class MessagingDestinationKindValues {
     /** A message sent to a queue. */
-    public static final String QUEUE = "queue";
+    @Deprecated public static final String QUEUE = "queue";
 
     /** A message sent to a topic. */
-    public static final String TOPIC = "topic";
+    @Deprecated public static final String TOPIC = "topic";
 
     private MessagingDestinationKindValues() {}
   }
@@ -3252,10 +3456,10 @@ public final class SemanticAttributes {
   @Deprecated
   public static final class MessagingSourceKindValues {
     /** A message received from a queue. */
-    public static final String QUEUE = "queue";
+    @Deprecated public static final String QUEUE = "queue";
 
     /** A message received from a topic. */
-    public static final String TOPIC = "topic";
+    @Deprecated public static final String TOPIC = "topic";
 
     private MessagingSourceKindValues() {}
   }
@@ -3447,19 +3651,19 @@ public final class SemanticAttributes {
   @Deprecated
   public static final class NetHostConnectionTypeValues {
     /** wifi. */
-    public static final String WIFI = "wifi";
+    @Deprecated public static final String WIFI = "wifi";
 
     /** wired. */
-    public static final String WIRED = "wired";
+    @Deprecated public static final String WIRED = "wired";
 
     /** cell. */
-    public static final String CELL = "cell";
+    @Deprecated public static final String CELL = "cell";
 
     /** unavailable. */
-    public static final String UNAVAILABLE = "unavailable";
+    @Deprecated public static final String UNAVAILABLE = "unavailable";
 
     /** unknown. */
-    public static final String UNKNOWN = "unknown";
+    @Deprecated public static final String UNKNOWN = "unknown";
 
     private NetHostConnectionTypeValues() {}
   }
@@ -3473,67 +3677,67 @@ public final class SemanticAttributes {
   @Deprecated
   public static final class NetHostConnectionSubtypeValues {
     /** GPRS. */
-    public static final String GPRS = "gprs";
+    @Deprecated public static final String GPRS = "gprs";
 
     /** EDGE. */
-    public static final String EDGE = "edge";
+    @Deprecated public static final String EDGE = "edge";
 
     /** UMTS. */
-    public static final String UMTS = "umts";
+    @Deprecated public static final String UMTS = "umts";
 
     /** CDMA. */
-    public static final String CDMA = "cdma";
+    @Deprecated public static final String CDMA = "cdma";
 
     /** EVDO Rel. 0. */
-    public static final String EVDO_0 = "evdo_0";
+    @Deprecated public static final String EVDO_0 = "evdo_0";
 
     /** EVDO Rev. A. */
-    public static final String EVDO_A = "evdo_a";
+    @Deprecated public static final String EVDO_A = "evdo_a";
 
     /** CDMA2000 1XRTT. */
-    public static final String CDMA2000_1XRTT = "cdma2000_1xrtt";
+    @Deprecated public static final String CDMA2000_1XRTT = "cdma2000_1xrtt";
 
     /** HSDPA. */
-    public static final String HSDPA = "hsdpa";
+    @Deprecated public static final String HSDPA = "hsdpa";
 
     /** HSUPA. */
-    public static final String HSUPA = "hsupa";
+    @Deprecated public static final String HSUPA = "hsupa";
 
     /** HSPA. */
-    public static final String HSPA = "hspa";
+    @Deprecated public static final String HSPA = "hspa";
 
     /** IDEN. */
-    public static final String IDEN = "iden";
+    @Deprecated public static final String IDEN = "iden";
 
     /** EVDO Rev. B. */
-    public static final String EVDO_B = "evdo_b";
+    @Deprecated public static final String EVDO_B = "evdo_b";
 
     /** LTE. */
-    public static final String LTE = "lte";
+    @Deprecated public static final String LTE = "lte";
 
     /** EHRPD. */
-    public static final String EHRPD = "ehrpd";
+    @Deprecated public static final String EHRPD = "ehrpd";
 
     /** HSPAP. */
-    public static final String HSPAP = "hspap";
+    @Deprecated public static final String HSPAP = "hspap";
 
     /** GSM. */
-    public static final String GSM = "gsm";
+    @Deprecated public static final String GSM = "gsm";
 
     /** TD-SCDMA. */
-    public static final String TD_SCDMA = "td_scdma";
+    @Deprecated public static final String TD_SCDMA = "td_scdma";
 
     /** IWLAN. */
-    public static final String IWLAN = "iwlan";
+    @Deprecated public static final String IWLAN = "iwlan";
 
     /** 5G NR (New Radio). */
-    public static final String NR = "nr";
+    @Deprecated public static final String NR = "nr";
 
     /** 5G NRNSA (New Radio Non-Standalone). */
-    public static final String NRNSA = "nrnsa";
+    @Deprecated public static final String NRNSA = "nrnsa";
 
     /** LTE CA. */
-    public static final String LTE_CA = "lte_ca";
+    @Deprecated public static final String LTE_CA = "lte_ca";
 
     private NetHostConnectionSubtypeValues() {}
   }
@@ -3669,10 +3873,10 @@ public final class SemanticAttributes {
   @Deprecated
   public static final class TypeValues {
     /** Heap memory. */
-    public static final String HEAP = "heap";
+    @Deprecated public static final String HEAP = "heap";
 
     /** Non-heap memory. */
-    public static final String NON_HEAP = "non_heap";
+    @Deprecated public static final String NON_HEAP = "non_heap";
 
     private TypeValues() {}
   }
