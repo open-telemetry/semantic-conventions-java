@@ -2,6 +2,13 @@
 
 ## Unreleased
 
+* Restore and deprecate the `SemanticAttributes` and `ResourceAttributes` classes removed in 1.23.1
+  for easier upgrades. These will be removed prior to a stable release
+  of `io.opentelemetry.semconv:opentelemetry-semconv`.
+  ([#62](https://github.com/open-telemetry/semantic-conventions-java/pull/62))
+* Update to semantic-conventions 1.25.0
+  ([#61](https://github.com/open-telemetry/semantic-conventions-java/pull/61))
+
 ## Version 1.24.0 (2024-03-27)
 
 **NOTICE:** This release contains a significant restructuring of this repository and the generated
