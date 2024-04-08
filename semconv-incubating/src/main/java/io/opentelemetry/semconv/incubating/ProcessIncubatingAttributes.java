@@ -40,6 +40,16 @@ public final class ProcessIncubatingAttributes {
    */
   public static final AttributeKey<String> PROCESS_COMMAND_LINE = stringKey("process.command_line");
 
+  /** Specifies whether the context switches for this data point were voluntary or involuntary. */
+  public static final AttributeKey<String> PROCESS_CONTEXT_SWITCH_TYPE =
+      stringKey("process.context_switch_type");
+
+  /**
+   * The CPU state for this data point. A process SHOULD be characterized <em>either</em> by data
+   * points with no {@code state} labels, <em>or only</em> data points with {@code state} labels.
+   */
+  public static final AttributeKey<String> PROCESS_CPU_STATE = stringKey("process.cpu.state");
+
   /**
    * The name of the process executable. On Linux based systems, can be set to the {@code Name} in
    * {@code proc/[pid]/status}. On Windows, can be set to the base name of {@code
@@ -58,6 +68,13 @@ public final class ProcessIncubatingAttributes {
 
   /** The username of the user that owns the process. */
   public static final AttributeKey<String> PROCESS_OWNER = stringKey("process.owner");
+
+  /**
+   * The type of page fault for this data point. Type {@code major} is for major/hard page faults,
+   * and {@code minor} is for minor/soft page faults.
+   */
+  public static final AttributeKey<String> PROCESS_PAGING_FAULT_TYPE =
+      stringKey("process.paging.fault_type");
 
   /** Parent Process identifier (PPID). */
   public static final AttributeKey<Long> PROCESS_PARENT_PID = longKey("process.parent_pid");
@@ -83,6 +100,43 @@ public final class ProcessIncubatingAttributes {
    */
   public static final AttributeKey<String> PROCESS_RUNTIME_VERSION =
       stringKey("process.runtime.version");
+
+  // Enum definitions
+  /** Values for {@link #PROCESS_CONTEXT_SWITCH_TYPE}. */
+  public static final class ProcessContextSwitchTypeValues {
+    /** voluntary. */
+    public static final String VOLUNTARY = "voluntary";
+
+    /** involuntary. */
+    public static final String INVOLUNTARY = "involuntary";
+
+    private ProcessContextSwitchTypeValues() {}
+  }
+
+  /** Values for {@link #PROCESS_CPU_STATE}. */
+  public static final class ProcessCpuStateValues {
+    /** system. */
+    public static final String SYSTEM = "system";
+
+    /** user. */
+    public static final String USER = "user";
+
+    /** wait. */
+    public static final String WAIT = "wait";
+
+    private ProcessCpuStateValues() {}
+  }
+
+  /** Values for {@link #PROCESS_PAGING_FAULT_TYPE}. */
+  public static final class ProcessPagingFaultTypeValues {
+    /** major. */
+    public static final String MAJOR = "major";
+
+    /** minor. */
+    public static final String MINOR = "minor";
+
+    private ProcessPagingFaultTypeValues() {}
+  }
 
   private ProcessIncubatingAttributes() {}
 }

@@ -30,13 +30,22 @@ public final class UrlAttributes {
    *       form of {@code https://username:password@www.example.com/}. In such case username and
    *       password SHOULD be redacted and attribute's value SHOULD be {@code
    *       https://REDACTED:REDACTED@www.example.com/}. {@code url.full} SHOULD capture the absolute
-   *       URL when it is available (or can be reconstructed) and SHOULD NOT be validated or
-   *       modified except for sanitizing purposes.
+   *       URL when it is available (or can be reconstructed). Sensitive content provided in {@code
+   *       url.full} SHOULD be scrubbed when instrumentations can identify it.
    * </ul>
    */
   public static final AttributeKey<String> URL_FULL = stringKey("url.full");
 
-  /** The <a href="https://www.rfc-editor.org/rfc/rfc3986#section-3.3">URI path</a> component */
+  /**
+   * The <a href="https://www.rfc-editor.org/rfc/rfc3986#section-3.3">URI path</a> component
+   *
+   * <p>Notes:
+   *
+   * <ul>
+   *   <li>Sensitive content provided in {@code url.path} SHOULD be scrubbed when instrumentations
+   *       can identify it.
+   * </ul>
+   */
   public static final AttributeKey<String> URL_PATH = stringKey("url.path");
 
   /**
@@ -45,8 +54,8 @@ public final class UrlAttributes {
    * <p>Notes:
    *
    * <ul>
-   *   <li>Sensitive content provided in query string SHOULD be scrubbed when instrumentations can
-   *       identify it.
+   *   <li>Sensitive content provided in {@code url.query} SHOULD be scrubbed when instrumentations
+   *       can identify it.
    * </ul>
    */
   public static final AttributeKey<String> URL_QUERY = stringKey("url.query");

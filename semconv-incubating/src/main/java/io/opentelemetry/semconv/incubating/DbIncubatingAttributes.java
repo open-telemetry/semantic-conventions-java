@@ -65,9 +65,11 @@ public final class DbIncubatingAttributes {
   public static final AttributeKey<String> DB_CASSANDRA_TABLE = stringKey("db.cassandra.table");
 
   /**
-   * The connection string used to connect to the database. It is recommended to remove embedded
-   * credentials.
+   * Deprecated, use {@code server.address}, {@code server.port} attributes instead.
+   *
+   * @deprecated Deprecated, use `server.address`, `server.port` attributes instead.
    */
+  @Deprecated
   public static final AttributeKey<String> DB_CONNECTION_STRING = stringKey("db.connection_string");
 
   /** Unique Cosmos client instance id. */
@@ -107,8 +109,11 @@ public final class DbIncubatingAttributes {
       stringKey("db.elasticsearch.cluster.name");
 
   /**
-   * Represents the human-readable identifier of the node/instance to which a request was routed.
+   * Deprecated, use {@code db.instance.id} instead.
+   *
+   * @deprecated Deprecated, use `db.instance.id` instead.
    */
+  @Deprecated
   public static final AttributeKey<String> DB_ELASTICSEARCH_NODE_NAME =
       stringKey("db.elasticsearch.node.name");
 
@@ -138,10 +143,11 @@ public final class DbIncubatingAttributes {
   public static final AttributeKey<String> DB_INSTANCE_ID = stringKey("db.instance.id");
 
   /**
-   * The fully-qualified class name of the <a
-   * href="https://docs.oracle.com/javase/8/docs/technotes/guides/jdbc/">Java Database Connectivity
-   * (JDBC)</a> driver used to connect.
+   * Removed, no replacement at this time.
+   *
+   * @deprecated Removed, no replacement at this time.
    */
+  @Deprecated
   public static final AttributeKey<String> DB_JDBC_DRIVER_CLASSNAME =
       stringKey("db.jdbc.driver_classname");
 

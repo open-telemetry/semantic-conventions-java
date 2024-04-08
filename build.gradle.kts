@@ -11,9 +11,10 @@ val snapshot = true
 // end
 
 // The release version of https://github.com/open-telemetry/semantic-conventions used to generate classes
-var semanticConventionsVersion = "1.24.0"
+var semanticConventionsVersion = "1.25.0"
 val schemaUrlVersions = listOf(
     semanticConventionsVersion,
+    "1.24.0",
     "1.23.1",
     "1.22.0")
 
@@ -52,7 +53,7 @@ nexusPublishing {
 
 // start - define tasks to download, unzip, and generate from opentelemetry/semantic-conventions
 var generatorVersion = "0.24.0"
-val semanticConventionsRepoZip = "https://github.com/open-telemetry/semantic-conventions/archive/v$semanticConventionsVersion.zip"
+val semanticConventionsRepoZip = "https://github.com/open-telemetry/semantic-conventions/archive/v${semanticConventionsVersion}.zip"
 val schemaUrl = "https://opentelemetry.io/schemas/$semanticConventionsVersion"
 
 val downloadSemanticConventions by tasks.registering(Download::class) {

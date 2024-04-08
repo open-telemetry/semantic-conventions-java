@@ -19,7 +19,11 @@ public final class SystemIncubatingAttributes {
   public static final AttributeKey<Long> SYSTEM_CPU_LOGICAL_NUMBER =
       longKey("system.cpu.logical_number");
 
-  /** The state of the CPU */
+  /**
+   * The CPU state for this data point. A system's CPU SHOULD be characterized <em>either</em> by
+   * data points with no {@code state} labels, <em>or only</em> data points with {@code state}
+   * labels.
+   */
   public static final AttributeKey<String> SYSTEM_CPU_STATE = stringKey("system.cpu.state");
 
   /** The device identifier */
@@ -62,6 +66,15 @@ public final class SystemIncubatingAttributes {
    * href="https://man7.org/linux/man-pages/man1/ps.1.html#PROCESS_STATE_CODES">Linux Process State
    * Codes</a>
    */
+  public static final AttributeKey<String> SYSTEM_PROCESS_STATUS =
+      stringKey("system.process.status");
+
+  /**
+   * Deprecated, use {@code system.process.status} instead.
+   *
+   * @deprecated Deprecated, use `system.process.status` instead.
+   */
+  @Deprecated
   public static final AttributeKey<String> SYSTEM_PROCESSES_STATUS =
       stringKey("system.processes.status");
 
@@ -223,7 +236,29 @@ public final class SystemIncubatingAttributes {
     private SystemPagingTypeValues() {}
   }
 
-  /** Values for {@link #SYSTEM_PROCESSES_STATUS}. */
+  /** Values for {@link #SYSTEM_PROCESS_STATUS}. */
+  public static final class SystemProcessStatusValues {
+    /** running. */
+    public static final String RUNNING = "running";
+
+    /** sleeping. */
+    public static final String SLEEPING = "sleeping";
+
+    /** stopped. */
+    public static final String STOPPED = "stopped";
+
+    /** defunct. */
+    public static final String DEFUNCT = "defunct";
+
+    private SystemProcessStatusValues() {}
+  }
+
+  /**
+   * Values for {@link #SYSTEM_PROCESSES_STATUS}.
+   *
+   * @deprecated Deprecated, use `system.process.status` instead.
+   */
+  @Deprecated
   public static final class SystemProcessesStatusValues {
     /** running. */
     public static final String RUNNING = "running";

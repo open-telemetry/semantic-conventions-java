@@ -59,6 +59,13 @@ public final class MessagingIncubatingAttributes {
       stringKey("messaging.destination.name");
 
   /**
+   * The identifier of the partition messages are sent to or received from, unique within the {@code
+   * messaging.destination.name}.
+   */
+  public static final AttributeKey<String> MESSAGING_DESTINATION_PARTITION_ID =
+      stringKey("messaging.destination.partition.id");
+
+  /**
    * Low cardinality representation of the messaging destination name
    *
    * <p>Notes:
@@ -101,6 +108,14 @@ public final class MessagingIncubatingAttributes {
   public static final AttributeKey<String> MESSAGING_DESTINATION_PUBLISH_NAME =
       stringKey("messaging.destination_publish.name");
 
+  /** The name of the consumer group the event consumer is associated with. */
+  public static final AttributeKey<String> MESSAGING_EVENTHUBS_CONSUMER_GROUP =
+      stringKey("messaging.eventhubs.consumer.group");
+
+  /** The UTC epoch seconds at which the message has been accepted and stored in the entity. */
+  public static final AttributeKey<Long> MESSAGING_EVENTHUBS_MESSAGE_ENQUEUED_TIME =
+      longKey("messaging.eventhubs.message.enqueued_time");
+
   /**
    * The ordering key for a given message. If the attribute is not present, the message does not
    * have an ordering key.
@@ -115,7 +130,12 @@ public final class MessagingIncubatingAttributes {
   public static final AttributeKey<String> MESSAGING_KAFKA_CONSUMER_GROUP =
       stringKey("messaging.kafka.consumer.group");
 
-  /** Partition the message is sent to. */
+  /**
+   * &quot;Deprecated, use {@code messaging.destination.partition.id} instead.&quot;
+   *
+   * @deprecated "Deprecated, use `messaging.destination.partition.id` instead.".
+   */
+  @Deprecated
   public static final AttributeKey<Long> MESSAGING_KAFKA_DESTINATION_PARTITION =
       longKey("messaging.kafka.destination.partition");
 
@@ -195,6 +215,10 @@ public final class MessagingIncubatingAttributes {
   public static final AttributeKey<String> MESSAGING_RABBITMQ_DESTINATION_ROUTING_KEY =
       stringKey("messaging.rabbitmq.destination.routing_key");
 
+  /** RabbitMQ message delivery tag */
+  public static final AttributeKey<Long> MESSAGING_RABBITMQ_MESSAGE_DELIVERY_TAG =
+      longKey("messaging.rabbitmq.message.delivery_tag");
+
   /**
    * Name of the RocketMQ producer/consumer group that is handling the message. The client type is
    * identified by the SpanKind.
@@ -239,6 +263,26 @@ public final class MessagingIncubatingAttributes {
   public static final AttributeKey<String> MESSAGING_ROCKETMQ_NAMESPACE =
       stringKey("messaging.rocketmq.namespace");
 
+  /** The name of the subscription in the topic messages are received from. */
+  public static final AttributeKey<String> MESSAGING_SERVICEBUS_DESTINATION_SUBSCRIPTION_NAME =
+      stringKey("messaging.servicebus.destination.subscription_name");
+
+  /**
+   * Describes the <a
+   * href="https://learn.microsoft.com/azure/service-bus-messaging/message-transfers-locks-settlement#peeklock">settlement
+   * type</a>.
+   */
+  public static final AttributeKey<String> MESSAGING_SERVICEBUS_DISPOSITION_STATUS =
+      stringKey("messaging.servicebus.disposition_status");
+
+  /** Number of deliveries that have been attempted for this message. */
+  public static final AttributeKey<Long> MESSAGING_SERVICEBUS_MESSAGE_DELIVERY_COUNT =
+      longKey("messaging.servicebus.message.delivery_count");
+
+  /** The UTC epoch seconds at which the message has been accepted and stored in the entity. */
+  public static final AttributeKey<Long> MESSAGING_SERVICEBUS_MESSAGE_ENQUEUED_TIME =
+      longKey("messaging.servicebus.message.enqueued_time");
+
   /**
    * An identifier for the messaging system being used. See below for a list of well-known
    * identifiers.
@@ -267,11 +311,11 @@ public final class MessagingIncubatingAttributes {
      */
     public static final String RECEIVE = "receive";
 
-    /**
-     * One or more messages are passed to a consumer. This operation refers to push-based scenarios,
-     * where consumer register callbacks which get called by messaging SDKs.
-     */
-    public static final String DELIVER = "deliver";
+    /** One or more messages are delivered to or processed by a consumer. */
+    public static final String DELIVER = "process";
+
+    /** One or more messages are settled. */
+    public static final String SETTLE = "settle";
 
     private MessagingOperationValues() {}
   }
@@ -304,6 +348,23 @@ public final class MessagingIncubatingAttributes {
     private MessagingRocketmqMessageTypeValues() {}
   }
 
+  /** Values for {@link #MESSAGING_SERVICEBUS_DISPOSITION_STATUS}. */
+  public static final class MessagingServicebusDispositionStatusValues {
+    /** Message is completed. */
+    public static final String COMPLETE = "complete";
+
+    /** Message is abandoned. */
+    public static final String ABANDON = "abandon";
+
+    /** Message is sent to dead letter queue. */
+    public static final String DEAD_LETTER = "dead_letter";
+
+    /** Message is deferred. */
+    public static final String DEFER = "defer";
+
+    private MessagingServicebusDispositionStatusValues() {}
+  }
+
   /** Values for {@link #MESSAGING_SYSTEM}. */
   public static final class MessagingSystemValues {
     /** Apache ActiveMQ. */
@@ -313,13 +374,13 @@ public final class MessagingIncubatingAttributes {
     public static final String AWS_SQS = "aws_sqs";
 
     /** Azure Event Grid. */
-    public static final String AZURE_EVENTGRID = "azure_eventgrid";
+    public static final String EVENTGRID = "eventgrid";
 
     /** Azure Event Hubs. */
-    public static final String AZURE_EVENTHUBS = "azure_eventhubs";
+    public static final String EVENTHUBS = "eventhubs";
 
     /** Azure Service Bus. */
-    public static final String AZURE_SERVICEBUS = "azure_servicebus";
+    public static final String SERVICEBUS = "servicebus";
 
     /** Google Cloud Pub/Sub. */
     public static final String GCP_PUBSUB = "gcp_pubsub";

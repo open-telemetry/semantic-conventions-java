@@ -128,6 +128,13 @@ public final class HttpIncubatingAttributes {
       longKey("http.request.resend_count");
 
   /**
+   * The total size of the request in bytes. This should be the total number of bytes sent over the
+   * wire, including the request line (HTTP/1.1), framing (HTTP/2 and HTTP/3), headers, and request
+   * body if any.
+   */
+  public static final AttributeKey<Long> HTTP_REQUEST_SIZE = longKey("http.request.size");
+
+  /**
    * Deprecated, use {@code http.request.header.content-length} instead.
    *
    * @deprecated Deprecated, use `http.request.header.content-length` instead.
@@ -167,6 +174,13 @@ public final class HttpIncubatingAttributes {
   @Deprecated
   public static final AttributeKeyTemplate<List<String>> HTTP_RESPONSE_HEADER =
       stringArrayKeyTemplate("http.response.header");
+
+  /**
+   * The total size of the response in bytes. This should be the total number of bytes sent over the
+   * wire, including the status line (HTTP/1.1), framing (HTTP/2 and HTTP/3), headers, and response
+   * body and trailers if any.
+   */
+  public static final AttributeKey<Long> HTTP_RESPONSE_SIZE = longKey("http.response.size");
 
   /**
    * <a href="https://tools.ietf.org/html/rfc7231#section-6">HTTP response status code</a>.
