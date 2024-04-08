@@ -1,6 +1,6 @@
 # Changelog
 
-## Unreleased
+## Version 1.25.0 (2024-04-08)
 
 * Restore and deprecate the `SemanticAttributes` and `ResourceAttributes` classes removed in 1.23.1
   for easier upgrades. These will be removed prior to a stable release
