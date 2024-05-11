@@ -54,17 +54,13 @@ To use these artifacts, you must also depend on `io.opentelemetry:opentelemetry-
 See [opentelemetry-java releases](https://github.com/open-telemetry/opentelemetry-java#releases) for
 more information.
 
-> Android Requirements
-> 
-> If you are using this on Android and your project's minSdk is lower than 26, you must enable
-> [desugaring](https://developer.android.com/studio/write/java8-support#library-desugaring).
-> See [#73](https://github.com/open-telemetry/opentelemetry-android/issues/73) for more information.
-> 
-> If your project's minSdk is lower than 24, in order to run instrumentation tests or run the app
-> built on debug, you must use AGP 8.3.0+ and set the `android.useFullClasspathForDexingTransform`
-> property in `gradle.properties` to `true` to ensure desugaring runs properly. For the full
-> context for this workaround, please see
-> [this issue](https://issuetracker.google.com/issues/230454566#comment18).
+## Android Requirements
+
+An additional requirement for apps supporting older versions of Android on top of 
+[desugaring](https://github.com/open-telemetry/opentelemetry-java/blob/main/VERSIONING.md#language-version-compatibility) 
+is the need to set the Gradle property `android.useFullClasspathForDexingTransform` for debug 
+builds. Please see [this](https://github.com/open-telemetry/opentelemetry-android/pull/309) 
+pull request on the OpenTelemetry Android Extension for details.
 
 ## Generating semantic conventions
 
