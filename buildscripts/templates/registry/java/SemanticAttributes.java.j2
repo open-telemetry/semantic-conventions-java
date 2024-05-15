@@ -67,6 +67,7 @@ import java.util.List;
 @SuppressWarnings("unused")
 public final class {{ my_class_name }} {
     {% for attribute in ctx.attributes | sort(attribute="name") %}{% if attribute is stable %}
+    {# TODO - We need the ability to convert markdown / text into javadoc safe strings. #}
     /**
      * {{ attribute.brief }}
        {%- if attribute.note %}
@@ -94,9 +95,9 @@ public final class {{ my_class_name }} {
     // Enum definitions
     /** Values for {@link #{{ attribute.name | screaming_snake_case }}}. */
     public static final class {{ attribute.name | pascal_case }}Values {
-        {# TODO - enum values #}
       {%- for member in attribute.type.members %}
-      /** {{ member.brief or member.id | trim }}. */
+      {# TODO - add period at end of comment. #}
+      /** {{ member.brief or member.id | trim }} */
       public static final String {{ member.id | screaming_snake_case }} = "{{ member.value }}";
       {%- endfor %}
       private {{ attribute.name | pascal_case }}Values() {}
