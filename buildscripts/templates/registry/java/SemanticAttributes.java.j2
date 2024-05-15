@@ -1,0 +1,37 @@
+{%- set my_file_name = ctx.id | pascal_case ~ "Attributes.java" -%}
+{%- set my_class_name = ctx.id | pascal_case ~ "Attributes" -%}
+{{- template.set_file_name(my_file_name) -}}
+/*
+ * Copyright The OpenTelemetry Authors
+ * SPDX-License-Identifier: Apache-2.0
+ */
+package io.opentelemetry.semconv;
+
+import static io.opentelemetry.api.common.AttributeKey.booleanKey;
+import static io.opentelemetry.api.common.AttributeKey.doubleKey;
+import static io.opentelemetry.api.common.AttributeKey.longKey;
+import static io.opentelemetry.api.common.AttributeKey.stringKey;
+import static io.opentelemetry.api.common.AttributeKey.stringArrayKey;
+
+import static io.opentelemetry.semconv.AttributeKeyTemplate.stringArrayKeyTemplate;
+import static io.opentelemetry.semconv.AttributeKeyTemplate.stringKeyTemplate;
+
+import io.opentelemetry.api.common.AttributeKey;
+import io.opentelemetry.semconv.AttributeKeyTemplate;
+import java.util.List;
+
+// DO NOT EDIT, this is an Auto-generated file from buildscripts/templates/registry/java/SemanticAttributes.java.j2
+@SuppressWarnings("unused")
+public final class {{ my_class_name }} {
+    {% for group in ctx.groups %}{% for attribute in group.attributes %}{% if attribute is stable %}
+    /**
+     * {{ attribute.brief }}
+     *
+       {%- if attribute is deprecated %}
+     * @deprecated {{ attribute.deprecated }}
+       {%- endif -%}
+     */
+    {%- if attribute is deprecated %}@Deprecated{%- endif -%}
+    public static final String {{ attribute.name | screaming_snake_case }} = "{{ attribute.name }}";
+    {% endif %}{% endfor %}{% endfor %}
+}

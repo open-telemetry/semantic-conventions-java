@@ -52,7 +52,7 @@ nexusPublishing {
 }
 
 // start - define tasks to download, unzip, and generate from opentelemetry/semantic-conventions
-var generatorVersion = "0.24.0"
+var generatorVersion = "latest"
 val semanticConventionsRepoZip = "https://github.com/open-telemetry/semantic-conventions/archive/v${semanticConventionsVersion}.zip"
 val schemaUrl = "https://opentelemetry.io/schemas/$semanticConventionsVersion"
 
@@ -91,21 +91,14 @@ fun generateTask(taskName: String, incubating: Boolean) {
         "run",
         "--rm",
         "-v", "$buildDir/semantic-conventions-${semanticConventionsVersion}/model:/source",
-        "-v", "$projectDir/buildscripts/templates:/templates",
+        "-v", "$projectDir/buildscripts/templates:/weaver/templates",
         "-v", "$projectDir/$outputDir:/output",
-        "otel/semconvgen:$generatorVersion",
-        "--yaml-root", "/source",
-        "--continue-on-validation-errors", "compatibility",
-        "code",
-        "--template", "/templates/SemanticAttributes.java.j2",
-        "--output", "/output/{{pascal_prefix}}${classPrefix}Attributes.java",
-        "--file-per-group", "root_namespace",
-        // Space delimited list of root namespaces to excluded (i.e. "foo bar")
-        "-Dexcluded_namespaces=\"ios aspnetcore signalr\"",
-        "-Dfilter=${filter}",
-        "-DclassPrefix=${classPrefix}",
-        "-Dpkg=$packageNameArg",
-        "-DstablePkg=$stablePackageNameArg"))
+        "otel/weaver:$generatorVersion",
+        "registry", "generate",
+        "--registry=/source",
+        "--templates=/weaver/templates",
+        "java",
+        "/output/"))
   }
 }
 
