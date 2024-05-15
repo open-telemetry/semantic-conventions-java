@@ -1,3 +1,46 @@
+{%- macro to_java_type(attribute) -%}
+  {%- if attribute.type == "string" -%}
+    String
+  {%- elif attribute.type == "string[]" -%}
+    List<String>
+  {%- elif attribute.type == "boolean" -%}
+    Boolean
+  {%- elif attribute.type == "int" -%}
+    Long
+  {%- elif attribute.type == "double" -%}
+    Double
+  {%- elif attribute.type is mapping -%}
+    {# Note: Treat all enums as strings for now? #}
+    String
+  {%- elif attribute.type == "template[string]" -%}
+    String
+  {%- elif attribute.type == "template[string[]]" -%}
+    List<String>
+  {%- else -%}
+    {{ attribute.type }}
+  {%- endif -%}
+{%- endmacro %}
+{%- macro to_java_key_factory(attribute) -%}
+  {%- if attribute.type == "string" -%}
+    stringKey
+  {%- elif attribute.type == "string[]" -%}
+    stringArrayKey
+  {%- elif attribute.type == "boolean" -%}
+    booleanKey
+  {%- elif attribute.type == "int" -%}
+    longKey
+  {%- elif attribute.type == "double" -%}
+    doubleKey
+  {%- elif attribute.type == "template[string]" -%}
+    stringTemplate
+  {%- elif attribute.type == "template[string[]]" -%}
+    stringArrayKeyTemplate
+  {%- elif attribute.type is mapping -%}
+    stringKey
+  {%- else -%}
+    {{ type }}Key
+  {%- endif -%}
+{%- endmacro %}
 {%- set my_file_name = ctx.id | pascal_case ~ "Attributes.java" -%}
 {%- set my_class_name = ctx.id | pascal_case ~ "Attributes" -%}
 {{- template.set_file_name(my_file_name) -}}
@@ -23,15 +66,42 @@ import java.util.List;
 // DO NOT EDIT, this is an Auto-generated file from buildscripts/templates/registry/java/SemanticAttributes.java.j2
 @SuppressWarnings("unused")
 public final class {{ my_class_name }} {
-    {% for group in ctx.groups %}{% for attribute in group.attributes %}{% if attribute is stable %}
+    {% for attribute in ctx.attributes | sort(attribute="name") %}{% if attribute is stable %}
     /**
      * {{ attribute.brief }}
+       {%- if attribute.note %}
+     *
+     * <p>Notes:
+        {# NOTE: replace("> ", "") removes the following problematic characters which produce mangled javadoc:  #}
+        {# https://github.com/open-telemetry/semantic-conventions/blob/c83a10a9c33c18a769835e959200d0e24dc708fe/model/resource/k8s.yaml#L34-L38  #}
+        <ul><li>{{ attribute.note | replace("> ", "") | trim }}</li></ul>
+       {%- endif %}
      *
        {%- if attribute is deprecated %}
      * @deprecated {{ attribute.deprecated }}
        {%- endif -%}
      */
-    {%- if attribute is deprecated %}@Deprecated{%- endif -%}
-    public static final String {{ attribute.name | screaming_snake_case }} = "{{ attribute.name }}";
-    {% endif %}{% endfor %}{% endfor %}
+      {%- if attribute is deprecated %}
+    @Deprecated
+      {%- endif -%}
+      {%- if attribute.type is startingwith("template") %}
+    public static final AttributeKeyTemplate<{{ to_java_type(attribute) | trim }}> {{ attribute.name | screaming_snake_case }} = {{ to_java_key_factory(attribute) | trim }}("{{ attribute.name }}");
+      {%- else %}
+    public static final AttributeKey<{{ to_java_type(attribute) | trim }}> {{ attribute.name | screaming_snake_case }} = {{ to_java_key_factory(attribute) | trim }}("{{ attribute.name }}");
+      {%- endif %}
+    {% endif %}{% endfor %}
+    {% for attribute in ctx.attributes | sort(attribute="name") %}{% if attribute.type is mapping and attribute is stable %}
+    // Enum definitions
+    /** Values for {@link #{{ attribute.name | screaming_snake_case }}}. */
+    public static final class {{ attribute.name | pascal_case }}Values {
+        {# TODO - enum values #}
+      {%- for member in attribute.type.members %}
+      /** {{ member.brief or member.id | trim }}. */
+      public static final String {{ member.id | screaming_snake_case }} = "{{ member.value }}";
+      {%- endfor %}
+      private {{ attribute.name | pascal_case }}Values() {}
+    }
+    {% endif %}{% endfor %}
+
+    private {{ my_class_name }}() {}
 }
