@@ -43,7 +43,7 @@
 {%- endmacro %}
 {%- set my_file_name = ctx.id | pascal_case ~ "IncubatingAttributes.java" -%}
 {%- set my_class_name = ctx.id | pascal_case ~ "IncubatingAttributes" -%}
-{{- template.set_file_name("Incubating" ~ my_file_name) -}}
+{{- template.set_file_name(my_file_name) -}}
 /*
  * Copyright The OpenTelemetry Authors
  * SPDX-License-Identifier: Apache-2.0
