@@ -1,0 +1,4 @@
+templates:
+  - pattern: IncubatingSemanticAttributes.java.j2
+    filter: '.groups | map(select(.type == "attribute_group")) | map(select(.id | startswith("registry"))) | map(select(.attributes[] | contains(.stability="experimental"))) | group_by(.id | split(".") | .[1]) | map({id: .[0].id | split(".") | .[1], attributes: .[].attributes})'
+    application_mode: each

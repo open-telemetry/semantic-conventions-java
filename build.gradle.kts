@@ -81,11 +81,8 @@ fun generateTask(taskName: String, incubating: Boolean) {
     standardOutput = System.out
     executable = "docker"
 
-    var filter = if (incubating) "any" else "is_stable"
-    var classPrefix = if (incubating) "Incubating" else ""
-    val outputDir = if (incubating) "semconv-incubating/src/main/java/io/opentelemetry/semconv/incubating/" else "semconv/src/main/java/io/opentelemetry/semconv/"
-    val packageNameArg = if (incubating) "io.opentelemetry.semconv.incubating" else "io.opentelemetry.semconv"
-    val stablePackageNameArg = if (incubating) "io.opentelemetry.semconv" else ""
+    var target = if (incubating) "incubating_java" else "java"
+    val outputDir = if (incubating) "semconv-incubating/src/main/java/io/opentelemetry/semconv/incubating/" else "semconv/src/main/java/io/opentelemetry/semconv/"    
 
     setArgs(listOf(
         "run",
@@ -97,7 +94,7 @@ fun generateTask(taskName: String, incubating: Boolean) {
         "registry", "generate",
         "--registry=/source",
         "--templates=/weaver/templates",
-        "java",
+        "$target",
         "/output/"))
   }
 }
