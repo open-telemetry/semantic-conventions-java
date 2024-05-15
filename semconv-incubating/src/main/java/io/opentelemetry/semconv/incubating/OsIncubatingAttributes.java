@@ -10,7 +10,7 @@ import static io.opentelemetry.api.common.AttributeKey.stringKey;
 import io.opentelemetry.api.common.AttributeKey;
 
 // DO NOT EDIT, this is an Auto-generated file from
-// buildscripts/templates/SemanticAttributes.java.j2
+// buildscripts/templates/registry/java/SemanticAttributes.java.j2
 @SuppressWarnings("unused")
 public final class OsIncubatingAttributes {
 
@@ -18,8 +18,8 @@ public final class OsIncubatingAttributes {
   public static final AttributeKey<String> OS_BUILD_ID = stringKey("os.build_id");
 
   /**
-   * Human readable (not intended to be parsed) OS version information, like e.g. reported by {@code
-   * ver} or {@code lsb_release -a} commands.
+   * Human readable (not intended to be parsed) OS version information, like e.g. reported by `ver`
+   * or `lsb_release -a` commands.
    */
   public static final AttributeKey<String> OS_DESCRIPTION = stringKey("os.description");
 
@@ -30,49 +30,50 @@ public final class OsIncubatingAttributes {
   public static final AttributeKey<String> OS_TYPE = stringKey("os.type");
 
   /**
-   * The version string of the operating system as defined in <a
-   * href="/docs/resource/README.md#version-attributes">Version Attributes</a>.
+   * The version string of the operating system as defined in [Version
+   * Attributes](/docs/resource/README.md#version-attributes).
    */
   public static final AttributeKey<String> OS_VERSION = stringKey("os.version");
 
   // Enum definitions
   /** Values for {@link #OS_TYPE}. */
   public static final class OsTypeValues {
-    /** Microsoft Windows. */
+
+    /** Microsoft Windows */
     public static final String WINDOWS = "windows";
 
-    /** Linux. */
+    /** Linux */
     public static final String LINUX = "linux";
 
-    /** Apple Darwin. */
+    /** Apple Darwin */
     public static final String DARWIN = "darwin";
 
-    /** FreeBSD. */
+    /** FreeBSD */
     public static final String FREEBSD = "freebsd";
 
-    /** NetBSD. */
+    /** NetBSD */
     public static final String NETBSD = "netbsd";
 
-    /** OpenBSD. */
+    /** OpenBSD */
     public static final String OPENBSD = "openbsd";
 
-    /** DragonFly BSD. */
+    /** DragonFly BSD */
     public static final String DRAGONFLYBSD = "dragonflybsd";
 
-    /** HP-UX (Hewlett Packard Unix). */
+    /** HP-UX (Hewlett Packard Unix) */
     public static final String HPUX = "hpux";
 
-    /** AIX (Advanced Interactive eXecutive). */
+    /** AIX (Advanced Interactive eXecutive) */
     public static final String AIX = "aix";
 
-    /** SunOS, Oracle Solaris. */
+    /** SunOS, Oracle Solaris */
     public static final String SOLARIS = "solaris";
 
-    /** IBM z/OS. */
+    /** IBM z/OS */
     public static final String Z_OS = "z_os";
 
     private OsTypeValues() {}
   }
 
-  private OsIncubatingAttributes() {}
+  private IncubatingOsIncubatingAttributes() {}
 }

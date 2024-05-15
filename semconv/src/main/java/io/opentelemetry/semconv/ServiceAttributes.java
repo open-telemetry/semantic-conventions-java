@@ -10,7 +10,7 @@ import static io.opentelemetry.api.common.AttributeKey.stringKey;
 import io.opentelemetry.api.common.AttributeKey;
 
 // DO NOT EDIT, this is an Auto-generated file from
-// buildscripts/templates/SemanticAttributes.java.j2
+// buildscripts/templates/registry/java/SemanticAttributes.java.j2
 @SuppressWarnings("unused")
 public final class ServiceAttributes {
 
@@ -21,10 +21,9 @@ public final class ServiceAttributes {
    *
    * <ul>
    *   <li>MUST be the same for all instances of horizontally scaled services. If the value was not
-   *       specified, SDKs MUST fallback to {@code unknown_service:} concatenated with <a
-   *       href="process.md#process">{@code process.executable.name}</a>, e.g. {@code
-   *       unknown_service:bash}. If {@code process.executable.name} is not available, the value
-   *       MUST be set to {@code unknown_service}.
+   *       specified, SDKs MUST fallback to `unknown_service:` concatenated with
+   *       [`process.executable.name`](process.md#process), e.g. `unknown_service:bash`. If
+   *       `process.executable.name` is not available, the value MUST be set to `unknown_service`.
    * </ul>
    */
   public static final AttributeKey<String> SERVICE_NAME = stringKey("service.name");

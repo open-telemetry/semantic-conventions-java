@@ -7,14 +7,13 @@ package io.opentelemetry.semconv.incubating;
 
 import static io.opentelemetry.api.common.AttributeKey.stringArrayKey;
 import static io.opentelemetry.api.common.AttributeKey.stringKey;
-import static io.opentelemetry.semconv.AttributeKeyTemplate.stringKeyTemplate;
 
 import io.opentelemetry.api.common.AttributeKey;
 import io.opentelemetry.semconv.AttributeKeyTemplate;
 import java.util.List;
 
 // DO NOT EDIT, this is an Auto-generated file from
-// buildscripts/templates/SemanticAttributes.java.j2
+// buildscripts/templates/registry/java/SemanticAttributes.java.j2
 @SuppressWarnings("unused")
 public final class ContainerIncubatingAttributes {
 
@@ -44,9 +43,9 @@ public final class ContainerIncubatingAttributes {
   public static final AttributeKey<String> CONTAINER_CPU_STATE = stringKey("container.cpu.state");
 
   /**
-   * Container ID. Usually a UUID, as for example used to <a
-   * href="https://docs.docker.com/engine/reference/run/#container-identification">identify Docker
-   * containers</a>. The UUID might be abbreviated.
+   * Container ID. Usually a UUID, as for example used to [identify Docker
+   * containers](https://docs.docker.com/engine/reference/run/#container-identification). The UUID
+   * might be abbreviated.
    */
   public static final AttributeKey<String> CONTAINER_ID = stringKey("container.id");
 
@@ -56,15 +55,15 @@ public final class ContainerIncubatingAttributes {
    * <p>Notes:
    *
    * <ul>
-   *   <li>Docker defines a sha256 of the image id; {@code container.image.id} corresponds to the
-   *       {@code Image} field from the Docker container inspect <a
-   *       href="https://docs.docker.com/engine/api/v1.43/#tag/Container/operation/ContainerInspect">API</a>
-   *       endpoint. K8s defines a link to the container registry repository with digest {@code
-   *       "imageID": "registry.azurecr.io
-   *       /namespace/service/dockerfile@sha256:bdeabd40c3a8a492eaf9e8e44d0ebbb84bac7ee25ac0cf8a7159d25f62555625"}.
+   *   <li>Docker defines a sha256 of the image id; `container.image.id` corresponds to the `Image`
+   *       field from the Docker container inspect
+   *       [API](https://docs.docker.com/engine/api/v1.43/#tag/Container/operation/ContainerInspect)
+   *       endpoint. K8s defines a link to the container registry repository with digest `"imageID":
+   *       "registry.azurecr.io
+   *       /namespace/service/dockerfile@sha256:bdeabd40c3a8a492eaf9e8e44d0ebbb84bac7ee25ac0cf8a7159d25f62555625"`.
    *       The ID is assinged by the container runtime and can vary in different environments.
-   *       Consider using {@code oci.manifest.digest} if it is important to identify the same image
-   *       in different environments/runtimes.
+   *       Consider using `oci.manifest.digest` if it is important to identify the same image in
+   *       different environments/runtimes.
    * </ul>
    */
   public static final AttributeKey<String> CONTAINER_IMAGE_ID = stringKey("container.image.id");
@@ -78,37 +77,26 @@ public final class ContainerIncubatingAttributes {
    * <p>Notes:
    *
    * <ul>
-   *   <li><a
-   *       href="https://docs.docker.com/engine/api/v1.43/#tag/Image/operation/ImageInspect">Docker</a>
-   *       and <a
-   *       href="https://github.com/kubernetes/cri-api/blob/c75ef5b473bbe2d0a4fc92f82235efd665ea8e9f/pkg/apis/runtime/v1/api.proto#L1237-L1238">CRI</a>
-   *       report those under the {@code RepoDigests} field.
+   *   <li>[Docker](https://docs.docker.com/engine/api/v1.43/#tag/Image/operation/ImageInspect) and
+   *       [CRI](https://github.com/kubernetes/cri-api/blob/c75ef5b473bbe2d0a4fc92f82235efd665ea8e9f/pkg/apis/runtime/v1/api.proto#L1237-L1238)
+   *       report those under the `RepoDigests` field.
    * </ul>
    */
   public static final AttributeKey<List<String>> CONTAINER_IMAGE_REPO_DIGESTS =
       stringArrayKey("container.image.repo_digests");
 
   /**
-   * Container image tags. An example can be found in <a
-   * href="https://docs.docker.com/engine/api/v1.43/#tag/Image/operation/ImageInspect">Docker Image
-   * Inspect</a>. Should be only the {@code <tag>} section of the full name for example from {@code
-   * registry.example.com/my-org/my-image:<tag>}.
+   * Container image tags. An example can be found in [Docker Image
+   * Inspect](https://docs.docker.com/engine/api/v1.43/#tag/Image/operation/ImageInspect). Should be
+   * only the `<tag>` section of the full name for example from
+   * `registry.example.com/my-org/my-image:<tag>`.
    */
   public static final AttributeKey<List<String>> CONTAINER_IMAGE_TAGS =
       stringArrayKey("container.image.tags");
 
-  /** Container labels, {@code <key>} being the label name, the value being the label value. */
+  /** Container labels, `<key>` being the label name, the value being the label value. */
   public static final AttributeKeyTemplate<String> CONTAINER_LABEL =
-      stringKeyTemplate("container.label");
-
-  /**
-   * Deprecated, use {@code container.label} instead.
-   *
-   * @deprecated Deprecated, use `container.label` instead.
-   */
-  @Deprecated
-  public static final AttributeKeyTemplate<String> CONTAINER_LABELS =
-      stringKeyTemplate("container.labels");
+      stringTemplate("container.label");
 
   /** Container name used by container runtime. */
   public static final AttributeKey<String> CONTAINER_NAME = stringKey("container.name");
@@ -119,13 +107,14 @@ public final class ContainerIncubatingAttributes {
   // Enum definitions
   /** Values for {@link #CONTAINER_CPU_STATE}. */
   public static final class ContainerCpuStateValues {
+
     /**
      * When tasks of the cgroup are in user mode (Linux). When all container processes are in user
      * mode (Windows).
      */
     public static final String USER = "user";
 
-    /** When CPU is used by the system (host OS). */
+    /** When CPU is used by the system (host OS) */
     public static final String SYSTEM = "system";
 
     /**
@@ -137,5 +126,5 @@ public final class ContainerIncubatingAttributes {
     private ContainerCpuStateValues() {}
   }
 
-  private ContainerIncubatingAttributes() {}
+  private IncubatingContainerIncubatingAttributes() {}
 }

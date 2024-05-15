@@ -11,7 +11,7 @@ import static io.opentelemetry.api.common.AttributeKey.stringKey;
 import io.opentelemetry.api.common.AttributeKey;
 
 // DO NOT EDIT, this is an Auto-generated file from
-// buildscripts/templates/SemanticAttributes.java.j2
+// buildscripts/templates/registry/java/SemanticAttributes.java.j2
 @SuppressWarnings("unused")
 public final class ServerAttributes {
 
@@ -23,7 +23,7 @@ public final class ServerAttributes {
    *
    * <ul>
    *   <li>When observed from the client side, and when communicating through an intermediary,
-   *       {@code server.address} SHOULD represent the server address behind any intermediaries, for
+   *       `server.address` SHOULD represent the server address behind any intermediaries, for
    *       example proxies, if it's available.
    * </ul>
    */
@@ -36,8 +36,8 @@ public final class ServerAttributes {
    *
    * <ul>
    *   <li>When observed from the client side, and when communicating through an intermediary,
-   *       {@code server.port} SHOULD represent the server port behind any intermediaries, for
-   *       example proxies, if it's available.
+   *       `server.port` SHOULD represent the server port behind any intermediaries, for example
+   *       proxies, if it's available.
    * </ul>
    */
   public static final AttributeKey<Long> SERVER_PORT = longKey("server.port");

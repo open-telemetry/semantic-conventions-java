@@ -13,25 +13,25 @@ import io.opentelemetry.api.common.AttributeKey;
 import java.util.List;
 
 // DO NOT EDIT, this is an Auto-generated file from
-// buildscripts/templates/SemanticAttributes.java.j2
+// buildscripts/templates/registry/java/SemanticAttributes.java.j2
 @SuppressWarnings("unused")
 public final class HttpAttributes {
 
   /**
-   * HTTP request headers, {@code <key>} being the normalized HTTP Header name (lowercase), the
-   * value being the header values.
+   * HTTP request headers, `<key>` being the normalized HTTP Header name (lowercase), the value
+   * being the header values.
    *
    * <p>Notes:
    *
    * <ul>
    *   <li>Instrumentations SHOULD require an explicit configuration of which headers are to be
    *       captured. Including all request headers can be a security risk - explicit configuration
-   *       helps avoid leaking sensitive information. The {@code User-Agent} header is already
-   *       captured in the {@code user_agent.original} attribute. Users MAY explicitly configure
-   *       instrumentations to capture them even though it is not recommended. The attribute value
-   *       MUST consist of either multiple header values as an array of strings or a single-item
-   *       array containing a possibly comma-concatenated string, depending on the way the HTTP
-   *       library provides access to headers.
+   *       helps avoid leaking sensitive information. The `User-Agent` header is already captured in
+   *       the `user_agent.original` attribute. Users MAY explicitly configure instrumentations to
+   *       capture them even though it is not recommended. The attribute value MUST consist of
+   *       either multiple header values as an array of strings or a single-item array containing a
+   *       possibly comma-concatenated string, depending on the way the HTTP library provides access
+   *       to headers.
    * </ul>
    */
   public static final AttributeKeyTemplate<List<String>> HTTP_REQUEST_HEADER =
@@ -43,23 +43,23 @@ public final class HttpAttributes {
    * <p>Notes:
    *
    * <ul>
-   *   <li>HTTP request method value SHOULD be &quot;known&quot; to the instrumentation. By default,
-   *       this convention defines &quot;known&quot; methods as the ones listed in <a
-   *       href="https://www.rfc-editor.org/rfc/rfc9110.html#name-methods">RFC9110</a> and the PATCH
-   *       method defined in <a href="https://www.rfc-editor.org/rfc/rfc5789.html">RFC5789</a>.
-   *   <li>If the HTTP request method is not known to instrumentation, it MUST set the {@code
-   *       http.request.method} attribute to {@code _OTHER}.
-   *   <li>If the HTTP instrumentation could end up converting valid HTTP request methods to {@code
-   *       _OTHER}, then it MUST provide a way to override the list of known HTTP methods. If this
+   *   <li>HTTP request method value SHOULD be "known" to the instrumentation. By default, this
+   *       convention defines "known" methods as the ones listed in
+   *       [RFC9110](https://www.rfc-editor.org/rfc/rfc9110.html#name-methods) and the PATCH method
+   *       defined in [RFC5789](https://www.rfc-editor.org/rfc/rfc5789.html).
+   *       <p>If the HTTP request method is not known to instrumentation, it MUST set the
+   *       `http.request.method` attribute to `_OTHER`.
+   *       <p>If the HTTP instrumentation could end up converting valid HTTP request methods to
+   *       `_OTHER`, then it MUST provide a way to override the list of known HTTP methods. If this
    *       override is done via environment variable, then the environment variable MUST be named
    *       OTEL_INSTRUMENTATION_HTTP_KNOWN_METHODS and support a comma-separated list of
    *       case-sensitive known HTTP methods (this list MUST be a full override of the default known
    *       method, it is not a list of known methods in addition to the defaults).
-   *   <li>HTTP method names are case-sensitive and {@code http.request.method} attribute value MUST
+   *       <p>HTTP method names are case-sensitive and `http.request.method` attribute value MUST
    *       match a known HTTP method name exactly. Instrumentations for specific web frameworks that
    *       consider HTTP methods to be case insensitive, SHOULD populate a canonical equivalent.
-   *       Tracing instrumentations that do so, MUST also set {@code http.request.method_original}
-   *       to the original value.
+   *       Tracing instrumentations that do so, MUST also set `http.request.method_original` to the
+   *       original value.
    * </ul>
    */
   public static final AttributeKey<String> HTTP_REQUEST_METHOD = stringKey("http.request.method");
@@ -83,8 +83,8 @@ public final class HttpAttributes {
       longKey("http.request.resend_count");
 
   /**
-   * HTTP response headers, {@code <key>} being the normalized HTTP Header name (lowercase), the
-   * value being the header values.
+   * HTTP response headers, `<key>` being the normalized HTTP Header name (lowercase), the value
+   * being the header values.
    *
    * <p>Notes:
    *
@@ -101,7 +101,7 @@ public final class HttpAttributes {
   public static final AttributeKeyTemplate<List<String>> HTTP_RESPONSE_HEADER =
       stringArrayKeyTemplate("http.response.header");
 
-  /** <a href="https://tools.ietf.org/html/rfc7231#section-6">HTTP response status code</a>. */
+  /** [HTTP response status code](https://tools.ietf.org/html/rfc7231#section-6). */
   public static final AttributeKey<Long> HTTP_RESPONSE_STATUS_CODE =
       longKey("http.response.status_code");
 
@@ -114,8 +114,8 @@ public final class HttpAttributes {
    * <ul>
    *   <li>MUST NOT be populated when this is not supported by the HTTP server framework as the
    *       route attribute should have low-cardinality and the URI path can NOT substitute it.
-   *       SHOULD include the <a href="/docs/http/http-spans.md#http-server-definitions">application
-   *       root</a> if there is one.
+   *       SHOULD include the [application root](/docs/http/http-spans.md#http-server-definitions)
+   *       if there is one.
    * </ul>
    */
   public static final AttributeKey<String> HTTP_ROUTE = stringKey("http.route");
@@ -123,6 +123,7 @@ public final class HttpAttributes {
   // Enum definitions
   /** Values for {@link #HTTP_REQUEST_METHOD}. */
   public static final class HttpRequestMethodValues {
+
     /** CONNECT method. */
     public static final String CONNECT = "CONNECT";
 
