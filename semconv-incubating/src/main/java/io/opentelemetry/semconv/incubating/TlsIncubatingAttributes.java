@@ -207,5 +207,5 @@ public final class TlsIncubatingAttributes {
     private TlsProtocolNameValues() {}
   }
 
-  private IncubatingTlsIncubatingAttributes() {}
+  private TlsIncubatingAttributes() {}
 }

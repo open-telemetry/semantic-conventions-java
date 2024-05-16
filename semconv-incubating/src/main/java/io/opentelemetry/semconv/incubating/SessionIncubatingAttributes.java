@@ -20,5 +20,5 @@ public final class SessionIncubatingAttributes {
   /** The previous <code>session.id</code> for this user, when known. */
   public static final AttributeKey<String> SESSION_PREVIOUS_ID = stringKey("session.previous_id");
 
-  private IncubatingSessionIncubatingAttributes() {}
+  private SessionIncubatingAttributes() {}
 }

@@ -63,5 +63,5 @@ public final class HttpIncubatingAttributes {
     private HttpConnectionStateValues() {}
   }
 
-  private IncubatingHttpIncubatingAttributes() {}
+  private HttpIncubatingAttributes() {}
 }

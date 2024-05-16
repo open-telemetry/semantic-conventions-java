@@ -28,5 +28,5 @@ public final class DnsIncubatingAttributes {
    */
   public static final AttributeKey<String> DNS_QUESTION_NAME = stringKey("dns.question.name");
 
-  private IncubatingDnsIncubatingAttributes() {}
+  private DnsIncubatingAttributes() {}
 }

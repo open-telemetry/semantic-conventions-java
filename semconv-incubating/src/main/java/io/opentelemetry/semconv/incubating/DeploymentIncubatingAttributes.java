@@ -32,5 +32,5 @@ public final class DeploymentIncubatingAttributes {
   public static final AttributeKey<String> DEPLOYMENT_ENVIRONMENT =
       stringKey("deployment.environment");
 
-  private IncubatingDeploymentIncubatingAttributes() {}
+  private DeploymentIncubatingAttributes() {}
 }

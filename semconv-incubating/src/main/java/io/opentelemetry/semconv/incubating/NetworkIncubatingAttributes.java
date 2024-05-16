@@ -145,5 +145,5 @@ public final class NetworkIncubatingAttributes {
     private NetworkIoDirectionValues() {}
   }
 
-  private IncubatingNetworkIncubatingAttributes() {}
+  private NetworkIncubatingAttributes() {}
 }

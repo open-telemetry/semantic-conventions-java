@@ -42,5 +42,5 @@ public final class UserAgentIncubatingAttributes {
    */
   public static final AttributeKey<String> USER_AGENT_VERSION = stringKey("user_agent.version");
 
-  private IncubatingUserAgentIncubatingAttributes() {}
+  private UserAgentIncubatingAttributes() {}
 }

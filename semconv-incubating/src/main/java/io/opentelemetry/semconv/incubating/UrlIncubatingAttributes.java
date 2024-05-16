@@ -104,5 +104,5 @@ public final class UrlIncubatingAttributes {
    */
   public static final AttributeKey<String> URL_TOP_LEVEL_DOMAIN = stringKey("url.top_level_domain");
 
-  private IncubatingUrlIncubatingAttributes() {}
+  private UrlIncubatingAttributes() {}
 }

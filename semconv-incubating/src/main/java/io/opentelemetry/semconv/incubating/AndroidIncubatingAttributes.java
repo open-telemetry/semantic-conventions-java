@@ -21,5 +21,5 @@ public final class AndroidIncubatingAttributes {
    */
   public static final AttributeKey<String> ANDROID_OS_API_LEVEL = stringKey("android.os.api_level");
 
-  private IncubatingAndroidIncubatingAttributes() {}
+  private AndroidIncubatingAttributes() {}
 }

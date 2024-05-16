@@ -112,5 +112,5 @@ public final class AwsIncubatingAttributes {
   public static final AttributeKey<Long> AWS_DYNAMODB_TOTAL_SEGMENTS =
       longKey("aws.dynamodb.total_segments");
 
-  private IncubatingAwsIncubatingAttributes() {}
+  private AwsIncubatingAttributes() {}
 }

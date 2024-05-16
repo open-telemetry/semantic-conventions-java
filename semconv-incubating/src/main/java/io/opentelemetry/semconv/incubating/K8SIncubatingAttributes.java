@@ -123,5 +123,5 @@ public final class K8SIncubatingAttributes {
   /** The UID of the StatefulSet. */
   public static final AttributeKey<String> K_8_S_STATEFULSET_UID = stringKey("k8s.statefulset.uid");
 
-  private IncubatingK8SIncubatingAttributes() {}
+  private K8SIncubatingAttributes() {}
 }

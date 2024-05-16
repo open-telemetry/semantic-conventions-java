@@ -130,5 +130,5 @@ public final class ContainerIncubatingAttributes {
     private ContainerCpuStateValues() {}
   }
 
-  private IncubatingContainerIncubatingAttributes() {}
+  private ContainerIncubatingAttributes() {}
 }

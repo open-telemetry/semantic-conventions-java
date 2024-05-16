@@ -136,5 +136,5 @@ public final class HostIncubatingAttributes {
     private HostArchValues() {}
   }
 
-  private IncubatingHostIncubatingAttributes() {}
+  private HostIncubatingAttributes() {}
 }

@@ -84,5 +84,5 @@ public final class ProcessIncubatingAttributes {
   public static final AttributeKey<String> PROCESS_RUNTIME_VERSION =
       stringKey("process.runtime.version");
 
-  private IncubatingProcessIncubatingAttributes() {}
+  private ProcessIncubatingAttributes() {}
 }

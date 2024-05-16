@@ -400,5 +400,5 @@ public final class MessagingIncubatingAttributes {
     private MessagingSystemValues() {}
   }
 
-  private IncubatingMessagingIncubatingAttributes() {}
+  private MessagingIncubatingAttributes() {}
 }

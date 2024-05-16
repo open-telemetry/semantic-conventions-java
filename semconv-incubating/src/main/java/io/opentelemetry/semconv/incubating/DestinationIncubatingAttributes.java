@@ -32,5 +32,5 @@ public final class DestinationIncubatingAttributes {
   /** Destination port number */
   public static final AttributeKey<Long> DESTINATION_PORT = longKey("destination.port");
 
-  private IncubatingDestinationIncubatingAttributes() {}
+  private DestinationIncubatingAttributes() {}
 }

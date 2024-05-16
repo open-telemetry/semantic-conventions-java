@@ -33,5 +33,22 @@ public final class GcpIncubatingAttributes {
   public static final AttributeKey<Long> GCP_CLOUD_RUN_JOB_TASK_INDEX =
       longKey("gcp.cloud_run.job.task_index");
 
-  private IncubatingGcpIncubatingAttributes() {}
+  /**
+   * The hostname of a GCE instance. This is the full value of the default or <a
+   * href="https://cloud.google.com/compute/docs/instances/custom-hostname-vm">custom hostname</a>.
+   */
+  public static final AttributeKey<String> GCP_GCE_INSTANCE_HOSTNAME =
+      stringKey("gcp.gce.instance.hostname");
+
+  /**
+   * The instance name of a GCE instance. This is the value provided by <code>host.name</code>, the
+   * visible name of the instance in the Cloud Console UI, and the prefix for the default hostname
+   * of the instance as defined by the <a
+   * href="https://cloud.google.com/compute/docs/internal-dns#instance-fully-qualified-domain-names">default
+   * internal DNS name</a>.
+   */
+  public static final AttributeKey<String> GCP_GCE_INSTANCE_NAME =
+      stringKey("gcp.gce.instance.name");
+
+  private GcpIncubatingAttributes() {}
 }

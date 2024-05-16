@@ -227,5 +227,5 @@ public final class FaasIncubatingAttributes {
     private FaasTriggerValues() {}
   }
 
-  private IncubatingFaasIncubatingAttributes() {}
+  private FaasIncubatingAttributes() {}
 }

@@ -30,5 +30,5 @@ public final class DiskIncubatingAttributes {
     private DiskIoDirectionValues() {}
   }
 
-  private IncubatingDiskIncubatingAttributes() {}
+  private DiskIncubatingAttributes() {}
 }

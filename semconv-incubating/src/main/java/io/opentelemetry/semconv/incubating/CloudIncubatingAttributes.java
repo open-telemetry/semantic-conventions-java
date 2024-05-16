@@ -210,5 +210,5 @@ public final class CloudIncubatingAttributes {
     private CloudProviderValues() {}
   }
 
-  private IncubatingCloudIncubatingAttributes() {}
+  private CloudIncubatingAttributes() {}
 }

@@ -32,5 +32,5 @@ public final class TelemetryIncubatingAttributes {
   public static final AttributeKey<String> TELEMETRY_DISTRO_VERSION =
       stringKey("telemetry.distro.version");
 
-  private IncubatingTelemetryIncubatingAttributes() {}
+  private TelemetryIncubatingAttributes() {}
 }

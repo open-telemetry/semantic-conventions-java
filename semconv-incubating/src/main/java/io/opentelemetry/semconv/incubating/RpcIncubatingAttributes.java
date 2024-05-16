@@ -281,5 +281,5 @@ public final class RpcIncubatingAttributes {
     private RpcSystemValues() {}
   }
 
-  private IncubatingRpcIncubatingAttributes() {}
+  private RpcIncubatingAttributes() {}
 }

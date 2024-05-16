@@ -37,5 +37,5 @@ public final class EnduserIncubatingAttributes {
    */
   public static final AttributeKey<String> ENDUSER_SCOPE = stringKey("enduser.scope");
 
-  private IncubatingEnduserIncubatingAttributes() {}
+  private EnduserIncubatingAttributes() {}
 }

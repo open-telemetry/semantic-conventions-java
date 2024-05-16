@@ -1,6 +1,13 @@
 templates:
   - pattern: IncubatingSemanticAttributes.java.j2
-    filter: '.groups | map(select(.type == "attribute_group")) | map(select(.id | startswith("registry"))) | map(select(.attributes[] | contains(.stability="experimental"))) | group_by(.id | split(".") | .[1]) | map({id: .[0].id | split(".") | .[1], attributes: .[].attributes})'
+    filter: > 
+      .groups 
+      | map(select(.type == "attribute_group"))
+      | map(select(.id | startswith("registry")))
+      | map({ id: .id, group_id: .id | split(".") | .[1], attributes: .attributes}) 
+      | group_by(.group_id)
+      | map({ id: .[0].group_id, attributes: [.[].attributes[]] })
+      | map(select([.attributes[] | select(.stability="experimental")] | any))
     application_mode: each
 text_maps:
   java_generic_type:

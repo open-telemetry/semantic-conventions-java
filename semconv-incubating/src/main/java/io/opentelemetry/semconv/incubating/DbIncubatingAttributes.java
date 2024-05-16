@@ -478,5 +478,5 @@ public final class DbIncubatingAttributes {
     private DbSystemValues() {}
   }
 
-  private IncubatingDbIncubatingAttributes() {}
+  private DbIncubatingAttributes() {}
 }

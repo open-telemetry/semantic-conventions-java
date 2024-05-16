@@ -65,5 +65,5 @@ public final class ServiceIncubatingAttributes {
    */
   public static final AttributeKey<String> SERVICE_NAMESPACE = stringKey("service.namespace");
 
-  private IncubatingServiceIncubatingAttributes() {}
+  private ServiceIncubatingAttributes() {}
 }

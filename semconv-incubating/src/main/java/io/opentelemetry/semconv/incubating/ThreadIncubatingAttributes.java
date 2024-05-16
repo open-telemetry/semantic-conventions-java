@@ -21,5 +21,5 @@ public final class ThreadIncubatingAttributes {
   /** Current thread name. */
   public static final AttributeKey<String> THREAD_NAME = stringKey("thread.name");
 
-  private IncubatingThreadIncubatingAttributes() {}
+  private ThreadIncubatingAttributes() {}
 }

@@ -75,5 +75,5 @@ public final class OsIncubatingAttributes {
     private OsTypeValues() {}
   }
 
-  private IncubatingOsIncubatingAttributes() {}
+  private OsIncubatingAttributes() {}
 }
