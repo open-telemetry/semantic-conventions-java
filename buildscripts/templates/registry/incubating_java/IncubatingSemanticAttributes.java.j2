@@ -69,7 +69,7 @@ public final class {{ my_class_name }} {
     {% for attribute in ctx.attributes | sort(attribute="name") %}{% if attribute is experimental %}
     {# TODO - We need the ability to convert markdown / text into javadoc safe strings. #}
     /**
-     * {{ attribute.brief }}
+     * {{ attribute.brief | markdown_to_html }}
        {%- if attribute.note %}
      *
      * <p>Notes:

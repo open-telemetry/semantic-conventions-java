@@ -54,8 +54,8 @@ public final class HostIncubatingAttributes {
 
   /**
    * Unique host ID. For Cloud, this must be the instance_id assigned by the cloud provider. For
-   * non-containerized systems, this should be the `machine-id`. See the table below for the sources
-   * to use to determine the `machine-id` based on operating system.
+   * non-containerized systems, this should be the <code>machine-id</code>. See the table below for
+   * the sources to use to determine the <code>machine-id</code> based on operating system.
    */
   public static final AttributeKey<String> HOST_ID = stringKey("host.id");
 
@@ -66,8 +66,8 @@ public final class HostIncubatingAttributes {
   public static final AttributeKey<String> HOST_IMAGE_NAME = stringKey("host.image.name");
 
   /**
-   * The version string of the VM image or host OS as defined in [Version
-   * Attributes](/docs/resource/README.md#version-attributes).
+   * The version string of the VM image or host OS as defined in <a
+   * href="/docs/resource/README.md#version-attributes">Version Attributes</a>.
    */
   public static final AttributeKey<String> HOST_IMAGE_VERSION = stringKey("host.image.version");
 

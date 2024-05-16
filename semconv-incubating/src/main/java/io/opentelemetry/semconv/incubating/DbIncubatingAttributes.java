@@ -19,8 +19,8 @@ import io.opentelemetry.semconv.AttributeKeyTemplate;
 public final class DbIncubatingAttributes {
 
   /**
-   * The consistency level of the query. Based on consistency values from
-   * [CQL](https://docs.datastax.com/en/cassandra-oss/3.0/cassandra/dml/dmlConfigConsistency.html).
+   * The consistency level of the query. Based on consistency values from <a
+   * href="https://docs.datastax.com/en/cassandra-oss/3.0/cassandra/dml/dmlConfigConsistency.html">CQL</a>.
    */
   public static final AttributeKey<String> DB_CASSANDRA_CONSISTENCY_LEVEL =
       stringKey("db.cassandra.consistency_level");
@@ -41,8 +41,8 @@ public final class DbIncubatingAttributes {
   public static final AttributeKey<Long> DB_CASSANDRA_PAGE_SIZE = longKey("db.cassandra.page_size");
 
   /**
-   * The number of times a query was speculatively executed. Not set or `0` if the query was not
-   * executed speculatively.
+   * The number of times a query was speculatively executed. Not set or <code>0</code> if the query
+   * was not executed speculatively.
    */
   public static final AttributeKey<Long> DB_CASSANDRA_SPECULATIVE_EXECUTION_COUNT =
       longKey("db.cassandra.speculative_execution_count");
@@ -120,18 +120,18 @@ public final class DbIncubatingAttributes {
    * executing queries or mutations on the current connection. This is useful in cases where the
    * database is running in a clustered environment and the instrumentation is able to record the
    * node executing the query. The client may obtain this value in databases like MySQL using
-   * queries like `select @@hostname`.
+   * queries like <code>select @@hostname</code>.
    */
   public static final AttributeKey<String> DB_INSTANCE_ID = stringKey("db.instance.id");
 
-  /** The MongoDB collection being accessed within the database stated in `db.name`. */
+  /** The MongoDB collection being accessed within the database stated in <code>db.name</code>. */
   public static final AttributeKey<String> DB_MONGODB_COLLECTION =
       stringKey("db.mongodb.collection");
 
   /**
-   * The Microsoft SQL Server [instance
-   * name](https://docs.microsoft.com/sql/connect/jdbc/building-the-connection-url?view=sql-server-ver15)
-   * connecting to. This name is used to determine the port of a named instance.
+   * The Microsoft SQL Server <a
+   * href="https://docs.microsoft.com/sql/connect/jdbc/building-the-connection-url?view=sql-server-ver15">instance
+   * name</a> connecting to. This name is used to determine the port of a named instance.
    *
    * <p>Notes:
    *
@@ -159,9 +159,9 @@ public final class DbIncubatingAttributes {
   public static final AttributeKey<String> DB_NAME = stringKey("db.name");
 
   /**
-   * The name of the operation being executed, e.g. the [MongoDB command
-   * name](https://docs.mongodb.com/manual/reference/command/#database-operations) such as
-   * `findAndModify`, or the SQL keyword.
+   * The name of the operation being executed, e.g. the <a
+   * href="https://docs.mongodb.com/manual/reference/command/#database-operations">MongoDB command
+   * name</a> such as <code>findAndModify</code>, or the SQL keyword.
    *
    * <p>Notes:
    *
@@ -175,9 +175,9 @@ public final class DbIncubatingAttributes {
   public static final AttributeKey<String> DB_OPERATION = stringKey("db.operation");
 
   /**
-   * The index of the database being accessed as used in the [`SELECT`
-   * command](https://redis.io/commands/select), provided as an integer. To be used instead of the
-   * generic `db.name` attribute.
+   * The index of the database being accessed as used in the <a
+   * href="https://redis.io/commands/select"><code>SELECT</code> command</a>, provided as an
+   * integer. To be used instead of the generic <code>db.name</code> attribute.
    */
   public static final AttributeKey<Long> DB_REDIS_DATABASE_INDEX =
       longKey("db.redis.database_index");

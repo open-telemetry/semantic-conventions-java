@@ -15,8 +15,8 @@ import io.opentelemetry.api.common.AttributeKey;
 public final class DeploymentIncubatingAttributes {
 
   /**
-   * Name of the [deployment environment](https://wikipedia.org/wiki/Deployment_environment) (aka
-   * deployment tier).
+   * Name of the <a href="https://wikipedia.org/wiki/Deployment_environment">deployment
+   * environment</a> (aka deployment tier).
    *
    * <p>Notes:
    *

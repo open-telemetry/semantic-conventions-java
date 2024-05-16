@@ -20,10 +20,12 @@ public final class ServiceAttributes {
    * <p>Notes:
    *
    * <ul>
-   *   <li>MUST be the same for all instances of horizontally scaled services. If the value was not
-   *       specified, SDKs MUST fallback to `unknown_service:` concatenated with
-   *       [`process.executable.name`](process.md#process), e.g. `unknown_service:bash`. If
-   *       `process.executable.name` is not available, the value MUST be set to `unknown_service`.
+   *   <li>
+   *       <p>MUST be the same for all instances of horizontally scaled services. If the value was
+   *       not specified, SDKs MUST fallback to <code>unknown_service:</code> concatenated with <a
+   *       href="process.md#process"><code>process.executable.name</code></a>, e.g. <code>
+   *       unknown_service:bash</code>. If <code>process.executable.name</code> is not available,
+   *       the value MUST be set to <code>unknown_service</code>.
    * </ul>
    */
   public static final AttributeKey<String> SERVICE_NAME = stringKey("service.name");

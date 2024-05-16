@@ -20,18 +20,22 @@ public final class ErrorAttributes {
    * <p>Notes:
    *
    * <ul>
-   *   <li>The `error.type` SHOULD be predictable and SHOULD have low cardinality. Instrumentations
-   *       SHOULD document the list of errors they report.
-   *       <p>The cardinality of `error.type` within one instrumentation library SHOULD be low.
-   *       Telemetry consumers that aggregate data from multiple instrumentation libraries and
-   *       applications should be prepared for `error.type` to have high cardinality at query time
-   *       when no additional filters are applied.
-   *       <p>If the operation has completed successfully, instrumentations SHOULD NOT set
-   *       `error.type`.
+   *   <li>
+   *       <p>The <code>error.type</code> SHOULD be predictable and SHOULD have low cardinality.
+   *       Instrumentations SHOULD document the list of errors they report.
+   *       <p>The cardinality of <code>error.type</code> within one instrumentation library SHOULD
+   *       be low. Telemetry consumers that aggregate data from multiple instrumentation libraries
+   *       and applications should be prepared for <code>error.type</code> to have high cardinality
+   *       at query time when no additional filters are applied.
+   *       <p>If the operation has completed successfully, instrumentations SHOULD NOT set <code>
+   *       error.type</code>.
    *       <p>If a specific domain defines its own set of error identifiers (such as HTTP or gRPC
    *       status codes), it's RECOMMENDED to:
-   *       <p>Use a domain-specific attribute Set `error.type` to capture all errors, regardless of
-   *       whether they are defined within the domain-specific set or not.
+   *       <ul>
+   *         <li>Use a domain-specific attribute
+   *         <li>Set <code>error.type</code> to capture all errors, regardless of whether they are
+   *             defined within the domain-specific set or not.
+   *       </ul>
    * </ul>
    */
   public static final AttributeKey<String> ERROR_TYPE = stringKey("error.type");

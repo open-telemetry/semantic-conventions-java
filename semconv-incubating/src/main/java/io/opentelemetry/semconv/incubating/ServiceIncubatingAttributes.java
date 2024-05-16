@@ -50,7 +50,7 @@ public final class ServiceIncubatingAttributes {
   public static final AttributeKey<String> SERVICE_INSTANCE_ID = stringKey("service.instance.id");
 
   /**
-   * A namespace for `service.name`.
+   * A namespace for <code>service.name</code>.
    *
    * <p>Notes:
    *

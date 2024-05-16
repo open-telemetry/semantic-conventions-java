@@ -43,9 +43,9 @@ public final class ContainerIncubatingAttributes {
   public static final AttributeKey<String> CONTAINER_CPU_STATE = stringKey("container.cpu.state");
 
   /**
-   * Container ID. Usually a UUID, as for example used to [identify Docker
-   * containers](https://docs.docker.com/engine/reference/run/#container-identification). The UUID
-   * might be abbreviated.
+   * Container ID. Usually a UUID, as for example used to <a
+   * href="https://docs.docker.com/engine/reference/run/#container-identification">identify Docker
+   * containers</a>. The UUID might be abbreviated.
    */
   public static final AttributeKey<String> CONTAINER_ID = stringKey("container.id");
 
@@ -86,15 +86,18 @@ public final class ContainerIncubatingAttributes {
       stringArrayKey("container.image.repo_digests");
 
   /**
-   * Container image tags. An example can be found in [Docker Image
-   * Inspect](https://docs.docker.com/engine/api/v1.43/#tag/Image/operation/ImageInspect). Should be
-   * only the `<tag>` section of the full name for example from
-   * `registry.example.com/my-org/my-image:<tag>`.
+   * Container image tags. An example can be found in <a
+   * href="https://docs.docker.com/engine/api/v1.43/#tag/Image/operation/ImageInspect">Docker Image
+   * Inspect</a>. Should be only the <code>&lt;tag&gt;</code> section of the full name for example
+   * from <code>registry.example.com/my-org/my-image:&lt;tag&gt;</code>.
    */
   public static final AttributeKey<List<String>> CONTAINER_IMAGE_TAGS =
       stringArrayKey("container.image.tags");
 
-  /** Container labels, `<key>` being the label name, the value being the label value. */
+  /**
+   * Container labels, <code>&lt;key&gt;</code> being the label name, the value being the label
+   * value.
+   */
   public static final AttributeKeyTemplate<String> CONTAINER_LABEL =
       stringTemplate("container.label");
 

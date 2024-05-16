@@ -18,8 +18,9 @@ import java.util.List;
 public final class TlsIncubatingAttributes {
 
   /**
-   * String indicating the [cipher](https://datatracker.ietf.org/doc/html/rfc5246#appendix-A.5) used
-   * during the current connection.
+   * String indicating the <a
+   * href="https://datatracker.ietf.org/doc/html/rfc5246#appendix-A.5">cipher</a> used during the
+   * current connection.
    *
    * <p>Notes:
    *
@@ -33,15 +34,15 @@ public final class TlsIncubatingAttributes {
 
   /**
    * PEM-encoded stand-alone certificate offered by the client. This is usually mutually-exclusive
-   * of `client.certificate_chain` since this value also exists in that list.
+   * of <code>client.certificate_chain</code> since this value also exists in that list.
    */
   public static final AttributeKey<String> TLS_CLIENT_CERTIFICATE =
       stringKey("tls.client.certificate");
 
   /**
    * Array of PEM-encoded certificates that make up the certificate chain offered by the client.
-   * This is usually mutually-exclusive of `client.certificate` since that value should be the first
-   * certificate in the chain.
+   * This is usually mutually-exclusive of <code>client.certificate</code> since that value should
+   * be the first certificate in the chain.
    */
   public static final AttributeKey<List<String>> TLS_CLIENT_CERTIFICATE_CHAIN =
       stringArrayKey("tls.client.certificate_chain");
@@ -70,8 +71,9 @@ public final class TlsIncubatingAttributes {
       stringKey("tls.client.hash.sha256");
 
   /**
-   * Distinguished name of [subject](https://datatracker.ietf.org/doc/html/rfc5280#section-4.1.2.6)
-   * of the issuer of the x.509 certificate presented by the client.
+   * Distinguished name of <a
+   * href="https://datatracker.ietf.org/doc/html/rfc5280#section-4.1.2.6">subject</a> of the issuer
+   * of the x.509 certificate presented by the client.
    */
   public static final AttributeKey<String> TLS_CLIENT_ISSUER = stringKey("tls.client.issuer");
 
@@ -109,22 +111,23 @@ public final class TlsIncubatingAttributes {
   public static final AttributeKey<Boolean> TLS_ESTABLISHED = booleanKey("tls.established");
 
   /**
-   * String indicating the protocol being tunneled. Per the values in the [IANA
-   * registry](https://www.iana.org/assignments/tls-extensiontype-values/tls-extensiontype-values.xhtml#alpn-protocol-ids),
-   * this string should be lower case.
+   * String indicating the protocol being tunneled. Per the values in the <a
+   * href="https://www.iana.org/assignments/tls-extensiontype-values/tls-extensiontype-values.xhtml#alpn-protocol-ids">IANA
+   * registry</a>, this string should be lower case.
    */
   public static final AttributeKey<String> TLS_NEXT_PROTOCOL = stringKey("tls.next_protocol");
 
   /**
-   * Normalized lowercase protocol name parsed from original string of the negotiated [SSL/TLS
-   * protocol
-   * version](https://www.openssl.org/docs/man1.1.1/man3/SSL_get_version.html#RETURN-VALUES)
+   * Normalized lowercase protocol name parsed from original string of the negotiated <a
+   * href="https://www.openssl.org/docs/man1.1.1/man3/SSL_get_version.html#RETURN-VALUES">SSL/TLS
+   * protocol version</a>
    */
   public static final AttributeKey<String> TLS_PROTOCOL_NAME = stringKey("tls.protocol.name");
 
   /**
-   * Numeric part of the version parsed from the original string of the negotiated [SSL/TLS protocol
-   * version](https://www.openssl.org/docs/man1.1.1/man3/SSL_get_version.html#RETURN-VALUES)
+   * Numeric part of the version parsed from the original string of the negotiated <a
+   * href="https://www.openssl.org/docs/man1.1.1/man3/SSL_get_version.html#RETURN-VALUES">SSL/TLS
+   * protocol version</a>
    */
   public static final AttributeKey<String> TLS_PROTOCOL_VERSION = stringKey("tls.protocol.version");
 
@@ -135,15 +138,15 @@ public final class TlsIncubatingAttributes {
 
   /**
    * PEM-encoded stand-alone certificate offered by the server. This is usually mutually-exclusive
-   * of `server.certificate_chain` since this value also exists in that list.
+   * of <code>server.certificate_chain</code> since this value also exists in that list.
    */
   public static final AttributeKey<String> TLS_SERVER_CERTIFICATE =
       stringKey("tls.server.certificate");
 
   /**
    * Array of PEM-encoded certificates that make up the certificate chain offered by the server.
-   * This is usually mutually-exclusive of `server.certificate` since that value should be the first
-   * certificate in the chain.
+   * This is usually mutually-exclusive of <code>server.certificate</code> since that value should
+   * be the first certificate in the chain.
    */
   public static final AttributeKey<List<String>> TLS_SERVER_CERTIFICATE_CHAIN =
       stringArrayKey("tls.server.certificate_chain");
@@ -172,8 +175,9 @@ public final class TlsIncubatingAttributes {
       stringKey("tls.server.hash.sha256");
 
   /**
-   * Distinguished name of [subject](https://datatracker.ietf.org/doc/html/rfc5280#section-4.1.2.6)
-   * of the issuer of the x.509 certificate presented by the client.
+   * Distinguished name of <a
+   * href="https://datatracker.ietf.org/doc/html/rfc5280#section-4.1.2.6">subject</a> of the issuer
+   * of the x.509 certificate presented by the client.
    */
   public static final AttributeKey<String> TLS_SERVER_ISSUER = stringKey("tls.server.issuer");
 

@@ -16,8 +16,8 @@ import io.opentelemetry.api.common.AttributeKey;
 public final class CodeIncubatingAttributes {
 
   /**
-   * The column number in `code.filepath` best representing the operation. It SHOULD point within
-   * the code unit named in `code.function`.
+   * The column number in <code>code.filepath</code> best representing the operation. It SHOULD
+   * point within the code unit named in <code>code.function</code>.
    */
   public static final AttributeKey<Long> CODE_COLUMN = longKey("code.column");
 
@@ -33,15 +33,15 @@ public final class CodeIncubatingAttributes {
   public static final AttributeKey<String> CODE_FUNCTION = stringKey("code.function");
 
   /**
-   * The line number in `code.filepath` best representing the operation. It SHOULD point within the
-   * code unit named in `code.function`.
+   * The line number in <code>code.filepath</code> best representing the operation. It SHOULD point
+   * within the code unit named in <code>code.function</code>.
    */
   public static final AttributeKey<Long> CODE_LINENO = longKey("code.lineno");
 
   /**
-   * The "namespace" within which `code.function` is defined. Usually the qualified class or module
-   * name, such that `code.namespace` + some separator + `code.function` form a unique identifier
-   * for the code unit.
+   * The &quot;namespace&quot; within which <code>code.function</code> is defined. Usually the
+   * qualified class or module name, such that <code>code.namespace</code> + some separator + <code>
+   * code.function</code> form a unique identifier for the code unit.
    */
   public static final AttributeKey<String> CODE_NAMESPACE = stringKey("code.namespace");
 

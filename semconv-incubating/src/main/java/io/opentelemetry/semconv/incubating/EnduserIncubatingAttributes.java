@@ -15,9 +15,9 @@ import io.opentelemetry.api.common.AttributeKey;
 public final class EnduserIncubatingAttributes {
 
   /**
-   * Username or client_id extracted from the access token or
-   * [Authorization](https://tools.ietf.org/html/rfc7235#section-4.2) header in the inbound request
-   * from outside the system.
+   * Username or client_id extracted from the access token or <a
+   * href="https://tools.ietf.org/html/rfc7235#section-4.2">Authorization</a> header in the inbound
+   * request from outside the system.
    */
   public static final AttributeKey<String> ENDUSER_ID = stringKey("enduser.id");
 
@@ -29,10 +29,11 @@ public final class EnduserIncubatingAttributes {
 
   /**
    * Scopes or granted authorities the client currently possesses extracted from token or
-   * application security context. The value would come from the scope associated with an [OAuth 2.0
-   * Access Token](https://tools.ietf.org/html/rfc6749#section-3.3) or an attribute value in a [SAML
-   * 2.0
-   * Assertion](http://docs.oasis-open.org/security/saml/Post2.0/sstc-saml-tech-overview-2.0.html).
+   * application security context. The value would come from the scope associated with an <a
+   * href="https://tools.ietf.org/html/rfc6749#section-3.3">OAuth 2.0 Access Token</a> or an
+   * attribute value in a <a
+   * href="http://docs.oasis-open.org/security/saml/Post2.0/sstc-saml-tech-overview-2.0.html">SAML
+   * 2.0 Assertion</a>.
    */
   public static final AttributeKey<String> ENDUSER_SCOPE = stringKey("enduser.scope");
 

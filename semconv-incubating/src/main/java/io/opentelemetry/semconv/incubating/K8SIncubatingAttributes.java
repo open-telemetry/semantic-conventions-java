@@ -20,7 +20,7 @@ public final class K8SIncubatingAttributes {
   public static final AttributeKey<String> K_8_S_CLUSTER_NAME = stringKey("k8s.cluster.name");
 
   /**
-   * A pseudo-ID for the cluster, set to the UID of the `kube-system` namespace.
+   * A pseudo-ID for the cluster, set to the UID of the <code>kube-system</code> namespace.
    *
    * <p>Notes:
    *
@@ -45,7 +45,7 @@ public final class K8SIncubatingAttributes {
 
   /**
    * The name of the Container from Pod specification, must be unique within a Pod. Container
-   * runtime usually uses different globally unique name (`container.name`).
+   * runtime usually uses different globally unique name (<code>container.name</code>).
    */
   public static final AttributeKey<String> K_8_S_CONTAINER_NAME = stringKey("k8s.container.name");
 
@@ -90,15 +90,15 @@ public final class K8SIncubatingAttributes {
   public static final AttributeKey<String> K_8_S_NODE_UID = stringKey("k8s.node.uid");
 
   /**
-   * The annotation key-value pairs placed on the Pod, the `<key>` being the annotation name, the
-   * value being the annotation value.
+   * The annotation key-value pairs placed on the Pod, the <code>&lt;key&gt;</code> being the
+   * annotation name, the value being the annotation value.
    */
   public static final AttributeKeyTemplate<String> K_8_S_POD_ANNOTATION =
       stringTemplate("k8s.pod.annotation");
 
   /**
-   * The label key-value pairs placed on the Pod, the `<key>` being the label name, the value being
-   * the label value.
+   * The label key-value pairs placed on the Pod, the <code>&lt;key&gt;</code> being the label name,
+   * the value being the label value.
    */
   public static final AttributeKeyTemplate<String> K_8_S_POD_LABEL =
       stringTemplate("k8s.pod.label");

@@ -17,7 +17,7 @@ public final class SessionIncubatingAttributes {
   /** A unique id to identify a session. */
   public static final AttributeKey<String> SESSION_ID = stringKey("session.id");
 
-  /** The previous `session.id` for this user, when known. */
+  /** The previous <code>session.id</code> for this user, when known. */
   public static final AttributeKey<String> SESSION_PREVIOUS_ID = stringKey("session.previous_id");
 
   private IncubatingSessionIncubatingAttributes() {}

@@ -22,9 +22,10 @@ public final class ClientAttributes {
    * <p>Notes:
    *
    * <ul>
-   *   <li>When observed from the server side, and when communicating through an intermediary,
-   *       `client.address` SHOULD represent the client address behind any intermediaries, for
-   *       example proxies, if it's available.
+   *   <li>
+   *       <p>When observed from the server side, and when communicating through an intermediary,
+   *       <code>client.address</code> SHOULD represent the client address behind any
+   *       intermediaries, for example proxies, if it's available.
    * </ul>
    */
   public static final AttributeKey<String> CLIENT_ADDRESS = stringKey("client.address");
@@ -35,9 +36,10 @@ public final class ClientAttributes {
    * <p>Notes:
    *
    * <ul>
-   *   <li>When observed from the server side, and when communicating through an intermediary,
-   *       `client.port` SHOULD represent the client port behind any intermediaries, for example
-   *       proxies, if it's available.
+   *   <li>
+   *       <p>When observed from the server side, and when communicating through an intermediary,
+   *       <code>client.port</code> SHOULD represent the client port behind any intermediaries, for
+   *       example proxies, if it's available.
    * </ul>
    */
   public static final AttributeKey<Long> CLIENT_PORT = longKey("client.port");

@@ -15,7 +15,7 @@ import io.opentelemetry.api.common.AttributeKey;
 @SuppressWarnings("unused")
 public final class ThreadIncubatingAttributes {
 
-  /** Current "managed" thread ID (as opposed to OS thread ID). */
+  /** Current &quot;managed&quot; thread ID (as opposed to OS thread ID). */
   public static final AttributeKey<Long> THREAD_ID = longKey("thread.id");
 
   /** Current thread name. */

@@ -29,12 +29,14 @@ public final class NetworkAttributes {
   public static final AttributeKey<Long> NETWORK_PEER_PORT = longKey("network.peer.port");
 
   /**
-   * [OSI application layer](https://osi-model.com/application-layer/) or non-OSI equivalent.
+   * <a href="https://osi-model.com/application-layer/">OSI application layer</a> or non-OSI
+   * equivalent.
    *
    * <p>Notes:
    *
    * <ul>
-   *   <li>The value SHOULD be normalized to lowercase.
+   *   <li>
+   *       <p>The value SHOULD be normalized to lowercase.
    * </ul>
    */
   public static final AttributeKey<String> NETWORK_PROTOCOL_NAME =
@@ -46,23 +48,26 @@ public final class NetworkAttributes {
    * <p>Notes:
    *
    * <ul>
-   *   <li>If protocol version is subject to negotiation (for example using
-   *       [ALPN](https://www.rfc-editor.org/rfc/rfc7301.html)), this attribute SHOULD be set to the
-   *       negotiated version. If the actual protocol version is not known, this attribute SHOULD
-   *       NOT be set.
+   *   <li>
+   *       <p>If protocol version is subject to negotiation (for example using <a
+   *       href="https://www.rfc-editor.org/rfc/rfc7301.html">ALPN</a>), this attribute SHOULD be
+   *       set to the negotiated version. If the actual protocol version is not known, this
+   *       attribute SHOULD NOT be set.
    * </ul>
    */
   public static final AttributeKey<String> NETWORK_PROTOCOL_VERSION =
       stringKey("network.protocol.version");
 
   /**
-   * [OSI transport layer](https://osi-model.com/transport-layer/) or [inter-process communication
-   * method](https://wikipedia.org/wiki/Inter-process_communication).
+   * <a href="https://osi-model.com/transport-layer/">OSI transport layer</a> or <a
+   * href="https://wikipedia.org/wiki/Inter-process_communication">inter-process communication
+   * method</a>.
    *
    * <p>Notes:
    *
    * <ul>
-   *   <li>The value SHOULD be normalized to lowercase.
+   *   <li>
+   *       <p>The value SHOULD be normalized to lowercase.
    *       <p>Consider always setting the transport when setting a port number, since a port number
    *       is ambiguous without knowing the transport. For example different processes could be
    *       listening on TCP port 12345 and UDP port 12345.
@@ -71,12 +76,13 @@ public final class NetworkAttributes {
   public static final AttributeKey<String> NETWORK_TRANSPORT = stringKey("network.transport");
 
   /**
-   * [OSI network layer](https://osi-model.com/network-layer/) or non-OSI equivalent.
+   * <a href="https://osi-model.com/network-layer/">OSI network layer</a> or non-OSI equivalent.
    *
    * <p>Notes:
    *
    * <ul>
-   *   <li>The value SHOULD be normalized to lowercase.
+   *   <li>
+   *       <p>The value SHOULD be normalized to lowercase.
    * </ul>
    */
   public static final AttributeKey<String> NETWORK_TYPE = stringKey("network.type");

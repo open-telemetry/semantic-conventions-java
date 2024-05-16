@@ -18,8 +18,8 @@ public final class OsIncubatingAttributes {
   public static final AttributeKey<String> OS_BUILD_ID = stringKey("os.build_id");
 
   /**
-   * Human readable (not intended to be parsed) OS version information, like e.g. reported by `ver`
-   * or `lsb_release -a` commands.
+   * Human readable (not intended to be parsed) OS version information, like e.g. reported by <code>
+   * ver</code> or <code>lsb_release -a</code> commands.
    */
   public static final AttributeKey<String> OS_DESCRIPTION = stringKey("os.description");
 
@@ -30,8 +30,8 @@ public final class OsIncubatingAttributes {
   public static final AttributeKey<String> OS_TYPE = stringKey("os.type");
 
   /**
-   * The version string of the operating system as defined in [Version
-   * Attributes](/docs/resource/README.md#version-attributes).
+   * The version string of the operating system as defined in <a
+   * href="/docs/resource/README.md#version-attributes">Version Attributes</a>.
    */
   public static final AttributeKey<String> OS_VERSION = stringKey("os.version");
 

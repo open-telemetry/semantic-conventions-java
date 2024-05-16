@@ -61,11 +61,12 @@ public final class CloudIncubatingAttributes {
   public static final AttributeKey<String> CLOUD_REGION = stringKey("cloud.region");
 
   /**
-   * Cloud provider-specific native identifier of the monitored cloud resource (e.g. an
-   * [ARN](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) on AWS, a
-   * [fully qualified resource
-   * ID](https://learn.microsoft.com/rest/api/resources/resources/get-by-id) on Azure, a [full
-   * resource name](https://cloud.google.com/apis/design/resource_names#full_resource_name) on GCP)
+   * Cloud provider-specific native identifier of the monitored cloud resource (e.g. an <a
+   * href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">ARN</a> on
+   * AWS, a <a href="https://learn.microsoft.com/rest/api/resources/resources/get-by-id">fully
+   * qualified resource ID</a> on Azure, a <a
+   * href="https://cloud.google.com/apis/design/resource_names#full_resource_name">full resource
+   * name</a> on GCP)
    *
    * <p>Notes:
    *

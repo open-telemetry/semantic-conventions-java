@@ -23,8 +23,9 @@ public final class FaasIncubatingAttributes {
   public static final AttributeKey<Boolean> FAAS_COLDSTART = booleanKey("faas.coldstart");
 
   /**
-   * A string containing the schedule period as [Cron
-   * Expression](https://docs.oracle.com/cd/E12058_01/doc/doc.1014/e12030/cron_expressions.htm).
+   * A string containing the schedule period as <a
+   * href="https://docs.oracle.com/cd/E12058_01/doc/doc.1014/e12030/cron_expressions.htm">Cron
+   * Expression</a>.
    */
   public static final AttributeKey<String> FAAS_CRON = stringKey("faas.cron");
 
@@ -46,9 +47,9 @@ public final class FaasIncubatingAttributes {
       stringKey("faas.document.operation");
 
   /**
-   * A string containing the time when the data was accessed in the [ISO
-   * 8601](https://www.iso.org/iso-8601-date-and-time-format.html) format expressed in
-   * [UTC](https://www.w3.org/TR/NOTE-datetime).
+   * A string containing the time when the data was accessed in the <a
+   * href="https://www.iso.org/iso-8601-date-and-time-format.html">ISO 8601</a> format expressed in
+   * <a href="https://www.w3.org/TR/NOTE-datetime">UTC</a>.
    */
   public static final AttributeKey<String> FAAS_DOCUMENT_TIME = stringKey("faas.document.time");
 
@@ -138,9 +139,9 @@ public final class FaasIncubatingAttributes {
   public static final AttributeKey<String> FAAS_NAME = stringKey("faas.name");
 
   /**
-   * A string containing the function invocation time in the [ISO
-   * 8601](https://www.iso.org/iso-8601-date-and-time-format.html) format expressed in
-   * [UTC](https://www.w3.org/TR/NOTE-datetime).
+   * A string containing the function invocation time in the <a
+   * href="https://www.iso.org/iso-8601-date-and-time-format.html">ISO 8601</a> format expressed in
+   * <a href="https://www.w3.org/TR/NOTE-datetime">UTC</a>.
    */
   public static final AttributeKey<String> FAAS_TIME = stringKey("faas.time");
 

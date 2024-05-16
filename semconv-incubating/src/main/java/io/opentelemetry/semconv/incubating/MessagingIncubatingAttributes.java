@@ -59,8 +59,8 @@ public final class MessagingIncubatingAttributes {
       stringKey("messaging.destination.name");
 
   /**
-   * The identifier of the partition messages are sent to or received from, unique within the
-   * `messaging.destination.name`.
+   * The identifier of the partition messages are sent to or received from, unique within the <code>
+   * messaging.destination.name</code>.
    */
   public static final AttributeKey<String> MESSAGING_DESTINATION_PARTITION_ID =
       stringKey("messaging.destination.partition.id");
@@ -132,8 +132,8 @@ public final class MessagingIncubatingAttributes {
 
   /**
    * Message keys in Kafka are used for grouping alike messages to ensure they're processed on the
-   * same partition. They differ from `messaging.message.id` in that they're not unique. If the key
-   * is `null`, the attribute MUST NOT be set.
+   * same partition. They differ from <code>messaging.message.id</code> in that they're not unique.
+   * If the key is <code>null</code>, the attribute MUST NOT be set.
    *
    * <p>Notes:
    *
@@ -168,7 +168,7 @@ public final class MessagingIncubatingAttributes {
 
   /**
    * The conversation ID identifying the conversation to which the message belongs, represented as a
-   * string. Sometimes called "Correlation ID".
+   * string. Sometimes called &quot;Correlation ID&quot;.
    */
   public static final AttributeKey<String> MESSAGING_MESSAGE_CONVERSATION_ID =
       stringKey("messaging.message.conversation_id");
@@ -259,8 +259,9 @@ public final class MessagingIncubatingAttributes {
       stringKey("messaging.servicebus.destination.subscription_name");
 
   /**
-   * Describes the [settlement
-   * type](https://learn.microsoft.com/azure/service-bus-messaging/message-transfers-locks-settlement#peeklock).
+   * Describes the <a
+   * href="https://learn.microsoft.com/azure/service-bus-messaging/message-transfers-locks-settlement#peeklock">settlement
+   * type</a>.
    */
   public static final AttributeKey<String> MESSAGING_SERVICEBUS_DISPOSITION_STATUS =
       stringKey("messaging.servicebus.disposition_status");

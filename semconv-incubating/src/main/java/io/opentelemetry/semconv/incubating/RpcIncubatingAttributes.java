@@ -19,15 +19,15 @@ import java.util.List;
 public final class RpcIncubatingAttributes {
 
   /**
-   * The [error codes](https://connect.build/docs/protocol/#error-codes) of the Connect request.
-   * Error codes are always string values.
+   * The <a href="https://connect.build/docs/protocol/#error-codes">error codes</a> of the Connect
+   * request. Error codes are always string values.
    */
   public static final AttributeKey<String> RPC_CONNECT_RPC_ERROR_CODE =
       stringKey("rpc.connect_rpc.error_code");
 
   /**
-   * Connect request metadata, `<key>` being the normalized Connect Metadata key (lowercase), the
-   * value being the metadata values.
+   * Connect request metadata, <code>&lt;key&gt;</code> being the normalized Connect Metadata key
+   * (lowercase), the value being the metadata values.
    *
    * <p>Notes:
    *
@@ -41,8 +41,8 @@ public final class RpcIncubatingAttributes {
       stringArrayKeyTemplate("rpc.connect_rpc.request.metadata");
 
   /**
-   * Connect response metadata, `<key>` being the normalized Connect Metadata key (lowercase), the
-   * value being the metadata values.
+   * Connect response metadata, <code>&lt;key&gt;</code> being the normalized Connect Metadata key
+   * (lowercase), the value being the metadata values.
    *
    * <p>Notes:
    *
@@ -56,8 +56,8 @@ public final class RpcIncubatingAttributes {
       stringArrayKeyTemplate("rpc.connect_rpc.response.metadata");
 
   /**
-   * gRPC request metadata, `<key>` being the normalized gRPC Metadata key (lowercase), the value
-   * being the metadata values.
+   * gRPC request metadata, <code>&lt;key&gt;</code> being the normalized gRPC Metadata key
+   * (lowercase), the value being the metadata values.
    *
    * <p>Notes:
    *
@@ -71,8 +71,8 @@ public final class RpcIncubatingAttributes {
       stringArrayKeyTemplate("rpc.grpc.request.metadata");
 
   /**
-   * gRPC response metadata, `<key>` being the normalized gRPC Metadata key (lowercase), the value
-   * being the metadata values.
+   * gRPC response metadata, <code>&lt;key&gt;</code> being the normalized gRPC Metadata key
+   * (lowercase), the value being the metadata values.
    *
    * <p>Notes:
    *
@@ -86,29 +86,30 @@ public final class RpcIncubatingAttributes {
       stringArrayKeyTemplate("rpc.grpc.response.metadata");
 
   /**
-   * The [numeric status code](https://github.com/grpc/grpc/blob/v1.33.2/doc/statuscodes.md) of the
-   * gRPC request.
+   * The <a href="https://github.com/grpc/grpc/blob/v1.33.2/doc/statuscodes.md">numeric status
+   * code</a> of the gRPC request.
    */
   public static final AttributeKey<String> RPC_GRPC_STATUS_CODE = stringKey("rpc.grpc.status_code");
 
-  /** `error.code` property of response if it is an error response. */
+  /** <code>error.code</code> property of response if it is an error response. */
   public static final AttributeKey<Long> RPC_JSONRPC_ERROR_CODE = longKey("rpc.jsonrpc.error_code");
 
-  /** `error.message` property of response if it is an error response. */
+  /** <code>error.message</code> property of response if it is an error response. */
   public static final AttributeKey<String> RPC_JSONRPC_ERROR_MESSAGE =
       stringKey("rpc.jsonrpc.error_message");
 
   /**
-   * `id` property of request or response. Since protocol allows id to be int, string, `null` or
-   * missing (for notifications), value is expected to be cast to string for simplicity. Use empty
-   * string in case of `null` value. Omit entirely if this is a notification.
+   * <code>id</code> property of request or response. Since protocol allows id to be int, string,
+   * <code>null</code> or missing (for notifications), value is expected to be cast to string for
+   * simplicity. Use empty string in case of <code>null</code> value. Omit entirely if this is a
+   * notification.
    */
   public static final AttributeKey<String> RPC_JSONRPC_REQUEST_ID =
       stringKey("rpc.jsonrpc.request_id");
 
   /**
-   * Protocol version as in `jsonrpc` property of request/response. Since JSON-RPC 1.0 doesn't
-   * specify this, the value can be omitted.
+   * Protocol version as in <code>jsonrpc</code> property of request/response. Since JSON-RPC 1.0
+   * doesn't specify this, the value can be omitted.
    */
   public static final AttributeKey<String> RPC_JSONRPC_VERSION = stringKey("rpc.jsonrpc.version");
 

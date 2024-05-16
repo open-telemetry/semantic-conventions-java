@@ -19,37 +19,39 @@ public final class ProcessIncubatingAttributes {
 
   /**
    * The command used to launch the process (i.e. the command name). On Linux based systems, can be
-   * set to the zeroth string in `proc/[pid]/cmdline`. On Windows, can be set to the first parameter
-   * extracted from `GetCommandLineW`.
+   * set to the zeroth string in <code>proc/[pid]/cmdline</code>. On Windows, can be set to the
+   * first parameter extracted from <code>GetCommandLineW</code>.
    */
   public static final AttributeKey<String> PROCESS_COMMAND = stringKey("process.command");
 
   /**
    * All the command arguments (including the command/executable itself) as received by the process.
    * On Linux-based systems (and some other Unixoid systems supporting procfs), can be set according
-   * to the list of null-delimited strings extracted from `proc/[pid]/cmdline`. For libc-based
-   * executables, this would be the full argv vector passed to `main`.
+   * to the list of null-delimited strings extracted from <code>proc/[pid]/cmdline</code>. For
+   * libc-based executables, this would be the full argv vector passed to <code>main</code>.
    */
   public static final AttributeKey<List<String>> PROCESS_COMMAND_ARGS =
       stringArrayKey("process.command_args");
 
   /**
    * The full command used to launch the process as a single string representing the full command.
-   * On Windows, can be set to the result of `GetCommandLineW`. Do not set this if you have to
-   * assemble it just for monitoring; use `process.command_args` instead.
+   * On Windows, can be set to the result of <code>GetCommandLineW</code>. Do not set this if you
+   * have to assemble it just for monitoring; use <code>process.command_args</code> instead.
    */
   public static final AttributeKey<String> PROCESS_COMMAND_LINE = stringKey("process.command_line");
 
   /**
-   * The name of the process executable. On Linux based systems, can be set to the `Name` in
-   * `proc/[pid]/status`. On Windows, can be set to the base name of `GetProcessImageFileNameW`.
+   * The name of the process executable. On Linux based systems, can be set to the <code>Name</code>
+   * in <code>proc/[pid]/status</code>. On Windows, can be set to the base name of <code>
+   * GetProcessImageFileNameW</code>.
    */
   public static final AttributeKey<String> PROCESS_EXECUTABLE_NAME =
       stringKey("process.executable.name");
 
   /**
    * The full path to the process executable. On Linux based systems, can be set to the target of
-   * `proc/[pid]/exe`. On Windows, can be set to the result of `GetProcessImageFileNameW`.
+   * <code>proc/[pid]/exe</code>. On Windows, can be set to the result of <code>
+   * GetProcessImageFileNameW</code>.
    */
   public static final AttributeKey<String> PROCESS_EXECUTABLE_PATH =
       stringKey("process.executable.path");

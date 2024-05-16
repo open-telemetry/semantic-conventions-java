@@ -16,7 +16,7 @@ import io.opentelemetry.api.common.AttributeKey;
 public final class UrlIncubatingAttributes {
 
   /**
-   * Domain extracted from the `url.full`, such as "opentelemetry.io".
+   * Domain extracted from the <code>url.full</code>, such as &quot;opentelemetry.io&quot;.
    *
    * <p>Notes:
    *
@@ -30,7 +30,7 @@ public final class UrlIncubatingAttributes {
   public static final AttributeKey<String> URL_DOMAIN = stringKey("url.domain");
 
   /**
-   * The file extension extracted from the `url.full`, excluding the leading dot.
+   * The file extension extracted from the <code>url.full</code>, excluding the leading dot.
    *
    * <p>Notes:
    *
@@ -57,7 +57,7 @@ public final class UrlIncubatingAttributes {
    */
   public static final AttributeKey<String> URL_ORIGINAL = stringKey("url.original");
 
-  /** Port extracted from the `url.full` */
+  /** Port extracted from the <code>url.full</code> */
   public static final AttributeKey<Long> URL_PORT = longKey("url.port");
 
   /**
@@ -93,7 +93,7 @@ public final class UrlIncubatingAttributes {
 
   /**
    * The effective top level domain (eTLD), also known as the domain suffix, is the last part of the
-   * domain name. For example, the top level domain for example.com is `com`.
+   * domain name. For example, the top level domain for example.com is <code>com</code>.
    *
    * <p>Notes:
    *

@@ -21,9 +21,9 @@ public final class HttpIncubatingAttributes {
 
   /**
    * The size of the request payload body in bytes. This is the number of bytes transferred
-   * excluding headers and is often, but not always, present as the
-   * [Content-Length](https://www.rfc-editor.org/rfc/rfc9110.html#field.content-length) header. For
-   * requests using transport encoding, this should be the compressed size.
+   * excluding headers and is often, but not always, present as the <a
+   * href="https://www.rfc-editor.org/rfc/rfc9110.html#field.content-length">Content-Length</a>
+   * header. For requests using transport encoding, this should be the compressed size.
    */
   public static final AttributeKey<Long> HTTP_REQUEST_BODY_SIZE = longKey("http.request.body.size");
 
@@ -36,9 +36,9 @@ public final class HttpIncubatingAttributes {
 
   /**
    * The size of the response payload body in bytes. This is the number of bytes transferred
-   * excluding headers and is often, but not always, present as the
-   * [Content-Length](https://www.rfc-editor.org/rfc/rfc9110.html#field.content-length) header. For
-   * requests using transport encoding, this should be the compressed size.
+   * excluding headers and is often, but not always, present as the <a
+   * href="https://www.rfc-editor.org/rfc/rfc9110.html#field.content-length">Content-Length</a>
+   * header. For requests using transport encoding, this should be the compressed size.
    */
   public static final AttributeKey<Long> HTTP_RESPONSE_BODY_SIZE =
       longKey("http.response.body.size");

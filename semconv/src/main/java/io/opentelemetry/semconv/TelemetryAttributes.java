@@ -24,12 +24,14 @@ public final class TelemetryAttributes {
    * <p>Notes:
    *
    * <ul>
-   *   <li>The OpenTelemetry SDK MUST set the `telemetry.sdk.name` attribute to `opentelemetry`. If
-   *       another SDK, like a fork or a vendor-provided implementation, is used, this SDK MUST set
-   *       the `telemetry.sdk.name` attribute to the fully-qualified class or module name of this
-   *       SDK's main entry point or another suitable identifier depending on the language. The
-   *       identifier `opentelemetry` is reserved and MUST NOT be used in this case. All custom
-   *       identifiers SHOULD be stable across different versions of an implementation.
+   *   <li>
+   *       <p>The OpenTelemetry SDK MUST set the <code>telemetry.sdk.name</code> attribute to <code>
+   *       opentelemetry</code>. If another SDK, like a fork or a vendor-provided implementation, is
+   *       used, this SDK MUST set the <code>telemetry.sdk.name</code> attribute to the
+   *       fully-qualified class or module name of this SDK's main entry point or another suitable
+   *       identifier depending on the language. The identifier <code>opentelemetry</code> is
+   *       reserved and MUST NOT be used in this case. All custom identifiers SHOULD be stable
+   *       across different versions of an implementation.
    * </ul>
    */
   public static final AttributeKey<String> TELEMETRY_SDK_NAME = stringKey("telemetry.sdk.name");
