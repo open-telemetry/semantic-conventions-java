@@ -7,6 +7,7 @@ package io.opentelemetry.semconv.incubating;
 
 import static io.opentelemetry.api.common.AttributeKey.stringArrayKey;
 import static io.opentelemetry.api.common.AttributeKey.stringKey;
+import static io.opentelemetry.semconv.AttributeKeyTemplate.stringKeyTemplate;
 
 import io.opentelemetry.api.common.AttributeKey;
 import io.opentelemetry.semconv.AttributeKeyTemplate;
@@ -99,7 +100,7 @@ public final class ContainerIncubatingAttributes {
    * value.
    */
   public static final AttributeKeyTemplate<String> CONTAINER_LABEL =
-      stringTemplate("container.label");
+      stringKeyTemplate("container.label");
 
   /** Container name used by container runtime. */
   public static final AttributeKey<String> CONTAINER_NAME = stringKey("container.name");

@@ -7,6 +7,7 @@ package io.opentelemetry.semconv.incubating;
 
 import static io.opentelemetry.api.common.AttributeKey.longKey;
 import static io.opentelemetry.api.common.AttributeKey.stringKey;
+import static io.opentelemetry.semconv.AttributeKeyTemplate.stringKeyTemplate;
 
 import io.opentelemetry.api.common.AttributeKey;
 import io.opentelemetry.semconv.AttributeKeyTemplate;
@@ -94,14 +95,14 @@ public final class K8SIncubatingAttributes {
    * annotation name, the value being the annotation value.
    */
   public static final AttributeKeyTemplate<String> K_8_S_POD_ANNOTATION =
-      stringTemplate("k8s.pod.annotation");
+      stringKeyTemplate("k8s.pod.annotation");
 
   /**
    * The label key-value pairs placed on the Pod, the <code>&lt;key&gt;</code> being the label name,
    * the value being the label value.
    */
   public static final AttributeKeyTemplate<String> K_8_S_POD_LABEL =
-      stringTemplate("k8s.pod.label");
+      stringKeyTemplate("k8s.pod.label");
 
   /** The name of the Pod. */
   public static final AttributeKey<String> K_8_S_POD_NAME = stringKey("k8s.pod.name");

@@ -9,6 +9,7 @@ import static io.opentelemetry.api.common.AttributeKey.booleanKey;
 import static io.opentelemetry.api.common.AttributeKey.doubleKey;
 import static io.opentelemetry.api.common.AttributeKey.longKey;
 import static io.opentelemetry.api.common.AttributeKey.stringKey;
+import static io.opentelemetry.semconv.AttributeKeyTemplate.stringKeyTemplate;
 
 import io.opentelemetry.api.common.AttributeKey;
 import io.opentelemetry.semconv.AttributeKeyTemplate;
@@ -113,7 +114,7 @@ public final class DbIncubatingAttributes {
    * </ul>
    */
   public static final AttributeKeyTemplate<String> DB_ELASTICSEARCH_PATH_PARTS =
-      stringTemplate("db.elasticsearch.path_parts");
+      stringKeyTemplate("db.elasticsearch.path_parts");
 
   /**
    * An identifier (address, unique name, or any other identifier) of the database instance that is

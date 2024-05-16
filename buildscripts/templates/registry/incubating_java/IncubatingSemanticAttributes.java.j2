@@ -1,44 +1,17 @@
-{%- macro to_java_type(attribute) -%}
-  {%- if attribute.type == "string" -%}
-    String
-  {%- elif attribute.type == "string[]" -%}
-    List<String>
-  {%- elif attribute.type == "boolean" -%}
-    Boolean
-  {%- elif attribute.type == "int" -%}
-    Long
-  {%- elif attribute.type == "double" -%}
-    Double
-  {%- elif attribute.type is mapping -%}
-    {# Note: Treat all enums as strings for now? #}
-    String
-  {%- elif attribute.type == "template[string]" -%}
-    String
-  {%- elif attribute.type == "template[string[]]" -%}
-    List<String>
+{%- macro to_java_key_type(attribute) -%}
+  {%- if attribute.type is mapping -%}
+    {# TODO - handle enums #}
+    AttributeKey<String>
   {%- else -%}
-    {{ attribute.type }}
+    {{ attribute.type | map_text("java_key_type") }}
   {%- endif -%}
 {%- endmacro %}
 {%- macro to_java_key_factory(attribute) -%}
-  {%- if attribute.type == "string" -%}
-    stringKey
-  {%- elif attribute.type == "string[]" -%}
-    stringArrayKey
-  {%- elif attribute.type == "boolean" -%}
-    booleanKey
-  {%- elif attribute.type == "int" -%}
-    longKey
-  {%- elif attribute.type == "double" -%}
-    doubleKey
-  {%- elif attribute.type == "template[string]" -%}
-    stringTemplate
-  {%- elif attribute.type == "template[string[]]" -%}
-    stringArrayKeyTemplate
-  {%- elif attribute.type is mapping -%}
+  {%- if attribute.type is mapping -%}
+    {# TODO - handle enums #}
     stringKey
   {%- else -%}
-    {{ type }}Key
+    {{ attribute.type | map_text("java_key_factory") }}
   {%- endif -%}
 {%- endmacro %}
 {%- set my_file_name = ctx.id | pascal_case ~ "IncubatingAttributes.java" -%}
@@ -85,11 +58,7 @@ public final class {{ my_class_name }} {
       {%- if attribute is deprecated %}
     @Deprecated
       {%- endif -%}
-      {%- if attribute.type is startingwith("template") %}
-    public static final AttributeKeyTemplate<{{ to_java_type(attribute) | trim }}> {{ attribute.name | screaming_snake_case }} = {{ to_java_key_factory(attribute) | trim }}("{{ attribute.name }}");
-      {%- else %}
-    public static final AttributeKey<{{ to_java_type(attribute) | trim }}> {{ attribute.name | screaming_snake_case }} = {{ to_java_key_factory(attribute) | trim }}("{{ attribute.name }}");
-      {%- endif %}
+    public static final {{ to_java_key_type(attribute) | trim }} {{ attribute.name | screaming_snake_case }} = {{ to_java_key_factory(attribute) | trim }}("{{ attribute.name }}");
     {% endif %}{% endfor %}
     {% for attribute in ctx.attributes | sort(attribute="name") %}{% if attribute.type is mapping and attribute is experimental %}
     // Enum definitions
