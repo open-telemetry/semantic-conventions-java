@@ -54,6 +54,14 @@ To use these artifacts, you must also depend on `io.opentelemetry:opentelemetry-
 See [opentelemetry-java releases](https://github.com/open-telemetry/opentelemetry-java#releases) for
 more information.
 
+## Android Requirements
+
+An additional requirement for apps supporting older versions of Android on top of 
+[desugaring](https://github.com/open-telemetry/opentelemetry-java/blob/main/VERSIONING.md#language-version-compatibility) 
+is the need to set the Gradle property `android.useFullClasspathForDexingTransform` for debug 
+builds. Please see [this](https://github.com/open-telemetry/opentelemetry-android/pull/309) 
+pull request on the OpenTelemetry Android Extension for details.
+
 ## Generating semantic conventions
 
 Requires docker.
