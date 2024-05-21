@@ -52,7 +52,7 @@ nexusPublishing {
 }
 
 // start - define tasks to download, unzip, and generate from opentelemetry/semantic-conventions
-var generatorVersion = "0.24.0"
+var generatorVersion = "0.2.0"
 val semanticConventionsRepoZip = "https://github.com/open-telemetry/semantic-conventions/archive/v${semanticConventionsVersion}.zip"
 val schemaUrl = "https://opentelemetry.io/schemas/$semanticConventionsVersion"
 
@@ -81,31 +81,21 @@ fun generateTask(taskName: String, incubating: Boolean) {
     standardOutput = System.out
     executable = "docker"
 
-    var filter = if (incubating) "any" else "is_stable"
-    var classPrefix = if (incubating) "Incubating" else ""
-    val outputDir = if (incubating) "semconv-incubating/src/main/java/io/opentelemetry/semconv/incubating/" else "semconv/src/main/java/io/opentelemetry/semconv/"
-    val packageNameArg = if (incubating) "io.opentelemetry.semconv.incubating" else "io.opentelemetry.semconv"
-    val stablePackageNameArg = if (incubating) "io.opentelemetry.semconv" else ""
+    var target = if (incubating) "incubating_java" else "java"
+    val outputDir = if (incubating) "semconv-incubating/src/main/java/io/opentelemetry/semconv/incubating/" else "semconv/src/main/java/io/opentelemetry/semconv/"    
 
     setArgs(listOf(
         "run",
         "--rm",
         "-v", "$buildDir/semantic-conventions-${semanticConventionsVersion}/model:/source",
-        "-v", "$projectDir/buildscripts/templates:/templates",
+        "-v", "$projectDir/buildscripts/templates:/weaver/templates",
         "-v", "$projectDir/$outputDir:/output",
-        "otel/semconvgen:$generatorVersion",
-        "--yaml-root", "/source",
-        "--continue-on-validation-errors", "compatibility",
-        "code",
-        "--template", "/templates/SemanticAttributes.java.j2",
-        "--output", "/output/{{pascal_prefix}}${classPrefix}Attributes.java",
-        "--file-per-group", "root_namespace",
-        // Space delimited list of root namespaces to excluded (i.e. "foo bar")
-        "-Dexcluded_namespaces=\"ios aspnetcore signalr\"",
-        "-Dfilter=${filter}",
-        "-DclassPrefix=${classPrefix}",
-        "-Dpkg=$packageNameArg",
-        "-DstablePkg=$stablePackageNameArg"))
+        "otel/weaver:$generatorVersion",
+        "registry", "generate",
+        "--registry=/source",
+        "--templates=/weaver/templates",
+        "$target",
+        "/output/"))
   }
 }
 

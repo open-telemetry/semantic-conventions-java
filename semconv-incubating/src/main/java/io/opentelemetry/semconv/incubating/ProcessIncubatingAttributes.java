@@ -13,68 +13,51 @@ import io.opentelemetry.api.common.AttributeKey;
 import java.util.List;
 
 // DO NOT EDIT, this is an Auto-generated file from
-// buildscripts/templates/SemanticAttributes.java.j2
+// buildscripts/templates/registry/incubating_java/IncubatingSemanticAttributes.java.j2
 @SuppressWarnings("unused")
 public final class ProcessIncubatingAttributes {
 
   /**
    * The command used to launch the process (i.e. the command name). On Linux based systems, can be
-   * set to the zeroth string in {@code proc/[pid]/cmdline}. On Windows, can be set to the first
-   * parameter extracted from {@code GetCommandLineW}.
+   * set to the zeroth string in <code>proc/[pid]/cmdline</code>. On Windows, can be set to the
+   * first parameter extracted from <code>GetCommandLineW</code>.
    */
   public static final AttributeKey<String> PROCESS_COMMAND = stringKey("process.command");
 
   /**
    * All the command arguments (including the command/executable itself) as received by the process.
    * On Linux-based systems (and some other Unixoid systems supporting procfs), can be set according
-   * to the list of null-delimited strings extracted from {@code proc/[pid]/cmdline}. For libc-based
-   * executables, this would be the full argv vector passed to {@code main}.
+   * to the list of null-delimited strings extracted from <code>proc/[pid]/cmdline</code>. For
+   * libc-based executables, this would be the full argv vector passed to <code>main</code>.
    */
   public static final AttributeKey<List<String>> PROCESS_COMMAND_ARGS =
       stringArrayKey("process.command_args");
 
   /**
    * The full command used to launch the process as a single string representing the full command.
-   * On Windows, can be set to the result of {@code GetCommandLineW}. Do not set this if you have to
-   * assemble it just for monitoring; use {@code process.command_args} instead.
+   * On Windows, can be set to the result of <code>GetCommandLineW</code>. Do not set this if you
+   * have to assemble it just for monitoring; use <code>process.command_args</code> instead.
    */
   public static final AttributeKey<String> PROCESS_COMMAND_LINE = stringKey("process.command_line");
 
-  /** Specifies whether the context switches for this data point were voluntary or involuntary. */
-  public static final AttributeKey<String> PROCESS_CONTEXT_SWITCH_TYPE =
-      stringKey("process.context_switch_type");
-
   /**
-   * The CPU state for this data point. A process SHOULD be characterized <em>either</em> by data
-   * points with no {@code state} labels, <em>or only</em> data points with {@code state} labels.
-   */
-  public static final AttributeKey<String> PROCESS_CPU_STATE = stringKey("process.cpu.state");
-
-  /**
-   * The name of the process executable. On Linux based systems, can be set to the {@code Name} in
-   * {@code proc/[pid]/status}. On Windows, can be set to the base name of {@code
-   * GetProcessImageFileNameW}.
+   * The name of the process executable. On Linux based systems, can be set to the <code>Name</code>
+   * in <code>proc/[pid]/status</code>. On Windows, can be set to the base name of <code>
+   * GetProcessImageFileNameW</code>.
    */
   public static final AttributeKey<String> PROCESS_EXECUTABLE_NAME =
       stringKey("process.executable.name");
 
   /**
    * The full path to the process executable. On Linux based systems, can be set to the target of
-   * {@code proc/[pid]/exe}. On Windows, can be set to the result of {@code
-   * GetProcessImageFileNameW}.
+   * <code>proc/[pid]/exe</code>. On Windows, can be set to the result of <code>
+   * GetProcessImageFileNameW</code>.
    */
   public static final AttributeKey<String> PROCESS_EXECUTABLE_PATH =
       stringKey("process.executable.path");
 
   /** The username of the user that owns the process. */
   public static final AttributeKey<String> PROCESS_OWNER = stringKey("process.owner");
-
-  /**
-   * The type of page fault for this data point. Type {@code major} is for major/hard page faults,
-   * and {@code minor} is for minor/soft page faults.
-   */
-  public static final AttributeKey<String> PROCESS_PAGING_FAULT_TYPE =
-      stringKey("process.paging.fault_type");
 
   /** Parent Process identifier (PPID). */
   public static final AttributeKey<Long> PROCESS_PARENT_PID = longKey("process.parent_pid");
@@ -100,43 +83,6 @@ public final class ProcessIncubatingAttributes {
    */
   public static final AttributeKey<String> PROCESS_RUNTIME_VERSION =
       stringKey("process.runtime.version");
-
-  // Enum definitions
-  /** Values for {@link #PROCESS_CONTEXT_SWITCH_TYPE}. */
-  public static final class ProcessContextSwitchTypeValues {
-    /** voluntary. */
-    public static final String VOLUNTARY = "voluntary";
-
-    /** involuntary. */
-    public static final String INVOLUNTARY = "involuntary";
-
-    private ProcessContextSwitchTypeValues() {}
-  }
-
-  /** Values for {@link #PROCESS_CPU_STATE}. */
-  public static final class ProcessCpuStateValues {
-    /** system. */
-    public static final String SYSTEM = "system";
-
-    /** user. */
-    public static final String USER = "user";
-
-    /** wait. */
-    public static final String WAIT = "wait";
-
-    private ProcessCpuStateValues() {}
-  }
-
-  /** Values for {@link #PROCESS_PAGING_FAULT_TYPE}. */
-  public static final class ProcessPagingFaultTypeValues {
-    /** major. */
-    public static final String MAJOR = "major";
-
-    /** minor. */
-    public static final String MINOR = "minor";
-
-    private ProcessPagingFaultTypeValues() {}
-  }
 
   private ProcessIncubatingAttributes() {}
 }
