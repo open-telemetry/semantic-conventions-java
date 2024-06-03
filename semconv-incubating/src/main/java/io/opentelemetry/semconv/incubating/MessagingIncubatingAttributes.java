@@ -37,7 +37,6 @@ public final class MessagingIncubatingAttributes {
   /** A unique identifier for the client that consumes or produces a message. */
   public static final AttributeKey<String> MESSAGING_CLIENT_ID = stringKey("messaging.client.id");
 
-
   /**
    * A boolean that is true if the message destination is anonymous (could be unnamed or have
    * auto-generated name).
