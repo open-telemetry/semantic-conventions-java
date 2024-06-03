@@ -112,6 +112,30 @@ public final class RpcIncubatingAttributes {
    */
   public static final AttributeKey<String> RPC_JSONRPC_VERSION = stringKey("rpc.jsonrpc.version");
 
+  /** Compressed size of the message in bytes. */
+  public static final AttributeKey<Long> RPC_MESSAGE_COMPRESSED_SIZE =
+      longKey("rpc.message.compressed_size");
+
+  /**
+   * MUST be calculated as two different counters starting from {@code 1} one for sent messages and
+   * one for received message.
+   *
+   * <p>Notes:
+   *
+   * <ul>
+   *   <li>This way we guarantee that the values will be consistent between different
+   *       implementations.
+   * </ul>
+   */
+  public static final AttributeKey<Long> RPC_MESSAGE_ID = longKey("rpc.message.id");
+
+  /** Whether this is a received or sent message. */
+  public static final AttributeKey<String> RPC_MESSAGE_TYPE = stringKey("rpc.message.type");
+
+  /** Uncompressed size of the message in bytes. */
+  public static final AttributeKey<Long> RPC_MESSAGE_UNCOMPRESSED_SIZE =
+      longKey("rpc.message.uncompressed_size");
+
   /**
    * The name of the (logical) method being called, must be equal to the $method part in the span
    * name.
@@ -253,6 +277,17 @@ public final class RpcIncubatingAttributes {
     public static final long UNAUTHENTICATED = 16;
 
     private RpcGrpcStatusCodeValues() {}
+  }
+
+  /** Values for {@link #RPC_MESSAGE_TYPE}. */
+  public static final class RpcMessageTypeValues {
+    /** sent. */
+    public static final String SENT = "SENT";
+
+    /** received. */
+    public static final String RECEIVED = "RECEIVED";
+
+    private RpcMessageTypeValues() {}
   }
 
   /** Values for {@link #RPC_SYSTEM}. */

@@ -14,11 +14,20 @@ import io.opentelemetry.api.common.AttributeKey;
 @SuppressWarnings("unused")
 public final class OtherIncubatingAttributes {
 
-  /** The state of a connection in the pool */
-  public static final AttributeKey<String> STATE = stringKey("state");
+  /**
+   * Deprecated, use {@code db.client.connections.state} instead.
+   *
+   * @deprecated Deprecated, use `db.client.connections.state` instead.
+   */
+  @Deprecated public static final AttributeKey<String> STATE = stringKey("state");
 
   // Enum definitions
-  /** Values for {@link #STATE}. */
+  /**
+   * Values for {@link #STATE}.
+   *
+   * @deprecated Deprecated, use `db.client.connections.state` instead.
+   */
+  @Deprecated
   public static final class StateValues {
     /** idle. */
     public static final String IDLE = "idle";
