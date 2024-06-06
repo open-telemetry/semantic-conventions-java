@@ -1,4 +1,3 @@
-
 /*
  * Copyright The OpenTelemetry Authors
  * SPDX-License-Identifier: Apache-2.0
@@ -6,39 +5,36 @@
 
 package io.opentelemetry.semconv.incubating;
 
-import static io.opentelemetry.api.common.AttributeKey.booleanKey;
-import static io.opentelemetry.api.common.AttributeKey.doubleKey;
-import static io.opentelemetry.api.common.AttributeKey.longKey;
 import static io.opentelemetry.api.common.AttributeKey.stringKey;
-import static io.opentelemetry.api.common.AttributeKey.stringArrayKey;
-
-import static io.opentelemetry.semconv.AttributeKeyTemplate.stringArrayKeyTemplate;
-import static io.opentelemetry.semconv.AttributeKeyTemplate.stringKeyTemplate;
 
 import io.opentelemetry.api.common.AttributeKey;
-import io.opentelemetry.semconv.AttributeKeyTemplate;
-import java.util.List;
 
-// DO NOT EDIT, this is an Auto-generated file from buildscripts/templates/SemanticAttributes.java.j2
+// DO NOT EDIT, this is an Auto-generated file from
+// buildscripts/templates/SemanticAttributes.java.j2
 @SuppressWarnings("unused")
 public final class EnduserIncubatingAttributes {
 
   /**
-  * Username or client_id extracted from the access token or <a href="https://tools.ietf.org/html/rfc7235#section-4.2">Authorization</a> header in the inbound request from outside the system.
-  *
-  */
+   * Username or client_id extracted from the access token or <a
+   * href="https://tools.ietf.org/html/rfc7235#section-4.2">Authorization</a> header in the inbound
+   * request from outside the system.
+   */
   public static final AttributeKey<String> ENDUSER_ID = stringKey("enduser.id");
 
   /**
-  * Actual/assumed role the client is making the request under extracted from token or application security context.
-  *
-  */
+   * Actual/assumed role the client is making the request under extracted from token or application
+   * security context.
+   */
   public static final AttributeKey<String> ENDUSER_ROLE = stringKey("enduser.role");
 
   /**
-  * Scopes or granted authorities the client currently possesses extracted from token or application security context. The value would come from the scope associated with an <a href="https://tools.ietf.org/html/rfc6749#section-3.3">OAuth 2.0 Access Token</a> or an attribute value in a <a href="http://docs.oasis-open.org/security/saml/Post2.0/sstc-saml-tech-overview-2.0.html">SAML 2.0 Assertion</a>.
-  *
-  */
+   * Scopes or granted authorities the client currently possesses extracted from token or
+   * application security context. The value would come from the scope associated with an <a
+   * href="https://tools.ietf.org/html/rfc6749#section-3.3">OAuth 2.0 Access Token</a> or an
+   * attribute value in a <a
+   * href="http://docs.oasis-open.org/security/saml/Post2.0/sstc-saml-tech-overview-2.0.html">SAML
+   * 2.0 Assertion</a>.
+   */
   public static final AttributeKey<String> ENDUSER_SCOPE = stringKey("enduser.scope");
 
   private EnduserIncubatingAttributes() {}
