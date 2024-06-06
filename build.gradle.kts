@@ -93,7 +93,7 @@ fun generateTask(taskName: String, incubating: Boolean) {
         "-v", "$buildDir/semantic-conventions-${semanticConventionsVersion}/model:/source",
         "-v", "$projectDir/buildscripts/templates:/templates",
         "-v", "$projectDir/$outputDir:/output",
-        "otel/semconvgen:$generatorVersion",
+        "library/semconvgen1",
         "--yaml-root", "/source",
         "--continue-on-validation-errors", "compatibility",
         "code",
@@ -101,7 +101,7 @@ fun generateTask(taskName: String, incubating: Boolean) {
         "--output", "/output/{{pascal_prefix}}${classPrefix}Attributes.java",
         "--file-per-group", "root_namespace",
         // Space delimited list of root namespaces to excluded (i.e. "foo bar")
-        "-Dexcluded_namespaces=\"ios aspnetcore signalr\"",
+        "-Dexcluded_namespaces=ios aspnetcore signalr",
         "-Dfilter=${filter}",
         "-DclassPrefix=${classPrefix}",
         "-Dpkg=$packageNameArg",
