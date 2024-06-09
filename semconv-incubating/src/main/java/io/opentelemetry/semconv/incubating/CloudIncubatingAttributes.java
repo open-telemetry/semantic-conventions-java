@@ -27,7 +27,7 @@ public final class CloudIncubatingAttributes {
    *   <li>Availability zones are called &quot;zones&quot; on Alibaba Cloud and Google Cloud.
    * </ul>
    */
-  public static final AttributeKey<String> CLOUD_AVAILABILITYZONE =
+  public static final AttributeKey<String> CLOUD_AVAILABILITY_ZONE =
       stringKey("cloud.availability_zone");
 
   /**
@@ -93,94 +93,94 @@ public final class CloudIncubatingAttributes {
    *       functions that would usually share a TracerProvider.
    * </ul>
    */
-  public static final AttributeKey<String> CLOUD_RESOURCEID = stringKey("cloud.resource_id");
+  public static final AttributeKey<String> CLOUD_RESOURCE_ID = stringKey("cloud.resource_id");
 
   // Enum definitions
   /** Values for {@link #CLOUD_PLATFORM}. */
   public static final class CloudPlatformValues {
     /** Alibaba Cloud Elastic Compute Service. */
-    public static final String ALIBABACLOUDECS = "alibaba_cloud_ecs";
+    public static final String ALIBABA_CLOUD_ECS = "alibaba_cloud_ecs";
 
     /** Alibaba Cloud Function Compute. */
-    public static final String ALIBABACLOUDFC = "alibaba_cloud_fc";
+    public static final String ALIBABA_CLOUD_FC = "alibaba_cloud_fc";
 
     /** Red Hat OpenShift on Alibaba Cloud. */
-    public static final String ALIBABACLOUDOPENSHIFT = "alibaba_cloud_openshift";
+    public static final String ALIBABA_CLOUD_OPENSHIFT = "alibaba_cloud_openshift";
 
     /** AWS Elastic Compute Cloud. */
-    public static final String AWSEC2 = "aws_ec2";
+    public static final String AWS_EC2 = "aws_ec2";
 
     /** AWS Elastic Container Service. */
-    public static final String AWSECS = "aws_ecs";
+    public static final String AWS_ECS = "aws_ecs";
 
     /** AWS Elastic Kubernetes Service. */
-    public static final String AWSEKS = "aws_eks";
+    public static final String AWS_EKS = "aws_eks";
 
     /** AWS Lambda. */
-    public static final String AWSLAMBDA = "aws_lambda";
+    public static final String AWS_LAMBDA = "aws_lambda";
 
     /** AWS Elastic Beanstalk. */
-    public static final String AWSELASTICBEANSTALK = "aws_elastic_beanstalk";
+    public static final String AWS_ELASTIC_BEANSTALK = "aws_elastic_beanstalk";
 
     /** AWS App Runner. */
-    public static final String AWSAPPRUNNER = "aws_app_runner";
+    public static final String AWS_APP_RUNNER = "aws_app_runner";
 
     /** Red Hat OpenShift on AWS (ROSA). */
-    public static final String AWSOPENSHIFT = "aws_openshift";
+    public static final String AWS_OPENSHIFT = "aws_openshift";
 
     /** Azure Virtual Machines. */
-    public static final String AZUREVM = "azure_vm";
+    public static final String AZURE_VM = "azure_vm";
 
     /** Azure Container Apps. */
-    public static final String AZURECONTAINERAPPS = "azure_container_apps";
+    public static final String AZURE_CONTAINER_APPS = "azure_container_apps";
 
     /** Azure Container Instances. */
-    public static final String AZURECONTAINERINSTANCES = "azure_container_instances";
+    public static final String AZURE_CONTAINER_INSTANCES = "azure_container_instances";
 
     /** Azure Kubernetes Service. */
-    public static final String AZUREAKS = "azure_aks";
+    public static final String AZURE_AKS = "azure_aks";
 
     /** Azure Functions. */
-    public static final String AZUREFUNCTIONS = "azure_functions";
+    public static final String AZURE_FUNCTIONS = "azure_functions";
 
     /** Azure App Service. */
-    public static final String AZUREAPPSERVICE = "azure_app_service";
+    public static final String AZURE_APP_SERVICE = "azure_app_service";
 
     /** Azure Red Hat OpenShift. */
-    public static final String AZUREOPENSHIFT = "azure_openshift";
+    public static final String AZURE_OPENSHIFT = "azure_openshift";
 
     /** Google Bare Metal Solution (BMS). */
-    public static final String GCPBAREMETALSOLUTION = "gcp_bare_metal_solution";
+    public static final String GCP_BARE_METAL_SOLUTION = "gcp_bare_metal_solution";
 
     /** Google Cloud Compute Engine (GCE). */
-    public static final String GCPCOMPUTEENGINE = "gcp_compute_engine";
+    public static final String GCP_COMPUTE_ENGINE = "gcp_compute_engine";
 
     /** Google Cloud Run. */
-    public static final String GCPCLOUDRUN = "gcp_cloud_run";
+    public static final String GCP_CLOUD_RUN = "gcp_cloud_run";
 
     /** Google Cloud Kubernetes Engine (GKE). */
-    public static final String GCPKUBERNETESENGINE = "gcp_kubernetes_engine";
+    public static final String GCP_KUBERNETES_ENGINE = "gcp_kubernetes_engine";
 
     /** Google Cloud Functions (GCF). */
-    public static final String GCPCLOUDFUNCTIONS = "gcp_cloud_functions";
+    public static final String GCP_CLOUD_FUNCTIONS = "gcp_cloud_functions";
 
     /** Google Cloud App Engine (GAE). */
-    public static final String GCPAPPENGINE = "gcp_app_engine";
+    public static final String GCP_APP_ENGINE = "gcp_app_engine";
 
     /** Red Hat OpenShift on Google Cloud. */
-    public static final String GCPOPENSHIFT = "gcp_openshift";
+    public static final String GCP_OPENSHIFT = "gcp_openshift";
 
     /** Red Hat OpenShift on IBM Cloud. */
-    public static final String IBMCLOUDOPENSHIFT = "ibm_cloud_openshift";
+    public static final String IBM_CLOUD_OPENSHIFT = "ibm_cloud_openshift";
 
     /** Tencent Cloud Cloud Virtual Machine (CVM). */
-    public static final String TENCENTCLOUDCVM = "tencent_cloud_cvm";
+    public static final String TENCENT_CLOUD_CVM = "tencent_cloud_cvm";
 
     /** Tencent Cloud Elastic Kubernetes Service (EKS). */
-    public static final String TENCENTCLOUDEKS = "tencent_cloud_eks";
+    public static final String TENCENT_CLOUD_EKS = "tencent_cloud_eks";
 
     /** Tencent Cloud Serverless Cloud Function (SCF). */
-    public static final String TENCENTCLOUDSCF = "tencent_cloud_scf";
+    public static final String TENCENT_CLOUD_SCF = "tencent_cloud_scf";
 
     private CloudPlatformValues() {}
   }
@@ -188,7 +188,7 @@ public final class CloudIncubatingAttributes {
   /** Values for {@link #CLOUD_PROVIDER}. */
   public static final class CloudProviderValues {
     /** Alibaba Cloud. */
-    public static final String ALIBABACLOUD = "alibaba_cloud";
+    public static final String ALIBABA_CLOUD = "alibaba_cloud";
 
     /** Amazon Web Services. */
     public static final String AWS = "aws";
@@ -203,10 +203,10 @@ public final class CloudIncubatingAttributes {
     public static final String HEROKU = "heroku";
 
     /** IBM Cloud. */
-    public static final String IBMCLOUD = "ibm_cloud";
+    public static final String IBM_CLOUD = "ibm_cloud";
 
     /** Tencent Cloud. */
-    public static final String TENCENTCLOUD = "tencent_cloud";
+    public static final String TENCENT_CLOUD = "tencent_cloud";
 
     private CloudProviderValues() {}
   }

@@ -65,7 +65,7 @@ public final class HttpAttributes {
   public static final AttributeKey<String> HTTP_REQUEST_METHOD = stringKey("http.request.method");
 
   /** Original HTTP method sent by the client in the request line. */
-  public static final AttributeKey<String> HTTP_REQUEST_METHODORIGINAL =
+  public static final AttributeKey<String> HTTP_REQUEST_METHOD_ORIGINAL =
       stringKey("http.request.method_original");
 
   /**
@@ -79,7 +79,7 @@ public final class HttpAttributes {
    *       failure, 503 Server Unavailable, network issues, or any other).
    * </ul>
    */
-  public static final AttributeKey<Long> HTTP_REQUEST_RESENDCOUNT =
+  public static final AttributeKey<Long> HTTP_REQUEST_RESEND_COUNT =
       longKey("http.request.resend_count");
 
   /**
@@ -102,7 +102,7 @@ public final class HttpAttributes {
       stringArrayKeyTemplate("http.response.header");
 
   /** <a href="https://tools.ietf.org/html/rfc7231#section-6">HTTP response status code</a>. */
-  public static final AttributeKey<Long> HTTP_RESPONSE_STATUSCODE =
+  public static final AttributeKey<Long> HTTP_RESPONSE_STATUS_CODE =
       longKey("http.response.status_code");
 
   /**

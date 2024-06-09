@@ -22,7 +22,7 @@ public final class HerokuIncubatingAttributes {
       stringKey("heroku.release.commit");
 
   /** Time and date the release was created */
-  public static final AttributeKey<String> HEROKU_RELEASE_CREATIONTIMESTAMP =
+  public static final AttributeKey<String> HEROKU_RELEASE_CREATION_TIMESTAMP =
       stringKey("heroku.release.creation_timestamp");
 
   private HerokuIncubatingAttributes() {}

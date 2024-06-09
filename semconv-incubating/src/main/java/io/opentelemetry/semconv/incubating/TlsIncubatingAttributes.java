@@ -45,7 +45,7 @@ public final class TlsIncubatingAttributes {
    * This is usually mutually-exclusive of {@code client.certificate} since that value should be the
    * first certificate in the chain.
    */
-  public static final AttributeKey<List<String>> TLS_CLIENT_CERTIFICATECHAIN =
+  public static final AttributeKey<List<String>> TLS_CLIENT_CERTIFICATE_CHAIN =
       stringArrayKey("tls.client.certificate_chain");
 
   /**
@@ -81,24 +81,24 @@ public final class TlsIncubatingAttributes {
   public static final AttributeKey<String> TLS_CLIENT_JA3 = stringKey("tls.client.ja3");
 
   /** Date/Time indicating when client certificate is no longer considered valid. */
-  public static final AttributeKey<String> TLS_CLIENT_NOTAFTER = stringKey("tls.client.not_after");
+  public static final AttributeKey<String> TLS_CLIENT_NOT_AFTER = stringKey("tls.client.not_after");
 
   /** Date/Time indicating when client certificate is first considered valid. */
-  public static final AttributeKey<String> TLS_CLIENT_NOTBEFORE =
+  public static final AttributeKey<String> TLS_CLIENT_NOT_BEFORE =
       stringKey("tls.client.not_before");
 
   /**
    * Also called an SNI, this tells the server which hostname to which the client is attempting to
    * connect to.
    */
-  public static final AttributeKey<String> TLS_CLIENT_SERVERNAME =
+  public static final AttributeKey<String> TLS_CLIENT_SERVER_NAME =
       stringKey("tls.client.server_name");
 
   /** Distinguished name of subject of the x.509 certificate presented by the client. */
   public static final AttributeKey<String> TLS_CLIENT_SUBJECT = stringKey("tls.client.subject");
 
   /** Array of ciphers offered by the client during the client hello. */
-  public static final AttributeKey<List<String>> TLS_CLIENT_SUPPORTEDCIPHERS =
+  public static final AttributeKey<List<String>> TLS_CLIENT_SUPPORTED_CIPHERS =
       stringArrayKey("tls.client.supported_ciphers");
 
   /** String indicating the curve used for the given cipher, when applicable */
@@ -115,7 +115,7 @@ public final class TlsIncubatingAttributes {
    * href="https://www.iana.org/assignments/tls-extensiontype-values/tls-extensiontype-values.xhtml#alpn-protocol-ids">IANA
    * registry</a>, this string should be lower case.
    */
-  public static final AttributeKey<String> TLS_NEXTPROTOCOL = stringKey("tls.next_protocol");
+  public static final AttributeKey<String> TLS_NEXT_PROTOCOL = stringKey("tls.next_protocol");
 
   /**
    * Normalized lowercase protocol name parsed from original string of the negotiated <a
@@ -148,7 +148,7 @@ public final class TlsIncubatingAttributes {
    * This is usually mutually-exclusive of {@code server.certificate} since that value should be the
    * first certificate in the chain.
    */
-  public static final AttributeKey<List<String>> TLS_SERVER_CERTIFICATECHAIN =
+  public static final AttributeKey<List<String>> TLS_SERVER_CERTIFICATE_CHAIN =
       stringArrayKey("tls.server.certificate_chain");
 
   /**
@@ -184,10 +184,10 @@ public final class TlsIncubatingAttributes {
   public static final AttributeKey<String> TLS_SERVER_JA3S = stringKey("tls.server.ja3s");
 
   /** Date/Time indicating when server certificate is no longer considered valid. */
-  public static final AttributeKey<String> TLS_SERVER_NOTAFTER = stringKey("tls.server.not_after");
+  public static final AttributeKey<String> TLS_SERVER_NOT_AFTER = stringKey("tls.server.not_after");
 
   /** Date/Time indicating when server certificate is first considered valid. */
-  public static final AttributeKey<String> TLS_SERVER_NOTBEFORE =
+  public static final AttributeKey<String> TLS_SERVER_NOT_BEFORE =
       stringKey("tls.server.not_before");
 
   /** Distinguished name of subject of the x.509 certificate presented by the server. */

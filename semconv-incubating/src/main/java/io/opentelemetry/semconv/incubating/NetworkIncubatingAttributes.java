@@ -164,13 +164,13 @@ public final class NetworkIncubatingAttributes {
     public static final String CDMA = "cdma";
 
     /** EVDO Rel. 0. */
-    public static final String EVDO0 = "evdo_0";
+    public static final String EVDO_0 = "evdo_0";
 
     /** EVDO Rev. A. */
-    public static final String EVDOA = "evdo_a";
+    public static final String EVDO_A = "evdo_a";
 
     /** CDMA2000 1XRTT. */
-    public static final String CDMA20001XRTT = "cdma2000_1xrtt";
+    public static final String CDMA2000_1XRTT = "cdma2000_1xrtt";
 
     /** HSDPA. */
     public static final String HSDPA = "hsdpa";
@@ -185,7 +185,7 @@ public final class NetworkIncubatingAttributes {
     public static final String IDEN = "iden";
 
     /** EVDO Rev. B. */
-    public static final String EVDOB = "evdo_b";
+    public static final String EVDO_B = "evdo_b";
 
     /** LTE. */
     public static final String LTE = "lte";
@@ -200,7 +200,7 @@ public final class NetworkIncubatingAttributes {
     public static final String GSM = "gsm";
 
     /** TD-SCDMA. */
-    public static final String TDSCDMA = "td_scdma";
+    public static final String TD_SCDMA = "td_scdma";
 
     /** IWLAN. */
     public static final String IWLAN = "iwlan";
@@ -212,7 +212,7 @@ public final class NetworkIncubatingAttributes {
     public static final String NRNSA = "nrnsa";
 
     /** LTE CA. */
-    public static final String LTECA = "lte_ca";
+    public static final String LTE_CA = "lte_ca";
 
     private NetworkConnectionSubtypeValues() {}
   }

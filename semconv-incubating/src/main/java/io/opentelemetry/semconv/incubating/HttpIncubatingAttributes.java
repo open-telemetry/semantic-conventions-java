@@ -18,6 +18,13 @@ import java.util.List;
 @SuppressWarnings("unused")
 public final class HttpIncubatingAttributes {
 
+  /**
+   * Deprecated, use {@code client.address} instead.
+   *
+   * @deprecated Deprecated, use `client.address` instead.
+   */
+  @Deprecated public static final AttributeKey<String> HTTP_CLIENT_IP = stringKey("http.client_ip");
+
   /** State of the HTTP connection in the HTTP connection pool. */
   public static final AttributeKey<String> HTTP_CONNECTION_STATE =
       stringKey("http.connection.state");
@@ -28,6 +35,15 @@ public final class HttpIncubatingAttributes {
    * @deprecated Deprecated, use `network.protocol.name` instead.
    */
   @Deprecated public static final AttributeKey<String> HTTP_FLAVOR = stringKey("http.flavor");
+
+  /**
+   * Deprecated, use one of {@code server.address}, {@code client.address} or {@code
+   * http.request.header.host} instead, depending on the usage.
+   *
+   * @deprecated Deprecated, use one of `server.address`, `client.address` or
+   *     `http.request.header.host` instead, depending on the usage.
+   */
+  @Deprecated public static final AttributeKey<String> HTTP_HOST = stringKey("http.host");
 
   /**
    * Deprecated, use {@code http.request.method} instead.
@@ -103,10 +119,10 @@ public final class HttpIncubatingAttributes {
    * Original HTTP method sent by the client in the request line.
    *
    * @deprecated deprecated in favor of stable {@link
-   *     io.opentelemetry.semconv.HttpAttributes#HTTP_REQUEST_METHODORIGINAL} attribute.
+   *     io.opentelemetry.semconv.HttpAttributes#HTTP_REQUEST_METHOD_ORIGINAL} attribute.
    */
   @Deprecated
-  public static final AttributeKey<String> HTTP_REQUEST_METHODORIGINAL =
+  public static final AttributeKey<String> HTTP_REQUEST_METHOD_ORIGINAL =
       stringKey("http.request.method_original");
 
   /**
@@ -121,10 +137,10 @@ public final class HttpIncubatingAttributes {
    * </ul>
    *
    * @deprecated deprecated in favor of stable {@link
-   *     io.opentelemetry.semconv.HttpAttributes#HTTP_REQUEST_RESENDCOUNT} attribute.
+   *     io.opentelemetry.semconv.HttpAttributes#HTTP_REQUEST_RESEND_COUNT} attribute.
    */
   @Deprecated
-  public static final AttributeKey<Long> HTTP_REQUEST_RESENDCOUNT =
+  public static final AttributeKey<Long> HTTP_REQUEST_RESEND_COUNT =
       longKey("http.request.resend_count");
 
   /**
@@ -140,8 +156,17 @@ public final class HttpIncubatingAttributes {
    * @deprecated Deprecated, use `http.request.header.content-length` instead.
    */
   @Deprecated
-  public static final AttributeKey<Long> HTTP_REQUESTCONTENTLENGTH =
+  public static final AttributeKey<Long> HTTP_REQUEST_CONTENT_LENGTH =
       longKey("http.request_content_length");
+
+  /**
+   * Deprecated, use {@code http.request.body.size} instead.
+   *
+   * @deprecated Deprecated, use `http.request.body.size` instead.
+   */
+  @Deprecated
+  public static final AttributeKey<Long> HTTP_REQUEST_CONTENT_LENGTH_UNCOMPRESSED =
+      longKey("http.request_content_length_uncompressed");
 
   /**
    * The size of the response payload body in bytes. This is the number of bytes transferred
@@ -186,10 +211,10 @@ public final class HttpIncubatingAttributes {
    * <a href="https://tools.ietf.org/html/rfc7231#section-6">HTTP response status code</a>.
    *
    * @deprecated deprecated in favor of stable {@link
-   *     io.opentelemetry.semconv.HttpAttributes#HTTP_RESPONSE_STATUSCODE} attribute.
+   *     io.opentelemetry.semconv.HttpAttributes#HTTP_RESPONSE_STATUS_CODE} attribute.
    */
   @Deprecated
-  public static final AttributeKey<Long> HTTP_RESPONSE_STATUSCODE =
+  public static final AttributeKey<Long> HTTP_RESPONSE_STATUS_CODE =
       longKey("http.response.status_code");
 
   /**
@@ -198,8 +223,17 @@ public final class HttpIncubatingAttributes {
    * @deprecated Deprecated, use `http.response.header.content-length` instead.
    */
   @Deprecated
-  public static final AttributeKey<Long> HTTP_RESPONSECONTENTLENGTH =
+  public static final AttributeKey<Long> HTTP_RESPONSE_CONTENT_LENGTH =
       longKey("http.response_content_length");
+
+  /**
+   * Deprecated, use {@code http.response.body.size} instead.
+   *
+   * @deprecated Deprecated, use `http.response.body.size` instead.
+   */
+  @Deprecated
+  public static final AttributeKey<Long> HTTP_RESPONSE_CONTENT_LENGTH_UNCOMPRESSED =
+      longKey("http.response_content_length_uncompressed");
 
   /**
    * The matched route, that is, the path template in the format used by the respective server
@@ -227,11 +261,19 @@ public final class HttpIncubatingAttributes {
   @Deprecated public static final AttributeKey<String> HTTP_SCHEME = stringKey("http.scheme");
 
   /**
+   * Deprecated, use {@code server.address} instead.
+   *
+   * @deprecated Deprecated, use `server.address` instead.
+   */
+  @Deprecated
+  public static final AttributeKey<String> HTTP_SERVER_NAME = stringKey("http.server_name");
+
+  /**
    * Deprecated, use {@code http.response.status_code} instead.
    *
    * @deprecated Deprecated, use `http.response.status_code` instead.
    */
-  @Deprecated public static final AttributeKey<Long> HTTP_STATUSCODE = longKey("http.status_code");
+  @Deprecated public static final AttributeKey<Long> HTTP_STATUS_CODE = longKey("http.status_code");
 
   /**
    * Deprecated, use {@code url.path} and {@code url.query} instead.
@@ -253,7 +295,7 @@ public final class HttpIncubatingAttributes {
    * @deprecated Deprecated, use `user_agent.original` instead.
    */
   @Deprecated
-  public static final AttributeKey<String> HTTP_USERAGENT = stringKey("http.user_agent");
+  public static final AttributeKey<String> HTTP_USER_AGENT = stringKey("http.user_agent");
 
   // Enum definitions
   /** Values for {@link #HTTP_CONNECTION_STATE}. */
@@ -275,16 +317,16 @@ public final class HttpIncubatingAttributes {
   @Deprecated
   public static final class HttpFlavorValues {
     /** HTTP/1.0. */
-    public static final String HTTP10 = "1.0";
+    public static final String HTTP_1_0 = "1.0";
 
     /** HTTP/1.1. */
-    public static final String HTTP11 = "1.1";
+    public static final String HTTP_1_1 = "1.1";
 
     /** HTTP/2. */
-    public static final String HTTP20 = "2.0";
+    public static final String HTTP_2_0 = "2.0";
 
     /** HTTP/3. */
-    public static final String HTTP30 = "3.0";
+    public static final String HTTP_3_0 = "3.0";
 
     /** SPDY protocol. */
     public static final String SPDY = "SPDY";

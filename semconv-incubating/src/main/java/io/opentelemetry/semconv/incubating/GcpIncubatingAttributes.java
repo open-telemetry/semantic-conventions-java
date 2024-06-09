@@ -22,7 +22,7 @@ public final class GcpIncubatingAttributes {
    * href="https://cloud.google.com/run/docs/container-contract#jobs-env-vars">{@code
    * CLOUD_RUN_EXECUTION}</a> environment variable.
    */
-  public static final AttributeKey<String> GCP_CLOUDRUN_JOB_EXECUTION =
+  public static final AttributeKey<String> GCP_CLOUD_RUN_JOB_EXECUTION =
       stringKey("gcp.cloud_run.job.execution");
 
   /**
@@ -30,7 +30,7 @@ public final class GcpIncubatingAttributes {
    * href="https://cloud.google.com/run/docs/container-contract#jobs-env-vars">{@code
    * CLOUD_RUN_TASK_INDEX}</a> environment variable.
    */
-  public static final AttributeKey<Long> GCP_CLOUDRUN_JOB_TASKINDEX =
+  public static final AttributeKey<Long> GCP_CLOUD_RUN_JOB_TASK_INDEX =
       longKey("gcp.cloud_run.job.task_index");
 
   /**

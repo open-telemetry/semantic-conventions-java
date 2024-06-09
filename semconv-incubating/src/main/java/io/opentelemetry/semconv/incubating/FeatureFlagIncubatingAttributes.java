@@ -12,13 +12,13 @@ import io.opentelemetry.api.common.AttributeKey;
 // DO NOT EDIT, this is an Auto-generated file from
 // buildscripts/templates/SemanticAttributes.java.j2
 @SuppressWarnings("unused")
-public final class FeatureflagIncubatingAttributes {
+public final class FeatureFlagIncubatingAttributes {
 
   /** The unique identifier of the feature flag. */
-  public static final AttributeKey<String> FEATUREFLAG_KEY = stringKey("feature_flag.key");
+  public static final AttributeKey<String> FEATURE_FLAG_KEY = stringKey("feature_flag.key");
 
   /** The name of the service provider that performs the flag evaluation. */
-  public static final AttributeKey<String> FEATUREFLAG_PROVIDERNAME =
+  public static final AttributeKey<String> FEATURE_FLAG_PROVIDER_NAME =
       stringKey("feature_flag.provider_name");
 
   /**
@@ -37,7 +37,7 @@ public final class FeatureflagIncubatingAttributes {
    *       implementer.
    * </ul>
    */
-  public static final AttributeKey<String> FEATUREFLAG_VARIANT = stringKey("feature_flag.variant");
+  public static final AttributeKey<String> FEATURE_FLAG_VARIANT = stringKey("feature_flag.variant");
 
-  private FeatureflagIncubatingAttributes() {}
+  private FeatureFlagIncubatingAttributes() {}
 }

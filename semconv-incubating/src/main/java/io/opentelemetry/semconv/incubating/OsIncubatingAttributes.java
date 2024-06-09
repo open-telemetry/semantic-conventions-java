@@ -15,7 +15,7 @@ import io.opentelemetry.api.common.AttributeKey;
 public final class OsIncubatingAttributes {
 
   /** Unique identifier for a particular build or compilation of the operating system. */
-  public static final AttributeKey<String> OS_BUILDID = stringKey("os.build_id");
+  public static final AttributeKey<String> OS_BUILD_ID = stringKey("os.build_id");
 
   /**
    * Human readable (not intended to be parsed) OS version information, like e.g. reported by {@code
@@ -69,7 +69,7 @@ public final class OsIncubatingAttributes {
     public static final String SOLARIS = "solaris";
 
     /** IBM z/OS. */
-    public static final String ZOS = "z_os";
+    public static final String Z_OS = "z_os";
 
     private OsTypeValues() {}
   }

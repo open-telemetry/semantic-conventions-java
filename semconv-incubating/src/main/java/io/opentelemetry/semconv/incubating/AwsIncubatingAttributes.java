@@ -20,52 +20,52 @@ import java.util.List;
 public final class AwsIncubatingAttributes {
 
   /** The JSON-serialized value of each item in the {@code AttributeDefinitions} request field. */
-  public static final AttributeKey<List<String>> AWS_DYNAMODB_ATTRIBUTEDEFINITIONS =
+  public static final AttributeKey<List<String>> AWS_DYNAMODB_ATTRIBUTE_DEFINITIONS =
       stringArrayKey("aws.dynamodb.attribute_definitions");
 
   /** The value of the {@code AttributesToGet} request parameter. */
-  public static final AttributeKey<List<String>> AWS_DYNAMODB_ATTRIBUTESTOGET =
+  public static final AttributeKey<List<String>> AWS_DYNAMODB_ATTRIBUTES_TO_GET =
       stringArrayKey("aws.dynamodb.attributes_to_get");
 
   /** The value of the {@code ConsistentRead} request parameter. */
-  public static final AttributeKey<Boolean> AWS_DYNAMODB_CONSISTENTREAD =
+  public static final AttributeKey<Boolean> AWS_DYNAMODB_CONSISTENT_READ =
       booleanKey("aws.dynamodb.consistent_read");
 
   /** The JSON-serialized value of each item in the {@code ConsumedCapacity} response field. */
-  public static final AttributeKey<List<String>> AWS_DYNAMODB_CONSUMEDCAPACITY =
+  public static final AttributeKey<List<String>> AWS_DYNAMODB_CONSUMED_CAPACITY =
       stringArrayKey("aws.dynamodb.consumed_capacity");
 
   /** The value of the {@code Count} response parameter. */
   public static final AttributeKey<Long> AWS_DYNAMODB_COUNT = longKey("aws.dynamodb.count");
 
   /** The value of the {@code ExclusiveStartTableName} request parameter. */
-  public static final AttributeKey<String> AWS_DYNAMODB_EXCLUSIVESTARTTABLE =
+  public static final AttributeKey<String> AWS_DYNAMODB_EXCLUSIVE_START_TABLE =
       stringKey("aws.dynamodb.exclusive_start_table");
 
   /**
    * The JSON-serialized value of each item in the {@code GlobalSecondaryIndexUpdates} request
    * field.
    */
-  public static final AttributeKey<List<String>> AWS_DYNAMODB_GLOBALSECONDARYINDEXUPDATES =
+  public static final AttributeKey<List<String>> AWS_DYNAMODB_GLOBAL_SECONDARY_INDEX_UPDATES =
       stringArrayKey("aws.dynamodb.global_secondary_index_updates");
 
   /** The JSON-serialized value of each item of the {@code GlobalSecondaryIndexes} request field */
-  public static final AttributeKey<List<String>> AWS_DYNAMODB_GLOBALSECONDARYINDEXES =
+  public static final AttributeKey<List<String>> AWS_DYNAMODB_GLOBAL_SECONDARY_INDEXES =
       stringArrayKey("aws.dynamodb.global_secondary_indexes");
 
   /** The value of the {@code IndexName} request parameter. */
-  public static final AttributeKey<String> AWS_DYNAMODB_INDEXNAME =
+  public static final AttributeKey<String> AWS_DYNAMODB_INDEX_NAME =
       stringKey("aws.dynamodb.index_name");
 
   /** The JSON-serialized value of the {@code ItemCollectionMetrics} response field. */
-  public static final AttributeKey<String> AWS_DYNAMODB_ITEMCOLLECTIONMETRICS =
+  public static final AttributeKey<String> AWS_DYNAMODB_ITEM_COLLECTION_METRICS =
       stringKey("aws.dynamodb.item_collection_metrics");
 
   /** The value of the {@code Limit} request parameter. */
   public static final AttributeKey<Long> AWS_DYNAMODB_LIMIT = longKey("aws.dynamodb.limit");
 
   /** The JSON-serialized value of each item of the {@code LocalSecondaryIndexes} request field. */
-  public static final AttributeKey<List<String>> AWS_DYNAMODB_LOCALSECONDARYINDEXES =
+  public static final AttributeKey<List<String>> AWS_DYNAMODB_LOCAL_SECONDARY_INDEXES =
       stringArrayKey("aws.dynamodb.local_secondary_indexes");
 
   /** The value of the {@code ProjectionExpression} request parameter. */
@@ -73,19 +73,19 @@ public final class AwsIncubatingAttributes {
       stringKey("aws.dynamodb.projection");
 
   /** The value of the {@code ProvisionedThroughput.ReadCapacityUnits} request parameter. */
-  public static final AttributeKey<Double> AWS_DYNAMODB_PROVISIONEDREADCAPACITY =
+  public static final AttributeKey<Double> AWS_DYNAMODB_PROVISIONED_READ_CAPACITY =
       doubleKey("aws.dynamodb.provisioned_read_capacity");
 
   /** The value of the {@code ProvisionedThroughput.WriteCapacityUnits} request parameter. */
-  public static final AttributeKey<Double> AWS_DYNAMODB_PROVISIONEDWRITECAPACITY =
+  public static final AttributeKey<Double> AWS_DYNAMODB_PROVISIONED_WRITE_CAPACITY =
       doubleKey("aws.dynamodb.provisioned_write_capacity");
 
   /** The value of the {@code ScanIndexForward} request parameter. */
-  public static final AttributeKey<Boolean> AWS_DYNAMODB_SCANFORWARD =
+  public static final AttributeKey<Boolean> AWS_DYNAMODB_SCAN_FORWARD =
       booleanKey("aws.dynamodb.scan_forward");
 
   /** The value of the {@code ScannedCount} response parameter. */
-  public static final AttributeKey<Long> AWS_DYNAMODB_SCANNEDCOUNT =
+  public static final AttributeKey<Long> AWS_DYNAMODB_SCANNED_COUNT =
       longKey("aws.dynamodb.scanned_count");
 
   /** The value of the {@code Segment} request parameter. */
@@ -95,15 +95,15 @@ public final class AwsIncubatingAttributes {
   public static final AttributeKey<String> AWS_DYNAMODB_SELECT = stringKey("aws.dynamodb.select");
 
   /** The number of items in the {@code TableNames} response parameter. */
-  public static final AttributeKey<Long> AWS_DYNAMODB_TABLECOUNT =
+  public static final AttributeKey<Long> AWS_DYNAMODB_TABLE_COUNT =
       longKey("aws.dynamodb.table_count");
 
   /** The keys in the {@code RequestItems} object field. */
-  public static final AttributeKey<List<String>> AWS_DYNAMODB_TABLENAMES =
+  public static final AttributeKey<List<String>> AWS_DYNAMODB_TABLE_NAMES =
       stringArrayKey("aws.dynamodb.table_names");
 
   /** The value of the {@code TotalSegments} request parameter. */
-  public static final AttributeKey<Long> AWS_DYNAMODB_TOTALSEGMENTS =
+  public static final AttributeKey<Long> AWS_DYNAMODB_TOTAL_SEGMENTS =
       longKey("aws.dynamodb.total_segments");
 
   /**
@@ -163,7 +163,7 @@ public final class AwsIncubatingAttributes {
    *   <li>This may be different from {@code cloud.resource_id} if an alias is involved.
    * </ul>
    */
-  public static final AttributeKey<String> AWS_LAMBDA_INVOKEDARN =
+  public static final AttributeKey<String> AWS_LAMBDA_INVOKED_ARN =
       stringKey("aws.lambda.invoked_arn");
 
   /**
@@ -216,7 +216,7 @@ public final class AwsIncubatingAttributes {
    * The AWS request ID as returned in the response headers {@code x-amz-request-id} or {@code
    * x-amz-requestid}.
    */
-  public static final AttributeKey<String> AWS_REQUESTID = stringKey("aws.request_id");
+  public static final AttributeKey<String> AWS_REQUEST_ID = stringKey("aws.request_id");
 
   /**
    * The S3 bucket name the request refers to. Corresponds to the {@code --bucket} parameter of the
@@ -249,7 +249,7 @@ public final class AwsIncubatingAttributes {
    *       href="https://docs.aws.amazon.com/cli/latest/reference/s3api/upload-part-copy.html">upload-part-copy</a>
    * </ul>
    */
-  public static final AttributeKey<String> AWS_S3_COPYSOURCE = stringKey("aws.s3.copy_source");
+  public static final AttributeKey<String> AWS_S3_COPY_SOURCE = stringKey("aws.s3.copy_source");
 
   /**
    * The delete request container that specifies the objects to be deleted.
@@ -324,7 +324,7 @@ public final class AwsIncubatingAttributes {
    *       operation within the S3 API</a>.
    * </ul>
    */
-  public static final AttributeKey<Long> AWS_S3_PARTNUMBER = longKey("aws.s3.part_number");
+  public static final AttributeKey<Long> AWS_S3_PART_NUMBER = longKey("aws.s3.part_number");
 
   /**
    * Upload ID that identifies the multipart upload.
@@ -348,7 +348,7 @@ public final class AwsIncubatingAttributes {
    *       href="https://docs.aws.amazon.com/cli/latest/reference/s3api/upload-part-copy.html">upload-part-copy</a>
    * </ul>
    */
-  public static final AttributeKey<String> AWS_S3_UPLOADID = stringKey("aws.s3.upload_id");
+  public static final AttributeKey<String> AWS_S3_UPLOAD_ID = stringKey("aws.s3.upload_id");
 
   // Enum definitions
   /** Values for {@link #AWS_ECS_LAUNCHTYPE}. */

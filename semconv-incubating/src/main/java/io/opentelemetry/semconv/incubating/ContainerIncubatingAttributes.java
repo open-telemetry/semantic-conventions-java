@@ -33,11 +33,11 @@ public final class ContainerIncubatingAttributes {
   /**
    * All the command arguments (including the command/executable itself) run by the container. [2]
    */
-  public static final AttributeKey<List<String>> CONTAINER_COMMANDARGS =
+  public static final AttributeKey<List<String>> CONTAINER_COMMAND_ARGS =
       stringArrayKey("container.command_args");
 
   /** The full command run by the container as a single string representing the full command. [2] */
-  public static final AttributeKey<String> CONTAINER_COMMANDLINE =
+  public static final AttributeKey<String> CONTAINER_COMMAND_LINE =
       stringKey("container.command_line");
 
   /** The CPU state for this data point. */
@@ -62,7 +62,7 @@ public final class ContainerIncubatingAttributes {
    *       endpoint. K8s defines a link to the container registry repository with digest {@code
    *       "imageID": "registry.azurecr.io
    *       /namespace/service/dockerfile@sha256:bdeabd40c3a8a492eaf9e8e44d0ebbb84bac7ee25ac0cf8a7159d25f62555625"}.
-   *       The ID is assinged by the container runtime and can vary in different environments.
+   *       The ID is assigned by the container runtime and can vary in different environments.
    *       Consider using {@code oci.manifest.digest} if it is important to identify the same image
    *       in different environments/runtimes.
    * </ul>
@@ -85,7 +85,7 @@ public final class ContainerIncubatingAttributes {
    *       report those under the {@code RepoDigests} field.
    * </ul>
    */
-  public static final AttributeKey<List<String>> CONTAINER_IMAGE_REPODIGESTS =
+  public static final AttributeKey<List<String>> CONTAINER_IMAGE_REPO_DIGESTS =
       stringArrayKey("container.image.repo_digests");
 
   /**

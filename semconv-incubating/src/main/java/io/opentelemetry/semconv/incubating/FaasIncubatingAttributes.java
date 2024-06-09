@@ -66,7 +66,7 @@ public final class FaasIncubatingAttributes {
   public static final AttributeKey<String> FAAS_INSTANCE = stringKey("faas.instance");
 
   /** The invocation ID of the current function invocation. */
-  public static final AttributeKey<String> FAAS_INVOCATIONID = stringKey("faas.invocation_id");
+  public static final AttributeKey<String> FAAS_INVOCATION_ID = stringKey("faas.invocation_id");
 
   /**
    * The name of the invoked function.
@@ -77,7 +77,7 @@ public final class FaasIncubatingAttributes {
    *   <li>SHOULD be equal to the {@code faas.name} resource attribute of the invoked function.
    * </ul>
    */
-  public static final AttributeKey<String> FAAS_INVOKEDNAME = stringKey("faas.invoked_name");
+  public static final AttributeKey<String> FAAS_INVOKED_NAME = stringKey("faas.invoked_name");
 
   /**
    * The cloud provider of the invoked function.
@@ -88,7 +88,7 @@ public final class FaasIncubatingAttributes {
    *   <li>SHOULD be equal to the {@code cloud.provider} resource attribute of the invoked function.
    * </ul>
    */
-  public static final AttributeKey<String> FAAS_INVOKEDPROVIDER =
+  public static final AttributeKey<String> FAAS_INVOKED_PROVIDER =
       stringKey("faas.invoked_provider");
 
   /**
@@ -100,7 +100,7 @@ public final class FaasIncubatingAttributes {
    *   <li>SHOULD be equal to the {@code cloud.region} resource attribute of the invoked function.
    * </ul>
    */
-  public static final AttributeKey<String> FAAS_INVOKEDREGION = stringKey("faas.invoked_region");
+  public static final AttributeKey<String> FAAS_INVOKED_REGION = stringKey("faas.invoked_region");
 
   /**
    * The amount of memory available to the serverless function converted to Bytes.
@@ -114,7 +114,7 @@ public final class FaasIncubatingAttributes {
    *       multiplied by 1,048,576).
    * </ul>
    */
-  public static final AttributeKey<Long> FAAS_MAXMEMORY = longKey("faas.max_memory");
+  public static final AttributeKey<Long> FAAS_MAX_MEMORY = longKey("faas.max_memory");
 
   /**
    * The name of the single function that this runtime instance executes.
@@ -184,10 +184,10 @@ public final class FaasIncubatingAttributes {
     private FaasDocumentOperationValues() {}
   }
 
-  /** Values for {@link #FAAS_INVOKEDPROVIDER}. */
-  public static final class FaasInvokedproviderValues {
+  /** Values for {@link #FAAS_INVOKED_PROVIDER}. */
+  public static final class FaasInvokedProviderValues {
     /** Alibaba Cloud. */
-    public static final String ALIBABACLOUD = "alibaba_cloud";
+    public static final String ALIBABA_CLOUD = "alibaba_cloud";
 
     /** Amazon Web Services. */
     public static final String AWS = "aws";
@@ -199,9 +199,9 @@ public final class FaasIncubatingAttributes {
     public static final String GCP = "gcp";
 
     /** Tencent Cloud. */
-    public static final String TENCENTCLOUD = "tencent_cloud";
+    public static final String TENCENT_CLOUD = "tencent_cloud";
 
-    private FaasInvokedproviderValues() {}
+    private FaasInvokedProviderValues() {}
   }
 
   /** Values for {@link #FAAS_TRIGGER}. */

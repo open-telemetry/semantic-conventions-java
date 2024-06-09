@@ -23,18 +23,18 @@ public final class OpentracingIncubatingAttributes {
    *   <li>The causal relationship between a child Span and a parent Span.
    * </ul>
    */
-  public static final AttributeKey<String> OPENTRACING_REFTYPE = stringKey("opentracing.ref_type");
+  public static final AttributeKey<String> OPENTRACING_REF_TYPE = stringKey("opentracing.ref_type");
 
   // Enum definitions
-  /** Values for {@link #OPENTRACING_REFTYPE}. */
-  public static final class OpentracingReftypeValues {
+  /** Values for {@link #OPENTRACING_REF_TYPE}. */
+  public static final class OpentracingRefTypeValues {
     /** The parent Span depends on the child Span in some capacity. */
-    public static final String CHILDOF = "child_of";
+    public static final String CHILD_OF = "child_of";
 
     /** The parent Span doesn&#39;t depend in any way on the result of the child Span. */
-    public static final String FOLLOWSFROM = "follows_from";
+    public static final String FOLLOWS_FROM = "follows_from";
 
-    private OpentracingReftypeValues() {}
+    private OpentracingRefTypeValues() {}
   }
 
   private OpentracingIncubatingAttributes() {}

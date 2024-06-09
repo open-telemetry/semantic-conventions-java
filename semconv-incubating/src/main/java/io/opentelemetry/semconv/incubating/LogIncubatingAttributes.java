@@ -18,14 +18,14 @@ public final class LogIncubatingAttributes {
   public static final AttributeKey<String> LOG_FILE_NAME = stringKey("log.file.name");
 
   /** The basename of the file, with symlinks resolved. */
-  public static final AttributeKey<String> LOG_FILE_NAMERESOLVED =
+  public static final AttributeKey<String> LOG_FILE_NAME_RESOLVED =
       stringKey("log.file.name_resolved");
 
   /** The full path to the file. */
   public static final AttributeKey<String> LOG_FILE_PATH = stringKey("log.file.path");
 
   /** The full path to the file, with symlinks resolved. */
-  public static final AttributeKey<String> LOG_FILE_PATHRESOLVED =
+  public static final AttributeKey<String> LOG_FILE_PATH_RESOLVED =
       stringKey("log.file.path_resolved");
 
   /** The stream associated with the log. See below for a list of well-known values. */

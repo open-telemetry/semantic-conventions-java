@@ -133,7 +133,7 @@ public final class UrlIncubatingAttributes {
    *       work well for TLDs such as {@code co.uk}.
    * </ul>
    */
-  public static final AttributeKey<String> URL_REGISTEREDDOMAIN =
+  public static final AttributeKey<String> URL_REGISTERED_DOMAIN =
       stringKey("url.registered_domain");
 
   /**
@@ -162,6 +162,12 @@ public final class UrlIncubatingAttributes {
   public static final AttributeKey<String> URL_SUBDOMAIN = stringKey("url.subdomain");
 
   /**
+   * The low-cardinality template of an <a
+   * href="https://www.rfc-editor.org/rfc/rfc3986#section-4.2">absolute path reference</a>.
+   */
+  public static final AttributeKey<String> URL_TEMPLATE = stringKey("url.template");
+
+  /**
    * The effective top level domain (eTLD), also known as the domain suffix, is the last part of the
    * domain name. For example, the top level domain for example.com is {@code com}.
    *
@@ -172,7 +178,7 @@ public final class UrlIncubatingAttributes {
    *       suffix list</a>.
    * </ul>
    */
-  public static final AttributeKey<String> URL_TOPLEVELDOMAIN = stringKey("url.top_level_domain");
+  public static final AttributeKey<String> URL_TOP_LEVEL_DOMAIN = stringKey("url.top_level_domain");
 
   private UrlIncubatingAttributes() {}
 }

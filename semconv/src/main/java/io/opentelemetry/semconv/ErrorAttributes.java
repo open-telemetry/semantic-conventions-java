@@ -20,8 +20,10 @@ public final class ErrorAttributes {
    * <p>Notes:
    *
    * <ul>
-   *   <li>The {@code error.type} SHOULD be predictable and SHOULD have low cardinality.
-   *       Instrumentations SHOULD document the list of errors they report.
+   *   <li>The {@code error.type} SHOULD be predictable, and SHOULD have low cardinality.
+   *   <li>When {@code error.type} is set to a type (e.g., an exception type), its canonical class
+   *       name identifying the type within the artifact SHOULD be used.
+   *   <li>Instrumentations SHOULD document the list of errors they report.
    *   <li>The cardinality of {@code error.type} within one instrumentation library SHOULD be low.
    *       Telemetry consumers that aggregate data from multiple instrumentation libraries and
    *       applications should be prepared for {@code error.type} to have high cardinality at query

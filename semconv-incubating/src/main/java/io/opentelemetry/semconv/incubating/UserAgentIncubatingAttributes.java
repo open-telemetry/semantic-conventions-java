@@ -12,7 +12,7 @@ import io.opentelemetry.api.common.AttributeKey;
 // DO NOT EDIT, this is an Auto-generated file from
 // buildscripts/templates/SemanticAttributes.java.j2
 @SuppressWarnings("unused")
-public final class UseragentIncubatingAttributes {
+public final class UserAgentIncubatingAttributes {
 
   /**
    * Name of the user-agent extracted from original. Usually refers to the browser's name.
@@ -27,17 +27,17 @@ public final class UseragentIncubatingAttributes {
    *       user_agent.version}
    * </ul>
    */
-  public static final AttributeKey<String> USERAGENT_NAME = stringKey("user_agent.name");
+  public static final AttributeKey<String> USER_AGENT_NAME = stringKey("user_agent.name");
 
   /**
    * Value of the <a href="https://www.rfc-editor.org/rfc/rfc9110.html#field.user-agent">HTTP
    * User-Agent</a> header sent by the client.
    *
    * @deprecated deprecated in favor of stable {@link
-   *     io.opentelemetry.semconv.UseragentAttributes#USERAGENT_ORIGINAL} attribute.
+   *     io.opentelemetry.semconv.UserAgentAttributes#USER_AGENT_ORIGINAL} attribute.
    */
   @Deprecated
-  public static final AttributeKey<String> USERAGENT_ORIGINAL = stringKey("user_agent.original");
+  public static final AttributeKey<String> USER_AGENT_ORIGINAL = stringKey("user_agent.original");
 
   /**
    * Version of the user-agent extracted from original. Usually refers to the browser's version
@@ -52,7 +52,7 @@ public final class UseragentIncubatingAttributes {
    *       {@code user_agent.name}
    * </ul>
    */
-  public static final AttributeKey<String> USERAGENT_VERSION = stringKey("user_agent.version");
+  public static final AttributeKey<String> USER_AGENT_VERSION = stringKey("user_agent.version");
 
-  private UseragentIncubatingAttributes() {}
+  private UserAgentIncubatingAttributes() {}
 }

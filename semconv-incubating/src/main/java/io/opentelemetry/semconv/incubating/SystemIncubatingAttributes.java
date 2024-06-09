@@ -16,14 +16,10 @@ import io.opentelemetry.api.common.AttributeKey;
 public final class SystemIncubatingAttributes {
 
   /** The logical CPU number [0..n-1] */
-  public static final AttributeKey<Long> SYSTEM_CPU_LOGICALNUMBER =
+  public static final AttributeKey<Long> SYSTEM_CPU_LOGICAL_NUMBER =
       longKey("system.cpu.logical_number");
 
-  /**
-   * The CPU state for this data point. A system's CPU SHOULD be characterized <em>either</em> by
-   * data points with no {@code state} labels, <em>or only</em> data points with {@code state}
-   * labels.
-   */
+  /** The state of the CPU */
   public static final AttributeKey<String> SYSTEM_CPU_STATE = stringKey("system.cpu.state");
 
   /** The device identifier */
@@ -168,7 +164,7 @@ public final class SystemIncubatingAttributes {
     public static final String CLOSE = "close";
 
     /** close_wait. */
-    public static final String CLOSEWAIT = "close_wait";
+    public static final String CLOSE_WAIT = "close_wait";
 
     /** closing. */
     public static final String CLOSING = "closing";
@@ -180,25 +176,25 @@ public final class SystemIncubatingAttributes {
     public static final String ESTABLISHED = "established";
 
     /** fin_wait_1. */
-    public static final String FINWAIT1 = "fin_wait_1";
+    public static final String FIN_WAIT_1 = "fin_wait_1";
 
     /** fin_wait_2. */
-    public static final String FINWAIT2 = "fin_wait_2";
+    public static final String FIN_WAIT_2 = "fin_wait_2";
 
     /** last_ack. */
-    public static final String LASTACK = "last_ack";
+    public static final String LAST_ACK = "last_ack";
 
     /** listen. */
     public static final String LISTEN = "listen";
 
     /** syn_recv. */
-    public static final String SYNRECV = "syn_recv";
+    public static final String SYN_RECV = "syn_recv";
 
     /** syn_sent. */
-    public static final String SYNSENT = "syn_sent";
+    public static final String SYN_SENT = "syn_sent";
 
     /** time_wait. */
-    public static final String TIMEWAIT = "time_wait";
+    public static final String TIME_WAIT = "time_wait";
 
     private SystemNetworkStateValues() {}
   }

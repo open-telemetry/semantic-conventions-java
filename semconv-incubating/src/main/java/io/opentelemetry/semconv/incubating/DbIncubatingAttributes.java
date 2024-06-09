@@ -23,7 +23,7 @@ public final class DbIncubatingAttributes {
    * The consistency level of the query. Based on consistency values from <a
    * href="https://docs.datastax.com/en/cassandra-oss/3.0/cassandra/dml/dmlConfigConsistency.html">CQL</a>.
    */
-  public static final AttributeKey<String> DB_CASSANDRA_CONSISTENCYLEVEL =
+  public static final AttributeKey<String> DB_CASSANDRA_CONSISTENCY_LEVEL =
       stringKey("db.cassandra.consistency_level");
 
   /** The data center of the coordinating node for a query. */
@@ -39,30 +39,49 @@ public final class DbIncubatingAttributes {
       booleanKey("db.cassandra.idempotence");
 
   /** The fetch size used for paging, i.e. how many rows will be returned at once. */
-  public static final AttributeKey<Long> DB_CASSANDRA_PAGESIZE = longKey("db.cassandra.page_size");
+  public static final AttributeKey<Long> DB_CASSANDRA_PAGE_SIZE = longKey("db.cassandra.page_size");
 
   /**
    * The number of times a query was speculatively executed. Not set or {@code 0} if the query was
    * not executed speculatively.
    */
-  public static final AttributeKey<Long> DB_CASSANDRA_SPECULATIVEEXECUTIONCOUNT =
+  public static final AttributeKey<Long> DB_CASSANDRA_SPECULATIVE_EXECUTION_COUNT =
       longKey("db.cassandra.speculative_execution_count");
 
   /**
-   * The name of the primary Cassandra table that the operation is acting upon, including the
-   * keyspace name (if applicable).
+   * Deprecated, use {@code db.collection.name} instead.
+   *
+   * @deprecated Deprecated, use `db.collection.name` instead.
+   */
+  @Deprecated
+  public static final AttributeKey<String> DB_CASSANDRA_TABLE = stringKey("db.cassandra.table");
+
+  /**
+   * The name of the connection pool; unique within the instrumented application. In case the
+   * connection pool implementation doesn't provide a name, instrumentation should use a combination
+   * of {@code server.address} and {@code server.port} attributes formatted as {@code
+   * server.address:server.port}.
+   */
+  public static final AttributeKey<String> DB_CLIENT_CONNECTIONS_POOL_NAME =
+      stringKey("db.client.connections.pool.name");
+
+  /** The state of a connection in the pool */
+  public static final AttributeKey<String> DB_CLIENT_CONNECTIONS_STATE =
+      stringKey("db.client.connections.state");
+
+  /**
+   * The name of a collection (table, container) within the database.
    *
    * <p>Notes:
    *
    * <ul>
-   *   <li>This mirrors the db.sql.table attribute but references cassandra rather than sql. It is
-   *       not recommended to attempt any client-side parsing of {@code db.statement} just to get
-   *       this property, but it should be set if it is provided by the library being instrumented.
-   *       If the operation is acting upon an anonymous table, or more than one table, this value
-   *       MUST NOT be set.
+   *   <li>If the collection name is parsed from the query, it SHOULD match the value provided in
+   *       the query and may be qualified with the schema and database name. It is RECOMMENDED to
+   *       capture the value as provided by the application without attempting to do any case
+   *       normalization.
    * </ul>
    */
-  public static final AttributeKey<String> DB_CASSANDRA_TABLE = stringKey("db.cassandra.table");
+  public static final AttributeKey<String> DB_COLLECTION_NAME = stringKey("db.collection.name");
 
   /**
    * Deprecated, use {@code server.address}, {@code server.port} attributes instead.
@@ -70,38 +89,43 @@ public final class DbIncubatingAttributes {
    * @deprecated Deprecated, use `server.address`, `server.port` attributes instead.
    */
   @Deprecated
-  public static final AttributeKey<String> DB_CONNECTIONSTRING = stringKey("db.connection_string");
+  public static final AttributeKey<String> DB_CONNECTION_STRING = stringKey("db.connection_string");
 
   /** Unique Cosmos client instance id. */
-  public static final AttributeKey<String> DB_COSMOSDB_CLIENTID =
+  public static final AttributeKey<String> DB_COSMOSDB_CLIENT_ID =
       stringKey("db.cosmosdb.client_id");
 
   /** Cosmos client connection mode. */
-  public static final AttributeKey<String> DB_COSMOSDB_CONNECTIONMODE =
+  public static final AttributeKey<String> DB_COSMOSDB_CONNECTION_MODE =
       stringKey("db.cosmosdb.connection_mode");
 
-  /** Cosmos DB container name. */
+  /**
+   * Deprecated, use {@code db.collection.name} instead.
+   *
+   * @deprecated Deprecated, use `db.collection.name` instead.
+   */
+  @Deprecated
   public static final AttributeKey<String> DB_COSMOSDB_CONTAINER =
       stringKey("db.cosmosdb.container");
 
   /** CosmosDB Operation Type. */
-  public static final AttributeKey<String> DB_COSMOSDB_OPERATIONTYPE =
+  public static final AttributeKey<String> DB_COSMOSDB_OPERATION_TYPE =
       stringKey("db.cosmosdb.operation_type");
 
   /** RU consumed for that operation */
-  public static final AttributeKey<Double> DB_COSMOSDB_REQUESTCHARGE =
+  public static final AttributeKey<Double> DB_COSMOSDB_REQUEST_CHARGE =
       doubleKey("db.cosmosdb.request_charge");
 
   /** Request payload size in bytes */
-  public static final AttributeKey<Long> DB_COSMOSDB_REQUESTCONTENTLENGTH =
+  public static final AttributeKey<Long> DB_COSMOSDB_REQUEST_CONTENT_LENGTH =
       longKey("db.cosmosdb.request_content_length");
 
   /** Cosmos DB status code. */
-  public static final AttributeKey<Long> DB_COSMOSDB_STATUSCODE =
+  public static final AttributeKey<Long> DB_COSMOSDB_STATUS_CODE =
       longKey("db.cosmosdb.status_code");
 
   /** Cosmos DB sub status code. */
-  public static final AttributeKey<Long> DB_COSMOSDB_SUBSTATUSCODE =
+  public static final AttributeKey<Long> DB_COSMOSDB_SUB_STATUS_CODE =
       longKey("db.cosmosdb.sub_status_code");
 
   /** Represents the identifier of an Elasticsearch cluster. */
@@ -109,11 +133,8 @@ public final class DbIncubatingAttributes {
       stringKey("db.elasticsearch.cluster.name");
 
   /**
-   * Deprecated, use {@code db.instance.id} instead.
-   *
-   * @deprecated Deprecated, use `db.instance.id` instead.
+   * Represents the human-readable identifier of the node/instance to which a request was routed.
    */
-  @Deprecated
   public static final AttributeKey<String> DB_ELASTICSEARCH_NODE_NAME =
       stringKey("db.elasticsearch.node.name");
 
@@ -130,17 +151,17 @@ public final class DbIncubatingAttributes {
    *       schema</a> in order to map the path part values to their names.
    * </ul>
    */
-  public static final AttributeKeyTemplate<String> DB_ELASTICSEARCH_PATHPARTS =
+  public static final AttributeKeyTemplate<String> DB_ELASTICSEARCH_PATH_PARTS =
       stringKeyTemplate("db.elasticsearch.path_parts");
 
   /**
-   * An identifier (address, unique name, or any other identifier) of the database instance that is
-   * executing queries or mutations on the current connection. This is useful in cases where the
-   * database is running in a clustered environment and the instrumentation is able to record the
-   * node executing the query. The client may obtain this value in databases like MySQL using
-   * queries like {@code select @@hostname}.
+   * Deprecated, no general replacement at this time. For Elasticsearch, use {@code
+   * db.elasticsearch.node.name} instead.
+   *
+   * @deprecated Deprecated, no general replacement at this time. For Elasticsearch, use
+   *     `db.elasticsearch.node.name` instead.
    */
-  public static final AttributeKey<String> DB_INSTANCE_ID = stringKey("db.instance.id");
+  @Deprecated public static final AttributeKey<String> DB_INSTANCE_ID = stringKey("db.instance.id");
 
   /**
    * Removed, no replacement at this time.
@@ -148,108 +169,147 @@ public final class DbIncubatingAttributes {
    * @deprecated Removed, no replacement at this time.
    */
   @Deprecated
-  public static final AttributeKey<String> DB_JDBC_DRIVERCLASSNAME =
+  public static final AttributeKey<String> DB_JDBC_DRIVER_CLASSNAME =
       stringKey("db.jdbc.driver_classname");
 
-  /** The MongoDB collection being accessed within the database stated in {@code db.name}. */
+  /**
+   * Deprecated, use {@code db.collection.name} instead.
+   *
+   * @deprecated Deprecated, use `db.collection.name` instead.
+   */
+  @Deprecated
   public static final AttributeKey<String> DB_MONGODB_COLLECTION =
       stringKey("db.mongodb.collection");
 
   /**
-   * The Microsoft SQL Server <a
-   * href="https://docs.microsoft.com/sql/connect/jdbc/building-the-connection-url?view=sql-server-ver15">instance
-   * name</a> connecting to. This name is used to determine the port of a named instance.
+   * Deprecated, SQL Server instance is now populated as a part of {@code db.namespace} attribute.
    *
-   * <p>Notes:
-   *
-   * <ul>
-   *   <li>If setting a {@code db.mssql.instance_name}, {@code server.port} is no longer required
-   *       (but still recommended if non-standard).
-   * </ul>
+   * @deprecated Deprecated, SQL Server instance is now populated as a part of `db.namespace`
+   *     attribute.
    */
-  public static final AttributeKey<String> DB_MSSQL_INSTANCENAME =
+  @Deprecated
+  public static final AttributeKey<String> DB_MSSQL_INSTANCE_NAME =
       stringKey("db.mssql.instance_name");
 
   /**
-   * This attribute is used to report the name of the database being accessed. For commands that
-   * switch the database, this should be set to the target database (even if the command fails).
+   * Deprecated, use {@code db.namespace} instead.
+   *
+   * @deprecated Deprecated, use `db.namespace` instead.
+   */
+  @Deprecated public static final AttributeKey<String> DB_NAME = stringKey("db.name");
+
+  /**
+   * The name of the database, fully qualified within the server address and port.
    *
    * <p>Notes:
    *
    * <ul>
-   *   <li>In some SQL databases, the database name to be used is called &quot;schema name&quot;. In
-   *       case there are multiple layers that could be considered for database name (e.g. Oracle
-   *       instance name and schema name), the database name to be used is the more specific layer
-   *       (e.g. Oracle schema name).
+   *   <li>If a database system has multiple namespace components, they SHOULD be concatenated
+   *       (potentially using database system specific conventions) from most general to most
+   *       specific namespace component, and more specific namespaces SHOULD NOT be captured without
+   *       the more general namespaces, to ensure that &quot;startswith&quot; queries for the more
+   *       general namespaces will be valid. Semantic conventions for individual database systems
+   *       SHOULD document what {@code db.namespace} means in the context of that system. It is
+   *       RECOMMENDED to capture the value as provided by the application without attempting to do
+   *       any case normalization.
    * </ul>
    */
-  public static final AttributeKey<String> DB_NAME = stringKey("db.name");
+  public static final AttributeKey<String> DB_NAMESPACE = stringKey("db.namespace");
 
   /**
-   * The name of the operation being executed, e.g. the <a
-   * href="https://docs.mongodb.com/manual/reference/command/#database-operations">MongoDB command
-   * name</a> such as {@code findAndModify}, or the SQL keyword.
+   * Deprecated, use {@code db.operation.name} instead.
+   *
+   * @deprecated Deprecated, use `db.operation.name` instead.
+   */
+  @Deprecated public static final AttributeKey<String> DB_OPERATION = stringKey("db.operation");
+
+  /**
+   * The name of the operation or command being executed.
    *
    * <p>Notes:
    *
    * <ul>
-   *   <li>When setting this to an SQL keyword, it is not recommended to attempt any client-side
-   *       parsing of {@code db.statement} just to get this property, but it should be set if the
-   *       operation name is provided by the library being instrumented. If the SQL statement has an
-   *       ambiguous operation, or performs more than one operation, this value may be omitted.
+   *   <li>It is RECOMMENDED to capture the value as provided by the application without attempting
+   *       to do any case normalization.
    * </ul>
    */
-  public static final AttributeKey<String> DB_OPERATION = stringKey("db.operation");
+  public static final AttributeKey<String> DB_OPERATION_NAME = stringKey("db.operation.name");
 
   /**
-   * The index of the database being accessed as used in the <a
-   * href="https://redis.io/commands/select">{@code SELECT} command</a>, provided as an integer. To
-   * be used instead of the generic {@code db.name} attribute.
+   * The query parameters used in {@code db.query.text}, with {@code <key>} being the parameter
+   * name, and the attribute value being the parameter value.
+   *
+   * <p>Notes:
+   *
+   * <ul>
+   *   <li>Query parameters should only be captured when {@code db.query.text} is parameterized with
+   *       placeholders. If a parameter has no name and instead is referenced only by index, then
+   *       {@code <key>} SHOULD be the 0-based index.
+   * </ul>
    */
-  public static final AttributeKey<Long> DB_REDIS_DATABASEINDEX =
+  public static final AttributeKeyTemplate<String> DB_QUERY_PARAMETER =
+      stringKeyTemplate("db.query.parameter");
+
+  /** The database query being executed. */
+  public static final AttributeKey<String> DB_QUERY_TEXT = stringKey("db.query.text");
+
+  /**
+   * Deprecated, use {@code db.namespace} instead.
+   *
+   * @deprecated Deprecated, use `db.namespace` instead.
+   */
+  @Deprecated
+  public static final AttributeKey<Long> DB_REDIS_DATABASE_INDEX =
       longKey("db.redis.database_index");
 
   /**
-   * The name of the primary table that the operation is acting upon, including the database name
-   * (if applicable).
+   * Deprecated, use {@code db.collection.name} instead.
+   *
+   * @deprecated Deprecated, use `db.collection.name` instead.
+   */
+  @Deprecated public static final AttributeKey<String> DB_SQL_TABLE = stringKey("db.sql.table");
+
+  /**
+   * The database statement being executed.
+   *
+   * @deprecated The database statement being executed.
+   */
+  @Deprecated public static final AttributeKey<String> DB_STATEMENT = stringKey("db.statement");
+
+  /**
+   * The database management system (DBMS) product as identified by the client instrumentation.
    *
    * <p>Notes:
    *
    * <ul>
-   *   <li>It is not recommended to attempt any client-side parsing of {@code db.statement} just to
-   *       get this property, but it should be set if it is provided by the library being
-   *       instrumented. If the operation is acting upon an anonymous table, or more than one table,
-   *       this value MUST NOT be set.
+   *   <li>The actual DBMS may differ from the one identified by the client. For example, when using
+   *       PostgreSQL client libraries to connect to a CockroachDB, the {@code db.system} is set to
+   *       {@code postgresql} based on the instrumentation's best knowledge.
    * </ul>
-   */
-  public static final AttributeKey<String> DB_SQL_TABLE = stringKey("db.sql.table");
-
-  /** The database statement being executed. */
-  public static final AttributeKey<String> DB_STATEMENT = stringKey("db.statement");
-
-  /**
-   * An identifier for the database management system (DBMS) product being used. See below for a
-   * list of well-known identifiers.
    */
   public static final AttributeKey<String> DB_SYSTEM = stringKey("db.system");
 
-  /** Username for accessing the database. */
-  public static final AttributeKey<String> DB_USER = stringKey("db.user");
+  /**
+   * Deprecated, no replacement at this time.
+   *
+   * @deprecated Deprecated, no replacement at this time.
+   */
+  @Deprecated public static final AttributeKey<String> DB_USER = stringKey("db.user");
 
   // Enum definitions
-  /** Values for {@link #DB_CASSANDRA_CONSISTENCYLEVEL}. */
-  public static final class DbCassandraConsistencylevelValues {
+  /** Values for {@link #DB_CASSANDRA_CONSISTENCY_LEVEL}. */
+  public static final class DbCassandraConsistencyLevelValues {
     /** all. */
     public static final String ALL = "all";
 
     /** each_quorum. */
-    public static final String EACHQUORUM = "each_quorum";
+    public static final String EACH_QUORUM = "each_quorum";
 
     /** quorum. */
     public static final String QUORUM = "quorum";
 
     /** local_quorum. */
-    public static final String LOCALQUORUM = "local_quorum";
+    public static final String LOCAL_QUORUM = "local_quorum";
 
     /** one. */
     public static final String ONE = "one";
@@ -261,7 +321,7 @@ public final class DbIncubatingAttributes {
     public static final String THREE = "three";
 
     /** local_one. */
-    public static final String LOCALONE = "local_one";
+    public static final String LOCAL_ONE = "local_one";
 
     /** any. */
     public static final String ANY = "any";
@@ -270,24 +330,35 @@ public final class DbIncubatingAttributes {
     public static final String SERIAL = "serial";
 
     /** local_serial. */
-    public static final String LOCALSERIAL = "local_serial";
+    public static final String LOCAL_SERIAL = "local_serial";
 
-    private DbCassandraConsistencylevelValues() {}
+    private DbCassandraConsistencyLevelValues() {}
   }
 
-  /** Values for {@link #DB_COSMOSDB_CONNECTIONMODE}. */
-  public static final class DbCosmosdbConnectionmodeValues {
+  /** Values for {@link #DB_CLIENT_CONNECTIONS_STATE}. */
+  public static final class DbClientConnectionsStateValues {
+    /** idle. */
+    public static final String IDLE = "idle";
+
+    /** used. */
+    public static final String USED = "used";
+
+    private DbClientConnectionsStateValues() {}
+  }
+
+  /** Values for {@link #DB_COSMOSDB_CONNECTION_MODE}. */
+  public static final class DbCosmosdbConnectionModeValues {
     /** Gateway (HTTP) connections mode. */
     public static final String GATEWAY = "gateway";
 
     /** Direct connection. */
     public static final String DIRECT = "direct";
 
-    private DbCosmosdbConnectionmodeValues() {}
+    private DbCosmosdbConnectionModeValues() {}
   }
 
-  /** Values for {@link #DB_COSMOSDB_OPERATIONTYPE}. */
-  public static final class DbCosmosdbOperationtypeValues {
+  /** Values for {@link #DB_COSMOSDB_OPERATION_TYPE}. */
+  public static final class DbCosmosdbOperationTypeValues {
     /** invalid. */
     public static final String INVALID = "Invalid";
 
@@ -301,7 +372,7 @@ public final class DbIncubatingAttributes {
     public static final String READ = "Read";
 
     /** read_feed. */
-    public static final String READFEED = "ReadFeed";
+    public static final String READ_FEED = "ReadFeed";
 
     /** delete. */
     public static final String DELETE = "Delete";
@@ -319,7 +390,7 @@ public final class DbIncubatingAttributes {
     public static final String HEAD = "Head";
 
     /** head_feed. */
-    public static final String HEADFEED = "HeadFeed";
+    public static final String HEAD_FEED = "HeadFeed";
 
     /** upsert. */
     public static final String UPSERT = "Upsert";
@@ -328,18 +399,18 @@ public final class DbIncubatingAttributes {
     public static final String BATCH = "Batch";
 
     /** query_plan. */
-    public static final String QUERYPLAN = "QueryPlan";
+    public static final String QUERY_PLAN = "QueryPlan";
 
     /** execute_javascript. */
-    public static final String EXECUTEJAVASCRIPT = "ExecuteJavaScript";
+    public static final String EXECUTE_JAVASCRIPT = "ExecuteJavaScript";
 
-    private DbCosmosdbOperationtypeValues() {}
+    private DbCosmosdbOperationTypeValues() {}
   }
 
   /** Values for {@link #DB_SYSTEM}. */
   public static final class DbSystemValues {
     /** Some other SQL database. Fallback only. See notes. */
-    public static final String OTHERSQL = "other_sql";
+    public static final String OTHER_SQL = "other_sql";
 
     /** Microsoft SQL Server. */
     public static final String MSSQL = "mssql";

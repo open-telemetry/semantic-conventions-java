@@ -15,12 +15,11 @@ import io.opentelemetry.api.common.AttributeKey;
 public final class PoolIncubatingAttributes {
 
   /**
-   * The name of the connection pool; unique within the instrumented application. In case the
-   * connection pool implementation doesn't provide a name, instrumentation should use a combination
-   * of {@code server.address} and {@code server.port} attributes formatted as {@code
-   * server.address:server.port}.
+   * Deprecated, use {@code db.client.connections.pool.name} instead.
+   *
+   * @deprecated Deprecated, use `db.client.connections.pool.name` instead.
    */
-  public static final AttributeKey<String> POOL_NAME = stringKey("pool.name");
+  @Deprecated public static final AttributeKey<String> POOL_NAME = stringKey("pool.name");
 
   private PoolIncubatingAttributes() {}
 }

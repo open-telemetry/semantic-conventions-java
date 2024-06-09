@@ -53,30 +53,30 @@ public final class OtelIncubatingAttributes {
    * code is UNSET.
    *
    * @deprecated deprecated in favor of stable {@link
-   *     io.opentelemetry.semconv.OtelAttributes#OTEL_STATUSCODE} attribute.
+   *     io.opentelemetry.semconv.OtelAttributes#OTEL_STATUS_CODE} attribute.
    */
   @Deprecated
-  public static final AttributeKey<String> OTEL_STATUSCODE = stringKey("otel.status_code");
+  public static final AttributeKey<String> OTEL_STATUS_CODE = stringKey("otel.status_code");
 
   /**
    * Description of the Status if it has a value, otherwise not set.
    *
    * @deprecated deprecated in favor of stable {@link
-   *     io.opentelemetry.semconv.OtelAttributes#OTEL_STATUSDESCRIPTION} attribute.
+   *     io.opentelemetry.semconv.OtelAttributes#OTEL_STATUS_DESCRIPTION} attribute.
    */
   @Deprecated
-  public static final AttributeKey<String> OTEL_STATUSDESCRIPTION =
+  public static final AttributeKey<String> OTEL_STATUS_DESCRIPTION =
       stringKey("otel.status_description");
 
   // Enum definitions
   /**
-   * Values for {@link #OTEL_STATUSCODE}.
+   * Values for {@link #OTEL_STATUS_CODE}.
    *
    * @deprecated deprecated in favor of stable {@link
-   *     io.opentelemetry.semconv.OtelAttributes.OtelStatuscodeValues} attribute.
+   *     io.opentelemetry.semconv.OtelAttributes.OtelStatusCodeValues} attribute.
    */
   @Deprecated
-  public static final class OtelStatuscodeValues {
+  public static final class OtelStatusCodeValues {
     /**
      * The operation has been validated by an Application developer or Operator to have completed
      * successfully.
@@ -86,7 +86,7 @@ public final class OtelIncubatingAttributes {
     /** The operation contains an error. */
     public static final String ERROR = "ERROR";
 
-    private OtelStatuscodeValues() {}
+    private OtelStatusCodeValues() {}
   }
 
   private OtelIncubatingAttributes() {}

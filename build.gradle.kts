@@ -11,9 +11,10 @@ val snapshot = true
 // end
 
 // The release version of https://github.com/open-telemetry/semantic-conventions used to generate classes
-var semanticConventionsVersion = "1.25.0"
+var semanticConventionsVersion = "1.26.0"
 val schemaUrlVersions = listOf(
     semanticConventionsVersion,
+    "1.25.0",
     "1.24.0",
     "1.23.1",
     "1.22.0")
@@ -93,7 +94,7 @@ fun generateTask(taskName: String, incubating: Boolean) {
         "-v", "$buildDir/semantic-conventions-${semanticConventionsVersion}/model:/source",
         "-v", "$projectDir/buildscripts/templates:/templates",
         "-v", "$projectDir/$outputDir:/output",
-        "library/semconvgen1",
+        "library/semconvgen2",
         "--yaml-root", "/source",
         "--continue-on-validation-errors", "compatibility",
         "code",

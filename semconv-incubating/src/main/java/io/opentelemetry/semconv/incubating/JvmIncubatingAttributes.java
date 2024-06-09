@@ -113,7 +113,7 @@ public final class JvmIncubatingAttributes {
     public static final String HEAP = "heap";
 
     /** Non-heap memory. */
-    public static final String NONHEAP = "non_heap";
+    public static final String NON_HEAP = "non_heap";
 
     private JvmMemoryTypeValues() {}
   }
@@ -145,7 +145,7 @@ public final class JvmIncubatingAttributes {
      * A thread that is waiting for another thread to perform an action for up to a specified
      * waiting time is in this state.
      */
-    public static final String TIMEDWAITING = "timed_waiting";
+    public static final String TIMED_WAITING = "timed_waiting";
 
     /** A thread that has exited is in this state. */
     public static final String TERMINATED = "terminated";
