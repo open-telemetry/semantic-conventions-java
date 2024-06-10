@@ -39,6 +39,10 @@
 {%- set filtered_enums = filtered_attributes | selectattr('is_enum', 'equalto', true) | list %}
 {%- set excluded_namespaces_list = excluded_namespaces.replace("\"", "").split(' ') %}
 {%- if root_namespace not in excluded_namespaces_list and filtered_attributes | count > 0 %}
+{%- set name_map ={"messaging.client.id":"messaging_client_id2"} -%}
+{%- macro to_const_name2(fqn) -%}
+{{(name_map[fqn] or fqn) | to_const_name}}
+{%- endmacro %}
 /*
  * Copyright The OpenTelemetry Authors
  * SPDX-License-Identifier: Apache-2.0
@@ -64,7 +68,7 @@ import java.util.List;
 public final class {{ root_namespace | to_camelcase(True) }}{{ classPrefix }}Attributes {
   {%- for attribute in filtered_attributes %}
 
-  {% set attribute_const_name = attribute.fqn | to_const_name -%}
+  {% set attribute_const_name = to_const_name2(attribute.fqn) -%}
   /**
   * {{attribute.brief | render_markdown(code="{{@code {0}}}", paragraph="{0}")}}
     {%- if attribute.note %}

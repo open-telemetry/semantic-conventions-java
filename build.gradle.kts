@@ -94,7 +94,7 @@ fun generateTask(taskName: String, incubating: Boolean) {
         "-v", "$buildDir/semantic-conventions-${semanticConventionsVersion}/model:/source",
         "-v", "$projectDir/buildscripts/templates:/templates",
         "-v", "$projectDir/$outputDir:/output",
-        "library/semconvgen2",
+        "otel/semconvgen:$generatorVersion",
         "--yaml-root", "/source",
         "--continue-on-validation-errors", "compatibility",
         "code",

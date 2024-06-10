@@ -35,7 +35,15 @@ public final class MessagingIncubatingAttributes {
       longKey("messaging.batch.message_count");
 
   /** A unique identifier for the client that consumes or produces a message. */
-  public static final AttributeKey<String> MESSAGING_CLIENT_ID = stringKey("messaging.client.id");
+  public static final AttributeKey<String> MESSAGING_CLIENT_ID2 = stringKey("messaging.client.id");
+
+  /**
+   * Deprecated, use {@code messaging.client.id} instead.
+   *
+   * @deprecated Deprecated, use `messaging.client.id` instead.
+   */
+  @Deprecated
+  public static final AttributeKey<String> MESSAGING_CLIENT_ID = stringKey("messaging.client_id");
 
   /**
    * A boolean that is true if the message destination is anonymous (could be unnamed or have
