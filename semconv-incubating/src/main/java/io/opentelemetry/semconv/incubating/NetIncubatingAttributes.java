@@ -16,13 +16,6 @@ import io.opentelemetry.api.common.AttributeKey;
 public final class NetIncubatingAttributes {
 
   /**
-   * Deprecated, use {@code network.local.address}.
-   *
-   * @deprecated Deprecated, use `network.local.address`.
-   */
-  @Deprecated public static final AttributeKey<String> NET_HOST_IP = stringKey("net.host.ip");
-
-  /**
    * Deprecated, use {@code server.address}.
    *
    * @deprecated Deprecated, use `server.address`.
@@ -35,13 +28,6 @@ public final class NetIncubatingAttributes {
    * @deprecated Deprecated, use `server.port`.
    */
   @Deprecated public static final AttributeKey<Long> NET_HOST_PORT = longKey("net.host.port");
-
-  /**
-   * Deprecated, use {@code network.peer.address}.
-   *
-   * @deprecated Deprecated, use `network.peer.address`.
-   */
-  @Deprecated public static final AttributeKey<String> NET_PEER_IP = stringKey("net.peer.ip");
 
   /**
    * Deprecated, use {@code server.address} on client spans and {@code client.address} on server

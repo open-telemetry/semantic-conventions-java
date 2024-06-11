@@ -22,8 +22,8 @@ public final class AndroidIncubatingAttributes {
   public static final AttributeKey<String> ANDROID_OS_API_LEVEL = stringKey("android.os.api_level");
 
   /**
-   * Deprecated use the {@code device.app.lifecycle} event definition including {@code
-   * android.state} as a payload field instead.
+   * This attribute represents the state the application has transitioned into at the occurrence of
+   * the event.
    *
    * <p>Notes:
    *

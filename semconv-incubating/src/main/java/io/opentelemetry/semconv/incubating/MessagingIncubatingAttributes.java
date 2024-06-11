@@ -35,14 +35,6 @@ public final class MessagingIncubatingAttributes {
       longKey("messaging.batch.message_count");
 
   /** A unique identifier for the client that consumes or produces a message. */
-  public static final AttributeKey<String> MESSAGING_CLIENT_ID2 = stringKey("messaging.client.id");
-
-  /**
-   * Deprecated, use {@code messaging.client.id} instead.
-   *
-   * @deprecated Deprecated, use `messaging.client.id` instead.
-   */
-  @Deprecated
   public static final AttributeKey<String> MESSAGING_CLIENT_ID = stringKey("messaging.client_id");
 
   /**
@@ -124,18 +116,6 @@ public final class MessagingIncubatingAttributes {
   public static final AttributeKey<Long> MESSAGING_EVENTHUBS_MESSAGE_ENQUEUED_TIME =
       longKey("messaging.eventhubs.message.enqueued_time");
 
-  /** The ack deadline in seconds set for the modify ack deadline request. */
-  public static final AttributeKey<Long> MESSAGING_GCP_PUBSUB_MESSAGE_ACK_DEADLINE =
-      longKey("messaging.gcp_pubsub.message.ack_deadline");
-
-  /** The ack id for a given message. */
-  public static final AttributeKey<String> MESSAGING_GCP_PUBSUB_MESSAGE_ACK_ID =
-      stringKey("messaging.gcp_pubsub.message.ack_id");
-
-  /** The delivery attempt for a given message. */
-  public static final AttributeKey<Long> MESSAGING_GCP_PUBSUB_MESSAGE_DELIVERY_ATTEMPT =
-      longKey("messaging.gcp_pubsub.message.delivery_attempt");
-
   /**
    * The ordering key for a given message. If the attribute is not present, the message does not
    * have an ordering key.
@@ -151,9 +131,9 @@ public final class MessagingIncubatingAttributes {
       stringKey("messaging.kafka.consumer.group");
 
   /**
-   * Deprecated, use {@code messaging.destination.partition.id} instead.
+   * &quot;Deprecated, use {@code messaging.destination.partition.id} instead.&quot;
    *
-   * @deprecated Deprecated, use `messaging.destination.partition.id` instead.
+   * @deprecated "Deprecated, use `messaging.destination.partition.id` instead.".
    */
   @Deprecated
   public static final AttributeKey<Long> MESSAGING_KAFKA_DESTINATION_PARTITION =
@@ -221,19 +201,7 @@ public final class MessagingIncubatingAttributes {
   public static final AttributeKey<String> MESSAGING_MESSAGE_ID = stringKey("messaging.message.id");
 
   /**
-   * Deprecated, use {@code messaging.operation.type} instead.
-   *
-   * @deprecated Deprecated, use `messaging.operation.type` instead.
-   */
-  @Deprecated
-  public static final AttributeKey<String> MESSAGING_OPERATION = stringKey("messaging.operation");
-
-  /** The system-specific name of the messaging operation. */
-  public static final AttributeKey<String> MESSAGING_OPERATION_NAME =
-      stringKey("messaging.operation.name");
-
-  /**
-   * A string identifying the type of the messaging operation.
+   * A string identifying the kind of messaging operation.
    *
    * <p>Notes:
    *
@@ -241,8 +209,7 @@ public final class MessagingIncubatingAttributes {
    *   <li>If a custom value is used, it MUST be of low cardinality.
    * </ul>
    */
-  public static final AttributeKey<String> MESSAGING_OPERATION_TYPE =
-      stringKey("messaging.operation.type");
+  public static final AttributeKey<String> MESSAGING_OPERATION = stringKey("messaging.operation");
 
   /** RabbitMQ message routing key. */
   public static final AttributeKey<String> MESSAGING_RABBITMQ_DESTINATION_ROUTING_KEY =
@@ -317,21 +284,14 @@ public final class MessagingIncubatingAttributes {
       longKey("messaging.servicebus.message.enqueued_time");
 
   /**
-   * The messaging system as identified by the client instrumentation.
-   *
-   * <p>Notes:
-   *
-   * <ul>
-   *   <li>The actual messaging system may differ from the one known by the client. For example,
-   *       when using Kafka client libraries to communicate with Azure Event Hubs, the {@code
-   *       messaging.system} is set to {@code kafka} based on the instrumentation's best knowledge.
-   * </ul>
+   * An identifier for the messaging system being used. See below for a list of well-known
+   * identifiers.
    */
   public static final AttributeKey<String> MESSAGING_SYSTEM = stringKey("messaging.system");
 
   // Enum definitions
-  /** Values for {@link #MESSAGING_OPERATION_TYPE}. */
-  public static final class MessagingOperationTypeValues {
+  /** Values for {@link #MESSAGING_OPERATION}. */
+  public static final class MessagingOperationValues {
     /**
      * One or more messages are provided for publishing to an intermediary. If a single message is
      * published, the context of the &#34;Publish&#34; span can be used as the creation context and
@@ -357,7 +317,7 @@ public final class MessagingIncubatingAttributes {
     /** One or more messages are settled. */
     public static final String SETTLE = "settle";
 
-    private MessagingOperationTypeValues() {}
+    private MessagingOperationValues() {}
   }
 
   /** Values for {@link #MESSAGING_ROCKETMQ_CONSUMPTION_MODEL}. */

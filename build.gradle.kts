@@ -11,10 +11,9 @@ val snapshot = true
 // end
 
 // The release version of https://github.com/open-telemetry/semantic-conventions used to generate classes
-var semanticConventionsVersion = "1.26.0"
+var semanticConventionsVersion = "1.25.0"
 val schemaUrlVersions = listOf(
     semanticConventionsVersion,
-    "1.25.0",
     "1.24.0",
     "1.23.1",
     "1.22.0")
@@ -88,7 +87,7 @@ fun generateTask(taskName: String, incubating: Boolean) {
     val packageNameArg = if (incubating) "io.opentelemetry.semconv.incubating" else "io.opentelemetry.semconv"
     val stablePackageNameArg = if (incubating) "io.opentelemetry.semconv" else ""
     val excludedNamespaces = """[\"ios\",\"aspnetcore\",\"signalr\"]"""
-    val nameMapping = """{\"messaging.client.id\":\"messaging.client.id2\"}"""
+    val nameMapping = """{\"http.request.method\":\"http.request.method_new\"}"""
     val excludedAttributes = """[\"http.flavor\"]"""
 
     setArgs(listOf(

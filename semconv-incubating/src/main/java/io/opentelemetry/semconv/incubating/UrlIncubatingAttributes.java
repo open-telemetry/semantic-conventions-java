@@ -162,12 +162,6 @@ public final class UrlIncubatingAttributes {
   public static final AttributeKey<String> URL_SUBDOMAIN = stringKey("url.subdomain");
 
   /**
-   * The low-cardinality template of an <a
-   * href="https://www.rfc-editor.org/rfc/rfc3986#section-4.2">absolute path reference</a>.
-   */
-  public static final AttributeKey<String> URL_TEMPLATE = stringKey("url.template");
-
-  /**
    * The effective top level domain (eTLD), also known as the domain suffix, is the last part of the
    * domain name. For example, the top level domain for example.com is {@code com}.
    *

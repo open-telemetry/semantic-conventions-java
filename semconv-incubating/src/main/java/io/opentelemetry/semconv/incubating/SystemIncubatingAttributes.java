@@ -19,7 +19,11 @@ public final class SystemIncubatingAttributes {
   public static final AttributeKey<Long> SYSTEM_CPU_LOGICAL_NUMBER =
       longKey("system.cpu.logical_number");
 
-  /** The state of the CPU */
+  /**
+   * The CPU state for this data point. A system's CPU SHOULD be characterized <em>either</em> by
+   * data points with no {@code state} labels, <em>or only</em> data points with {@code state}
+   * labels.
+   */
   public static final AttributeKey<String> SYSTEM_CPU_STATE = stringKey("system.cpu.state");
 
   /** The device identifier */

@@ -58,10 +58,6 @@ public final class K8sIncubatingAttributes {
   public static final AttributeKey<Long> K8S_CONTAINER_RESTART_COUNT =
       longKey("k8s.container.restart_count");
 
-  /** Last terminated reason of the Container. */
-  public static final AttributeKey<String> K8S_CONTAINER_STATUS_LAST_TERMINATED_REASON =
-      stringKey("k8s.container.status.last_terminated_reason");
-
   /** The name of the CronJob. */
   public static final AttributeKey<String> K8S_CRONJOB_NAME = stringKey("k8s.cronjob.name");
 
