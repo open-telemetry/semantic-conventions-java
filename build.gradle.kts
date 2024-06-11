@@ -87,6 +87,9 @@ fun generateTask(taskName: String, incubating: Boolean) {
     val outputDir = if (incubating) "semconv-incubating/src/main/java/io/opentelemetry/semconv/incubating/" else "semconv/src/main/java/io/opentelemetry/semconv/"
     val packageNameArg = if (incubating) "io.opentelemetry.semconv.incubating" else "io.opentelemetry.semconv"
     val stablePackageNameArg = if (incubating) "io.opentelemetry.semconv" else ""
+    val excludedNamespaces = """[\"ios\",\"aspnetcore\",\"signalr\"]"""
+    val nameMapping = """{\"messaging.client.id\":\"messaging.client.id2\"}"""
+    val excludedAttributes = """[\"http.flavor\"]"""
 
     setArgs(listOf(
         "run",
@@ -94,19 +97,22 @@ fun generateTask(taskName: String, incubating: Boolean) {
         "-v", "$buildDir/semantic-conventions-${semanticConventionsVersion}/model:/source",
         "-v", "$projectDir/buildscripts/templates:/templates",
         "-v", "$projectDir/$outputDir:/output",
-        "otel/semconvgen:$generatorVersion",
+        "semconvgen7",
         "--yaml-root", "/source",
-        "--continue-on-validation-errors", "compatibility",
+        "--continue-on-validation-errors",
         "code",
         "--template", "/templates/SemanticAttributes.java.j2",
         "--output", "/output/{{pascal_prefix}}${classPrefix}Attributes.java",
         "--file-per-group", "root_namespace",
         // Space delimited list of root namespaces to excluded (i.e. "foo bar")
-        "-Dexcluded_namespaces=ios aspnetcore signalr",
+        "-Dexcluded_namespaces=${excludedNamespaces}",
         "-Dfilter=${filter}",
         "-DclassPrefix=${classPrefix}",
         "-Dpkg=$packageNameArg",
-        "-DstablePkg=$stablePackageNameArg"))
+        "-DstablePkg=$stablePackageNameArg",
+        "-Dname_map=${nameMapping}",
+        "-Dexcluded_attributes=${excludedAttributes}"
+        ))
   }
 }
 

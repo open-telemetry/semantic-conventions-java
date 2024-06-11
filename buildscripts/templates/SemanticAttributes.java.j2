@@ -31,18 +31,16 @@
 {%- macro stable_class_ref(const_name, separator) -%}
 {{stablePkg}}.{{ root_namespace | to_camelcase(True) }}Attributes{{separator}}{{const_name}}
 {%- endmacro %}
+{%- macro map_name(fqn) -%}
+{%- if filter == 'any' and (fqn in name_map) -%}{{ name_map[fqn]}}{%- else -%}{{fqn}}{%- endif -%}
+{%- endmacro -%}
 {%- if filter != 'any' %}
-{%- set filtered_attributes = attributes_and_templates | select(filter) | list %}
+{%- set filtered_attributes = attributes_and_templates | rejectattr("fqn", "in", excluded_attributes) | select(filter) | list %}
 {%- else %}
-{%- set filtered_attributes = attributes_and_templates | list %}
+{%- set filtered_attributes = attributes_and_templates | rejectattr("fqn", "in", excluded_attributes) | list %}
 {%- endif %}
 {%- set filtered_enums = filtered_attributes | selectattr('is_enum', 'equalto', true) | list %}
-{%- set excluded_namespaces_list = excluded_namespaces.replace("\"", "").split(' ') %}
-{%- if root_namespace not in excluded_namespaces_list and filtered_attributes | count > 0 %}
-{%- set name_map ={"messaging.client.id":"messaging_client_id2"} -%}
-{%- macro to_const_name2(fqn) -%}
-{{(name_map[fqn] or fqn) | to_const_name}}
-{%- endmacro %}
+{%- if root_namespace not in excluded_namespaces and filtered_attributes | count > 0 %}
 /*
  * Copyright The OpenTelemetry Authors
  * SPDX-License-Identifier: Apache-2.0
@@ -68,7 +66,7 @@ import java.util.List;
 public final class {{ root_namespace | to_camelcase(True) }}{{ classPrefix }}Attributes {
   {%- for attribute in filtered_attributes %}
 
-  {% set attribute_const_name = to_const_name2(attribute.fqn) -%}
+  {% set attribute_const_name = map_name(attribute.fqn) | to_const_name -%}
   /**
   * {{attribute.brief | render_markdown(code="{{@code {0}}}", paragraph="{0}")}}
     {%- if attribute.note %}
@@ -83,7 +81,7 @@ public final class {{ root_namespace | to_camelcase(True) }}{{ classPrefix }}Att
     {%- if attribute | is_deprecated %}
   * @deprecated {{attribute.brief | to_doc_brief}}.
     {%- elif attribute | is_stable and stablePkg != "" %}
-  * @deprecated deprecated in favor of stable {@link {{stable_class_ref(attribute_const_name, '#')}}} attribute.
+  * @deprecated deprecated in favor of stable {@link {{stable_class_ref(attribute.fqn | to_const_name, '#')}}} attribute.
     {%- endif %}
   */
     {%- if attribute | is_deprecated or attribute | is_stable and stablePkg != "" %}
@@ -100,15 +98,16 @@ public final class {{ root_namespace | to_camelcase(True) }}{{ classPrefix }}Att
   // Enum definitions
   {%- endif %}
   {%- for enum_attribute in filtered_enums %}
-  {%- set class_name = enum_attribute.fqn | to_camelcase(True) ~ "Values" %}
+  {%- set attribute_const_name = map_name(enum_attribute.fqn) | to_const_name -%}
+  {%- set class_name = (map_name(enum_attribute.fqn) | to_camelcase(True)) ~ "Values" %}
   {%- set type = to_java_return_type(enum_attribute.attr_type.enum_type) %}
   /**
-  * Values for {@link #{{ enum_attribute.fqn | to_const_name }}}.
+  * Values for {@link #{{ attribute_const_name | to_const_name }}}.
   *
     {%- if enum_attribute | is_deprecated %}
   * @deprecated {{enum_attribute.brief | to_doc_brief}}.
     {%- elif enum_attribute | is_stable and stablePkg != "" %}
-  * @deprecated deprecated in favor of stable {@link {{stable_class_ref(class_name, '.')}}} attribute.
+  * @deprecated deprecated in favor of stable {@link {{stable_class_ref(enum_attribute.fqn | to_camelcase(True) ~ "Values", '.')}}} attribute.
     {%- endif %}
   */
     {%- if enum_attribute | is_deprecated or enum_attribute | is_stable and stablePkg != "" %}
@@ -117,7 +116,7 @@ public final class {{ root_namespace | to_camelcase(True) }}{{ classPrefix }}Att
   public static final class {{class_name}} {
     {%- for member in enum_attribute.attr_type.members %}
       /** {% filter escape %}{{member.brief | to_doc_brief}}.{% endfilter %} */
-      public static final {{ type }} {{ member.member_id | to_const_name }} = {{ enum_attribute | print_member_value(member) }};
+      public static final {{ type }} {{ map_name(member.member_id) | to_const_name }} = {{ enum_attribute | print_member_value(member) }};
 
     {%- endfor %}
 

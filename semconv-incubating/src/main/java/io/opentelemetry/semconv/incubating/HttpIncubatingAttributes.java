@@ -30,13 +30,6 @@ public final class HttpIncubatingAttributes {
       stringKey("http.connection.state");
 
   /**
-   * Deprecated, use {@code network.protocol.name} instead.
-   *
-   * @deprecated Deprecated, use `network.protocol.name` instead.
-   */
-  @Deprecated public static final AttributeKey<String> HTTP_FLAVOR = stringKey("http.flavor");
-
-  /**
    * Deprecated, use one of {@code server.address}, {@code client.address} or {@code
    * http.request.header.host} instead, depending on the usage.
    *
@@ -307,34 +300,6 @@ public final class HttpIncubatingAttributes {
     public static final String IDLE = "idle";
 
     private HttpConnectionStateValues() {}
-  }
-
-  /**
-   * Values for {@link #HTTP_FLAVOR}.
-   *
-   * @deprecated Deprecated, use `network.protocol.name` instead.
-   */
-  @Deprecated
-  public static final class HttpFlavorValues {
-    /** HTTP/1.0. */
-    public static final String HTTP_1_0 = "1.0";
-
-    /** HTTP/1.1. */
-    public static final String HTTP_1_1 = "1.1";
-
-    /** HTTP/2. */
-    public static final String HTTP_2_0 = "2.0";
-
-    /** HTTP/3. */
-    public static final String HTTP_3_0 = "3.0";
-
-    /** SPDY protocol. */
-    public static final String SPDY = "SPDY";
-
-    /** QUIC protocol. */
-    public static final String QUIC = "QUIC";
-
-    private HttpFlavorValues() {}
   }
 
   /**
