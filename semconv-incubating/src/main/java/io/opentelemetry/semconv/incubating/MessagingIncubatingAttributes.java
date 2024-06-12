@@ -38,14 +38,6 @@ public final class MessagingIncubatingAttributes {
   public static final AttributeKey<String> MESSAGING_CLIENT_ID = stringKey("messaging.client.id");
 
   /**
-   * Deprecated, use {@code messaging.client.id} instead.
-   *
-   * @deprecated Deprecated, use `messaging.client.id` instead.
-   */
-  @Deprecated
-  public static final AttributeKey<String> MESSAGING_CLIENT_ID = stringKey("messaging.client_id");
-
-  /**
    * A boolean that is true if the message destination is anonymous (could be unnamed or have
    * auto-generated name).
    */
