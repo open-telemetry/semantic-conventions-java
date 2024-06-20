@@ -3,7 +3,7 @@
 
 Java code-generation for the [OpenTelemetry Semantic Conventions](https://github.com/open-telemetry/semantic-conventions).
 
-## Published released
+## Published releases
 
 Published releases are available on maven central. Replace `{{version}}` with the latest released version:
 
