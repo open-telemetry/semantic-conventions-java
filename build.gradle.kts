@@ -11,9 +11,10 @@ val snapshot = true
 // end
 
 // The release version of https://github.com/open-telemetry/semantic-conventions used to generate classes
-var semanticConventionsVersion = "1.25.0"
+var semanticConventionsVersion = "1.26.0"
 val schemaUrlVersions = listOf(
     semanticConventionsVersion,
+    "1.25.0",
     "1.24.0",
     "1.23.1",
     "1.22.0")
@@ -95,13 +96,14 @@ fun generateTask(taskName: String, incubating: Boolean) {
         "-v", "$projectDir/$outputDir:/output",
         "otel/semconvgen:$generatorVersion",
         "--yaml-root", "/source",
-        "--continue-on-validation-errors", "compatibility",
+        "--continue-on-validation-errors",
         "code",
         "--template", "/templates/SemanticAttributes.java.j2",
         "--output", "/output/{{pascal_prefix}}${classPrefix}Attributes.java",
         "--file-per-group", "root_namespace",
         // Space delimited list of root namespaces to excluded (i.e. "foo bar")
-        "-Dexcluded_namespaces=\"ios aspnetcore signalr\"",
+        "-Dexcluded_namespaces=ios aspnetcore signalr",
+        "-Dexcluded_attributes=messaging.client_id",
         "-Dfilter=${filter}",
         "-DclassPrefix=${classPrefix}",
         "-Dpkg=$packageNameArg",

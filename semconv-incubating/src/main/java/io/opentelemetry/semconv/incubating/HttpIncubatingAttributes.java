@@ -18,6 +18,13 @@ import java.util.List;
 @SuppressWarnings("unused")
 public final class HttpIncubatingAttributes {
 
+  /**
+   * Deprecated, use {@code client.address} instead.
+   *
+   * @deprecated Deprecated, use `client.address` instead.
+   */
+  @Deprecated public static final AttributeKey<String> HTTP_CLIENT_IP = stringKey("http.client_ip");
+
   /** State of the HTTP connection in the HTTP connection pool. */
   public static final AttributeKey<String> HTTP_CONNECTION_STATE =
       stringKey("http.connection.state");
@@ -28,6 +35,15 @@ public final class HttpIncubatingAttributes {
    * @deprecated Deprecated, use `network.protocol.name` instead.
    */
   @Deprecated public static final AttributeKey<String> HTTP_FLAVOR = stringKey("http.flavor");
+
+  /**
+   * Deprecated, use one of {@code server.address}, {@code client.address} or {@code
+   * http.request.header.host} instead, depending on the usage.
+   *
+   * @deprecated Deprecated, use one of `server.address`, `client.address` or
+   *     `http.request.header.host` instead, depending on the usage.
+   */
+  @Deprecated public static final AttributeKey<String> HTTP_HOST = stringKey("http.host");
 
   /**
    * Deprecated, use {@code http.request.method} instead.
@@ -144,6 +160,15 @@ public final class HttpIncubatingAttributes {
       longKey("http.request_content_length");
 
   /**
+   * Deprecated, use {@code http.request.body.size} instead.
+   *
+   * @deprecated Deprecated, use `http.request.body.size` instead.
+   */
+  @Deprecated
+  public static final AttributeKey<Long> HTTP_REQUEST_CONTENT_LENGTH_UNCOMPRESSED =
+      longKey("http.request_content_length_uncompressed");
+
+  /**
    * The size of the response payload body in bytes. This is the number of bytes transferred
    * excluding headers and is often, but not always, present as the <a
    * href="https://www.rfc-editor.org/rfc/rfc9110.html#field.content-length">Content-Length</a>
@@ -202,6 +227,15 @@ public final class HttpIncubatingAttributes {
       longKey("http.response_content_length");
 
   /**
+   * Deprecated, use {@code http.response.body.size} instead.
+   *
+   * @deprecated Deprecated, use `http.response.body.size` instead.
+   */
+  @Deprecated
+  public static final AttributeKey<Long> HTTP_RESPONSE_CONTENT_LENGTH_UNCOMPRESSED =
+      longKey("http.response_content_length_uncompressed");
+
+  /**
    * The matched route, that is, the path template in the format used by the respective server
    * framework.
    *
@@ -225,6 +259,14 @@ public final class HttpIncubatingAttributes {
    * @deprecated Deprecated, use `url.scheme` instead.
    */
   @Deprecated public static final AttributeKey<String> HTTP_SCHEME = stringKey("http.scheme");
+
+  /**
+   * Deprecated, use {@code server.address} instead.
+   *
+   * @deprecated Deprecated, use `server.address` instead.
+   */
+  @Deprecated
+  public static final AttributeKey<String> HTTP_SERVER_NAME = stringKey("http.server_name");
 
   /**
    * Deprecated, use {@code http.response.status_code} instead.

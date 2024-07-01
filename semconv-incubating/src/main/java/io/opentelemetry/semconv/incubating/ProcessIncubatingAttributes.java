@@ -5,6 +5,7 @@
 
 package io.opentelemetry.semconv.incubating;
 
+import static io.opentelemetry.api.common.AttributeKey.booleanKey;
 import static io.opentelemetry.api.common.AttributeKey.longKey;
 import static io.opentelemetry.api.common.AttributeKey.stringArrayKey;
 import static io.opentelemetry.api.common.AttributeKey.stringKey;
@@ -44,11 +45,12 @@ public final class ProcessIncubatingAttributes {
   public static final AttributeKey<String> PROCESS_CONTEXT_SWITCH_TYPE =
       stringKey("process.context_switch_type");
 
-  /**
-   * The CPU state for this data point. A process SHOULD be characterized <em>either</em> by data
-   * points with no {@code state} labels, <em>or only</em> data points with {@code state} labels.
-   */
+  /** The CPU state of the process. */
   public static final AttributeKey<String> PROCESS_CPU_STATE = stringKey("process.cpu.state");
+
+  /** The date and time the process was created, in ISO 8601 format. */
+  public static final AttributeKey<String> PROCESS_CREATION_TIME =
+      stringKey("process.creation.time");
 
   /**
    * The name of the process executable. On Linux based systems, can be set to the {@code Name} in
@@ -66,6 +68,21 @@ public final class ProcessIncubatingAttributes {
   public static final AttributeKey<String> PROCESS_EXECUTABLE_PATH =
       stringKey("process.executable.path");
 
+  /** The exit code of the process. */
+  public static final AttributeKey<Long> PROCESS_EXIT_CODE = longKey("process.exit.code");
+
+  /** The date and time the process exited, in ISO 8601 format. */
+  public static final AttributeKey<String> PROCESS_EXIT_TIME = stringKey("process.exit.time");
+
+  /**
+   * The PID of the process's group leader. This is also the process group ID (PGID) of the process.
+   */
+  public static final AttributeKey<Long> PROCESS_GROUP_LEADER_PID =
+      longKey("process.group_leader.pid");
+
+  /** Whether the process is connected to an interactive shell. */
+  public static final AttributeKey<Boolean> PROCESS_INTERACTIVE = booleanKey("process.interactive");
+
   /** The username of the user that owns the process. */
   public static final AttributeKey<String> PROCESS_OWNER = stringKey("process.owner");
 
@@ -81,6 +98,13 @@ public final class ProcessIncubatingAttributes {
 
   /** Process identifier (PID). */
   public static final AttributeKey<Long> PROCESS_PID = longKey("process.pid");
+
+  /** The real user ID (RUID) of the process. */
+  public static final AttributeKey<Long> PROCESS_REAL_USER_ID = longKey("process.real_user.id");
+
+  /** The username of the real user of the process. */
+  public static final AttributeKey<String> PROCESS_REAL_USER_NAME =
+      stringKey("process.real_user.name");
 
   /**
    * An additional description about the runtime of the process, for example a specific vendor
@@ -100,6 +124,36 @@ public final class ProcessIncubatingAttributes {
    */
   public static final AttributeKey<String> PROCESS_RUNTIME_VERSION =
       stringKey("process.runtime.version");
+
+  /** The saved user ID (SUID) of the process. */
+  public static final AttributeKey<Long> PROCESS_SAVED_USER_ID = longKey("process.saved_user.id");
+
+  /** The username of the saved user. */
+  public static final AttributeKey<String> PROCESS_SAVED_USER_NAME =
+      stringKey("process.saved_user.name");
+
+  /** The PID of the process's session leader. This is also the session ID (SID) of the process. */
+  public static final AttributeKey<Long> PROCESS_SESSION_LEADER_PID =
+      longKey("process.session_leader.pid");
+
+  /** The effective user ID (EUID) of the process. */
+  public static final AttributeKey<Long> PROCESS_USER_ID = longKey("process.user.id");
+
+  /** The username of the effective user of the process. */
+  public static final AttributeKey<String> PROCESS_USER_NAME = stringKey("process.user.name");
+
+  /**
+   * Virtual process identifier.
+   *
+   * <p>Notes:
+   *
+   * <ul>
+   *   <li>The process ID within a PID namespace. This is not necessarily unique across all
+   *       processes on the host but it is unique within the process namespace that the process
+   *       exists within.
+   * </ul>
+   */
+  public static final AttributeKey<Long> PROCESS_VPID = longKey("process.vpid");
 
   // Enum definitions
   /** Values for {@link #PROCESS_CONTEXT_SWITCH_TYPE}. */

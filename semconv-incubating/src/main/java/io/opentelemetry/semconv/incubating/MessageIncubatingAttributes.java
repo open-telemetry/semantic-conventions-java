@@ -15,32 +15,45 @@ import io.opentelemetry.api.common.AttributeKey;
 @SuppressWarnings("unused")
 public final class MessageIncubatingAttributes {
 
-  /** Compressed size of the message in bytes. */
+  /**
+   * Deprecated, use {@code rpc.message.compressed_size} instead.
+   *
+   * @deprecated Deprecated, use `rpc.message.compressed_size` instead.
+   */
+  @Deprecated
   public static final AttributeKey<Long> MESSAGE_COMPRESSED_SIZE =
       longKey("message.compressed_size");
 
   /**
-   * MUST be calculated as two different counters starting from {@code 1} one for sent messages and
-   * one for received message.
+   * Deprecated, use {@code rpc.message.id} instead.
    *
-   * <p>Notes:
-   *
-   * <ul>
-   *   <li>This way we guarantee that the values will be consistent between different
-   *       implementations.
-   * </ul>
+   * @deprecated Deprecated, use `rpc.message.id` instead.
    */
-  public static final AttributeKey<Long> MESSAGE_ID = longKey("message.id");
+  @Deprecated public static final AttributeKey<Long> MESSAGE_ID = longKey("message.id");
 
-  /** Whether this is a received or sent message. */
-  public static final AttributeKey<String> MESSAGE_TYPE = stringKey("message.type");
+  /**
+   * Deprecated, use {@code rpc.message.type} instead.
+   *
+   * @deprecated Deprecated, use `rpc.message.type` instead.
+   */
+  @Deprecated public static final AttributeKey<String> MESSAGE_TYPE = stringKey("message.type");
 
-  /** Uncompressed size of the message in bytes. */
+  /**
+   * Deprecated, use {@code rpc.message.uncompressed_size} instead.
+   *
+   * @deprecated Deprecated, use `rpc.message.uncompressed_size` instead.
+   */
+  @Deprecated
   public static final AttributeKey<Long> MESSAGE_UNCOMPRESSED_SIZE =
       longKey("message.uncompressed_size");
 
   // Enum definitions
-  /** Values for {@link #MESSAGE_TYPE}. */
+  /**
+   * Values for {@link #MESSAGE_TYPE}.
+   *
+   * @deprecated Deprecated, use `rpc.message.type` instead.
+   */
+  @Deprecated
   public static final class MessageTypeValues {
     /** sent. */
     public static final String SENT = "SENT";
