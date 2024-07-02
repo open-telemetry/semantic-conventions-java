@@ -2,6 +2,11 @@
 
 ## Unreleased
 
+* Update to semantic-conventions 1.26.0
+  ([#73](https://github.com/open-telemetry/semantic-conventions-java/pull/73))
+* Add additional Android requirements to README
+  ([#68](https://github.com/open-telemetry/semantic-conventions-java/pull/68))
+
 ## Version 1.25.0 (2024-04-08)
 
 * Restore and deprecate the `SemanticAttributes` and `ResourceAttributes` classes removed in 1.23.1
