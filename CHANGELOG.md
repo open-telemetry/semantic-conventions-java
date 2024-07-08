@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+## Version 1.26.0 (2024-07-08)
+
 * Update to semantic-conventions 1.26.0
   ([#73](https://github.com/open-telemetry/semantic-conventions-java/pull/73))
 * Add additional Android requirements to README
