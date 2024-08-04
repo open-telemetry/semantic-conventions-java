@@ -32,6 +32,19 @@ public final class LogIncubatingAttributes {
   public static final AttributeKey<String> LOG_IOSTREAM = stringKey("log.iostream");
 
   /**
+   * The complete orignal Log Record.
+   *
+   * <p>Notes:
+   *
+   * <ul>
+   *   <li>This value MAY be added when processing a Log Record which was originally transmitted as
+   *       a string or equivalent data type AND the Body field of the Log Record does not contain
+   *       the same value. (e.g. a syslog or a log record read from a file.)
+   * </ul>
+   */
+  public static final AttributeKey<String> LOG_RECORD_ORIGINAL = stringKey("log.record.original");
+
+  /**
    * A unique identifier for the Log Record.
    *
    * <p>Notes:

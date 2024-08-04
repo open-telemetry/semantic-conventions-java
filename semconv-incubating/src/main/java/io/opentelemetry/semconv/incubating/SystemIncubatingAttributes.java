@@ -19,7 +19,12 @@ public final class SystemIncubatingAttributes {
   public static final AttributeKey<Long> SYSTEM_CPU_LOGICAL_NUMBER =
       longKey("system.cpu.logical_number");
 
-  /** The state of the CPU */
+  /**
+   * Deprecated, use {@code cpu.mode} instead.
+   *
+   * @deprecated Deprecated, use `cpu.mode` instead.
+   */
+  @Deprecated
   public static final AttributeKey<String> SYSTEM_CPU_STATE = stringKey("system.cpu.state");
 
   /** The device identifier */
@@ -75,7 +80,12 @@ public final class SystemIncubatingAttributes {
       stringKey("system.processes.status");
 
   // Enum definitions
-  /** Values for {@link #SYSTEM_CPU_STATE}. */
+  /**
+   * Values for {@link #SYSTEM_CPU_STATE}.
+   *
+   * @deprecated Deprecated, use `cpu.mode` instead.
+   */
+  @Deprecated
   public static final class SystemCpuStateValues {
     /** user. */
     public static final String USER = "user";

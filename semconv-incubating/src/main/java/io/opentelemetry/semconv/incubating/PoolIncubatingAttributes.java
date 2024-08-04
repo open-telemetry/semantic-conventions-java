@@ -15,9 +15,9 @@ import io.opentelemetry.api.common.AttributeKey;
 public final class PoolIncubatingAttributes {
 
   /**
-   * Deprecated, use {@code db.client.connections.pool.name} instead.
+   * Deprecated, use {@code db.client.connection.pool.name} instead.
    *
-   * @deprecated Deprecated, use `db.client.connections.pool.name` instead.
+   * @deprecated Deprecated, use `db.client.connection.pool.name` instead.
    */
   @Deprecated public static final AttributeKey<String> POOL_NAME = stringKey("pool.name");
 
