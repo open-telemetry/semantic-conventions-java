@@ -15,9 +15,9 @@ import io.opentelemetry.api.common.AttributeKey;
 public final class OtherIncubatingAttributes {
 
   /**
-   * Deprecated, use {@code db.client.connections.state} instead.
+   * Deprecated, use {@code db.client.connection.state} instead.
    *
-   * @deprecated Deprecated, use `db.client.connections.state` instead.
+   * @deprecated Deprecated, use `db.client.connection.state` instead.
    */
   @Deprecated public static final AttributeKey<String> STATE = stringKey("state");
 
@@ -25,7 +25,7 @@ public final class OtherIncubatingAttributes {
   /**
    * Values for {@link #STATE}.
    *
-   * @deprecated Deprecated, use `db.client.connections.state` instead.
+   * @deprecated Deprecated, use `db.client.connection.state` instead.
    */
   @Deprecated
   public static final class StateValues {

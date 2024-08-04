@@ -88,9 +88,11 @@ public final class TlsIncubatingAttributes {
       stringKey("tls.client.not_before");
 
   /**
-   * Also called an SNI, this tells the server which hostname to which the client is attempting to
-   * connect to.
+   * Deprecated, use {@code server.address} instead.
+   *
+   * @deprecated Deprecated, use `server.address` instead.
    */
+  @Deprecated
   public static final AttributeKey<String> TLS_CLIENT_SERVER_NAME =
       stringKey("tls.client.server_name");
 

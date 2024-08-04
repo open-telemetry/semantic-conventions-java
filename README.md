@@ -81,7 +81,7 @@ generate semantic conventions classes from the release contents.
 ## Contributing
 
 Before you start - see OpenTelemetry
-general [contributing](https://github.com/open-telemetry/community/blob/main/CONTRIBUTING.md)
+general [contributing](https://github.com/open-telemetry/community/tree/main/guides/contributor)
 requirements and recommendations.
 
 Make sure to review the projects [license](LICENSE) and sign

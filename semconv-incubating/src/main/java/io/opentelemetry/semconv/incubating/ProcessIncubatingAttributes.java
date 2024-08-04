@@ -45,7 +45,12 @@ public final class ProcessIncubatingAttributes {
   public static final AttributeKey<String> PROCESS_CONTEXT_SWITCH_TYPE =
       stringKey("process.context_switch_type");
 
-  /** The CPU state of the process. */
+  /**
+   * Deprecated, use {@code cpu.mode} instead.
+   *
+   * @deprecated Deprecated, use `cpu.mode` instead.
+   */
+  @Deprecated
   public static final AttributeKey<String> PROCESS_CPU_STATE = stringKey("process.cpu.state");
 
   /** The date and time the process was created, in ISO 8601 format. */
@@ -113,10 +118,7 @@ public final class ProcessIncubatingAttributes {
   public static final AttributeKey<String> PROCESS_RUNTIME_DESCRIPTION =
       stringKey("process.runtime.description");
 
-  /**
-   * The name of the runtime of this process. For compiled native binaries, this SHOULD be the name
-   * of the compiler.
-   */
+  /** The name of the runtime of this process. */
   public static final AttributeKey<String> PROCESS_RUNTIME_NAME = stringKey("process.runtime.name");
 
   /**
@@ -167,7 +169,12 @@ public final class ProcessIncubatingAttributes {
     private ProcessContextSwitchTypeValues() {}
   }
 
-  /** Values for {@link #PROCESS_CPU_STATE}. */
+  /**
+   * Values for {@link #PROCESS_CPU_STATE}.
+   *
+   * @deprecated Deprecated, use `cpu.mode` instead.
+   */
+  @Deprecated
   public static final class ProcessCpuStateValues {
     /** system. */
     public static final String SYSTEM = "system";

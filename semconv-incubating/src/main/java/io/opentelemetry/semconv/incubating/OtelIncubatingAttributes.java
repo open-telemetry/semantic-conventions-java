@@ -15,17 +15,13 @@ import io.opentelemetry.api.common.AttributeKey;
 public final class OtelIncubatingAttributes {
 
   /**
-   * None
-   *
-   * @deprecated None.
+   * @deprecated .
    */
   @Deprecated
   public static final AttributeKey<String> OTEL_LIBRARY_NAME = stringKey("otel.library.name");
 
   /**
-   * None
-   *
-   * @deprecated None.
+   * @deprecated .
    */
   @Deprecated
   public static final AttributeKey<String> OTEL_LIBRARY_VERSION = stringKey("otel.library.version");
