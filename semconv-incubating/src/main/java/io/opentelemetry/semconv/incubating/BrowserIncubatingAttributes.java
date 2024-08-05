@@ -13,7 +13,7 @@ import io.opentelemetry.api.common.AttributeKey;
 import java.util.List;
 
 // DO NOT EDIT, this is an Auto-generated file from
-// buildscripts/templates/SemanticAttributes.java.j2
+// buildscripts/templates/registry/incubating_java/IncubatingSemanticAttributes.java.j2
 @SuppressWarnings("unused")
 public final class BrowserIncubatingAttributes {
 
@@ -23,9 +23,9 @@ public final class BrowserIncubatingAttributes {
    * <p>Notes:
    *
    * <ul>
-   *   <li>This value is intended to be taken from the <a
-   *       href="https://wicg.github.io/ua-client-hints/#interface">UA client hints API</a> ({@code
-   *       navigator.userAgentData.brands}).
+   *   <li>This value is intended to be taken from the [UA client hints
+   *       API](https://wicg.github.io/ua-client-hints/#interface)
+   *       (`navigator.userAgentData.brands`).
    * </ul>
    */
   public static final AttributeKey<List<String>> BROWSER_BRANDS = stringArrayKey("browser.brands");
@@ -36,7 +36,7 @@ public final class BrowserIncubatingAttributes {
    * <p>Notes:
    *
    * <ul>
-   *   <li>This value is intended to be taken from the Navigator API {@code navigator.language}.
+   *   <li>This value is intended to be taken from the Navigator API `navigator.language`.
    * </ul>
    */
   public static final AttributeKey<String> BROWSER_LANGUAGE = stringKey("browser.language");
@@ -47,9 +47,9 @@ public final class BrowserIncubatingAttributes {
    * <p>Notes:
    *
    * <ul>
-   *   <li>This value is intended to be taken from the <a
-   *       href="https://wicg.github.io/ua-client-hints/#interface">UA client hints API</a> ({@code
-   *       navigator.userAgentData.mobile}). If unavailable, this attribute SHOULD be left unset.
+   *   <li>This value is intended to be taken from the [UA client hints
+   *       API](https://wicg.github.io/ua-client-hints/#interface)
+   *       (`navigator.userAgentData.mobile`). If unavailable, this attribute SHOULD be left unset.
    * </ul>
    */
   public static final AttributeKey<Boolean> BROWSER_MOBILE = booleanKey("browser.mobile");
@@ -60,16 +60,15 @@ public final class BrowserIncubatingAttributes {
    * <p>Notes:
    *
    * <ul>
-   *   <li>This value is intended to be taken from the <a
-   *       href="https://wicg.github.io/ua-client-hints/#interface">UA client hints API</a> ({@code
-   *       navigator.userAgentData.platform}). If unavailable, the legacy {@code navigator.platform}
-   *       API SHOULD NOT be used instead and this attribute SHOULD be left unset in order for the
-   *       values to be consistent. The list of possible values is defined in the <a
-   *       href="https://wicg.github.io/ua-client-hints/#sec-ch-ua-platform">W3C User-Agent Client
-   *       Hints specification</a>. Note that some (but not all) of these values can overlap with
-   *       values in the <a href="./os.md">{@code os.type} and {@code os.name} attributes</a>.
-   *       However, for consistency, the values in the {@code browser.platform} attribute should
-   *       capture the exact value that the user agent provides.
+   *   <li>This value is intended to be taken from the [UA client hints
+   *       API](https://wicg.github.io/ua-client-hints/#interface)
+   *       (`navigator.userAgentData.platform`). If unavailable, the legacy `navigator.platform` API
+   *       SHOULD NOT be used instead and this attribute SHOULD be left unset in order for the
+   *       values to be consistent. The list of possible values is defined in the [W3C User-Agent
+   *       Client Hints specification](https://wicg.github.io/ua-client-hints/#sec-ch-ua-platform).
+   *       Note that some (but not all) of these values can overlap with values in the [`os.type`
+   *       and `os.name` attributes](./os.md). However, for consistency, the values in the
+   *       `browser.platform` attribute should capture the exact value that the user agent provides.
    * </ul>
    */
   public static final AttributeKey<String> BROWSER_PLATFORM = stringKey("browser.platform");

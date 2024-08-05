@@ -11,7 +11,7 @@ import static io.opentelemetry.api.common.AttributeKey.stringKey;
 import io.opentelemetry.api.common.AttributeKey;
 
 // DO NOT EDIT, this is an Auto-generated file from
-// buildscripts/templates/SemanticAttributes.java.j2
+// buildscripts/templates/registry/java/SemanticAttributes.java.j2
 @SuppressWarnings("unused")
 public final class ExceptionAttributes {
 
@@ -22,20 +22,21 @@ public final class ExceptionAttributes {
    * <p>Notes:
    *
    * <ul>
-   *   <li>An exception is considered to have escaped (or left) the scope of a span, if that span is
-   *       ended while the exception is still logically &quot;in flight&quot;. This may be actually
-   *       &quot;in flight&quot; in some languages (e.g. if the exception is passed to a Context
-   *       manager's {@code __exit__} method in Python) but will usually be caught at the point of
-   *       recording the exception in most languages.
-   *   <li>It is usually not possible to determine at the point where an exception is thrown whether
-   *       it will escape the scope of a span. However, it is trivial to know that an exception will
-   *       escape, if one checks for an active exception just before ending the span, as done in the
-   *       <a
+   *   <li>
+   *       <p>An exception is considered to have escaped (or left) the scope of a span, if that span
+   *       is ended while the exception is still logically &quot;in flight&quot;. This may be
+   *       actually &quot;in flight&quot; in some languages (e.g. if the exception is passed to a
+   *       Context manager's <code>__exit__</code> method in Python) but will usually be caught at
+   *       the point of recording the exception in most languages.
+   *       <p>It is usually not possible to determine at the point where an exception is thrown
+   *       whether it will escape the scope of a span. However, it is trivial to know that an
+   *       exception will escape, if one checks for an active exception just before ending the span,
+   *       as done in the <a
    *       href="https://opentelemetry.io/docs/specs/semconv/exceptions/exceptions-spans/#recording-an-exception">example
    *       for recording span exceptions</a>.
-   *   <li>It follows that an exception may still escape the scope of the span even if the {@code
-   *       exception.escaped} attribute was not set or set to false, since the event might have been
-   *       recorded at a time where it was not clear whether the exception will escape.
+   *       <p>It follows that an exception may still escape the scope of the span even if the <code>
+   *       exception.escaped</code> attribute was not set or set to false, since the event might
+   *       have been recorded at a time where it was not clear whether the exception will escape.
    * </ul>
    */
   public static final AttributeKey<Boolean> EXCEPTION_ESCAPED = booleanKey("exception.escaped");

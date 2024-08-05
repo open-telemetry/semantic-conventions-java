@@ -10,7 +10,7 @@ import static io.opentelemetry.api.common.AttributeKey.stringKey;
 import io.opentelemetry.api.common.AttributeKey;
 
 // DO NOT EDIT, this is an Auto-generated file from
-// buildscripts/templates/SemanticAttributes.java.j2
+// buildscripts/templates/registry/java/SemanticAttributes.java.j2
 @SuppressWarnings("unused")
 public final class UrlAttributes {
 
@@ -24,14 +24,16 @@ public final class UrlAttributes {
    * <p>Notes:
    *
    * <ul>
-   *   <li>For network calls, URL usually has {@code scheme://host[:port][path][?query][#fragment]}
-   *       format, where the fragment is not transmitted over HTTP, but if it is known, it SHOULD be
-   *       included nevertheless. {@code url.full} MUST NOT contain credentials passed via URL in
-   *       form of {@code https://username:password@www.example.com/}. In such case username and
-   *       password SHOULD be redacted and attribute's value SHOULD be {@code
-   *       https://REDACTED:REDACTED@www.example.com/}. {@code url.full} SHOULD capture the absolute
-   *       URL when it is available (or can be reconstructed). Sensitive content provided in {@code
-   *       url.full} SHOULD be scrubbed when instrumentations can identify it.
+   *   <li>
+   *       <p>For network calls, URL usually has <code>scheme://host[:port][path][?query][#fragment]
+   *       </code> format, where the fragment is not transmitted over HTTP, but if it is known, it
+   *       SHOULD be included nevertheless. <code>url.full</code> MUST NOT contain credentials
+   *       passed via URL in form of <code>https://username:password@www.example.com/</code>. In
+   *       such case username and password SHOULD be redacted and attribute's value SHOULD be <code>
+   *       https://REDACTED:REDACTED@www.example.com/</code>. <code>url.full</code> SHOULD capture
+   *       the absolute URL when it is available (or can be reconstructed). Sensitive content
+   *       provided in <code>url.full</code> SHOULD be scrubbed when instrumentations can identify
+   *       it.
    * </ul>
    */
   public static final AttributeKey<String> URL_FULL = stringKey("url.full");
@@ -42,8 +44,9 @@ public final class UrlAttributes {
    * <p>Notes:
    *
    * <ul>
-   *   <li>Sensitive content provided in {@code url.path} SHOULD be scrubbed when instrumentations
-   *       can identify it.
+   *   <li>
+   *       <p>Sensitive content provided in <code>url.path</code> SHOULD be scrubbed when
+   *       instrumentations can identify it.
    * </ul>
    */
   public static final AttributeKey<String> URL_PATH = stringKey("url.path");
@@ -54,8 +57,9 @@ public final class UrlAttributes {
    * <p>Notes:
    *
    * <ul>
-   *   <li>Sensitive content provided in {@code url.query} SHOULD be scrubbed when instrumentations
-   *       can identify it.
+   *   <li>
+   *       <p>Sensitive content provided in <code>url.query</code> SHOULD be scrubbed when
+   *       instrumentations can identify it.
    * </ul>
    */
   public static final AttributeKey<String> URL_QUERY = stringKey("url.query");

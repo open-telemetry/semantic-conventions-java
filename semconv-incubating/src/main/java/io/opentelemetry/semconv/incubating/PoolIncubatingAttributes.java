@@ -10,14 +10,14 @@ import static io.opentelemetry.api.common.AttributeKey.stringKey;
 import io.opentelemetry.api.common.AttributeKey;
 
 // DO NOT EDIT, this is an Auto-generated file from
-// buildscripts/templates/SemanticAttributes.java.j2
+// buildscripts/templates/registry/incubating_java/IncubatingSemanticAttributes.java.j2
 @SuppressWarnings("unused")
 public final class PoolIncubatingAttributes {
 
   /**
-   * Deprecated, use {@code db.client.connections.pool.name} instead.
+   * Deprecated, use <code>db.client.connections.pool.name</code> instead.
    *
-   * @deprecated Deprecated, use `db.client.connections.pool.name` instead.
+   * @deprecated Replaced by `db.client.connections.pool.name`.
    */
   @Deprecated public static final AttributeKey<String> POOL_NAME = stringKey("pool.name");
 

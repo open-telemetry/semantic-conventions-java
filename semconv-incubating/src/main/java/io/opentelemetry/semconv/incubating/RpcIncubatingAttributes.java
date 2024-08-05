@@ -14,7 +14,7 @@ import io.opentelemetry.semconv.AttributeKeyTemplate;
 import java.util.List;
 
 // DO NOT EDIT, this is an Auto-generated file from
-// buildscripts/templates/SemanticAttributes.java.j2
+// buildscripts/templates/registry/incubating_java/IncubatingSemanticAttributes.java.j2
 @SuppressWarnings("unused")
 public final class RpcIncubatingAttributes {
 
@@ -26,8 +26,8 @@ public final class RpcIncubatingAttributes {
       stringKey("rpc.connect_rpc.error_code");
 
   /**
-   * Connect request metadata, {@code <key>} being the normalized Connect Metadata key (lowercase),
-   * the value being the metadata values.
+   * Connect request metadata, <code>&lt;key&gt;</code> being the normalized Connect Metadata key
+   * (lowercase), the value being the metadata values.
    *
    * <p>Notes:
    *
@@ -41,8 +41,8 @@ public final class RpcIncubatingAttributes {
       stringArrayKeyTemplate("rpc.connect_rpc.request.metadata");
 
   /**
-   * Connect response metadata, {@code <key>} being the normalized Connect Metadata key (lowercase),
-   * the value being the metadata values.
+   * Connect response metadata, <code>&lt;key&gt;</code> being the normalized Connect Metadata key
+   * (lowercase), the value being the metadata values.
    *
    * <p>Notes:
    *
@@ -56,8 +56,8 @@ public final class RpcIncubatingAttributes {
       stringArrayKeyTemplate("rpc.connect_rpc.response.metadata");
 
   /**
-   * gRPC request metadata, {@code <key>} being the normalized gRPC Metadata key (lowercase), the
-   * value being the metadata values.
+   * gRPC request metadata, <code>&lt;key&gt;</code> being the normalized gRPC Metadata key
+   * (lowercase), the value being the metadata values.
    *
    * <p>Notes:
    *
@@ -71,8 +71,8 @@ public final class RpcIncubatingAttributes {
       stringArrayKeyTemplate("rpc.grpc.request.metadata");
 
   /**
-   * gRPC response metadata, {@code <key>} being the normalized gRPC Metadata key (lowercase), the
-   * value being the metadata values.
+   * gRPC response metadata, <code>&lt;key&gt;</code> being the normalized gRPC Metadata key
+   * (lowercase), the value being the metadata values.
    *
    * <p>Notes:
    *
@@ -89,26 +89,27 @@ public final class RpcIncubatingAttributes {
    * The <a href="https://github.com/grpc/grpc/blob/v1.33.2/doc/statuscodes.md">numeric status
    * code</a> of the gRPC request.
    */
-  public static final AttributeKey<Long> RPC_GRPC_STATUS_CODE = longKey("rpc.grpc.status_code");
+  public static final AttributeKey<String> RPC_GRPC_STATUS_CODE = stringKey("rpc.grpc.status_code");
 
-  /** {@code error.code} property of response if it is an error response. */
+  /** <code>error.code</code> property of response if it is an error response. */
   public static final AttributeKey<Long> RPC_JSONRPC_ERROR_CODE = longKey("rpc.jsonrpc.error_code");
 
-  /** {@code error.message} property of response if it is an error response. */
+  /** <code>error.message</code> property of response if it is an error response. */
   public static final AttributeKey<String> RPC_JSONRPC_ERROR_MESSAGE =
       stringKey("rpc.jsonrpc.error_message");
 
   /**
-   * {@code id} property of request or response. Since protocol allows id to be int, string, {@code
-   * null} or missing (for notifications), value is expected to be cast to string for simplicity.
-   * Use empty string in case of {@code null} value. Omit entirely if this is a notification.
+   * <code>id</code> property of request or response. Since protocol allows id to be int, string,
+   * <code>null</code> or missing (for notifications), value is expected to be cast to string for
+   * simplicity. Use empty string in case of <code>null</code> value. Omit entirely if this is a
+   * notification.
    */
   public static final AttributeKey<String> RPC_JSONRPC_REQUEST_ID =
       stringKey("rpc.jsonrpc.request_id");
 
   /**
-   * Protocol version as in {@code jsonrpc} property of request/response. Since JSON-RPC 1.0 doesn't
-   * specify this, the value can be omitted.
+   * Protocol version as in <code>jsonrpc</code> property of request/response. Since JSON-RPC 1.0
+   * doesn't specify this, the value can be omitted.
    */
   public static final AttributeKey<String> RPC_JSONRPC_VERSION = stringKey("rpc.jsonrpc.version");
 
@@ -117,8 +118,8 @@ public final class RpcIncubatingAttributes {
       longKey("rpc.message.compressed_size");
 
   /**
-   * MUST be calculated as two different counters starting from {@code 1} one for sent messages and
-   * one for received message.
+   * MUST be calculated as two different counters starting from <code>1</code> one for sent messages
+   * and one for received message.
    *
    * <p>Notes:
    *
@@ -144,7 +145,7 @@ public final class RpcIncubatingAttributes {
    *
    * <ul>
    *   <li>This is the logical name of the method from the RPC interface perspective, which can be
-   *       different from the name of any implementing method/function. The {@code code.function}
+   *       different from the name of any implementing method/function. The `code.function`
    *       attribute may be used to store the latter (e.g., method actually executing the call on
    *       the server side, RPC client stub method on the client side).
    * </ul>
@@ -158,10 +159,10 @@ public final class RpcIncubatingAttributes {
    *
    * <ul>
    *   <li>This is the logical name of the service from the RPC interface perspective, which can be
-   *       different from the name of any implementing class. The {@code code.namespace} attribute
-   *       may be used to store the latter (despite the attribute name, it may include a class name;
-   *       e.g., class with method actually executing the call on the server side, RPC client stub
-   *       class on the client side).
+   *       different from the name of any implementing class. The `code.namespace` attribute may be
+   *       used to store the latter (despite the attribute name, it may include a class name; e.g.,
+   *       class with method actually executing the call on the server side, RPC client stub class
+   *       on the client side).
    * </ul>
    */
   public static final AttributeKey<String> RPC_SERVICE = stringKey("rpc.service");
@@ -172,139 +173,146 @@ public final class RpcIncubatingAttributes {
   // Enum definitions
   /** Values for {@link #RPC_CONNECT_RPC_ERROR_CODE}. */
   public static final class RpcConnectRpcErrorCodeValues {
-    /** cancelled. */
+
+    /** cancelled */
     public static final String CANCELLED = "cancelled";
 
-    /** unknown. */
+    /** unknown */
     public static final String UNKNOWN = "unknown";
 
-    /** invalid_argument. */
+    /** invalid_argument */
     public static final String INVALID_ARGUMENT = "invalid_argument";
 
-    /** deadline_exceeded. */
+    /** deadline_exceeded */
     public static final String DEADLINE_EXCEEDED = "deadline_exceeded";
 
-    /** not_found. */
+    /** not_found */
     public static final String NOT_FOUND = "not_found";
 
-    /** already_exists. */
+    /** already_exists */
     public static final String ALREADY_EXISTS = "already_exists";
 
-    /** permission_denied. */
+    /** permission_denied */
     public static final String PERMISSION_DENIED = "permission_denied";
 
-    /** resource_exhausted. */
+    /** resource_exhausted */
     public static final String RESOURCE_EXHAUSTED = "resource_exhausted";
 
-    /** failed_precondition. */
+    /** failed_precondition */
     public static final String FAILED_PRECONDITION = "failed_precondition";
 
-    /** aborted. */
+    /** aborted */
     public static final String ABORTED = "aborted";
 
-    /** out_of_range. */
+    /** out_of_range */
     public static final String OUT_OF_RANGE = "out_of_range";
 
-    /** unimplemented. */
+    /** unimplemented */
     public static final String UNIMPLEMENTED = "unimplemented";
 
-    /** internal. */
+    /** internal */
     public static final String INTERNAL = "internal";
 
-    /** unavailable. */
+    /** unavailable */
     public static final String UNAVAILABLE = "unavailable";
 
-    /** data_loss. */
+    /** data_loss */
     public static final String DATA_LOSS = "data_loss";
 
-    /** unauthenticated. */
+    /** unauthenticated */
     public static final String UNAUTHENTICATED = "unauthenticated";
 
     private RpcConnectRpcErrorCodeValues() {}
   }
 
+  // Enum definitions
   /** Values for {@link #RPC_GRPC_STATUS_CODE}. */
   public static final class RpcGrpcStatusCodeValues {
-    /** OK. */
-    public static final long OK = 0;
 
-    /** CANCELLED. */
-    public static final long CANCELLED = 1;
+    /** OK */
+    public static final String OK = "0";
 
-    /** UNKNOWN. */
-    public static final long UNKNOWN = 2;
+    /** CANCELLED */
+    public static final String CANCELLED = "1";
 
-    /** INVALID_ARGUMENT. */
-    public static final long INVALID_ARGUMENT = 3;
+    /** UNKNOWN */
+    public static final String UNKNOWN = "2";
 
-    /** DEADLINE_EXCEEDED. */
-    public static final long DEADLINE_EXCEEDED = 4;
+    /** INVALID_ARGUMENT */
+    public static final String INVALID_ARGUMENT = "3";
 
-    /** NOT_FOUND. */
-    public static final long NOT_FOUND = 5;
+    /** DEADLINE_EXCEEDED */
+    public static final String DEADLINE_EXCEEDED = "4";
 
-    /** ALREADY_EXISTS. */
-    public static final long ALREADY_EXISTS = 6;
+    /** NOT_FOUND */
+    public static final String NOT_FOUND = "5";
 
-    /** PERMISSION_DENIED. */
-    public static final long PERMISSION_DENIED = 7;
+    /** ALREADY_EXISTS */
+    public static final String ALREADY_EXISTS = "6";
 
-    /** RESOURCE_EXHAUSTED. */
-    public static final long RESOURCE_EXHAUSTED = 8;
+    /** PERMISSION_DENIED */
+    public static final String PERMISSION_DENIED = "7";
 
-    /** FAILED_PRECONDITION. */
-    public static final long FAILED_PRECONDITION = 9;
+    /** RESOURCE_EXHAUSTED */
+    public static final String RESOURCE_EXHAUSTED = "8";
 
-    /** ABORTED. */
-    public static final long ABORTED = 10;
+    /** FAILED_PRECONDITION */
+    public static final String FAILED_PRECONDITION = "9";
 
-    /** OUT_OF_RANGE. */
-    public static final long OUT_OF_RANGE = 11;
+    /** ABORTED */
+    public static final String ABORTED = "10";
 
-    /** UNIMPLEMENTED. */
-    public static final long UNIMPLEMENTED = 12;
+    /** OUT_OF_RANGE */
+    public static final String OUT_OF_RANGE = "11";
 
-    /** INTERNAL. */
-    public static final long INTERNAL = 13;
+    /** UNIMPLEMENTED */
+    public static final String UNIMPLEMENTED = "12";
 
-    /** UNAVAILABLE. */
-    public static final long UNAVAILABLE = 14;
+    /** INTERNAL */
+    public static final String INTERNAL = "13";
 
-    /** DATA_LOSS. */
-    public static final long DATA_LOSS = 15;
+    /** UNAVAILABLE */
+    public static final String UNAVAILABLE = "14";
 
-    /** UNAUTHENTICATED. */
-    public static final long UNAUTHENTICATED = 16;
+    /** DATA_LOSS */
+    public static final String DATA_LOSS = "15";
+
+    /** UNAUTHENTICATED */
+    public static final String UNAUTHENTICATED = "16";
 
     private RpcGrpcStatusCodeValues() {}
   }
 
+  // Enum definitions
   /** Values for {@link #RPC_MESSAGE_TYPE}. */
   public static final class RpcMessageTypeValues {
-    /** sent. */
+
+    /** sent */
     public static final String SENT = "SENT";
 
-    /** received. */
+    /** received */
     public static final String RECEIVED = "RECEIVED";
 
     private RpcMessageTypeValues() {}
   }
 
+  // Enum definitions
   /** Values for {@link #RPC_SYSTEM}. */
   public static final class RpcSystemValues {
-    /** gRPC. */
+
+    /** gRPC */
     public static final String GRPC = "grpc";
 
-    /** Java RMI. */
+    /** Java RMI */
     public static final String JAVA_RMI = "java_rmi";
 
-    /** .NET WCF. */
+    /** .NET WCF */
     public static final String DOTNET_WCF = "dotnet_wcf";
 
-    /** Apache Dubbo. */
+    /** Apache Dubbo */
     public static final String APACHE_DUBBO = "apache_dubbo";
 
-    /** Connect RPC. */
+    /** Connect RPC */
     public static final String CONNECT_RPC = "connect_rpc";
 
     private RpcSystemValues() {}

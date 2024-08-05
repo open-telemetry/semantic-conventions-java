@@ -10,7 +10,7 @@ import static io.opentelemetry.api.common.AttributeKey.stringKey;
 import io.opentelemetry.api.common.AttributeKey;
 
 // DO NOT EDIT, this is an Auto-generated file from
-// buildscripts/templates/SemanticAttributes.java.j2
+// buildscripts/templates/registry/incubating_java/IncubatingSemanticAttributes.java.j2
 @SuppressWarnings("unused")
 public final class OpentracingIncubatingAttributes {
 
@@ -28,10 +28,11 @@ public final class OpentracingIncubatingAttributes {
   // Enum definitions
   /** Values for {@link #OPENTRACING_REF_TYPE}. */
   public static final class OpentracingRefTypeValues {
-    /** The parent Span depends on the child Span in some capacity. */
+
+    /** The parent Span depends on the child Span in some capacity */
     public static final String CHILD_OF = "child_of";
 
-    /** The parent Span doesn&#39;t depend in any way on the result of the child Span. */
+    /** The parent Span doesn't depend in any way on the result of the child Span */
     public static final String FOLLOWS_FROM = "follows_from";
 
     private OpentracingRefTypeValues() {}

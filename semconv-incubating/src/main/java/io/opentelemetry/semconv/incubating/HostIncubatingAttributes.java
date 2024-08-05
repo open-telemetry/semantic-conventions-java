@@ -13,7 +13,7 @@ import io.opentelemetry.api.common.AttributeKey;
 import java.util.List;
 
 // DO NOT EDIT, this is an Auto-generated file from
-// buildscripts/templates/SemanticAttributes.java.j2
+// buildscripts/templates/registry/incubating_java/IncubatingSemanticAttributes.java.j2
 @SuppressWarnings("unused")
 public final class HostIncubatingAttributes {
 
@@ -44,17 +44,17 @@ public final class HostIncubatingAttributes {
    * <p>Notes:
    *
    * <ul>
-   *   <li><a href="https://wiki.osdev.org/CPUID">CPUID</a> command returns the vendor ID string in
-   *       EBX, EDX and ECX registers. Writing these to memory in this order results in a
-   *       12-character string.
+   *   <li>[CPUID](https://wiki.osdev.org/CPUID) command returns the vendor ID string in EBX, EDX
+   *       and ECX registers. Writing these to memory in this order results in a 12-character
+   *       string.
    * </ul>
    */
   public static final AttributeKey<String> HOST_CPU_VENDOR_ID = stringKey("host.cpu.vendor.id");
 
   /**
    * Unique host ID. For Cloud, this must be the instance_id assigned by the cloud provider. For
-   * non-containerized systems, this should be the {@code machine-id}. See the table below for the
-   * sources to use to determine the {@code machine-id} based on operating system.
+   * non-containerized systems, this should be the <code>machine-id</code>. See the table below for
+   * the sources to use to determine the <code>machine-id</code> based on operating system.
    */
   public static final AttributeKey<String> HOST_ID = stringKey("host.id");
 
@@ -77,8 +77,7 @@ public final class HostIncubatingAttributes {
    *
    * <ul>
    *   <li>IPv4 Addresses MUST be specified in dotted-quad notation. IPv6 addresses MUST be
-   *       specified in the <a href="https://www.rfc-editor.org/rfc/rfc5952.html">RFC 5952</a>
-   *       format.
+   *       specified in the [RFC 5952](https://www.rfc-editor.org/rfc/rfc5952.html) format.
    * </ul>
    */
   public static final AttributeKey<List<String>> HOST_IP = stringArrayKey("host.ip");
@@ -89,10 +88,9 @@ public final class HostIncubatingAttributes {
    * <p>Notes:
    *
    * <ul>
-   *   <li>MAC Addresses MUST be represented in <a
-   *       href="https://standards.ieee.org/wp-content/uploads/import/documents/tutorials/eui.pdf">IEEE
-   *       RA hexadecimal form</a>: as hyphen-separated octets in uppercase hexadecimal form from
-   *       most to least significant.
+   *   <li>MAC Addresses MUST be represented in [IEEE RA hexadecimal
+   *       form](https://standards.ieee.org/wp-content/uploads/import/documents/tutorials/eui.pdf):
+   *       as hyphen-separated octets in uppercase hexadecimal form from most to least significant.
    * </ul>
    */
   public static final AttributeKey<List<String>> HOST_MAC = stringArrayKey("host.mac");
@@ -109,28 +107,29 @@ public final class HostIncubatingAttributes {
   // Enum definitions
   /** Values for {@link #HOST_ARCH}. */
   public static final class HostArchValues {
-    /** AMD64. */
+
+    /** AMD64 */
     public static final String AMD64 = "amd64";
 
-    /** ARM32. */
+    /** ARM32 */
     public static final String ARM32 = "arm32";
 
-    /** ARM64. */
+    /** ARM64 */
     public static final String ARM64 = "arm64";
 
-    /** Itanium. */
+    /** Itanium */
     public static final String IA64 = "ia64";
 
-    /** 32-bit PowerPC. */
+    /** 32-bit PowerPC */
     public static final String PPC32 = "ppc32";
 
-    /** 64-bit PowerPC. */
+    /** 64-bit PowerPC */
     public static final String PPC64 = "ppc64";
 
-    /** IBM z/Architecture. */
+    /** IBM z/Architecture */
     public static final String S390X = "s390x";
 
-    /** 32-bit x86. */
+    /** 32-bit x86 */
     public static final String X86 = "x86";
 
     private HostArchValues() {}
