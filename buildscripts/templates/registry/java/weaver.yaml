@@ -3,7 +3,7 @@ templates:
     filter: > 
       semconv_grouped_attributes({
         "exclude_root_namespace": ["ios", "aspnetcore", "signalr"], 
-        "exclude_stability": ["experimental"],
+        "exclude_stability": ["experimental", "deprecated"],
         "exclude_deprecated": false
       })
     application_mode: each
