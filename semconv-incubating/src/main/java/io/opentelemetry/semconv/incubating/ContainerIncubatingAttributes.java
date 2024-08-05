@@ -107,15 +107,6 @@ public final class ContainerIncubatingAttributes {
   public static final AttributeKeyTemplate<String> CONTAINER_LABEL =
       stringKeyTemplate("container.label");
 
-  /**
-   * Deprecated, use <code>container.label</code> instead.
-   *
-   * @deprecated Replaced by `container.label`.
-   */
-  @Deprecated
-  public static final AttributeKeyTemplate<String> CONTAINER_LABELS =
-      stringKeyTemplate("container.labels");
-
   /** Container name used by container runtime. */
   public static final AttributeKey<String> CONTAINER_NAME = stringKey("container.name");
 

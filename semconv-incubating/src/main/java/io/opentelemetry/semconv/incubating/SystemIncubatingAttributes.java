@@ -70,15 +70,6 @@ public final class SystemIncubatingAttributes {
   public static final AttributeKey<String> SYSTEM_PROCESS_STATUS =
       stringKey("system.process.status");
 
-  /**
-   * Deprecated, use <code>system.process.status</code> instead.
-   *
-   * @deprecated Replaced by `system.process.status`.
-   */
-  @Deprecated
-  public static final AttributeKey<String> SYSTEM_PROCESSES_STATUS =
-      stringKey("system.processes.status");
-
   // Enum definitions
   /**
    * Values for {@link #SYSTEM_CPU_STATE}.
@@ -274,25 +265,6 @@ public final class SystemIncubatingAttributes {
     public static final String DEFUNCT = "defunct";
 
     private SystemProcessStatusValues() {}
-  }
-
-  // Enum definitions
-  /** Values for {@link #SYSTEM_PROCESSES_STATUS}. */
-  public static final class SystemProcessesStatusValues {
-
-    /** running */
-    public static final String RUNNING = "running";
-
-    /** sleeping */
-    public static final String SLEEPING = "sleeping";
-
-    /** stopped */
-    public static final String STOPPED = "stopped";
-
-    /** defunct */
-    public static final String DEFUNCT = "defunct";
-
-    private SystemProcessesStatusValues() {}
   }
 
   private SystemIncubatingAttributes() {}

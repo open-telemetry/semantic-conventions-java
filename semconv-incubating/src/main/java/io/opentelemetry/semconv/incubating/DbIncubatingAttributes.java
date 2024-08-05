@@ -49,14 +49,6 @@ public final class DbIncubatingAttributes {
       longKey("db.cassandra.speculative_execution_count");
 
   /**
-   * Deprecated, use <code>db.collection.name</code> instead.
-   *
-   * @deprecated Replaced by `db.collection.name`.
-   */
-  @Deprecated
-  public static final AttributeKey<String> DB_CASSANDRA_TABLE = stringKey("db.cassandra.table");
-
-  /**
    * The name of the connection pool; unique within the instrumented application. In case the
    * connection pool implementation doesn't provide a name, instrumentation SHOULD use a combination
    * of parameters that would make the name unique, for example, combining attributes {@code
@@ -106,14 +98,6 @@ public final class DbIncubatingAttributes {
    */
   public static final AttributeKey<String> DB_COLLECTION_NAME = stringKey("db.collection.name");
 
-  /**
-   * Deprecated, use <code>server.address</code>, <code>server.port</code> attributes instead.
-   *
-   * @deprecated "Replaced by `server.address` and `server.port`."
-   */
-  @Deprecated
-  public static final AttributeKey<String> DB_CONNECTION_STRING = stringKey("db.connection_string");
-
   /** Unique Cosmos client instance id. */
   public static final AttributeKey<String> DB_COSMOSDB_CLIENT_ID =
       stringKey("db.cosmosdb.client_id");
@@ -121,15 +105,6 @@ public final class DbIncubatingAttributes {
   /** Cosmos client connection mode. */
   public static final AttributeKey<String> DB_COSMOSDB_CONNECTION_MODE =
       stringKey("db.cosmosdb.connection_mode");
-
-  /**
-   * Deprecated, use <code>db.collection.name</code> instead.
-   *
-   * @deprecated Replaced by `db.collection.name`.
-   */
-  @Deprecated
-  public static final AttributeKey<String> DB_COSMOSDB_CONTAINER =
-      stringKey("db.cosmosdb.container");
 
   /** CosmosDB Operation Type. */
   public static final AttributeKey<String> DB_COSMOSDB_OPERATION_TYPE =
@@ -181,50 +156,6 @@ public final class DbIncubatingAttributes {
    */
   public static final AttributeKeyTemplate<String> DB_ELASTICSEARCH_PATH_PARTS =
       stringKeyTemplate("db.elasticsearch.path_parts");
-
-  /**
-   * Deprecated, no general replacement at this time. For Elasticsearch, use <code>
-   * db.elasticsearch.node.name</code> instead.
-   *
-   * @deprecated Deprecated, no general replacement at this time. For Elasticsearch, use
-   *     `db.elasticsearch.node.name` instead.
-   */
-  @Deprecated public static final AttributeKey<String> DB_INSTANCE_ID = stringKey("db.instance.id");
-
-  /**
-   * Removed, no replacement at this time.
-   *
-   * @deprecated Removed as not used.
-   */
-  @Deprecated
-  public static final AttributeKey<String> DB_JDBC_DRIVER_CLASSNAME =
-      stringKey("db.jdbc.driver_classname");
-
-  /**
-   * Deprecated, use <code>db.collection.name</code> instead.
-   *
-   * @deprecated Replaced by `db.collection.name`.
-   */
-  @Deprecated
-  public static final AttributeKey<String> DB_MONGODB_COLLECTION =
-      stringKey("db.mongodb.collection");
-
-  /**
-   * Deprecated, SQL Server instance is now populated as a part of <code>db.namespace</code>
-   * attribute.
-   *
-   * @deprecated Deprecated, no replacement at this time.
-   */
-  @Deprecated
-  public static final AttributeKey<String> DB_MSSQL_INSTANCE_NAME =
-      stringKey("db.mssql.instance_name");
-
-  /**
-   * Deprecated, use <code>db.namespace</code> instead.
-   *
-   * @deprecated Replaced by `db.namespace`.
-   */
-  @Deprecated public static final AttributeKey<String> DB_NAME = stringKey("db.name");
 
   /**
    * The name of the database, fully qualified within the server address and port.
@@ -282,13 +213,8 @@ public final class DbIncubatingAttributes {
   public static final AttributeKey<String> DB_OPERATION_NAME = stringKey("db.operation.name");
 
   /**
-<<<<<<< HEAD
    * A query parameter used in {@code db.query.text}, with {@code <key>} being the parameter name,
    * and the attribute value being a string representation of the parameter value.
-=======
-   * The query parameters used in <code>db.query.text</code>, with <code>&lt;key&gt;</code> being
-   * the parameter name, and the attribute value being the parameter value.
->>>>>>> f045f41 (Use weaver for codegen.)
    *
    * <p>Notes:
    *
@@ -322,29 +248,6 @@ public final class DbIncubatingAttributes {
   public static final AttributeKey<String> DB_QUERY_TEXT = stringKey("db.query.text");
 
   /**
-   * Deprecated, use <code>db.namespace</code> instead.
-   *
-   * @deprecated Replaced by `db.namespace`.
-   */
-  @Deprecated
-  public static final AttributeKey<Long> DB_REDIS_DATABASE_INDEX =
-      longKey("db.redis.database_index");
-
-  /**
-   * Deprecated, use <code>db.collection.name</code> instead.
-   *
-   * @deprecated Replaced by `db.collection.name`.
-   */
-  @Deprecated public static final AttributeKey<String> DB_SQL_TABLE = stringKey("db.sql.table");
-
-  /**
-   * The database statement being executed.
-   *
-   * @deprecated Replaced by `db.query.text`.
-   */
-  @Deprecated public static final AttributeKey<String> DB_STATEMENT = stringKey("db.statement");
-
-  /**
    * The database management system (DBMS) product as identified by the client instrumentation.
    *
    * <p>Notes:
@@ -356,13 +259,6 @@ public final class DbIncubatingAttributes {
    * </ul>
    */
   public static final AttributeKey<String> DB_SYSTEM = stringKey("db.system");
-
-  /**
-   * Deprecated, no replacement at this time.
-   *
-   * @deprecated No replacement at this time.
-   */
-  @Deprecated public static final AttributeKey<String> DB_USER = stringKey("db.user");
 
   // Enum definitions
   /** Values for {@link #DB_CASSANDRA_CONSISTENCY_LEVEL}. */
@@ -404,7 +300,6 @@ public final class DbIncubatingAttributes {
     private DbCassandraConsistencyLevelValues() {}
   }
 
-<<<<<<< HEAD
   /** Values for {@link #DB_CLIENT_CONNECTION_STATE}. */
   public static final class DbClientConnectionStateValues {
     /** idle. */
@@ -422,10 +317,6 @@ public final class DbIncubatingAttributes {
    * @deprecated Deprecated, use `db.client.connection.state` instead.
    */
   @Deprecated
-=======
-  // Enum definitions
-  /** Values for {@link #DB_CLIENT_CONNECTIONS_STATE}. */
->>>>>>> f045f41 (Use weaver for codegen.)
   public static final class DbClientConnectionsStateValues {
 
     /** idle */
@@ -509,7 +400,6 @@ public final class DbIncubatingAttributes {
     /** Some other SQL database. Fallback only. See notes. */
     public static final String OTHER_SQL = "other_sql";
 
-<<<<<<< HEAD
     /** Adabas (Adaptable Database System). */
     public static final String ADABAS = "adabas";
 
@@ -542,85 +432,25 @@ public final class DbIncubatingAttributes {
 
     /** CouchDB. */
     public static final String COUCHDB = "couchdb";
-=======
-    /** Microsoft SQL Server */
-    public static final String MSSQL = "mssql";
-
-    /** Microsoft SQL Server Compact */
-    public static final String MSSQLCOMPACT = "mssqlcompact";
-
-    /** MySQL */
-    public static final String MYSQL = "mysql";
-
-    /** Oracle Database */
-    public static final String ORACLE = "oracle";
->>>>>>> f045f41 (Use weaver for codegen.)
 
     /** IBM Db2 */
     public static final String DB2 = "db2";
 
-<<<<<<< HEAD
     /** Apache Derby. */
     public static final String DERBY = "derby";
 
     /** Amazon DynamoDB. */
     public static final String DYNAMODB = "dynamodb";
-=======
-    /** PostgreSQL */
-    public static final String POSTGRESQL = "postgresql";
-
-    /** Amazon Redshift */
-    public static final String REDSHIFT = "redshift";
-
-    /** Apache Hive */
-    public static final String HIVE = "hive";
-
-    /** Cloudscape */
-    public static final String CLOUDSCAPE = "cloudscape";
-
-    /** HyperSQL DataBase */
-    public static final String HSQLDB = "hsqldb";
-
-    /** Progress Database */
-    public static final String PROGRESS = "progress";
-
-    /** SAP MaxDB */
-    public static final String MAXDB = "maxdb";
-
-    /** SAP HANA */
-    public static final String HANADB = "hanadb";
-
-    /** Ingres */
-    public static final String INGRES = "ingres";
-
-    /** FirstSQL */
-    public static final String FIRSTSQL = "firstsql";
->>>>>>> f045f41 (Use weaver for codegen.)
 
     /** EnterpriseDB */
     public static final String EDB = "edb";
 
-<<<<<<< HEAD
     /** Elasticsearch. */
     public static final String ELASTICSEARCH = "elasticsearch";
-=======
-    /** InterSystems Caché */
-    public static final String CACHE = "cache";
-
-    /** Adabas (Adaptable Database System) */
-    public static final String ADABAS = "adabas";
-
-    /** Firebird */
-    public static final String FIREBIRD = "firebird";
-
-    /** Apache Derby */
-    public static final String DERBY = "derby";
->>>>>>> f045f41 (Use weaver for codegen.)
 
     /** FileMaker */
     public static final String FILEMAKER = "filemaker";
 
-<<<<<<< HEAD
     /** Firebird. */
     public static final String FIREBIRD = "firebird";
 
@@ -655,12 +485,6 @@ public final class DbIncubatingAttributes {
     public static final String INGRES = "ingres";
 
     /** InstantDB. */
-=======
-    /** Informix */
-    public static final String INFORMIX = "informix";
-
-    /** InstantDB */
->>>>>>> f045f41 (Use weaver for codegen.)
     public static final String INSTANTDB = "instantdb";
 
     /** InterBase */
@@ -669,7 +493,6 @@ public final class DbIncubatingAttributes {
     /** MariaDB */
     public static final String MARIADB = "mariadb";
 
-<<<<<<< HEAD
     /** SAP MaxDB. */
     public static final String MAXDB = "maxdb";
 
@@ -701,18 +524,11 @@ public final class DbIncubatingAttributes {
     public static final String ORACLE = "oracle";
 
     /** Pervasive PSQL. */
-=======
-    /** Netezza */
-    public static final String NETEZZA = "netezza";
-
-    /** Pervasive PSQL */
->>>>>>> f045f41 (Use weaver for codegen.)
     public static final String PERVASIVE = "pervasive";
 
     /** PointBase */
     public static final String POINTBASE = "pointbase";
 
-<<<<<<< HEAD
     /** PostgreSQL. */
     public static final String POSTGRESQL = "postgresql";
 
@@ -729,9 +545,6 @@ public final class DbIncubatingAttributes {
     public static final String SPANNER = "spanner";
 
     /** SQLite. */
-=======
-    /** SQLite */
->>>>>>> f045f41 (Use weaver for codegen.)
     public static final String SQLITE = "sqlite";
 
     /** Sybase */
@@ -740,68 +553,7 @@ public final class DbIncubatingAttributes {
     /** Teradata */
     public static final String TERADATA = "teradata";
 
-<<<<<<< HEAD
     /** Trino. */
-=======
-    /** Vertica */
-    public static final String VERTICA = "vertica";
-
-    /** H2 */
-    public static final String H2 = "h2";
-
-    /** ColdFusion IMQ */
-    public static final String COLDFUSION = "coldfusion";
-
-    /** Apache Cassandra */
-    public static final String CASSANDRA = "cassandra";
-
-    /** Apache HBase */
-    public static final String HBASE = "hbase";
-
-    /** MongoDB */
-    public static final String MONGODB = "mongodb";
-
-    /** Redis */
-    public static final String REDIS = "redis";
-
-    /** Couchbase */
-    public static final String COUCHBASE = "couchbase";
-
-    /** CouchDB */
-    public static final String COUCHDB = "couchdb";
-
-    /** Microsoft Azure Cosmos DB */
-    public static final String COSMOSDB = "cosmosdb";
-
-    /** Amazon DynamoDB */
-    public static final String DYNAMODB = "dynamodb";
-
-    /** Neo4j */
-    public static final String NEO4J = "neo4j";
-
-    /** Apache Geode */
-    public static final String GEODE = "geode";
-
-    /** Elasticsearch */
-    public static final String ELASTICSEARCH = "elasticsearch";
-
-    /** Memcached */
-    public static final String MEMCACHED = "memcached";
-
-    /** CockroachDB */
-    public static final String COCKROACHDB = "cockroachdb";
-
-    /** OpenSearch */
-    public static final String OPENSEARCH = "opensearch";
-
-    /** ClickHouse */
-    public static final String CLICKHOUSE = "clickhouse";
-
-    /** Cloud Spanner */
-    public static final String SPANNER = "spanner";
-
-    /** Trino */
->>>>>>> f045f41 (Use weaver for codegen.)
     public static final String TRINO = "trino";
 
     /** Vertica. */
