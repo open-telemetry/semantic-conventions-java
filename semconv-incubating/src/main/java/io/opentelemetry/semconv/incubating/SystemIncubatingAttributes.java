@@ -11,7 +11,7 @@ import static io.opentelemetry.api.common.AttributeKey.stringKey;
 import io.opentelemetry.api.common.AttributeKey;
 
 // DO NOT EDIT, this is an Auto-generated file from
-// buildscripts/templates/SemanticAttributes.java.j2
+// buildscripts/templates/registry/incubating_java/IncubatingSemanticAttributes.java.j2
 @SuppressWarnings("unused")
 public final class SystemIncubatingAttributes {
 
@@ -71,9 +71,9 @@ public final class SystemIncubatingAttributes {
       stringKey("system.process.status");
 
   /**
-   * Deprecated, use {@code system.process.status} instead.
+   * Deprecated, use <code>system.process.status</code> instead.
    *
-   * @deprecated Deprecated, use `system.process.status` instead.
+   * @deprecated Replaced by `system.process.status`.
    */
   @Deprecated
   public static final AttributeKey<String> SYSTEM_PROCESSES_STATUS =
@@ -87,195 +87,209 @@ public final class SystemIncubatingAttributes {
    */
   @Deprecated
   public static final class SystemCpuStateValues {
-    /** user. */
+
+    /** user */
     public static final String USER = "user";
 
-    /** system. */
+    /** system */
     public static final String SYSTEM = "system";
 
-    /** nice. */
+    /** nice */
     public static final String NICE = "nice";
 
-    /** idle. */
+    /** idle */
     public static final String IDLE = "idle";
 
-    /** iowait. */
+    /** iowait */
     public static final String IOWAIT = "iowait";
 
-    /** interrupt. */
+    /** interrupt */
     public static final String INTERRUPT = "interrupt";
 
-    /** steal. */
+    /** steal */
     public static final String STEAL = "steal";
 
     private SystemCpuStateValues() {}
   }
 
+  // Enum definitions
   /** Values for {@link #SYSTEM_FILESYSTEM_STATE}. */
   public static final class SystemFilesystemStateValues {
-    /** used. */
+
+    /** used */
     public static final String USED = "used";
 
-    /** free. */
+    /** free */
     public static final String FREE = "free";
 
-    /** reserved. */
+    /** reserved */
     public static final String RESERVED = "reserved";
 
     private SystemFilesystemStateValues() {}
   }
 
+  // Enum definitions
   /** Values for {@link #SYSTEM_FILESYSTEM_TYPE}. */
   public static final class SystemFilesystemTypeValues {
-    /** fat32. */
+
+    /** fat32 */
     public static final String FAT32 = "fat32";
 
-    /** exfat. */
+    /** exfat */
     public static final String EXFAT = "exfat";
 
-    /** ntfs. */
+    /** ntfs */
     public static final String NTFS = "ntfs";
 
-    /** refs. */
+    /** refs */
     public static final String REFS = "refs";
 
-    /** hfsplus. */
+    /** hfsplus */
     public static final String HFSPLUS = "hfsplus";
 
-    /** ext4. */
+    /** ext4 */
     public static final String EXT4 = "ext4";
 
     private SystemFilesystemTypeValues() {}
   }
 
+  // Enum definitions
   /** Values for {@link #SYSTEM_MEMORY_STATE}. */
   public static final class SystemMemoryStateValues {
-    /** used. */
+
+    /** used */
     public static final String USED = "used";
 
-    /** free. */
+    /** free */
     public static final String FREE = "free";
 
-    /** shared. */
+    /** shared */
     public static final String SHARED = "shared";
 
-    /** buffers. */
+    /** buffers */
     public static final String BUFFERS = "buffers";
 
-    /** cached. */
+    /** cached */
     public static final String CACHED = "cached";
 
     private SystemMemoryStateValues() {}
   }
 
+  // Enum definitions
   /** Values for {@link #SYSTEM_NETWORK_STATE}. */
   public static final class SystemNetworkStateValues {
-    /** close. */
+
+    /** close */
     public static final String CLOSE = "close";
 
-    /** close_wait. */
+    /** close_wait */
     public static final String CLOSE_WAIT = "close_wait";
 
-    /** closing. */
+    /** closing */
     public static final String CLOSING = "closing";
 
-    /** delete. */
+    /** delete */
     public static final String DELETE = "delete";
 
-    /** established. */
+    /** established */
     public static final String ESTABLISHED = "established";
 
-    /** fin_wait_1. */
+    /** fin_wait_1 */
     public static final String FIN_WAIT_1 = "fin_wait_1";
 
-    /** fin_wait_2. */
+    /** fin_wait_2 */
     public static final String FIN_WAIT_2 = "fin_wait_2";
 
-    /** last_ack. */
+    /** last_ack */
     public static final String LAST_ACK = "last_ack";
 
-    /** listen. */
+    /** listen */
     public static final String LISTEN = "listen";
 
-    /** syn_recv. */
+    /** syn_recv */
     public static final String SYN_RECV = "syn_recv";
 
-    /** syn_sent. */
+    /** syn_sent */
     public static final String SYN_SENT = "syn_sent";
 
-    /** time_wait. */
+    /** time_wait */
     public static final String TIME_WAIT = "time_wait";
 
     private SystemNetworkStateValues() {}
   }
 
+  // Enum definitions
   /** Values for {@link #SYSTEM_PAGING_DIRECTION}. */
   public static final class SystemPagingDirectionValues {
-    /** in. */
+
+    /** in */
     public static final String IN = "in";
 
-    /** out. */
+    /** out */
     public static final String OUT = "out";
 
     private SystemPagingDirectionValues() {}
   }
 
+  // Enum definitions
   /** Values for {@link #SYSTEM_PAGING_STATE}. */
   public static final class SystemPagingStateValues {
-    /** used. */
+
+    /** used */
     public static final String USED = "used";
 
-    /** free. */
+    /** free */
     public static final String FREE = "free";
 
     private SystemPagingStateValues() {}
   }
 
+  // Enum definitions
   /** Values for {@link #SYSTEM_PAGING_TYPE}. */
   public static final class SystemPagingTypeValues {
-    /** major. */
+
+    /** major */
     public static final String MAJOR = "major";
 
-    /** minor. */
+    /** minor */
     public static final String MINOR = "minor";
 
     private SystemPagingTypeValues() {}
   }
 
+  // Enum definitions
   /** Values for {@link #SYSTEM_PROCESS_STATUS}. */
   public static final class SystemProcessStatusValues {
-    /** running. */
+
+    /** running */
     public static final String RUNNING = "running";
 
-    /** sleeping. */
+    /** sleeping */
     public static final String SLEEPING = "sleeping";
 
-    /** stopped. */
+    /** stopped */
     public static final String STOPPED = "stopped";
 
-    /** defunct. */
+    /** defunct */
     public static final String DEFUNCT = "defunct";
 
     private SystemProcessStatusValues() {}
   }
 
-  /**
-   * Values for {@link #SYSTEM_PROCESSES_STATUS}.
-   *
-   * @deprecated Deprecated, use `system.process.status` instead.
-   */
-  @Deprecated
+  // Enum definitions
+  /** Values for {@link #SYSTEM_PROCESSES_STATUS}. */
   public static final class SystemProcessesStatusValues {
-    /** running. */
+
+    /** running */
     public static final String RUNNING = "running";
 
-    /** sleeping. */
+    /** sleeping */
     public static final String SLEEPING = "sleeping";
 
-    /** stopped. */
+    /** stopped */
     public static final String STOPPED = "stopped";
 
-    /** defunct. */
+    /** defunct */
     public static final String DEFUNCT = "defunct";
 
     private SystemProcessesStatusValues() {}

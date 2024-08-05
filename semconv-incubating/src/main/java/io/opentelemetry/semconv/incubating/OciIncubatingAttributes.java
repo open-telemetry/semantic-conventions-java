@@ -10,7 +10,7 @@ import static io.opentelemetry.api.common.AttributeKey.stringKey;
 import io.opentelemetry.api.common.AttributeKey;
 
 // DO NOT EDIT, this is an Auto-generated file from
-// buildscripts/templates/SemanticAttributes.java.j2
+// buildscripts/templates/registry/incubating_java/IncubatingSemanticAttributes.java.j2
 @SuppressWarnings("unused")
 public final class OciIncubatingAttributes {
 
@@ -21,12 +21,12 @@ public final class OciIncubatingAttributes {
    * <p>Notes:
    *
    * <ul>
-   *   <li>Follows <a href="https://github.com/opencontainers/image-spec/blob/main/manifest.md">OCI
-   *       Image Manifest Specification</a>, and specifically the <a
-   *       href="https://github.com/opencontainers/image-spec/blob/main/descriptor.md#digests">Digest
-   *       property</a>. An example can be found in <a
-   *       href="https://docs.docker.com/registry/spec/manifest-v2-2/#example-image-manifest">Example
-   *       Image Manifest</a>.
+   *   <li>Follows [OCI Image Manifest
+   *       Specification](https://github.com/opencontainers/image-spec/blob/main/manifest.md), and
+   *       specifically the [Digest
+   *       property](https://github.com/opencontainers/image-spec/blob/main/descriptor.md#digests).
+   *       An example can be found in [Example Image
+   *       Manifest](https://docs.docker.com/registry/spec/manifest-v2-2/#example-image-manifest).
    * </ul>
    */
   public static final AttributeKey<String> OCI_MANIFEST_DIGEST = stringKey("oci.manifest.digest");

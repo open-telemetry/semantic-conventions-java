@@ -10,7 +10,7 @@ import static io.opentelemetry.api.common.AttributeKey.stringKey;
 import io.opentelemetry.api.common.AttributeKey;
 
 // DO NOT EDIT, this is an Auto-generated file from
-// buildscripts/templates/SemanticAttributes.java.j2
+// buildscripts/templates/registry/incubating_java/IncubatingSemanticAttributes.java.j2
 @SuppressWarnings("unused")
 public final class LogIncubatingAttributes {
 
@@ -52,9 +52,9 @@ public final class LogIncubatingAttributes {
    * <ul>
    *   <li>If an id is provided, other log records with the same id will be considered duplicates
    *       and can be removed safely. This means, that two distinguishable log records MUST have
-   *       different values. The id MAY be an <a href="https://github.com/ulid/spec">Universally
-   *       Unique Lexicographically Sortable Identifier (ULID)</a>, but other identifiers (e.g.
-   *       UUID) may be used as needed.
+   *       different values. The id MAY be an [Universally Unique Lexicographically Sortable
+   *       Identifier (ULID)](https://github.com/ulid/spec), but other identifiers (e.g. UUID) may
+   *       be used as needed.
    * </ul>
    */
   public static final AttributeKey<String> LOG_RECORD_UID = stringKey("log.record.uid");
@@ -62,10 +62,11 @@ public final class LogIncubatingAttributes {
   // Enum definitions
   /** Values for {@link #LOG_IOSTREAM}. */
   public static final class LogIostreamValues {
-    /** Logs from stdout stream. */
+
+    /** Logs from stdout stream */
     public static final String STDOUT = "stdout";
 
-    /** Events from stderr stream. */
+    /** Events from stderr stream */
     public static final String STDERR = "stderr";
 
     private LogIostreamValues() {}

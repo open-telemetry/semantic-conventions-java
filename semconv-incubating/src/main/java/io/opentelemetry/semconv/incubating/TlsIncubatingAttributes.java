@@ -13,7 +13,7 @@ import io.opentelemetry.api.common.AttributeKey;
 import java.util.List;
 
 // DO NOT EDIT, this is an Auto-generated file from
-// buildscripts/templates/SemanticAttributes.java.j2
+// buildscripts/templates/registry/incubating_java/IncubatingSemanticAttributes.java.j2
 @SuppressWarnings("unused")
 public final class TlsIncubatingAttributes {
 
@@ -25,25 +25,24 @@ public final class TlsIncubatingAttributes {
    * <p>Notes:
    *
    * <ul>
-   *   <li>The values allowed for {@code tls.cipher} MUST be one of the {@code Descriptions} of the
-   *       <a
-   *       href="https://www.iana.org/assignments/tls-parameters/tls-parameters.xhtml#table-tls-parameters-4">registered
-   *       TLS Cipher Suits</a>.
+   *   <li>The values allowed for `tls.cipher` MUST be one of the `Descriptions` of the [registered
+   *       TLS Cipher
+   *       Suits](https://www.iana.org/assignments/tls-parameters/tls-parameters.xhtml#table-tls-parameters-4).
    * </ul>
    */
   public static final AttributeKey<String> TLS_CIPHER = stringKey("tls.cipher");
 
   /**
    * PEM-encoded stand-alone certificate offered by the client. This is usually mutually-exclusive
-   * of {@code client.certificate_chain} since this value also exists in that list.
+   * of <code>client.certificate_chain</code> since this value also exists in that list.
    */
   public static final AttributeKey<String> TLS_CLIENT_CERTIFICATE =
       stringKey("tls.client.certificate");
 
   /**
    * Array of PEM-encoded certificates that make up the certificate chain offered by the client.
-   * This is usually mutually-exclusive of {@code client.certificate} since that value should be the
-   * first certificate in the chain.
+   * This is usually mutually-exclusive of <code>client.certificate</code> since that value should
+   * be the first certificate in the chain.
    */
   public static final AttributeKey<List<String>> TLS_CLIENT_CERTIFICATE_CHAIN =
       stringArrayKey("tls.client.certificate_chain");
@@ -140,15 +139,15 @@ public final class TlsIncubatingAttributes {
 
   /**
    * PEM-encoded stand-alone certificate offered by the server. This is usually mutually-exclusive
-   * of {@code server.certificate_chain} since this value also exists in that list.
+   * of <code>server.certificate_chain</code> since this value also exists in that list.
    */
   public static final AttributeKey<String> TLS_SERVER_CERTIFICATE =
       stringKey("tls.server.certificate");
 
   /**
    * Array of PEM-encoded certificates that make up the certificate chain offered by the server.
-   * This is usually mutually-exclusive of {@code server.certificate} since that value should be the
-   * first certificate in the chain.
+   * This is usually mutually-exclusive of <code>server.certificate</code> since that value should
+   * be the first certificate in the chain.
    */
   public static final AttributeKey<List<String>> TLS_SERVER_CERTIFICATE_CHAIN =
       stringArrayKey("tls.server.certificate_chain");
@@ -198,10 +197,11 @@ public final class TlsIncubatingAttributes {
   // Enum definitions
   /** Values for {@link #TLS_PROTOCOL_NAME}. */
   public static final class TlsProtocolNameValues {
-    /** ssl. */
+
+    /** ssl */
     public static final String SSL = "ssl";
 
-    /** tls. */
+    /** tls */
     public static final String TLS = "tls";
 
     private TlsProtocolNameValues() {}

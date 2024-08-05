@@ -5,13 +5,12 @@
 
 package io.opentelemetry.semconv.incubating;
 
-import static io.opentelemetry.api.common.AttributeKey.longKey;
 import static io.opentelemetry.api.common.AttributeKey.stringKey;
 
 import io.opentelemetry.api.common.AttributeKey;
 
 // DO NOT EDIT, this is an Auto-generated file from
-// buildscripts/templates/SemanticAttributes.java.j2
+// buildscripts/templates/registry/incubating_java/IncubatingSemanticAttributes.java.j2
 @SuppressWarnings("unused")
 public final class NetworkIncubatingAttributes {
 
@@ -41,208 +40,106 @@ public final class NetworkIncubatingAttributes {
   /** The network IO operation direction. */
   public static final AttributeKey<String> NETWORK_IO_DIRECTION = stringKey("network.io.direction");
 
-  /**
-   * Local address of the network connection - IP address or Unix domain socket name.
-   *
-   * @deprecated deprecated in favor of stable {@link
-   *     io.opentelemetry.semconv.NetworkAttributes#NETWORK_LOCAL_ADDRESS} attribute.
-   */
-  @Deprecated
-  public static final AttributeKey<String> NETWORK_LOCAL_ADDRESS =
-      stringKey("network.local.address");
-
-  /**
-   * Local port number of the network connection.
-   *
-   * @deprecated deprecated in favor of stable {@link
-   *     io.opentelemetry.semconv.NetworkAttributes#NETWORK_LOCAL_PORT} attribute.
-   */
-  @Deprecated
-  public static final AttributeKey<Long> NETWORK_LOCAL_PORT = longKey("network.local.port");
-
-  /**
-   * Peer address of the network connection - IP address or Unix domain socket name.
-   *
-   * @deprecated deprecated in favor of stable {@link
-   *     io.opentelemetry.semconv.NetworkAttributes#NETWORK_PEER_ADDRESS} attribute.
-   */
-  @Deprecated
-  public static final AttributeKey<String> NETWORK_PEER_ADDRESS = stringKey("network.peer.address");
-
-  /**
-   * Peer port number of the network connection.
-   *
-   * @deprecated deprecated in favor of stable {@link
-   *     io.opentelemetry.semconv.NetworkAttributes#NETWORK_PEER_PORT} attribute.
-   */
-  @Deprecated
-  public static final AttributeKey<Long> NETWORK_PEER_PORT = longKey("network.peer.port");
-
-  /**
-   * <a href="https://osi-model.com/application-layer/">OSI application layer</a> or non-OSI
-   * equivalent.
-   *
-   * <p>Notes:
-   *
-   * <ul>
-   *   <li>The value SHOULD be normalized to lowercase.
-   * </ul>
-   *
-   * @deprecated deprecated in favor of stable {@link
-   *     io.opentelemetry.semconv.NetworkAttributes#NETWORK_PROTOCOL_NAME} attribute.
-   */
-  @Deprecated
-  public static final AttributeKey<String> NETWORK_PROTOCOL_NAME =
-      stringKey("network.protocol.name");
-
-  /**
-   * The actual version of the protocol used for network communication.
-   *
-   * <p>Notes:
-   *
-   * <ul>
-   *   <li>If protocol version is subject to negotiation (for example using <a
-   *       href="https://www.rfc-editor.org/rfc/rfc7301.html">ALPN</a>), this attribute SHOULD be
-   *       set to the negotiated version. If the actual protocol version is not known, this
-   *       attribute SHOULD NOT be set.
-   * </ul>
-   *
-   * @deprecated deprecated in favor of stable {@link
-   *     io.opentelemetry.semconv.NetworkAttributes#NETWORK_PROTOCOL_VERSION} attribute.
-   */
-  @Deprecated
-  public static final AttributeKey<String> NETWORK_PROTOCOL_VERSION =
-      stringKey("network.protocol.version");
-
-  /**
-   * <a href="https://osi-model.com/transport-layer/">OSI transport layer</a> or <a
-   * href="https://wikipedia.org/wiki/Inter-process_communication">inter-process communication
-   * method</a>.
-   *
-   * <p>Notes:
-   *
-   * <ul>
-   *   <li>The value SHOULD be normalized to lowercase.
-   *   <li>Consider always setting the transport when setting a port number, since a port number is
-   *       ambiguous without knowing the transport. For example different processes could be
-   *       listening on TCP port 12345 and UDP port 12345.
-   * </ul>
-   *
-   * @deprecated deprecated in favor of stable {@link
-   *     io.opentelemetry.semconv.NetworkAttributes#NETWORK_TRANSPORT} attribute.
-   */
-  @Deprecated
-  public static final AttributeKey<String> NETWORK_TRANSPORT = stringKey("network.transport");
-
-  /**
-   * <a href="https://osi-model.com/network-layer/">OSI network layer</a> or non-OSI equivalent.
-   *
-   * <p>Notes:
-   *
-   * <ul>
-   *   <li>The value SHOULD be normalized to lowercase.
-   * </ul>
-   *
-   * @deprecated deprecated in favor of stable {@link
-   *     io.opentelemetry.semconv.NetworkAttributes#NETWORK_TYPE} attribute.
-   */
-  @Deprecated public static final AttributeKey<String> NETWORK_TYPE = stringKey("network.type");
-
   // Enum definitions
   /** Values for {@link #NETWORK_CONNECTION_SUBTYPE}. */
   public static final class NetworkConnectionSubtypeValues {
-    /** GPRS. */
+
+    /** GPRS */
     public static final String GPRS = "gprs";
 
-    /** EDGE. */
+    /** EDGE */
     public static final String EDGE = "edge";
 
-    /** UMTS. */
+    /** UMTS */
     public static final String UMTS = "umts";
 
-    /** CDMA. */
+    /** CDMA */
     public static final String CDMA = "cdma";
 
-    /** EVDO Rel. 0. */
+    /** EVDO Rel. 0 */
     public static final String EVDO_0 = "evdo_0";
 
-    /** EVDO Rev. A. */
+    /** EVDO Rev. A */
     public static final String EVDO_A = "evdo_a";
 
-    /** CDMA2000 1XRTT. */
+    /** CDMA2000 1XRTT */
     public static final String CDMA2000_1XRTT = "cdma2000_1xrtt";
 
-    /** HSDPA. */
+    /** HSDPA */
     public static final String HSDPA = "hsdpa";
 
-    /** HSUPA. */
+    /** HSUPA */
     public static final String HSUPA = "hsupa";
 
-    /** HSPA. */
+    /** HSPA */
     public static final String HSPA = "hspa";
 
-    /** IDEN. */
+    /** IDEN */
     public static final String IDEN = "iden";
 
-    /** EVDO Rev. B. */
+    /** EVDO Rev. B */
     public static final String EVDO_B = "evdo_b";
 
-    /** LTE. */
+    /** LTE */
     public static final String LTE = "lte";
 
-    /** EHRPD. */
+    /** EHRPD */
     public static final String EHRPD = "ehrpd";
 
-    /** HSPAP. */
+    /** HSPAP */
     public static final String HSPAP = "hspap";
 
-    /** GSM. */
+    /** GSM */
     public static final String GSM = "gsm";
 
-    /** TD-SCDMA. */
+    /** TD-SCDMA */
     public static final String TD_SCDMA = "td_scdma";
 
-    /** IWLAN. */
+    /** IWLAN */
     public static final String IWLAN = "iwlan";
 
-    /** 5G NR (New Radio). */
+    /** 5G NR (New Radio) */
     public static final String NR = "nr";
 
-    /** 5G NRNSA (New Radio Non-Standalone). */
+    /** 5G NRNSA (New Radio Non-Standalone) */
     public static final String NRNSA = "nrnsa";
 
-    /** LTE CA. */
+    /** LTE CA */
     public static final String LTE_CA = "lte_ca";
 
     private NetworkConnectionSubtypeValues() {}
   }
 
+  // Enum definitions
   /** Values for {@link #NETWORK_CONNECTION_TYPE}. */
   public static final class NetworkConnectionTypeValues {
-    /** wifi. */
+
+    /** wifi */
     public static final String WIFI = "wifi";
 
-    /** wired. */
+    /** wired */
     public static final String WIRED = "wired";
 
-    /** cell. */
+    /** cell */
     public static final String CELL = "cell";
 
-    /** unavailable. */
+    /** unavailable */
     public static final String UNAVAILABLE = "unavailable";
 
-    /** unknown. */
+    /** unknown */
     public static final String UNKNOWN = "unknown";
 
     private NetworkConnectionTypeValues() {}
   }
 
+  // Enum definitions
   /** Values for {@link #NETWORK_IO_DIRECTION}. */
   public static final class NetworkIoDirectionValues {
-    /** transmit. */
+
+    /** transmit */
     public static final String TRANSMIT = "transmit";
 
-    /** receive. */
+    /** receive */
     public static final String RECEIVE = "receive";
 
     private NetworkIoDirectionValues() {}

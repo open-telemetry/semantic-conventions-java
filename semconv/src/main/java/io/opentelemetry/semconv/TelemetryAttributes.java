@@ -10,7 +10,7 @@ import static io.opentelemetry.api.common.AttributeKey.stringKey;
 import io.opentelemetry.api.common.AttributeKey;
 
 // DO NOT EDIT, this is an Auto-generated file from
-// buildscripts/templates/SemanticAttributes.java.j2
+// buildscripts/templates/registry/java/SemanticAttributes.java.j2
 @SuppressWarnings("unused")
 public final class TelemetryAttributes {
 
@@ -24,13 +24,14 @@ public final class TelemetryAttributes {
    * <p>Notes:
    *
    * <ul>
-   *   <li>The OpenTelemetry SDK MUST set the {@code telemetry.sdk.name} attribute to {@code
-   *       opentelemetry}. If another SDK, like a fork or a vendor-provided implementation, is used,
-   *       this SDK MUST set the {@code telemetry.sdk.name} attribute to the fully-qualified class
-   *       or module name of this SDK's main entry point or another suitable identifier depending on
-   *       the language. The identifier {@code opentelemetry} is reserved and MUST NOT be used in
-   *       this case. All custom identifiers SHOULD be stable across different versions of an
-   *       implementation.
+   *   <li>
+   *       <p>The OpenTelemetry SDK MUST set the <code>telemetry.sdk.name</code> attribute to <code>
+   *       opentelemetry</code>. If another SDK, like a fork or a vendor-provided implementation, is
+   *       used, this SDK MUST set the <code>telemetry.sdk.name</code> attribute to the
+   *       fully-qualified class or module name of this SDK's main entry point or another suitable
+   *       identifier depending on the language. The identifier <code>opentelemetry</code> is
+   *       reserved and MUST NOT be used in this case. All custom identifiers SHOULD be stable
+   *       across different versions of an implementation.
    * </ul>
    */
   public static final AttributeKey<String> TELEMETRY_SDK_NAME = stringKey("telemetry.sdk.name");
@@ -42,40 +43,41 @@ public final class TelemetryAttributes {
   // Enum definitions
   /** Values for {@link #TELEMETRY_SDK_LANGUAGE}. */
   public static final class TelemetrySdkLanguageValues {
-    /** cpp. */
+
+    /** cpp */
     public static final String CPP = "cpp";
 
-    /** dotnet. */
+    /** dotnet */
     public static final String DOTNET = "dotnet";
 
-    /** erlang. */
+    /** erlang */
     public static final String ERLANG = "erlang";
 
-    /** go. */
+    /** go */
     public static final String GO = "go";
 
-    /** java. */
+    /** java */
     public static final String JAVA = "java";
 
-    /** nodejs. */
+    /** nodejs */
     public static final String NODEJS = "nodejs";
 
-    /** php. */
+    /** php */
     public static final String PHP = "php";
 
-    /** python. */
+    /** python */
     public static final String PYTHON = "python";
 
-    /** ruby. */
+    /** ruby */
     public static final String RUBY = "ruby";
 
-    /** rust. */
+    /** rust */
     public static final String RUST = "rust";
 
-    /** swift. */
+    /** swift */
     public static final String SWIFT = "swift";
 
-    /** webjs. */
+    /** webjs */
     public static final String WEBJS = "webjs";
 
     private TelemetrySdkLanguageValues() {}

@@ -10,7 +10,7 @@ import static io.opentelemetry.api.common.AttributeKey.stringKey;
 import io.opentelemetry.api.common.AttributeKey;
 
 // DO NOT EDIT, this is an Auto-generated file from
-// buildscripts/templates/SemanticAttributes.java.j2
+// buildscripts/templates/registry/incubating_java/IncubatingSemanticAttributes.java.j2
 @SuppressWarnings("unused")
 public final class GraphqlIncubatingAttributes {
 
@@ -36,13 +36,14 @@ public final class GraphqlIncubatingAttributes {
   // Enum definitions
   /** Values for {@link #GRAPHQL_OPERATION_TYPE}. */
   public static final class GraphqlOperationTypeValues {
-    /** GraphQL query. */
+
+    /** GraphQL query */
     public static final String QUERY = "query";
 
-    /** GraphQL mutation. */
+    /** GraphQL mutation */
     public static final String MUTATION = "mutation";
 
-    /** GraphQL subscription. */
+    /** GraphQL subscription */
     public static final String SUBSCRIPTION = "subscription";
 
     private GraphqlOperationTypeValues() {}

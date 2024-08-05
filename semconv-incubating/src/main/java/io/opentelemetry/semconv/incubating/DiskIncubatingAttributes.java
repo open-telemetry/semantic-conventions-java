@@ -10,7 +10,7 @@ import static io.opentelemetry.api.common.AttributeKey.stringKey;
 import io.opentelemetry.api.common.AttributeKey;
 
 // DO NOT EDIT, this is an Auto-generated file from
-// buildscripts/templates/SemanticAttributes.java.j2
+// buildscripts/templates/registry/incubating_java/IncubatingSemanticAttributes.java.j2
 @SuppressWarnings("unused")
 public final class DiskIncubatingAttributes {
 
@@ -20,10 +20,11 @@ public final class DiskIncubatingAttributes {
   // Enum definitions
   /** Values for {@link #DISK_IO_DIRECTION}. */
   public static final class DiskIoDirectionValues {
-    /** read. */
+
+    /** read */
     public static final String READ = "read";
 
-    /** write. */
+    /** write */
     public static final String WRITE = "write";
 
     private DiskIoDirectionValues() {}

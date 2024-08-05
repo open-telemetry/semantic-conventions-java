@@ -11,7 +11,7 @@ import static io.opentelemetry.api.common.AttributeKey.stringKey;
 import io.opentelemetry.api.common.AttributeKey;
 
 // DO NOT EDIT, this is an Auto-generated file from
-// buildscripts/templates/SemanticAttributes.java.j2
+// buildscripts/templates/registry/incubating_java/IncubatingSemanticAttributes.java.j2
 @SuppressWarnings("unused")
 public final class FileIncubatingAttributes {
 
@@ -25,7 +25,7 @@ public final class FileIncubatingAttributes {
    *
    * <ul>
    *   <li>When the file name has multiple extensions (example.tar.gz), only the last one should be
-   *       captured (&quot;gz&quot;, not &quot;tar.gz&quot;).
+   *       captured ("gz", not "tar.gz").
    * </ul>
    */
   public static final AttributeKey<String> FILE_EXTENSION = stringKey("file.extension");
