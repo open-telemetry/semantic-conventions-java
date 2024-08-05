@@ -38,14 +38,6 @@ public final class MessagingIncubatingAttributes {
   public static final AttributeKey<String> MESSAGING_CLIENT_ID = stringKey("messaging.client.id");
 
   /**
-   * Deprecated, use <code>messaging.client.id</code> instead.
-   *
-   * @deprecated Replaced by `messaging.client.id`.
-   */
-  @Deprecated
-  public static final AttributeKey<String> MESSAGING_CLIENT_ID = stringKey("messaging.client_id");
-
-  /**
    * A boolean that is true if the message destination is anonymous (could be unnamed or have
    * auto-generated name).
    */
@@ -151,15 +143,6 @@ public final class MessagingIncubatingAttributes {
       stringKey("messaging.kafka.consumer.group");
 
   /**
-   * Deprecated, use <code>messaging.destination.partition.id</code> instead.
-   *
-   * @deprecated Replaced by `messaging.destination.partition.id`.
-   */
-  @Deprecated
-  public static final AttributeKey<Long> MESSAGING_KAFKA_DESTINATION_PARTITION =
-      longKey("messaging.kafka.destination.partition");
-
-  /**
    * Message keys in Kafka are used for grouping alike messages to ensure they're processed on the
    * same partition. They differ from <code>messaging.message.id</code> in that they're not unique.
    * If the key is <code>null</code>, the attribute MUST NOT be set.
@@ -219,14 +202,6 @@ public final class MessagingIncubatingAttributes {
    * A value used by the messaging system as an identifier for the message, represented as a string.
    */
   public static final AttributeKey<String> MESSAGING_MESSAGE_ID = stringKey("messaging.message.id");
-
-  /**
-   * Deprecated, use <code>messaging.operation.type</code> instead.
-   *
-   * @deprecated Replaced by `messaging.operation.type`.
-   */
-  @Deprecated
-  public static final AttributeKey<String> MESSAGING_OPERATION = stringKey("messaging.operation");
 
   /** The system-specific name of the messaging operation. */
   public static final AttributeKey<String> MESSAGING_OPERATION_NAME =
