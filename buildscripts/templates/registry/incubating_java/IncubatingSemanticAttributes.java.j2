@@ -1,0 +1,74 @@
+{%- macro to_java_key_type(attribute) -%}
+  {%- if attribute.type is mapping -%}
+    {# TODO - handle enums #}
+    AttributeKey<String>
+  {%- else -%}
+    {{ attribute.type | map_text("java_key_type") }}
+  {%- endif -%}
+{%- endmacro %}
+{%- macro to_java_key_factory(attribute) -%}
+  {%- if attribute.type is mapping -%}
+    {# TODO - handle enums #}
+    stringKey
+  {%- else -%}
+    {{ attribute.type | map_text("java_key_factory") }}
+  {%- endif -%}
+{%- endmacro %}
+{%- set my_file_name = ctx.root_namespace | pascal_case ~ "IncubatingAttributes.java" -%}
+{%- set my_class_name = ctx.root_namespace | pascal_case ~ "IncubatingAttributes" -%}
+{{- template.set_file_name(my_file_name) -}}
+/*
+ * Copyright The OpenTelemetry Authors
+ * SPDX-License-Identifier: Apache-2.0
+ */
+package io.opentelemetry.semconv.incubating;
+
+import static io.opentelemetry.api.common.AttributeKey.booleanKey;
+import static io.opentelemetry.api.common.AttributeKey.doubleKey;
+import static io.opentelemetry.api.common.AttributeKey.longKey;
+import static io.opentelemetry.api.common.AttributeKey.stringKey;
+import static io.opentelemetry.api.common.AttributeKey.stringArrayKey;
+
+import static io.opentelemetry.semconv.AttributeKeyTemplate.stringArrayKeyTemplate;
+import static io.opentelemetry.semconv.AttributeKeyTemplate.stringKeyTemplate;
+
+import io.opentelemetry.api.common.AttributeKey;
+import io.opentelemetry.semconv.AttributeKeyTemplate;
+import java.util.List;
+
+// DO NOT EDIT, this is an Auto-generated file from buildscripts/templates/registry/incubating_java/IncubatingSemanticAttributes.java.j2
+@SuppressWarnings("unused")
+public final class {{ my_class_name }} {
+    {% for attribute in ctx.attributes | sort(attribute="name") %}{% if attribute is experimental %}
+    {# TODO - We need the ability to convert markdown / text into javadoc safe strings. #}
+    /**
+     * {{ attribute.brief | markdown_to_html }}
+       {%- if attribute.note %}
+     *
+     * <p>Notes:
+        {# NOTE: replace("> ", "") removes the following problematic characters which produce mangled javadoc:  #}
+        {# https://github.com/open-telemetry/semantic-conventions/blob/c83a10a9c33c18a769835e959200d0e24dc708fe/model/resource/k8s.yaml#L34-L38  #}
+        <ul><li>{{ attribute.note | replace("> ", "") | trim }}</li></ul>
+       {%- endif %}
+     *
+       {%- if attribute is deprecated %}
+     * @deprecated {{ attribute.deprecated }}
+       {%- endif -%}
+     */
+    {% if attribute is deprecated %}@Deprecated{% endif %} public static final {{ to_java_key_type(attribute) | trim }} {{ attribute.name | screaming_snake_case }} = {{ to_java_key_factory(attribute) | trim }}("{{ attribute.name }}");
+    {% endif %}{% endfor %}
+    {% for attribute in ctx.attributes | sort(attribute="name") %}{% if attribute.type is mapping and attribute is experimental %}
+    // Enum definitions
+    /** Values for {@link #{{ attribute.name | screaming_snake_case }}}. */
+    public static final class {{ attribute.name | pascal_case }}Values {
+      {%- for member in attribute.type.members %}
+      {# TODO - add period at end of comment. #}
+      /** {{ member.brief or member.id | trim }} */
+      public static final String {{ member.id | screaming_snake_case }} = "{{ member.value }}";
+      {%- endfor %}
+      private {{ attribute.name | pascal_case }}Values() {}
+    }
+    {% endif %}{% endfor %}
+
+    private {{ my_class_name }}() {}
+}
