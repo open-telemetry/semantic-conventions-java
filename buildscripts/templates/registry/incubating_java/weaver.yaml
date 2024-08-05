@@ -4,7 +4,7 @@ templates:
       semconv_grouped_attributes({
         "exclude_root_namespace": ["ios", "aspnetcore", "signalr"], 
         "exclude_stability": ["stable", "deprecated"],
-        "exclude_deprecated": false
+        "exclude_deprecated": true
       })
     application_mode: each
 text_maps:
