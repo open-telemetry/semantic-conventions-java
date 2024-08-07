@@ -28,9 +28,9 @@ public final class AndroidIncubatingAttributes {
    * <p>Notes:
    *
    * <ul>
-   *   <li>The Android lifecycle states are defined in [Activity lifecycle
-   *       callbacks](https://developer.android.com/guide/components/activities/activity-lifecycle#lc),
-   *       and from which the `OS identifiers` are derived.
+   *   <li>The Android lifecycle states are defined in <a
+   *       href="https://developer.android.com/guide/components/activities/activity-lifecycle#lc">Activity
+   *       lifecycle callbacks</a>, and from which the <code>OS identifiers</code> are derived.
    * </ul>
    */
   public static final AttributeKey<String> ANDROID_STATE = stringKey("android.state");

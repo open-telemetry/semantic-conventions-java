@@ -21,8 +21,7 @@ public final class JvmAttributes {
    * <p>Notes:
    *
    * <ul>
-   *   <li>
-   *       <p>Garbage collector action is generally obtained via <a
+   *   <li>Garbage collector action is generally obtained via <a
    *       href="https://docs.oracle.com/en/java/javase/11/docs/api/jdk.management/com/sun/management/GarbageCollectionNotificationInfo.html#getGcAction()">GarbageCollectionNotificationInfo#getGcAction()</a>.
    * </ul>
    */
@@ -34,8 +33,7 @@ public final class JvmAttributes {
    * <p>Notes:
    *
    * <ul>
-   *   <li>
-   *       <p>Garbage collector name is generally obtained via <a
+   *   <li>Garbage collector name is generally obtained via <a
    *       href="https://docs.oracle.com/en/java/javase/11/docs/api/jdk.management/com/sun/management/GarbageCollectionNotificationInfo.html#getGcName()">GarbageCollectionNotificationInfo#getGcName()</a>.
    * </ul>
    */
@@ -47,8 +45,7 @@ public final class JvmAttributes {
    * <p>Notes:
    *
    * <ul>
-   *   <li>
-   *       <p>Pool names are generally obtained via <a
+   *   <li>Pool names are generally obtained via <a
    *       href="https://docs.oracle.com/en/java/javase/11/docs/api/java.management/java/lang/management/MemoryPoolMXBean.html#getName()">MemoryPoolMXBean#getName()</a>.
    * </ul>
    */

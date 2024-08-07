@@ -22,8 +22,7 @@ public final class ServerAttributes {
    * <p>Notes:
    *
    * <ul>
-   *   <li>
-   *       <p>When observed from the client side, and when communicating through an intermediary,
+   *   <li>When observed from the client side, and when communicating through an intermediary,
    *       <code>server.address</code> SHOULD represent the server address behind any
    *       intermediaries, for example proxies, if it's available.
    * </ul>
@@ -36,8 +35,7 @@ public final class ServerAttributes {
    * <p>Notes:
    *
    * <ul>
-   *   <li>
-   *       <p>When observed from the client side, and when communicating through an intermediary,
+   *   <li>When observed from the client side, and when communicating through an intermediary,
    *       <code>server.port</code> SHOULD represent the server port behind any intermediaries, for
    *       example proxies, if it's available.
    * </ul>

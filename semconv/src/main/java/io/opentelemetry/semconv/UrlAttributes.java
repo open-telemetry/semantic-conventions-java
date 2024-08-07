@@ -24,8 +24,7 @@ public final class UrlAttributes {
    * <p>Notes:
    *
    * <ul>
-   *   <li>
-   *       <p>For network calls, URL usually has <code>scheme://host[:port][path][?query][#fragment]
+   *   <li>For network calls, URL usually has <code>scheme://host[:port][path][?query][#fragment]
    *       </code> format, where the fragment is not transmitted over HTTP, but if it is known, it
    *       SHOULD be included nevertheless. <code>url.full</code> MUST NOT contain credentials
    *       passed via URL in form of <code>https://username:password@www.example.com/</code>. In
@@ -44,8 +43,7 @@ public final class UrlAttributes {
    * <p>Notes:
    *
    * <ul>
-   *   <li>
-   *       <p>Sensitive content provided in <code>url.path</code> SHOULD be scrubbed when
+   *   <li>Sensitive content provided in <code>url.path</code> SHOULD be scrubbed when
    *       instrumentations can identify it.
    * </ul>
    */
@@ -57,8 +55,7 @@ public final class UrlAttributes {
    * <p>Notes:
    *
    * <ul>
-   *   <li>
-   *       <p>Sensitive content provided in <code>url.query</code> SHOULD be scrubbed when
+   *   <li>Sensitive content provided in <code>url.query</code> SHOULD be scrubbed when
    *       instrumentations can identify it.
    * </ul>
    */

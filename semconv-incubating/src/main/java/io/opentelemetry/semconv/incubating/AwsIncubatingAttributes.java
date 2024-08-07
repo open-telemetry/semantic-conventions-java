@@ -166,7 +166,7 @@ public final class AwsIncubatingAttributes {
    * <p>Notes:
    *
    * <ul>
-   *   <li>This may be different from `cloud.resource_id` if an alias is involved.
+   *   <li>This may be different from <code>cloud.resource_id</code> if an alias is involved.
    * </ul>
    */
   public static final AttributeKey<String> AWS_LAMBDA_INVOKED_ARN =
@@ -178,8 +178,9 @@ public final class AwsIncubatingAttributes {
    * <p>Notes:
    *
    * <ul>
-   *   <li>See the [log group ARN format
-   *       documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/iam-access-control-overview-cwl.html#CWL_ARN_Format).
+   *   <li>See the <a
+   *       href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/iam-access-control-overview-cwl.html#CWL_ARN_Format">log
+   *       group ARN format documentation</a>.
    * </ul>
    */
   public static final AttributeKey<List<String>> AWS_LOG_GROUP_ARNS =
@@ -204,10 +205,10 @@ public final class AwsIncubatingAttributes {
    * <p>Notes:
    *
    * <ul>
-   *   <li>See the [log stream ARN format
-   *       documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/iam-access-control-overview-cwl.html#CWL_ARN_Format).
-   *       One log group can contain several log streams, so these ARNs necessarily identify both a
-   *       log group and a log stream.
+   *   <li>See the <a
+   *       href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/iam-access-control-overview-cwl.html#CWL_ARN_Format">log
+   *       stream ARN format documentation</a>. One log group can contain several log streams, so
+   *       these ARNs necessarily identify both a log group and a log stream.
    * </ul>
    */
   public static final AttributeKey<List<String>> AWS_LOG_STREAM_ARNS =
@@ -231,9 +232,9 @@ public final class AwsIncubatingAttributes {
    * <p>Notes:
    *
    * <ul>
-   *   <li>The `bucket` attribute is applicable to all S3 operations that reference a bucket, i.e.
-   *       that require the bucket name as a mandatory parameter. This applies to almost all S3
-   *       operations except `list-buckets`.
+   *   <li>The <code>bucket</code> attribute is applicable to all S3 operations that reference a
+   *       bucket, i.e. that require the bucket name as a mandatory parameter. This applies to
+   *       almost all S3 operations except <code>list-buckets</code>.
    * </ul>
    */
   public static final AttributeKey<String> AWS_S3_BUCKET = stringKey("aws.s3.bucket");
@@ -244,13 +245,16 @@ public final class AwsIncubatingAttributes {
    * <p>Notes:
    *
    * <ul>
-   *   <li>The `copy_source` attribute applies to S3 copy operations and corresponds to the
-   *       `--copy-source` parameter of the [copy-object operation within the S3
-   *       API](https://docs.aws.amazon.com/cli/latest/reference/s3api/copy-object.html). This
-   *       applies in particular to the following operations:
-   *       <p>-
-   *       [copy-object](https://docs.aws.amazon.com/cli/latest/reference/s3api/copy-object.html) -
-   *       [upload-part-copy](https://docs.aws.amazon.com/cli/latest/reference/s3api/upload-part-copy.html)
+   *   <li>The <code>copy_source</code> attribute applies to S3 copy operations and corresponds to
+   *       the <code>--copy-source</code> parameter of the <a
+   *       href="https://docs.aws.amazon.com/cli/latest/reference/s3api/copy-object.html">copy-object
+   *       operation within the S3 API</a>. This applies in particular to the following operations:
+   *       <ul>
+   *         <li><a
+   *             href="https://docs.aws.amazon.com/cli/latest/reference/s3api/copy-object.html">copy-object</a>
+   *         <li><a
+   *             href="https://docs.aws.amazon.com/cli/latest/reference/s3api/upload-part-copy.html">upload-part-copy</a>
+   *       </ul>
    * </ul>
    */
   public static final AttributeKey<String> AWS_S3_COPY_SOURCE = stringKey("aws.s3.copy_source");
@@ -261,11 +265,12 @@ public final class AwsIncubatingAttributes {
    * <p>Notes:
    *
    * <ul>
-   *   <li>The `delete` attribute is only applicable to the
-   *       [delete-object](https://docs.aws.amazon.com/cli/latest/reference/s3api/delete-object.html)
-   *       operation. The `delete` attribute corresponds to the `--delete` parameter of the
-   *       [delete-objects operation within the S3
-   *       API](https://docs.aws.amazon.com/cli/latest/reference/s3api/delete-objects.html).
+   *   <li>The <code>delete</code> attribute is only applicable to the <a
+   *       href="https://docs.aws.amazon.com/cli/latest/reference/s3api/delete-object.html">delete-object</a>
+   *       operation. The <code>delete</code> attribute corresponds to the <code>--delete</code>
+   *       parameter of the <a
+   *       href="https://docs.aws.amazon.com/cli/latest/reference/s3api/delete-objects.html">delete-objects
+   *       operation within the S3 API</a>.
    * </ul>
    */
   public static final AttributeKey<String> AWS_S3_DELETE = stringKey("aws.s3.delete");
@@ -278,27 +283,37 @@ public final class AwsIncubatingAttributes {
    * <p>Notes:
    *
    * <ul>
-   *   <li>The `key` attribute is applicable to all object-related S3 operations, i.e. that require
-   *       the object key as a mandatory parameter. This applies in particular to the following
-   *       operations:
-   *       <p>-
-   *       [copy-object](https://docs.aws.amazon.com/cli/latest/reference/s3api/copy-object.html) -
-   *       [delete-object](https://docs.aws.amazon.com/cli/latest/reference/s3api/delete-object.html)
-   *       - [get-object](https://docs.aws.amazon.com/cli/latest/reference/s3api/get-object.html) -
-   *       [head-object](https://docs.aws.amazon.com/cli/latest/reference/s3api/head-object.html) -
-   *       [put-object](https://docs.aws.amazon.com/cli/latest/reference/s3api/put-object.html) -
-   *       [restore-object](https://docs.aws.amazon.com/cli/latest/reference/s3api/restore-object.html)
-   *       -
-   *       [select-object-content](https://docs.aws.amazon.com/cli/latest/reference/s3api/select-object-content.html)
-   *       -
-   *       [abort-multipart-upload](https://docs.aws.amazon.com/cli/latest/reference/s3api/abort-multipart-upload.html)
-   *       -
-   *       [complete-multipart-upload](https://docs.aws.amazon.com/cli/latest/reference/s3api/complete-multipart-upload.html)
-   *       -
-   *       [create-multipart-upload](https://docs.aws.amazon.com/cli/latest/reference/s3api/create-multipart-upload.html)
-   *       - [list-parts](https://docs.aws.amazon.com/cli/latest/reference/s3api/list-parts.html) -
-   *       [upload-part](https://docs.aws.amazon.com/cli/latest/reference/s3api/upload-part.html) -
-   *       [upload-part-copy](https://docs.aws.amazon.com/cli/latest/reference/s3api/upload-part-copy.html)
+   *   <li>The <code>key</code> attribute is applicable to all object-related S3 operations, i.e.
+   *       that require the object key as a mandatory parameter. This applies in particular to the
+   *       following operations:
+   *       <ul>
+   *         <li><a
+   *             href="https://docs.aws.amazon.com/cli/latest/reference/s3api/copy-object.html">copy-object</a>
+   *         <li><a
+   *             href="https://docs.aws.amazon.com/cli/latest/reference/s3api/delete-object.html">delete-object</a>
+   *         <li><a
+   *             href="https://docs.aws.amazon.com/cli/latest/reference/s3api/get-object.html">get-object</a>
+   *         <li><a
+   *             href="https://docs.aws.amazon.com/cli/latest/reference/s3api/head-object.html">head-object</a>
+   *         <li><a
+   *             href="https://docs.aws.amazon.com/cli/latest/reference/s3api/put-object.html">put-object</a>
+   *         <li><a
+   *             href="https://docs.aws.amazon.com/cli/latest/reference/s3api/restore-object.html">restore-object</a>
+   *         <li><a
+   *             href="https://docs.aws.amazon.com/cli/latest/reference/s3api/select-object-content.html">select-object-content</a>
+   *         <li><a
+   *             href="https://docs.aws.amazon.com/cli/latest/reference/s3api/abort-multipart-upload.html">abort-multipart-upload</a>
+   *         <li><a
+   *             href="https://docs.aws.amazon.com/cli/latest/reference/s3api/complete-multipart-upload.html">complete-multipart-upload</a>
+   *         <li><a
+   *             href="https://docs.aws.amazon.com/cli/latest/reference/s3api/create-multipart-upload.html">create-multipart-upload</a>
+   *         <li><a
+   *             href="https://docs.aws.amazon.com/cli/latest/reference/s3api/list-parts.html">list-parts</a>
+   *         <li><a
+   *             href="https://docs.aws.amazon.com/cli/latest/reference/s3api/upload-part.html">upload-part</a>
+   *         <li><a
+   *             href="https://docs.aws.amazon.com/cli/latest/reference/s3api/upload-part-copy.html">upload-part-copy</a>
+   *       </ul>
    * </ul>
    */
   public static final AttributeKey<String> AWS_S3_KEY = stringKey("aws.s3.key");
@@ -310,13 +325,14 @@ public final class AwsIncubatingAttributes {
    * <p>Notes:
    *
    * <ul>
-   *   <li>The `part_number` attribute is only applicable to the
-   *       [upload-part](https://docs.aws.amazon.com/cli/latest/reference/s3api/upload-part.html)
-   *       and
-   *       [upload-part-copy](https://docs.aws.amazon.com/cli/latest/reference/s3api/upload-part-copy.html)
-   *       operations. The `part_number` attribute corresponds to the `--part-number` parameter of
-   *       the [upload-part operation within the S3
-   *       API](https://docs.aws.amazon.com/cli/latest/reference/s3api/upload-part.html).
+   *   <li>The <code>part_number</code> attribute is only applicable to the <a
+   *       href="https://docs.aws.amazon.com/cli/latest/reference/s3api/upload-part.html">upload-part</a>
+   *       and <a
+   *       href="https://docs.aws.amazon.com/cli/latest/reference/s3api/upload-part-copy.html">upload-part-copy</a>
+   *       operations. The <code>part_number</code> attribute corresponds to the <code>--part-number
+   *       </code> parameter of the <a
+   *       href="https://docs.aws.amazon.com/cli/latest/reference/s3api/upload-part.html">upload-part
+   *       operation within the S3 API</a>.
    * </ul>
    */
   public static final AttributeKey<Long> AWS_S3_PART_NUMBER = longKey("aws.s3.part_number");
@@ -327,17 +343,22 @@ public final class AwsIncubatingAttributes {
    * <p>Notes:
    *
    * <ul>
-   *   <li>The `upload_id` attribute applies to S3 multipart-upload operations and corresponds to
-   *       the `--upload-id` parameter of the [S3
-   *       API](https://docs.aws.amazon.com/cli/latest/reference/s3api/index.html) multipart
-   *       operations. This applies in particular to the following operations:
-   *       <p>-
-   *       [abort-multipart-upload](https://docs.aws.amazon.com/cli/latest/reference/s3api/abort-multipart-upload.html)
-   *       -
-   *       [complete-multipart-upload](https://docs.aws.amazon.com/cli/latest/reference/s3api/complete-multipart-upload.html)
-   *       - [list-parts](https://docs.aws.amazon.com/cli/latest/reference/s3api/list-parts.html) -
-   *       [upload-part](https://docs.aws.amazon.com/cli/latest/reference/s3api/upload-part.html) -
-   *       [upload-part-copy](https://docs.aws.amazon.com/cli/latest/reference/s3api/upload-part-copy.html)
+   *   <li>The <code>upload_id</code> attribute applies to S3 multipart-upload operations and
+   *       corresponds to the <code>--upload-id</code> parameter of the <a
+   *       href="https://docs.aws.amazon.com/cli/latest/reference/s3api/index.html">S3 API</a>
+   *       multipart operations. This applies in particular to the following operations:
+   *       <ul>
+   *         <li><a
+   *             href="https://docs.aws.amazon.com/cli/latest/reference/s3api/abort-multipart-upload.html">abort-multipart-upload</a>
+   *         <li><a
+   *             href="https://docs.aws.amazon.com/cli/latest/reference/s3api/complete-multipart-upload.html">complete-multipart-upload</a>
+   *         <li><a
+   *             href="https://docs.aws.amazon.com/cli/latest/reference/s3api/list-parts.html">list-parts</a>
+   *         <li><a
+   *             href="https://docs.aws.amazon.com/cli/latest/reference/s3api/upload-part.html">upload-part</a>
+   *         <li><a
+   *             href="https://docs.aws.amazon.com/cli/latest/reference/s3api/upload-part-copy.html">upload-part-copy</a>
+   *       </ul>
    * </ul>
    */
   public static final AttributeKey<String> AWS_S3_UPLOAD_ID = stringKey("aws.s3.upload_id");

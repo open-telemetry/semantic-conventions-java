@@ -24,8 +24,7 @@ public final class HttpAttributes {
    * <p>Notes:
    *
    * <ul>
-   *   <li>
-   *       <p>Instrumentations SHOULD require an explicit configuration of which headers are to be
+   *   <li>Instrumentations SHOULD require an explicit configuration of which headers are to be
    *       captured. Including all request headers can be a security risk - explicit configuration
    *       helps avoid leaking sensitive information. The <code>User-Agent</code> header is already
    *       captured in the <code>user_agent.original</code> attribute. Users MAY explicitly
@@ -44,24 +43,23 @@ public final class HttpAttributes {
    * <p>Notes:
    *
    * <ul>
-   *   <li>
-   *       <p>HTTP request method value SHOULD be &quot;known&quot; to the instrumentation. By
-   *       default, this convention defines &quot;known&quot; methods as the ones listed in <a
+   *   <li>HTTP request method value SHOULD be &quot;known&quot; to the instrumentation. By default,
+   *       this convention defines &quot;known&quot; methods as the ones listed in <a
    *       href="https://www.rfc-editor.org/rfc/rfc9110.html#name-methods">RFC9110</a> and the PATCH
-   *       method defined in <a href="https://www.rfc-editor.org/rfc/rfc5789.html">RFC5789</a>.
-   *       <p>If the HTTP request method is not known to instrumentation, it MUST set the <code>
-   *       http.request.method</code> attribute to <code>_OTHER</code>.
-   *       <p>If the HTTP instrumentation could end up converting valid HTTP request methods to
-   *       <code>_OTHER</code>, then it MUST provide a way to override the list of known HTTP
-   *       methods. If this override is done via environment variable, then the environment variable
-   *       MUST be named OTEL_INSTRUMENTATION_HTTP_KNOWN_METHODS and support a comma-separated list
-   *       of case-sensitive known HTTP methods (this list MUST be a full override of the default
-   *       known method, it is not a list of known methods in addition to the defaults).
-   *       <p>HTTP method names are case-sensitive and <code>http.request.method</code> attribute
-   *       value MUST match a known HTTP method name exactly. Instrumentations for specific web
-   *       frameworks that consider HTTP methods to be case insensitive, SHOULD populate a canonical
-   *       equivalent. Tracing instrumentations that do so, MUST also set <code>
-   *       http.request.method_original</code> to the original value.
+   *       method defined in <a href="https://www.rfc-editor.org/rfc/rfc5789.html">RFC5789</a>. If
+   *       the HTTP request method is not known to instrumentation, it MUST set the <code>
+   *       http.request.method</code> attribute to <code>_OTHER</code>. If the HTTP instrumentation
+   *       could end up converting valid HTTP request methods to <code>_OTHER</code>, then it MUST
+   *       provide a way to override the list of known HTTP methods. If this override is done via
+   *       environment variable, then the environment variable MUST be named
+   *       OTEL_INSTRUMENTATION_HTTP_KNOWN_METHODS and support a comma-separated list of
+   *       case-sensitive known HTTP methods (this list MUST be a full override of the default known
+   *       method, it is not a list of known methods in addition to the defaults). HTTP method names
+   *       are case-sensitive and <code>http.request.method</code> attribute value MUST match a
+   *       known HTTP method name exactly. Instrumentations for specific web frameworks that
+   *       consider HTTP methods to be case insensitive, SHOULD populate a canonical equivalent.
+   *       Tracing instrumentations that do so, MUST also set <code>http.request.method_original
+   *       </code> to the original value.
    * </ul>
    */
   public static final AttributeKey<String> HTTP_REQUEST_METHOD = stringKey("http.request.method");
@@ -76,10 +74,9 @@ public final class HttpAttributes {
    * <p>Notes:
    *
    * <ul>
-   *   <li>
-   *       <p>The resend count SHOULD be updated each time an HTTP request gets resent by the
-   *       client, regardless of what was the cause of the resending (e.g. redirection,
-   *       authorization failure, 503 Server Unavailable, network issues, or any other).
+   *   <li>The resend count SHOULD be updated each time an HTTP request gets resent by the client,
+   *       regardless of what was the cause of the resending (e.g. redirection, authorization
+   *       failure, 503 Server Unavailable, network issues, or any other).
    * </ul>
    */
   public static final AttributeKey<Long> HTTP_REQUEST_RESEND_COUNT =
@@ -92,8 +89,7 @@ public final class HttpAttributes {
    * <p>Notes:
    *
    * <ul>
-   *   <li>
-   *       <p>Instrumentations SHOULD require an explicit configuration of which headers are to be
+   *   <li>Instrumentations SHOULD require an explicit configuration of which headers are to be
    *       captured. Including all response headers can be a security risk - explicit configuration
    *       helps avoid leaking sensitive information. Users MAY explicitly configure
    *       instrumentations to capture them even though it is not recommended. The attribute value
@@ -116,8 +112,7 @@ public final class HttpAttributes {
    * <p>Notes:
    *
    * <ul>
-   *   <li>
-   *       <p>MUST NOT be populated when this is not supported by the HTTP server framework as the
+   *   <li>MUST NOT be populated when this is not supported by the HTTP server framework as the
    *       route attribute should have low-cardinality and the URI path can NOT substitute it.
    *       SHOULD include the <a href="/docs/http/http-spans.md#http-server-definitions">application
    *       root</a> if there is one.

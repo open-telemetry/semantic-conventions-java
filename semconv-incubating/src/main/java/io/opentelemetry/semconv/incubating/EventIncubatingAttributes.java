@@ -20,10 +20,11 @@ public final class EventIncubatingAttributes {
    * <p>Notes:
    *
    * <ul>
-   *   <li>Event names are subject to the same rules as [attribute
-   *       names](https://github.com/open-telemetry/opentelemetry-specification/tree/v1.33.0/specification/common/attribute-naming.md).
-   *       Notably, event names are namespaced to avoid collisions and provide a clean separation of
-   *       semantics for events in separate domains like browser, mobile, and kubernetes.
+   *   <li>Event names are subject to the same rules as <a
+   *       href="https://github.com/open-telemetry/opentelemetry-specification/tree/v1.33.0/specification/common/attribute-naming.md">attribute
+   *       names</a>. Notably, event names are namespaced to avoid collisions and provide a clean
+   *       separation of semantics for events in separate domains like browser, mobile, and
+   *       kubernetes.
    * </ul>
    */
   public static final AttributeKey<String> EVENT_NAME = stringKey("event.name");

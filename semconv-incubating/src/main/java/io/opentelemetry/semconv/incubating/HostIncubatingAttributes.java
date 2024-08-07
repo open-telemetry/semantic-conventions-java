@@ -44,9 +44,9 @@ public final class HostIncubatingAttributes {
    * <p>Notes:
    *
    * <ul>
-   *   <li>[CPUID](https://wiki.osdev.org/CPUID) command returns the vendor ID string in EBX, EDX
-   *       and ECX registers. Writing these to memory in this order results in a 12-character
-   *       string.
+   *   <li><a href="https://wiki.osdev.org/CPUID">CPUID</a> command returns the vendor ID string in
+   *       EBX, EDX and ECX registers. Writing these to memory in this order results in a
+   *       12-character string.
    * </ul>
    */
   public static final AttributeKey<String> HOST_CPU_VENDOR_ID = stringKey("host.cpu.vendor.id");
@@ -77,7 +77,8 @@ public final class HostIncubatingAttributes {
    *
    * <ul>
    *   <li>IPv4 Addresses MUST be specified in dotted-quad notation. IPv6 addresses MUST be
-   *       specified in the [RFC 5952](https://www.rfc-editor.org/rfc/rfc5952.html) format.
+   *       specified in the <a href="https://www.rfc-editor.org/rfc/rfc5952.html">RFC 5952</a>
+   *       format.
    * </ul>
    */
   public static final AttributeKey<List<String>> HOST_IP = stringArrayKey("host.ip");
@@ -88,9 +89,10 @@ public final class HostIncubatingAttributes {
    * <p>Notes:
    *
    * <ul>
-   *   <li>MAC Addresses MUST be represented in [IEEE RA hexadecimal
-   *       form](https://standards.ieee.org/wp-content/uploads/import/documents/tutorials/eui.pdf):
-   *       as hyphen-separated octets in uppercase hexadecimal form from most to least significant.
+   *   <li>MAC Addresses MUST be represented in <a
+   *       href="https://standards.ieee.org/wp-content/uploads/import/documents/tutorials/eui.pdf">IEEE
+   *       RA hexadecimal form</a>: as hyphen-separated octets in uppercase hexadecimal form from
+   *       most to least significant.
    * </ul>
    */
   public static final AttributeKey<List<String>> HOST_MAC = stringArrayKey("host.mac");
