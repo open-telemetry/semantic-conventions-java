@@ -49,7 +49,7 @@ public final class {{ my_class_name }} {
      * <p>Notes:
         {# NOTE: replace("> ", "") removes the following problematic characters which produce mangled javadoc:  #}
         {# https://github.com/open-telemetry/semantic-conventions/blob/c83a10a9c33c18a769835e959200d0e24dc708fe/model/resource/k8s.yaml#L34-L38  #}
-        <ul><li>{{ attribute.note | replace("> ", "") | markdown_to_html | trim }}</li></ul>
+        <ul><li>{{ attribute.note | trim | replace("> ", "") | markdown_to_html | replace("<p>","") | trim }}</li></ul>
        {%- endif %}
      *
        {%- if attribute is deprecated %}
