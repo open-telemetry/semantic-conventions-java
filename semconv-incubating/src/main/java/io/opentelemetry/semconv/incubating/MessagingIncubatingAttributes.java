@@ -24,10 +24,10 @@ public final class MessagingIncubatingAttributes {
    * <p>Notes:
    *
    * <ul>
-   *   <li>Instrumentations SHOULD NOT set `messaging.batch.message_count` on spans that operate
-   *       with a single message. When a messaging client library supports both batch and
-   *       single-message API for the same operation, instrumentations SHOULD use
-   *       `messaging.batch.message_count` for batching APIs and SHOULD NOT use it for
+   *   <li>Instrumentations SHOULD NOT set <code>messaging.batch.message_count</code> on spans that
+   *       operate with a single message. When a messaging client library supports both batch and
+   *       single-message API for the same operation, instrumentations SHOULD use <code>
+   *       messaging.batch.message_count</code> for batching APIs and SHOULD NOT use it for
    *       single-message APIs.
    * </ul>
    */
@@ -345,8 +345,9 @@ public final class MessagingIncubatingAttributes {
    *
    * <ul>
    *   <li>The actual messaging system may differ from the one known by the client. For example,
-   *       when using Kafka client libraries to communicate with Azure Event Hubs, the
-   *       `messaging.system` is set to `kafka` based on the instrumentation's best knowledge.
+   *       when using Kafka client libraries to communicate with Azure Event Hubs, the <code>
+   *       messaging.system</code> is set to <code>kafka</code> based on the instrumentation's best
+   *       knowledge.
    * </ul>
    */
   public static final AttributeKey<String> MESSAGING_SYSTEM = stringKey("messaging.system");

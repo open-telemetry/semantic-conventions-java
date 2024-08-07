@@ -25,9 +25,10 @@ public final class TlsIncubatingAttributes {
    * <p>Notes:
    *
    * <ul>
-   *   <li>The values allowed for `tls.cipher` MUST be one of the `Descriptions` of the [registered
-   *       TLS Cipher
-   *       Suits](https://www.iana.org/assignments/tls-parameters/tls-parameters.xhtml#table-tls-parameters-4).
+   *   <li>The values allowed for <code>tls.cipher</code> MUST be one of the <code>Descriptions
+   *       </code> of the <a
+   *       href="https://www.iana.org/assignments/tls-parameters/tls-parameters.xhtml#table-tls-parameters-4">registered
+   *       TLS Cipher Suits</a>.
    * </ul>
    */
   public static final AttributeKey<String> TLS_CIPHER = stringKey("tls.cipher");

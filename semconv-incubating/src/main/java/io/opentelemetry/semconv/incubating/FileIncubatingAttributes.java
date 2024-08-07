@@ -25,7 +25,7 @@ public final class FileIncubatingAttributes {
    *
    * <ul>
    *   <li>When the file name has multiple extensions (example.tar.gz), only the last one should be
-   *       captured ("gz", not "tar.gz").
+   *       captured (&quot;gz&quot;, not &quot;tar.gz&quot;).
    * </ul>
    */
   public static final AttributeKey<String> FILE_EXTENSION = stringKey("file.extension");

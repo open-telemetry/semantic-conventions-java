@@ -24,8 +24,7 @@ public final class TelemetryAttributes {
    * <p>Notes:
    *
    * <ul>
-   *   <li>
-   *       <p>The OpenTelemetry SDK MUST set the <code>telemetry.sdk.name</code> attribute to <code>
+   *   <li>The OpenTelemetry SDK MUST set the <code>telemetry.sdk.name</code> attribute to <code>
    *       opentelemetry</code>. If another SDK, like a fork or a vendor-provided implementation, is
    *       used, this SDK MUST set the <code>telemetry.sdk.name</code> attribute to the
    *       fully-qualified class or module name of this SDK's main entry point or another suitable

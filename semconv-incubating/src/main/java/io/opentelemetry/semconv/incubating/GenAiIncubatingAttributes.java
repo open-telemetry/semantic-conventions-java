@@ -24,8 +24,8 @@ public final class GenAiIncubatingAttributes {
    * <p>Notes:
    *
    * <ul>
-   *   <li>It's RECOMMENDED to format completions as JSON string matching [OpenAI messages
-   *       format](https://platform.openai.com/docs/guides/text-generation)
+   *   <li>It's RECOMMENDED to format completions as JSON string matching <a
+   *       href="https://platform.openai.com/docs/guides/text-generation">OpenAI messages format</a>
    * </ul>
    */
   public static final AttributeKey<String> GEN_AI_COMPLETION = stringKey("gen_ai.completion");
@@ -51,8 +51,8 @@ public final class GenAiIncubatingAttributes {
    * <p>Notes:
    *
    * <ul>
-   *   <li>It's RECOMMENDED to format prompts as JSON string matching [OpenAI messages
-   *       format](https://platform.openai.com/docs/guides/text-generation)
+   *   <li>It's RECOMMENDED to format prompts as JSON string matching <a
+   *       href="https://platform.openai.com/docs/guides/text-generation">OpenAI messages format</a>
    * </ul>
    */
   public static final AttributeKey<String> GEN_AI_PROMPT = stringKey("gen_ai.prompt");

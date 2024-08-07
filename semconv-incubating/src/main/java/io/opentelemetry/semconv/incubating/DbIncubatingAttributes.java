@@ -148,10 +148,11 @@ public final class DbIncubatingAttributes {
    *
    * <ul>
    *   <li>Many Elasticsearch url paths allow dynamic values. These SHOULD be recorded in span
-   *       attributes in the format `db.elasticsearch.path_parts.<key>`, where `<key>` is the url
-   *       path part name. The implementation SHOULD reference the [elasticsearch
-   *       schema](https://raw.githubusercontent.com/elastic/elasticsearch-specification/main/output/schema/schema.json)
-   *       in order to map the path part values to their names.
+   *       attributes in the format <code>db.elasticsearch.path_parts.&lt;key&gt;</code>, where
+   *       <code>&lt;key&gt;</code> is the url path part name. The implementation SHOULD reference
+   *       the <a
+   *       href="https://raw.githubusercontent.com/elastic/elasticsearch-specification/main/output/schema/schema.json">elasticsearch
+   *       schema</a> in order to map the path part values to their names.
    * </ul>
    */
   public static final AttributeKeyTemplate<String> DB_ELASTICSEARCH_PATH_PARTS =
@@ -166,11 +167,11 @@ public final class DbIncubatingAttributes {
    *   <li>If a database system has multiple namespace components, they SHOULD be concatenated
    *       (potentially using database system specific conventions) from most general to most
    *       specific namespace component, and more specific namespaces SHOULD NOT be captured without
-   *       the more general namespaces, to ensure that "startswith" queries for the more general
-   *       namespaces will be valid. Semantic conventions for individual database systems SHOULD
-   *       document what `db.namespace` means in the context of that system. It is RECOMMENDED to
-   *       capture the value as provided by the application without attempting to do any case
-   *       normalization.
+   *       the more general namespaces, to ensure that &quot;startswith&quot; queries for the more
+   *       general namespaces will be valid. Semantic conventions for individual database systems
+   *       SHOULD document what <code>db.namespace</code> means in the context of that system. It is
+   *       RECOMMENDED to capture the value as provided by the application without attempting to do
+   *       any case normalization.
    * </ul>
    */
   public static final AttributeKey<String> DB_NAMESPACE = stringKey("db.namespace");
@@ -219,9 +220,9 @@ public final class DbIncubatingAttributes {
    * <p>Notes:
    *
    * <ul>
-   *   <li>Query parameters should only be captured when `db.query.text` is parameterized with
-   *       placeholders. If a parameter has no name and instead is referenced only by index, then
-   *       `<key>` SHOULD be the 0-based index.
+   *   <li>Query parameters should only be captured when <code>db.query.text</code> is parameterized
+   *       with placeholders. If a parameter has no name and instead is referenced only by index,
+   *       then <code>&lt;key&gt;</code> SHOULD be the 0-based index.
    * </ul>
    */
   public static final AttributeKeyTemplate<String> DB_QUERY_PARAMETER =
@@ -254,8 +255,8 @@ public final class DbIncubatingAttributes {
    *
    * <ul>
    *   <li>The actual DBMS may differ from the one identified by the client. For example, when using
-   *       PostgreSQL client libraries to connect to a CockroachDB, the `db.system` is set to
-   *       `postgresql` based on the instrumentation's best knowledge.
+   *       PostgreSQL client libraries to connect to a CockroachDB, the <code>db.system</code> is
+   *       set to <code>postgresql</code> based on the instrumentation's best knowledge.
    * </ul>
    */
   public static final AttributeKey<String> DB_SYSTEM = stringKey("db.system");

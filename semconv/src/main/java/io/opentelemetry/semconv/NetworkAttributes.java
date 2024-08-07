@@ -35,8 +35,7 @@ public final class NetworkAttributes {
    * <p>Notes:
    *
    * <ul>
-   *   <li>
-   *       <p>The value SHOULD be normalized to lowercase.
+   *   <li>The value SHOULD be normalized to lowercase.
    * </ul>
    */
   public static final AttributeKey<String> NETWORK_PROTOCOL_NAME =
@@ -48,8 +47,7 @@ public final class NetworkAttributes {
    * <p>Notes:
    *
    * <ul>
-   *   <li>
-   *       <p>If protocol version is subject to negotiation (for example using <a
+   *   <li>If protocol version is subject to negotiation (for example using <a
    *       href="https://www.rfc-editor.org/rfc/rfc7301.html">ALPN</a>), this attribute SHOULD be
    *       set to the negotiated version. If the actual protocol version is not known, this
    *       attribute SHOULD NOT be set.
@@ -66,11 +64,9 @@ public final class NetworkAttributes {
    * <p>Notes:
    *
    * <ul>
-   *   <li>
-   *       <p>The value SHOULD be normalized to lowercase.
-   *       <p>Consider always setting the transport when setting a port number, since a port number
-   *       is ambiguous without knowing the transport. For example different processes could be
-   *       listening on TCP port 12345 and UDP port 12345.
+   *   <li>The value SHOULD be normalized to lowercase. Consider always setting the transport when
+   *       setting a port number, since a port number is ambiguous without knowing the transport.
+   *       For example different processes could be listening on TCP port 12345 and UDP port 12345.
    * </ul>
    */
   public static final AttributeKey<String> NETWORK_TRANSPORT = stringKey("network.transport");
@@ -81,8 +77,7 @@ public final class NetworkAttributes {
    * <p>Notes:
    *
    * <ul>
-   *   <li>
-   *       <p>The value SHOULD be normalized to lowercase.
+   *   <li>The value SHOULD be normalized to lowercase.
    * </ul>
    */
   public static final AttributeKey<String> NETWORK_TYPE = stringKey("network.type");

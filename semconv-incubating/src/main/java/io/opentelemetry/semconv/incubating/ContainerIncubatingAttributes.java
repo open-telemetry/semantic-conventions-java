@@ -61,15 +61,14 @@ public final class ContainerIncubatingAttributes {
    * <p>Notes:
    *
    * <ul>
-   *   <li>Docker defines a sha256 of the image id; `container.image.id` corresponds to the `Image`
-   *       field from the Docker container inspect
-   *       [API](https://docs.docker.com/engine/api/v1.43/#tag/Container/operation/ContainerInspect)
-   *       endpoint. K8s defines a link to the container registry repository with digest `"imageID":
-   *       "registry.azurecr.io
-   *       /namespace/service/dockerfile@sha256:bdeabd40c3a8a492eaf9e8e44d0ebbb84bac7ee25ac0cf8a7159d25f62555625"`.
-   *       The ID is assigned by the container runtime and can vary in different environments.
-   *       Consider using `oci.manifest.digest` if it is important to identify the same image in
-   *       different environments/runtimes.
+   *   <li>Docker defines a sha256 of the image id; <code>container.image.id</code> corresponds to
+   *       the <code>Image</code> field from the Docker container inspect <a
+   *       href="https://docs.docker.com/engine/api/v1.43/#tag/Container/operation/ContainerInspect">API</a>
+   *       endpoint. K8s defines a link to the container registry repository with digest <code>
+   *       &quot;imageID&quot;: &quot;registry.azurecr.io /namespace/service/dockerfile@sha256:bdeabd40c3a8a492eaf9e8e44d0ebbb84bac7ee25ac0cf8a7159d25f62555625&quot;
+   *       </code>. The ID is assigned by the container runtime and can vary in different
+   *       environments. Consider using <code>oci.manifest.digest</code> if it is important to
+   *       identify the same image in different environments/runtimes.
    * </ul>
    */
   public static final AttributeKey<String> CONTAINER_IMAGE_ID = stringKey("container.image.id");
@@ -83,9 +82,11 @@ public final class ContainerIncubatingAttributes {
    * <p>Notes:
    *
    * <ul>
-   *   <li>[Docker](https://docs.docker.com/engine/api/v1.43/#tag/Image/operation/ImageInspect) and
-   *       [CRI](https://github.com/kubernetes/cri-api/blob/c75ef5b473bbe2d0a4fc92f82235efd665ea8e9f/pkg/apis/runtime/v1/api.proto#L1237-L1238)
-   *       report those under the `RepoDigests` field.
+   *   <li><a
+   *       href="https://docs.docker.com/engine/api/v1.43/#tag/Image/operation/ImageInspect">Docker</a>
+   *       and <a
+   *       href="https://github.com/kubernetes/cri-api/blob/c75ef5b473bbe2d0a4fc92f82235efd665ea8e9f/pkg/apis/runtime/v1/api.proto#L1237-L1238">CRI</a>
+   *       report those under the <code>RepoDigests</code> field.
    * </ul>
    */
   public static final AttributeKey<List<String>> CONTAINER_IMAGE_REPO_DIGESTS =

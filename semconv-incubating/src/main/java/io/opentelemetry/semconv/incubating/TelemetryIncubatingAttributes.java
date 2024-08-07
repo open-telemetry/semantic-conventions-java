@@ -20,9 +20,9 @@ public final class TelemetryIncubatingAttributes {
    * <p>Notes:
    *
    * <ul>
-   *   <li>Official auto instrumentation agents and distributions SHOULD set the
-   *       `telemetry.distro.name` attribute to a string starting with `opentelemetry-`, e.g.
-   *       `opentelemetry-java-instrumentation`.
+   *   <li>Official auto instrumentation agents and distributions SHOULD set the <code>
+   *       telemetry.distro.name</code> attribute to a string starting with <code>opentelemetry-
+   *       </code>, e.g. <code>opentelemetry-java-instrumentation</code>.
    * </ul>
    */
   public static final AttributeKey<String> TELEMETRY_DISTRO_NAME =

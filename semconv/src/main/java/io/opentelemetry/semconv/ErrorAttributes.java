@@ -20,19 +20,16 @@ public final class ErrorAttributes {
    * <p>Notes:
    *
    * <ul>
-   *   <li>
-   *       <p>The <code>error.type</code> SHOULD be predictable, and SHOULD have low cardinality.
-   *       <p>When <code>error.type</code> is set to a type (e.g., an exception type), its canonical
-   *       class name identifying the type within the artifact SHOULD be used.
-   *       <p>Instrumentations SHOULD document the list of errors they report.
-   *       <p>The cardinality of <code>error.type</code> within one instrumentation library SHOULD
-   *       be low. Telemetry consumers that aggregate data from multiple instrumentation libraries
-   *       and applications should be prepared for <code>error.type</code> to have high cardinality
-   *       at query time when no additional filters are applied.
-   *       <p>If the operation has completed successfully, instrumentations SHOULD NOT set <code>
-   *       error.type</code>.
-   *       <p>If a specific domain defines its own set of error identifiers (such as HTTP or gRPC
-   *       status codes), it's RECOMMENDED to:
+   *   <li>The <code>error.type</code> SHOULD be predictable, and SHOULD have low cardinality. When
+   *       <code>error.type</code> is set to a type (e.g., an exception type), its canonical class
+   *       name identifying the type within the artifact SHOULD be used. Instrumentations SHOULD
+   *       document the list of errors they report. The cardinality of <code>error.type</code>
+   *       within one instrumentation library SHOULD be low. Telemetry consumers that aggregate data
+   *       from multiple instrumentation libraries and applications should be prepared for <code>
+   *       error.type</code> to have high cardinality at query time when no additional filters are
+   *       applied. If the operation has completed successfully, instrumentations SHOULD NOT set
+   *       <code>error.type</code>. If a specific domain defines its own set of error identifiers
+   *       (such as HTTP or gRPC status codes), it's RECOMMENDED to:
    *       <ul>
    *         <li>Use a domain-specific attribute
    *         <li>Set <code>error.type</code> to capture all errors, regardless of whether they are

@@ -60,7 +60,10 @@ public final class FaasIncubatingAttributes {
    * <p>Notes:
    *
    * <ul>
-   *   <li>* **AWS Lambda:** Use the (full) log stream name.
+   *   <li>
+   *       <ul>
+   *         <li><strong>AWS Lambda:</strong> Use the (full) log stream name.
+   *       </ul>
    * </ul>
    */
   public static final AttributeKey<String> FAAS_INSTANCE = stringKey("faas.instance");
@@ -74,7 +77,7 @@ public final class FaasIncubatingAttributes {
    * <p>Notes:
    *
    * <ul>
-   *   <li>SHOULD be equal to the `faas.name` resource attribute of the invoked function.
+   *   <li>SHOULD be equal to the <code>faas.name</code> resource attribute of the invoked function.
    * </ul>
    */
   public static final AttributeKey<String> FAAS_INVOKED_NAME = stringKey("faas.invoked_name");
@@ -85,7 +88,8 @@ public final class FaasIncubatingAttributes {
    * <p>Notes:
    *
    * <ul>
-   *   <li>SHOULD be equal to the `cloud.provider` resource attribute of the invoked function.
+   *   <li>SHOULD be equal to the <code>cloud.provider</code> resource attribute of the invoked
+   *       function.
    * </ul>
    */
   public static final AttributeKey<String> FAAS_INVOKED_PROVIDER =
@@ -97,7 +101,8 @@ public final class FaasIncubatingAttributes {
    * <p>Notes:
    *
    * <ul>
-   *   <li>SHOULD be equal to the `cloud.region` resource attribute of the invoked function.
+   *   <li>SHOULD be equal to the <code>cloud.region</code> resource attribute of the invoked
+   *       function.
    * </ul>
    */
   public static final AttributeKey<String> FAAS_INVOKED_REGION = stringKey("faas.invoked_region");
@@ -110,8 +115,8 @@ public final class FaasIncubatingAttributes {
    * <ul>
    *   <li>It's recommended to set this attribute since e.g. too little memory can easily stop a
    *       Java AWS Lambda function from working correctly. On AWS Lambda, the environment variable
-   *       `AWS_LAMBDA_FUNCTION_MEMORY_SIZE` provides this information (which must be multiplied by
-   *       1,048,576).
+   *       <code>AWS_LAMBDA_FUNCTION_MEMORY_SIZE</code> provides this information (which must be
+   *       multiplied by 1,048,576).
    * </ul>
    */
   public static final AttributeKey<Long> FAAS_MAX_MEMORY = longKey("faas.max_memory");
@@ -123,17 +128,19 @@ public final class FaasIncubatingAttributes {
    *
    * <ul>
    *   <li>This is the name of the function as configured/deployed on the FaaS platform and is
-   *       usually different from the name of the callback function (which may be stored in the
-   *       [`code.namespace`/`code.function`](/docs/general/attributes.md#source-code-attributes)
-   *       span attributes).
-   *       <p>For some cloud providers, the above definition is ambiguous. The following definition
-   *       of function name MUST be used for this attribute (and consequently the span name) for the
-   *       listed cloud providers/products:
-   *       <p>**Azure:** The full name `<FUNCAPP>/<FUNC>`, i.e., function app name followed by a
-   *       forward slash followed by the function name (this form can also be seen in the resource
-   *       JSON for the function). This means that a span attribute MUST be used, as an Azure
-   *       function app can host multiple functions that would usually share a TracerProvider (see
-   *       also the `cloud.resource_id` attribute).
+   *       usually different from the name of the callback function (which may be stored in the <a
+   *       href="/docs/general/attributes.md#source-code-attributes"><code>code.namespace</code>/
+   *       <code>code.function</code></a> span attributes). For some cloud providers, the above
+   *       definition is ambiguous. The following definition of function name MUST be used for this
+   *       attribute (and consequently the span name) for the listed cloud providers/products:
+   *       <ul>
+   *         <li><strong>Azure:</strong> The full name <code>&lt;FUNCAPP&gt;/&lt;FUNC&gt;</code>,
+   *             i.e., function app name followed by a forward slash followed by the function name
+   *             (this form can also be seen in the resource JSON for the function). This means that
+   *             a span attribute MUST be used, as an Azure function app can host multiple functions
+   *             that would usually share a TracerProvider (see also the <code>cloud.resource_id
+   *             </code> attribute).
+   *       </ul>
    * </ul>
    */
   public static final AttributeKey<String> FAAS_NAME = stringKey("faas.name");
@@ -155,14 +162,18 @@ public final class FaasIncubatingAttributes {
    *
    * <ul>
    *   <li>Depending on the cloud provider and platform, use:
-   *       <p>**AWS Lambda:** The [function
-   *       version](https://docs.aws.amazon.com/lambda/latest/dg/configuration-versions.html) (an
-   *       integer represented as a decimal string). **Google Cloud Run (Services):** The
-   *       [revision](https://cloud.google.com/run/docs/managing/revisions) (i.e., the function name
-   *       plus the revision suffix). **Google Cloud Functions:** The value of the [`K_REVISION`
-   *       environment
-   *       variable](https://cloud.google.com/functions/docs/env-var#runtime_environment_variables_set_automatically).
-   *       **Azure Functions:** Not applicable. Do not set this attribute.
+   *       <ul>
+   *         <li><strong>AWS Lambda:</strong> The <a
+   *             href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-versions.html">function
+   *             version</a> (an integer represented as a decimal string).
+   *         <li><strong>Google Cloud Run (Services):</strong> The <a
+   *             href="https://cloud.google.com/run/docs/managing/revisions">revision</a> (i.e., the
+   *             function name plus the revision suffix).
+   *         <li><strong>Google Cloud Functions:</strong> The value of the <a
+   *             href="https://cloud.google.com/functions/docs/env-var#runtime_environment_variables_set_automatically">
+   *             <code>K_REVISION</code> environment variable</a>.
+   *         <li><strong>Azure Functions:</strong> Not applicable. Do not set this attribute.
+   *       </ul>
    * </ul>
    */
   public static final AttributeKey<String> FAAS_VERSION = stringKey("faas.version");

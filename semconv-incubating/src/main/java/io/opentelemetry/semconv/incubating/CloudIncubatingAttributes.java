@@ -24,7 +24,7 @@ public final class CloudIncubatingAttributes {
    * <p>Notes:
    *
    * <ul>
-   *   <li>Availability zones are called "zones" on Alibaba Cloud and Google Cloud.
+   *   <li>Availability zones are called &quot;zones&quot; on Alibaba Cloud and Google Cloud.
    * </ul>
    */
   public static final AttributeKey<String> CLOUD_AVAILABILITY_ZONE =
@@ -36,7 +36,7 @@ public final class CloudIncubatingAttributes {
    * <p>Notes:
    *
    * <ul>
-   *   <li>The prefix of the service SHOULD match the one specified in `cloud.provider`.
+   *   <li>The prefix of the service SHOULD match the one specified in <code>cloud.provider</code>.
    * </ul>
    */
   public static final AttributeKey<String> CLOUD_PLATFORM = stringKey("cloud.platform");
@@ -50,12 +50,13 @@ public final class CloudIncubatingAttributes {
    * <p>Notes:
    *
    * <ul>
-   *   <li>Refer to your provider's docs to see the available regions, for example [Alibaba Cloud
-   *       regions](https://www.alibabacloud.com/help/doc-detail/40654.htm), [AWS
-   *       regions](https://aws.amazon.com/about-aws/global-infrastructure/regions_az/), [Azure
-   *       regions](https://azure.microsoft.com/global-infrastructure/geographies/), [Google Cloud
-   *       regions](https://cloud.google.com/about/locations), or [Tencent Cloud
-   *       regions](https://www.tencentcloud.com/document/product/213/6091).
+   *   <li>Refer to your provider's docs to see the available regions, for example <a
+   *       href="https://www.alibabacloud.com/help/doc-detail/40654.htm">Alibaba Cloud regions</a>,
+   *       <a href="https://aws.amazon.com/about-aws/global-infrastructure/regions_az/">AWS
+   *       regions</a>, <a
+   *       href="https://azure.microsoft.com/global-infrastructure/geographies/">Azure regions</a>,
+   *       <a href="https://cloud.google.com/about/locations">Google Cloud regions</a>, or <a
+   *       href="https://www.tencentcloud.com/document/product/213/6091">Tencent Cloud regions</a>.
    * </ul>
    */
   public static final AttributeKey<String> CLOUD_REGION = stringKey("cloud.region");
