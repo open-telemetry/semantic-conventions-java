@@ -10,7 +10,7 @@ import static io.opentelemetry.api.common.AttributeKey.stringKey;
 import io.opentelemetry.api.common.AttributeKey;
 
 // DO NOT EDIT, this is an Auto-generated file from
-// buildscripts/templates/SemanticAttributes.java.j2
+// buildscripts/templates/registry/incubating_java/IncubatingSemanticAttributes.java.j2
 @SuppressWarnings("unused")
 public final class DeviceIncubatingAttributes {
 
@@ -43,7 +43,7 @@ public final class DeviceIncubatingAttributes {
    * <ul>
    *   <li>The Android OS provides this field via <a
    *       href="https://developer.android.com/reference/android/os/Build#MANUFACTURER">Build</a>.
-   *       iOS apps SHOULD hardcode the value {@code Apple}.
+   *       iOS apps SHOULD hardcode the value <code>Apple</code>.
    * </ul>
    */
   public static final AttributeKey<String> DEVICE_MANUFACTURER = stringKey("device.manufacturer");

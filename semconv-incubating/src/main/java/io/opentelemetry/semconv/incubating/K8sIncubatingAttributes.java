@@ -13,7 +13,7 @@ import io.opentelemetry.api.common.AttributeKey;
 import io.opentelemetry.semconv.AttributeKeyTemplate;
 
 // DO NOT EDIT, this is an Auto-generated file from
-// buildscripts/templates/SemanticAttributes.java.j2
+// buildscripts/templates/registry/incubating_java/IncubatingSemanticAttributes.java.j2
 @SuppressWarnings("unused")
 public final class K8sIncubatingAttributes {
 
@@ -21,33 +21,33 @@ public final class K8sIncubatingAttributes {
   public static final AttributeKey<String> K8S_CLUSTER_NAME = stringKey("k8s.cluster.name");
 
   /**
-   * A pseudo-ID for the cluster, set to the UID of the {@code kube-system} namespace.
+   * A pseudo-ID for the cluster, set to the UID of the <code>kube-system</code> namespace.
    *
    * <p>Notes:
    *
    * <ul>
    *   <li>K8s doesn't have support for obtaining a cluster ID. If this is ever added, we will
-   *       recommend collecting the {@code k8s.cluster.uid} through the official APIs. In the
-   *       meantime, we are able to use the {@code uid} of the {@code kube-system} namespace as a
-   *       proxy for cluster ID. Read on for the rationale.
-   *   <li>Every object created in a K8s cluster is assigned a distinct UID. The {@code kube-system}
-   *       namespace is used by Kubernetes itself and will exist for the lifetime of the cluster.
-   *       Using the {@code uid} of the {@code kube-system} namespace is a reasonable proxy for the
-   *       K8s ClusterID as it will only change if the cluster is rebuilt. Furthermore, Kubernetes
-   *       UIDs are UUIDs as standardized by <a
+   *       recommend collecting the <code>k8s.cluster.uid</code> through the official APIs. In the
+   *       meantime, we are able to use the <code>uid</code> of the <code>kube-system</code>
+   *       namespace as a proxy for cluster ID. Read on for the rationale. Every object created in a
+   *       K8s cluster is assigned a distinct UID. The <code>kube-system</code> namespace is used by
+   *       Kubernetes itself and will exist for the lifetime of the cluster. Using the <code>uid
+   *       </code> of the <code>kube-system</code> namespace is a reasonable proxy for the K8s
+   *       ClusterID as it will only change if the cluster is rebuilt. Furthermore, Kubernetes UIDs
+   *       are UUIDs as standardized by <a
    *       href="https://www.itu.int/ITU-T/studygroups/com17/oid.html">ISO/IEC 9834-8 and ITU-T
-   *       X.667</a>. Which states:
-   *   <li>If generated according to one of the mechanisms defined in Rec. ITU-T X.667 | ISO/IEC
-   *       9834-8, a UUID is either guaranteed to be different from all other UUIDs generated before
-   *       3603 A.D., or is extremely likely to be different (depending on the mechanism chosen).
-   *   <li>Therefore, UIDs between clusters should be extremely unlikely to conflict.
+   *       X.667</a>. Which states: If generated according to one of the mechanisms defined in Rec.
+   *       ITU-T X.667 | ISO/IEC 9834-8, a UUID is either guaranteed to be different from all other
+   *       UUIDs generated before 3603 A.D., or is extremely likely to be different (depending on
+   *       the mechanism chosen). Therefore, UIDs between clusters should be extremely unlikely to
+   *       conflict.
    * </ul>
    */
   public static final AttributeKey<String> K8S_CLUSTER_UID = stringKey("k8s.cluster.uid");
 
   /**
    * The name of the Container from Pod specification, must be unique within a Pod. Container
-   * runtime usually uses different globally unique name ({@code container.name}).
+   * runtime usually uses different globally unique name (<code>container.name</code>).
    */
   public static final AttributeKey<String> K8S_CONTAINER_NAME = stringKey("k8s.container.name");
 
@@ -96,27 +96,18 @@ public final class K8sIncubatingAttributes {
   public static final AttributeKey<String> K8S_NODE_UID = stringKey("k8s.node.uid");
 
   /**
-   * The annotation key-value pairs placed on the Pod, the {@code <key>} being the annotation name,
-   * the value being the annotation value.
+   * The annotation key-value pairs placed on the Pod, the <code>&lt;key&gt;</code> being the
+   * annotation name, the value being the annotation value.
    */
   public static final AttributeKeyTemplate<String> K8S_POD_ANNOTATION =
       stringKeyTemplate("k8s.pod.annotation");
 
   /**
-   * The label key-value pairs placed on the Pod, the {@code <key>} being the label name, the value
-   * being the label value.
+   * The label key-value pairs placed on the Pod, the <code>&lt;key&gt;</code> being the label name,
+   * the value being the label value.
    */
   public static final AttributeKeyTemplate<String> K8S_POD_LABEL =
       stringKeyTemplate("k8s.pod.label");
-
-  /**
-   * Deprecated, use {@code k8s.pod.label} instead.
-   *
-   * @deprecated Deprecated, use `k8s.pod.label` instead.
-   */
-  @Deprecated
-  public static final AttributeKeyTemplate<String> K8S_POD_LABELS =
-      stringKeyTemplate("k8s.pod.labels");
 
   /** The name of the Pod. */
   public static final AttributeKey<String> K8S_POD_NAME = stringKey("k8s.pod.name");

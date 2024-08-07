@@ -10,7 +10,7 @@ import static io.opentelemetry.api.common.AttributeKey.stringKey;
 import io.opentelemetry.api.common.AttributeKey;
 
 // DO NOT EDIT, this is an Auto-generated file from
-// buildscripts/templates/SemanticAttributes.java.j2
+// buildscripts/templates/registry/incubating_java/IncubatingSemanticAttributes.java.j2
 @SuppressWarnings("unused")
 public final class LogIncubatingAttributes {
 
@@ -49,10 +49,11 @@ public final class LogIncubatingAttributes {
   // Enum definitions
   /** Values for {@link #LOG_IOSTREAM}. */
   public static final class LogIostreamValues {
-    /** Logs from stdout stream. */
+
+    /** Logs from stdout stream */
     public static final String STDOUT = "stdout";
 
-    /** Events from stderr stream. */
+    /** Events from stderr stream */
     public static final String STDERR = "stderr";
 
     private LogIostreamValues() {}

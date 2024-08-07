@@ -13,7 +13,7 @@ import io.opentelemetry.api.common.AttributeKey;
 import java.util.List;
 
 // DO NOT EDIT, this is an Auto-generated file from
-// buildscripts/templates/SemanticAttributes.java.j2
+// buildscripts/templates/registry/incubating_java/IncubatingSemanticAttributes.java.j2
 @SuppressWarnings("unused")
 public final class HostIncubatingAttributes {
 
@@ -53,8 +53,8 @@ public final class HostIncubatingAttributes {
 
   /**
    * Unique host ID. For Cloud, this must be the instance_id assigned by the cloud provider. For
-   * non-containerized systems, this should be the {@code machine-id}. See the table below for the
-   * sources to use to determine the {@code machine-id} based on operating system.
+   * non-containerized systems, this should be the <code>machine-id</code>. See the table below for
+   * the sources to use to determine the <code>machine-id</code> based on operating system.
    */
   public static final AttributeKey<String> HOST_ID = stringKey("host.id");
 
@@ -109,28 +109,29 @@ public final class HostIncubatingAttributes {
   // Enum definitions
   /** Values for {@link #HOST_ARCH}. */
   public static final class HostArchValues {
-    /** AMD64. */
+
+    /** AMD64 */
     public static final String AMD64 = "amd64";
 
-    /** ARM32. */
+    /** ARM32 */
     public static final String ARM32 = "arm32";
 
-    /** ARM64. */
+    /** ARM64 */
     public static final String ARM64 = "arm64";
 
-    /** Itanium. */
+    /** Itanium */
     public static final String IA64 = "ia64";
 
-    /** 32-bit PowerPC. */
+    /** 32-bit PowerPC */
     public static final String PPC32 = "ppc32";
 
-    /** 64-bit PowerPC. */
+    /** 64-bit PowerPC */
     public static final String PPC64 = "ppc64";
 
-    /** IBM z/Architecture. */
+    /** IBM z/Architecture */
     public static final String S390X = "s390x";
 
-    /** 32-bit x86. */
+    /** 32-bit x86 */
     public static final String X86 = "x86";
 
     private HostArchValues() {}

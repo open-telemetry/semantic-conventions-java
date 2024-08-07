@@ -11,7 +11,7 @@ import static io.opentelemetry.api.common.AttributeKey.stringKey;
 import io.opentelemetry.api.common.AttributeKey;
 
 // DO NOT EDIT, this is an Auto-generated file from
-// buildscripts/templates/SemanticAttributes.java.j2
+// buildscripts/templates/registry/incubating_java/IncubatingSemanticAttributes.java.j2
 @SuppressWarnings("unused")
 public final class DestinationIncubatingAttributes {
 
@@ -23,7 +23,7 @@ public final class DestinationIncubatingAttributes {
    *
    * <ul>
    *   <li>When observed from the source side, and when communicating through an intermediary,
-   *       {@code destination.address} SHOULD represent the destination address behind any
+   *       <code>destination.address</code> SHOULD represent the destination address behind any
    *       intermediaries, for example proxies, if it's available.
    * </ul>
    */

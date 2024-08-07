@@ -14,7 +14,7 @@ import io.opentelemetry.api.common.AttributeKey;
 import java.util.List;
 
 // DO NOT EDIT, this is an Auto-generated file from
-// buildscripts/templates/SemanticAttributes.java.j2
+// buildscripts/templates/registry/incubating_java/IncubatingSemanticAttributes.java.j2
 @SuppressWarnings("unused")
 public final class MessagingIncubatingAttributes {
 
@@ -24,11 +24,11 @@ public final class MessagingIncubatingAttributes {
    * <p>Notes:
    *
    * <ul>
-   *   <li>Instrumentations SHOULD NOT set {@code messaging.batch.message_count} on spans that
+   *   <li>Instrumentations SHOULD NOT set <code>messaging.batch.message_count</code> on spans that
    *       operate with a single message. When a messaging client library supports both batch and
-   *       single-message API for the same operation, instrumentations SHOULD use {@code
-   *       messaging.batch.message_count} for batching APIs and SHOULD NOT use it for single-message
-   *       APIs.
+   *       single-message API for the same operation, instrumentations SHOULD use <code>
+   *       messaging.batch.message_count</code> for batching APIs and SHOULD NOT use it for
+   *       single-message APIs.
    * </ul>
    */
   public static final AttributeKey<Long> MESSAGING_BATCH_MESSAGE_COUNT =
@@ -59,8 +59,8 @@ public final class MessagingIncubatingAttributes {
       stringKey("messaging.destination.name");
 
   /**
-   * The identifier of the partition messages are sent to or received from, unique within the {@code
-   * messaging.destination.name}.
+   * The identifier of the partition messages are sent to or received from, unique within the <code>
+   * messaging.destination.name</code>.
    */
   public static final AttributeKey<String> MESSAGING_DESTINATION_PARTITION_ID =
       stringKey("messaging.destination.partition.id");
@@ -143,18 +143,9 @@ public final class MessagingIncubatingAttributes {
       stringKey("messaging.kafka.consumer.group");
 
   /**
-   * Deprecated, use {@code messaging.destination.partition.id} instead.
-   *
-   * @deprecated Deprecated, use `messaging.destination.partition.id` instead.
-   */
-  @Deprecated
-  public static final AttributeKey<Long> MESSAGING_KAFKA_DESTINATION_PARTITION =
-      longKey("messaging.kafka.destination.partition");
-
-  /**
    * Message keys in Kafka are used for grouping alike messages to ensure they're processed on the
-   * same partition. They differ from {@code messaging.message.id} in that they're not unique. If
-   * the key is {@code null}, the attribute MUST NOT be set.
+   * same partition. They differ from <code>messaging.message.id</code> in that they're not unique.
+   * If the key is <code>null</code>, the attribute MUST NOT be set.
    *
    * <p>Notes:
    *
@@ -211,14 +202,6 @@ public final class MessagingIncubatingAttributes {
    * A value used by the messaging system as an identifier for the message, represented as a string.
    */
   public static final AttributeKey<String> MESSAGING_MESSAGE_ID = stringKey("messaging.message.id");
-
-  /**
-   * Deprecated, use {@code messaging.operation.type} instead.
-   *
-   * @deprecated Deprecated, use `messaging.operation.type` instead.
-   */
-  @Deprecated
-  public static final AttributeKey<String> MESSAGING_OPERATION = stringKey("messaging.operation");
 
   /** The system-specific name of the messaging operation. */
   public static final AttributeKey<String> MESSAGING_OPERATION_NAME =
@@ -315,8 +298,9 @@ public final class MessagingIncubatingAttributes {
    *
    * <ul>
    *   <li>The actual messaging system may differ from the one known by the client. For example,
-   *       when using Kafka client libraries to communicate with Azure Event Hubs, the {@code
-   *       messaging.system} is set to {@code kafka} based on the instrumentation's best knowledge.
+   *       when using Kafka client libraries to communicate with Azure Event Hubs, the <code>
+   *       messaging.system</code> is set to <code>kafka</code> based on the instrumentation's best
+   *       knowledge.
    * </ul>
    */
   public static final AttributeKey<String> MESSAGING_SYSTEM = stringKey("messaging.system");
@@ -324,16 +308,17 @@ public final class MessagingIncubatingAttributes {
   // Enum definitions
   /** Values for {@link #MESSAGING_OPERATION_TYPE}. */
   public static final class MessagingOperationTypeValues {
+
     /**
      * One or more messages are provided for publishing to an intermediary. If a single message is
-     * published, the context of the &#34;Publish&#34; span can be used as the creation context and
-     * no &#34;Create&#34; span needs to be created.
+     * published, the context of the "Publish" span can be used as the creation context and no
+     * "Create" span needs to be created.
      */
     public static final String PUBLISH = "publish";
 
     /**
-     * A message is created. &#34;Create&#34; spans always refer to a single message and are used to
-     * provide a unique creation context for messages in batch publishing scenarios.
+     * A message is created. "Create" spans always refer to a single message and are used to provide
+     * a unique creation context for messages in batch publishing scenarios.
      */
     public static final String CREATE = "create";
 
@@ -352,81 +337,89 @@ public final class MessagingIncubatingAttributes {
     private MessagingOperationTypeValues() {}
   }
 
+  // Enum definitions
   /** Values for {@link #MESSAGING_ROCKETMQ_CONSUMPTION_MODEL}. */
   public static final class MessagingRocketmqConsumptionModelValues {
-    /** Clustering consumption model. */
+
+    /** Clustering consumption model */
     public static final String CLUSTERING = "clustering";
 
-    /** Broadcasting consumption model. */
+    /** Broadcasting consumption model */
     public static final String BROADCASTING = "broadcasting";
 
     private MessagingRocketmqConsumptionModelValues() {}
   }
 
+  // Enum definitions
   /** Values for {@link #MESSAGING_ROCKETMQ_MESSAGE_TYPE}. */
   public static final class MessagingRocketmqMessageTypeValues {
-    /** Normal message. */
+
+    /** Normal message */
     public static final String NORMAL = "normal";
 
-    /** FIFO message. */
+    /** FIFO message */
     public static final String FIFO = "fifo";
 
-    /** Delay message. */
+    /** Delay message */
     public static final String DELAY = "delay";
 
-    /** Transaction message. */
+    /** Transaction message */
     public static final String TRANSACTION = "transaction";
 
     private MessagingRocketmqMessageTypeValues() {}
   }
 
+  // Enum definitions
   /** Values for {@link #MESSAGING_SERVICEBUS_DISPOSITION_STATUS}. */
   public static final class MessagingServicebusDispositionStatusValues {
-    /** Message is completed. */
+
+    /** Message is completed */
     public static final String COMPLETE = "complete";
 
-    /** Message is abandoned. */
+    /** Message is abandoned */
     public static final String ABANDON = "abandon";
 
-    /** Message is sent to dead letter queue. */
+    /** Message is sent to dead letter queue */
     public static final String DEAD_LETTER = "dead_letter";
 
-    /** Message is deferred. */
+    /** Message is deferred */
     public static final String DEFER = "defer";
 
     private MessagingServicebusDispositionStatusValues() {}
   }
 
+  // Enum definitions
   /** Values for {@link #MESSAGING_SYSTEM}. */
   public static final class MessagingSystemValues {
-    /** Apache ActiveMQ. */
+
+    /** Apache ActiveMQ */
     public static final String ACTIVEMQ = "activemq";
 
-    /** Amazon Simple Queue Service (SQS). */
+    /** Amazon Simple Queue Service (SQS) */
     public static final String AWS_SQS = "aws_sqs";
 
-    /** Azure Event Grid. */
+    /** Azure Event Grid */
     public static final String EVENTGRID = "eventgrid";
 
-    /** Azure Event Hubs. */
+    /** Azure Event Hubs */
     public static final String EVENTHUBS = "eventhubs";
 
-    /** Azure Service Bus. */
+    /** Azure Service Bus */
     public static final String SERVICEBUS = "servicebus";
 
-    /** Google Cloud Pub/Sub. */
+    /** Google Cloud Pub/Sub */
     public static final String GCP_PUBSUB = "gcp_pubsub";
 
-    /** Java Message Service. */
+    /** Java Message Service */
     public static final String JMS = "jms";
 
-    /** Apache Kafka. */
+    /** Apache Kafka */
     public static final String KAFKA = "kafka";
 
-    /** RabbitMQ. */
+    /** RabbitMQ */
     public static final String RABBITMQ = "rabbitmq";
 
-    /** Apache RocketMQ. */
+    /** Apache RocketMQ */
     public static final String ROCKETMQ = "rocketmq";
 
     private MessagingSystemValues() {}

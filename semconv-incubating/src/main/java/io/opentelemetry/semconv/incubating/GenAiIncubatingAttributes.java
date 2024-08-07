@@ -14,7 +14,7 @@ import io.opentelemetry.api.common.AttributeKey;
 import java.util.List;
 
 // DO NOT EDIT, this is an Auto-generated file from
-// buildscripts/templates/SemanticAttributes.java.j2
+// buildscripts/templates/registry/incubating_java/IncubatingSemanticAttributes.java.j2
 @SuppressWarnings("unused")
 public final class GenAiIncubatingAttributes {
 
@@ -77,8 +77,8 @@ public final class GenAiIncubatingAttributes {
    *
    * <ul>
    *   <li>The actual GenAI product may differ from the one identified by the client. For example,
-   *       when using OpenAI client libraries to communicate with Mistral, the {@code gen_ai.system}
-   *       is set to {@code openai} based on the instrumentation's best knowledge.
+   *       when using OpenAI client libraries to communicate with Mistral, the <code>gen_ai.system
+   *       </code> is set to <code>openai</code> based on the instrumentation's best knowledge.
    * </ul>
    */
   public static final AttributeKey<String> GEN_AI_SYSTEM = stringKey("gen_ai.system");
@@ -94,7 +94,8 @@ public final class GenAiIncubatingAttributes {
   // Enum definitions
   /** Values for {@link #GEN_AI_SYSTEM}. */
   public static final class GenAiSystemValues {
-    /** OpenAI. */
+
+    /** OpenAI */
     public static final String OPENAI = "openai";
 
     private GenAiSystemValues() {}

@@ -11,7 +11,7 @@ import static io.opentelemetry.api.common.AttributeKey.stringKey;
 import io.opentelemetry.api.common.AttributeKey;
 
 // DO NOT EDIT, this is an Auto-generated file from
-// buildscripts/templates/SemanticAttributes.java.j2
+// buildscripts/templates/registry/java/SemanticAttributes.java.j2
 @SuppressWarnings("unused")
 public final class JvmAttributes {
 
@@ -63,17 +63,20 @@ public final class JvmAttributes {
   // Enum definitions
   /** Values for {@link #JVM_MEMORY_TYPE}. */
   public static final class JvmMemoryTypeValues {
+
     /** Heap memory. */
     public static final String HEAP = "heap";
 
-    /** Non-heap memory. */
+    /** Non-heap memory */
     public static final String NON_HEAP = "non_heap";
 
     private JvmMemoryTypeValues() {}
   }
 
+  // Enum definitions
   /** Values for {@link #JVM_THREAD_STATE}. */
   public static final class JvmThreadStateValues {
+
     /** A thread that has not yet started is in this state. */
     public static final String NEW = "new";
 

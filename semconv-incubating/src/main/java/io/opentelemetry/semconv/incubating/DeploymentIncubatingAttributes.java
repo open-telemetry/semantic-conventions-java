@@ -10,7 +10,7 @@ import static io.opentelemetry.api.common.AttributeKey.stringKey;
 import io.opentelemetry.api.common.AttributeKey;
 
 // DO NOT EDIT, this is an Auto-generated file from
-// buildscripts/templates/SemanticAttributes.java.j2
+// buildscripts/templates/registry/incubating_java/IncubatingSemanticAttributes.java.j2
 @SuppressWarnings("unused")
 public final class DeploymentIncubatingAttributes {
 
@@ -21,12 +21,14 @@ public final class DeploymentIncubatingAttributes {
    * <p>Notes:
    *
    * <ul>
-   *   <li>{@code deployment.environment} does not affect the uniqueness constraints defined through
-   *       the {@code service.namespace}, {@code service.name} and {@code service.instance.id}
-   *       resource attributes. This implies that resources carrying the following attribute
-   *       combinations MUST be considered to be identifying the same service:
-   *   <li>{@code service.name=frontend}, {@code deployment.environment=production}
-   *   <li>{@code service.name=frontend}, {@code deployment.environment=staging}.
+   *   <li><code>deployment.environment</code> does not affect the uniqueness constraints defined
+   *       through the <code>service.namespace</code>, <code>service.name</code> and <code>
+   *       service.instance.id</code> resource attributes. This implies that resources carrying the
+   *       following attribute combinations MUST be considered to be identifying the same service:
+   *       <ul>
+   *         <li><code>service.name=frontend</code>, <code>deployment.environment=production</code>
+   *         <li><code>service.name=frontend</code>, <code>deployment.environment=staging</code>.
+   *       </ul>
    * </ul>
    */
   public static final AttributeKey<String> DEPLOYMENT_ENVIRONMENT =
