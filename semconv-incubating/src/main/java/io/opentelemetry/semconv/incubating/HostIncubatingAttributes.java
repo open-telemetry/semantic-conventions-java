@@ -108,7 +108,7 @@ public final class HostIncubatingAttributes {
 
   // Enum definitions
   /** Values for {@link #HOST_ARCH}. */
-  public static final class HostArchValues {
+  public static final class HostArchIncubatingValues {
     /** AMD64. */
     public static final String AMD64 = "amd64";
 
@@ -133,7 +133,7 @@ public final class HostIncubatingAttributes {
     /** 32-bit x86. */
     public static final String X86 = "x86";
 
-    private HostArchValues() {}
+    private HostArchIncubatingValues() {}
   }
 
   private HostIncubatingAttributes() {}

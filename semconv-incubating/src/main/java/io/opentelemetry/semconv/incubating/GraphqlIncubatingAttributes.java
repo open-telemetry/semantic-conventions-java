@@ -35,7 +35,7 @@ public final class GraphqlIncubatingAttributes {
 
   // Enum definitions
   /** Values for {@link #GRAPHQL_OPERATION_TYPE}. */
-  public static final class GraphqlOperationTypeValues {
+  public static final class GraphqlOperationTypeIncubatingValues {
     /** GraphQL query. */
     public static final String QUERY = "query";
 
@@ -45,7 +45,7 @@ public final class GraphqlIncubatingAttributes {
     /** GraphQL subscription. */
     public static final String SUBSCRIPTION = "subscription";
 
-    private GraphqlOperationTypeValues() {}
+    private GraphqlOperationTypeIncubatingValues() {}
   }
 
   private GraphqlIncubatingAttributes() {}

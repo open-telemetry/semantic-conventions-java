@@ -150,7 +150,7 @@ public final class NetworkIncubatingAttributes {
 
   // Enum definitions
   /** Values for {@link #NETWORK_CONNECTION_SUBTYPE}. */
-  public static final class NetworkConnectionSubtypeValues {
+  public static final class NetworkConnectionSubtypeIncubatingValues {
     /** GPRS. */
     public static final String GPRS = "gprs";
 
@@ -214,11 +214,11 @@ public final class NetworkIncubatingAttributes {
     /** LTE CA. */
     public static final String LTE_CA = "lte_ca";
 
-    private NetworkConnectionSubtypeValues() {}
+    private NetworkConnectionSubtypeIncubatingValues() {}
   }
 
   /** Values for {@link #NETWORK_CONNECTION_TYPE}. */
-  public static final class NetworkConnectionTypeValues {
+  public static final class NetworkConnectionTypeIncubatingValues {
     /** wifi. */
     public static final String WIFI = "wifi";
 
@@ -234,18 +234,18 @@ public final class NetworkIncubatingAttributes {
     /** unknown. */
     public static final String UNKNOWN = "unknown";
 
-    private NetworkConnectionTypeValues() {}
+    private NetworkConnectionTypeIncubatingValues() {}
   }
 
   /** Values for {@link #NETWORK_IO_DIRECTION}. */
-  public static final class NetworkIoDirectionValues {
+  public static final class NetworkIoDirectionIncubatingValues {
     /** transmit. */
     public static final String TRANSMIT = "transmit";
 
     /** receive. */
     public static final String RECEIVE = "receive";
 
-    private NetworkIoDirectionValues() {}
+    private NetworkIoDirectionIncubatingValues() {}
   }
 
   /**
@@ -255,7 +255,7 @@ public final class NetworkIncubatingAttributes {
    *     io.opentelemetry.semconv.NetworkAttributes.NetworkTransportValues} attribute.
    */
   @Deprecated
-  public static final class NetworkTransportValues {
+  public static final class NetworkTransportIncubatingValues {
     /** TCP. */
     public static final String TCP = "tcp";
 
@@ -271,7 +271,7 @@ public final class NetworkIncubatingAttributes {
     /** QUIC. */
     public static final String QUIC = "quic";
 
-    private NetworkTransportValues() {}
+    private NetworkTransportIncubatingValues() {}
   }
 
   /**
@@ -281,14 +281,14 @@ public final class NetworkIncubatingAttributes {
    *     io.opentelemetry.semconv.NetworkAttributes.NetworkTypeValues} attribute.
    */
   @Deprecated
-  public static final class NetworkTypeValues {
+  public static final class NetworkTypeIncubatingValues {
     /** IPv4. */
     public static final String IPV4 = "ipv4";
 
     /** IPv6. */
     public static final String IPV6 = "ipv6";
 
-    private NetworkTypeValues() {}
+    private NetworkTypeIncubatingValues() {}
   }
 
   private NetworkIncubatingAttributes() {}

@@ -171,7 +171,7 @@ public final class RpcIncubatingAttributes {
 
   // Enum definitions
   /** Values for {@link #RPC_CONNECT_RPC_ERROR_CODE}. */
-  public static final class RpcConnectRpcErrorCodeValues {
+  public static final class RpcConnectRpcErrorCodeIncubatingValues {
     /** cancelled. */
     public static final String CANCELLED = "cancelled";
 
@@ -220,11 +220,11 @@ public final class RpcIncubatingAttributes {
     /** unauthenticated. */
     public static final String UNAUTHENTICATED = "unauthenticated";
 
-    private RpcConnectRpcErrorCodeValues() {}
+    private RpcConnectRpcErrorCodeIncubatingValues() {}
   }
 
   /** Values for {@link #RPC_GRPC_STATUS_CODE}. */
-  public static final class RpcGrpcStatusCodeValues {
+  public static final class RpcGrpcStatusCodeIncubatingValues {
     /** OK. */
     public static final long OK = 0;
 
@@ -276,22 +276,22 @@ public final class RpcIncubatingAttributes {
     /** UNAUTHENTICATED. */
     public static final long UNAUTHENTICATED = 16;
 
-    private RpcGrpcStatusCodeValues() {}
+    private RpcGrpcStatusCodeIncubatingValues() {}
   }
 
   /** Values for {@link #RPC_MESSAGE_TYPE}. */
-  public static final class RpcMessageTypeValues {
+  public static final class RpcMessageTypeIncubatingValues {
     /** sent. */
     public static final String SENT = "SENT";
 
     /** received. */
     public static final String RECEIVED = "RECEIVED";
 
-    private RpcMessageTypeValues() {}
+    private RpcMessageTypeIncubatingValues() {}
   }
 
   /** Values for {@link #RPC_SYSTEM}. */
-  public static final class RpcSystemValues {
+  public static final class RpcSystemIncubatingValues {
     /** gRPC. */
     public static final String GRPC = "grpc";
 
@@ -307,7 +307,7 @@ public final class RpcIncubatingAttributes {
     /** Connect RPC. */
     public static final String CONNECT_RPC = "connect_rpc";
 
-    private RpcSystemValues() {}
+    private RpcSystemIncubatingValues() {}
   }
 
   private RpcIncubatingAttributes() {}

@@ -52,14 +52,14 @@ public final class DeploymentIncubatingAttributes {
 
   // Enum definitions
   /** Values for {@link #DEPLOYMENT_STATUS}. */
-  public static final class DeploymentStatusValues {
+  public static final class DeploymentStatusIncubatingValues {
     /** failed. */
     public static final String FAILED = "failed";
 
     /** succeeded. */
     public static final String SUCCEEDED = "succeeded";
 
-    private DeploymentStatusValues() {}
+    private DeploymentStatusIncubatingValues() {}
   }
 
   private DeploymentIncubatingAttributes() {}

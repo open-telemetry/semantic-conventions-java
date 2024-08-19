@@ -370,7 +370,7 @@ public final class MessagingIncubatingAttributes {
 
   // Enum definitions
   /** Values for {@link #MESSAGING_OPERATION_TYPE}. */
-  public static final class MessagingOperationTypeValues {
+  public static final class MessagingOperationTypeIncubatingValues {
     /**
      * One or more messages are provided for publishing to an intermediary. If a single message is
      * published, the context of the &#34;Publish&#34; span can be used as the creation context and
@@ -399,22 +399,22 @@ public final class MessagingIncubatingAttributes {
     /** Deprecated. Use `process` instead. */
     public static final String DELIVER = "deliver";
 
-    private MessagingOperationTypeValues() {}
+    private MessagingOperationTypeIncubatingValues() {}
   }
 
   /** Values for {@link #MESSAGING_ROCKETMQ_CONSUMPTION_MODEL}. */
-  public static final class MessagingRocketmqConsumptionModelValues {
+  public static final class MessagingRocketmqConsumptionModelIncubatingValues {
     /** Clustering consumption model. */
     public static final String CLUSTERING = "clustering";
 
     /** Broadcasting consumption model. */
     public static final String BROADCASTING = "broadcasting";
 
-    private MessagingRocketmqConsumptionModelValues() {}
+    private MessagingRocketmqConsumptionModelIncubatingValues() {}
   }
 
   /** Values for {@link #MESSAGING_ROCKETMQ_MESSAGE_TYPE}. */
-  public static final class MessagingRocketmqMessageTypeValues {
+  public static final class MessagingRocketmqMessageTypeIncubatingValues {
     /** Normal message. */
     public static final String NORMAL = "normal";
 
@@ -427,11 +427,11 @@ public final class MessagingIncubatingAttributes {
     /** Transaction message. */
     public static final String TRANSACTION = "transaction";
 
-    private MessagingRocketmqMessageTypeValues() {}
+    private MessagingRocketmqMessageTypeIncubatingValues() {}
   }
 
   /** Values for {@link #MESSAGING_SERVICEBUS_DISPOSITION_STATUS}. */
-  public static final class MessagingServicebusDispositionStatusValues {
+  public static final class MessagingServicebusDispositionStatusIncubatingValues {
     /** Message is completed. */
     public static final String COMPLETE = "complete";
 
@@ -444,11 +444,11 @@ public final class MessagingIncubatingAttributes {
     /** Message is deferred. */
     public static final String DEFER = "defer";
 
-    private MessagingServicebusDispositionStatusValues() {}
+    private MessagingServicebusDispositionStatusIncubatingValues() {}
   }
 
   /** Values for {@link #MESSAGING_SYSTEM}. */
-  public static final class MessagingSystemValues {
+  public static final class MessagingSystemIncubatingValues {
     /** Apache ActiveMQ. */
     public static final String ACTIVEMQ = "activemq";
 
@@ -482,7 +482,7 @@ public final class MessagingIncubatingAttributes {
     /** Apache Pulsar. */
     public static final String PULSAR = "pulsar";
 
-    private MessagingSystemValues() {}
+    private MessagingSystemIncubatingValues() {}
   }
 
   private MessagingIncubatingAttributes() {}

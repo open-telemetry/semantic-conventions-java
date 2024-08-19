@@ -137,7 +137,7 @@ public final class NetIncubatingAttributes {
    * @deprecated Deprecated, use `network.transport` and `network.type`.
    */
   @Deprecated
-  public static final class NetSockFamilyValues {
+  public static final class NetSockFamilyIncubatingValues {
     /** IPv4 address. */
     public static final String INET = "inet";
 
@@ -147,7 +147,7 @@ public final class NetIncubatingAttributes {
     /** Unix domain socket path. */
     public static final String UNIX = "unix";
 
-    private NetSockFamilyValues() {}
+    private NetSockFamilyIncubatingValues() {}
   }
 
   /**
@@ -156,7 +156,7 @@ public final class NetIncubatingAttributes {
    * @deprecated Deprecated, use `network.transport`.
    */
   @Deprecated
-  public static final class NetTransportValues {
+  public static final class NetTransportIncubatingValues {
     /** ip_tcp. */
     public static final String IP_TCP = "ip_tcp";
 
@@ -172,7 +172,7 @@ public final class NetIncubatingAttributes {
     /** Something else (non IP-based). */
     public static final String OTHER = "other";
 
-    private NetTransportValues() {}
+    private NetTransportIncubatingValues() {}
   }
 
   private NetIncubatingAttributes() {}

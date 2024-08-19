@@ -61,14 +61,14 @@ public final class LogIncubatingAttributes {
 
   // Enum definitions
   /** Values for {@link #LOG_IOSTREAM}. */
-  public static final class LogIostreamValues {
+  public static final class LogIostreamIncubatingValues {
     /** Logs from stdout stream. */
     public static final String STDOUT = "stdout";
 
     /** Events from stderr stream. */
     public static final String STDERR = "stderr";
 
-    private LogIostreamValues() {}
+    private LogIostreamIncubatingValues() {}
   }
 
   private LogIncubatingAttributes() {}

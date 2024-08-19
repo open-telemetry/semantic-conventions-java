@@ -159,14 +159,14 @@ public final class ProcessIncubatingAttributes {
 
   // Enum definitions
   /** Values for {@link #PROCESS_CONTEXT_SWITCH_TYPE}. */
-  public static final class ProcessContextSwitchTypeValues {
+  public static final class ProcessContextSwitchTypeIncubatingValues {
     /** voluntary. */
     public static final String VOLUNTARY = "voluntary";
 
     /** involuntary. */
     public static final String INVOLUNTARY = "involuntary";
 
-    private ProcessContextSwitchTypeValues() {}
+    private ProcessContextSwitchTypeIncubatingValues() {}
   }
 
   /**
@@ -175,7 +175,7 @@ public final class ProcessIncubatingAttributes {
    * @deprecated Deprecated, use `cpu.mode` instead.
    */
   @Deprecated
-  public static final class ProcessCpuStateValues {
+  public static final class ProcessCpuStateIncubatingValues {
     /** system. */
     public static final String SYSTEM = "system";
 
@@ -185,18 +185,18 @@ public final class ProcessIncubatingAttributes {
     /** wait. */
     public static final String WAIT = "wait";
 
-    private ProcessCpuStateValues() {}
+    private ProcessCpuStateIncubatingValues() {}
   }
 
   /** Values for {@link #PROCESS_PAGING_FAULT_TYPE}. */
-  public static final class ProcessPagingFaultTypeValues {
+  public static final class ProcessPagingFaultTypeIncubatingValues {
     /** major. */
     public static final String MAJOR = "major";
 
     /** minor. */
     public static final String MINOR = "minor";
 
-    private ProcessPagingFaultTypeValues() {}
+    private ProcessPagingFaultTypeIncubatingValues() {}
   }
 
   private ProcessIncubatingAttributes() {}

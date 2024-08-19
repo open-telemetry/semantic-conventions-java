@@ -19,7 +19,7 @@ public final class CpuIncubatingAttributes {
 
   // Enum definitions
   /** Values for {@link #CPU_MODE}. */
-  public static final class CpuModeValues {
+  public static final class CpuModeIncubatingValues {
     /** user. */
     public static final String USER = "user";
 
@@ -44,7 +44,7 @@ public final class CpuIncubatingAttributes {
     /** kernel. */
     public static final String KERNEL = "kernel";
 
-    private CpuModeValues() {}
+    private CpuModeIncubatingValues() {}
   }
 
   private CpuIncubatingAttributes() {}

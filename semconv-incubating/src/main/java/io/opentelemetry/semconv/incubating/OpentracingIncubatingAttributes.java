@@ -27,14 +27,14 @@ public final class OpentracingIncubatingAttributes {
 
   // Enum definitions
   /** Values for {@link #OPENTRACING_REF_TYPE}. */
-  public static final class OpentracingRefTypeValues {
+  public static final class OpentracingRefTypeIncubatingValues {
     /** The parent Span depends on the child Span in some capacity. */
     public static final String CHILD_OF = "child_of";
 
     /** The parent Span doesn&#39;t depend in any way on the result of the child Span. */
     public static final String FOLLOWS_FROM = "follows_from";
 
-    private OpentracingRefTypeValues() {}
+    private OpentracingRefTypeIncubatingValues() {}
   }
 
   private OpentracingIncubatingAttributes() {}

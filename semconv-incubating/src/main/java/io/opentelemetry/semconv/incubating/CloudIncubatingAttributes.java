@@ -97,7 +97,7 @@ public final class CloudIncubatingAttributes {
 
   // Enum definitions
   /** Values for {@link #CLOUD_PLATFORM}. */
-  public static final class CloudPlatformValues {
+  public static final class CloudPlatformIncubatingValues {
     /** Alibaba Cloud Elastic Compute Service. */
     public static final String ALIBABA_CLOUD_ECS = "alibaba_cloud_ecs";
 
@@ -182,11 +182,11 @@ public final class CloudIncubatingAttributes {
     /** Tencent Cloud Serverless Cloud Function (SCF). */
     public static final String TENCENT_CLOUD_SCF = "tencent_cloud_scf";
 
-    private CloudPlatformValues() {}
+    private CloudPlatformIncubatingValues() {}
   }
 
   /** Values for {@link #CLOUD_PROVIDER}. */
-  public static final class CloudProviderValues {
+  public static final class CloudProviderIncubatingValues {
     /** Alibaba Cloud. */
     public static final String ALIBABA_CLOUD = "alibaba_cloud";
 
@@ -208,7 +208,7 @@ public final class CloudIncubatingAttributes {
     /** Tencent Cloud. */
     public static final String TENCENT_CLOUD = "tencent_cloud";
 
-    private CloudProviderValues() {}
+    private CloudProviderIncubatingValues() {}
   }
 
   private CloudIncubatingAttributes() {}

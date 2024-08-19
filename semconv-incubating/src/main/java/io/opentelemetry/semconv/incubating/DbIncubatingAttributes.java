@@ -361,7 +361,7 @@ public final class DbIncubatingAttributes {
 
   // Enum definitions
   /** Values for {@link #DB_CASSANDRA_CONSISTENCY_LEVEL}. */
-  public static final class DbCassandraConsistencyLevelValues {
+  public static final class DbCassandraConsistencyLevelIncubatingValues {
     /** all. */
     public static final String ALL = "all";
 
@@ -395,18 +395,18 @@ public final class DbIncubatingAttributes {
     /** local_serial. */
     public static final String LOCAL_SERIAL = "local_serial";
 
-    private DbCassandraConsistencyLevelValues() {}
+    private DbCassandraConsistencyLevelIncubatingValues() {}
   }
 
   /** Values for {@link #DB_CLIENT_CONNECTION_STATE}. */
-  public static final class DbClientConnectionStateValues {
+  public static final class DbClientConnectionStateIncubatingValues {
     /** idle. */
     public static final String IDLE = "idle";
 
     /** used. */
     public static final String USED = "used";
 
-    private DbClientConnectionStateValues() {}
+    private DbClientConnectionStateIncubatingValues() {}
   }
 
   /**
@@ -415,29 +415,29 @@ public final class DbIncubatingAttributes {
    * @deprecated Deprecated, use `db.client.connection.state` instead.
    */
   @Deprecated
-  public static final class DbClientConnectionsStateValues {
+  public static final class DbClientConnectionsStateIncubatingValues {
     /** idle. */
     public static final String IDLE = "idle";
 
     /** used. */
     public static final String USED = "used";
 
-    private DbClientConnectionsStateValues() {}
+    private DbClientConnectionsStateIncubatingValues() {}
   }
 
   /** Values for {@link #DB_COSMOSDB_CONNECTION_MODE}. */
-  public static final class DbCosmosdbConnectionModeValues {
+  public static final class DbCosmosdbConnectionModeIncubatingValues {
     /** Gateway (HTTP) connections mode. */
     public static final String GATEWAY = "gateway";
 
     /** Direct connection. */
     public static final String DIRECT = "direct";
 
-    private DbCosmosdbConnectionModeValues() {}
+    private DbCosmosdbConnectionModeIncubatingValues() {}
   }
 
   /** Values for {@link #DB_COSMOSDB_OPERATION_TYPE}. */
-  public static final class DbCosmosdbOperationTypeValues {
+  public static final class DbCosmosdbOperationTypeIncubatingValues {
     /** invalid. */
     public static final String INVALID = "Invalid";
 
@@ -483,11 +483,11 @@ public final class DbIncubatingAttributes {
     /** execute_javascript. */
     public static final String EXECUTE_JAVASCRIPT = "ExecuteJavaScript";
 
-    private DbCosmosdbOperationTypeValues() {}
+    private DbCosmosdbOperationTypeIncubatingValues() {}
   }
 
   /** Values for {@link #DB_SYSTEM}. */
-  public static final class DbSystemValues {
+  public static final class DbSystemIncubatingValues {
     /** Some other SQL database. Fallback only. See notes. */
     public static final String OTHER_SQL = "other_sql";
 
@@ -650,7 +650,7 @@ public final class DbIncubatingAttributes {
     /** Vertica. */
     public static final String VERTICA = "vertica";
 
-    private DbSystemValues() {}
+    private DbSystemIncubatingValues() {}
   }
 
   private DbIncubatingAttributes() {}

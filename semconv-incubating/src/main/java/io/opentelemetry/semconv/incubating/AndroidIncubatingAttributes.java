@@ -37,7 +37,7 @@ public final class AndroidIncubatingAttributes {
 
   // Enum definitions
   /** Values for {@link #ANDROID_STATE}. */
-  public static final class AndroidStateValues {
+  public static final class AndroidStateIncubatingValues {
     /**
      * Any time before Activity.onResume() or, if the app has no Activity, Context.startService()
      * has been called in the app for the first time.
@@ -56,7 +56,7 @@ public final class AndroidIncubatingAttributes {
      */
     public static final String FOREGROUND = "foreground";
 
-    private AndroidStateValues() {}
+    private AndroidStateIncubatingValues() {}
   }
 
   private AndroidIncubatingAttributes() {}

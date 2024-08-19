@@ -81,7 +81,7 @@ public final class TelemetryIncubatingAttributes {
    *     io.opentelemetry.semconv.TelemetryAttributes.TelemetrySdkLanguageValues} attribute.
    */
   @Deprecated
-  public static final class TelemetrySdkLanguageValues {
+  public static final class TelemetrySdkLanguageIncubatingValues {
     /** cpp. */
     public static final String CPP = "cpp";
 
@@ -118,7 +118,7 @@ public final class TelemetryIncubatingAttributes {
     /** webjs. */
     public static final String WEBJS = "webjs";
 
-    private TelemetrySdkLanguageValues() {}
+    private TelemetrySdkLanguageIncubatingValues() {}
   }
 
   private TelemetryIncubatingAttributes() {}

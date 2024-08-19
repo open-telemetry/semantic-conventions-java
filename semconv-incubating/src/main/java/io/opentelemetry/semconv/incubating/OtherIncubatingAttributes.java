@@ -28,14 +28,14 @@ public final class OtherIncubatingAttributes {
    * @deprecated Deprecated, use `db.client.connection.state` instead.
    */
   @Deprecated
-  public static final class StateValues {
+  public static final class StateIncubatingValues {
     /** idle. */
     public static final String IDLE = "idle";
 
     /** used. */
     public static final String USED = "used";
 
-    private StateValues() {}
+    private StateIncubatingValues() {}
   }
 
   private OtherIncubatingAttributes() {}

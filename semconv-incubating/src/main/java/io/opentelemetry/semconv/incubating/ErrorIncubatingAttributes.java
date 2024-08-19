@@ -50,13 +50,13 @@ public final class ErrorIncubatingAttributes {
    *     io.opentelemetry.semconv.ErrorAttributes.ErrorTypeValues} attribute.
    */
   @Deprecated
-  public static final class ErrorTypeValues {
+  public static final class ErrorTypeIncubatingValues {
     /**
      * A fallback error value to be used when the instrumentation doesn&#39;t define a custom value.
      */
     public static final String OTHER = "_OTHER";
 
-    private ErrorTypeValues() {}
+    private ErrorTypeIncubatingValues() {}
   }
 
   private ErrorIncubatingAttributes() {}

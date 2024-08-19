@@ -19,7 +19,7 @@ public final class GoIncubatingAttributes {
 
   // Enum definitions
   /** Values for {@link #GO_MEMORY_TYPE}. */
-  public static final class GoMemoryTypeValues {
+  public static final class GoMemoryTypeIncubatingValues {
     /**
      * Memory allocated from the heap that is reserved for stack space, whether or not it is
      * currently in-use.
@@ -32,7 +32,7 @@ public final class GoIncubatingAttributes {
      */
     public static final String OTHER = "other";
 
-    private GoMemoryTypeValues() {}
+    private GoMemoryTypeIncubatingValues() {}
   }
 
   private GoIncubatingAttributes() {}

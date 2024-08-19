@@ -108,14 +108,14 @@ public final class JvmIncubatingAttributes {
    *     io.opentelemetry.semconv.JvmAttributes.JvmMemoryTypeValues} attribute.
    */
   @Deprecated
-  public static final class JvmMemoryTypeValues {
+  public static final class JvmMemoryTypeIncubatingValues {
     /** Heap memory. */
     public static final String HEAP = "heap";
 
     /** Non-heap memory. */
     public static final String NON_HEAP = "non_heap";
 
-    private JvmMemoryTypeValues() {}
+    private JvmMemoryTypeIncubatingValues() {}
   }
 
   /**
@@ -125,7 +125,7 @@ public final class JvmIncubatingAttributes {
    *     io.opentelemetry.semconv.JvmAttributes.JvmThreadStateValues} attribute.
    */
   @Deprecated
-  public static final class JvmThreadStateValues {
+  public static final class JvmThreadStateIncubatingValues {
     /** A thread that has not yet started is in this state. */
     public static final String NEW = "new";
 
@@ -150,7 +150,7 @@ public final class JvmIncubatingAttributes {
     /** A thread that has exited is in this state. */
     public static final String TERMINATED = "terminated";
 
-    private JvmThreadStateValues() {}
+    private JvmThreadStateIncubatingValues() {}
   }
 
   private JvmIncubatingAttributes() {}

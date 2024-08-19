@@ -148,7 +148,7 @@ public final class GenAiIncubatingAttributes {
 
   // Enum definitions
   /** Values for {@link #GEN_AI_OPERATION_NAME}. */
-  public static final class GenAiOperationNameValues {
+  public static final class GenAiOperationNameIncubatingValues {
     /**
      * Chat completion operation such as [OpenAI Chat
      * API](https://platform.openai.com/docs/api-reference/chat).
@@ -161,11 +161,11 @@ public final class GenAiIncubatingAttributes {
      */
     public static final String TEXT_COMPLETION = "text_completion";
 
-    private GenAiOperationNameValues() {}
+    private GenAiOperationNameIncubatingValues() {}
   }
 
   /** Values for {@link #GEN_AI_SYSTEM}. */
-  public static final class GenAiSystemValues {
+  public static final class GenAiSystemIncubatingValues {
     /** OpenAI. */
     public static final String OPENAI = "openai";
 
@@ -178,18 +178,18 @@ public final class GenAiIncubatingAttributes {
     /** Cohere. */
     public static final String COHERE = "cohere";
 
-    private GenAiSystemValues() {}
+    private GenAiSystemIncubatingValues() {}
   }
 
   /** Values for {@link #GEN_AI_TOKEN_TYPE}. */
-  public static final class GenAiTokenTypeValues {
+  public static final class GenAiTokenTypeIncubatingValues {
     /** Input tokens (prompt, input, etc.). */
     public static final String INPUT = "input";
 
     /** Output tokens (completion, response, etc.). */
     public static final String COMPLETION = "output";
 
-    private GenAiTokenTypeValues() {}
+    private GenAiTokenTypeIncubatingValues() {}
   }
 
   private GenAiIncubatingAttributes() {}

@@ -97,7 +97,8 @@ public final class {{ root_namespace | to_camelcase(True) }}{{ classPrefix }}Att
   // Enum definitions
   {%- endif %}
   {%- for enum_attribute in filtered_enums %}
-  {%- set class_name = enum_attribute.fqn | to_camelcase(True) ~ "Values" %}
+  {%- set class_name_sans_prefix = enum_attribute.fqn  | to_camelcase(True) ~ "Values" %}
+  {%- set class_name = enum_attribute.fqn  | to_camelcase(True) ~ classPrefix ~ "Values" %}
   {%- set type = to_java_return_type(enum_attribute.attr_type.enum_type) %}
   /**
   * Values for {@link #{{ enum_attribute.fqn | to_const_name }}}.
@@ -105,7 +106,7 @@ public final class {{ root_namespace | to_camelcase(True) }}{{ classPrefix }}Att
     {%- if enum_attribute | is_deprecated %}
   * @deprecated {{enum_attribute.brief | to_doc_brief}}.
     {%- elif enum_attribute | is_stable and stablePkg != "" %}
-  * @deprecated deprecated in favor of stable {@link {{stable_class_ref(class_name, '.')}}} attribute.
+  * @deprecated deprecated in favor of stable {@link {{stable_class_ref(class_name_sans_prefix, '.')}}} attribute.
     {%- endif %}
   */
     {%- if enum_attribute | is_deprecated or enum_attribute | is_stable and stablePkg != "" %}
