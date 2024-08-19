@@ -38,6 +38,20 @@ public final class MessagingIncubatingAttributes {
   public static final AttributeKey<String> MESSAGING_CLIENT_ID = stringKey("messaging.client.id");
 
   /**
+   * The name of the consumer group with which a consumer is associated.
+   *
+   * <p>Notes:
+   *
+   * <ul>
+   *   <li>Semantic conventions for individual messaging systems SHOULD document whether {@code
+   *       messaging.consumer.group.name} is applicable and what it means in the context of that
+   *       system.
+   * </ul>
+   */
+  public static final AttributeKey<String> MESSAGING_CONSUMER_GROUP_NAME =
+      stringKey("messaging.consumer.group.name");
+
+  /**
    * A boolean that is true if the message destination is anonymous (could be unnamed or have
    * auto-generated name).
    */
@@ -66,6 +80,20 @@ public final class MessagingIncubatingAttributes {
       stringKey("messaging.destination.partition.id");
 
   /**
+   * The name of the destination subscription from which a message is consumed.
+   *
+   * <p>Notes:
+   *
+   * <ul>
+   *   <li>Semantic conventions for individual messaging systems SHOULD document whether {@code
+   *       messaging.destination.subscription.name} is applicable and what it means in the context
+   *       of that system.
+   * </ul>
+   */
+  public static final AttributeKey<String> MESSAGING_DESTINATION_SUBSCRIPTION_NAME =
+      stringKey("messaging.destination.subscription.name");
+
+  /**
    * Low cardinality representation of the messaging destination name
    *
    * <p>Notes:
@@ -88,27 +116,29 @@ public final class MessagingIncubatingAttributes {
       booleanKey("messaging.destination.temporary");
 
   /**
-   * A boolean that is true if the publish message destination is anonymous (could be unnamed or
-   * have auto-generated name).
+   * Deprecated, no replacement at this time.
+   *
+   * @deprecated Deprecated, no replacement at this time.
    */
+  @Deprecated
   public static final AttributeKey<Boolean> MESSAGING_DESTINATION_PUBLISH_ANONYMOUS =
       booleanKey("messaging.destination_publish.anonymous");
 
   /**
-   * The name of the original destination the message was published to
+   * Deprecated, no replacement at this time.
    *
-   * <p>Notes:
-   *
-   * <ul>
-   *   <li>The name SHOULD uniquely identify a specific queue, topic, or other entity within the
-   *       broker. If the broker doesn't have such notion, the original destination name SHOULD
-   *       uniquely identify the broker.
-   * </ul>
+   * @deprecated Deprecated, no replacement at this time.
    */
+  @Deprecated
   public static final AttributeKey<String> MESSAGING_DESTINATION_PUBLISH_NAME =
       stringKey("messaging.destination_publish.name");
 
-  /** The name of the consumer group the event consumer is associated with. */
+  /**
+   * Deprecated, use {@code messaging.consumer.group.name} instead.
+   *
+   * @deprecated Deprecated, use `messaging.consumer.group.name` instead.
+   */
+  @Deprecated
   public static final AttributeKey<String> MESSAGING_EVENTHUBS_CONSUMER_GROUP =
       stringKey("messaging.eventhubs.consumer.group");
 
@@ -136,9 +166,11 @@ public final class MessagingIncubatingAttributes {
       stringKey("messaging.gcp_pubsub.message.ordering_key");
 
   /**
-   * Name of the Kafka Consumer Group that is handling the message. Only applies to consumers, not
-   * producers.
+   * Deprecated, use {@code messaging.consumer.group.name} instead.
+   *
+   * @deprecated Deprecated, use `messaging.consumer.group.name` instead.
    */
+  @Deprecated
   public static final AttributeKey<String> MESSAGING_KAFKA_CONSUMER_GROUP =
       stringKey("messaging.kafka.consumer.group");
 
@@ -166,13 +198,21 @@ public final class MessagingIncubatingAttributes {
   public static final AttributeKey<String> MESSAGING_KAFKA_MESSAGE_KEY =
       stringKey("messaging.kafka.message.key");
 
-  /** The offset of a record in the corresponding Kafka partition. */
+  /**
+   * Deprecated, use {@code messaging.kafka.offset} instead.
+   *
+   * @deprecated Deprecated, use `messaging.kafka.offset` instead.
+   */
+  @Deprecated
   public static final AttributeKey<Long> MESSAGING_KAFKA_MESSAGE_OFFSET =
       longKey("messaging.kafka.message.offset");
 
   /** A boolean that is true if the message is a tombstone. */
   public static final AttributeKey<Boolean> MESSAGING_KAFKA_MESSAGE_TOMBSTONE =
       booleanKey("messaging.kafka.message.tombstone");
+
+  /** The offset of a record in the corresponding Kafka partition. */
+  public static final AttributeKey<Long> MESSAGING_KAFKA_OFFSET = longKey("messaging.kafka.offset");
 
   /**
    * The size of the message body in bytes.
@@ -245,9 +285,11 @@ public final class MessagingIncubatingAttributes {
       longKey("messaging.rabbitmq.message.delivery_tag");
 
   /**
-   * Name of the RocketMQ producer/consumer group that is handling the message. The client type is
-   * identified by the SpanKind.
+   * Deprecated, use {@code messaging.consumer.group.name} instead.
+   *
+   * @deprecated Deprecated, use `messaging.consumer.group.name` instead.
    */
+  @Deprecated
   public static final AttributeKey<String> MESSAGING_ROCKETMQ_CLIENT_GROUP =
       stringKey("messaging.rocketmq.client_group");
 
@@ -288,7 +330,12 @@ public final class MessagingIncubatingAttributes {
   public static final AttributeKey<String> MESSAGING_ROCKETMQ_NAMESPACE =
       stringKey("messaging.rocketmq.namespace");
 
-  /** The name of the subscription in the topic messages are received from. */
+  /**
+   * Deprecated, use {@code messaging.servicebus.destination.subscription_name} instead.
+   *
+   * @deprecated Deprecated, use `messaging.servicebus.destination.subscription_name` instead.
+   */
+  @Deprecated
   public static final AttributeKey<String> MESSAGING_SERVICEBUS_DESTINATION_SUBSCRIPTION_NAME =
       stringKey("messaging.servicebus.destination.subscription_name");
 
@@ -343,11 +390,14 @@ public final class MessagingIncubatingAttributes {
      */
     public static final String RECEIVE = "receive";
 
-    /** One or more messages are delivered to or processed by a consumer. */
-    public static final String DELIVER = "process";
+    /** One or more messages are processed by a consumer. */
+    public static final String PROCESS = "process";
 
     /** One or more messages are settled. */
     public static final String SETTLE = "settle";
+
+    /** Deprecated. Use `process` instead. */
+    public static final String DELIVER = "deliver";
 
     private MessagingOperationTypeValues() {}
   }
@@ -428,6 +478,9 @@ public final class MessagingIncubatingAttributes {
 
     /** Apache RocketMQ. */
     public static final String ROCKETMQ = "rocketmq";
+
+    /** Apache Pulsar. */
+    public static final String PULSAR = "pulsar";
 
     private MessagingSystemValues() {}
   }

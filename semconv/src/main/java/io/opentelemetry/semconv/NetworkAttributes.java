@@ -98,6 +98,9 @@ public final class NetworkAttributes {
     /** Unix domain socket. */
     public static final String UNIX = "unix";
 
+    /** QUIC. */
+    public static final String QUIC = "quic";
+
     private NetworkTransportValues() {}
   }
 
