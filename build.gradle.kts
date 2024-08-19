@@ -14,6 +14,7 @@ val snapshot = true
 var semanticConventionsVersion = "1.27.0"
 val schemaUrlVersions = listOf(
     semanticConventionsVersion,
+    "1.26.0",
     "1.25.0",
     "1.24.0",
     "1.23.1",
