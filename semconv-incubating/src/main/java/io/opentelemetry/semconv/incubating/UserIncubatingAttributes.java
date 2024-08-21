@@ -12,7 +12,7 @@ import io.opentelemetry.api.common.AttributeKey;
 import java.util.List;
 
 // DO NOT EDIT, this is an Auto-generated file from
-// buildscripts/templates/SemanticAttributes.java.j2
+// buildscripts/templates/registry/incubating_java/IncubatingSemanticAttributes.java.j2
 @SuppressWarnings("unused")
 public final class UserIncubatingAttributes {
 
@@ -28,8 +28,8 @@ public final class UserIncubatingAttributes {
    * <p>Notes:
    *
    * <ul>
-   *   <li>Useful if {@code user.id} or {@code user.name} contain confidential information and
-   *       cannot be used.
+   *   <li>Useful if <code>user.id</code> or <code>user.name</code> contain confidential information
+   *       and cannot be used.
    * </ul>
    */
   public static final AttributeKey<String> USER_HASH = stringKey("user.hash");

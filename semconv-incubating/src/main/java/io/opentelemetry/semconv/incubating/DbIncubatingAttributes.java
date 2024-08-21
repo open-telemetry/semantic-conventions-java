@@ -51,10 +51,10 @@ public final class DbIncubatingAttributes {
   /**
    * The name of the connection pool; unique within the instrumented application. In case the
    * connection pool implementation doesn't provide a name, instrumentation SHOULD use a combination
-   * of parameters that would make the name unique, for example, combining attributes {@code
-   * server.address}, {@code server.port}, and {@code db.namespace}, formatted as {@code
-   * server.address:server.port/db.namespace}. Instrumentations that generate connection pool name
-   * following different patterns SHOULD document it.
+   * of parameters that would make the name unique, for example, combining attributes <code>
+   * server.address</code>, <code>server.port</code>, and <code>db.namespace</code>, formatted as
+   * <code>server.address:server.port/db.namespace</code>. Instrumentations that generate connection
+   * pool name following different patterns SHOULD document it.
    */
   public static final AttributeKey<String> DB_CLIENT_CONNECTION_POOL_NAME =
       stringKey("db.client.connection.pool.name");
@@ -62,24 +62,6 @@ public final class DbIncubatingAttributes {
   /** The state of a connection in the pool */
   public static final AttributeKey<String> DB_CLIENT_CONNECTION_STATE =
       stringKey("db.client.connection.state");
-
-  /**
-   * Deprecated, use {@code db.client.connection.pool.name} instead.
-   *
-   * @deprecated Deprecated, use `db.client.connection.pool.name` instead.
-   */
-  @Deprecated
-  public static final AttributeKey<String> DB_CLIENT_CONNECTIONS_POOL_NAME =
-      stringKey("db.client.connections.pool.name");
-
-  /**
-   * Deprecated, use {@code db.client.connection.state} instead.
-   *
-   * @deprecated Deprecated, use `db.client.connection.state` instead.
-   */
-  @Deprecated
-  public static final AttributeKey<String> DB_CLIENT_CONNECTIONS_STATE =
-      stringKey("db.client.connections.state");
 
   /**
    * The name of a collection (table, container) within the database.
@@ -92,8 +74,8 @@ public final class DbIncubatingAttributes {
    *       SHOULD be the first collection name found in the query and it SHOULD match the value
    *       provided in the query text including any schema and database name prefix. For batch
    *       operations, if the individual operations are known to have the same collection name then
-   *       that collection name SHOULD be used, otherwise {@code db.collection.name} SHOULD NOT be
-   *       captured.
+   *       that collection name SHOULD be used, otherwise <code>db.collection.name</code> SHOULD NOT
+   *       be captured.
    * </ul>
    */
   public static final AttributeKey<String> DB_COLLECTION_NAME = stringKey("db.collection.name");
@@ -125,15 +107,6 @@ public final class DbIncubatingAttributes {
   /** Cosmos DB sub status code. */
   public static final AttributeKey<Long> DB_COSMOSDB_SUB_STATUS_CODE =
       longKey("db.cosmosdb.sub_status_code");
-
-  /**
-   * Deprecated, use {@code db.namespace} instead.
-   *
-   * @deprecated Deprecated, use `db.namespace` instead.
-   */
-  @Deprecated
-  public static final AttributeKey<String> DB_ELASTICSEARCH_CLUSTER_NAME =
-      stringKey("db.elasticsearch.cluster.name");
 
   /**
    * Represents the human-readable identifier of the node/instance to which a request was routed.
@@ -177,13 +150,6 @@ public final class DbIncubatingAttributes {
   public static final AttributeKey<String> DB_NAMESPACE = stringKey("db.namespace");
 
   /**
-   * Deprecated, use <code>db.operation.name</code> instead.
-   *
-   * @deprecated Replaced by `db.operation.name`.
-   */
-  @Deprecated public static final AttributeKey<String> DB_OPERATION = stringKey("db.operation");
-
-  /**
    * The number of queries included in a <a
    * href="/docs/database/database-spans.md#batch-operations">batch operation</a>.
    *
@@ -191,7 +157,7 @@ public final class DbIncubatingAttributes {
    *
    * <ul>
    *   <li>Operations are only considered batches when they contain two or more operations, and so
-   *       {@code db.operation.batch.size} SHOULD never be {@code 1}.
+   *       <code>db.operation.batch.size</code> SHOULD never be <code>1</code>.
    * </ul>
    */
   public static final AttributeKey<Long> DB_OPERATION_BATCH_SIZE =
@@ -207,15 +173,16 @@ public final class DbIncubatingAttributes {
    *       to do any case normalization. If the operation name is parsed from the query text, it
    *       SHOULD be the first operation name found in the query. For batch operations, if the
    *       individual operations are known to have the same operation name then that operation name
-   *       SHOULD be used prepended by {@code BATCH}, otherwise {@code db.operation.name} SHOULD be
-   *       {@code BATCH} or some other database system specific term if more applicable.
+   *       SHOULD be used prepended by <code>BATCH </code>, otherwise <code>db.operation.name</code>
+   *       SHOULD be <code>BATCH</code> or some other database system specific term if more
+   *       applicable.
    * </ul>
    */
   public static final AttributeKey<String> DB_OPERATION_NAME = stringKey("db.operation.name");
 
   /**
-   * A query parameter used in {@code db.query.text}, with {@code <key>} being the parameter name,
-   * and the attribute value being a string representation of the parameter value.
+   * A query parameter used in <code>db.query.text</code>, with <code>&lt;key&gt;</code> being the
+   * parameter name, and the attribute value being a string representation of the parameter value.
    *
    * <p>Notes:
    *
@@ -236,12 +203,12 @@ public final class DbIncubatingAttributes {
    * <ul>
    *   <li>For sanitization see <a
    *       href="../../docs/database/database-spans.md#sanitization-of-dbquerytext">Sanitization of
-   *       {@code db.query.text}</a>. For batch operations, if the individual operations are known
-   *       to have the same query text then that query text SHOULD be used, otherwise all of the
-   *       individual query texts SHOULD be concatenated with separator {@code ;} or some other
-   *       database system specific separator if more applicable. Even though parameterized query
-   *       text can potentially have sensitive data, by using a parameterized query the user is
-   *       giving a strong signal that any sensitive data will be passed as parameter values, and
+   *       <code>db.query.text</code></a>. For batch operations, if the individual operations are
+   *       known to have the same query text then that query text SHOULD be used, otherwise all of
+   *       the individual query texts SHOULD be concatenated with separator <code>; </code> or some
+   *       other database system specific separator if more applicable. Even though parameterized
+   *       query text can potentially have sensitive data, by using a parameterized query the user
+   *       is giving a strong signal that any sensitive data will be passed as parameter values, and
    *       the benefit to observability of capturing the static part of the query text by default
    *       outweighs the risk.
    * </ul>
@@ -301,24 +268,9 @@ public final class DbIncubatingAttributes {
     private DbCassandraConsistencyLevelValues() {}
   }
 
+  // Enum definitions
   /** Values for {@link #DB_CLIENT_CONNECTION_STATE}. */
   public static final class DbClientConnectionStateValues {
-    /** idle. */
-    public static final String IDLE = "idle";
-
-    /** used. */
-    public static final String USED = "used";
-
-    private DbClientConnectionStateValues() {}
-  }
-
-  /**
-   * Values for {@link #DB_CLIENT_CONNECTIONS_STATE}.
-   *
-   * @deprecated Deprecated, use `db.client.connection.state` instead.
-   */
-  @Deprecated
-  public static final class DbClientConnectionsStateValues {
 
     /** idle */
     public static final String IDLE = "idle";
@@ -326,7 +278,7 @@ public final class DbIncubatingAttributes {
     /** used */
     public static final String USED = "used";
 
-    private DbClientConnectionsStateValues() {}
+    private DbClientConnectionStateValues() {}
   }
 
   // Enum definitions
@@ -401,91 +353,91 @@ public final class DbIncubatingAttributes {
     /** Some other SQL database. Fallback only. See notes. */
     public static final String OTHER_SQL = "other_sql";
 
-    /** Adabas (Adaptable Database System). */
+    /** Adabas (Adaptable Database System) */
     public static final String ADABAS = "adabas";
 
     /** Deprecated, use `intersystems_cache` instead. */
     public static final String CACHE = "cache";
 
-    /** InterSystems Caché. */
+    /** InterSystems Caché */
     public static final String INTERSYSTEMS_CACHE = "intersystems_cache";
 
-    /** Apache Cassandra. */
+    /** Apache Cassandra */
     public static final String CASSANDRA = "cassandra";
 
-    /** ClickHouse. */
+    /** ClickHouse */
     public static final String CLICKHOUSE = "clickhouse";
 
     /** Deprecated, use `other_sql` instead. */
     public static final String CLOUDSCAPE = "cloudscape";
 
-    /** CockroachDB. */
+    /** CockroachDB */
     public static final String COCKROACHDB = "cockroachdb";
 
     /** Deprecated, no replacement at this time. */
     public static final String COLDFUSION = "coldfusion";
 
-    /** Microsoft Azure Cosmos DB. */
+    /** Microsoft Azure Cosmos DB */
     public static final String COSMOSDB = "cosmosdb";
 
-    /** Couchbase. */
+    /** Couchbase */
     public static final String COUCHBASE = "couchbase";
 
-    /** CouchDB. */
+    /** CouchDB */
     public static final String COUCHDB = "couchdb";
 
     /** IBM Db2 */
     public static final String DB2 = "db2";
 
-    /** Apache Derby. */
+    /** Apache Derby */
     public static final String DERBY = "derby";
 
-    /** Amazon DynamoDB. */
+    /** Amazon DynamoDB */
     public static final String DYNAMODB = "dynamodb";
 
     /** EnterpriseDB */
     public static final String EDB = "edb";
 
-    /** Elasticsearch. */
+    /** Elasticsearch */
     public static final String ELASTICSEARCH = "elasticsearch";
 
     /** FileMaker */
     public static final String FILEMAKER = "filemaker";
 
-    /** Firebird. */
+    /** Firebird */
     public static final String FIREBIRD = "firebird";
 
     /** Deprecated, use `other_sql` instead. */
     public static final String FIRSTSQL = "firstsql";
 
-    /** Apache Geode. */
+    /** Apache Geode */
     public static final String GEODE = "geode";
 
-    /** H2. */
+    /** H2 */
     public static final String H2 = "h2";
 
-    /** SAP HANA. */
+    /** SAP HANA */
     public static final String HANADB = "hanadb";
 
-    /** Apache HBase. */
+    /** Apache HBase */
     public static final String HBASE = "hbase";
 
-    /** Apache Hive. */
+    /** Apache Hive */
     public static final String HIVE = "hive";
 
-    /** HyperSQL DataBase. */
+    /** HyperSQL DataBase */
     public static final String HSQLDB = "hsqldb";
 
-    /** InfluxDB. */
+    /** InfluxDB */
     public static final String INFLUXDB = "influxdb";
 
-    /** Informix. */
+    /** Informix */
     public static final String INFORMIX = "informix";
 
-    /** Ingres. */
+    /** Ingres */
     public static final String INGRES = "ingres";
 
-    /** InstantDB. */
+    /** InstantDB */
     public static final String INSTANTDB = "instantdb";
 
     /** InterBase */
@@ -494,58 +446,58 @@ public final class DbIncubatingAttributes {
     /** MariaDB */
     public static final String MARIADB = "mariadb";
 
-    /** SAP MaxDB. */
+    /** SAP MaxDB */
     public static final String MAXDB = "maxdb";
 
-    /** Memcached. */
+    /** Memcached */
     public static final String MEMCACHED = "memcached";
 
-    /** MongoDB. */
+    /** MongoDB */
     public static final String MONGODB = "mongodb";
 
-    /** Microsoft SQL Server. */
+    /** Microsoft SQL Server */
     public static final String MSSQL = "mssql";
 
     /** Deprecated, Microsoft SQL Server Compact is discontinued. */
     public static final String MSSQLCOMPACT = "mssqlcompact";
 
-    /** MySQL. */
+    /** MySQL */
     public static final String MYSQL = "mysql";
 
-    /** Neo4j. */
+    /** Neo4j */
     public static final String NEO4J = "neo4j";
 
-    /** Netezza. */
+    /** Netezza */
     public static final String NETEZZA = "netezza";
 
-    /** OpenSearch. */
+    /** OpenSearch */
     public static final String OPENSEARCH = "opensearch";
 
-    /** Oracle Database. */
+    /** Oracle Database */
     public static final String ORACLE = "oracle";
 
-    /** Pervasive PSQL. */
+    /** Pervasive PSQL */
     public static final String PERVASIVE = "pervasive";
 
     /** PointBase */
     public static final String POINTBASE = "pointbase";
 
-    /** PostgreSQL. */
+    /** PostgreSQL */
     public static final String POSTGRESQL = "postgresql";
 
-    /** Progress Database. */
+    /** Progress Database */
     public static final String PROGRESS = "progress";
 
-    /** Redis. */
+    /** Redis */
     public static final String REDIS = "redis";
 
-    /** Amazon Redshift. */
+    /** Amazon Redshift */
     public static final String REDSHIFT = "redshift";
 
-    /** Cloud Spanner. */
+    /** Cloud Spanner */
     public static final String SPANNER = "spanner";
 
-    /** SQLite. */
+    /** SQLite */
     public static final String SQLITE = "sqlite";
 
     /** Sybase */
@@ -554,10 +506,10 @@ public final class DbIncubatingAttributes {
     /** Teradata */
     public static final String TERADATA = "teradata";
 
-    /** Trino. */
+    /** Trino */
     public static final String TRINO = "trino";
 
-    /** Vertica. */
+    /** Vertica */
     public static final String VERTICA = "vertica";
 
     private DbSystemValues() {}

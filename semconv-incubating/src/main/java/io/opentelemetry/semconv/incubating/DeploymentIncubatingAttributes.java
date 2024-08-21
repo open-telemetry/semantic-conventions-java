@@ -15,27 +15,22 @@ import io.opentelemetry.api.common.AttributeKey;
 public final class DeploymentIncubatingAttributes {
 
   /**
-   * 'Deprecated, use {@code deployment.environment.name} instead.'
-   *
-   * @deprecated 'Deprecated, use `deployment.environment.name` instead.'.
-   */
-  @Deprecated
-  public static final AttributeKey<String> DEPLOYMENT_ENVIRONMENT =
-      stringKey("deployment.environment");
-
-  /**
    * Name of the <a href="https://wikipedia.org/wiki/Deployment_environment">deployment
    * environment</a> (aka deployment tier).
    *
    * <p>Notes:
    *
    * <ul>
-   *   <li>{@code deployment.environment.name} does not affect the uniqueness constraints defined
-   *       through the {@code service.namespace}, {@code service.name} and {@code
-   *       service.instance.id} resource attributes. This implies that resources carrying the
+   *   <li><code>deployment.environment.name</code> does not affect the uniqueness constraints
+   *       defined through the <code>service.namespace</code>, <code>service.name</code> and <code>
+   *       service.instance.id</code> resource attributes. This implies that resources carrying the
    *       following attribute combinations MUST be considered to be identifying the same service:
-   *   <li>{@code service.name=frontend}, {@code deployment.environment.name=production}
-   *   <li>{@code service.name=frontend}, {@code deployment.environment.name=staging}.
+   *       <ul>
+   *         <li><code>service.name=frontend</code>, <code>deployment.environment.name=production
+   *             </code>
+   *         <li><code>service.name=frontend</code>, <code>deployment.environment.name=staging
+   *             </code>.
+   *       </ul>
    * </ul>
    */
   public static final AttributeKey<String> DEPLOYMENT_ENVIRONMENT_NAME =
@@ -53,10 +48,11 @@ public final class DeploymentIncubatingAttributes {
   // Enum definitions
   /** Values for {@link #DEPLOYMENT_STATUS}. */
   public static final class DeploymentStatusValues {
-    /** failed. */
+
+    /** failed */
     public static final String FAILED = "failed";
 
-    /** succeeded. */
+    /** succeeded */
     public static final String SUCCEEDED = "succeeded";
 
     private DeploymentStatusValues() {}

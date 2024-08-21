@@ -10,7 +10,7 @@ import static io.opentelemetry.api.common.AttributeKey.stringKey;
 import io.opentelemetry.api.common.AttributeKey;
 
 // DO NOT EDIT, this is an Auto-generated file from
-// buildscripts/templates/SemanticAttributes.java.j2
+// buildscripts/templates/registry/incubating_java/IncubatingSemanticAttributes.java.j2
 @SuppressWarnings("unused")
 public final class V8jsIncubatingAttributes {
 
@@ -23,9 +23,9 @@ public final class V8jsIncubatingAttributes {
    * <p>Notes:
    *
    * <ul>
-   *   <li>Value can be retrieved from value {@code space_name} of <a
-   *       href="https://nodejs.org/api/v8.html#v8getheapspacestatistics">{@code
-   *       v8.getHeapSpaceStatistics()}</a>
+   *   <li>Value can be retrieved from value <code>space_name</code> of <a
+   *       href="https://nodejs.org/api/v8.html#v8getheapspacestatistics"><code>
+   *       v8.getHeapSpaceStatistics()</code></a>
    * </ul>
    */
   public static final AttributeKey<String> V8JS_HEAP_SPACE_NAME = stringKey("v8js.heap.space.name");
@@ -33,6 +33,7 @@ public final class V8jsIncubatingAttributes {
   // Enum definitions
   /** Values for {@link #V8JS_GC_TYPE}. */
   public static final class V8jsGcTypeValues {
+
     /** Major (Mark Sweep Compact). */
     public static final String MAJOR = "major";
 
@@ -48,8 +49,10 @@ public final class V8jsIncubatingAttributes {
     private V8jsGcTypeValues() {}
   }
 
+  // Enum definitions
   /** Values for {@link #V8JS_HEAP_SPACE_NAME}. */
   public static final class V8jsHeapSpaceNameValues {
+
     /** New memory space. */
     public static final String NEW_SPACE = "new_space";
 

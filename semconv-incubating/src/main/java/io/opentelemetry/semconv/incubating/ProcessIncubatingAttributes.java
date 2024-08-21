@@ -45,14 +45,6 @@ public final class ProcessIncubatingAttributes {
   public static final AttributeKey<String> PROCESS_CONTEXT_SWITCH_TYPE =
       stringKey("process.context_switch_type");
 
-  /**
-   * Deprecated, use {@code cpu.mode} instead.
-   *
-   * @deprecated Deprecated, use `cpu.mode` instead.
-   */
-  @Deprecated
-  public static final AttributeKey<String> PROCESS_CPU_STATE = stringKey("process.cpu.state");
-
   /** The date and time the process was created, in ISO 8601 format. */
   public static final AttributeKey<String> PROCESS_CREATION_TIME =
       stringKey("process.creation.time");
@@ -168,26 +160,6 @@ public final class ProcessIncubatingAttributes {
     public static final String INVOLUNTARY = "involuntary";
 
     private ProcessContextSwitchTypeValues() {}
-  }
-
-  /**
-   * Values for {@link #PROCESS_CPU_STATE}.
-   *
-   * @deprecated Deprecated, use `cpu.mode` instead.
-   */
-  @Deprecated
-  public static final class ProcessCpuStateValues {
-
-    /** system */
-    public static final String SYSTEM = "system";
-
-    /** user */
-    public static final String USER = "user";
-
-    /** wait */
-    public static final String WAIT = "wait";
-
-    private ProcessCpuStateValues() {}
   }
 
   // Enum definitions

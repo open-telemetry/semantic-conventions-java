@@ -87,15 +87,6 @@ public final class TlsIncubatingAttributes {
   public static final AttributeKey<String> TLS_CLIENT_NOT_BEFORE =
       stringKey("tls.client.not_before");
 
-  /**
-   * Deprecated, use {@code server.address} instead.
-   *
-   * @deprecated Deprecated, use `server.address` instead.
-   */
-  @Deprecated
-  public static final AttributeKey<String> TLS_CLIENT_SERVER_NAME =
-      stringKey("tls.client.server_name");
-
   /** Distinguished name of subject of the x.509 certificate presented by the client. */
   public static final AttributeKey<String> TLS_CLIENT_SUBJECT = stringKey("tls.client.subject");
 

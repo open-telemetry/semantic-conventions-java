@@ -43,9 +43,9 @@ public final class MessagingIncubatingAttributes {
    * <p>Notes:
    *
    * <ul>
-   *   <li>Semantic conventions for individual messaging systems SHOULD document whether {@code
-   *       messaging.consumer.group.name} is applicable and what it means in the context of that
-   *       system.
+   *   <li>Semantic conventions for individual messaging systems SHOULD document whether <code>
+   *       messaging.consumer.group.name</code> is applicable and what it means in the context of
+   *       that system.
    * </ul>
    */
   public static final AttributeKey<String> MESSAGING_CONSUMER_GROUP_NAME =
@@ -85,9 +85,9 @@ public final class MessagingIncubatingAttributes {
    * <p>Notes:
    *
    * <ul>
-   *   <li>Semantic conventions for individual messaging systems SHOULD document whether {@code
-   *       messaging.destination.subscription.name} is applicable and what it means in the context
-   *       of that system.
+   *   <li>Semantic conventions for individual messaging systems SHOULD document whether <code>
+   *       messaging.destination.subscription.name</code> is applicable and what it means in the
+   *       context of that system.
    * </ul>
    */
   public static final AttributeKey<String> MESSAGING_DESTINATION_SUBSCRIPTION_NAME =
@@ -115,33 +115,6 @@ public final class MessagingIncubatingAttributes {
   public static final AttributeKey<Boolean> MESSAGING_DESTINATION_TEMPORARY =
       booleanKey("messaging.destination.temporary");
 
-  /**
-   * Deprecated, no replacement at this time.
-   *
-   * @deprecated Deprecated, no replacement at this time.
-   */
-  @Deprecated
-  public static final AttributeKey<Boolean> MESSAGING_DESTINATION_PUBLISH_ANONYMOUS =
-      booleanKey("messaging.destination_publish.anonymous");
-
-  /**
-   * Deprecated, no replacement at this time.
-   *
-   * @deprecated Deprecated, no replacement at this time.
-   */
-  @Deprecated
-  public static final AttributeKey<String> MESSAGING_DESTINATION_PUBLISH_NAME =
-      stringKey("messaging.destination_publish.name");
-
-  /**
-   * Deprecated, use {@code messaging.consumer.group.name} instead.
-   *
-   * @deprecated Deprecated, use `messaging.consumer.group.name` instead.
-   */
-  @Deprecated
-  public static final AttributeKey<String> MESSAGING_EVENTHUBS_CONSUMER_GROUP =
-      stringKey("messaging.eventhubs.consumer.group");
-
   /** The UTC epoch seconds at which the message has been accepted and stored in the entity. */
   public static final AttributeKey<Long> MESSAGING_EVENTHUBS_MESSAGE_ENQUEUED_TIME =
       longKey("messaging.eventhubs.message.enqueued_time");
@@ -166,15 +139,6 @@ public final class MessagingIncubatingAttributes {
       stringKey("messaging.gcp_pubsub.message.ordering_key");
 
   /**
-   * Deprecated, use {@code messaging.consumer.group.name} instead.
-   *
-   * @deprecated Deprecated, use `messaging.consumer.group.name` instead.
-   */
-  @Deprecated
-  public static final AttributeKey<String> MESSAGING_KAFKA_CONSUMER_GROUP =
-      stringKey("messaging.kafka.consumer.group");
-
-  /**
    * Message keys in Kafka are used for grouping alike messages to ensure they're processed on the
    * same partition. They differ from <code>messaging.message.id</code> in that they're not unique.
    * If the key is <code>null</code>, the attribute MUST NOT be set.
@@ -188,15 +152,6 @@ public final class MessagingIncubatingAttributes {
    */
   public static final AttributeKey<String> MESSAGING_KAFKA_MESSAGE_KEY =
       stringKey("messaging.kafka.message.key");
-
-  /**
-   * Deprecated, use {@code messaging.kafka.offset} instead.
-   *
-   * @deprecated Deprecated, use `messaging.kafka.offset` instead.
-   */
-  @Deprecated
-  public static final AttributeKey<Long> MESSAGING_KAFKA_MESSAGE_OFFSET =
-      longKey("messaging.kafka.message.offset");
 
   /** A boolean that is true if the message is a tombstone. */
   public static final AttributeKey<Boolean> MESSAGING_KAFKA_MESSAGE_TOMBSTONE =
@@ -267,15 +222,6 @@ public final class MessagingIncubatingAttributes {
   public static final AttributeKey<Long> MESSAGING_RABBITMQ_MESSAGE_DELIVERY_TAG =
       longKey("messaging.rabbitmq.message.delivery_tag");
 
-  /**
-   * Deprecated, use {@code messaging.consumer.group.name} instead.
-   *
-   * @deprecated Deprecated, use `messaging.consumer.group.name` instead.
-   */
-  @Deprecated
-  public static final AttributeKey<String> MESSAGING_ROCKETMQ_CLIENT_GROUP =
-      stringKey("messaging.rocketmq.client_group");
-
   /** Model of message consumption. This only applies to consumer spans. */
   public static final AttributeKey<String> MESSAGING_ROCKETMQ_CONSUMPTION_MODEL =
       stringKey("messaging.rocketmq.consumption_model");
@@ -312,15 +258,6 @@ public final class MessagingIncubatingAttributes {
   /** Namespace of RocketMQ resources, resources in different namespaces are individual. */
   public static final AttributeKey<String> MESSAGING_ROCKETMQ_NAMESPACE =
       stringKey("messaging.rocketmq.namespace");
-
-  /**
-   * Deprecated, use {@code messaging.servicebus.destination.subscription_name} instead.
-   *
-   * @deprecated Deprecated, use `messaging.servicebus.destination.subscription_name` instead.
-   */
-  @Deprecated
-  public static final AttributeKey<String> MESSAGING_SERVICEBUS_DESTINATION_SUBSCRIPTION_NAME =
-      stringKey("messaging.servicebus.destination.subscription_name");
 
   /**
    * Describes the <a
@@ -472,7 +409,7 @@ public final class MessagingIncubatingAttributes {
     /** Apache RocketMQ */
     public static final String ROCKETMQ = "rocketmq";
 
-    /** Apache Pulsar. */
+    /** Apache Pulsar */
     public static final String PULSAR = "pulsar";
 
     private MessagingSystemValues() {}

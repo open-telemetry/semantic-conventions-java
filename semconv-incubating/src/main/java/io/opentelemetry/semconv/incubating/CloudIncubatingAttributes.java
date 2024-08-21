@@ -73,24 +73,28 @@ public final class CloudIncubatingAttributes {
    *
    * <ul>
    *   <li>On some cloud providers, it may not be possible to determine the full ID at startup, so
-   *       it may be necessary to set `cloud.resource_id` as a span attribute instead.
-   *       <p>The exact value to use for `cloud.resource_id` depends on the cloud provider. The
-   *       following well-known definitions MUST be used if you set this attribute and they apply:
-   *   <li><strong>AWS Lambda:</strong> The function <a
-   *       href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">ARN</a>.
-   *       Take care not to use the &quot;invoked ARN&quot; directly but replace any <a
-   *       href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-aliases.html">alias
-   *       suffix</a> with the resolved function version, as the same runtime instance may be
-   *       invocable with multiple different aliases.
-   *   <li><strong>GCP:</strong> The <a
-   *       href="https://cloud.google.com/iam/docs/full-resource-names">URI of the resource</a>
-   *   <li><strong>Azure:</strong> The <a
-   *       href="https://docs.microsoft.com/rest/api/resources/resources/get-by-id">Fully Qualified
-   *       Resource ID</a> of the invoked function, <em>not</em> the function app, having the form
-   *       {@code
-   *       /subscriptions/<SUBSCIPTION_GUID>/resourceGroups/<RG>/providers/Microsoft.Web/sites/<FUNCAPP>/functions/<FUNC>}.
-   *       This means that a span attribute MUST be used, as an Azure function app can host multiple
-   *       functions that would usually share a TracerProvider.
+   *       it may be necessary to set <code>cloud.resource_id</code> as a span attribute instead.
+   *       The exact value to use for <code>cloud.resource_id</code> depends on the cloud provider.
+   *       The following well-known definitions MUST be used if you set this attribute and they
+   *       apply:
+   *       <ul>
+   *         <li><strong>AWS Lambda:</strong> The function <a
+   *             href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">ARN</a>.
+   *             Take care not to use the &quot;invoked ARN&quot; directly but replace any <a
+   *             href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-aliases.html">alias
+   *             suffix</a> with the resolved function version, as the same runtime instance may be
+   *             invocable with multiple different aliases.
+   *         <li><strong>GCP:</strong> The <a
+   *             href="https://cloud.google.com/iam/docs/full-resource-names">URI of the
+   *             resource</a>
+   *         <li><strong>Azure:</strong> The <a
+   *             href="https://docs.microsoft.com/rest/api/resources/resources/get-by-id">Fully
+   *             Qualified Resource ID</a> of the invoked function, <em>not</em> the function app,
+   *             having the form <code>
+   *             /subscriptions/&lt;SUBSCIPTION_GUID&gt;/resourceGroups/&lt;RG&gt;/providers/Microsoft.Web/sites/&lt;FUNCAPP&gt;/functions/&lt;FUNC&gt;
+   *             </code>. This means that a span attribute MUST be used, as an Azure function app
+   *             can host multiple functions that would usually share a TracerProvider.
+   *       </ul>
    * </ul>
    */
   public static final AttributeKey<String> CLOUD_RESOURCE_ID = stringKey("cloud.resource_id");

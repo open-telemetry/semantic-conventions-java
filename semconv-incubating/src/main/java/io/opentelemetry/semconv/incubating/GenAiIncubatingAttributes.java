@@ -106,28 +106,19 @@ public final class GenAiIncubatingAttributes {
    * <p>Notes:
    *
    * <ul>
-   *   <li>The {@code gen_ai.system} describes a family of GenAI models with specific model
-   *       identified by {@code gen_ai.request.model} and {@code gen_ai.response.model} attributes.
-   *   <li>The actual GenAI product may differ from the one identified by the client. For example,
-   *       when using OpenAI client libraries to communicate with Mistral, the {@code gen_ai.system}
-   *       is set to {@code openai} based on the instrumentation's best knowledge.
-   *   <li>For custom model, a custom friendly name SHOULD be used. If none of these options apply,
-   *       the {@code gen_ai.system} SHOULD be set to {@code _OTHER}.
+   *   <li>The <code>gen_ai.system</code> describes a family of GenAI models with specific model
+   *       identified by <code>gen_ai.request.model</code> and <code>gen_ai.response.model</code>
+   *       attributes. The actual GenAI product may differ from the one identified by the client.
+   *       For example, when using OpenAI client libraries to communicate with Mistral, the <code>
+   *       gen_ai.system</code> is set to <code>openai</code> based on the instrumentation's best
+   *       knowledge. For custom model, a custom friendly name SHOULD be used. If none of these
+   *       options apply, the <code>gen_ai.system</code> SHOULD be set to <code>_OTHER</code>.
    * </ul>
    */
   public static final AttributeKey<String> GEN_AI_SYSTEM = stringKey("gen_ai.system");
 
   /** The type of token being counted. */
   public static final AttributeKey<String> GEN_AI_TOKEN_TYPE = stringKey("gen_ai.token.type");
-
-  /**
-   * Deprecated, use {@code gen_ai.usage.output_tokens} instead.
-   *
-   * @deprecated Deprecated, use `gen_ai.usage.output_tokens` instead.
-   */
-  @Deprecated
-  public static final AttributeKey<Long> GEN_AI_USAGE_COMPLETION_TOKENS =
-      longKey("gen_ai.usage.completion_tokens");
 
   /** The number of tokens used in the GenAI input (prompt). */
   public static final AttributeKey<Long> GEN_AI_USAGE_INPUT_TOKENS =
@@ -137,57 +128,52 @@ public final class GenAiIncubatingAttributes {
   public static final AttributeKey<Long> GEN_AI_USAGE_OUTPUT_TOKENS =
       longKey("gen_ai.usage.output_tokens");
 
-  /**
-   * Deprecated, use {@code gen_ai.usage.input_tokens} instead.
-   *
-   * @deprecated Deprecated, use `gen_ai.usage.input_tokens` instead.
-   */
-  @Deprecated
-  public static final AttributeKey<Long> GEN_AI_USAGE_PROMPT_TOKENS =
-      longKey("gen_ai.usage.prompt_tokens");
-
   // Enum definitions
   /** Values for {@link #GEN_AI_OPERATION_NAME}. */
   public static final class GenAiOperationNameValues {
+
     /**
      * Chat completion operation such as [OpenAI Chat
-     * API](https://platform.openai.com/docs/api-reference/chat).
+     * API](https://platform.openai.com/docs/api-reference/chat)
      */
     public static final String CHAT = "chat";
 
     /**
      * Text completions operation such as [OpenAI Completions API
-     * (Legacy)](https://platform.openai.com/docs/api-reference/completions).
+     * (Legacy)](https://platform.openai.com/docs/api-reference/completions)
      */
     public static final String TEXT_COMPLETION = "text_completion";
 
     private GenAiOperationNameValues() {}
   }
 
+  // Enum definitions
   /** Values for {@link #GEN_AI_SYSTEM}. */
   public static final class GenAiSystemValues {
 
     /** OpenAI */
     public static final String OPENAI = "openai";
 
-    /** Vertex AI. */
+    /** Vertex AI */
     public static final String VERTEX_AI = "vertex_ai";
 
-    /** Anthropic. */
+    /** Anthropic */
     public static final String ANTHROPIC = "anthropic";
 
-    /** Cohere. */
+    /** Cohere */
     public static final String COHERE = "cohere";
 
     private GenAiSystemValues() {}
   }
 
+  // Enum definitions
   /** Values for {@link #GEN_AI_TOKEN_TYPE}. */
   public static final class GenAiTokenTypeValues {
-    /** Input tokens (prompt, input, etc.). */
+
+    /** Input tokens (prompt, input, etc.) */
     public static final String INPUT = "input";
 
-    /** Output tokens (completion, response, etc.). */
+    /** Output tokens (completion, response, etc.) */
     public static final String COMPLETION = "output";
 
     private GenAiTokenTypeValues() {}

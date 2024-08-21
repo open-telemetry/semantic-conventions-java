@@ -145,48 +145,5 @@ public final class NetworkIncubatingAttributes {
     private NetworkIoDirectionValues() {}
   }
 
-  /**
-   * Values for {@link #NETWORK_TRANSPORT}.
-   *
-   * @deprecated deprecated in favor of stable {@link
-   *     io.opentelemetry.semconv.NetworkAttributes.NetworkTransportValues} attribute.
-   */
-  @Deprecated
-  public static final class NetworkTransportValues {
-    /** TCP. */
-    public static final String TCP = "tcp";
-
-    /** UDP. */
-    public static final String UDP = "udp";
-
-    /** Named or anonymous pipe. */
-    public static final String PIPE = "pipe";
-
-    /** Unix domain socket. */
-    public static final String UNIX = "unix";
-
-    /** QUIC. */
-    public static final String QUIC = "quic";
-
-    private NetworkTransportValues() {}
-  }
-
-  /**
-   * Values for {@link #NETWORK_TYPE}.
-   *
-   * @deprecated deprecated in favor of stable {@link
-   *     io.opentelemetry.semconv.NetworkAttributes.NetworkTypeValues} attribute.
-   */
-  @Deprecated
-  public static final class NetworkTypeValues {
-    /** IPv4. */
-    public static final String IPV4 = "ipv4";
-
-    /** IPv6. */
-    public static final String IPV6 = "ipv6";
-
-    private NetworkTypeValues() {}
-  }
-
   private NetworkIncubatingAttributes() {}
 }

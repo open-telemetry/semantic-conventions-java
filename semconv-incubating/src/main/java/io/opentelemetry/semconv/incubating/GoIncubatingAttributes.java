@@ -10,7 +10,7 @@ import static io.opentelemetry.api.common.AttributeKey.stringKey;
 import io.opentelemetry.api.common.AttributeKey;
 
 // DO NOT EDIT, this is an Auto-generated file from
-// buildscripts/templates/SemanticAttributes.java.j2
+// buildscripts/templates/registry/incubating_java/IncubatingSemanticAttributes.java.j2
 @SuppressWarnings("unused")
 public final class GoIncubatingAttributes {
 
@@ -20,6 +20,7 @@ public final class GoIncubatingAttributes {
   // Enum definitions
   /** Values for {@link #GO_MEMORY_TYPE}. */
   public static final class GoMemoryTypeValues {
+
     /**
      * Memory allocated from the heap that is reserved for stack space, whether or not it is
      * currently in-use.

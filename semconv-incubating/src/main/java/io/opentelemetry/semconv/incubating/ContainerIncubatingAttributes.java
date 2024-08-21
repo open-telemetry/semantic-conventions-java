@@ -41,14 +41,6 @@ public final class ContainerIncubatingAttributes {
       stringKey("container.command_line");
 
   /**
-   * Deprecated, use {@code cpu.mode} instead.
-   *
-   * @deprecated Deprecated, use `cpu.mode` instead.
-   */
-  @Deprecated
-  public static final AttributeKey<String> CONTAINER_CPU_STATE = stringKey("container.cpu.state");
-
-  /**
    * Container ID. Usually a UUID, as for example used to <a
    * href="https://docs.docker.com/engine/reference/run/#container-identification">identify Docker
    * containers</a>. The UUID might be abbreviated.
@@ -113,33 +105,6 @@ public final class ContainerIncubatingAttributes {
 
   /** The container runtime managing this container. */
   public static final AttributeKey<String> CONTAINER_RUNTIME = stringKey("container.runtime");
-
-  // Enum definitions
-  /**
-   * Values for {@link #CONTAINER_CPU_STATE}.
-   *
-   * @deprecated Deprecated, use `cpu.mode` instead.
-   */
-  @Deprecated
-  public static final class ContainerCpuStateValues {
-
-    /**
-     * When tasks of the cgroup are in user mode (Linux). When all container processes are in user
-     * mode (Windows).
-     */
-    public static final String USER = "user";
-
-    /** When CPU is used by the system (host OS) */
-    public static final String SYSTEM = "system";
-
-    /**
-     * When tasks of the cgroup are in kernel mode (Linux). When all container processes are in
-     * kernel mode (Windows).
-     */
-    public static final String KERNEL = "kernel";
-
-    private ContainerCpuStateValues() {}
-  }
 
   private ContainerIncubatingAttributes() {}
 }

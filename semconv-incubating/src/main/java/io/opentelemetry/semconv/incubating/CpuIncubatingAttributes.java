@@ -10,7 +10,7 @@ import static io.opentelemetry.api.common.AttributeKey.stringKey;
 import io.opentelemetry.api.common.AttributeKey;
 
 // DO NOT EDIT, this is an Auto-generated file from
-// buildscripts/templates/SemanticAttributes.java.j2
+// buildscripts/templates/registry/incubating_java/IncubatingSemanticAttributes.java.j2
 @SuppressWarnings("unused")
 public final class CpuIncubatingAttributes {
 
@@ -20,28 +20,29 @@ public final class CpuIncubatingAttributes {
   // Enum definitions
   /** Values for {@link #CPU_MODE}. */
   public static final class CpuModeValues {
-    /** user. */
+
+    /** user */
     public static final String USER = "user";
 
-    /** system. */
+    /** system */
     public static final String SYSTEM = "system";
 
-    /** nice. */
+    /** nice */
     public static final String NICE = "nice";
 
-    /** idle. */
+    /** idle */
     public static final String IDLE = "idle";
 
-    /** iowait. */
+    /** iowait */
     public static final String IOWAIT = "iowait";
 
-    /** interrupt. */
+    /** interrupt */
     public static final String INTERRUPT = "interrupt";
 
-    /** steal. */
+    /** steal */
     public static final String STEAL = "steal";
 
-    /** kernel. */
+    /** kernel */
     public static final String KERNEL = "kernel";
 
     private CpuModeValues() {}

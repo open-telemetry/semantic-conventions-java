@@ -10,7 +10,7 @@ import static io.opentelemetry.api.common.AttributeKey.stringKey;
 import io.opentelemetry.api.common.AttributeKey;
 
 // DO NOT EDIT, this is an Auto-generated file from
-// buildscripts/templates/SemanticAttributes.java.j2
+// buildscripts/templates/registry/incubating_java/IncubatingSemanticAttributes.java.j2
 @SuppressWarnings("unused")
 public final class VcsIncubatingAttributes {
 
@@ -50,7 +50,7 @@ public final class VcsIncubatingAttributes {
    *       have to be a hash; it can simply define a <a
    *       href="https://svnbook.red-bean.com/en/1.7/svn.tour.revs.specifiers.html">revision
    *       number</a> which is an integer that is monotonically increasing. In cases where it is
-   *       identical to the {@code ref.name}, it SHOULD still be included. It is up to the
+   *       identical to the <code>ref.name</code>, it SHOULD still be included. It is up to the
    *       implementer to decide which value to set as the revision based on the VCS system and
    *       situational context.
    * </ul>
@@ -75,12 +75,13 @@ public final class VcsIncubatingAttributes {
   // Enum definitions
   /** Values for {@link #VCS_REPOSITORY_REF_TYPE}. */
   public static final class VcsRepositoryRefTypeValues {
+
     /**
-     * [branch](https://git-scm.com/docs/gitglossary#Documentation/gitglossary.txt-aiddefbranchabranch).
+     * [branch](https://git-scm.com/docs/gitglossary#Documentation/gitglossary.txt-aiddefbranchabranch)
      */
     public static final String BRANCH = "branch";
 
-    /** [tag](https://git-scm.com/docs/gitglossary#Documentation/gitglossary.txt-aiddeftagatag). */
+    /** [tag](https://git-scm.com/docs/gitglossary#Documentation/gitglossary.txt-aiddeftagatag) */
     public static final String TAG = "tag";
 
     private VcsRepositoryRefTypeValues() {}
