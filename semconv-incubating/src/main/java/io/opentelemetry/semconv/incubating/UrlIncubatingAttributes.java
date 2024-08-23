@@ -40,13 +40,13 @@ public final class UrlIncubatingAttributes {
 
   /**
    * @deprecated deprecated in favor of stable {@link
-   *     io.opentelemetry.semconv.UrlAttributes#URL_FRAGMENT } attribute.
+   *     io.opentelemetry.semconv.UrlAttributes#URL_FRAGMENT} attribute.
    */
   @Deprecated public static final AttributeKey<String> URL_FRAGMENT = stringKey("url.fragment");
 
   /**
    * @deprecated deprecated in favor of stable {@link
-   *     io.opentelemetry.semconv.UrlAttributes#URL_FULL } attribute.
+   *     io.opentelemetry.semconv.UrlAttributes#URL_FULL} attribute.
    */
   @Deprecated public static final AttributeKey<String> URL_FULL = stringKey("url.full");
 
@@ -65,7 +65,7 @@ public final class UrlIncubatingAttributes {
 
   /**
    * @deprecated deprecated in favor of stable {@link
-   *     io.opentelemetry.semconv.UrlAttributes#URL_PATH } attribute.
+   *     io.opentelemetry.semconv.UrlAttributes#URL_PATH} attribute.
    */
   @Deprecated public static final AttributeKey<String> URL_PATH = stringKey("url.path");
 
@@ -74,7 +74,7 @@ public final class UrlIncubatingAttributes {
 
   /**
    * @deprecated deprecated in favor of stable {@link
-   *     io.opentelemetry.semconv.UrlAttributes#URL_QUERY } attribute.
+   *     io.opentelemetry.semconv.UrlAttributes#URL_QUERY} attribute.
    */
   @Deprecated public static final AttributeKey<String> URL_QUERY = stringKey("url.query");
 
@@ -93,7 +93,7 @@ public final class UrlIncubatingAttributes {
 
   /**
    * @deprecated deprecated in favor of stable {@link
-   *     io.opentelemetry.semconv.UrlAttributes#URL_SCHEME } attribute.
+   *     io.opentelemetry.semconv.UrlAttributes#URL_SCHEME} attribute.
    */
   @Deprecated public static final AttributeKey<String> URL_SCHEME = stringKey("url.scheme");
 

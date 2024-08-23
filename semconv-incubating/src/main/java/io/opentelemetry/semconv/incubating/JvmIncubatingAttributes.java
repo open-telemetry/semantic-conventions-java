@@ -26,40 +26,40 @@ public final class JvmIncubatingAttributes {
 
   /**
    * @deprecated deprecated in favor of stable {@link
-   *     io.opentelemetry.semconv.JvmAttributes#JVM_GC_ACTION } attribute.
+   *     io.opentelemetry.semconv.JvmAttributes#JVM_GC_ACTION} attribute.
    */
   @Deprecated public static final AttributeKey<String> JVM_GC_ACTION = stringKey("jvm.gc.action");
 
   /**
    * @deprecated deprecated in favor of stable {@link
-   *     io.opentelemetry.semconv.JvmAttributes#JVM_GC_NAME } attribute.
+   *     io.opentelemetry.semconv.JvmAttributes#JVM_GC_NAME} attribute.
    */
   @Deprecated public static final AttributeKey<String> JVM_GC_NAME = stringKey("jvm.gc.name");
 
   /**
    * @deprecated deprecated in favor of stable {@link
-   *     io.opentelemetry.semconv.JvmAttributes#JVM_MEMORY_POOL_NAME } attribute.
+   *     io.opentelemetry.semconv.JvmAttributes#JVM_MEMORY_POOL_NAME} attribute.
    */
   @Deprecated
   public static final AttributeKey<String> JVM_MEMORY_POOL_NAME = stringKey("jvm.memory.pool.name");
 
   /**
    * @deprecated deprecated in favor of stable {@link
-   *     io.opentelemetry.semconv.JvmAttributes#JVM_MEMORY_TYPE } attribute.
+   *     io.opentelemetry.semconv.JvmAttributes#JVM_MEMORY_TYPE} attribute.
    */
   @Deprecated
   public static final AttributeKey<String> JVM_MEMORY_TYPE = stringKey("jvm.memory.type");
 
   /**
    * @deprecated deprecated in favor of stable {@link
-   *     io.opentelemetry.semconv.JvmAttributes#JVM_THREAD_DAEMON } attribute.
+   *     io.opentelemetry.semconv.JvmAttributes#JVM_THREAD_DAEMON} attribute.
    */
   @Deprecated
   public static final AttributeKey<Boolean> JVM_THREAD_DAEMON = booleanKey("jvm.thread.daemon");
 
   /**
    * @deprecated deprecated in favor of stable {@link
-   *     io.opentelemetry.semconv.JvmAttributes#JVM_THREAD_STATE } attribute.
+   *     io.opentelemetry.semconv.JvmAttributes#JVM_THREAD_STATE} attribute.
    */
   @Deprecated
   public static final AttributeKey<String> JVM_THREAD_STATE = stringKey("jvm.thread.state");

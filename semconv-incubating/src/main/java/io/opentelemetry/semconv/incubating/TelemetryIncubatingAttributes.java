@@ -31,7 +31,7 @@ public final class TelemetryIncubatingAttributes {
 
   /**
    * @deprecated deprecated in favor of stable {@link
-   *     io.opentelemetry.semconv.TelemetryAttributes#TELEMETRY_SDK_LANGUAGE } attribute.
+   *     io.opentelemetry.semconv.TelemetryAttributes#TELEMETRY_SDK_LANGUAGE} attribute.
    */
   @Deprecated
   public static final AttributeKey<String> TELEMETRY_SDK_LANGUAGE =
@@ -39,14 +39,14 @@ public final class TelemetryIncubatingAttributes {
 
   /**
    * @deprecated deprecated in favor of stable {@link
-   *     io.opentelemetry.semconv.TelemetryAttributes#TELEMETRY_SDK_NAME } attribute.
+   *     io.opentelemetry.semconv.TelemetryAttributes#TELEMETRY_SDK_NAME} attribute.
    */
   @Deprecated
   public static final AttributeKey<String> TELEMETRY_SDK_NAME = stringKey("telemetry.sdk.name");
 
   /**
    * @deprecated deprecated in favor of stable {@link
-   *     io.opentelemetry.semconv.TelemetryAttributes#TELEMETRY_SDK_VERSION } attribute.
+   *     io.opentelemetry.semconv.TelemetryAttributes#TELEMETRY_SDK_VERSION} attribute.
    */
   @Deprecated
   public static final AttributeKey<String> TELEMETRY_SDK_VERSION =

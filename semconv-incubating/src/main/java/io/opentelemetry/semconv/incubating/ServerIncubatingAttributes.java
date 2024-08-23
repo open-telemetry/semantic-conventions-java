@@ -16,13 +16,13 @@ import io.opentelemetry.api.common.AttributeKey;
 public final class ServerIncubatingAttributes {
   /**
    * @deprecated deprecated in favor of stable {@link
-   *     io.opentelemetry.semconv.ServerAttributes#SERVER_ADDRESS } attribute.
+   *     io.opentelemetry.semconv.ServerAttributes#SERVER_ADDRESS} attribute.
    */
   @Deprecated public static final AttributeKey<String> SERVER_ADDRESS = stringKey("server.address");
 
   /**
    * @deprecated deprecated in favor of stable {@link
-   *     io.opentelemetry.semconv.ServerAttributes#SERVER_PORT } attribute.
+   *     io.opentelemetry.semconv.ServerAttributes#SERVER_PORT} attribute.
    */
   @Deprecated public static final AttributeKey<Long> SERVER_PORT = longKey("server.port");
 

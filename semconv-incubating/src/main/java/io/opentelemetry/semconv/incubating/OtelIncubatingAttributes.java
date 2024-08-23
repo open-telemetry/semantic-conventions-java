@@ -15,28 +15,28 @@ import io.opentelemetry.api.common.AttributeKey;
 public final class OtelIncubatingAttributes {
   /**
    * @deprecated deprecated in favor of stable {@link
-   *     io.opentelemetry.semconv.OtelAttributes#OTEL_SCOPE_NAME } attribute.
+   *     io.opentelemetry.semconv.OtelAttributes#OTEL_SCOPE_NAME} attribute.
    */
   @Deprecated
   public static final AttributeKey<String> OTEL_SCOPE_NAME = stringKey("otel.scope.name");
 
   /**
    * @deprecated deprecated in favor of stable {@link
-   *     io.opentelemetry.semconv.OtelAttributes#OTEL_SCOPE_VERSION } attribute.
+   *     io.opentelemetry.semconv.OtelAttributes#OTEL_SCOPE_VERSION} attribute.
    */
   @Deprecated
   public static final AttributeKey<String> OTEL_SCOPE_VERSION = stringKey("otel.scope.version");
 
   /**
    * @deprecated deprecated in favor of stable {@link
-   *     io.opentelemetry.semconv.OtelAttributes#OTEL_STATUS_CODE } attribute.
+   *     io.opentelemetry.semconv.OtelAttributes#OTEL_STATUS_CODE} attribute.
    */
   @Deprecated
   public static final AttributeKey<String> OTEL_STATUS_CODE = stringKey("otel.status_code");
 
   /**
    * @deprecated deprecated in favor of stable {@link
-   *     io.opentelemetry.semconv.OtelAttributes#OTEL_STATUS_DESCRIPTION } attribute.
+   *     io.opentelemetry.semconv.OtelAttributes#OTEL_STATUS_DESCRIPTION} attribute.
    */
   @Deprecated
   public static final AttributeKey<String> OTEL_STATUS_DESCRIPTION =

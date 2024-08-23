@@ -16,13 +16,13 @@ import io.opentelemetry.api.common.AttributeKey;
 public final class ClientIncubatingAttributes {
   /**
    * @deprecated deprecated in favor of stable {@link
-   *     io.opentelemetry.semconv.ClientAttributes#CLIENT_ADDRESS } attribute.
+   *     io.opentelemetry.semconv.ClientAttributes#CLIENT_ADDRESS} attribute.
    */
   @Deprecated public static final AttributeKey<String> CLIENT_ADDRESS = stringKey("client.address");
 
   /**
    * @deprecated deprecated in favor of stable {@link
-   *     io.opentelemetry.semconv.ClientAttributes#CLIENT_PORT } attribute.
+   *     io.opentelemetry.semconv.ClientAttributes#CLIENT_PORT} attribute.
    */
   @Deprecated public static final AttributeKey<Long> CLIENT_PORT = longKey("client.port");
 

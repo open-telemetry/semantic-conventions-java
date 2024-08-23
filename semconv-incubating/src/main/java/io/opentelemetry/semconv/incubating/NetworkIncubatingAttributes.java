@@ -42,7 +42,7 @@ public final class NetworkIncubatingAttributes {
 
   /**
    * @deprecated deprecated in favor of stable {@link
-   *     io.opentelemetry.semconv.NetworkAttributes#NETWORK_LOCAL_ADDRESS } attribute.
+   *     io.opentelemetry.semconv.NetworkAttributes#NETWORK_LOCAL_ADDRESS} attribute.
    */
   @Deprecated
   public static final AttributeKey<String> NETWORK_LOCAL_ADDRESS =
@@ -50,28 +50,28 @@ public final class NetworkIncubatingAttributes {
 
   /**
    * @deprecated deprecated in favor of stable {@link
-   *     io.opentelemetry.semconv.NetworkAttributes#NETWORK_LOCAL_PORT } attribute.
+   *     io.opentelemetry.semconv.NetworkAttributes#NETWORK_LOCAL_PORT} attribute.
    */
   @Deprecated
   public static final AttributeKey<Long> NETWORK_LOCAL_PORT = longKey("network.local.port");
 
   /**
    * @deprecated deprecated in favor of stable {@link
-   *     io.opentelemetry.semconv.NetworkAttributes#NETWORK_PEER_ADDRESS } attribute.
+   *     io.opentelemetry.semconv.NetworkAttributes#NETWORK_PEER_ADDRESS} attribute.
    */
   @Deprecated
   public static final AttributeKey<String> NETWORK_PEER_ADDRESS = stringKey("network.peer.address");
 
   /**
    * @deprecated deprecated in favor of stable {@link
-   *     io.opentelemetry.semconv.NetworkAttributes#NETWORK_PEER_PORT } attribute.
+   *     io.opentelemetry.semconv.NetworkAttributes#NETWORK_PEER_PORT} attribute.
    */
   @Deprecated
   public static final AttributeKey<Long> NETWORK_PEER_PORT = longKey("network.peer.port");
 
   /**
    * @deprecated deprecated in favor of stable {@link
-   *     io.opentelemetry.semconv.NetworkAttributes#NETWORK_PROTOCOL_NAME } attribute.
+   *     io.opentelemetry.semconv.NetworkAttributes#NETWORK_PROTOCOL_NAME} attribute.
    */
   @Deprecated
   public static final AttributeKey<String> NETWORK_PROTOCOL_NAME =
@@ -79,7 +79,7 @@ public final class NetworkIncubatingAttributes {
 
   /**
    * @deprecated deprecated in favor of stable {@link
-   *     io.opentelemetry.semconv.NetworkAttributes#NETWORK_PROTOCOL_VERSION } attribute.
+   *     io.opentelemetry.semconv.NetworkAttributes#NETWORK_PROTOCOL_VERSION} attribute.
    */
   @Deprecated
   public static final AttributeKey<String> NETWORK_PROTOCOL_VERSION =
@@ -87,14 +87,14 @@ public final class NetworkIncubatingAttributes {
 
   /**
    * @deprecated deprecated in favor of stable {@link
-   *     io.opentelemetry.semconv.NetworkAttributes#NETWORK_TRANSPORT } attribute.
+   *     io.opentelemetry.semconv.NetworkAttributes#NETWORK_TRANSPORT} attribute.
    */
   @Deprecated
   public static final AttributeKey<String> NETWORK_TRANSPORT = stringKey("network.transport");
 
   /**
    * @deprecated deprecated in favor of stable {@link
-   *     io.opentelemetry.semconv.NetworkAttributes#NETWORK_TYPE } attribute.
+   *     io.opentelemetry.semconv.NetworkAttributes#NETWORK_TYPE} attribute.
    */
   @Deprecated public static final AttributeKey<String> NETWORK_TYPE = stringKey("network.type");
 

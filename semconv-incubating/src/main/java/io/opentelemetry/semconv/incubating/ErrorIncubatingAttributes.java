@@ -15,7 +15,7 @@ import io.opentelemetry.api.common.AttributeKey;
 public final class ErrorIncubatingAttributes {
   /**
    * @deprecated deprecated in favor of stable {@link
-   *     io.opentelemetry.semconv.ErrorAttributes#ERROR_TYPE } attribute.
+   *     io.opentelemetry.semconv.ErrorAttributes#ERROR_TYPE} attribute.
    */
   @Deprecated public static final AttributeKey<String> ERROR_TYPE = stringKey("error.type");
 

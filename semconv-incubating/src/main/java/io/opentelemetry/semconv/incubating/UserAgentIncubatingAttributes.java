@@ -27,7 +27,7 @@ public final class UserAgentIncubatingAttributes {
 
   /**
    * @deprecated deprecated in favor of stable {@link
-   *     io.opentelemetry.semconv.UserAgentAttributes#USER_AGENT_ORIGINAL } attribute.
+   *     io.opentelemetry.semconv.UserAgentAttributes#USER_AGENT_ORIGINAL} attribute.
    */
   @Deprecated
   public static final AttributeKey<String> USER_AGENT_ORIGINAL = stringKey("user_agent.original");

@@ -52,7 +52,7 @@ public final class ServiceIncubatingAttributes {
 
   /**
    * @deprecated deprecated in favor of stable {@link
-   *     io.opentelemetry.semconv.ServiceAttributes#SERVICE_NAME } attribute.
+   *     io.opentelemetry.semconv.ServiceAttributes#SERVICE_NAME} attribute.
    */
   @Deprecated public static final AttributeKey<String> SERVICE_NAME = stringKey("service.name");
 
@@ -72,7 +72,7 @@ public final class ServiceIncubatingAttributes {
 
   /**
    * @deprecated deprecated in favor of stable {@link
-   *     io.opentelemetry.semconv.ServiceAttributes#SERVICE_VERSION } attribute.
+   *     io.opentelemetry.semconv.ServiceAttributes#SERVICE_VERSION} attribute.
    */
   @Deprecated
   public static final AttributeKey<String> SERVICE_VERSION = stringKey("service.version");

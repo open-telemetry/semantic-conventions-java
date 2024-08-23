@@ -30,7 +30,7 @@ public final class HttpIncubatingAttributes {
 
   /**
    * @deprecated deprecated in favor of stable {@link
-   *     io.opentelemetry.semconv.HttpAttributes#HTTP_REQUEST_HEADER } attribute.
+   *     io.opentelemetry.semconv.HttpAttributes#HTTP_REQUEST_HEADER} attribute.
    */
   @Deprecated
   public static final AttributeKey<List<String>> HTTP_REQUEST_HEADER =
@@ -38,14 +38,14 @@ public final class HttpIncubatingAttributes {
 
   /**
    * @deprecated deprecated in favor of stable {@link
-   *     io.opentelemetry.semconv.HttpAttributes#HTTP_REQUEST_METHOD } attribute.
+   *     io.opentelemetry.semconv.HttpAttributes#HTTP_REQUEST_METHOD} attribute.
    */
   @Deprecated
   public static final AttributeKey<String> HTTP_REQUEST_METHOD = stringKey("http.request.method");
 
   /**
    * @deprecated deprecated in favor of stable {@link
-   *     io.opentelemetry.semconv.HttpAttributes#HTTP_REQUEST_METHOD_ORIGINAL } attribute.
+   *     io.opentelemetry.semconv.HttpAttributes#HTTP_REQUEST_METHOD_ORIGINAL} attribute.
    */
   @Deprecated
   public static final AttributeKey<String> HTTP_REQUEST_METHOD_ORIGINAL =
@@ -53,7 +53,7 @@ public final class HttpIncubatingAttributes {
 
   /**
    * @deprecated deprecated in favor of stable {@link
-   *     io.opentelemetry.semconv.HttpAttributes#HTTP_REQUEST_RESEND_COUNT } attribute.
+   *     io.opentelemetry.semconv.HttpAttributes#HTTP_REQUEST_RESEND_COUNT} attribute.
    */
   @Deprecated
   public static final AttributeKey<Long> HTTP_REQUEST_RESEND_COUNT =
@@ -77,7 +77,7 @@ public final class HttpIncubatingAttributes {
 
   /**
    * @deprecated deprecated in favor of stable {@link
-   *     io.opentelemetry.semconv.HttpAttributes#HTTP_RESPONSE_HEADER } attribute.
+   *     io.opentelemetry.semconv.HttpAttributes#HTTP_RESPONSE_HEADER} attribute.
    */
   @Deprecated
   public static final AttributeKey<List<String>> HTTP_RESPONSE_HEADER =
@@ -92,7 +92,7 @@ public final class HttpIncubatingAttributes {
 
   /**
    * @deprecated deprecated in favor of stable {@link
-   *     io.opentelemetry.semconv.HttpAttributes#HTTP_RESPONSE_STATUS_CODE } attribute.
+   *     io.opentelemetry.semconv.HttpAttributes#HTTP_RESPONSE_STATUS_CODE} attribute.
    */
   @Deprecated
   public static final AttributeKey<Long> HTTP_RESPONSE_STATUS_CODE =
@@ -100,7 +100,7 @@ public final class HttpIncubatingAttributes {
 
   /**
    * @deprecated deprecated in favor of stable {@link
-   *     io.opentelemetry.semconv.HttpAttributes#HTTP_ROUTE } attribute.
+   *     io.opentelemetry.semconv.HttpAttributes#HTTP_ROUTE} attribute.
    */
   @Deprecated public static final AttributeKey<String> HTTP_ROUTE = stringKey("http.route");
 
