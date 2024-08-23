@@ -9,7 +9,7 @@ comment_formats:
     inline_code_snippet: "{@code {{code}}}"
     block_code_snippet: "<pre>{@code {{code}}}</pre>"
     trim: true
-    remove_trailing_dots: true
+    remove_trailing_dots: false
 default_comment_format: javadoc
 templates:
   - pattern: IncubatingSemanticAttributes.java.j2

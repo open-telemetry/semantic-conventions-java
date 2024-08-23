@@ -41,7 +41,7 @@ public final class {{ my_class_name }} {
     /** Values for {@link #{{ attribute.name | screaming_snake_case }}}. */
     public static final class {{ attribute.name | pascal_case }}Values {
       {%- for member in attribute.type.members %}
-      {{ [member.brief or member.id] | comment(indent=4) }}
+      {{ [member.brief or (member.id ~ '.')] | comment(indent=4) }}
       public static final String {{ member.id | screaming_snake_case }} = "{{ member.value }}";
       {%- endfor %}
       private {{ attribute.name | pascal_case }}Values() {}
