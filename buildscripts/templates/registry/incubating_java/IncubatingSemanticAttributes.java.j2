@@ -1,18 +1,8 @@
 {%- macro to_java_key_type(attribute) -%}
-  {%- if attribute.type is mapping -%}
-    {# TODO - handle enums #}
-    AttributeKey<String>
-  {%- else -%}
-    {{ attribute.type | map_text("java_key_type") }}
-  {%- endif -%}
+    {{ attribute.type | instantiated_type | map_text("java_key_type") }}
 {%- endmacro %}
 {%- macro to_java_key_factory(attribute) -%}
-  {%- if attribute.type is mapping -%}
-    {# TODO - handle enums #}
-    stringKey
-  {%- else -%}
-    {{ attribute.type | map_text("java_key_factory") }}
-  {%- endif -%}
+    {{ attribute.type | instantiated_type | map_text("java_key_factory") }}
 {%- endmacro %}
 {%- set my_file_name = ctx.root_namespace | pascal_case ~ "IncubatingAttributes.java" -%}
 {%- set my_class_name = ctx.root_namespace | pascal_case ~ "IncubatingAttributes" -%}
@@ -40,21 +30,10 @@ import java.util.List;
 @SuppressWarnings("unused")
 public final class {{ my_class_name }} {
     {% for attribute in ctx.attributes | sort(attribute="name") %}{% if attribute is experimental %}
-    {# TODO - We need the ability to convert markdown / text into javadoc safe strings. #}
-    /**
-     * {{ attribute.brief | markdown_to_html }}
-       {%- if attribute.note %}
-     *
-     * <p>Notes:
-        {# NOTE: replace("> ", "") removes the following problematic characters which produce mangled javadoc:  #}
-        {# https://github.com/open-telemetry/semantic-conventions/blob/c83a10a9c33c18a769835e959200d0e24dc708fe/model/resource/k8s.yaml#L34-L38  #}
-        <ul><li>{{ attribute.note | trim | replace("> ", "") | markdown_to_html | replace("<p>","") | trim }}</li></ul>
-       {%- endif %}
-     *
-       {%- if attribute is deprecated %}
-     * @deprecated {{ attribute.deprecated }}
-       {%- endif -%}
-     */
+    {%- if attribute is deprecated %}
+    {%- set deprecated_javadoc = "@deprecated " ~ attribute.deprecated -%}
+    {%- endif -%}
+    {{ [attribute.brief, concat_if("\n\nNotes:\n\n", attribute.note), deprecated_javadoc] | comment(indent=4) }}
     {% if attribute is deprecated %}@Deprecated{% endif %} public static final {{ to_java_key_type(attribute) | trim }} {{ attribute.name | screaming_snake_case }} = {{ to_java_key_factory(attribute) | trim }}("{{ attribute.name }}");
     {% endif %}{% endfor %}
     {% for attribute in ctx.attributes | sort(attribute="name") %}{% if attribute.type is mapping and attribute is experimental %}
@@ -62,8 +41,7 @@ public final class {{ my_class_name }} {
     /** Values for {@link #{{ attribute.name | screaming_snake_case }}}. */
     public static final class {{ attribute.name | pascal_case }}Values {
       {%- for member in attribute.type.members %}
-      {# TODO - add period at end of comment. #}
-      /** {{ member.brief or member.id | trim }} */
+      {{ [member.brief or member.id] | comment(indent=4) }}
       public static final String {{ member.id | screaming_snake_case }} = "{{ member.value }}";
       {%- endfor %}
       private {{ attribute.name | pascal_case }}Values() {}

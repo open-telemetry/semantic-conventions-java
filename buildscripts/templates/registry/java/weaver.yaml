@@ -1,3 +1,16 @@
+comment_formats:
+  javadoc:
+    format: html
+    header: "/**"
+    prefix: " * "
+    footer: " */"
+    old_style_paragraph: true
+    omit_closing_li: true
+    inline_code_snippet: "{@code {{code}}}"
+    block_code_snippet: "<pre>{@code {{code}}}</pre>"
+    trim: true
+    remove_trailing_dots: true
+default_comment_format: javadoc
 templates:
   - pattern: SemanticAttributes.java.j2
     filter: > 

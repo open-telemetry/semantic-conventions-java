@@ -54,7 +54,7 @@ nexusPublishing {
 }
 
 // start - define tasks to download, unzip, and generate from opentelemetry/semantic-conventions
-var generatorVersion = "0.8.0"
+var generatorVersion = "v0.9.1"
 val semanticConventionsRepoZip = "https://github.com/open-telemetry/semantic-conventions/archive/v${semanticConventionsVersion}.zip"
 val schemaUrl = "https://opentelemetry.io/schemas/$semanticConventionsVersion"
 
@@ -84,20 +84,31 @@ fun generateTask(taskName: String, incubating: Boolean) {
     executable = "docker"
 
     var target = if (incubating) "incubating_java" else "java"
-    val outputDir = if (incubating) "semconv-incubating/src/main/java/io/opentelemetry/semconv/incubating/" else "semconv/src/main/java/io/opentelemetry/semconv/"    
+    val outputDir = if (incubating) "semconv-incubating/src/main/java/io/opentelemetry/semconv/incubating/" else "semconv/src/main/java/io/opentelemetry/semconv/"
 
-    setArgs(listOf(
-        "run",
+    val file_args = if (org.gradle.internal.os.OperatingSystem.current().isWindows())
+      // Don't need to worry about file system permissions in docker.
+      listOf()
+    else {
+      // Make sure we run as local file user
+      val unix = com.sun.security.auth.module.UnixSystem() 
+      val uid = unix.getUid() // $(id -u $USERNAME)
+      val gid = unix.getGid() // $(id -g $USERNAME)
+      listOf("-u", "$uid:$gid")
+    }
+    val weaver_args = listOf(
         "--rm",
-        "-v", "$buildDir/semantic-conventions-${semanticConventionsVersion}/model:/source",
-        "-v", "$projectDir/buildscripts/templates:/templates",
-        "-v", "$projectDir/$outputDir:/output",
+        "--mount", "type=bind,source=$buildDir/semantic-conventions-${semanticConventionsVersion}/model,target=/home/weaver/source,readonly",
+        "--mount", "type=bind,source=$projectDir/buildscripts/templates,target=/home/weaver/templates,readonly",
+        "--mount", "type=bind,source=$projectDir/$outputDir,target=/home/weaver/target",
         "otel/weaver:$generatorVersion",
         "registry", "generate",
-        "--registry=/source",
-        "--templates=/templates",
+        "--registry=/home/weaver/source",
+        "--templates=/home/weaver/templates",
         "$target",
-        "/output/"))
+        "/home/weaver/target/")
+
+    setArgs(listOf("run") + file_args + weaver_args)
   }
 }
 
