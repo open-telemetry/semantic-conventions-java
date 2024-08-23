@@ -38,7 +38,7 @@ public final class {{ my_class_name }} {
     {% if attribute is deprecated %}@Deprecated{% endif %} public static final {{ to_java_key_type(attribute) | trim }} {{ attribute.name | screaming_snake_case }} = {{ to_java_key_factory(attribute) | trim }}("{{ attribute.name }}");
     {% elif attribute is stable %}
     {%- set stable_class_link = "io.opentelemetry.semconv." ~ stable_class_name ~ "#" ~ (attribute.name | screaming_snake_case) -%}
-    {{ ["@deprecated deprecated in favor of stable {@link ", stable_class_link, "} attribute."] | comment(indent=4) }}
+    {{ ["@deprecated deprecated in favor of stable {@link " ~ stable_class_link ~ "} attribute."] | comment(indent=4) }}
     @Deprecated public static final {{ to_java_key_type(attribute) | trim }} {{ attribute.name | screaming_snake_case }} = {{ to_java_key_factory(attribute) | trim }}("{{ attribute.name }}");
     {% endif %}
     {% endfor %}
