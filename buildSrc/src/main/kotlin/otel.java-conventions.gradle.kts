@@ -8,6 +8,7 @@ plugins {
   eclipse
   idea
 
+  id("biz.aQute.bnd.builder")
   id("otel.spotless-conventions")
 }
 
@@ -59,6 +60,9 @@ tasks {
       )
     }
 
+    systemProperty("felix.cache.dir", buildDir)
+    systemProperty("felix.bundle.path", "$buildDir/libs/${project.base.archivesName.get()}-${project.version}.jar")
+
     testLogging {
       exceptionFormat = TestExceptionFormat.FULL
       showExceptions = true
@@ -88,11 +92,17 @@ tasks {
 
     manifest {
       attributes(
-          "Automatic-Module-Name" to otelJava.moduleName,
+        "Automatic-Module-Name" to otelJava.moduleName,
         "Built-By" to System.getProperty("user.name"),
         "Built-JDK" to System.getProperty("java.version"),
         "Implementation-Title" to project.base.archivesName,
-        "Implementation-Version" to project.version)
+        "Implementation-Version" to project.version,
+        // Add OSGi manifest headers with bnd
+        "-exportcontents" to "${otelJava.moduleName.get()}.*",
+        "Bundle-Name" to otelJava.bundleName,
+        "Bundle-SymbolicName" to "${otelJava.moduleName.get()}.${project.base.archivesName.get()}",
+        "Import-Package" to "io.opentelemetry.api.*;resolution:=optional" // FIXME: should not be optional, dependency should be provided
+      )
     }
   }
 

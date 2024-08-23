@@ -10,6 +10,7 @@ base {
   archivesName.set("opentelemetry-semconv-incubating")
 }
 otelJava.moduleName.set("io.opentelemetry.semconv.incubating")
+otelJava.bundleName.set("OpenTelemetry - Semantic Conventions Incubating")
 
 dependencies {
   api(project(":semconv"))
