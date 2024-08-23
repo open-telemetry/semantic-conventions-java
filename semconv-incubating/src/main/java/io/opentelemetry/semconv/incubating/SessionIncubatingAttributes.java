@@ -13,10 +13,10 @@ import io.opentelemetry.api.common.AttributeKey;
 // buildscripts/templates/registry/incubating_java/IncubatingSemanticAttributes.java.j2
 @SuppressWarnings("unused")
 public final class SessionIncubatingAttributes {
-  /** A unique id to identify a session */
+  /** A unique id to identify a session. */
   public static final AttributeKey<String> SESSION_ID = stringKey("session.id");
 
-  /** The previous {@code session.id} for this user, when known */
+  /** The previous {@code session.id} for this user, when known. */
   public static final AttributeKey<String> SESSION_PREVIOUS_ID = stringKey("session.previous_id");
 
   private SessionIncubatingAttributes() {}

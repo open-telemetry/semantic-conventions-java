@@ -18,31 +18,32 @@ import java.util.List;
 // buildscripts/templates/registry/incubating_java/IncubatingSemanticAttributes.java.j2
 @SuppressWarnings("unused")
 public final class AwsIncubatingAttributes {
-  /** The JSON-serialized value of each item in the {@code AttributeDefinitions} request field */
+  /** The JSON-serialized value of each item in the {@code AttributeDefinitions} request field. */
   public static final AttributeKey<List<String>> AWS_DYNAMODB_ATTRIBUTE_DEFINITIONS =
       stringArrayKey("aws.dynamodb.attribute_definitions");
 
-  /** The value of the {@code AttributesToGet} request parameter */
+  /** The value of the {@code AttributesToGet} request parameter. */
   public static final AttributeKey<List<String>> AWS_DYNAMODB_ATTRIBUTES_TO_GET =
       stringArrayKey("aws.dynamodb.attributes_to_get");
 
-  /** The value of the {@code ConsistentRead} request parameter */
+  /** The value of the {@code ConsistentRead} request parameter. */
   public static final AttributeKey<Boolean> AWS_DYNAMODB_CONSISTENT_READ =
       booleanKey("aws.dynamodb.consistent_read");
 
-  /** The JSON-serialized value of each item in the {@code ConsumedCapacity} response field */
+  /** The JSON-serialized value of each item in the {@code ConsumedCapacity} response field. */
   public static final AttributeKey<List<String>> AWS_DYNAMODB_CONSUMED_CAPACITY =
       stringArrayKey("aws.dynamodb.consumed_capacity");
 
-  /** The value of the {@code Count} response parameter */
+  /** The value of the {@code Count} response parameter. */
   public static final AttributeKey<Long> AWS_DYNAMODB_COUNT = longKey("aws.dynamodb.count");
 
-  /** The value of the {@code ExclusiveStartTableName} request parameter */
+  /** The value of the {@code ExclusiveStartTableName} request parameter. */
   public static final AttributeKey<String> AWS_DYNAMODB_EXCLUSIVE_START_TABLE =
       stringKey("aws.dynamodb.exclusive_start_table");
 
   /**
-   * The JSON-serialized value of each item in the {@code GlobalSecondaryIndexUpdates} request field
+   * The JSON-serialized value of each item in the {@code GlobalSecondaryIndexUpdates} request
+   * field.
    */
   public static final AttributeKey<List<String>> AWS_DYNAMODB_GLOBAL_SECONDARY_INDEX_UPDATES =
       stringArrayKey("aws.dynamodb.global_secondary_index_updates");
@@ -51,70 +52,70 @@ public final class AwsIncubatingAttributes {
   public static final AttributeKey<List<String>> AWS_DYNAMODB_GLOBAL_SECONDARY_INDEXES =
       stringArrayKey("aws.dynamodb.global_secondary_indexes");
 
-  /** The value of the {@code IndexName} request parameter */
+  /** The value of the {@code IndexName} request parameter. */
   public static final AttributeKey<String> AWS_DYNAMODB_INDEX_NAME =
       stringKey("aws.dynamodb.index_name");
 
-  /** The JSON-serialized value of the {@code ItemCollectionMetrics} response field */
+  /** The JSON-serialized value of the {@code ItemCollectionMetrics} response field. */
   public static final AttributeKey<String> AWS_DYNAMODB_ITEM_COLLECTION_METRICS =
       stringKey("aws.dynamodb.item_collection_metrics");
 
-  /** The value of the {@code Limit} request parameter */
+  /** The value of the {@code Limit} request parameter. */
   public static final AttributeKey<Long> AWS_DYNAMODB_LIMIT = longKey("aws.dynamodb.limit");
 
-  /** The JSON-serialized value of each item of the {@code LocalSecondaryIndexes} request field */
+  /** The JSON-serialized value of each item of the {@code LocalSecondaryIndexes} request field. */
   public static final AttributeKey<List<String>> AWS_DYNAMODB_LOCAL_SECONDARY_INDEXES =
       stringArrayKey("aws.dynamodb.local_secondary_indexes");
 
-  /** The value of the {@code ProjectionExpression} request parameter */
+  /** The value of the {@code ProjectionExpression} request parameter. */
   public static final AttributeKey<String> AWS_DYNAMODB_PROJECTION =
       stringKey("aws.dynamodb.projection");
 
-  /** The value of the {@code ProvisionedThroughput.ReadCapacityUnits} request parameter */
+  /** The value of the {@code ProvisionedThroughput.ReadCapacityUnits} request parameter. */
   public static final AttributeKey<Double> AWS_DYNAMODB_PROVISIONED_READ_CAPACITY =
       doubleKey("aws.dynamodb.provisioned_read_capacity");
 
-  /** The value of the {@code ProvisionedThroughput.WriteCapacityUnits} request parameter */
+  /** The value of the {@code ProvisionedThroughput.WriteCapacityUnits} request parameter. */
   public static final AttributeKey<Double> AWS_DYNAMODB_PROVISIONED_WRITE_CAPACITY =
       doubleKey("aws.dynamodb.provisioned_write_capacity");
 
-  /** The value of the {@code ScanIndexForward} request parameter */
+  /** The value of the {@code ScanIndexForward} request parameter. */
   public static final AttributeKey<Boolean> AWS_DYNAMODB_SCAN_FORWARD =
       booleanKey("aws.dynamodb.scan_forward");
 
-  /** The value of the {@code ScannedCount} response parameter */
+  /** The value of the {@code ScannedCount} response parameter. */
   public static final AttributeKey<Long> AWS_DYNAMODB_SCANNED_COUNT =
       longKey("aws.dynamodb.scanned_count");
 
-  /** The value of the {@code Segment} request parameter */
+  /** The value of the {@code Segment} request parameter. */
   public static final AttributeKey<Long> AWS_DYNAMODB_SEGMENT = longKey("aws.dynamodb.segment");
 
-  /** The value of the {@code Select} request parameter */
+  /** The value of the {@code Select} request parameter. */
   public static final AttributeKey<String> AWS_DYNAMODB_SELECT = stringKey("aws.dynamodb.select");
 
-  /** The number of items in the {@code TableNames} response parameter */
+  /** The number of items in the {@code TableNames} response parameter. */
   public static final AttributeKey<Long> AWS_DYNAMODB_TABLE_COUNT =
       longKey("aws.dynamodb.table_count");
 
-  /** The keys in the {@code RequestItems} object field */
+  /** The keys in the {@code RequestItems} object field. */
   public static final AttributeKey<List<String>> AWS_DYNAMODB_TABLE_NAMES =
       stringArrayKey("aws.dynamodb.table_names");
 
-  /** The value of the {@code TotalSegments} request parameter */
+  /** The value of the {@code TotalSegments} request parameter. */
   public static final AttributeKey<Long> AWS_DYNAMODB_TOTAL_SEGMENTS =
       longKey("aws.dynamodb.total_segments");
 
   /**
    * The ARN of an <a
    * href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/clusters.html">ECS
-   * cluster</a>
+   * cluster</a>.
    */
   public static final AttributeKey<String> AWS_ECS_CLUSTER_ARN = stringKey("aws.ecs.cluster.arn");
 
   /**
    * The Amazon Resource Name (ARN) of an <a
    * href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ECS_instances.html">ECS
-   * container instance</a>
+   * container instance</a>.
    */
   public static final AttributeKey<String> AWS_ECS_CONTAINER_ARN =
       stringKey("aws.ecs.container.arn");
@@ -122,32 +123,32 @@ public final class AwsIncubatingAttributes {
   /**
    * The <a
    * href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html">launch
-   * type</a> for an ECS task
+   * type</a> for an ECS task.
    */
   public static final AttributeKey<String> AWS_ECS_LAUNCHTYPE = stringKey("aws.ecs.launchtype");
 
   /**
    * The ARN of a running <a
    * href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-account-settings.html#ecs-resource-ids">ECS
-   * task</a>
+   * task</a>.
    */
   public static final AttributeKey<String> AWS_ECS_TASK_ARN = stringKey("aws.ecs.task.arn");
 
   /**
    * The family name of the <a
    * href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definitions.html">ECS
-   * task definition</a> used to create the ECS task
+   * task definition</a> used to create the ECS task.
    */
   public static final AttributeKey<String> AWS_ECS_TASK_FAMILY = stringKey("aws.ecs.task.family");
 
-  /** The ID of a running ECS task. The ID MUST be extracted from {@code task.arn} */
+  /** The ID of a running ECS task. The ID MUST be extracted from {@code task.arn}. */
   public static final AttributeKey<String> AWS_ECS_TASK_ID = stringKey("aws.ecs.task.id");
 
-  /** The revision for the task definition used to create the ECS task */
+  /** The revision for the task definition used to create the ECS task. */
   public static final AttributeKey<String> AWS_ECS_TASK_REVISION =
       stringKey("aws.ecs.task.revision");
 
-  /** The ARN of an EKS cluster */
+  /** The ARN of an EKS cluster. */
   public static final AttributeKey<String> AWS_EKS_CLUSTER_ARN = stringKey("aws.eks.cluster.arn");
 
   /**
@@ -157,7 +158,7 @@ public final class AwsIncubatingAttributes {
    *
    * <p>Notes:
    *
-   * <p>This may be different from {@code cloud.resource_id} if an alias is involved
+   * <p>This may be different from {@code cloud.resource_id} if an alias is involved.
    */
   public static final AttributeKey<String> AWS_LAMBDA_INVOKED_ARN =
       stringKey("aws.lambda.invoked_arn");
@@ -169,7 +170,7 @@ public final class AwsIncubatingAttributes {
    *
    * <p>See the <a
    * href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/iam-access-control-overview-cwl.html#CWL_ARN_Format">log
-   * group ARN format documentation</a>
+   * group ARN format documentation</a>.
    */
   public static final AttributeKey<List<String>> AWS_LOG_GROUP_ARNS =
       stringArrayKey("aws.log.group.arns");
@@ -180,7 +181,7 @@ public final class AwsIncubatingAttributes {
    * <p>Notes:
    *
    * <p>Multiple log groups must be supported for cases like multi-container applications, where a
-   * single application has sidecar containers, and each write to their own log group
+   * single application has sidecar containers, and each write to their own log group.
    */
   public static final AttributeKey<List<String>> AWS_LOG_GROUP_NAMES =
       stringArrayKey("aws.log.group.names");
@@ -193,18 +194,18 @@ public final class AwsIncubatingAttributes {
    * <p>See the <a
    * href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/iam-access-control-overview-cwl.html#CWL_ARN_Format">log
    * stream ARN format documentation</a>. One log group can contain several log streams, so these
-   * ARNs necessarily identify both a log group and a log stream
+   * ARNs necessarily identify both a log group and a log stream.
    */
   public static final AttributeKey<List<String>> AWS_LOG_STREAM_ARNS =
       stringArrayKey("aws.log.stream.arns");
 
-  /** The name(s) of the AWS log stream(s) an application is writing to */
+  /** The name(s) of the AWS log stream(s) an application is writing to. */
   public static final AttributeKey<List<String>> AWS_LOG_STREAM_NAMES =
       stringArrayKey("aws.log.stream.names");
 
   /**
    * The AWS request ID as returned in the response headers {@code x-amz-request-id} or {@code
-   * x-amz-requestid}
+   * x-amz-requestid}.
    */
   public static final AttributeKey<String> AWS_REQUEST_ID = stringKey("aws.request_id");
 
@@ -217,7 +218,7 @@ public final class AwsIncubatingAttributes {
    *
    * <p>The {@code bucket} attribute is applicable to all S3 operations that reference a bucket,
    * i.e. that require the bucket name as a mandatory parameter. This applies to almost all S3
-   * operations except {@code list-buckets}
+   * operations except {@code list-buckets}.
    */
   public static final AttributeKey<String> AWS_S3_BUCKET = stringKey("aws.s3.bucket");
 
@@ -251,7 +252,7 @@ public final class AwsIncubatingAttributes {
    * href="https://docs.aws.amazon.com/cli/latest/reference/s3api/delete-object.html">delete-object</a>
    * operation. The {@code delete} attribute corresponds to the {@code --delete} parameter of the <a
    * href="https://docs.aws.amazon.com/cli/latest/reference/s3api/delete-objects.html">delete-objects
-   * operation within the S3 API</a>
+   * operation within the S3 API</a>.
    */
   public static final AttributeKey<String> AWS_S3_DELETE = stringKey("aws.s3.delete");
 
@@ -311,7 +312,7 @@ public final class AwsIncubatingAttributes {
    * operations. The {@code part_number} attribute corresponds to the {@code --part-number}
    * parameter of the <a
    * href="https://docs.aws.amazon.com/cli/latest/reference/s3api/upload-part.html">upload-part
-   * operation within the S3 API</a>
+   * operation within the S3 API</a>.
    */
   public static final AttributeKey<Long> AWS_S3_PART_NUMBER = longKey("aws.s3.part_number");
 
@@ -345,10 +346,10 @@ public final class AwsIncubatingAttributes {
   // Enum definitions
   /** Values for {@link #AWS_ECS_LAUNCHTYPE}. */
   public static final class AwsEcsLaunchtypeValues {
-    /** ec2 */
+    /** ec2. */
     public static final String EC2 = "ec2";
 
-    /** fargate */
+    /** fargate. */
     public static final String FARGATE = "fargate";
 
     private AwsEcsLaunchtypeValues() {}

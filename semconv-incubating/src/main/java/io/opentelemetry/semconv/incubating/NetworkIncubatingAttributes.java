@@ -13,30 +13,30 @@ import io.opentelemetry.api.common.AttributeKey;
 // buildscripts/templates/registry/incubating_java/IncubatingSemanticAttributes.java.j2
 @SuppressWarnings("unused")
 public final class NetworkIncubatingAttributes {
-  /** The ISO 3166-1 alpha-2 2-character country code associated with the mobile carrier network */
+  /** The ISO 3166-1 alpha-2 2-character country code associated with the mobile carrier network. */
   public static final AttributeKey<String> NETWORK_CARRIER_ICC = stringKey("network.carrier.icc");
 
-  /** The mobile carrier country code */
+  /** The mobile carrier country code. */
   public static final AttributeKey<String> NETWORK_CARRIER_MCC = stringKey("network.carrier.mcc");
 
-  /** The mobile carrier network code */
+  /** The mobile carrier network code. */
   public static final AttributeKey<String> NETWORK_CARRIER_MNC = stringKey("network.carrier.mnc");
 
-  /** The name of the mobile carrier */
+  /** The name of the mobile carrier. */
   public static final AttributeKey<String> NETWORK_CARRIER_NAME = stringKey("network.carrier.name");
 
   /**
    * This describes more details regarding the connection.type. It may be the type of cell
-   * technology connection, but it could be used for describing details about a wifi connection
+   * technology connection, but it could be used for describing details about a wifi connection.
    */
   public static final AttributeKey<String> NETWORK_CONNECTION_SUBTYPE =
       stringKey("network.connection.subtype");
 
-  /** The internet connection type */
+  /** The internet connection type. */
   public static final AttributeKey<String> NETWORK_CONNECTION_TYPE =
       stringKey("network.connection.type");
 
-  /** The network IO operation direction */
+  /** The network IO operation direction. */
   public static final AttributeKey<String> NETWORK_IO_DIRECTION = stringKey("network.io.direction");
 
   // Enum definitions
@@ -111,19 +111,19 @@ public final class NetworkIncubatingAttributes {
   // Enum definitions
   /** Values for {@link #NETWORK_CONNECTION_TYPE}. */
   public static final class NetworkConnectionTypeValues {
-    /** wifi */
+    /** wifi. */
     public static final String WIFI = "wifi";
 
-    /** wired */
+    /** wired. */
     public static final String WIRED = "wired";
 
-    /** cell */
+    /** cell. */
     public static final String CELL = "cell";
 
-    /** unavailable */
+    /** unavailable. */
     public static final String UNAVAILABLE = "unavailable";
 
-    /** unknown */
+    /** unknown. */
     public static final String UNKNOWN = "unknown";
 
     private NetworkConnectionTypeValues() {}
@@ -132,10 +132,10 @@ public final class NetworkIncubatingAttributes {
   // Enum definitions
   /** Values for {@link #NETWORK_IO_DIRECTION}. */
   public static final class NetworkIoDirectionValues {
-    /** transmit */
+    /** transmit. */
     public static final String TRANSMIT = "transmit";
 
-    /** receive */
+    /** receive. */
     public static final String RECEIVE = "receive";
 
     private NetworkIoDirectionValues() {}

@@ -15,20 +15,20 @@ import io.opentelemetry.api.common.AttributeKey;
 public final class TestIncubatingAttributes {
   /**
    * The fully qualified human readable name of the <a
-   * href="https://en.wikipedia.org/wiki/Test_case">test case</a>
+   * href="https://en.wikipedia.org/wiki/Test_case">test case</a>.
    */
   public static final AttributeKey<String> TEST_CASE_NAME = stringKey("test.case.name");
 
-  /** The status of the actual test case result from test execution */
+  /** The status of the actual test case result from test execution. */
   public static final AttributeKey<String> TEST_CASE_RESULT_STATUS =
       stringKey("test.case.result.status");
 
   /**
-   * The human readable name of a <a href="https://en.wikipedia.org/wiki/Test_suite">test suite</a>
+   * The human readable name of a <a href="https://en.wikipedia.org/wiki/Test_suite">test suite</a>.
    */
   public static final AttributeKey<String> TEST_SUITE_NAME = stringKey("test.suite.name");
 
-  /** The status of the test suite run */
+  /** The status of the test suite run. */
   public static final AttributeKey<String> TEST_SUITE_RUN_STATUS =
       stringKey("test.suite.run.status");
 

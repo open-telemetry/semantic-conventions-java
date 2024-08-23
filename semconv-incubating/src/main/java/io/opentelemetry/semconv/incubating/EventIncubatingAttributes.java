@@ -21,7 +21,7 @@ public final class EventIncubatingAttributes {
    * <p>Event names are subject to the same rules as <a
    * href="/docs/general/attribute-naming.md">attribute names</a>. Notably, event names are
    * namespaced to avoid collisions and provide a clean separation of semantics for events in
-   * separate domains like browser, mobile, and kubernetes
+   * separate domains like browser, mobile, and kubernetes.
    */
   public static final AttributeKey<String> EVENT_NAME = stringKey("event.name");
 

@@ -64,13 +64,13 @@ public final class SystemIncubatingAttributes {
   // Enum definitions
   /** Values for {@link #SYSTEM_FILESYSTEM_STATE}. */
   public static final class SystemFilesystemStateValues {
-    /** used */
+    /** used. */
     public static final String USED = "used";
 
-    /** free */
+    /** free. */
     public static final String FREE = "free";
 
-    /** reserved */
+    /** reserved. */
     public static final String RESERVED = "reserved";
 
     private SystemFilesystemStateValues() {}
@@ -79,22 +79,22 @@ public final class SystemIncubatingAttributes {
   // Enum definitions
   /** Values for {@link #SYSTEM_FILESYSTEM_TYPE}. */
   public static final class SystemFilesystemTypeValues {
-    /** fat32 */
+    /** fat32. */
     public static final String FAT32 = "fat32";
 
-    /** exfat */
+    /** exfat. */
     public static final String EXFAT = "exfat";
 
-    /** ntfs */
+    /** ntfs. */
     public static final String NTFS = "ntfs";
 
-    /** refs */
+    /** refs. */
     public static final String REFS = "refs";
 
-    /** hfsplus */
+    /** hfsplus. */
     public static final String HFSPLUS = "hfsplus";
 
-    /** ext4 */
+    /** ext4. */
     public static final String EXT4 = "ext4";
 
     private SystemFilesystemTypeValues() {}
@@ -103,19 +103,19 @@ public final class SystemIncubatingAttributes {
   // Enum definitions
   /** Values for {@link #SYSTEM_MEMORY_STATE}. */
   public static final class SystemMemoryStateValues {
-    /** used */
+    /** used. */
     public static final String USED = "used";
 
-    /** free */
+    /** free. */
     public static final String FREE = "free";
 
-    /** shared */
+    /** shared. */
     public static final String SHARED = "shared";
 
-    /** buffers */
+    /** buffers. */
     public static final String BUFFERS = "buffers";
 
-    /** cached */
+    /** cached. */
     public static final String CACHED = "cached";
 
     private SystemMemoryStateValues() {}
@@ -124,40 +124,40 @@ public final class SystemIncubatingAttributes {
   // Enum definitions
   /** Values for {@link #SYSTEM_NETWORK_STATE}. */
   public static final class SystemNetworkStateValues {
-    /** close */
+    /** close. */
     public static final String CLOSE = "close";
 
-    /** close_wait */
+    /** close_wait. */
     public static final String CLOSE_WAIT = "close_wait";
 
-    /** closing */
+    /** closing. */
     public static final String CLOSING = "closing";
 
-    /** delete */
+    /** delete. */
     public static final String DELETE = "delete";
 
-    /** established */
+    /** established. */
     public static final String ESTABLISHED = "established";
 
-    /** fin_wait_1 */
+    /** fin_wait_1. */
     public static final String FIN_WAIT_1 = "fin_wait_1";
 
-    /** fin_wait_2 */
+    /** fin_wait_2. */
     public static final String FIN_WAIT_2 = "fin_wait_2";
 
-    /** last_ack */
+    /** last_ack. */
     public static final String LAST_ACK = "last_ack";
 
-    /** listen */
+    /** listen. */
     public static final String LISTEN = "listen";
 
-    /** syn_recv */
+    /** syn_recv. */
     public static final String SYN_RECV = "syn_recv";
 
-    /** syn_sent */
+    /** syn_sent. */
     public static final String SYN_SENT = "syn_sent";
 
-    /** time_wait */
+    /** time_wait. */
     public static final String TIME_WAIT = "time_wait";
 
     private SystemNetworkStateValues() {}
@@ -166,10 +166,10 @@ public final class SystemIncubatingAttributes {
   // Enum definitions
   /** Values for {@link #SYSTEM_PAGING_DIRECTION}. */
   public static final class SystemPagingDirectionValues {
-    /** in */
+    /** in. */
     public static final String IN = "in";
 
-    /** out */
+    /** out. */
     public static final String OUT = "out";
 
     private SystemPagingDirectionValues() {}
@@ -178,10 +178,10 @@ public final class SystemIncubatingAttributes {
   // Enum definitions
   /** Values for {@link #SYSTEM_PAGING_STATE}. */
   public static final class SystemPagingStateValues {
-    /** used */
+    /** used. */
     public static final String USED = "used";
 
-    /** free */
+    /** free. */
     public static final String FREE = "free";
 
     private SystemPagingStateValues() {}
@@ -190,10 +190,10 @@ public final class SystemIncubatingAttributes {
   // Enum definitions
   /** Values for {@link #SYSTEM_PAGING_TYPE}. */
   public static final class SystemPagingTypeValues {
-    /** major */
+    /** major. */
     public static final String MAJOR = "major";
 
-    /** minor */
+    /** minor. */
     public static final String MINOR = "minor";
 
     private SystemPagingTypeValues() {}
@@ -202,16 +202,16 @@ public final class SystemIncubatingAttributes {
   // Enum definitions
   /** Values for {@link #SYSTEM_PROCESS_STATUS}. */
   public static final class SystemProcessStatusValues {
-    /** running */
+    /** running. */
     public static final String RUNNING = "running";
 
-    /** sleeping */
+    /** sleeping. */
     public static final String SLEEPING = "sleeping";
 
-    /** stopped */
+    /** stopped. */
     public static final String STOPPED = "stopped";
 
-    /** defunct */
+    /** defunct. */
     public static final String DEFUNCT = "defunct";
 
     private SystemProcessStatusValues() {}

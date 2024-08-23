@@ -21,7 +21,7 @@ public final class ContainerIncubatingAttributes {
    * <p>Notes:
    *
    * <p>If using embedded credentials or sensitive data, it is recommended to remove them to prevent
-   * potential leakage
+   * potential leakage.
    */
   public static final AttributeKey<String> CONTAINER_COMMAND = stringKey("container.command");
 
@@ -38,7 +38,7 @@ public final class ContainerIncubatingAttributes {
   /**
    * Container ID. Usually a UUID, as for example used to <a
    * href="https://docs.docker.com/engine/reference/run/#container-identification">identify Docker
-   * containers</a>. The UUID might be abbreviated
+   * containers</a>. The UUID might be abbreviated.
    */
   public static final AttributeKey<String> CONTAINER_ID = stringKey("container.id");
 
@@ -55,11 +55,11 @@ public final class ContainerIncubatingAttributes {
    * /namespace/service/dockerfile@sha256:bdeabd40c3a8a492eaf9e8e44d0ebbb84bac7ee25ac0cf8a7159d25f62555625"}.
    * The ID is assigned by the container runtime and can vary in different environments. Consider
    * using {@code oci.manifest.digest} if it is important to identify the same image in different
-   * environments/runtimes
+   * environments/runtimes.
    */
   public static final AttributeKey<String> CONTAINER_IMAGE_ID = stringKey("container.image.id");
 
-  /** Name of the image the container was built on */
+  /** Name of the image the container was built on. */
   public static final AttributeKey<String> CONTAINER_IMAGE_NAME = stringKey("container.image.name");
 
   /**
@@ -71,7 +71,7 @@ public final class ContainerIncubatingAttributes {
    * href="https://docs.docker.com/engine/api/v1.43/#tag/Image/operation/ImageInspect">Docker</a>
    * and <a
    * href="https://github.com/kubernetes/cri-api/blob/c75ef5b473bbe2d0a4fc92f82235efd665ea8e9f/pkg/apis/runtime/v1/api.proto#L1237-L1238">CRI</a>
-   * report those under the {@code RepoDigests} field
+   * report those under the {@code RepoDigests} field.
    */
   public static final AttributeKey<List<String>> CONTAINER_IMAGE_REPO_DIGESTS =
       stringArrayKey("container.image.repo_digests");
@@ -80,18 +80,18 @@ public final class ContainerIncubatingAttributes {
    * Container image tags. An example can be found in <a
    * href="https://docs.docker.com/engine/api/v1.43/#tag/Image/operation/ImageInspect">Docker Image
    * Inspect</a>. Should be only the {@code <tag>} section of the full name for example from {@code
-   * registry.example.com/my-org/my-image:<tag>}
+   * registry.example.com/my-org/my-image:<tag>}.
    */
   public static final AttributeKey<List<String>> CONTAINER_IMAGE_TAGS =
       stringArrayKey("container.image.tags");
 
-  /** Container labels, {@code <key>} being the label name, the value being the label value */
+  /** Container labels, {@code <key>} being the label name, the value being the label value. */
   public static final AttributeKey<String> CONTAINER_LABEL = stringKey("container.label");
 
-  /** Container name used by container runtime */
+  /** Container name used by container runtime. */
   public static final AttributeKey<String> CONTAINER_NAME = stringKey("container.name");
 
-  /** The container runtime managing this container */
+  /** The container runtime managing this container. */
   public static final AttributeKey<String> CONTAINER_RUNTIME = stringKey("container.runtime");
 
   private ContainerIncubatingAttributes() {}

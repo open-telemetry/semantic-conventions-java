@@ -13,7 +13,7 @@ import io.opentelemetry.api.common.AttributeKey;
 // buildscripts/templates/registry/incubating_java/IncubatingSemanticAttributes.java.j2
 @SuppressWarnings("unused")
 public final class CloudIncubatingAttributes {
-  /** The cloud account ID the resource is assigned to */
+  /** The cloud account ID the resource is assigned to. */
   public static final AttributeKey<String> CLOUD_ACCOUNT_ID = stringKey("cloud.account.id");
 
   /**
@@ -22,7 +22,7 @@ public final class CloudIncubatingAttributes {
    *
    * <p>Notes:
    *
-   * <p>Availability zones are called "zones" on Alibaba Cloud and Google Cloud
+   * <p>Availability zones are called "zones" on Alibaba Cloud and Google Cloud.
    */
   public static final AttributeKey<String> CLOUD_AVAILABILITY_ZONE =
       stringKey("cloud.availability_zone");
@@ -32,11 +32,11 @@ public final class CloudIncubatingAttributes {
    *
    * <p>Notes:
    *
-   * <p>The prefix of the service SHOULD match the one specified in {@code cloud.provider}
+   * <p>The prefix of the service SHOULD match the one specified in {@code cloud.provider}.
    */
   public static final AttributeKey<String> CLOUD_PLATFORM = stringKey("cloud.platform");
 
-  /** Name of the cloud provider */
+  /** Name of the cloud provider. */
   public static final AttributeKey<String> CLOUD_PROVIDER = stringKey("cloud.provider");
 
   /**
@@ -49,7 +49,7 @@ public final class CloudIncubatingAttributes {
    * href="https://aws.amazon.com/about-aws/global-infrastructure/regions_az/">AWS regions</a>, <a
    * href="https://azure.microsoft.com/global-infrastructure/geographies/">Azure regions</a>, <a
    * href="https://cloud.google.com/about/locations">Google Cloud regions</a>, or <a
-   * href="https://www.tencentcloud.com/document/product/213/6091">Tencent Cloud regions</a>
+   * href="https://www.tencentcloud.com/document/product/213/6091">Tencent Cloud regions</a>.
    */
   public static final AttributeKey<String> CLOUD_REGION = stringKey("cloud.region");
 
@@ -86,7 +86,7 @@ public final class CloudIncubatingAttributes {
    *       {@code
    *       /subscriptions/<SUBSCIPTION_GUID>/resourceGroups/<RG>/providers/Microsoft.Web/sites/<FUNCAPP>/functions/<FUNC>}.
    *       This means that a span attribute MUST be used, as an Azure function app can host multiple
-   *       functions that would usually share a TracerProvider
+   *       functions that would usually share a TracerProvider.
    * </ul>
    */
   public static final AttributeKey<String> CLOUD_RESOURCE_ID = stringKey("cloud.resource_id");

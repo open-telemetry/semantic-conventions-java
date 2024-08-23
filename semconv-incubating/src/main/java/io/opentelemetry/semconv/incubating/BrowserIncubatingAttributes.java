@@ -23,7 +23,7 @@ public final class BrowserIncubatingAttributes {
    *
    * <p>This value is intended to be taken from the <a
    * href="https://wicg.github.io/ua-client-hints/#interface">UA client hints API</a> ({@code
-   * navigator.userAgentData.brands})
+   * navigator.userAgentData.brands}).
    */
   public static final AttributeKey<List<String>> BROWSER_BRANDS = stringArrayKey("browser.brands");
 
@@ -32,7 +32,7 @@ public final class BrowserIncubatingAttributes {
    *
    * <p>Notes:
    *
-   * <p>This value is intended to be taken from the Navigator API {@code navigator.language}
+   * <p>This value is intended to be taken from the Navigator API {@code navigator.language}.
    */
   public static final AttributeKey<String> BROWSER_LANGUAGE = stringKey("browser.language");
 
@@ -43,7 +43,7 @@ public final class BrowserIncubatingAttributes {
    *
    * <p>This value is intended to be taken from the <a
    * href="https://wicg.github.io/ua-client-hints/#interface">UA client hints API</a> ({@code
-   * navigator.userAgentData.mobile}). If unavailable, this attribute SHOULD be left unset
+   * navigator.userAgentData.mobile}). If unavailable, this attribute SHOULD be left unset.
    */
   public static final AttributeKey<Boolean> BROWSER_MOBILE = booleanKey("browser.mobile");
 
@@ -61,7 +61,7 @@ public final class BrowserIncubatingAttributes {
    * specification</a>. Note that some (but not all) of these values can overlap with values in the
    * <a href="./os.md">{@code os.type} and {@code os.name} attributes</a>. However, for consistency,
    * the values in the {@code browser.platform} attribute should capture the exact value that the
-   * user agent provides
+   * user agent provides.
    */
   public static final AttributeKey<String> BROWSER_PLATFORM = stringKey("browser.platform");
 

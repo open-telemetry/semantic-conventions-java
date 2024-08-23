@@ -18,7 +18,7 @@ import java.util.List;
 public final class RpcIncubatingAttributes {
   /**
    * The <a href="https://connect.build/docs/protocol/#error-codes">error codes</a> of the Connect
-   * request. Error codes are always string values
+   * request. Error codes are always string values.
    */
   public static final AttributeKey<String> RPC_CONNECT_RPC_ERROR_CODE =
       stringKey("rpc.connect_rpc.error_code");
@@ -31,7 +31,7 @@ public final class RpcIncubatingAttributes {
    *
    * <p>Instrumentations SHOULD require an explicit configuration of which metadata values are to be
    * captured. Including all request metadata values can be a security risk - explicit configuration
-   * helps avoid leaking sensitive information
+   * helps avoid leaking sensitive information.
    */
   public static final AttributeKey<List<String>> RPC_CONNECT_RPC_REQUEST_METADATA =
       stringArrayKey("rpc.connect_rpc.request.metadata");
@@ -44,7 +44,7 @@ public final class RpcIncubatingAttributes {
    *
    * <p>Instrumentations SHOULD require an explicit configuration of which metadata values are to be
    * captured. Including all response metadata values can be a security risk - explicit
-   * configuration helps avoid leaking sensitive information
+   * configuration helps avoid leaking sensitive information.
    */
   public static final AttributeKey<List<String>> RPC_CONNECT_RPC_RESPONSE_METADATA =
       stringArrayKey("rpc.connect_rpc.response.metadata");
@@ -57,7 +57,7 @@ public final class RpcIncubatingAttributes {
    *
    * <p>Instrumentations SHOULD require an explicit configuration of which metadata values are to be
    * captured. Including all request metadata values can be a security risk - explicit configuration
-   * helps avoid leaking sensitive information
+   * helps avoid leaking sensitive information.
    */
   public static final AttributeKey<List<String>> RPC_GRPC_REQUEST_METADATA =
       stringArrayKey("rpc.grpc.request.metadata");
@@ -70,39 +70,39 @@ public final class RpcIncubatingAttributes {
    *
    * <p>Instrumentations SHOULD require an explicit configuration of which metadata values are to be
    * captured. Including all response metadata values can be a security risk - explicit
-   * configuration helps avoid leaking sensitive information
+   * configuration helps avoid leaking sensitive information.
    */
   public static final AttributeKey<List<String>> RPC_GRPC_RESPONSE_METADATA =
       stringArrayKey("rpc.grpc.response.metadata");
 
   /**
    * The <a href="https://github.com/grpc/grpc/blob/v1.33.2/doc/statuscodes.md">numeric status
-   * code</a> of the gRPC request
+   * code</a> of the gRPC request.
    */
   public static final AttributeKey<Long> RPC_GRPC_STATUS_CODE = longKey("rpc.grpc.status_code");
 
-  /** {@code error.code} property of response if it is an error response */
+  /** {@code error.code} property of response if it is an error response. */
   public static final AttributeKey<Long> RPC_JSONRPC_ERROR_CODE = longKey("rpc.jsonrpc.error_code");
 
-  /** {@code error.message} property of response if it is an error response */
+  /** {@code error.message} property of response if it is an error response. */
   public static final AttributeKey<String> RPC_JSONRPC_ERROR_MESSAGE =
       stringKey("rpc.jsonrpc.error_message");
 
   /**
    * {@code id} property of request or response. Since protocol allows id to be int, string, {@code
    * null} or missing (for notifications), value is expected to be cast to string for simplicity.
-   * Use empty string in case of {@code null} value. Omit entirely if this is a notification
+   * Use empty string in case of {@code null} value. Omit entirely if this is a notification.
    */
   public static final AttributeKey<String> RPC_JSONRPC_REQUEST_ID =
       stringKey("rpc.jsonrpc.request_id");
 
   /**
    * Protocol version as in {@code jsonrpc} property of request/response. Since JSON-RPC 1.0 doesn't
-   * specify this, the value can be omitted
+   * specify this, the value can be omitted.
    */
   public static final AttributeKey<String> RPC_JSONRPC_VERSION = stringKey("rpc.jsonrpc.version");
 
-  /** Compressed size of the message in bytes */
+  /** Compressed size of the message in bytes. */
   public static final AttributeKey<Long> RPC_MESSAGE_COMPRESSED_SIZE =
       longKey("rpc.message.compressed_size");
 
@@ -112,14 +112,14 @@ public final class RpcIncubatingAttributes {
    *
    * <p>Notes:
    *
-   * <p>This way we guarantee that the values will be consistent between different implementations
+   * <p>This way we guarantee that the values will be consistent between different implementations.
    */
   public static final AttributeKey<Long> RPC_MESSAGE_ID = longKey("rpc.message.id");
 
-  /** Whether this is a received or sent message */
+  /** Whether this is a received or sent message. */
   public static final AttributeKey<String> RPC_MESSAGE_TYPE = stringKey("rpc.message.type");
 
-  /** Uncompressed size of the message in bytes */
+  /** Uncompressed size of the message in bytes. */
   public static final AttributeKey<Long> RPC_MESSAGE_UNCOMPRESSED_SIZE =
       longKey("rpc.message.uncompressed_size");
 
@@ -132,7 +132,7 @@ public final class RpcIncubatingAttributes {
    * <p>This is the logical name of the method from the RPC interface perspective, which can be
    * different from the name of any implementing method/function. The {@code code.function}
    * attribute may be used to store the latter (e.g., method actually executing the call on the
-   * server side, RPC client stub method on the client side)
+   * server side, RPC client stub method on the client side).
    */
   public static final AttributeKey<String> RPC_METHOD = stringKey("rpc.method");
 
@@ -145,62 +145,62 @@ public final class RpcIncubatingAttributes {
    * different from the name of any implementing class. The {@code code.namespace} attribute may be
    * used to store the latter (despite the attribute name, it may include a class name; e.g., class
    * with method actually executing the call on the server side, RPC client stub class on the client
-   * side)
+   * side).
    */
   public static final AttributeKey<String> RPC_SERVICE = stringKey("rpc.service");
 
-  /** A string identifying the remoting system. See below for a list of well-known identifiers */
+  /** A string identifying the remoting system. See below for a list of well-known identifiers. */
   public static final AttributeKey<String> RPC_SYSTEM = stringKey("rpc.system");
 
   // Enum definitions
   /** Values for {@link #RPC_CONNECT_RPC_ERROR_CODE}. */
   public static final class RpcConnectRpcErrorCodeValues {
-    /** cancelled */
+    /** cancelled. */
     public static final String CANCELLED = "cancelled";
 
-    /** unknown */
+    /** unknown. */
     public static final String UNKNOWN = "unknown";
 
-    /** invalid_argument */
+    /** invalid_argument. */
     public static final String INVALID_ARGUMENT = "invalid_argument";
 
-    /** deadline_exceeded */
+    /** deadline_exceeded. */
     public static final String DEADLINE_EXCEEDED = "deadline_exceeded";
 
-    /** not_found */
+    /** not_found. */
     public static final String NOT_FOUND = "not_found";
 
-    /** already_exists */
+    /** already_exists. */
     public static final String ALREADY_EXISTS = "already_exists";
 
-    /** permission_denied */
+    /** permission_denied. */
     public static final String PERMISSION_DENIED = "permission_denied";
 
-    /** resource_exhausted */
+    /** resource_exhausted. */
     public static final String RESOURCE_EXHAUSTED = "resource_exhausted";
 
-    /** failed_precondition */
+    /** failed_precondition. */
     public static final String FAILED_PRECONDITION = "failed_precondition";
 
-    /** aborted */
+    /** aborted. */
     public static final String ABORTED = "aborted";
 
-    /** out_of_range */
+    /** out_of_range. */
     public static final String OUT_OF_RANGE = "out_of_range";
 
-    /** unimplemented */
+    /** unimplemented. */
     public static final String UNIMPLEMENTED = "unimplemented";
 
-    /** internal */
+    /** internal. */
     public static final String INTERNAL = "internal";
 
-    /** unavailable */
+    /** unavailable. */
     public static final String UNAVAILABLE = "unavailable";
 
-    /** data_loss */
+    /** data_loss. */
     public static final String DATA_LOSS = "data_loss";
 
-    /** unauthenticated */
+    /** unauthenticated. */
     public static final String UNAUTHENTICATED = "unauthenticated";
 
     private RpcConnectRpcErrorCodeValues() {}
@@ -266,10 +266,10 @@ public final class RpcIncubatingAttributes {
   // Enum definitions
   /** Values for {@link #RPC_MESSAGE_TYPE}. */
   public static final class RpcMessageTypeValues {
-    /** sent */
+    /** sent. */
     public static final String SENT = "SENT";
 
-    /** received */
+    /** received. */
     public static final String RECEIVED = "RECEIVED";
 
     private RpcMessageTypeValues() {}

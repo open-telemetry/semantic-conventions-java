@@ -22,7 +22,7 @@ public final class DestinationIncubatingAttributes {
    *
    * <p>When observed from the source side, and when communicating through an intermediary, {@code
    * destination.address} SHOULD represent the destination address behind any intermediaries, for
-   * example proxies, if it's available
+   * example proxies, if it's available.
    */
   public static final AttributeKey<String> DESTINATION_ADDRESS = stringKey("destination.address");
 

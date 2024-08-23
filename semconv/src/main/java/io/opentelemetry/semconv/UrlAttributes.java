@@ -29,7 +29,7 @@ public final class UrlAttributes {
    * be redacted and attribute's value SHOULD be {@code https://REDACTED:REDACTED@www.example.com/}.
    * {@code url.full} SHOULD capture the absolute URL when it is available (or can be
    * reconstructed). Sensitive content provided in {@code url.full} SHOULD be scrubbed when
-   * instrumentations can identify it
+   * instrumentations can identify it.
    */
   public static final AttributeKey<String> URL_FULL = stringKey("url.full");
 
@@ -39,7 +39,7 @@ public final class UrlAttributes {
    * <p>Notes:
    *
    * <p>Sensitive content provided in {@code url.path} SHOULD be scrubbed when instrumentations can
-   * identify it
+   * identify it.
    */
   public static final AttributeKey<String> URL_PATH = stringKey("url.path");
 
@@ -49,13 +49,13 @@ public final class UrlAttributes {
    * <p>Notes:
    *
    * <p>Sensitive content provided in {@code url.query} SHOULD be scrubbed when instrumentations can
-   * identify it
+   * identify it.
    */
   public static final AttributeKey<String> URL_QUERY = stringKey("url.query");
 
   /**
    * The <a href="https://www.rfc-editor.org/rfc/rfc3986#section-3.1">URI scheme</a> component
-   * identifying the used protocol
+   * identifying the used protocol.
    */
   public static final AttributeKey<String> URL_SCHEME = stringKey("url.scheme");
 

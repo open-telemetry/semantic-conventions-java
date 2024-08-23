@@ -15,7 +15,7 @@ import java.util.List;
 // buildscripts/templates/registry/incubating_java/IncubatingSemanticAttributes.java.j2
 @SuppressWarnings("unused")
 public final class UserIncubatingAttributes {
-  /** User email address */
+  /** User email address. */
   public static final AttributeKey<String> USER_EMAIL = stringKey("user.email");
 
   /** User's full name */
@@ -27,17 +27,17 @@ public final class UserIncubatingAttributes {
    * <p>Notes:
    *
    * <p>Useful if {@code user.id} or {@code user.name} contain confidential information and cannot
-   * be used
+   * be used.
    */
   public static final AttributeKey<String> USER_HASH = stringKey("user.hash");
 
-  /** Unique identifier of the user */
+  /** Unique identifier of the user. */
   public static final AttributeKey<String> USER_ID = stringKey("user.id");
 
-  /** Short name or login/username of the user */
+  /** Short name or login/username of the user. */
   public static final AttributeKey<String> USER_NAME = stringKey("user.name");
 
-  /** Array of user roles at the time of the event */
+  /** Array of user roles at the time of the event. */
   public static final AttributeKey<List<String>> USER_ROLES = stringArrayKey("user.roles");
 
   private UserIncubatingAttributes() {}

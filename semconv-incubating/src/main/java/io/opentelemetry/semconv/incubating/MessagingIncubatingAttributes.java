@@ -25,12 +25,12 @@ public final class MessagingIncubatingAttributes {
    * <p>Instrumentations SHOULD NOT set {@code messaging.batch.message_count} on spans that operate
    * with a single message. When a messaging client library supports both batch and single-message
    * API for the same operation, instrumentations SHOULD use {@code messaging.batch.message_count}
-   * for batching APIs and SHOULD NOT use it for single-message APIs
+   * for batching APIs and SHOULD NOT use it for single-message APIs.
    */
   public static final AttributeKey<Long> MESSAGING_BATCH_MESSAGE_COUNT =
       longKey("messaging.batch.message_count");
 
-  /** A unique identifier for the client that consumes or produces a message */
+  /** A unique identifier for the client that consumes or produces a message. */
   public static final AttributeKey<String> MESSAGING_CLIENT_ID = stringKey("messaging.client.id");
 
   /**
@@ -39,14 +39,14 @@ public final class MessagingIncubatingAttributes {
    * <p>Notes:
    *
    * <p>Semantic conventions for individual messaging systems SHOULD document whether {@code
-   * messaging.consumer.group.name} is applicable and what it means in the context of that system
+   * messaging.consumer.group.name} is applicable and what it means in the context of that system.
    */
   public static final AttributeKey<String> MESSAGING_CONSUMER_GROUP_NAME =
       stringKey("messaging.consumer.group.name");
 
   /**
    * A boolean that is true if the message destination is anonymous (could be unnamed or have
-   * auto-generated name)
+   * auto-generated name).
    */
   public static final AttributeKey<Boolean> MESSAGING_DESTINATION_ANONYMOUS =
       booleanKey("messaging.destination.anonymous");
@@ -58,14 +58,14 @@ public final class MessagingIncubatingAttributes {
    *
    * <p>Destination name SHOULD uniquely identify a specific queue, topic or other entity within the
    * broker. If the broker doesn't have such notion, the destination name SHOULD uniquely identify
-   * the broker
+   * the broker.
    */
   public static final AttributeKey<String> MESSAGING_DESTINATION_NAME =
       stringKey("messaging.destination.name");
 
   /**
    * The identifier of the partition messages are sent to or received from, unique within the {@code
-   * messaging.destination.name}
+   * messaging.destination.name}.
    */
   public static final AttributeKey<String> MESSAGING_DESTINATION_PARTITION_ID =
       stringKey("messaging.destination.partition.id");
@@ -77,7 +77,7 @@ public final class MessagingIncubatingAttributes {
    *
    * <p>Semantic conventions for individual messaging systems SHOULD document whether {@code
    * messaging.destination.subscription.name} is applicable and what it means in the context of that
-   * system
+   * system.
    */
   public static final AttributeKey<String> MESSAGING_DESTINATION_SUBSCRIPTION_NAME =
       stringKey("messaging.destination.subscription.name");
@@ -90,37 +90,37 @@ public final class MessagingIncubatingAttributes {
    * <p>Destination names could be constructed from templates. An example would be a destination
    * name involving a user name or product id. Although the destination name in this case is of high
    * cardinality, the underlying template is of low cardinality and can be effectively used for
-   * grouping and aggregation
+   * grouping and aggregation.
    */
   public static final AttributeKey<String> MESSAGING_DESTINATION_TEMPLATE =
       stringKey("messaging.destination.template");
 
   /**
    * A boolean that is true if the message destination is temporary and might not exist anymore
-   * after messages are processed
+   * after messages are processed.
    */
   public static final AttributeKey<Boolean> MESSAGING_DESTINATION_TEMPORARY =
       booleanKey("messaging.destination.temporary");
 
-  /** The UTC epoch seconds at which the message has been accepted and stored in the entity */
+  /** The UTC epoch seconds at which the message has been accepted and stored in the entity. */
   public static final AttributeKey<Long> MESSAGING_EVENTHUBS_MESSAGE_ENQUEUED_TIME =
       longKey("messaging.eventhubs.message.enqueued_time");
 
-  /** The ack deadline in seconds set for the modify ack deadline request */
+  /** The ack deadline in seconds set for the modify ack deadline request. */
   public static final AttributeKey<Long> MESSAGING_GCP_PUBSUB_MESSAGE_ACK_DEADLINE =
       longKey("messaging.gcp_pubsub.message.ack_deadline");
 
-  /** The ack id for a given message */
+  /** The ack id for a given message. */
   public static final AttributeKey<String> MESSAGING_GCP_PUBSUB_MESSAGE_ACK_ID =
       stringKey("messaging.gcp_pubsub.message.ack_id");
 
-  /** The delivery attempt for a given message */
+  /** The delivery attempt for a given message. */
   public static final AttributeKey<Long> MESSAGING_GCP_PUBSUB_MESSAGE_DELIVERY_ATTEMPT =
       longKey("messaging.gcp_pubsub.message.delivery_attempt");
 
   /**
    * The ordering key for a given message. If the attribute is not present, the message does not
-   * have an ordering key
+   * have an ordering key.
    */
   public static final AttributeKey<String> MESSAGING_GCP_PUBSUB_MESSAGE_ORDERING_KEY =
       stringKey("messaging.gcp_pubsub.message.ordering_key");
@@ -133,16 +133,16 @@ public final class MessagingIncubatingAttributes {
    * <p>Notes:
    *
    * <p>If the key type is not string, it's string representation has to be supplied for the
-   * attribute. If the key has no unambiguous, canonical string form, don't include its value
+   * attribute. If the key has no unambiguous, canonical string form, don't include its value.
    */
   public static final AttributeKey<String> MESSAGING_KAFKA_MESSAGE_KEY =
       stringKey("messaging.kafka.message.key");
 
-  /** A boolean that is true if the message is a tombstone */
+  /** A boolean that is true if the message is a tombstone. */
   public static final AttributeKey<Boolean> MESSAGING_KAFKA_MESSAGE_TOMBSTONE =
       booleanKey("messaging.kafka.message.tombstone");
 
-  /** The offset of a record in the corresponding Kafka partition */
+  /** The offset of a record in the corresponding Kafka partition. */
   public static final AttributeKey<Long> MESSAGING_KAFKA_OFFSET = longKey("messaging.kafka.offset");
 
   /**
@@ -151,14 +151,14 @@ public final class MessagingIncubatingAttributes {
    * <p>Notes:
    *
    * <p>This can refer to both the compressed or uncompressed body size. If both sizes are known,
-   * the uncompressed body size should be used
+   * the uncompressed body size should be used.
    */
   public static final AttributeKey<Long> MESSAGING_MESSAGE_BODY_SIZE =
       longKey("messaging.message.body.size");
 
   /**
    * The conversation ID identifying the conversation to which the message belongs, represented as a
-   * string. Sometimes called "Correlation ID"
+   * string. Sometimes called "Correlation ID".
    */
   public static final AttributeKey<String> MESSAGING_MESSAGE_CONVERSATION_ID =
       stringKey("messaging.message.conversation_id");
@@ -169,17 +169,17 @@ public final class MessagingIncubatingAttributes {
    * <p>Notes:
    *
    * <p>This can refer to both the compressed or uncompressed size. If both sizes are known, the
-   * uncompressed size should be used
+   * uncompressed size should be used.
    */
   public static final AttributeKey<Long> MESSAGING_MESSAGE_ENVELOPE_SIZE =
       longKey("messaging.message.envelope.size");
 
   /**
-   * A value used by the messaging system as an identifier for the message, represented as a string
+   * A value used by the messaging system as an identifier for the message, represented as a string.
    */
   public static final AttributeKey<String> MESSAGING_MESSAGE_ID = stringKey("messaging.message.id");
 
-  /** The system-specific name of the messaging operation */
+  /** The system-specific name of the messaging operation. */
   public static final AttributeKey<String> MESSAGING_OPERATION_NAME =
       stringKey("messaging.operation.name");
 
@@ -188,12 +188,12 @@ public final class MessagingIncubatingAttributes {
    *
    * <p>Notes:
    *
-   * <p>If a custom value is used, it MUST be of low cardinality
+   * <p>If a custom value is used, it MUST be of low cardinality.
    */
   public static final AttributeKey<String> MESSAGING_OPERATION_TYPE =
       stringKey("messaging.operation.type");
 
-  /** RabbitMQ message routing key */
+  /** RabbitMQ message routing key. */
   public static final AttributeKey<String> MESSAGING_RABBITMQ_DESTINATION_ROUTING_KEY =
       stringKey("messaging.rabbitmq.destination.routing_key");
 
@@ -201,56 +201,56 @@ public final class MessagingIncubatingAttributes {
   public static final AttributeKey<Long> MESSAGING_RABBITMQ_MESSAGE_DELIVERY_TAG =
       longKey("messaging.rabbitmq.message.delivery_tag");
 
-  /** Model of message consumption. This only applies to consumer spans */
+  /** Model of message consumption. This only applies to consumer spans. */
   public static final AttributeKey<String> MESSAGING_ROCKETMQ_CONSUMPTION_MODEL =
       stringKey("messaging.rocketmq.consumption_model");
 
-  /** The delay time level for delay message, which determines the message delay time */
+  /** The delay time level for delay message, which determines the message delay time. */
   public static final AttributeKey<Long> MESSAGING_ROCKETMQ_MESSAGE_DELAY_TIME_LEVEL =
       longKey("messaging.rocketmq.message.delay_time_level");
 
   /**
-   * The timestamp in milliseconds that the delay message is expected to be delivered to consumer
+   * The timestamp in milliseconds that the delay message is expected to be delivered to consumer.
    */
   public static final AttributeKey<Long> MESSAGING_ROCKETMQ_MESSAGE_DELIVERY_TIMESTAMP =
       longKey("messaging.rocketmq.message.delivery_timestamp");
 
   /**
    * It is essential for FIFO message. Messages that belong to the same message group are always
-   * processed one by one within the same consumer group
+   * processed one by one within the same consumer group.
    */
   public static final AttributeKey<String> MESSAGING_ROCKETMQ_MESSAGE_GROUP =
       stringKey("messaging.rocketmq.message.group");
 
-  /** Key(s) of message, another way to mark message besides message id */
+  /** Key(s) of message, another way to mark message besides message id. */
   public static final AttributeKey<List<String>> MESSAGING_ROCKETMQ_MESSAGE_KEYS =
       stringArrayKey("messaging.rocketmq.message.keys");
 
-  /** The secondary classifier of message besides topic */
+  /** The secondary classifier of message besides topic. */
   public static final AttributeKey<String> MESSAGING_ROCKETMQ_MESSAGE_TAG =
       stringKey("messaging.rocketmq.message.tag");
 
-  /** Type of message */
+  /** Type of message. */
   public static final AttributeKey<String> MESSAGING_ROCKETMQ_MESSAGE_TYPE =
       stringKey("messaging.rocketmq.message.type");
 
-  /** Namespace of RocketMQ resources, resources in different namespaces are individual */
+  /** Namespace of RocketMQ resources, resources in different namespaces are individual. */
   public static final AttributeKey<String> MESSAGING_ROCKETMQ_NAMESPACE =
       stringKey("messaging.rocketmq.namespace");
 
   /**
    * Describes the <a
    * href="https://learn.microsoft.com/azure/service-bus-messaging/message-transfers-locks-settlement#peeklock">settlement
-   * type</a>
+   * type</a>.
    */
   public static final AttributeKey<String> MESSAGING_SERVICEBUS_DISPOSITION_STATUS =
       stringKey("messaging.servicebus.disposition_status");
 
-  /** Number of deliveries that have been attempted for this message */
+  /** Number of deliveries that have been attempted for this message. */
   public static final AttributeKey<Long> MESSAGING_SERVICEBUS_MESSAGE_DELIVERY_COUNT =
       longKey("messaging.servicebus.message.delivery_count");
 
-  /** The UTC epoch seconds at which the message has been accepted and stored in the entity */
+  /** The UTC epoch seconds at which the message has been accepted and stored in the entity. */
   public static final AttributeKey<Long> MESSAGING_SERVICEBUS_MESSAGE_ENQUEUED_TIME =
       longKey("messaging.servicebus.message.enqueued_time");
 
@@ -261,7 +261,7 @@ public final class MessagingIncubatingAttributes {
    *
    * <p>The actual messaging system may differ from the one known by the client. For example, when
    * using Kafka client libraries to communicate with Azure Event Hubs, the {@code messaging.system}
-   * is set to {@code kafka} based on the instrumentation's best knowledge
+   * is set to {@code kafka} based on the instrumentation's best knowledge.
    */
   public static final AttributeKey<String> MESSAGING_SYSTEM = stringKey("messaging.system");
 
@@ -271,29 +271,29 @@ public final class MessagingIncubatingAttributes {
     /**
      * One or more messages are provided for publishing to an intermediary. If a single message is
      * published, the context of the "Publish" span can be used as the creation context and no
-     * "Create" span needs to be created
+     * "Create" span needs to be created.
      */
     public static final String PUBLISH = "publish";
 
     /**
      * A message is created. "Create" spans always refer to a single message and are used to provide
-     * a unique creation context for messages in batch publishing scenarios
+     * a unique creation context for messages in batch publishing scenarios.
      */
     public static final String CREATE = "create";
 
     /**
      * One or more messages are requested by a consumer. This operation refers to pull-based
-     * scenarios, where consumers explicitly call methods of messaging SDKs to receive messages
+     * scenarios, where consumers explicitly call methods of messaging SDKs to receive messages.
      */
     public static final String RECEIVE = "receive";
 
-    /** One or more messages are processed by a consumer */
+    /** One or more messages are processed by a consumer. */
     public static final String PROCESS = "process";
 
-    /** One or more messages are settled */
+    /** One or more messages are settled. */
     public static final String SETTLE = "settle";
 
-    /** Deprecated. Use {@code process} instead */
+    /** Deprecated. Use {@code process} instead. */
     public static final String DELIVER = "deliver";
 
     private MessagingOperationTypeValues() {}

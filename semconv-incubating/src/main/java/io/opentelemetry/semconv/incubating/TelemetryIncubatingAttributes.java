@@ -20,12 +20,12 @@ public final class TelemetryIncubatingAttributes {
    *
    * <p>Official auto instrumentation agents and distributions SHOULD set the {@code
    * telemetry.distro.name} attribute to a string starting with {@code opentelemetry-}, e.g. {@code
-   * opentelemetry-java-instrumentation}
+   * opentelemetry-java-instrumentation}.
    */
   public static final AttributeKey<String> TELEMETRY_DISTRO_NAME =
       stringKey("telemetry.distro.name");
 
-  /** The version string of the auto instrumentation agent or distribution, if used */
+  /** The version string of the auto instrumentation agent or distribution, if used. */
   public static final AttributeKey<String> TELEMETRY_DISTRO_VERSION =
       stringKey("telemetry.distro.version");
 

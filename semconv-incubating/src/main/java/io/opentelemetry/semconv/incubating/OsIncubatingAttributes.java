@@ -13,24 +13,24 @@ import io.opentelemetry.api.common.AttributeKey;
 // buildscripts/templates/registry/incubating_java/IncubatingSemanticAttributes.java.j2
 @SuppressWarnings("unused")
 public final class OsIncubatingAttributes {
-  /** Unique identifier for a particular build or compilation of the operating system */
+  /** Unique identifier for a particular build or compilation of the operating system. */
   public static final AttributeKey<String> OS_BUILD_ID = stringKey("os.build_id");
 
   /**
    * Human readable (not intended to be parsed) OS version information, like e.g. reported by {@code
-   * ver} or {@code lsb_release -a} commands
+   * ver} or {@code lsb_release -a} commands.
    */
   public static final AttributeKey<String> OS_DESCRIPTION = stringKey("os.description");
 
-  /** Human readable operating system name */
+  /** Human readable operating system name. */
   public static final AttributeKey<String> OS_NAME = stringKey("os.name");
 
-  /** The operating system type */
+  /** The operating system type. */
   public static final AttributeKey<String> OS_TYPE = stringKey("os.type");
 
   /**
    * The version string of the operating system as defined in <a
-   * href="/docs/resource/README.md#version-attributes">Version Attributes</a>
+   * href="/docs/resource/README.md#version-attributes">Version Attributes</a>.
    */
   public static final AttributeKey<String> OS_VERSION = stringKey("os.version");
 

@@ -28,19 +28,19 @@ public final class DeploymentIncubatingAttributes {
    *
    * <ul>
    *   <li>{@code service.name=frontend}, {@code deployment.environment.name=production}
-   *   <li>{@code service.name=frontend}, {@code deployment.environment.name=staging}
+   *   <li>{@code service.name=frontend}, {@code deployment.environment.name=staging}.
    * </ul>
    */
   public static final AttributeKey<String> DEPLOYMENT_ENVIRONMENT_NAME =
       stringKey("deployment.environment.name");
 
-  /** The id of the deployment */
+  /** The id of the deployment. */
   public static final AttributeKey<String> DEPLOYMENT_ID = stringKey("deployment.id");
 
-  /** The name of the deployment */
+  /** The name of the deployment. */
   public static final AttributeKey<String> DEPLOYMENT_NAME = stringKey("deployment.name");
 
-  /** The status of the deployment */
+  /** The status of the deployment. */
   public static final AttributeKey<String> DEPLOYMENT_STATUS = stringKey("deployment.status");
 
   // Enum definitions

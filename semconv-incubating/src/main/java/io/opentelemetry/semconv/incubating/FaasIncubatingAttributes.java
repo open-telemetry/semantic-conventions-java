@@ -17,38 +17,38 @@ import io.opentelemetry.api.common.AttributeKey;
 public final class FaasIncubatingAttributes {
   /**
    * A boolean that is true if the serverless function is executed for the first time (aka
-   * cold-start)
+   * cold-start).
    */
   public static final AttributeKey<Boolean> FAAS_COLDSTART = booleanKey("faas.coldstart");
 
   /**
    * A string containing the schedule period as <a
    * href="https://docs.oracle.com/cd/E12058_01/doc/doc.1014/e12030/cron_expressions.htm">Cron
-   * Expression</a>
+   * Expression</a>.
    */
   public static final AttributeKey<String> FAAS_CRON = stringKey("faas.cron");
 
   /**
    * The name of the source on which the triggering operation was performed. For example, in Cloud
-   * Storage or S3 corresponds to the bucket name, and in Cosmos DB to the database name
+   * Storage or S3 corresponds to the bucket name, and in Cosmos DB to the database name.
    */
   public static final AttributeKey<String> FAAS_DOCUMENT_COLLECTION =
       stringKey("faas.document.collection");
 
   /**
    * The document name/table subjected to the operation. For example, in Cloud Storage or S3 is the
-   * name of the file, and in Cosmos DB the table name
+   * name of the file, and in Cosmos DB the table name.
    */
   public static final AttributeKey<String> FAAS_DOCUMENT_NAME = stringKey("faas.document.name");
 
-  /** Describes the type of the operation that was performed on the data */
+  /** Describes the type of the operation that was performed on the data. */
   public static final AttributeKey<String> FAAS_DOCUMENT_OPERATION =
       stringKey("faas.document.operation");
 
   /**
    * A string containing the time when the data was accessed in the <a
    * href="https://www.iso.org/iso-8601-date-and-time-format.html">ISO 8601</a> format expressed in
-   * <a href="https://www.w3.org/TR/NOTE-datetime">UTC</a>
+   * <a href="https://www.w3.org/TR/NOTE-datetime">UTC</a>.
    */
   public static final AttributeKey<String> FAAS_DOCUMENT_TIME = stringKey("faas.document.time");
 
@@ -61,12 +61,12 @@ public final class FaasIncubatingAttributes {
    * <p>
    *
    * <ul>
-   *   <li><strong>AWS Lambda:</strong> Use the (full) log stream name
+   *   <li><strong>AWS Lambda:</strong> Use the (full) log stream name.
    * </ul>
    */
   public static final AttributeKey<String> FAAS_INSTANCE = stringKey("faas.instance");
 
-  /** The invocation ID of the current function invocation */
+  /** The invocation ID of the current function invocation. */
   public static final AttributeKey<String> FAAS_INVOCATION_ID = stringKey("faas.invocation_id");
 
   /**
@@ -74,7 +74,7 @@ public final class FaasIncubatingAttributes {
    *
    * <p>Notes:
    *
-   * <p>SHOULD be equal to the {@code faas.name} resource attribute of the invoked function
+   * <p>SHOULD be equal to the {@code faas.name} resource attribute of the invoked function.
    */
   public static final AttributeKey<String> FAAS_INVOKED_NAME = stringKey("faas.invoked_name");
 
@@ -83,7 +83,7 @@ public final class FaasIncubatingAttributes {
    *
    * <p>Notes:
    *
-   * <p>SHOULD be equal to the {@code cloud.provider} resource attribute of the invoked function
+   * <p>SHOULD be equal to the {@code cloud.provider} resource attribute of the invoked function.
    */
   public static final AttributeKey<String> FAAS_INVOKED_PROVIDER =
       stringKey("faas.invoked_provider");
@@ -93,7 +93,7 @@ public final class FaasIncubatingAttributes {
    *
    * <p>Notes:
    *
-   * <p>SHOULD be equal to the {@code cloud.region} resource attribute of the invoked function
+   * <p>SHOULD be equal to the {@code cloud.region} resource attribute of the invoked function.
    */
   public static final AttributeKey<String> FAAS_INVOKED_REGION = stringKey("faas.invoked_region");
 
@@ -105,7 +105,7 @@ public final class FaasIncubatingAttributes {
    * <p>It's recommended to set this attribute since e.g. too little memory can easily stop a Java
    * AWS Lambda function from working correctly. On AWS Lambda, the environment variable {@code
    * AWS_LAMBDA_FUNCTION_MEMORY_SIZE} provides this information (which must be multiplied by
-   * 1,048,576)
+   * 1,048,576).
    */
   public static final AttributeKey<Long> FAAS_MAX_MEMORY = longKey("faas.max_memory");
 
@@ -130,7 +130,7 @@ public final class FaasIncubatingAttributes {
    *       followed by a forward slash followed by the function name (this form can also be seen in
    *       the resource JSON for the function). This means that a span attribute MUST be used, as an
    *       Azure function app can host multiple functions that would usually share a TracerProvider
-   *       (see also the {@code cloud.resource_id} attribute)
+   *       (see also the {@code cloud.resource_id} attribute).
    * </ul>
    */
   public static final AttributeKey<String> FAAS_NAME = stringKey("faas.name");
@@ -138,11 +138,11 @@ public final class FaasIncubatingAttributes {
   /**
    * A string containing the function invocation time in the <a
    * href="https://www.iso.org/iso-8601-date-and-time-format.html">ISO 8601</a> format expressed in
-   * <a href="https://www.w3.org/TR/NOTE-datetime">UTC</a>
+   * <a href="https://www.w3.org/TR/NOTE-datetime">UTC</a>.
    */
   public static final AttributeKey<String> FAAS_TIME = stringKey("faas.time");
 
-  /** Type of the trigger which caused this function invocation */
+  /** Type of the trigger which caused this function invocation. */
   public static final AttributeKey<String> FAAS_TRIGGER = stringKey("faas.trigger");
 
   /**
@@ -164,7 +164,7 @@ public final class FaasIncubatingAttributes {
    *   <li><strong>Google Cloud Functions:</strong> The value of the <a
    *       href="https://cloud.google.com/functions/docs/env-var#runtime_environment_variables_set_automatically">{@code
    *       K_REVISION} environment variable</a>.
-   *   <li><strong>Azure Functions:</strong> Not applicable. Do not set this attribute
+   *   <li><strong>Azure Functions:</strong> Not applicable. Do not set this attribute.
    * </ul>
    */
   public static final AttributeKey<String> FAAS_VERSION = stringKey("faas.version");
@@ -172,13 +172,13 @@ public final class FaasIncubatingAttributes {
   // Enum definitions
   /** Values for {@link #FAAS_DOCUMENT_OPERATION}. */
   public static final class FaasDocumentOperationValues {
-    /** When a new object is created */
+    /** When a new object is created. */
     public static final String INSERT = "insert";
 
-    /** When an object is modified */
+    /** When an object is modified. */
     public static final String EDIT = "edit";
 
-    /** When an object is deleted */
+    /** When an object is deleted. */
     public static final String DELETE = "delete";
 
     private FaasDocumentOperationValues() {}

@@ -18,15 +18,15 @@ public final class GraphqlIncubatingAttributes {
    *
    * <p>Notes:
    *
-   * <p>The value may be sanitized to exclude sensitive information
+   * <p>The value may be sanitized to exclude sensitive information.
    */
   public static final AttributeKey<String> GRAPHQL_DOCUMENT = stringKey("graphql.document");
 
-  /** The name of the operation being executed */
+  /** The name of the operation being executed. */
   public static final AttributeKey<String> GRAPHQL_OPERATION_NAME =
       stringKey("graphql.operation.name");
 
-  /** The type of the operation being executed */
+  /** The type of the operation being executed. */
   public static final AttributeKey<String> GRAPHQL_OPERATION_TYPE =
       stringKey("graphql.operation.type");
 

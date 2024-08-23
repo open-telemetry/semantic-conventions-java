@@ -46,7 +46,7 @@ public final class ServiceIncubatingAttributes {
    * know from which container within that pod the telemetry originated. However, Collectors can set
    * the {@code service.instance.id} if they can unambiguously determine the service instance for
    * that telemetry. This is typically the case for scraping receivers, as they know the target
-   * address and port
+   * address and port.
    */
   public static final AttributeKey<String> SERVICE_INSTANCE_ID = stringKey("service.instance.id");
 
@@ -60,7 +60,7 @@ public final class ServiceIncubatingAttributes {
    * within the same namespace. If {@code service.namespace} is not specified in the Resource then
    * {@code service.name} is expected to be unique for all services that have no explicit namespace
    * defined (so the empty/unspecified namespace is simply one more valid namespace). Zero-length
-   * namespace string is assumed equal to unspecified namespace
+   * namespace string is assumed equal to unspecified namespace.
    */
   public static final AttributeKey<String> SERVICE_NAMESPACE = stringKey("service.namespace");
 

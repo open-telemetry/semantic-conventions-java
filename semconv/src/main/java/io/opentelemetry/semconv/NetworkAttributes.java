@@ -14,17 +14,17 @@ import io.opentelemetry.api.common.AttributeKey;
 // buildscripts/templates/registry/java/SemanticAttributes.java.j2
 @SuppressWarnings("unused")
 public final class NetworkAttributes {
-  /** Local address of the network connection - IP address or Unix domain socket name */
+  /** Local address of the network connection - IP address or Unix domain socket name. */
   public static final AttributeKey<String> NETWORK_LOCAL_ADDRESS =
       stringKey("network.local.address");
 
-  /** Local port number of the network connection */
+  /** Local port number of the network connection. */
   public static final AttributeKey<Long> NETWORK_LOCAL_PORT = longKey("network.local.port");
 
-  /** Peer address of the network connection - IP address or Unix domain socket name */
+  /** Peer address of the network connection - IP address or Unix domain socket name. */
   public static final AttributeKey<String> NETWORK_PEER_ADDRESS = stringKey("network.peer.address");
 
-  /** Peer port number of the network connection */
+  /** Peer port number of the network connection. */
   public static final AttributeKey<Long> NETWORK_PEER_PORT = longKey("network.peer.port");
 
   /**
@@ -33,7 +33,7 @@ public final class NetworkAttributes {
    *
    * <p>Notes:
    *
-   * <p>The value SHOULD be normalized to lowercase
+   * <p>The value SHOULD be normalized to lowercase.
    */
   public static final AttributeKey<String> NETWORK_PROTOCOL_NAME =
       stringKey("network.protocol.name");
@@ -46,7 +46,7 @@ public final class NetworkAttributes {
    * <p>If protocol version is subject to negotiation (for example using <a
    * href="https://www.rfc-editor.org/rfc/rfc7301.html">ALPN</a>), this attribute SHOULD be set to
    * the negotiated version. If the actual protocol version is not known, this attribute SHOULD NOT
-   * be set
+   * be set.
    */
   public static final AttributeKey<String> NETWORK_PROTOCOL_VERSION =
       stringKey("network.protocol.version");
@@ -62,7 +62,7 @@ public final class NetworkAttributes {
    *
    * <p>Consider always setting the transport when setting a port number, since a port number is
    * ambiguous without knowing the transport. For example different processes could be listening on
-   * TCP port 12345 and UDP port 12345
+   * TCP port 12345 and UDP port 12345.
    */
   public static final AttributeKey<String> NETWORK_TRANSPORT = stringKey("network.transport");
 
@@ -71,7 +71,7 @@ public final class NetworkAttributes {
    *
    * <p>Notes:
    *
-   * <p>The value SHOULD be normalized to lowercase
+   * <p>The value SHOULD be normalized to lowercase.
    */
   public static final AttributeKey<String> NETWORK_TYPE = stringKey("network.type");
 
@@ -84,7 +84,7 @@ public final class NetworkAttributes {
     /** UDP */
     public static final String UDP = "udp";
 
-    /** Named or anonymous pipe */
+    /** Named or anonymous pipe. */
     public static final String PIPE = "pipe";
 
     /** Unix domain socket */

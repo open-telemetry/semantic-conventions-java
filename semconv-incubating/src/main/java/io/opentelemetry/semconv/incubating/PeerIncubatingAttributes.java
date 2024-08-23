@@ -16,7 +16,7 @@ public final class PeerIncubatingAttributes {
   /**
    * The <a href="/docs/resource/README.md#service">{@code service.name}</a> of the remote service.
    * SHOULD be equal to the actual {@code service.name} resource attribute of the remote service if
-   * any
+   * any.
    */
   public static final AttributeKey<String> PEER_SERVICE = stringKey("peer.service");
 

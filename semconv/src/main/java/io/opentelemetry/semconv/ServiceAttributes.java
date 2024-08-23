@@ -22,13 +22,13 @@ public final class ServiceAttributes {
    * specified, SDKs MUST fallback to {@code unknown_service:} concatenated with <a
    * href="process.md">{@code process.executable.name}</a>, e.g. {@code unknown_service:bash}. If
    * {@code process.executable.name} is not available, the value MUST be set to {@code
-   * unknown_service}
+   * unknown_service}.
    */
   public static final AttributeKey<String> SERVICE_NAME = stringKey("service.name");
 
   /**
    * The version string of the service API or implementation. The format is not defined by these
-   * conventions
+   * conventions.
    */
   public static final AttributeKey<String> SERVICE_VERSION = stringKey("service.version");
 

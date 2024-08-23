@@ -18,7 +18,7 @@ public final class OpentracingIncubatingAttributes {
    *
    * <p>Notes:
    *
-   * <p>The causal relationship between a child Span and a parent Span
+   * <p>The causal relationship between a child Span and a parent Span.
    */
   public static final AttributeKey<String> OPENTRACING_REF_TYPE = stringKey("opentracing.ref_type");
 

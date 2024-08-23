@@ -28,7 +28,7 @@ public final class HttpAttributes {
    * {@code user_agent.original} attribute. Users MAY explicitly configure instrumentations to
    * capture them even though it is not recommended. The attribute value MUST consist of either
    * multiple header values as an array of strings or a single-item array containing a possibly
-   * comma-concatenated string, depending on the way the HTTP library provides access to headers
+   * comma-concatenated string, depending on the way the HTTP library provides access to headers.
    */
   public static final AttributeKey<List<String>> HTTP_REQUEST_HEADER =
       stringArrayKey("http.request.header");
@@ -57,11 +57,11 @@ public final class HttpAttributes {
    * match a known HTTP method name exactly. Instrumentations for specific web frameworks that
    * consider HTTP methods to be case insensitive, SHOULD populate a canonical equivalent. Tracing
    * instrumentations that do so, MUST also set {@code http.request.method_original} to the original
-   * value
+   * value.
    */
   public static final AttributeKey<String> HTTP_REQUEST_METHOD = stringKey("http.request.method");
 
-  /** Original HTTP method sent by the client in the request line */
+  /** Original HTTP method sent by the client in the request line. */
   public static final AttributeKey<String> HTTP_REQUEST_METHOD_ORIGINAL =
       stringKey("http.request.method_original");
 
@@ -72,7 +72,7 @@ public final class HttpAttributes {
    *
    * <p>The resend count SHOULD be updated each time an HTTP request gets resent by the client,
    * regardless of what was the cause of the resending (e.g. redirection, authorization failure, 503
-   * Server Unavailable, network issues, or any other)
+   * Server Unavailable, network issues, or any other).
    */
   public static final AttributeKey<Long> HTTP_REQUEST_RESEND_COUNT =
       longKey("http.request.resend_count");
@@ -88,12 +88,12 @@ public final class HttpAttributes {
    * avoid leaking sensitive information. Users MAY explicitly configure instrumentations to capture
    * them even though it is not recommended. The attribute value MUST consist of either multiple
    * header values as an array of strings or a single-item array containing a possibly
-   * comma-concatenated string, depending on the way the HTTP library provides access to headers
+   * comma-concatenated string, depending on the way the HTTP library provides access to headers.
    */
   public static final AttributeKey<List<String>> HTTP_RESPONSE_HEADER =
       stringArrayKey("http.response.header");
 
-  /** <a href="https://tools.ietf.org/html/rfc7231#section-6">HTTP response status code</a> */
+  /** <a href="https://tools.ietf.org/html/rfc7231#section-6">HTTP response status code</a>. */
   public static final AttributeKey<Long> HTTP_RESPONSE_STATUS_CODE =
       longKey("http.response.status_code");
 
@@ -106,41 +106,41 @@ public final class HttpAttributes {
    * <p>MUST NOT be populated when this is not supported by the HTTP server framework as the route
    * attribute should have low-cardinality and the URI path can NOT substitute it. SHOULD include
    * the <a href="/docs/http/http-spans.md#http-server-definitions">application root</a> if there is
-   * one
+   * one.
    */
   public static final AttributeKey<String> HTTP_ROUTE = stringKey("http.route");
 
   // Enum definition
   /** Values for {@link #HTTP_REQUEST_METHOD}. */
   public static final class HttpRequestMethodValues {
-    /** CONNECT method */
+    /** CONNECT method. */
     public static final String CONNECT = "CONNECT";
 
-    /** DELETE method */
+    /** DELETE method. */
     public static final String DELETE = "DELETE";
 
-    /** GET method */
+    /** GET method. */
     public static final String GET = "GET";
 
-    /** HEAD method */
+    /** HEAD method. */
     public static final String HEAD = "HEAD";
 
-    /** OPTIONS method */
+    /** OPTIONS method. */
     public static final String OPTIONS = "OPTIONS";
 
-    /** PATCH method */
+    /** PATCH method. */
     public static final String PATCH = "PATCH";
 
-    /** POST method */
+    /** POST method. */
     public static final String POST = "POST";
 
-    /** PUT method */
+    /** PUT method. */
     public static final String PUT = "PUT";
 
-    /** TRACE method */
+    /** TRACE method. */
     public static final String TRACE = "TRACE";
 
-    /** Any HTTP method that the instrumentation has no prior knowledge of */
+    /** Any HTTP method that the instrumentation has no prior knowledge of. */
     public static final String OTHER = "_OTHER";
 
     private HttpRequestMethodValues() {}

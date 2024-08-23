@@ -14,7 +14,7 @@ import io.opentelemetry.api.common.AttributeKey;
 // buildscripts/templates/registry/incubating_java/IncubatingSemanticAttributes.java.j2
 @SuppressWarnings("unused")
 public final class K8sIncubatingAttributes {
-  /** The name of the cluster */
+  /** The name of the cluster. */
   public static final AttributeKey<String> K8S_CLUSTER_NAME = stringKey("k8s.cluster.name");
 
   /**
@@ -44,88 +44,88 @@ public final class K8sIncubatingAttributes {
    *
    * </blockquote>
    *
-   * <p>Therefore, UIDs between clusters should be extremely unlikely to conflict
+   * <p>Therefore, UIDs between clusters should be extremely unlikely to conflict.
    */
   public static final AttributeKey<String> K8S_CLUSTER_UID = stringKey("k8s.cluster.uid");
 
   /**
    * The name of the Container from Pod specification, must be unique within a Pod. Container
-   * runtime usually uses different globally unique name ({@code container.name})
+   * runtime usually uses different globally unique name ({@code container.name}).
    */
   public static final AttributeKey<String> K8S_CONTAINER_NAME = stringKey("k8s.container.name");
 
   /**
    * Number of times the container was restarted. This attribute can be used to identify a
-   * particular container (running or stopped) within a container spec
+   * particular container (running or stopped) within a container spec.
    */
   public static final AttributeKey<Long> K8S_CONTAINER_RESTART_COUNT =
       longKey("k8s.container.restart_count");
 
-  /** Last terminated reason of the Container */
+  /** Last terminated reason of the Container. */
   public static final AttributeKey<String> K8S_CONTAINER_STATUS_LAST_TERMINATED_REASON =
       stringKey("k8s.container.status.last_terminated_reason");
 
-  /** The name of the CronJob */
+  /** The name of the CronJob. */
   public static final AttributeKey<String> K8S_CRONJOB_NAME = stringKey("k8s.cronjob.name");
 
-  /** The UID of the CronJob */
+  /** The UID of the CronJob. */
   public static final AttributeKey<String> K8S_CRONJOB_UID = stringKey("k8s.cronjob.uid");
 
-  /** The name of the DaemonSet */
+  /** The name of the DaemonSet. */
   public static final AttributeKey<String> K8S_DAEMONSET_NAME = stringKey("k8s.daemonset.name");
 
-  /** The UID of the DaemonSet */
+  /** The UID of the DaemonSet. */
   public static final AttributeKey<String> K8S_DAEMONSET_UID = stringKey("k8s.daemonset.uid");
 
-  /** The name of the Deployment */
+  /** The name of the Deployment. */
   public static final AttributeKey<String> K8S_DEPLOYMENT_NAME = stringKey("k8s.deployment.name");
 
-  /** The UID of the Deployment */
+  /** The UID of the Deployment. */
   public static final AttributeKey<String> K8S_DEPLOYMENT_UID = stringKey("k8s.deployment.uid");
 
-  /** The name of the Job */
+  /** The name of the Job. */
   public static final AttributeKey<String> K8S_JOB_NAME = stringKey("k8s.job.name");
 
-  /** The UID of the Job */
+  /** The UID of the Job. */
   public static final AttributeKey<String> K8S_JOB_UID = stringKey("k8s.job.uid");
 
-  /** The name of the namespace that the pod is running in */
+  /** The name of the namespace that the pod is running in. */
   public static final AttributeKey<String> K8S_NAMESPACE_NAME = stringKey("k8s.namespace.name");
 
-  /** The name of the Node */
+  /** The name of the Node. */
   public static final AttributeKey<String> K8S_NODE_NAME = stringKey("k8s.node.name");
 
-  /** The UID of the Node */
+  /** The UID of the Node. */
   public static final AttributeKey<String> K8S_NODE_UID = stringKey("k8s.node.uid");
 
   /**
    * The annotation key-value pairs placed on the Pod, the {@code <key>} being the annotation name,
-   * the value being the annotation value
+   * the value being the annotation value.
    */
   public static final AttributeKey<String> K8S_POD_ANNOTATION = stringKey("k8s.pod.annotation");
 
   /**
    * The label key-value pairs placed on the Pod, the {@code <key>} being the label name, the value
-   * being the label value
+   * being the label value.
    */
   public static final AttributeKey<String> K8S_POD_LABEL = stringKey("k8s.pod.label");
 
-  /** The name of the Pod */
+  /** The name of the Pod. */
   public static final AttributeKey<String> K8S_POD_NAME = stringKey("k8s.pod.name");
 
-  /** The UID of the Pod */
+  /** The UID of the Pod. */
   public static final AttributeKey<String> K8S_POD_UID = stringKey("k8s.pod.uid");
 
-  /** The name of the ReplicaSet */
+  /** The name of the ReplicaSet. */
   public static final AttributeKey<String> K8S_REPLICASET_NAME = stringKey("k8s.replicaset.name");
 
-  /** The UID of the ReplicaSet */
+  /** The UID of the ReplicaSet. */
   public static final AttributeKey<String> K8S_REPLICASET_UID = stringKey("k8s.replicaset.uid");
 
-  /** The name of the StatefulSet */
+  /** The name of the StatefulSet. */
   public static final AttributeKey<String> K8S_STATEFULSET_NAME = stringKey("k8s.statefulset.name");
 
-  /** The UID of the StatefulSet */
+  /** The UID of the StatefulSet. */
   public static final AttributeKey<String> K8S_STATEFULSET_UID = stringKey("k8s.statefulset.uid");
 
   private K8sIncubatingAttributes() {}

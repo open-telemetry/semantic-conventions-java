@@ -20,10 +20,10 @@ public final class LinuxIncubatingAttributes {
   // Enum definitions
   /** Values for {@link #LINUX_MEMORY_SLAB_STATE}. */
   public static final class LinuxMemorySlabStateValues {
-    /** reclaimable */
+    /** reclaimable. */
     public static final String RECLAIMABLE = "reclaimable";
 
-    /** unreclaimable */
+    /** unreclaimable. */
     public static final String UNRECLAIMABLE = "unreclaimable";
 
     private LinuxMemorySlabStateValues() {}

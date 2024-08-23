@@ -41,7 +41,7 @@ public final class ErrorAttributes {
    * <ul>
    *   <li>Use a domain-specific attribute
    *   <li>Set {@code error.type} to capture all errors, regardless of whether they are defined
-   *       within the domain-specific set or not
+   *       within the domain-specific set or not.
    * </ul>
    */
   public static final AttributeKey<String> ERROR_TYPE = stringKey("error.type");
@@ -49,7 +49,7 @@ public final class ErrorAttributes {
   // Enum definition
   /** Values for {@link #ERROR_TYPE}. */
   public static final class ErrorTypeValues {
-    /** A fallback error value to be used when the instrumentation doesn't define a custom value */
+    /** A fallback error value to be used when the instrumentation doesn't define a custom value. */
     public static final String OTHER = "_OTHER";
 
     private ErrorTypeValues() {}

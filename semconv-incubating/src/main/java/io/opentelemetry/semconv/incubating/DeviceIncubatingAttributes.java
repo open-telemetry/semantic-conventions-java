@@ -28,7 +28,7 @@ public final class DeviceIncubatingAttributes {
    * href="https://developer.android.com/training/articles/user-data-ids">here</a> on best practices
    * and exact implementation details. Caution should be taken when storing personal data or
    * anything which can identify a user. GDPR and data protection laws may apply, ensure you do your
-   * own due diligence
+   * own due diligence.
    */
   public static final AttributeKey<String> DEVICE_ID = stringKey("device.id");
 
@@ -39,7 +39,7 @@ public final class DeviceIncubatingAttributes {
    *
    * <p>The Android OS provides this field via <a
    * href="https://developer.android.com/reference/android/os/Build#MANUFACTURER">Build</a>. iOS
-   * apps SHOULD hardcode the value {@code Apple}
+   * apps SHOULD hardcode the value {@code Apple}.
    */
   public static final AttributeKey<String> DEVICE_MANUFACTURER = stringKey("device.manufacturer");
 
@@ -49,7 +49,7 @@ public final class DeviceIncubatingAttributes {
    * <p>Notes:
    *
    * <p>It's recommended this value represents a machine-readable version of the model identifier
-   * rather than the market or consumer-friendly name of the device
+   * rather than the market or consumer-friendly name of the device.
    */
   public static final AttributeKey<String> DEVICE_MODEL_IDENTIFIER =
       stringKey("device.model.identifier");
@@ -60,7 +60,7 @@ public final class DeviceIncubatingAttributes {
    * <p>Notes:
    *
    * <p>It's recommended this value represents a human-readable version of the device model rather
-   * than a machine-readable alternative
+   * than a machine-readable alternative.
    */
   public static final AttributeKey<String> DEVICE_MODEL_NAME = stringKey("device.model.name");
 

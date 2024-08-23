@@ -13,7 +13,7 @@ import io.opentelemetry.api.common.AttributeKey;
 // buildscripts/templates/registry/java/SemanticAttributes.java.j2
 @SuppressWarnings("unused")
 public final class TelemetryAttributes {
-  /** The language of the telemetry SDK */
+  /** The language of the telemetry SDK. */
   public static final AttributeKey<String> TELEMETRY_SDK_LANGUAGE =
       stringKey("telemetry.sdk.language");
 
@@ -27,51 +27,51 @@ public final class TelemetryAttributes {
    * SDK MUST set the {@code telemetry.sdk.name} attribute to the fully-qualified class or module
    * name of this SDK's main entry point or another suitable identifier depending on the language.
    * The identifier {@code opentelemetry} is reserved and MUST NOT be used in this case. All custom
-   * identifiers SHOULD be stable across different versions of an implementation
+   * identifiers SHOULD be stable across different versions of an implementation.
    */
   public static final AttributeKey<String> TELEMETRY_SDK_NAME = stringKey("telemetry.sdk.name");
 
-  /** The version string of the telemetry SDK */
+  /** The version string of the telemetry SDK. */
   public static final AttributeKey<String> TELEMETRY_SDK_VERSION =
       stringKey("telemetry.sdk.version");
 
   // Enum definition
   /** Values for {@link #TELEMETRY_SDK_LANGUAGE}. */
   public static final class TelemetrySdkLanguageValues {
-    /** cpp */
+    /** cpp. */
     public static final String CPP = "cpp";
 
-    /** dotnet */
+    /** dotnet. */
     public static final String DOTNET = "dotnet";
 
-    /** erlang */
+    /** erlang. */
     public static final String ERLANG = "erlang";
 
-    /** go */
+    /** go. */
     public static final String GO = "go";
 
-    /** java */
+    /** java. */
     public static final String JAVA = "java";
 
-    /** nodejs */
+    /** nodejs. */
     public static final String NODEJS = "nodejs";
 
-    /** php */
+    /** php. */
     public static final String PHP = "php";
 
-    /** python */
+    /** python. */
     public static final String PYTHON = "python";
 
-    /** ruby */
+    /** ruby. */
     public static final String RUBY = "ruby";
 
-    /** rust */
+    /** rust. */
     public static final String RUST = "rust";
 
-    /** swift */
+    /** swift. */
     public static final String SWIFT = "swift";
 
-    /** webjs */
+    /** webjs. */
     public static final String WEBJS = "webjs";
 
     private TelemetrySdkLanguageValues() {}

@@ -34,22 +34,22 @@ public final class ExceptionAttributes {
    *
    * <p>It follows that an exception may still escape the scope of the span even if the {@code
    * exception.escaped} attribute was not set or set to false, since the event might have been
-   * recorded at a time where it was not clear whether the exception will escape
+   * recorded at a time where it was not clear whether the exception will escape.
    */
   public static final AttributeKey<Boolean> EXCEPTION_ESCAPED = booleanKey("exception.escaped");
 
-  /** The exception message */
+  /** The exception message. */
   public static final AttributeKey<String> EXCEPTION_MESSAGE = stringKey("exception.message");
 
   /**
    * A stacktrace as a string in the natural representation for the language runtime. The
-   * representation is to be determined and documented by each language SIG
+   * representation is to be determined and documented by each language SIG.
    */
   public static final AttributeKey<String> EXCEPTION_STACKTRACE = stringKey("exception.stacktrace");
 
   /**
    * The type of the exception (its fully-qualified class name, if applicable). The dynamic type of
-   * the exception should be preferred over the static type in languages that support it
+   * the exception should be preferred over the static type in languages that support it.
    */
   public static final AttributeKey<String> EXCEPTION_TYPE = stringKey("exception.type");
 
