@@ -13,22 +13,18 @@ import io.opentelemetry.api.common.AttributeKey;
 // buildscripts/templates/registry/incubating_java/IncubatingSemanticAttributes.java.j2
 @SuppressWarnings("unused")
 public final class OpentracingIncubatingAttributes {
-
   /**
    * Parent-child Reference type
    *
    * <p>Notes:
    *
-   * <ul>
-   *   <li>The causal relationship between a child Span and a parent Span.
-   * </ul>
+   * <p>The causal relationship between a child Span and a parent Span
    */
   public static final AttributeKey<String> OPENTRACING_REF_TYPE = stringKey("opentracing.ref_type");
 
   // Enum definitions
   /** Values for {@link #OPENTRACING_REF_TYPE}. */
   public static final class OpentracingRefTypeValues {
-
     /** The parent Span depends on the child Span in some capacity */
     public static final String CHILD_OF = "child_of";
 

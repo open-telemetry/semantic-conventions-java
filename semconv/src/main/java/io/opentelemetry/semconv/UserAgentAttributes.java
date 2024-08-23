@@ -13,10 +13,9 @@ import io.opentelemetry.api.common.AttributeKey;
 // buildscripts/templates/registry/java/SemanticAttributes.java.j2
 @SuppressWarnings("unused")
 public final class UserAgentAttributes {
-
   /**
    * Value of the <a href="https://www.rfc-editor.org/rfc/rfc9110.html#field.user-agent">HTTP
-   * User-Agent</a> header sent by the client.
+   * User-Agent</a> header sent by the client
    */
   public static final AttributeKey<String> USER_AGENT_ORIGINAL = stringKey("user_agent.original");
 

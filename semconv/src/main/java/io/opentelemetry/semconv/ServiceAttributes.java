@@ -13,25 +13,22 @@ import io.opentelemetry.api.common.AttributeKey;
 // buildscripts/templates/registry/java/SemanticAttributes.java.j2
 @SuppressWarnings("unused")
 public final class ServiceAttributes {
-
   /**
    * Logical name of the service.
    *
    * <p>Notes:
    *
-   * <ul>
-   *   <li>MUST be the same for all instances of horizontally scaled services. If the value was not
-   *       specified, SDKs MUST fallback to <code>unknown_service:</code> concatenated with <a
-   *       href="process.md"><code>process.executable.name</code></a>, e.g. <code>
-   *       unknown_service:bash</code>. If <code>process.executable.name</code> is not available,
-   *       the value MUST be set to <code>unknown_service</code>.
-   * </ul>
+   * <p>MUST be the same for all instances of horizontally scaled services. If the value was not
+   * specified, SDKs MUST fallback to {@code unknown_service:} concatenated with <a
+   * href="process.md">{@code process.executable.name}</a>, e.g. {@code unknown_service:bash}. If
+   * {@code process.executable.name} is not available, the value MUST be set to {@code
+   * unknown_service}
    */
   public static final AttributeKey<String> SERVICE_NAME = stringKey("service.name");
 
   /**
    * The version string of the service API or implementation. The format is not defined by these
-   * conventions.
+   * conventions
    */
   public static final AttributeKey<String> SERVICE_VERSION = stringKey("service.version");
 

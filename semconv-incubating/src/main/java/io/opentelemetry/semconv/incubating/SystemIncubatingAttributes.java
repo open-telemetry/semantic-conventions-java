@@ -14,7 +14,6 @@ import io.opentelemetry.api.common.AttributeKey;
 // buildscripts/templates/registry/incubating_java/IncubatingSemanticAttributes.java.j2
 @SuppressWarnings("unused")
 public final class SystemIncubatingAttributes {
-
   /** The logical CPU number [0..n-1] */
   public static final AttributeKey<Long> SYSTEM_CPU_LOGICAL_NUMBER =
       longKey("system.cpu.logical_number");
@@ -65,7 +64,6 @@ public final class SystemIncubatingAttributes {
   // Enum definitions
   /** Values for {@link #SYSTEM_FILESYSTEM_STATE}. */
   public static final class SystemFilesystemStateValues {
-
     /** used */
     public static final String USED = "used";
 
@@ -81,7 +79,6 @@ public final class SystemIncubatingAttributes {
   // Enum definitions
   /** Values for {@link #SYSTEM_FILESYSTEM_TYPE}. */
   public static final class SystemFilesystemTypeValues {
-
     /** fat32 */
     public static final String FAT32 = "fat32";
 
@@ -106,7 +103,6 @@ public final class SystemIncubatingAttributes {
   // Enum definitions
   /** Values for {@link #SYSTEM_MEMORY_STATE}. */
   public static final class SystemMemoryStateValues {
-
     /** used */
     public static final String USED = "used";
 
@@ -128,7 +124,6 @@ public final class SystemIncubatingAttributes {
   // Enum definitions
   /** Values for {@link #SYSTEM_NETWORK_STATE}. */
   public static final class SystemNetworkStateValues {
-
     /** close */
     public static final String CLOSE = "close";
 
@@ -171,7 +166,6 @@ public final class SystemIncubatingAttributes {
   // Enum definitions
   /** Values for {@link #SYSTEM_PAGING_DIRECTION}. */
   public static final class SystemPagingDirectionValues {
-
     /** in */
     public static final String IN = "in";
 
@@ -184,7 +178,6 @@ public final class SystemIncubatingAttributes {
   // Enum definitions
   /** Values for {@link #SYSTEM_PAGING_STATE}. */
   public static final class SystemPagingStateValues {
-
     /** used */
     public static final String USED = "used";
 
@@ -197,7 +190,6 @@ public final class SystemIncubatingAttributes {
   // Enum definitions
   /** Values for {@link #SYSTEM_PAGING_TYPE}. */
   public static final class SystemPagingTypeValues {
-
     /** major */
     public static final String MAJOR = "major";
 
@@ -210,7 +202,6 @@ public final class SystemIncubatingAttributes {
   // Enum definitions
   /** Values for {@link #SYSTEM_PROCESS_STATUS}. */
   public static final class SystemProcessStatusValues {
-
     /** running */
     public static final String RUNNING = "running";
 

@@ -13,16 +13,13 @@ import io.opentelemetry.api.common.AttributeKey;
 // buildscripts/templates/registry/incubating_java/IncubatingSemanticAttributes.java.j2
 @SuppressWarnings("unused")
 public final class JvmIncubatingAttributes {
-
   /**
    * Name of the buffer pool.
    *
    * <p>Notes:
    *
-   * <ul>
-   *   <li>Pool names are generally obtained via <a
-   *       href="https://docs.oracle.com/en/java/javase/11/docs/api/java.management/java/lang/management/BufferPoolMXBean.html#getName()">BufferPoolMXBean#getName()</a>.
-   * </ul>
+   * <p>Pool names are generally obtained via <a
+   * href="https://docs.oracle.com/en/java/javase/11/docs/api/java.management/java/lang/management/BufferPoolMXBean.html#getName()">BufferPoolMXBean#getName()</a>
    */
   public static final AttributeKey<String> JVM_BUFFER_POOL_NAME = stringKey("jvm.buffer.pool.name");
 

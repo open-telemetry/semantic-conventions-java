@@ -16,7 +16,6 @@ import java.util.List;
 // buildscripts/templates/registry/incubating_java/IncubatingSemanticAttributes.java.j2
 @SuppressWarnings("unused")
 public final class TlsIncubatingAttributes {
-
   /**
    * String indicating the <a
    * href="https://datatracker.ietf.org/doc/html/rfc5246#appendix-A.5">cipher</a> used during the
@@ -24,26 +23,23 @@ public final class TlsIncubatingAttributes {
    *
    * <p>Notes:
    *
-   * <ul>
-   *   <li>The values allowed for <code>tls.cipher</code> MUST be one of the <code>Descriptions
-   *       </code> of the <a
-   *       href="https://www.iana.org/assignments/tls-parameters/tls-parameters.xhtml#table-tls-parameters-4">registered
-   *       TLS Cipher Suits</a>.
-   * </ul>
+   * <p>The values allowed for {@code tls.cipher} MUST be one of the {@code Descriptions} of the <a
+   * href="https://www.iana.org/assignments/tls-parameters/tls-parameters.xhtml#table-tls-parameters-4">registered
+   * TLS Cipher Suits</a>
    */
   public static final AttributeKey<String> TLS_CIPHER = stringKey("tls.cipher");
 
   /**
    * PEM-encoded stand-alone certificate offered by the client. This is usually mutually-exclusive
-   * of <code>client.certificate_chain</code> since this value also exists in that list.
+   * of {@code client.certificate_chain} since this value also exists in that list
    */
   public static final AttributeKey<String> TLS_CLIENT_CERTIFICATE =
       stringKey("tls.client.certificate");
 
   /**
    * Array of PEM-encoded certificates that make up the certificate chain offered by the client.
-   * This is usually mutually-exclusive of <code>client.certificate</code> since that value should
-   * be the first certificate in the chain.
+   * This is usually mutually-exclusive of {@code client.certificate} since that value should be the
+   * first certificate in the chain
    */
   public static final AttributeKey<List<String>> TLS_CLIENT_CERTIFICATE_CHAIN =
       stringArrayKey("tls.client.certificate_chain");
@@ -51,21 +47,21 @@ public final class TlsIncubatingAttributes {
   /**
    * Certificate fingerprint using the MD5 digest of DER-encoded version of certificate offered by
    * the client. For consistency with other hash values, this value should be formatted as an
-   * uppercase hash.
+   * uppercase hash
    */
   public static final AttributeKey<String> TLS_CLIENT_HASH_MD5 = stringKey("tls.client.hash.md5");
 
   /**
    * Certificate fingerprint using the SHA1 digest of DER-encoded version of certificate offered by
    * the client. For consistency with other hash values, this value should be formatted as an
-   * uppercase hash.
+   * uppercase hash
    */
   public static final AttributeKey<String> TLS_CLIENT_HASH_SHA1 = stringKey("tls.client.hash.sha1");
 
   /**
    * Certificate fingerprint using the SHA256 digest of DER-encoded version of certificate offered
    * by the client. For consistency with other hash values, this value should be formatted as an
-   * uppercase hash.
+   * uppercase hash
    */
   public static final AttributeKey<String> TLS_CLIENT_HASH_SHA256 =
       stringKey("tls.client.hash.sha256");
@@ -73,24 +69,24 @@ public final class TlsIncubatingAttributes {
   /**
    * Distinguished name of <a
    * href="https://datatracker.ietf.org/doc/html/rfc5280#section-4.1.2.6">subject</a> of the issuer
-   * of the x.509 certificate presented by the client.
+   * of the x.509 certificate presented by the client
    */
   public static final AttributeKey<String> TLS_CLIENT_ISSUER = stringKey("tls.client.issuer");
 
-  /** A hash that identifies clients based on how they perform an SSL/TLS handshake. */
+  /** A hash that identifies clients based on how they perform an SSL/TLS handshake */
   public static final AttributeKey<String> TLS_CLIENT_JA3 = stringKey("tls.client.ja3");
 
-  /** Date/Time indicating when client certificate is no longer considered valid. */
+  /** Date/Time indicating when client certificate is no longer considered valid */
   public static final AttributeKey<String> TLS_CLIENT_NOT_AFTER = stringKey("tls.client.not_after");
 
-  /** Date/Time indicating when client certificate is first considered valid. */
+  /** Date/Time indicating when client certificate is first considered valid */
   public static final AttributeKey<String> TLS_CLIENT_NOT_BEFORE =
       stringKey("tls.client.not_before");
 
-  /** Distinguished name of subject of the x.509 certificate presented by the client. */
+  /** Distinguished name of subject of the x.509 certificate presented by the client */
   public static final AttributeKey<String> TLS_CLIENT_SUBJECT = stringKey("tls.client.subject");
 
-  /** Array of ciphers offered by the client during the client hello. */
+  /** Array of ciphers offered by the client during the client hello */
   public static final AttributeKey<List<String>> TLS_CLIENT_SUPPORTED_CIPHERS =
       stringArrayKey("tls.client.supported_ciphers");
 
@@ -99,14 +95,14 @@ public final class TlsIncubatingAttributes {
 
   /**
    * Boolean flag indicating if the TLS negotiation was successful and transitioned to an encrypted
-   * tunnel.
+   * tunnel
    */
   public static final AttributeKey<Boolean> TLS_ESTABLISHED = booleanKey("tls.established");
 
   /**
    * String indicating the protocol being tunneled. Per the values in the <a
    * href="https://www.iana.org/assignments/tls-extensiontype-values/tls-extensiontype-values.xhtml#alpn-protocol-ids">IANA
-   * registry</a>, this string should be lower case.
+   * registry</a>, this string should be lower case
    */
   public static final AttributeKey<String> TLS_NEXT_PROTOCOL = stringKey("tls.next_protocol");
 
@@ -124,22 +120,20 @@ public final class TlsIncubatingAttributes {
    */
   public static final AttributeKey<String> TLS_PROTOCOL_VERSION = stringKey("tls.protocol.version");
 
-  /**
-   * Boolean flag indicating if this TLS connection was resumed from an existing TLS negotiation.
-   */
+  /** Boolean flag indicating if this TLS connection was resumed from an existing TLS negotiation */
   public static final AttributeKey<Boolean> TLS_RESUMED = booleanKey("tls.resumed");
 
   /**
    * PEM-encoded stand-alone certificate offered by the server. This is usually mutually-exclusive
-   * of <code>server.certificate_chain</code> since this value also exists in that list.
+   * of {@code server.certificate_chain} since this value also exists in that list
    */
   public static final AttributeKey<String> TLS_SERVER_CERTIFICATE =
       stringKey("tls.server.certificate");
 
   /**
    * Array of PEM-encoded certificates that make up the certificate chain offered by the server.
-   * This is usually mutually-exclusive of <code>server.certificate</code> since that value should
-   * be the first certificate in the chain.
+   * This is usually mutually-exclusive of {@code server.certificate} since that value should be the
+   * first certificate in the chain
    */
   public static final AttributeKey<List<String>> TLS_SERVER_CERTIFICATE_CHAIN =
       stringArrayKey("tls.server.certificate_chain");
@@ -147,21 +141,21 @@ public final class TlsIncubatingAttributes {
   /**
    * Certificate fingerprint using the MD5 digest of DER-encoded version of certificate offered by
    * the server. For consistency with other hash values, this value should be formatted as an
-   * uppercase hash.
+   * uppercase hash
    */
   public static final AttributeKey<String> TLS_SERVER_HASH_MD5 = stringKey("tls.server.hash.md5");
 
   /**
    * Certificate fingerprint using the SHA1 digest of DER-encoded version of certificate offered by
    * the server. For consistency with other hash values, this value should be formatted as an
-   * uppercase hash.
+   * uppercase hash
    */
   public static final AttributeKey<String> TLS_SERVER_HASH_SHA1 = stringKey("tls.server.hash.sha1");
 
   /**
    * Certificate fingerprint using the SHA256 digest of DER-encoded version of certificate offered
    * by the server. For consistency with other hash values, this value should be formatted as an
-   * uppercase hash.
+   * uppercase hash
    */
   public static final AttributeKey<String> TLS_SERVER_HASH_SHA256 =
       stringKey("tls.server.hash.sha256");
@@ -169,27 +163,26 @@ public final class TlsIncubatingAttributes {
   /**
    * Distinguished name of <a
    * href="https://datatracker.ietf.org/doc/html/rfc5280#section-4.1.2.6">subject</a> of the issuer
-   * of the x.509 certificate presented by the client.
+   * of the x.509 certificate presented by the client
    */
   public static final AttributeKey<String> TLS_SERVER_ISSUER = stringKey("tls.server.issuer");
 
-  /** A hash that identifies servers based on how they perform an SSL/TLS handshake. */
+  /** A hash that identifies servers based on how they perform an SSL/TLS handshake */
   public static final AttributeKey<String> TLS_SERVER_JA3S = stringKey("tls.server.ja3s");
 
-  /** Date/Time indicating when server certificate is no longer considered valid. */
+  /** Date/Time indicating when server certificate is no longer considered valid */
   public static final AttributeKey<String> TLS_SERVER_NOT_AFTER = stringKey("tls.server.not_after");
 
-  /** Date/Time indicating when server certificate is first considered valid. */
+  /** Date/Time indicating when server certificate is first considered valid */
   public static final AttributeKey<String> TLS_SERVER_NOT_BEFORE =
       stringKey("tls.server.not_before");
 
-  /** Distinguished name of subject of the x.509 certificate presented by the server. */
+  /** Distinguished name of subject of the x.509 certificate presented by the server */
   public static final AttributeKey<String> TLS_SERVER_SUBJECT = stringKey("tls.server.subject");
 
   // Enum definitions
   /** Values for {@link #TLS_PROTOCOL_NAME}. */
   public static final class TlsProtocolNameValues {
-
     /** ssl */
     public static final String SSL = "ssl";
 

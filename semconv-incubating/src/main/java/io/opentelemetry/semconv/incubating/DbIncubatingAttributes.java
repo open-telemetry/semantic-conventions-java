@@ -9,41 +9,38 @@ import static io.opentelemetry.api.common.AttributeKey.booleanKey;
 import static io.opentelemetry.api.common.AttributeKey.doubleKey;
 import static io.opentelemetry.api.common.AttributeKey.longKey;
 import static io.opentelemetry.api.common.AttributeKey.stringKey;
-import static io.opentelemetry.semconv.AttributeKeyTemplate.stringKeyTemplate;
 
 import io.opentelemetry.api.common.AttributeKey;
-import io.opentelemetry.semconv.AttributeKeyTemplate;
 
 // DO NOT EDIT, this is an Auto-generated file from
 // buildscripts/templates/registry/incubating_java/IncubatingSemanticAttributes.java.j2
 @SuppressWarnings("unused")
 public final class DbIncubatingAttributes {
-
   /**
    * The consistency level of the query. Based on consistency values from <a
-   * href="https://docs.datastax.com/en/cassandra-oss/3.0/cassandra/dml/dmlConfigConsistency.html">CQL</a>.
+   * href="https://docs.datastax.com/en/cassandra-oss/3.0/cassandra/dml/dmlConfigConsistency.html">CQL</a>
    */
   public static final AttributeKey<String> DB_CASSANDRA_CONSISTENCY_LEVEL =
       stringKey("db.cassandra.consistency_level");
 
-  /** The data center of the coordinating node for a query. */
+  /** The data center of the coordinating node for a query */
   public static final AttributeKey<String> DB_CASSANDRA_COORDINATOR_DC =
       stringKey("db.cassandra.coordinator.dc");
 
-  /** The ID of the coordinating node for a query. */
+  /** The ID of the coordinating node for a query */
   public static final AttributeKey<String> DB_CASSANDRA_COORDINATOR_ID =
       stringKey("db.cassandra.coordinator.id");
 
-  /** Whether or not the query is idempotent. */
+  /** Whether or not the query is idempotent */
   public static final AttributeKey<Boolean> DB_CASSANDRA_IDEMPOTENCE =
       booleanKey("db.cassandra.idempotence");
 
-  /** The fetch size used for paging, i.e. how many rows will be returned at once. */
+  /** The fetch size used for paging, i.e. how many rows will be returned at once */
   public static final AttributeKey<Long> DB_CASSANDRA_PAGE_SIZE = longKey("db.cassandra.page_size");
 
   /**
-   * The number of times a query was speculatively executed. Not set or <code>0</code> if the query
-   * was not executed speculatively.
+   * The number of times a query was speculatively executed. Not set or {@code 0} if the query was
+   * not executed speculatively
    */
   public static final AttributeKey<Long> DB_CASSANDRA_SPECULATIVE_EXECUTION_COUNT =
       longKey("db.cassandra.speculative_execution_count");
@@ -51,10 +48,10 @@ public final class DbIncubatingAttributes {
   /**
    * The name of the connection pool; unique within the instrumented application. In case the
    * connection pool implementation doesn't provide a name, instrumentation SHOULD use a combination
-   * of parameters that would make the name unique, for example, combining attributes <code>
-   * server.address</code>, <code>server.port</code>, and <code>db.namespace</code>, formatted as
-   * <code>server.address:server.port/db.namespace</code>. Instrumentations that generate connection
-   * pool name following different patterns SHOULD document it.
+   * of parameters that would make the name unique, for example, combining attributes {@code
+   * server.address}, {@code server.port}, and {@code db.namespace}, formatted as {@code
+   * server.address:server.port/db.namespace}. Instrumentations that generate connection pool name
+   * following different patterns SHOULD document it
    */
   public static final AttributeKey<String> DB_CLIENT_CONNECTION_POOL_NAME =
       stringKey("db.client.connection.pool.name");
@@ -68,27 +65,24 @@ public final class DbIncubatingAttributes {
    *
    * <p>Notes:
    *
-   * <ul>
-   *   <li>It is RECOMMENDED to capture the value as provided by the application without attempting
-   *       to do any case normalization. If the collection name is parsed from the query text, it
-   *       SHOULD be the first collection name found in the query and it SHOULD match the value
-   *       provided in the query text including any schema and database name prefix. For batch
-   *       operations, if the individual operations are known to have the same collection name then
-   *       that collection name SHOULD be used, otherwise <code>db.collection.name</code> SHOULD NOT
-   *       be captured.
-   * </ul>
+   * <p>It is RECOMMENDED to capture the value as provided by the application without attempting to
+   * do any case normalization. If the collection name is parsed from the query text, it SHOULD be
+   * the first collection name found in the query and it SHOULD match the value provided in the
+   * query text including any schema and database name prefix. For batch operations, if the
+   * individual operations are known to have the same collection name then that collection name
+   * SHOULD be used, otherwise {@code db.collection.name} SHOULD NOT be captured
    */
   public static final AttributeKey<String> DB_COLLECTION_NAME = stringKey("db.collection.name");
 
-  /** Unique Cosmos client instance id. */
+  /** Unique Cosmos client instance id */
   public static final AttributeKey<String> DB_COSMOSDB_CLIENT_ID =
       stringKey("db.cosmosdb.client_id");
 
-  /** Cosmos client connection mode. */
+  /** Cosmos client connection mode */
   public static final AttributeKey<String> DB_COSMOSDB_CONNECTION_MODE =
       stringKey("db.cosmosdb.connection_mode");
 
-  /** CosmosDB Operation Type. */
+  /** CosmosDB Operation Type */
   public static final AttributeKey<String> DB_COSMOSDB_OPERATION_TYPE =
       stringKey("db.cosmosdb.operation_type");
 
@@ -100,17 +94,15 @@ public final class DbIncubatingAttributes {
   public static final AttributeKey<Long> DB_COSMOSDB_REQUEST_CONTENT_LENGTH =
       longKey("db.cosmosdb.request_content_length");
 
-  /** Cosmos DB status code. */
+  /** Cosmos DB status code */
   public static final AttributeKey<Long> DB_COSMOSDB_STATUS_CODE =
       longKey("db.cosmosdb.status_code");
 
-  /** Cosmos DB sub status code. */
+  /** Cosmos DB sub status code */
   public static final AttributeKey<Long> DB_COSMOSDB_SUB_STATUS_CODE =
       longKey("db.cosmosdb.sub_status_code");
 
-  /**
-   * Represents the human-readable identifier of the node/instance to which a request was routed.
-   */
+  /** Represents the human-readable identifier of the node/instance to which a request was routed */
   public static final AttributeKey<String> DB_ELASTICSEARCH_NODE_NAME =
       stringKey("db.elasticsearch.node.name");
 
@@ -119,33 +111,27 @@ public final class DbIncubatingAttributes {
    *
    * <p>Notes:
    *
-   * <ul>
-   *   <li>Many Elasticsearch url paths allow dynamic values. These SHOULD be recorded in span
-   *       attributes in the format <code>db.elasticsearch.path_parts.&lt;key&gt;</code>, where
-   *       <code>&lt;key&gt;</code> is the url path part name. The implementation SHOULD reference
-   *       the <a
-   *       href="https://raw.githubusercontent.com/elastic/elasticsearch-specification/main/output/schema/schema.json">elasticsearch
-   *       schema</a> in order to map the path part values to their names.
-   * </ul>
+   * <p>Many Elasticsearch url paths allow dynamic values. These SHOULD be recorded in span
+   * attributes in the format {@code db.elasticsearch.path_parts.<key>}, where {@code <key>} is the
+   * url path part name. The implementation SHOULD reference the <a
+   * href="https://raw.githubusercontent.com/elastic/elasticsearch-specification/main/output/schema/schema.json">elasticsearch
+   * schema</a> in order to map the path part values to their names
    */
-  public static final AttributeKeyTemplate<String> DB_ELASTICSEARCH_PATH_PARTS =
-      stringKeyTemplate("db.elasticsearch.path_parts");
+  public static final AttributeKey<String> DB_ELASTICSEARCH_PATH_PARTS =
+      stringKey("db.elasticsearch.path_parts");
 
   /**
    * The name of the database, fully qualified within the server address and port.
    *
    * <p>Notes:
    *
-   * <ul>
-   *   <li>If a database system has multiple namespace components, they SHOULD be concatenated
-   *       (potentially using database system specific conventions) from most general to most
-   *       specific namespace component, and more specific namespaces SHOULD NOT be captured without
-   *       the more general namespaces, to ensure that &quot;startswith&quot; queries for the more
-   *       general namespaces will be valid. Semantic conventions for individual database systems
-   *       SHOULD document what <code>db.namespace</code> means in the context of that system. It is
-   *       RECOMMENDED to capture the value as provided by the application without attempting to do
-   *       any case normalization.
-   * </ul>
+   * <p>If a database system has multiple namespace components, they SHOULD be concatenated
+   * (potentially using database system specific conventions) from most general to most specific
+   * namespace component, and more specific namespaces SHOULD NOT be captured without the more
+   * general namespaces, to ensure that "startswith" queries for the more general namespaces will be
+   * valid. Semantic conventions for individual database systems SHOULD document what {@code
+   * db.namespace} means in the context of that system. It is RECOMMENDED to capture the value as
+   * provided by the application without attempting to do any case normalization
    */
   public static final AttributeKey<String> DB_NAMESPACE = stringKey("db.namespace");
 
@@ -155,10 +141,8 @@ public final class DbIncubatingAttributes {
    *
    * <p>Notes:
    *
-   * <ul>
-   *   <li>Operations are only considered batches when they contain two or more operations, and so
-   *       <code>db.operation.batch.size</code> SHOULD never be <code>1</code>.
-   * </ul>
+   * <p>Operations are only considered batches when they contain two or more operations, and so
+   * {@code db.operation.batch.size} SHOULD never be {@code 1}
    */
   public static final AttributeKey<Long> DB_OPERATION_BATCH_SIZE =
       longKey("db.operation.batch.size");
@@ -168,50 +152,41 @@ public final class DbIncubatingAttributes {
    *
    * <p>Notes:
    *
-   * <ul>
-   *   <li>It is RECOMMENDED to capture the value as provided by the application without attempting
-   *       to do any case normalization. If the operation name is parsed from the query text, it
-   *       SHOULD be the first operation name found in the query. For batch operations, if the
-   *       individual operations are known to have the same operation name then that operation name
-   *       SHOULD be used prepended by <code>BATCH </code>, otherwise <code>db.operation.name</code>
-   *       SHOULD be <code>BATCH</code> or some other database system specific term if more
-   *       applicable.
-   * </ul>
+   * <p>It is RECOMMENDED to capture the value as provided by the application without attempting to
+   * do any case normalization. If the operation name is parsed from the query text, it SHOULD be
+   * the first operation name found in the query. For batch operations, if the individual operations
+   * are known to have the same operation name then that operation name SHOULD be used prepended by
+   * {@code BATCH }, otherwise {@code db.operation.name} SHOULD be {@code BATCH} or some other
+   * database system specific term if more applicable
    */
   public static final AttributeKey<String> DB_OPERATION_NAME = stringKey("db.operation.name");
 
   /**
-   * A query parameter used in <code>db.query.text</code>, with <code>&lt;key&gt;</code> being the
-   * parameter name, and the attribute value being a string representation of the parameter value.
+   * A query parameter used in {@code db.query.text}, with {@code <key>} being the parameter name,
+   * and the attribute value being a string representation of the parameter value.
    *
    * <p>Notes:
    *
-   * <ul>
-   *   <li>Query parameters should only be captured when <code>db.query.text</code> is parameterized
-   *       with placeholders. If a parameter has no name and instead is referenced only by index,
-   *       then <code>&lt;key&gt;</code> SHOULD be the 0-based index.
-   * </ul>
+   * <p>Query parameters should only be captured when {@code db.query.text} is parameterized with
+   * placeholders. If a parameter has no name and instead is referenced only by index, then {@code
+   * <key>} SHOULD be the 0-based index
    */
-  public static final AttributeKeyTemplate<String> DB_QUERY_PARAMETER =
-      stringKeyTemplate("db.query.parameter");
+  public static final AttributeKey<String> DB_QUERY_PARAMETER = stringKey("db.query.parameter");
 
   /**
    * The database query being executed.
    *
    * <p>Notes:
    *
-   * <ul>
-   *   <li>For sanitization see <a
-   *       href="../../docs/database/database-spans.md#sanitization-of-dbquerytext">Sanitization of
-   *       <code>db.query.text</code></a>. For batch operations, if the individual operations are
-   *       known to have the same query text then that query text SHOULD be used, otherwise all of
-   *       the individual query texts SHOULD be concatenated with separator <code>; </code> or some
-   *       other database system specific separator if more applicable. Even though parameterized
-   *       query text can potentially have sensitive data, by using a parameterized query the user
-   *       is giving a strong signal that any sensitive data will be passed as parameter values, and
-   *       the benefit to observability of capturing the static part of the query text by default
-   *       outweighs the risk.
-   * </ul>
+   * <p>For sanitization see <a
+   * href="../../docs/database/database-spans.md#sanitization-of-dbquerytext">Sanitization of {@code
+   * db.query.text}</a>. For batch operations, if the individual operations are known to have the
+   * same query text then that query text SHOULD be used, otherwise all of the individual query
+   * texts SHOULD be concatenated with separator {@code ; } or some other database system specific
+   * separator if more applicable. Even though parameterized query text can potentially have
+   * sensitive data, by using a parameterized query the user is giving a strong signal that any
+   * sensitive data will be passed as parameter values, and the benefit to observability of
+   * capturing the static part of the query text by default outweighs the risk
    */
   public static final AttributeKey<String> DB_QUERY_TEXT = stringKey("db.query.text");
 
@@ -220,18 +195,15 @@ public final class DbIncubatingAttributes {
    *
    * <p>Notes:
    *
-   * <ul>
-   *   <li>The actual DBMS may differ from the one identified by the client. For example, when using
-   *       PostgreSQL client libraries to connect to a CockroachDB, the <code>db.system</code> is
-   *       set to <code>postgresql</code> based on the instrumentation's best knowledge.
-   * </ul>
+   * <p>The actual DBMS may differ from the one identified by the client. For example, when using
+   * PostgreSQL client libraries to connect to a CockroachDB, the {@code db.system} is set to {@code
+   * postgresql} based on the instrumentation's best knowledge
    */
   public static final AttributeKey<String> DB_SYSTEM = stringKey("db.system");
 
   // Enum definitions
   /** Values for {@link #DB_CASSANDRA_CONSISTENCY_LEVEL}. */
   public static final class DbCassandraConsistencyLevelValues {
-
     /** all */
     public static final String ALL = "all";
 
@@ -271,7 +243,6 @@ public final class DbIncubatingAttributes {
   // Enum definitions
   /** Values for {@link #DB_CLIENT_CONNECTION_STATE}. */
   public static final class DbClientConnectionStateValues {
-
     /** idle */
     public static final String IDLE = "idle";
 
@@ -284,11 +255,10 @@ public final class DbIncubatingAttributes {
   // Enum definitions
   /** Values for {@link #DB_COSMOSDB_CONNECTION_MODE}. */
   public static final class DbCosmosdbConnectionModeValues {
-
     /** Gateway (HTTP) connections mode */
     public static final String GATEWAY = "gateway";
 
-    /** Direct connection. */
+    /** Direct connection */
     public static final String DIRECT = "direct";
 
     private DbCosmosdbConnectionModeValues() {}
@@ -297,7 +267,6 @@ public final class DbIncubatingAttributes {
   // Enum definitions
   /** Values for {@link #DB_COSMOSDB_OPERATION_TYPE}. */
   public static final class DbCosmosdbOperationTypeValues {
-
     /** invalid */
     public static final String INVALID = "Invalid";
 
@@ -349,14 +318,13 @@ public final class DbIncubatingAttributes {
   // Enum definitions
   /** Values for {@link #DB_SYSTEM}. */
   public static final class DbSystemValues {
-
-    /** Some other SQL database. Fallback only. See notes. */
+    /** Some other SQL database. Fallback only. See notes */
     public static final String OTHER_SQL = "other_sql";
 
     /** Adabas (Adaptable Database System) */
     public static final String ADABAS = "adabas";
 
-    /** Deprecated, use `intersystems_cache` instead. */
+    /** Deprecated, use {@code intersystems_cache} instead */
     public static final String CACHE = "cache";
 
     /** InterSystems Caché */
@@ -368,13 +336,13 @@ public final class DbIncubatingAttributes {
     /** ClickHouse */
     public static final String CLICKHOUSE = "clickhouse";
 
-    /** Deprecated, use `other_sql` instead. */
+    /** Deprecated, use {@code other_sql} instead */
     public static final String CLOUDSCAPE = "cloudscape";
 
     /** CockroachDB */
     public static final String COCKROACHDB = "cockroachdb";
 
-    /** Deprecated, no replacement at this time. */
+    /** Deprecated, no replacement at this time */
     public static final String COLDFUSION = "coldfusion";
 
     /** Microsoft Azure Cosmos DB */
@@ -407,7 +375,7 @@ public final class DbIncubatingAttributes {
     /** Firebird */
     public static final String FIREBIRD = "firebird";
 
-    /** Deprecated, use `other_sql` instead. */
+    /** Deprecated, use {@code other_sql} instead */
     public static final String FIRSTSQL = "firstsql";
 
     /** Apache Geode */
@@ -458,7 +426,7 @@ public final class DbIncubatingAttributes {
     /** Microsoft SQL Server */
     public static final String MSSQL = "mssql";
 
-    /** Deprecated, Microsoft SQL Server Compact is discontinued. */
+    /** Deprecated, Microsoft SQL Server Compact is discontinued */
     public static final String MSSQLCOMPACT = "mssqlcompact";
 
     /** MySQL */

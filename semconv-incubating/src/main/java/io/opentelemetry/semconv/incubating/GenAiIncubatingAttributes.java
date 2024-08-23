@@ -17,16 +17,13 @@ import java.util.List;
 // buildscripts/templates/registry/incubating_java/IncubatingSemanticAttributes.java.j2
 @SuppressWarnings("unused")
 public final class GenAiIncubatingAttributes {
-
   /**
    * The full response received from the GenAI model.
    *
    * <p>Notes:
    *
-   * <ul>
-   *   <li>It's RECOMMENDED to format completions as JSON string matching <a
-   *       href="https://platform.openai.com/docs/guides/text-generation">OpenAI messages format</a>
-   * </ul>
+   * <p>It's RECOMMENDED to format completions as JSON string matching <a
+   * href="https://platform.openai.com/docs/guides/text-generation">OpenAI messages format</a>
    */
   public static final AttributeKey<String> GEN_AI_COMPLETION = stringKey("gen_ai.completion");
 
@@ -35,12 +32,10 @@ public final class GenAiIncubatingAttributes {
    *
    * <p>Notes:
    *
-   * <ul>
-   *   <li>If one of the predefined values applies, but specific system uses a different name it's
-   *       RECOMMENDED to document it in the semantic conventions for specific GenAI system and use
-   *       system-specific name in the instrumentation. If a different name is not documented,
-   *       instrumentation libraries SHOULD use applicable predefined value.
-   * </ul>
+   * <p>If one of the predefined values applies, but specific system uses a different name it's
+   * RECOMMENDED to document it in the semantic conventions for specific GenAI system and use
+   * system-specific name in the instrumentation. If a different name is not documented,
+   * instrumentation libraries SHOULD use applicable predefined value
    */
   public static final AttributeKey<String> GEN_AI_OPERATION_NAME =
       stringKey("gen_ai.operation.name");
@@ -50,53 +45,50 @@ public final class GenAiIncubatingAttributes {
    *
    * <p>Notes:
    *
-   * <ul>
-   *   <li>It's RECOMMENDED to format prompts as JSON string matching <a
-   *       href="https://platform.openai.com/docs/guides/text-generation">OpenAI messages format</a>
-   * </ul>
+   * <p>It's RECOMMENDED to format prompts as JSON string matching <a
+   * href="https://platform.openai.com/docs/guides/text-generation">OpenAI messages format</a>
    */
   public static final AttributeKey<String> GEN_AI_PROMPT = stringKey("gen_ai.prompt");
 
-  /** The frequency penalty setting for the GenAI request. */
+  /** The frequency penalty setting for the GenAI request */
   public static final AttributeKey<Double> GEN_AI_REQUEST_FREQUENCY_PENALTY =
       doubleKey("gen_ai.request.frequency_penalty");
 
-  /** The maximum number of tokens the model generates for a request. */
+  /** The maximum number of tokens the model generates for a request */
   public static final AttributeKey<Long> GEN_AI_REQUEST_MAX_TOKENS =
       longKey("gen_ai.request.max_tokens");
 
-  /** The name of the GenAI model a request is being made to. */
+  /** The name of the GenAI model a request is being made to */
   public static final AttributeKey<String> GEN_AI_REQUEST_MODEL = stringKey("gen_ai.request.model");
 
-  /** The presence penalty setting for the GenAI request. */
+  /** The presence penalty setting for the GenAI request */
   public static final AttributeKey<Double> GEN_AI_REQUEST_PRESENCE_PENALTY =
       doubleKey("gen_ai.request.presence_penalty");
 
-  /** List of sequences that the model will use to stop generating further tokens. */
+  /** List of sequences that the model will use to stop generating further tokens */
   public static final AttributeKey<List<String>> GEN_AI_REQUEST_STOP_SEQUENCES =
       stringArrayKey("gen_ai.request.stop_sequences");
 
-  /** The temperature setting for the GenAI request. */
+  /** The temperature setting for the GenAI request */
   public static final AttributeKey<Double> GEN_AI_REQUEST_TEMPERATURE =
       doubleKey("gen_ai.request.temperature");
 
-  /** The top_k sampling setting for the GenAI request. */
+  /** The top_k sampling setting for the GenAI request */
   public static final AttributeKey<Double> GEN_AI_REQUEST_TOP_K = doubleKey("gen_ai.request.top_k");
 
-  /** The top_p sampling setting for the GenAI request. */
+  /** The top_p sampling setting for the GenAI request */
   public static final AttributeKey<Double> GEN_AI_REQUEST_TOP_P = doubleKey("gen_ai.request.top_p");
 
   /**
-   * Array of reasons the model stopped generating tokens, corresponding to each generation
-   * received.
+   * Array of reasons the model stopped generating tokens, corresponding to each generation received
    */
   public static final AttributeKey<List<String>> GEN_AI_RESPONSE_FINISH_REASONS =
       stringArrayKey("gen_ai.response.finish_reasons");
 
-  /** The unique identifier for the completion. */
+  /** The unique identifier for the completion */
   public static final AttributeKey<String> GEN_AI_RESPONSE_ID = stringKey("gen_ai.response.id");
 
-  /** The name of the model that generated the response. */
+  /** The name of the model that generated the response */
   public static final AttributeKey<String> GEN_AI_RESPONSE_MODEL =
       stringKey("gen_ai.response.model");
 
@@ -105,42 +97,42 @@ public final class GenAiIncubatingAttributes {
    *
    * <p>Notes:
    *
-   * <ul>
-   *   <li>The <code>gen_ai.system</code> describes a family of GenAI models with specific model
-   *       identified by <code>gen_ai.request.model</code> and <code>gen_ai.response.model</code>
-   *       attributes. The actual GenAI product may differ from the one identified by the client.
-   *       For example, when using OpenAI client libraries to communicate with Mistral, the <code>
-   *       gen_ai.system</code> is set to <code>openai</code> based on the instrumentation's best
-   *       knowledge. For custom model, a custom friendly name SHOULD be used. If none of these
-   *       options apply, the <code>gen_ai.system</code> SHOULD be set to <code>_OTHER</code>.
-   * </ul>
+   * <p>The {@code gen_ai.system} describes a family of GenAI models with specific model identified
+   * by {@code gen_ai.request.model} and {@code gen_ai.response.model} attributes.
+   *
+   * <p>The actual GenAI product may differ from the one identified by the client. For example, when
+   * using OpenAI client libraries to communicate with Mistral, the {@code gen_ai.system} is set to
+   * {@code openai} based on the instrumentation's best knowledge.
+   *
+   * <p>For custom model, a custom friendly name SHOULD be used. If none of these options apply, the
+   * {@code gen_ai.system} SHOULD be set to {@code _OTHER}
    */
   public static final AttributeKey<String> GEN_AI_SYSTEM = stringKey("gen_ai.system");
 
-  /** The type of token being counted. */
+  /** The type of token being counted */
   public static final AttributeKey<String> GEN_AI_TOKEN_TYPE = stringKey("gen_ai.token.type");
 
-  /** The number of tokens used in the GenAI input (prompt). */
+  /** The number of tokens used in the GenAI input (prompt) */
   public static final AttributeKey<Long> GEN_AI_USAGE_INPUT_TOKENS =
       longKey("gen_ai.usage.input_tokens");
 
-  /** The number of tokens used in the GenAI response (completion). */
+  /** The number of tokens used in the GenAI response (completion) */
   public static final AttributeKey<Long> GEN_AI_USAGE_OUTPUT_TOKENS =
       longKey("gen_ai.usage.output_tokens");
 
   // Enum definitions
   /** Values for {@link #GEN_AI_OPERATION_NAME}. */
   public static final class GenAiOperationNameValues {
-
     /**
-     * Chat completion operation such as [OpenAI Chat
-     * API](https://platform.openai.com/docs/api-reference/chat)
+     * Chat completion operation such as <a
+     * href="https://platform.openai.com/docs/api-reference/chat">OpenAI Chat API</a>
      */
     public static final String CHAT = "chat";
 
     /**
-     * Text completions operation such as [OpenAI Completions API
-     * (Legacy)](https://platform.openai.com/docs/api-reference/completions)
+     * Text completions operation such as <a
+     * href="https://platform.openai.com/docs/api-reference/completions">OpenAI Completions API
+     * (Legacy)</a>
      */
     public static final String TEXT_COMPLETION = "text_completion";
 
@@ -150,7 +142,6 @@ public final class GenAiIncubatingAttributes {
   // Enum definitions
   /** Values for {@link #GEN_AI_SYSTEM}. */
   public static final class GenAiSystemValues {
-
     /** OpenAI */
     public static final String OPENAI = "openai";
 
@@ -169,7 +160,6 @@ public final class GenAiIncubatingAttributes {
   // Enum definitions
   /** Values for {@link #GEN_AI_TOKEN_TYPE}. */
   public static final class GenAiTokenTypeValues {
-
     /** Input tokens (prompt, input, etc.) */
     public static final String INPUT = "input";
 

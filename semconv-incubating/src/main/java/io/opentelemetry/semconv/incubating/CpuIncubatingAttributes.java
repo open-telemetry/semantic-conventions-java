@@ -13,14 +13,12 @@ import io.opentelemetry.api.common.AttributeKey;
 // buildscripts/templates/registry/incubating_java/IncubatingSemanticAttributes.java.j2
 @SuppressWarnings("unused")
 public final class CpuIncubatingAttributes {
-
   /** The mode of the CPU */
   public static final AttributeKey<String> CPU_MODE = stringKey("cpu.mode");
 
   // Enum definitions
   /** Values for {@link #CPU_MODE}. */
   public static final class CpuModeValues {
-
     /** user */
     public static final String USER = "user";
 

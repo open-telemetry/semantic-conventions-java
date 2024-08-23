@@ -14,18 +14,15 @@ import io.opentelemetry.api.common.AttributeKey;
 // buildscripts/templates/registry/incubating_java/IncubatingSemanticAttributes.java.j2
 @SuppressWarnings("unused")
 public final class SourceIncubatingAttributes {
-
   /**
    * Source address - domain name if available without reverse DNS lookup; otherwise, IP address or
    * Unix domain socket name.
    *
    * <p>Notes:
    *
-   * <ul>
-   *   <li>When observed from the destination side, and when communicating through an intermediary,
-   *       <code>source.address</code> SHOULD represent the source address behind any
-   *       intermediaries, for example proxies, if it's available.
-   * </ul>
+   * <p>When observed from the destination side, and when communicating through an intermediary,
+   * {@code source.address} SHOULD represent the source address behind any intermediaries, for
+   * example proxies, if it's available
    */
   public static final AttributeKey<String> SOURCE_ADDRESS = stringKey("source.address");
 

@@ -13,30 +13,26 @@ import io.opentelemetry.api.common.AttributeKey;
 // buildscripts/templates/registry/incubating_java/IncubatingSemanticAttributes.java.j2
 @SuppressWarnings("unused")
 public final class GraphqlIncubatingAttributes {
-
   /**
    * The GraphQL document being executed.
    *
    * <p>Notes:
    *
-   * <ul>
-   *   <li>The value may be sanitized to exclude sensitive information.
-   * </ul>
+   * <p>The value may be sanitized to exclude sensitive information
    */
   public static final AttributeKey<String> GRAPHQL_DOCUMENT = stringKey("graphql.document");
 
-  /** The name of the operation being executed. */
+  /** The name of the operation being executed */
   public static final AttributeKey<String> GRAPHQL_OPERATION_NAME =
       stringKey("graphql.operation.name");
 
-  /** The type of the operation being executed. */
+  /** The type of the operation being executed */
   public static final AttributeKey<String> GRAPHQL_OPERATION_TYPE =
       stringKey("graphql.operation.type");
 
   // Enum definitions
   /** Values for {@link #GRAPHQL_OPERATION_TYPE}. */
   public static final class GraphqlOperationTypeValues {
-
     /** GraphQL query */
     public static final String QUERY = "query";
 

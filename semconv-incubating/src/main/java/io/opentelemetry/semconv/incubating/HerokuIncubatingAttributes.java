@@ -13,7 +13,6 @@ import io.opentelemetry.api.common.AttributeKey;
 // buildscripts/templates/registry/incubating_java/IncubatingSemanticAttributes.java.j2
 @SuppressWarnings("unused")
 public final class HerokuIncubatingAttributes {
-
   /** Unique identifier for the application */
   public static final AttributeKey<String> HEROKU_APP_ID = stringKey("heroku.app.id");
 
