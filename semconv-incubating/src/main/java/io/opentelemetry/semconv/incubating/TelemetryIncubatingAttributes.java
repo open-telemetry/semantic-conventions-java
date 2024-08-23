@@ -29,5 +29,28 @@ public final class TelemetryIncubatingAttributes {
   public static final AttributeKey<String> TELEMETRY_DISTRO_VERSION =
       stringKey("telemetry.distro.version");
 
+  /**
+   * @deprecated deprecated in favor of stable {@link
+   *     io.opentelemetry.semconv.TelemetryAttributes#TELEMETRY_SDK_LANGUAGE } attribute.
+   */
+  @Deprecated
+  public static final AttributeKey<String> TELEMETRY_SDK_LANGUAGE =
+      stringKey("telemetry.sdk.language");
+
+  /**
+   * @deprecated deprecated in favor of stable {@link
+   *     io.opentelemetry.semconv.TelemetryAttributes#TELEMETRY_SDK_NAME } attribute.
+   */
+  @Deprecated
+  public static final AttributeKey<String> TELEMETRY_SDK_NAME = stringKey("telemetry.sdk.name");
+
+  /**
+   * @deprecated deprecated in favor of stable {@link
+   *     io.opentelemetry.semconv.TelemetryAttributes#TELEMETRY_SDK_VERSION } attribute.
+   */
+  @Deprecated
+  public static final AttributeKey<String> TELEMETRY_SDK_VERSION =
+      stringKey("telemetry.sdk.version");
+
   private TelemetryIncubatingAttributes() {}
 }

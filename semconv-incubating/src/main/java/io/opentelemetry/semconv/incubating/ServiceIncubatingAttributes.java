@@ -51,6 +51,12 @@ public final class ServiceIncubatingAttributes {
   public static final AttributeKey<String> SERVICE_INSTANCE_ID = stringKey("service.instance.id");
 
   /**
+   * @deprecated deprecated in favor of stable {@link
+   *     io.opentelemetry.semconv.ServiceAttributes#SERVICE_NAME } attribute.
+   */
+  @Deprecated public static final AttributeKey<String> SERVICE_NAME = stringKey("service.name");
+
+  /**
    * A namespace for {@code service.name}.
    *
    * <p>Notes:
@@ -63,6 +69,13 @@ public final class ServiceIncubatingAttributes {
    * namespace string is assumed equal to unspecified namespace.
    */
   public static final AttributeKey<String> SERVICE_NAMESPACE = stringKey("service.namespace");
+
+  /**
+   * @deprecated deprecated in favor of stable {@link
+   *     io.opentelemetry.semconv.ServiceAttributes#SERVICE_VERSION } attribute.
+   */
+  @Deprecated
+  public static final AttributeKey<String> SERVICE_VERSION = stringKey("service.version");
 
   private ServiceIncubatingAttributes() {}
 }

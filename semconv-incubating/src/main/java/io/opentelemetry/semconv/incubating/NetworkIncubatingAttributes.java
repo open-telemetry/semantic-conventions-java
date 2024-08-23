@@ -5,6 +5,7 @@
 
 package io.opentelemetry.semconv.incubating;
 
+import static io.opentelemetry.api.common.AttributeKey.longKey;
 import static io.opentelemetry.api.common.AttributeKey.stringKey;
 
 import io.opentelemetry.api.common.AttributeKey;
@@ -38,6 +39,64 @@ public final class NetworkIncubatingAttributes {
 
   /** The network IO operation direction. */
   public static final AttributeKey<String> NETWORK_IO_DIRECTION = stringKey("network.io.direction");
+
+  /**
+   * @deprecated deprecated in favor of stable {@link
+   *     io.opentelemetry.semconv.NetworkAttributes#NETWORK_LOCAL_ADDRESS } attribute.
+   */
+  @Deprecated
+  public static final AttributeKey<String> NETWORK_LOCAL_ADDRESS =
+      stringKey("network.local.address");
+
+  /**
+   * @deprecated deprecated in favor of stable {@link
+   *     io.opentelemetry.semconv.NetworkAttributes#NETWORK_LOCAL_PORT } attribute.
+   */
+  @Deprecated
+  public static final AttributeKey<Long> NETWORK_LOCAL_PORT = longKey("network.local.port");
+
+  /**
+   * @deprecated deprecated in favor of stable {@link
+   *     io.opentelemetry.semconv.NetworkAttributes#NETWORK_PEER_ADDRESS } attribute.
+   */
+  @Deprecated
+  public static final AttributeKey<String> NETWORK_PEER_ADDRESS = stringKey("network.peer.address");
+
+  /**
+   * @deprecated deprecated in favor of stable {@link
+   *     io.opentelemetry.semconv.NetworkAttributes#NETWORK_PEER_PORT } attribute.
+   */
+  @Deprecated
+  public static final AttributeKey<Long> NETWORK_PEER_PORT = longKey("network.peer.port");
+
+  /**
+   * @deprecated deprecated in favor of stable {@link
+   *     io.opentelemetry.semconv.NetworkAttributes#NETWORK_PROTOCOL_NAME } attribute.
+   */
+  @Deprecated
+  public static final AttributeKey<String> NETWORK_PROTOCOL_NAME =
+      stringKey("network.protocol.name");
+
+  /**
+   * @deprecated deprecated in favor of stable {@link
+   *     io.opentelemetry.semconv.NetworkAttributes#NETWORK_PROTOCOL_VERSION } attribute.
+   */
+  @Deprecated
+  public static final AttributeKey<String> NETWORK_PROTOCOL_VERSION =
+      stringKey("network.protocol.version");
+
+  /**
+   * @deprecated deprecated in favor of stable {@link
+   *     io.opentelemetry.semconv.NetworkAttributes#NETWORK_TRANSPORT } attribute.
+   */
+  @Deprecated
+  public static final AttributeKey<String> NETWORK_TRANSPORT = stringKey("network.transport");
+
+  /**
+   * @deprecated deprecated in favor of stable {@link
+   *     io.opentelemetry.semconv.NetworkAttributes#NETWORK_TYPE } attribute.
+   */
+  @Deprecated public static final AttributeKey<String> NETWORK_TYPE = stringKey("network.type");
 
   // Enum definitions
   /** Values for {@link #NETWORK_CONNECTION_SUBTYPE}. */

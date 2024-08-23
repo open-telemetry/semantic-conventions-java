@@ -39,6 +39,18 @@ public final class UrlIncubatingAttributes {
   public static final AttributeKey<String> URL_EXTENSION = stringKey("url.extension");
 
   /**
+   * @deprecated deprecated in favor of stable {@link
+   *     io.opentelemetry.semconv.UrlAttributes#URL_FRAGMENT } attribute.
+   */
+  @Deprecated public static final AttributeKey<String> URL_FRAGMENT = stringKey("url.fragment");
+
+  /**
+   * @deprecated deprecated in favor of stable {@link
+   *     io.opentelemetry.semconv.UrlAttributes#URL_FULL } attribute.
+   */
+  @Deprecated public static final AttributeKey<String> URL_FULL = stringKey("url.full");
+
+  /**
    * Unmodified original URL as seen in the event source.
    *
    * <p>Notes:
@@ -51,8 +63,20 @@ public final class UrlIncubatingAttributes {
    */
   public static final AttributeKey<String> URL_ORIGINAL = stringKey("url.original");
 
+  /**
+   * @deprecated deprecated in favor of stable {@link
+   *     io.opentelemetry.semconv.UrlAttributes#URL_PATH } attribute.
+   */
+  @Deprecated public static final AttributeKey<String> URL_PATH = stringKey("url.path");
+
   /** Port extracted from the {@code url.full} */
   public static final AttributeKey<Long> URL_PORT = longKey("url.port");
+
+  /**
+   * @deprecated deprecated in favor of stable {@link
+   *     io.opentelemetry.semconv.UrlAttributes#URL_QUERY } attribute.
+   */
+  @Deprecated public static final AttributeKey<String> URL_QUERY = stringKey("url.query");
 
   /**
    * The highest registered url domain, stripped of the subdomain.
@@ -66,6 +90,12 @@ public final class UrlIncubatingAttributes {
    */
   public static final AttributeKey<String> URL_REGISTERED_DOMAIN =
       stringKey("url.registered_domain");
+
+  /**
+   * @deprecated deprecated in favor of stable {@link
+   *     io.opentelemetry.semconv.UrlAttributes#URL_SCHEME } attribute.
+   */
+  @Deprecated public static final AttributeKey<String> URL_SCHEME = stringKey("url.scheme");
 
   /**
    * The subdomain portion of a fully qualified domain name includes all of the names except the
