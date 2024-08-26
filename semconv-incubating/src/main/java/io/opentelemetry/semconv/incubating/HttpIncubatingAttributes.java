@@ -6,10 +6,11 @@
 package io.opentelemetry.semconv.incubating;
 
 import static io.opentelemetry.api.common.AttributeKey.longKey;
-import static io.opentelemetry.api.common.AttributeKey.stringArrayKey;
 import static io.opentelemetry.api.common.AttributeKey.stringKey;
+import static io.opentelemetry.semconv.AttributeKeyTemplate.stringArrayKeyTemplate;
 
 import io.opentelemetry.api.common.AttributeKey;
+import io.opentelemetry.semconv.AttributeKeyTemplate;
 import java.util.List;
 
 // DO NOT EDIT, this is an Auto-generated file from
@@ -33,8 +34,8 @@ public final class HttpIncubatingAttributes {
    *     io.opentelemetry.semconv.HttpAttributes#HTTP_REQUEST_HEADER} attribute.
    */
   @Deprecated
-  public static final AttributeKey<List<String>> HTTP_REQUEST_HEADER =
-      stringArrayKey("http.request.header");
+  public static final AttributeKeyTemplate<List<String>> HTTP_REQUEST_HEADER =
+      stringArrayKeyTemplate("http.request.header");
 
   /**
    * @deprecated deprecated in favor of stable {@link
@@ -80,8 +81,8 @@ public final class HttpIncubatingAttributes {
    *     io.opentelemetry.semconv.HttpAttributes#HTTP_RESPONSE_HEADER} attribute.
    */
   @Deprecated
-  public static final AttributeKey<List<String>> HTTP_RESPONSE_HEADER =
-      stringArrayKey("http.response.header");
+  public static final AttributeKeyTemplate<List<String>> HTTP_RESPONSE_HEADER =
+      stringArrayKeyTemplate("http.response.header");
 
   /**
    * The total size of the response in bytes. This should be the total number of bytes sent over the

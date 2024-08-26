@@ -6,8 +6,8 @@
 package io.opentelemetry.semconv;
 
 import static io.opentelemetry.api.common.AttributeKey.longKey;
-import static io.opentelemetry.api.common.AttributeKey.stringArrayKey;
 import static io.opentelemetry.api.common.AttributeKey.stringKey;
+import static io.opentelemetry.semconv.AttributeKeyTemplate.stringArrayKeyTemplate;
 
 import io.opentelemetry.api.common.AttributeKey;
 import java.util.List;
@@ -30,8 +30,8 @@ public final class HttpAttributes {
    * multiple header values as an array of strings or a single-item array containing a possibly
    * comma-concatenated string, depending on the way the HTTP library provides access to headers.
    */
-  public static final AttributeKey<List<String>> HTTP_REQUEST_HEADER =
-      stringArrayKey("http.request.header");
+  public static final AttributeKeyTemplate<List<String>> HTTP_REQUEST_HEADER =
+      stringArrayKeyTemplate("http.request.header");
 
   /**
    * HTTP request method.
@@ -90,8 +90,8 @@ public final class HttpAttributes {
    * header values as an array of strings or a single-item array containing a possibly
    * comma-concatenated string, depending on the way the HTTP library provides access to headers.
    */
-  public static final AttributeKey<List<String>> HTTP_RESPONSE_HEADER =
-      stringArrayKey("http.response.header");
+  public static final AttributeKeyTemplate<List<String>> HTTP_RESPONSE_HEADER =
+      stringArrayKeyTemplate("http.response.header");
 
   /** <a href="https://tools.ietf.org/html/rfc7231#section-6">HTTP response status code</a>. */
   public static final AttributeKey<Long> HTTP_RESPONSE_STATUS_CODE =

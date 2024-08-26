@@ -9,8 +9,10 @@ import static io.opentelemetry.api.common.AttributeKey.booleanKey;
 import static io.opentelemetry.api.common.AttributeKey.doubleKey;
 import static io.opentelemetry.api.common.AttributeKey.longKey;
 import static io.opentelemetry.api.common.AttributeKey.stringKey;
+import static io.opentelemetry.semconv.AttributeKeyTemplate.stringKeyTemplate;
 
 import io.opentelemetry.api.common.AttributeKey;
+import io.opentelemetry.semconv.AttributeKeyTemplate;
 
 // DO NOT EDIT, this is an Auto-generated file from
 // buildscripts/templates/registry/incubating_java/IncubatingSemanticAttributes.java.j2
@@ -119,8 +121,8 @@ public final class DbIncubatingAttributes {
    * href="https://raw.githubusercontent.com/elastic/elasticsearch-specification/main/output/schema/schema.json">elasticsearch
    * schema</a> in order to map the path part values to their names.
    */
-  public static final AttributeKey<String> DB_ELASTICSEARCH_PATH_PARTS =
-      stringKey("db.elasticsearch.path_parts");
+  public static final AttributeKeyTemplate<String> DB_ELASTICSEARCH_PATH_PARTS =
+      stringKeyTemplate("db.elasticsearch.path_parts");
 
   /**
    * The name of the database, fully qualified within the server address and port.
@@ -173,7 +175,8 @@ public final class DbIncubatingAttributes {
    * placeholders. If a parameter has no name and instead is referenced only by index, then {@code
    * <key>} SHOULD be the 0-based index.
    */
-  public static final AttributeKey<String> DB_QUERY_PARAMETER = stringKey("db.query.parameter");
+  public static final AttributeKeyTemplate<String> DB_QUERY_PARAMETER =
+      stringKeyTemplate("db.query.parameter");
 
   /**
    * The database query being executed.

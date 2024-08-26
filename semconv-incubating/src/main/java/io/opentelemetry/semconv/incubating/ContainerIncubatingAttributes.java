@@ -7,8 +7,10 @@ package io.opentelemetry.semconv.incubating;
 
 import static io.opentelemetry.api.common.AttributeKey.stringArrayKey;
 import static io.opentelemetry.api.common.AttributeKey.stringKey;
+import static io.opentelemetry.semconv.AttributeKeyTemplate.stringKeyTemplate;
 
 import io.opentelemetry.api.common.AttributeKey;
+import io.opentelemetry.semconv.AttributeKeyTemplate;
 import java.util.List;
 
 // DO NOT EDIT, this is an Auto-generated file from
@@ -86,7 +88,8 @@ public final class ContainerIncubatingAttributes {
       stringArrayKey("container.image.tags");
 
   /** Container labels, {@code <key>} being the label name, the value being the label value. */
-  public static final AttributeKey<String> CONTAINER_LABEL = stringKey("container.label");
+  public static final AttributeKeyTemplate<String> CONTAINER_LABEL =
+      stringKeyTemplate("container.label");
 
   /** Container name used by container runtime. */
   public static final AttributeKey<String> CONTAINER_NAME = stringKey("container.name");

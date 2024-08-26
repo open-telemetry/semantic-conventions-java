@@ -6,10 +6,11 @@
 package io.opentelemetry.semconv.incubating;
 
 import static io.opentelemetry.api.common.AttributeKey.longKey;
-import static io.opentelemetry.api.common.AttributeKey.stringArrayKey;
 import static io.opentelemetry.api.common.AttributeKey.stringKey;
+import static io.opentelemetry.semconv.AttributeKeyTemplate.stringArrayKeyTemplate;
 
 import io.opentelemetry.api.common.AttributeKey;
+import io.opentelemetry.semconv.AttributeKeyTemplate;
 import java.util.List;
 
 // DO NOT EDIT, this is an Auto-generated file from
@@ -33,8 +34,8 @@ public final class RpcIncubatingAttributes {
    * captured. Including all request metadata values can be a security risk - explicit configuration
    * helps avoid leaking sensitive information.
    */
-  public static final AttributeKey<List<String>> RPC_CONNECT_RPC_REQUEST_METADATA =
-      stringArrayKey("rpc.connect_rpc.request.metadata");
+  public static final AttributeKeyTemplate<List<String>> RPC_CONNECT_RPC_REQUEST_METADATA =
+      stringArrayKeyTemplate("rpc.connect_rpc.request.metadata");
 
   /**
    * Connect response metadata, {@code <key>} being the normalized Connect Metadata key (lowercase),
@@ -46,8 +47,8 @@ public final class RpcIncubatingAttributes {
    * captured. Including all response metadata values can be a security risk - explicit
    * configuration helps avoid leaking sensitive information.
    */
-  public static final AttributeKey<List<String>> RPC_CONNECT_RPC_RESPONSE_METADATA =
-      stringArrayKey("rpc.connect_rpc.response.metadata");
+  public static final AttributeKeyTemplate<List<String>> RPC_CONNECT_RPC_RESPONSE_METADATA =
+      stringArrayKeyTemplate("rpc.connect_rpc.response.metadata");
 
   /**
    * gRPC request metadata, {@code <key>} being the normalized gRPC Metadata key (lowercase), the
@@ -59,8 +60,8 @@ public final class RpcIncubatingAttributes {
    * captured. Including all request metadata values can be a security risk - explicit configuration
    * helps avoid leaking sensitive information.
    */
-  public static final AttributeKey<List<String>> RPC_GRPC_REQUEST_METADATA =
-      stringArrayKey("rpc.grpc.request.metadata");
+  public static final AttributeKeyTemplate<List<String>> RPC_GRPC_REQUEST_METADATA =
+      stringArrayKeyTemplate("rpc.grpc.request.metadata");
 
   /**
    * gRPC response metadata, {@code <key>} being the normalized gRPC Metadata key (lowercase), the
@@ -72,8 +73,8 @@ public final class RpcIncubatingAttributes {
    * captured. Including all response metadata values can be a security risk - explicit
    * configuration helps avoid leaking sensitive information.
    */
-  public static final AttributeKey<List<String>> RPC_GRPC_RESPONSE_METADATA =
-      stringArrayKey("rpc.grpc.response.metadata");
+  public static final AttributeKeyTemplate<List<String>> RPC_GRPC_RESPONSE_METADATA =
+      stringArrayKeyTemplate("rpc.grpc.response.metadata");
 
   /**
    * The <a href="https://github.com/grpc/grpc/blob/v1.33.2/doc/statuscodes.md">numeric status
