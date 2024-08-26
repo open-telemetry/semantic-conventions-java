@@ -1,8 +1,16 @@
 {%- macro to_java_key_type(attribute) -%}
-    {{ attribute.type | instantiated_type | map_text("java_key_type") }}
+    {%- if attribute.type is template_type -%}
+        {{ attribute.type | instantiated_type | map_text("java_template_key_type") }}
+    {%- else -%}
+        {{ attribute.type | instantiated_type | map_text("java_key_type") }}
+    {%- endif %}
 {%- endmacro %}
 {%- macro to_java_key_factory(attribute) -%}
-    {{ attribute.type | instantiated_type | map_text("java_key_factory") }}
+    {%- if attribute.type is template_type -%}
+        {{ attribute.type | instantiated_type | map_text("java_template_key_factory") }}
+    {%- else -%}
+        {{ attribute.type | instantiated_type | map_text("java_key_factory") }}
+    {%- endif %}
 {%- endmacro %}
 {%- set my_file_name = ctx.root_namespace | pascal_case ~ "IncubatingAttributes.java" -%}
 {%- set my_class_name = ctx.root_namespace | pascal_case ~ "IncubatingAttributes" -%}
