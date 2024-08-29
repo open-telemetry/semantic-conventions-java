@@ -27,6 +27,7 @@ templates:
           excluded_attributes: $excluded_attributes[]
       })
     application_mode: each
+    file_name: "{{ctx.root_namespace | pascal_case}}IncubatingAttributes.java"
 text_maps:
   java_enum_type:
     int: long

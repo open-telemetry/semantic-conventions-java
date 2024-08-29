@@ -23,6 +23,7 @@ templates:
         "exclude_deprecated": false
       })
     application_mode: each
+    file_name: "{{ctx.root_namespace | pascal_case}}Attributes.java"
 text_maps:
   java_enum_type:
     int: long
