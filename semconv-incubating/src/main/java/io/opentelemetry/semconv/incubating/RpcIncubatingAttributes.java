@@ -211,55 +211,55 @@ public final class RpcIncubatingAttributes {
   /** Values for {@link #RPC_GRPC_STATUS_CODE}. */
   public static final class RpcGrpcStatusCodeValues {
     /** OK */
-    public static final String OK = "0";
+    public static final long OK = 0;
 
     /** CANCELLED */
-    public static final String CANCELLED = "1";
+    public static final long CANCELLED = 1;
 
     /** UNKNOWN */
-    public static final String UNKNOWN = "2";
+    public static final long UNKNOWN = 2;
 
     /** INVALID_ARGUMENT */
-    public static final String INVALID_ARGUMENT = "3";
+    public static final long INVALID_ARGUMENT = 3;
 
     /** DEADLINE_EXCEEDED */
-    public static final String DEADLINE_EXCEEDED = "4";
+    public static final long DEADLINE_EXCEEDED = 4;
 
     /** NOT_FOUND */
-    public static final String NOT_FOUND = "5";
+    public static final long NOT_FOUND = 5;
 
     /** ALREADY_EXISTS */
-    public static final String ALREADY_EXISTS = "6";
+    public static final long ALREADY_EXISTS = 6;
 
     /** PERMISSION_DENIED */
-    public static final String PERMISSION_DENIED = "7";
+    public static final long PERMISSION_DENIED = 7;
 
     /** RESOURCE_EXHAUSTED */
-    public static final String RESOURCE_EXHAUSTED = "8";
+    public static final long RESOURCE_EXHAUSTED = 8;
 
     /** FAILED_PRECONDITION */
-    public static final String FAILED_PRECONDITION = "9";
+    public static final long FAILED_PRECONDITION = 9;
 
     /** ABORTED */
-    public static final String ABORTED = "10";
+    public static final long ABORTED = 10;
 
     /** OUT_OF_RANGE */
-    public static final String OUT_OF_RANGE = "11";
+    public static final long OUT_OF_RANGE = 11;
 
     /** UNIMPLEMENTED */
-    public static final String UNIMPLEMENTED = "12";
+    public static final long UNIMPLEMENTED = 12;
 
     /** INTERNAL */
-    public static final String INTERNAL = "13";
+    public static final long INTERNAL = 13;
 
     /** UNAVAILABLE */
-    public static final String UNAVAILABLE = "14";
+    public static final long UNAVAILABLE = 14;
 
     /** DATA_LOSS */
-    public static final String DATA_LOSS = "15";
+    public static final long DATA_LOSS = 15;
 
     /** UNAUTHENTICATED */
-    public static final String UNAUTHENTICATED = "16";
+    public static final long UNAUTHENTICATED = 16;
 
     private RpcGrpcStatusCodeValues() {}
   }
