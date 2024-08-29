@@ -24,6 +24,15 @@ templates:
       })
     application_mode: each
 text_maps:
+  java_enum_type:
+    int: long
+    double: double
+    boolean: boolean
+    string: String
+    string[]: String[]
+    int[]: long[]
+    double[]: double[]
+    boolean[]: boolean[]
   java_key_type:
     int: AttributeKey<Long>
     double: AttributeKey<Double>
