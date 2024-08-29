@@ -50,9 +50,19 @@ public final class {{ my_class_name }} {
     @Deprecated public static final {{ to_java_key_type(attribute) | trim }} {{ attribute.name | screaming_snake_case }} = {{ to_java_key_factory(attribute) | trim }}("{{ attribute.name }}");
     {% endif %}
     {% endfor %}
-    {% for attribute in ctx.attributes | select("enum") | select("experimental") | rejectattr("name", "in", ctx.excluded_attributes) | sort(attribute="name") %}
     // Enum definitions
+    {% for attribute in ctx.attributes | select("enum") | rejectattr("name", "in", ctx.excluded_attributes) | sort(attribute="name") %}    
+    {%- if attribute is stable -%}
+    {%- set stable_class_link = "io.opentelemetry.semconv." ~ stable_class_name ~ "#" ~ (attribute.name | screaming_snake_case) -%}
+    /** 
+     * Values for {@link #{{ attribute.name | screaming_snake_case }}}. 
+     *
+     *  @deprecated deprecated in favor of stable {@link {{stable_class_link}}} attribute.
+     */
+    {%- else -%}
     /** Values for {@link #{{ attribute.name | screaming_snake_case }}}. */
+    {%- endif -%}
+    {% if attribute is stable %}@Deprecated{% endif %}
     public static final class {{ attribute.name | pascal_case }}Values {
       {%- for member in attribute.type.members %}
       {{ [member.brief or (member.id ~ '.')] | comment(indent=4) }}
