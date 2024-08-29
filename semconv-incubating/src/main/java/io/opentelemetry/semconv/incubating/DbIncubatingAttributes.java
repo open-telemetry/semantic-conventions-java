@@ -497,7 +497,6 @@ public final class DbIncubatingAttributes {
     private DbCassandraConsistencyLevelValues() {}
   }
 
-  // Enum definitions
   /** Values for {@link #DB_CLIENT_CONNECTION_STATE}. */
   public static final class DbClientConnectionStateValues {
     /** idle. */
@@ -509,7 +508,6 @@ public final class DbIncubatingAttributes {
     private DbClientConnectionStateValues() {}
   }
 
-  // Enum definitions
   /** Values for {@link #DB_CLIENT_CONNECTIONS_STATE}. */
   public static final class DbClientConnectionsStateValues {
     /** idle. */
@@ -521,7 +519,6 @@ public final class DbIncubatingAttributes {
     private DbClientConnectionsStateValues() {}
   }
 
-  // Enum definitions
   /** Values for {@link #DB_COSMOSDB_CONNECTION_MODE}. */
   public static final class DbCosmosdbConnectionModeValues {
     /** Gateway (HTTP) connections mode */
@@ -533,7 +530,6 @@ public final class DbIncubatingAttributes {
     private DbCosmosdbConnectionModeValues() {}
   }
 
-  // Enum definitions
   /** Values for {@link #DB_COSMOSDB_OPERATION_TYPE}. */
   public static final class DbCosmosdbOperationTypeValues {
     /** invalid. */
@@ -584,7 +580,6 @@ public final class DbIncubatingAttributes {
     private DbCosmosdbOperationTypeValues() {}
   }
 
-  // Enum definitions
   /** Values for {@link #DB_SYSTEM}. */
   public static final class DbSystemValues {
     /** Some other SQL database. Fallback only. See notes. */

@@ -184,7 +184,6 @@ public final class FaasIncubatingAttributes {
     private FaasDocumentOperationValues() {}
   }
 
-  // Enum definitions
   /** Values for {@link #FAAS_INVOKED_PROVIDER}. */
   public static final class FaasInvokedProviderValues {
     /** Alibaba Cloud */
@@ -205,7 +204,6 @@ public final class FaasIncubatingAttributes {
     private FaasInvokedProviderValues() {}
   }
 
-  // Enum definitions
   /** Values for {@link #FAAS_TRIGGER}. */
   public static final class FaasTriggerValues {
     /** A response to some data source operation such as a database or filesystem read/write */

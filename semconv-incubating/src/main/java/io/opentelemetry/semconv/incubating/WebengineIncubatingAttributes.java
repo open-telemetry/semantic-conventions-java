@@ -23,5 +23,7 @@ public final class WebengineIncubatingAttributes {
   /** The version of the web engine. */
   public static final AttributeKey<String> WEBENGINE_VERSION = stringKey("webengine.version");
 
+  // Enum definitions
+
   private WebengineIncubatingAttributes() {}
 }

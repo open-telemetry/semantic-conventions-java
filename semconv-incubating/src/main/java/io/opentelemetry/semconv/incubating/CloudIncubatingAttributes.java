@@ -181,7 +181,6 @@ public final class CloudIncubatingAttributes {
     private CloudPlatformValues() {}
   }
 
-  // Enum definitions
   /** Values for {@link #CLOUD_PROVIDER}. */
   public static final class CloudProviderValues {
     /** Alibaba Cloud */

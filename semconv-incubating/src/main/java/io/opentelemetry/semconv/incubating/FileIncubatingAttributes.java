@@ -39,5 +39,7 @@ public final class FileIncubatingAttributes {
   /** File size in bytes. */
   public static final AttributeKey<Long> FILE_SIZE = longKey("file.size");
 
+  // Enum definitions
+
   private FileIncubatingAttributes() {}
 }

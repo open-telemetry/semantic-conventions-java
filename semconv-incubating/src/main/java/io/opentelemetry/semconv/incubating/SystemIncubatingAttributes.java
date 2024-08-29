@@ -173,7 +173,6 @@ public final class SystemIncubatingAttributes {
     private SystemCpuStateValues() {}
   }
 
-  // Enum definitions
   /** Values for {@link #SYSTEM_FILESYSTEM_STATE}. */
   public static final class SystemFilesystemStateValues {
     /** used. */
@@ -188,7 +187,6 @@ public final class SystemIncubatingAttributes {
     private SystemFilesystemStateValues() {}
   }
 
-  // Enum definitions
   /** Values for {@link #SYSTEM_FILESYSTEM_TYPE}. */
   public static final class SystemFilesystemTypeValues {
     /** fat32. */
@@ -212,7 +210,6 @@ public final class SystemIncubatingAttributes {
     private SystemFilesystemTypeValues() {}
   }
 
-  // Enum definitions
   /** Values for {@link #SYSTEM_MEMORY_STATE}. */
   public static final class SystemMemoryStateValues {
     /** used. */
@@ -233,7 +230,6 @@ public final class SystemIncubatingAttributes {
     private SystemMemoryStateValues() {}
   }
 
-  // Enum definitions
   /** Values for {@link #SYSTEM_NETWORK_STATE}. */
   public static final class SystemNetworkStateValues {
     /** close. */
@@ -275,7 +271,6 @@ public final class SystemIncubatingAttributes {
     private SystemNetworkStateValues() {}
   }
 
-  // Enum definitions
   /** Values for {@link #SYSTEM_PAGING_DIRECTION}. */
   public static final class SystemPagingDirectionValues {
     /** in. */
@@ -287,7 +282,6 @@ public final class SystemIncubatingAttributes {
     private SystemPagingDirectionValues() {}
   }
 
-  // Enum definitions
   /** Values for {@link #SYSTEM_PAGING_STATE}. */
   public static final class SystemPagingStateValues {
     /** used. */
@@ -299,7 +293,6 @@ public final class SystemIncubatingAttributes {
     private SystemPagingStateValues() {}
   }
 
-  // Enum definitions
   /** Values for {@link #SYSTEM_PAGING_TYPE}. */
   public static final class SystemPagingTypeValues {
     /** major. */
@@ -311,7 +304,6 @@ public final class SystemIncubatingAttributes {
     private SystemPagingTypeValues() {}
   }
 
-  // Enum definitions
   /** Values for {@link #SYSTEM_PROCESS_STATUS}. */
   public static final class SystemProcessStatusValues {
     /** running. */
@@ -329,7 +321,6 @@ public final class SystemIncubatingAttributes {
     private SystemProcessStatusValues() {}
   }
 
-  // Enum definitions
   /** Values for {@link #SYSTEM_PROCESSES_STATUS}. */
   public static final class SystemProcessesStatusValues {
     /** running. */

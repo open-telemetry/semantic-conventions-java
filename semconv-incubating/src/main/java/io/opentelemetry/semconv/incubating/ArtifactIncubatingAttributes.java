@@ -75,5 +75,7 @@ public final class ArtifactIncubatingAttributes {
   /** The version of the artifact. */
   public static final AttributeKey<String> ARTIFACT_VERSION = stringKey("artifact.version");
 
+  // Enum definitions
+
   private ArtifactIncubatingAttributes() {}
 }

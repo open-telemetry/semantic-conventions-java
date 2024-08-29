@@ -174,7 +174,6 @@ public final class GenAiIncubatingAttributes {
     private GenAiOperationNameValues() {}
   }
 
-  // Enum definitions
   /** Values for {@link #GEN_AI_SYSTEM}. */
   public static final class GenAiSystemValues {
     /** OpenAI */
@@ -192,7 +191,6 @@ public final class GenAiIncubatingAttributes {
     private GenAiSystemValues() {}
   }
 
-  // Enum definitions
   /** Values for {@link #GEN_AI_TOKEN_TYPE}. */
   public static final class GenAiTokenTypeValues {
     /** Input tokens (prompt, input, etc.) */

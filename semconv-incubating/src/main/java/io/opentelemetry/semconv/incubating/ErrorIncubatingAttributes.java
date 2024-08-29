@@ -19,5 +19,20 @@ public final class ErrorIncubatingAttributes {
    */
   @Deprecated public static final AttributeKey<String> ERROR_TYPE = stringKey("error.type");
 
+  // Enum definitions
+  /**
+   * Values for {@link #ERROR_TYPE}.
+   *
+   * @deprecated deprecated in favor of stable {@link
+   *     io.opentelemetry.semconv.ErrorAttributes#ERROR_TYPE} attribute.
+   */
+  @Deprecated
+  public static final class ErrorTypeValues {
+    /** A fallback error value to be used when the instrumentation doesn't define a custom value. */
+    public static final String OTHER = "_OTHER";
+
+    private ErrorTypeValues() {}
+  }
+
   private ErrorIncubatingAttributes() {}
 }

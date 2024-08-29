@@ -52,5 +52,53 @@ public final class TelemetryIncubatingAttributes {
   public static final AttributeKey<String> TELEMETRY_SDK_VERSION =
       stringKey("telemetry.sdk.version");
 
+  // Enum definitions
+  /**
+   * Values for {@link #TELEMETRY_SDK_LANGUAGE}.
+   *
+   * @deprecated deprecated in favor of stable {@link
+   *     io.opentelemetry.semconv.TelemetryAttributes#TELEMETRY_SDK_LANGUAGE} attribute.
+   */
+  @Deprecated
+  public static final class TelemetrySdkLanguageValues {
+    /** cpp. */
+    public static final String CPP = "cpp";
+
+    /** dotnet. */
+    public static final String DOTNET = "dotnet";
+
+    /** erlang. */
+    public static final String ERLANG = "erlang";
+
+    /** go. */
+    public static final String GO = "go";
+
+    /** java. */
+    public static final String JAVA = "java";
+
+    /** nodejs. */
+    public static final String NODEJS = "nodejs";
+
+    /** php. */
+    public static final String PHP = "php";
+
+    /** python. */
+    public static final String PYTHON = "python";
+
+    /** ruby. */
+    public static final String RUBY = "ruby";
+
+    /** rust. */
+    public static final String RUST = "rust";
+
+    /** swift. */
+    public static final String SWIFT = "swift";
+
+    /** webjs. */
+    public static final String WEBJS = "webjs";
+
+    private TelemetrySdkLanguageValues() {}
+  }
+
   private TelemetryIncubatingAttributes() {}
 }

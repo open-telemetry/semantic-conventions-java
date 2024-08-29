@@ -45,7 +45,6 @@ public final class V8jsIncubatingAttributes {
     private V8jsGcTypeValues() {}
   }
 
-  // Enum definitions
   /** Values for {@link #V8JS_HEAP_SPACE_NAME}. */
   public static final class V8jsHeapSpaceNameValues {
     /** New memory space. */

@@ -40,5 +40,7 @@ public final class EnduserIncubatingAttributes {
    */
   @Deprecated public static final AttributeKey<String> ENDUSER_SCOPE = stringKey("enduser.scope");
 
+  // Enum definitions
+
   private EnduserIncubatingAttributes() {}
 }

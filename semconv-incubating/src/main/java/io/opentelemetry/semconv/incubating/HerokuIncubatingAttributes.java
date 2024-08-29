@@ -24,5 +24,7 @@ public final class HerokuIncubatingAttributes {
   public static final AttributeKey<String> HEROKU_RELEASE_CREATION_TIMESTAMP =
       stringKey("heroku.release.creation_timestamp");
 
+  // Enum definitions
+
   private HerokuIncubatingAttributes() {}
 }

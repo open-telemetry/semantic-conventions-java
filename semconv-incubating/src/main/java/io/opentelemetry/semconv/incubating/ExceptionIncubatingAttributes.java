@@ -41,5 +41,7 @@ public final class ExceptionIncubatingAttributes {
    */
   @Deprecated public static final AttributeKey<String> EXCEPTION_TYPE = stringKey("exception.type");
 
+  // Enum definitions
+
   private ExceptionIncubatingAttributes() {}
 }

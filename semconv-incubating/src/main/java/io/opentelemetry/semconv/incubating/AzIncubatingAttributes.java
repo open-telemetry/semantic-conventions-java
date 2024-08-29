@@ -20,5 +20,7 @@ public final class AzIncubatingAttributes {
   public static final AttributeKey<String> AZ_SERVICE_REQUEST_ID =
       stringKey("az.service_request_id");
 
+  // Enum definitions
+
   private AzIncubatingAttributes() {}
 }

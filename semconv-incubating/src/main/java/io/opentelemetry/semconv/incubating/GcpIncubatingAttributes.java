@@ -60,5 +60,7 @@ public final class GcpIncubatingAttributes {
   public static final AttributeKey<String> GCP_GCE_INSTANCE_NAME =
       stringKey("gcp.gce.instance.name");
 
+  // Enum definitions
+
   private GcpIncubatingAttributes() {}
 }

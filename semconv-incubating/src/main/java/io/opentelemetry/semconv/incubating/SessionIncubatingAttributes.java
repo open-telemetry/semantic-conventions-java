@@ -19,5 +19,7 @@ public final class SessionIncubatingAttributes {
   /** The previous {@code session.id} for this user, when known. */
   public static final AttributeKey<String> SESSION_PREVIOUS_ID = stringKey("session.previous_id");
 
+  // Enum definitions
+
   private SessionIncubatingAttributes() {}
 }

@@ -22,5 +22,7 @@ public final class PoolIncubatingAttributes {
    */
   @Deprecated public static final AttributeKey<String> POOL_NAME = stringKey("pool.name");
 
+  // Enum definitions
+
   private PoolIncubatingAttributes() {}
 }

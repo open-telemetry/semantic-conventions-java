@@ -20,5 +20,7 @@ public final class PeerIncubatingAttributes {
    */
   public static final AttributeKey<String> PEER_SERVICE = stringKey("peer.service");
 
+  // Enum definitions
+
   private PeerIncubatingAttributes() {}
 }

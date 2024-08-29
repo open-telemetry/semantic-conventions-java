@@ -167,7 +167,6 @@ public final class NetworkIncubatingAttributes {
     private NetworkConnectionSubtypeValues() {}
   }
 
-  // Enum definitions
   /** Values for {@link #NETWORK_CONNECTION_TYPE}. */
   public static final class NetworkConnectionTypeValues {
     /** wifi. */
@@ -188,7 +187,6 @@ public final class NetworkIncubatingAttributes {
     private NetworkConnectionTypeValues() {}
   }
 
-  // Enum definitions
   /** Values for {@link #NETWORK_IO_DIRECTION}. */
   public static final class NetworkIoDirectionValues {
     /** transmit. */
@@ -198,6 +196,49 @@ public final class NetworkIncubatingAttributes {
     public static final String RECEIVE = "receive";
 
     private NetworkIoDirectionValues() {}
+  }
+
+  /**
+   * Values for {@link #NETWORK_TRANSPORT}.
+   *
+   * @deprecated deprecated in favor of stable {@link
+   *     io.opentelemetry.semconv.NetworkAttributes#NETWORK_TRANSPORT} attribute.
+   */
+  @Deprecated
+  public static final class NetworkTransportValues {
+    /** TCP */
+    public static final String TCP = "tcp";
+
+    /** UDP */
+    public static final String UDP = "udp";
+
+    /** Named or anonymous pipe. */
+    public static final String PIPE = "pipe";
+
+    /** Unix domain socket */
+    public static final String UNIX = "unix";
+
+    /** QUIC */
+    public static final String QUIC = "quic";
+
+    private NetworkTransportValues() {}
+  }
+
+  /**
+   * Values for {@link #NETWORK_TYPE}.
+   *
+   * @deprecated deprecated in favor of stable {@link
+   *     io.opentelemetry.semconv.NetworkAttributes#NETWORK_TYPE} attribute.
+   */
+  @Deprecated
+  public static final class NetworkTypeValues {
+    /** IPv4 */
+    public static final String IPV4 = "ipv4";
+
+    /** IPv6 */
+    public static final String IPV6 = "ipv6";
+
+    private NetworkTypeValues() {}
   }
 
   private NetworkIncubatingAttributes() {}

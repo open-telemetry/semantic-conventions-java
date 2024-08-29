@@ -550,7 +550,6 @@ public final class MessagingIncubatingAttributes {
     private MessagingOperationTypeValues() {}
   }
 
-  // Enum definitions
   /** Values for {@link #MESSAGING_ROCKETMQ_CONSUMPTION_MODEL}. */
   public static final class MessagingRocketmqConsumptionModelValues {
     /** Clustering consumption model */
@@ -562,7 +561,6 @@ public final class MessagingIncubatingAttributes {
     private MessagingRocketmqConsumptionModelValues() {}
   }
 
-  // Enum definitions
   /** Values for {@link #MESSAGING_ROCKETMQ_MESSAGE_TYPE}. */
   public static final class MessagingRocketmqMessageTypeValues {
     /** Normal message */
@@ -580,7 +578,6 @@ public final class MessagingIncubatingAttributes {
     private MessagingRocketmqMessageTypeValues() {}
   }
 
-  // Enum definitions
   /** Values for {@link #MESSAGING_SERVICEBUS_DISPOSITION_STATUS}. */
   public static final class MessagingServicebusDispositionStatusValues {
     /** Message is completed */
@@ -598,7 +595,6 @@ public final class MessagingIncubatingAttributes {
     private MessagingServicebusDispositionStatusValues() {}
   }
 
-  // Enum definitions
   /** Values for {@link #MESSAGING_SYSTEM}. */
   public static final class MessagingSystemValues {
     /** Apache ActiveMQ */

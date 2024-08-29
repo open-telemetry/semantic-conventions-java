@@ -26,5 +26,7 @@ public final class ClientIncubatingAttributes {
    */
   @Deprecated public static final AttributeKey<Long> CLIENT_PORT = longKey("client.port");
 
+  // Enum definitions
+
   private ClientIncubatingAttributes() {}
 }

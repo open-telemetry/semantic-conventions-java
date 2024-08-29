@@ -285,7 +285,6 @@ public final class ProcessIncubatingAttributes {
     private ProcessContextSwitchTypeValues() {}
   }
 
-  // Enum definitions
   /** Values for {@link #PROCESS_CPU_STATE}. */
   public static final class ProcessCpuStateValues {
     /** system. */
@@ -300,7 +299,6 @@ public final class ProcessIncubatingAttributes {
     private ProcessCpuStateValues() {}
   }
 
-  // Enum definitions
   /** Values for {@link #PROCESS_PAGING_FAULT_TYPE}. */
   public static final class ProcessPagingFaultTypeValues {
     /** major. */

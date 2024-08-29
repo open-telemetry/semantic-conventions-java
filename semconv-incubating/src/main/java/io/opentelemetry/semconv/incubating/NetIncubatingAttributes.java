@@ -175,7 +175,6 @@ public final class NetIncubatingAttributes {
     private NetSockFamilyValues() {}
   }
 
-  // Enum definitions
   /** Values for {@link #NET_TRANSPORT}. */
   public static final class NetTransportValues {
     /** ip_tcp. */

@@ -40,5 +40,7 @@ public final class UserIncubatingAttributes {
   /** Array of user roles at the time of the event. */
   public static final AttributeKey<List<String>> USER_ROLES = stringArrayKey("user.roles");
 
+  // Enum definitions
+
   private UserIncubatingAttributes() {}
 }

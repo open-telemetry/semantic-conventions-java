@@ -44,7 +44,6 @@ public final class TestIncubatingAttributes {
     private TestCaseResultStatusValues() {}
   }
 
-  // Enum definitions
   /** Values for {@link #TEST_SUITE_RUN_STATUS}. */
   public static final class TestSuiteRunStatusValues {
     /** success */

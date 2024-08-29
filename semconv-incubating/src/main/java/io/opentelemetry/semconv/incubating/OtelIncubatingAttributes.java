@@ -54,5 +54,26 @@ public final class OtelIncubatingAttributes {
   public static final AttributeKey<String> OTEL_STATUS_DESCRIPTION =
       stringKey("otel.status_description");
 
+  // Enum definitions
+  /**
+   * Values for {@link #OTEL_STATUS_CODE}.
+   *
+   * @deprecated deprecated in favor of stable {@link
+   *     io.opentelemetry.semconv.OtelAttributes#OTEL_STATUS_CODE} attribute.
+   */
+  @Deprecated
+  public static final class OtelStatusCodeValues {
+    /**
+     * The operation has been validated by an Application developer or Operator to have completed
+     * successfully.
+     */
+    public static final String OK = "OK";
+
+    /** The operation contains an error. */
+    public static final String ERROR = "ERROR";
+
+    private OtelStatusCodeValues() {}
+  }
+
   private OtelIncubatingAttributes() {}
 }

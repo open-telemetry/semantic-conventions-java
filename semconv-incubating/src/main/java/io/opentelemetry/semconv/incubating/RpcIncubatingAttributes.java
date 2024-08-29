@@ -207,7 +207,6 @@ public final class RpcIncubatingAttributes {
     private RpcConnectRpcErrorCodeValues() {}
   }
 
-  // Enum definitions
   /** Values for {@link #RPC_GRPC_STATUS_CODE}. */
   public static final class RpcGrpcStatusCodeValues {
     /** OK */
@@ -264,7 +263,6 @@ public final class RpcIncubatingAttributes {
     private RpcGrpcStatusCodeValues() {}
   }
 
-  // Enum definitions
   /** Values for {@link #RPC_MESSAGE_TYPE}. */
   public static final class RpcMessageTypeValues {
     /** sent. */
@@ -276,7 +274,6 @@ public final class RpcIncubatingAttributes {
     private RpcMessageTypeValues() {}
   }
 
-  // Enum definitions
   /** Values for {@link #RPC_SYSTEM}. */
   public static final class RpcSystemValues {
     /** gRPC */

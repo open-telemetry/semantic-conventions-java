@@ -277,7 +277,6 @@ public final class HttpIncubatingAttributes {
     private HttpConnectionStateValues() {}
   }
 
-  // Enum definitions
   /** Values for {@link #HTTP_FLAVOR}. */
   public static final class HttpFlavorValues {
     /** HTTP/1.0 */
@@ -299,6 +298,47 @@ public final class HttpIncubatingAttributes {
     public static final String QUIC = "QUIC";
 
     private HttpFlavorValues() {}
+  }
+
+  /**
+   * Values for {@link #HTTP_REQUEST_METHOD}.
+   *
+   * @deprecated deprecated in favor of stable {@link
+   *     io.opentelemetry.semconv.HttpAttributes#HTTP_REQUEST_METHOD} attribute.
+   */
+  @Deprecated
+  public static final class HttpRequestMethodValues {
+    /** CONNECT method. */
+    public static final String CONNECT = "CONNECT";
+
+    /** DELETE method. */
+    public static final String DELETE = "DELETE";
+
+    /** GET method. */
+    public static final String GET = "GET";
+
+    /** HEAD method. */
+    public static final String HEAD = "HEAD";
+
+    /** OPTIONS method. */
+    public static final String OPTIONS = "OPTIONS";
+
+    /** PATCH method. */
+    public static final String PATCH = "PATCH";
+
+    /** POST method. */
+    public static final String POST = "POST";
+
+    /** PUT method. */
+    public static final String PUT = "PUT";
+
+    /** TRACE method. */
+    public static final String TRACE = "TRACE";
+
+    /** Any HTTP method that the instrumentation has no prior knowledge of. */
+    public static final String OTHER = "_OTHER";
+
+    private HttpRequestMethodValues() {}
   }
 
   private HttpIncubatingAttributes() {}

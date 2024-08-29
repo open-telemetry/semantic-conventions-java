@@ -179,5 +179,7 @@ public final class K8sIncubatingAttributes {
    */
   public static final AttributeKey<String> K8S_STATEFULSET_UID = stringKey("k8s.statefulset.uid");
 
+  // Enum definitions
+
   private K8sIncubatingAttributes() {}
 }

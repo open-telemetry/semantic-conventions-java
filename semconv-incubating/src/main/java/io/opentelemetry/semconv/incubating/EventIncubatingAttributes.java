@@ -25,5 +25,7 @@ public final class EventIncubatingAttributes {
    */
   public static final AttributeKey<String> EVENT_NAME = stringKey("event.name");
 
+  // Enum definitions
+
   private EventIncubatingAttributes() {}
 }
