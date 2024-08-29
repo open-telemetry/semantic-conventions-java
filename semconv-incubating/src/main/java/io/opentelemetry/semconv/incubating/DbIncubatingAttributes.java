@@ -48,19 +48,61 @@ public final class DbIncubatingAttributes {
       longKey("db.cassandra.speculative_execution_count");
 
   /**
+   * Deprecated, use {@code db.collection.name} instead.
+   *
+   * <p>
+   *
+   * @deprecated Replaced by {@code db.collection.name}.
+   */
+  @Deprecated
+  public static final AttributeKey<String> DB_CASSANDRA_TABLE = stringKey("db.cassandra.table");
+
+  /**
    * The name of the connection pool; unique within the instrumented application. In case the
    * connection pool implementation doesn't provide a name, instrumentation SHOULD use a combination
    * of parameters that would make the name unique, for example, combining attributes {@code
    * server.address}, {@code server.port}, and {@code db.namespace}, formatted as {@code
    * server.address:server.port/db.namespace}. Instrumentations that generate connection pool name
    * following different patterns SHOULD document it.
+   *
+   * <p>
+   *
+   * @deprecated Replaced by {@code db.collection.name}.
    */
   public static final AttributeKey<String> DB_CLIENT_CONNECTION_POOL_NAME =
       stringKey("db.client.connection.pool.name");
 
-  /** The state of a connection in the pool */
+  /**
+   * The state of a connection in the pool
+   *
+   * <p>
+   *
+   * @deprecated Replaced by {@code db.collection.name}.
+   */
   public static final AttributeKey<String> DB_CLIENT_CONNECTION_STATE =
       stringKey("db.client.connection.state");
+
+  /**
+   * Deprecated, use {@code db.client.connection.pool.name} instead.
+   *
+   * <p>
+   *
+   * @deprecated Replaced by {@code db.client.connection.pool.name}.
+   */
+  @Deprecated
+  public static final AttributeKey<String> DB_CLIENT_CONNECTIONS_POOL_NAME =
+      stringKey("db.client.connections.pool.name");
+
+  /**
+   * Deprecated, use {@code db.client.connection.state} instead.
+   *
+   * <p>
+   *
+   * @deprecated Replaced by {@code db.client.connection.state}.
+   */
+  @Deprecated
+  public static final AttributeKey<String> DB_CLIENT_CONNECTIONS_STATE =
+      stringKey("db.client.connections.state");
 
   /**
    * The name of a collection (table, container) within the database.
@@ -73,39 +115,121 @@ public final class DbIncubatingAttributes {
    * query text including any schema and database name prefix. For batch operations, if the
    * individual operations are known to have the same collection name then that collection name
    * SHOULD be used, otherwise {@code db.collection.name} SHOULD NOT be captured.
+   *
+   * <p>
+   *
+   * @deprecated Replaced by {@code db.client.connection.state}.
    */
   public static final AttributeKey<String> DB_COLLECTION_NAME = stringKey("db.collection.name");
 
-  /** Unique Cosmos client instance id. */
+  /**
+   * Deprecated, use {@code server.address}, {@code server.port} attributes instead.
+   *
+   * <p>
+   *
+   * @deprecated "Replaced by {@code server.address} and {@code server.port}."
+   */
+  @Deprecated
+  public static final AttributeKey<String> DB_CONNECTION_STRING = stringKey("db.connection_string");
+
+  /**
+   * Unique Cosmos client instance id.
+   *
+   * <p>
+   *
+   * @deprecated "Replaced by {@code server.address} and {@code server.port}."
+   */
   public static final AttributeKey<String> DB_COSMOSDB_CLIENT_ID =
       stringKey("db.cosmosdb.client_id");
 
-  /** Cosmos client connection mode. */
+  /**
+   * Cosmos client connection mode.
+   *
+   * <p>
+   *
+   * @deprecated "Replaced by {@code server.address} and {@code server.port}."
+   */
   public static final AttributeKey<String> DB_COSMOSDB_CONNECTION_MODE =
       stringKey("db.cosmosdb.connection_mode");
 
-  /** CosmosDB Operation Type. */
+  /**
+   * Deprecated, use {@code db.collection.name} instead.
+   *
+   * <p>
+   *
+   * @deprecated Replaced by {@code db.collection.name}.
+   */
+  @Deprecated
+  public static final AttributeKey<String> DB_COSMOSDB_CONTAINER =
+      stringKey("db.cosmosdb.container");
+
+  /**
+   * CosmosDB Operation Type.
+   *
+   * <p>
+   *
+   * @deprecated Replaced by {@code db.collection.name}.
+   */
   public static final AttributeKey<String> DB_COSMOSDB_OPERATION_TYPE =
       stringKey("db.cosmosdb.operation_type");
 
-  /** RU consumed for that operation */
+  /**
+   * RU consumed for that operation
+   *
+   * <p>
+   *
+   * @deprecated Replaced by {@code db.collection.name}.
+   */
   public static final AttributeKey<Double> DB_COSMOSDB_REQUEST_CHARGE =
       doubleKey("db.cosmosdb.request_charge");
 
-  /** Request payload size in bytes */
+  /**
+   * Request payload size in bytes
+   *
+   * <p>
+   *
+   * @deprecated Replaced by {@code db.collection.name}.
+   */
   public static final AttributeKey<Long> DB_COSMOSDB_REQUEST_CONTENT_LENGTH =
       longKey("db.cosmosdb.request_content_length");
 
-  /** Cosmos DB status code. */
+  /**
+   * Cosmos DB status code.
+   *
+   * <p>
+   *
+   * @deprecated Replaced by {@code db.collection.name}.
+   */
   public static final AttributeKey<Long> DB_COSMOSDB_STATUS_CODE =
       longKey("db.cosmosdb.status_code");
 
-  /** Cosmos DB sub status code. */
+  /**
+   * Cosmos DB sub status code.
+   *
+   * <p>
+   *
+   * @deprecated Replaced by {@code db.collection.name}.
+   */
   public static final AttributeKey<Long> DB_COSMOSDB_SUB_STATUS_CODE =
       longKey("db.cosmosdb.sub_status_code");
 
   /**
+   * Deprecated, use {@code db.namespace} instead.
+   *
+   * <p>
+   *
+   * @deprecated Replaced by {@code db.namespace}.
+   */
+  @Deprecated
+  public static final AttributeKey<String> DB_ELASTICSEARCH_CLUSTER_NAME =
+      stringKey("db.elasticsearch.cluster.name");
+
+  /**
    * Represents the human-readable identifier of the node/instance to which a request was routed.
+   *
+   * <p>
+   *
+   * @deprecated Replaced by {@code db.namespace}.
    */
   public static final AttributeKey<String> DB_ELASTICSEARCH_NODE_NAME =
       stringKey("db.elasticsearch.node.name");
@@ -120,9 +244,66 @@ public final class DbIncubatingAttributes {
    * url path part name. The implementation SHOULD reference the <a
    * href="https://raw.githubusercontent.com/elastic/elasticsearch-specification/main/output/schema/schema.json">elasticsearch
    * schema</a> in order to map the path part values to their names.
+   *
+   * <p>
+   *
+   * @deprecated Replaced by {@code db.namespace}.
    */
   public static final AttributeKeyTemplate<String> DB_ELASTICSEARCH_PATH_PARTS =
       stringKeyTemplate("db.elasticsearch.path_parts");
+
+  /**
+   * Deprecated, no general replacement at this time. For Elasticsearch, use {@code
+   * db.elasticsearch.node.name} instead.
+   *
+   * <p>
+   *
+   * @deprecated Deprecated, no general replacement at this time. For Elasticsearch, use {@code
+   *     db.elasticsearch.node.name} instead.
+   */
+  @Deprecated public static final AttributeKey<String> DB_INSTANCE_ID = stringKey("db.instance.id");
+
+  /**
+   * Removed, no replacement at this time.
+   *
+   * <p>
+   *
+   * @deprecated Removed as not used.
+   */
+  @Deprecated
+  public static final AttributeKey<String> DB_JDBC_DRIVER_CLASSNAME =
+      stringKey("db.jdbc.driver_classname");
+
+  /**
+   * Deprecated, use {@code db.collection.name} instead.
+   *
+   * <p>
+   *
+   * @deprecated Replaced by {@code db.collection.name}.
+   */
+  @Deprecated
+  public static final AttributeKey<String> DB_MONGODB_COLLECTION =
+      stringKey("db.mongodb.collection");
+
+  /**
+   * Deprecated, SQL Server instance is now populated as a part of {@code db.namespace} attribute.
+   *
+   * <p>
+   *
+   * @deprecated Deprecated, no replacement at this time.
+   */
+  @Deprecated
+  public static final AttributeKey<String> DB_MSSQL_INSTANCE_NAME =
+      stringKey("db.mssql.instance_name");
+
+  /**
+   * Deprecated, use {@code db.namespace} instead.
+   *
+   * <p>
+   *
+   * @deprecated Replaced by {@code db.namespace}.
+   */
+  @Deprecated public static final AttributeKey<String> DB_NAME = stringKey("db.name");
 
   /**
    * The name of the database, fully qualified within the server address and port.
@@ -136,8 +317,21 @@ public final class DbIncubatingAttributes {
    * valid. Semantic conventions for individual database systems SHOULD document what {@code
    * db.namespace} means in the context of that system. It is RECOMMENDED to capture the value as
    * provided by the application without attempting to do any case normalization.
+   *
+   * <p>
+   *
+   * @deprecated Replaced by {@code db.namespace}.
    */
   public static final AttributeKey<String> DB_NAMESPACE = stringKey("db.namespace");
+
+  /**
+   * Deprecated, use {@code db.operation.name} instead.
+   *
+   * <p>
+   *
+   * @deprecated Replaced by {@code db.operation.name}.
+   */
+  @Deprecated public static final AttributeKey<String> DB_OPERATION = stringKey("db.operation");
 
   /**
    * The number of queries included in a <a
@@ -147,6 +341,10 @@ public final class DbIncubatingAttributes {
    *
    * <p>Operations are only considered batches when they contain two or more operations, and so
    * {@code db.operation.batch.size} SHOULD never be {@code 1}.
+   *
+   * <p>
+   *
+   * @deprecated Replaced by {@code db.operation.name}.
    */
   public static final AttributeKey<Long> DB_OPERATION_BATCH_SIZE =
       longKey("db.operation.batch.size");
@@ -162,6 +360,10 @@ public final class DbIncubatingAttributes {
    * are known to have the same operation name then that operation name SHOULD be used prepended by
    * {@code BATCH }, otherwise {@code db.operation.name} SHOULD be {@code BATCH} or some other
    * database system specific term if more applicable.
+   *
+   * <p>
+   *
+   * @deprecated Replaced by {@code db.operation.name}.
    */
   public static final AttributeKey<String> DB_OPERATION_NAME = stringKey("db.operation.name");
 
@@ -174,6 +376,10 @@ public final class DbIncubatingAttributes {
    * <p>Query parameters should only be captured when {@code db.query.text} is parameterized with
    * placeholders. If a parameter has no name and instead is referenced only by index, then {@code
    * <key>} SHOULD be the 0-based index.
+   *
+   * <p>
+   *
+   * @deprecated Replaced by {@code db.operation.name}.
    */
   public static final AttributeKeyTemplate<String> DB_QUERY_PARAMETER =
       stringKeyTemplate("db.query.parameter");
@@ -192,8 +398,41 @@ public final class DbIncubatingAttributes {
    * sensitive data, by using a parameterized query the user is giving a strong signal that any
    * sensitive data will be passed as parameter values, and the benefit to observability of
    * capturing the static part of the query text by default outweighs the risk.
+   *
+   * <p>
+   *
+   * @deprecated Replaced by {@code db.operation.name}.
    */
   public static final AttributeKey<String> DB_QUERY_TEXT = stringKey("db.query.text");
+
+  /**
+   * Deprecated, use {@code db.namespace} instead.
+   *
+   * <p>
+   *
+   * @deprecated Replaced by {@code db.namespace}.
+   */
+  @Deprecated
+  public static final AttributeKey<Long> DB_REDIS_DATABASE_INDEX =
+      longKey("db.redis.database_index");
+
+  /**
+   * Deprecated, use {@code db.collection.name} instead.
+   *
+   * <p>
+   *
+   * @deprecated Replaced by {@code db.collection.name}.
+   */
+  @Deprecated public static final AttributeKey<String> DB_SQL_TABLE = stringKey("db.sql.table");
+
+  /**
+   * The database statement being executed.
+   *
+   * <p>
+   *
+   * @deprecated Replaced by {@code db.query.text}.
+   */
+  @Deprecated public static final AttributeKey<String> DB_STATEMENT = stringKey("db.statement");
 
   /**
    * The database management system (DBMS) product as identified by the client instrumentation.
@@ -203,8 +442,21 @@ public final class DbIncubatingAttributes {
    * <p>The actual DBMS may differ from the one identified by the client. For example, when using
    * PostgreSQL client libraries to connect to a CockroachDB, the {@code db.system} is set to {@code
    * postgresql} based on the instrumentation's best knowledge.
+   *
+   * <p>
+   *
+   * @deprecated Replaced by {@code db.query.text}.
    */
   public static final AttributeKey<String> DB_SYSTEM = stringKey("db.system");
+
+  /**
+   * Deprecated, no replacement at this time.
+   *
+   * <p>
+   *
+   * @deprecated No replacement at this time.
+   */
+  @Deprecated public static final AttributeKey<String> DB_USER = stringKey("db.user");
 
   // Enum definitions
   /** Values for {@link #DB_CASSANDRA_CONSISTENCY_LEVEL}. */
@@ -255,6 +507,18 @@ public final class DbIncubatingAttributes {
     public static final String USED = "used";
 
     private DbClientConnectionStateValues() {}
+  }
+
+  // Enum definitions
+  /** Values for {@link #DB_CLIENT_CONNECTIONS_STATE}. */
+  public static final class DbClientConnectionsStateValues {
+    /** idle. */
+    public static final String IDLE = "idle";
+
+    /** used. */
+    public static final String USED = "used";
+
+    private DbClientConnectionsStateValues() {}
   }
 
   // Enum definitions

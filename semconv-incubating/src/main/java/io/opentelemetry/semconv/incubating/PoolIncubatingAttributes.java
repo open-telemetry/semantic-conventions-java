@@ -13,11 +13,12 @@ import io.opentelemetry.api.common.AttributeKey;
 // buildscripts/templates/registry/incubating_java/IncubatingSemanticAttributes.java.j2
 @SuppressWarnings("unused")
 public final class PoolIncubatingAttributes {
-
   /**
    * Deprecated, use {@code db.client.connection.pool.name} instead.
    *
-   * @deprecated Deprecated, use `db.client.connection.pool.name` instead.
+   * <p>
+   *
+   * @deprecated Replaced by {@code db.client.connection.pool.name}.
    */
   @Deprecated public static final AttributeKey<String> POOL_NAME = stringKey("pool.name");
 

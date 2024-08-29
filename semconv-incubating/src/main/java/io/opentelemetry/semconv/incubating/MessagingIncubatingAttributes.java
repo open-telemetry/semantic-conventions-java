@@ -102,28 +102,111 @@ public final class MessagingIncubatingAttributes {
   public static final AttributeKey<Boolean> MESSAGING_DESTINATION_TEMPORARY =
       booleanKey("messaging.destination.temporary");
 
-  /** The UTC epoch seconds at which the message has been accepted and stored in the entity. */
+  /**
+   * Deprecated, no replacement at this time.
+   *
+   * <p>
+   *
+   * @deprecated No replacement at this time.
+   */
+  @Deprecated
+  public static final AttributeKey<Boolean> MESSAGING_DESTINATION_PUBLISH_ANONYMOUS =
+      booleanKey("messaging.destination_publish.anonymous");
+
+  /**
+   * Deprecated, no replacement at this time.
+   *
+   * <p>
+   *
+   * @deprecated No replacement at this time.
+   */
+  @Deprecated
+  public static final AttributeKey<String> MESSAGING_DESTINATION_PUBLISH_NAME =
+      stringKey("messaging.destination_publish.name");
+
+  /**
+   * Deprecated, use {@code messaging.consumer.group.name} instead.
+   *
+   * <p>
+   *
+   * @deprecated Replaced by {@code messaging.consumer.group.name}.
+   */
+  @Deprecated
+  public static final AttributeKey<String> MESSAGING_EVENTHUBS_CONSUMER_GROUP =
+      stringKey("messaging.eventhubs.consumer.group");
+
+  /**
+   * The UTC epoch seconds at which the message has been accepted and stored in the entity.
+   *
+   * <p>
+   *
+   * @deprecated Replaced by {@code messaging.consumer.group.name}.
+   */
   public static final AttributeKey<Long> MESSAGING_EVENTHUBS_MESSAGE_ENQUEUED_TIME =
       longKey("messaging.eventhubs.message.enqueued_time");
 
-  /** The ack deadline in seconds set for the modify ack deadline request. */
+  /**
+   * The ack deadline in seconds set for the modify ack deadline request.
+   *
+   * <p>
+   *
+   * @deprecated Replaced by {@code messaging.consumer.group.name}.
+   */
   public static final AttributeKey<Long> MESSAGING_GCP_PUBSUB_MESSAGE_ACK_DEADLINE =
       longKey("messaging.gcp_pubsub.message.ack_deadline");
 
-  /** The ack id for a given message. */
+  /**
+   * The ack id for a given message.
+   *
+   * <p>
+   *
+   * @deprecated Replaced by {@code messaging.consumer.group.name}.
+   */
   public static final AttributeKey<String> MESSAGING_GCP_PUBSUB_MESSAGE_ACK_ID =
       stringKey("messaging.gcp_pubsub.message.ack_id");
 
-  /** The delivery attempt for a given message. */
+  /**
+   * The delivery attempt for a given message.
+   *
+   * <p>
+   *
+   * @deprecated Replaced by {@code messaging.consumer.group.name}.
+   */
   public static final AttributeKey<Long> MESSAGING_GCP_PUBSUB_MESSAGE_DELIVERY_ATTEMPT =
       longKey("messaging.gcp_pubsub.message.delivery_attempt");
 
   /**
    * The ordering key for a given message. If the attribute is not present, the message does not
    * have an ordering key.
+   *
+   * <p>
+   *
+   * @deprecated Replaced by {@code messaging.consumer.group.name}.
    */
   public static final AttributeKey<String> MESSAGING_GCP_PUBSUB_MESSAGE_ORDERING_KEY =
       stringKey("messaging.gcp_pubsub.message.ordering_key");
+
+  /**
+   * Deprecated, use {@code messaging.consumer.group.name} instead.
+   *
+   * <p>
+   *
+   * @deprecated Replaced by {@code messaging.consumer.group.name}.
+   */
+  @Deprecated
+  public static final AttributeKey<String> MESSAGING_KAFKA_CONSUMER_GROUP =
+      stringKey("messaging.kafka.consumer.group");
+
+  /**
+   * Deprecated, use {@code messaging.destination.partition.id} instead.
+   *
+   * <p>
+   *
+   * @deprecated Replaced by {@code messaging.destination.partition.id}.
+   */
+  @Deprecated
+  public static final AttributeKey<Long> MESSAGING_KAFKA_DESTINATION_PARTITION =
+      longKey("messaging.kafka.destination.partition");
 
   /**
    * Message keys in Kafka are used for grouping alike messages to ensure they're processed on the
@@ -134,15 +217,42 @@ public final class MessagingIncubatingAttributes {
    *
    * <p>If the key type is not string, it's string representation has to be supplied for the
    * attribute. If the key has no unambiguous, canonical string form, don't include its value.
+   *
+   * <p>
+   *
+   * @deprecated Replaced by {@code messaging.destination.partition.id}.
    */
   public static final AttributeKey<String> MESSAGING_KAFKA_MESSAGE_KEY =
       stringKey("messaging.kafka.message.key");
 
-  /** A boolean that is true if the message is a tombstone. */
+  /**
+   * Deprecated, use {@code messaging.kafka.offset} instead.
+   *
+   * <p>
+   *
+   * @deprecated Replaced by {@code messaging.kafka.offset}.
+   */
+  @Deprecated
+  public static final AttributeKey<Long> MESSAGING_KAFKA_MESSAGE_OFFSET =
+      longKey("messaging.kafka.message.offset");
+
+  /**
+   * A boolean that is true if the message is a tombstone.
+   *
+   * <p>
+   *
+   * @deprecated Replaced by {@code messaging.kafka.offset}.
+   */
   public static final AttributeKey<Boolean> MESSAGING_KAFKA_MESSAGE_TOMBSTONE =
       booleanKey("messaging.kafka.message.tombstone");
 
-  /** The offset of a record in the corresponding Kafka partition. */
+  /**
+   * The offset of a record in the corresponding Kafka partition.
+   *
+   * <p>
+   *
+   * @deprecated Replaced by {@code messaging.kafka.offset}.
+   */
   public static final AttributeKey<Long> MESSAGING_KAFKA_OFFSET = longKey("messaging.kafka.offset");
 
   /**
@@ -152,6 +262,10 @@ public final class MessagingIncubatingAttributes {
    *
    * <p>This can refer to both the compressed or uncompressed body size. If both sizes are known,
    * the uncompressed body size should be used.
+   *
+   * <p>
+   *
+   * @deprecated Replaced by {@code messaging.kafka.offset}.
    */
   public static final AttributeKey<Long> MESSAGING_MESSAGE_BODY_SIZE =
       longKey("messaging.message.body.size");
@@ -159,6 +273,10 @@ public final class MessagingIncubatingAttributes {
   /**
    * The conversation ID identifying the conversation to which the message belongs, represented as a
    * string. Sometimes called "Correlation ID".
+   *
+   * <p>
+   *
+   * @deprecated Replaced by {@code messaging.kafka.offset}.
    */
   public static final AttributeKey<String> MESSAGING_MESSAGE_CONVERSATION_ID =
       stringKey("messaging.message.conversation_id");
@@ -170,16 +288,40 @@ public final class MessagingIncubatingAttributes {
    *
    * <p>This can refer to both the compressed or uncompressed size. If both sizes are known, the
    * uncompressed size should be used.
+   *
+   * <p>
+   *
+   * @deprecated Replaced by {@code messaging.kafka.offset}.
    */
   public static final AttributeKey<Long> MESSAGING_MESSAGE_ENVELOPE_SIZE =
       longKey("messaging.message.envelope.size");
 
   /**
    * A value used by the messaging system as an identifier for the message, represented as a string.
+   *
+   * <p>
+   *
+   * @deprecated Replaced by {@code messaging.kafka.offset}.
    */
   public static final AttributeKey<String> MESSAGING_MESSAGE_ID = stringKey("messaging.message.id");
 
-  /** The system-specific name of the messaging operation. */
+  /**
+   * Deprecated, use {@code messaging.operation.type} instead.
+   *
+   * <p>
+   *
+   * @deprecated Replaced by {@code messaging.operation.type}.
+   */
+  @Deprecated
+  public static final AttributeKey<String> MESSAGING_OPERATION = stringKey("messaging.operation");
+
+  /**
+   * The system-specific name of the messaging operation.
+   *
+   * <p>
+   *
+   * @deprecated Replaced by {@code messaging.operation.type}.
+   */
   public static final AttributeKey<String> MESSAGING_OPERATION_NAME =
       stringKey("messaging.operation.name");
 
@@ -189,28 +331,73 @@ public final class MessagingIncubatingAttributes {
    * <p>Notes:
    *
    * <p>If a custom value is used, it MUST be of low cardinality.
+   *
+   * @deprecated Replaced by {@code messaging.operation.type}.
    */
   public static final AttributeKey<String> MESSAGING_OPERATION_TYPE =
       stringKey("messaging.operation.type");
 
-  /** RabbitMQ message routing key. */
+  /**
+   * RabbitMQ message routing key.
+   *
+   * <p>
+   *
+   * @deprecated Replaced by {@code messaging.operation.type}.
+   */
   public static final AttributeKey<String> MESSAGING_RABBITMQ_DESTINATION_ROUTING_KEY =
       stringKey("messaging.rabbitmq.destination.routing_key");
 
-  /** RabbitMQ message delivery tag */
+  /**
+   * RabbitMQ message delivery tag
+   *
+   * <p>
+   *
+   * @deprecated Replaced by {@code messaging.operation.type}.
+   */
   public static final AttributeKey<Long> MESSAGING_RABBITMQ_MESSAGE_DELIVERY_TAG =
       longKey("messaging.rabbitmq.message.delivery_tag");
 
-  /** Model of message consumption. This only applies to consumer spans. */
+  /**
+   * Deprecated, use {@code messaging.consumer.group.name} instead.
+   *
+   * <p>
+   *
+   * @deprecated Replaced by {@code messaging.consumer.group.name} on the consumer spans. No
+   *     replacement for producer spans.
+   */
+  @Deprecated
+  public static final AttributeKey<String> MESSAGING_ROCKETMQ_CLIENT_GROUP =
+      stringKey("messaging.rocketmq.client_group");
+
+  /**
+   * Model of message consumption. This only applies to consumer spans.
+   *
+   * <p>
+   *
+   * @deprecated Replaced by {@code messaging.consumer.group.name} on the consumer spans. No
+   *     replacement for producer spans.
+   */
   public static final AttributeKey<String> MESSAGING_ROCKETMQ_CONSUMPTION_MODEL =
       stringKey("messaging.rocketmq.consumption_model");
 
-  /** The delay time level for delay message, which determines the message delay time. */
+  /**
+   * The delay time level for delay message, which determines the message delay time.
+   *
+   * <p>
+   *
+   * @deprecated Replaced by {@code messaging.consumer.group.name} on the consumer spans. No
+   *     replacement for producer spans.
+   */
   public static final AttributeKey<Long> MESSAGING_ROCKETMQ_MESSAGE_DELAY_TIME_LEVEL =
       longKey("messaging.rocketmq.message.delay_time_level");
 
   /**
    * The timestamp in milliseconds that the delay message is expected to be delivered to consumer.
+   *
+   * <p>
+   *
+   * @deprecated Replaced by {@code messaging.consumer.group.name} on the consumer spans. No
+   *     replacement for producer spans.
    */
   public static final AttributeKey<Long> MESSAGING_ROCKETMQ_MESSAGE_DELIVERY_TIMESTAMP =
       longKey("messaging.rocketmq.message.delivery_timestamp");
@@ -218,39 +405,99 @@ public final class MessagingIncubatingAttributes {
   /**
    * It is essential for FIFO message. Messages that belong to the same message group are always
    * processed one by one within the same consumer group.
+   *
+   * <p>
+   *
+   * @deprecated Replaced by {@code messaging.consumer.group.name} on the consumer spans. No
+   *     replacement for producer spans.
    */
   public static final AttributeKey<String> MESSAGING_ROCKETMQ_MESSAGE_GROUP =
       stringKey("messaging.rocketmq.message.group");
 
-  /** Key(s) of message, another way to mark message besides message id. */
+  /**
+   * Key(s) of message, another way to mark message besides message id.
+   *
+   * <p>
+   *
+   * @deprecated Replaced by {@code messaging.consumer.group.name} on the consumer spans. No
+   *     replacement for producer spans.
+   */
   public static final AttributeKey<List<String>> MESSAGING_ROCKETMQ_MESSAGE_KEYS =
       stringArrayKey("messaging.rocketmq.message.keys");
 
-  /** The secondary classifier of message besides topic. */
+  /**
+   * The secondary classifier of message besides topic.
+   *
+   * <p>
+   *
+   * @deprecated Replaced by {@code messaging.consumer.group.name} on the consumer spans. No
+   *     replacement for producer spans.
+   */
   public static final AttributeKey<String> MESSAGING_ROCKETMQ_MESSAGE_TAG =
       stringKey("messaging.rocketmq.message.tag");
 
-  /** Type of message. */
+  /**
+   * Type of message.
+   *
+   * <p>
+   *
+   * @deprecated Replaced by {@code messaging.consumer.group.name} on the consumer spans. No
+   *     replacement for producer spans.
+   */
   public static final AttributeKey<String> MESSAGING_ROCKETMQ_MESSAGE_TYPE =
       stringKey("messaging.rocketmq.message.type");
 
-  /** Namespace of RocketMQ resources, resources in different namespaces are individual. */
+  /**
+   * Namespace of RocketMQ resources, resources in different namespaces are individual.
+   *
+   * <p>
+   *
+   * @deprecated Replaced by {@code messaging.consumer.group.name} on the consumer spans. No
+   *     replacement for producer spans.
+   */
   public static final AttributeKey<String> MESSAGING_ROCKETMQ_NAMESPACE =
       stringKey("messaging.rocketmq.namespace");
+
+  /**
+   * Deprecated, use {@code messaging.servicebus.destination.subscription_name} instead.
+   *
+   * <p>
+   *
+   * @deprecated Replaced by {@code messaging.servicebus.destination.subscription_name}.
+   */
+  @Deprecated
+  public static final AttributeKey<String> MESSAGING_SERVICEBUS_DESTINATION_SUBSCRIPTION_NAME =
+      stringKey("messaging.servicebus.destination.subscription_name");
 
   /**
    * Describes the <a
    * href="https://learn.microsoft.com/azure/service-bus-messaging/message-transfers-locks-settlement#peeklock">settlement
    * type</a>.
+   *
+   * <p>
+   *
+   * @deprecated Replaced by {@code messaging.servicebus.destination.subscription_name}.
    */
   public static final AttributeKey<String> MESSAGING_SERVICEBUS_DISPOSITION_STATUS =
       stringKey("messaging.servicebus.disposition_status");
 
-  /** Number of deliveries that have been attempted for this message. */
+  /**
+   * Number of deliveries that have been attempted for this message.
+   *
+   * <p>
+   *
+   * @deprecated Replaced by {@code messaging.servicebus.destination.subscription_name}.
+   */
   public static final AttributeKey<Long> MESSAGING_SERVICEBUS_MESSAGE_DELIVERY_COUNT =
       longKey("messaging.servicebus.message.delivery_count");
 
-  /** The UTC epoch seconds at which the message has been accepted and stored in the entity. */
+  /**
+   * The UTC epoch seconds at which the message has been accepted and stored in the entity.
+   *
+   * <p>
+   *
+   * @deprecated Replaced by {@code messaging.servicebus.destination.subscription_name}.
+   */
   public static final AttributeKey<Long> MESSAGING_SERVICEBUS_MESSAGE_ENQUEUED_TIME =
       longKey("messaging.servicebus.message.enqueued_time");
 
@@ -262,6 +509,10 @@ public final class MessagingIncubatingAttributes {
    * <p>The actual messaging system may differ from the one known by the client. For example, when
    * using Kafka client libraries to communicate with Azure Event Hubs, the {@code messaging.system}
    * is set to {@code kafka} based on the instrumentation's best knowledge.
+   *
+   * <p>
+   *
+   * @deprecated Replaced by {@code messaging.servicebus.destination.subscription_name}.
    */
   public static final AttributeKey<String> MESSAGING_SYSTEM = stringKey("messaging.system");
 

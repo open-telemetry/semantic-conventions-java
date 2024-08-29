@@ -114,22 +114,69 @@ public final class K8sIncubatingAttributes {
   public static final AttributeKeyTemplate<String> K8S_POD_LABEL =
       stringKeyTemplate("k8s.pod.label");
 
-  /** The name of the Pod. */
+  /**
+   * Deprecated, use {@code k8s.pod.label} instead.
+   *
+   * <p>
+   *
+   * @deprecated Replaced by {@code k8s.pod.label}.
+   */
+  @Deprecated
+  public static final AttributeKeyTemplate<String> K8S_POD_LABELS =
+      stringKeyTemplate("k8s.pod.labels");
+
+  /**
+   * The name of the Pod.
+   *
+   * <p>
+   *
+   * @deprecated Replaced by {@code k8s.pod.label}.
+   */
   public static final AttributeKey<String> K8S_POD_NAME = stringKey("k8s.pod.name");
 
-  /** The UID of the Pod. */
+  /**
+   * The UID of the Pod.
+   *
+   * <p>
+   *
+   * @deprecated Replaced by {@code k8s.pod.label}.
+   */
   public static final AttributeKey<String> K8S_POD_UID = stringKey("k8s.pod.uid");
 
-  /** The name of the ReplicaSet. */
+  /**
+   * The name of the ReplicaSet.
+   *
+   * <p>
+   *
+   * @deprecated Replaced by {@code k8s.pod.label}.
+   */
   public static final AttributeKey<String> K8S_REPLICASET_NAME = stringKey("k8s.replicaset.name");
 
-  /** The UID of the ReplicaSet. */
+  /**
+   * The UID of the ReplicaSet.
+   *
+   * <p>
+   *
+   * @deprecated Replaced by {@code k8s.pod.label}.
+   */
   public static final AttributeKey<String> K8S_REPLICASET_UID = stringKey("k8s.replicaset.uid");
 
-  /** The name of the StatefulSet. */
+  /**
+   * The name of the StatefulSet.
+   *
+   * <p>
+   *
+   * @deprecated Replaced by {@code k8s.pod.label}.
+   */
   public static final AttributeKey<String> K8S_STATEFULSET_NAME = stringKey("k8s.statefulset.name");
 
-  /** The UID of the StatefulSet. */
+  /**
+   * The UID of the StatefulSet.
+   *
+   * <p>
+   *
+   * @deprecated Replaced by {@code k8s.pod.label}.
+   */
   public static final AttributeKey<String> K8S_STATEFULSET_UID = stringKey("k8s.statefulset.uid");
 
   private K8sIncubatingAttributes() {}

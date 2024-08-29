@@ -14,34 +14,41 @@ import io.opentelemetry.api.common.AttributeKey;
 // buildscripts/templates/registry/incubating_java/IncubatingSemanticAttributes.java.j2
 @SuppressWarnings("unused")
 public final class MessageIncubatingAttributes {
-
   /**
-   * Deprecated, use <code>rpc.message.compressed_size</code> instead.
+   * Deprecated, use {@code rpc.message.compressed_size} instead.
    *
-   * @deprecated Replaced by `rpc.message.compressed_size`.
+   * <p>
+   *
+   * @deprecated Replaced by {@code rpc.message.compressed_size}.
    */
   @Deprecated
   public static final AttributeKey<Long> MESSAGE_COMPRESSED_SIZE =
       longKey("message.compressed_size");
 
   /**
-   * Deprecated, use <code>rpc.message.id</code> instead.
+   * Deprecated, use {@code rpc.message.id} instead.
    *
-   * @deprecated Replaced by `rpc.message.id`.
+   * <p>
+   *
+   * @deprecated Replaced by {@code rpc.message.id}.
    */
   @Deprecated public static final AttributeKey<Long> MESSAGE_ID = longKey("message.id");
 
   /**
-   * Deprecated, use <code>rpc.message.type</code> instead.
+   * Deprecated, use {@code rpc.message.type} instead.
    *
-   * @deprecated Replaced by `rpc.message.type`.
+   * <p>
+   *
+   * @deprecated Replaced by {@code rpc.message.type}.
    */
   @Deprecated public static final AttributeKey<String> MESSAGE_TYPE = stringKey("message.type");
 
   /**
-   * Deprecated, use <code>rpc.message.uncompressed_size</code> instead.
+   * Deprecated, use {@code rpc.message.uncompressed_size} instead.
    *
-   * @deprecated Replaced by `rpc.message.uncompressed_size`.
+   * <p>
+   *
+   * @deprecated Replaced by {@code rpc.message.uncompressed_size}.
    */
   @Deprecated
   public static final AttributeKey<Long> MESSAGE_UNCOMPRESSED_SIZE =
@@ -50,11 +57,10 @@ public final class MessageIncubatingAttributes {
   // Enum definitions
   /** Values for {@link #MESSAGE_TYPE}. */
   public static final class MessageTypeValues {
-
-    /** sent */
+    /** sent. */
     public static final String SENT = "SENT";
 
-    /** received */
+    /** received. */
     public static final String RECEIVED = "RECEIVED";
 
     private MessageTypeValues() {}

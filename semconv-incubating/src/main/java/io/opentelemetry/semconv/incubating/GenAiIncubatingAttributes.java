@@ -113,13 +113,47 @@ public final class GenAiIncubatingAttributes {
   /** The type of token being counted. */
   public static final AttributeKey<String> GEN_AI_TOKEN_TYPE = stringKey("gen_ai.token.type");
 
-  /** The number of tokens used in the GenAI input (prompt). */
+  /**
+   * Deprecated, use {@code gen_ai.usage.output_tokens} instead.
+   *
+   * <p>
+   *
+   * @deprecated Replaced by {@code gen_ai.usage.output_tokens} attribute.
+   */
+  @Deprecated
+  public static final AttributeKey<Long> GEN_AI_USAGE_COMPLETION_TOKENS =
+      longKey("gen_ai.usage.completion_tokens");
+
+  /**
+   * The number of tokens used in the GenAI input (prompt).
+   *
+   * <p>
+   *
+   * @deprecated Replaced by {@code gen_ai.usage.output_tokens} attribute.
+   */
   public static final AttributeKey<Long> GEN_AI_USAGE_INPUT_TOKENS =
       longKey("gen_ai.usage.input_tokens");
 
-  /** The number of tokens used in the GenAI response (completion). */
+  /**
+   * The number of tokens used in the GenAI response (completion).
+   *
+   * <p>
+   *
+   * @deprecated Replaced by {@code gen_ai.usage.output_tokens} attribute.
+   */
   public static final AttributeKey<Long> GEN_AI_USAGE_OUTPUT_TOKENS =
       longKey("gen_ai.usage.output_tokens");
+
+  /**
+   * Deprecated, use {@code gen_ai.usage.input_tokens} instead.
+   *
+   * <p>
+   *
+   * @deprecated Replaced by {@code gen_ai.usage.input_tokens} attribute.
+   */
+  @Deprecated
+  public static final AttributeKey<Long> GEN_AI_USAGE_PROMPT_TOKENS =
+      longKey("gen_ai.usage.prompt_tokens");
 
   // Enum definitions
   /** Values for {@link #GEN_AI_OPERATION_NAME}. */

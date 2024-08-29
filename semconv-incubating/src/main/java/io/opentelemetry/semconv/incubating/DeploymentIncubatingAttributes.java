@@ -14,6 +14,17 @@ import io.opentelemetry.api.common.AttributeKey;
 @SuppressWarnings("unused")
 public final class DeploymentIncubatingAttributes {
   /**
+   * 'Deprecated, use {@code deployment.environment.name} instead.'
+   *
+   * <p>
+   *
+   * @deprecated Deprecated, use {@code deployment.environment.name} instead.
+   */
+  @Deprecated
+  public static final AttributeKey<String> DEPLOYMENT_ENVIRONMENT =
+      stringKey("deployment.environment");
+
+  /**
    * Name of the <a href="https://wikipedia.org/wiki/Deployment_environment">deployment
    * environment</a> (aka deployment tier).
    *
@@ -30,17 +41,37 @@ public final class DeploymentIncubatingAttributes {
    *   <li>{@code service.name=frontend}, {@code deployment.environment.name=production}
    *   <li>{@code service.name=frontend}, {@code deployment.environment.name=staging}.
    * </ul>
+   *
+   * @deprecated Deprecated, use {@code deployment.environment.name} instead.
    */
   public static final AttributeKey<String> DEPLOYMENT_ENVIRONMENT_NAME =
       stringKey("deployment.environment.name");
 
-  /** The id of the deployment. */
+  /**
+   * The id of the deployment.
+   *
+   * <p>
+   *
+   * @deprecated Deprecated, use {@code deployment.environment.name} instead.
+   */
   public static final AttributeKey<String> DEPLOYMENT_ID = stringKey("deployment.id");
 
-  /** The name of the deployment. */
+  /**
+   * The name of the deployment.
+   *
+   * <p>
+   *
+   * @deprecated Deprecated, use {@code deployment.environment.name} instead.
+   */
   public static final AttributeKey<String> DEPLOYMENT_NAME = stringKey("deployment.name");
 
-  /** The status of the deployment. */
+  /**
+   * The status of the deployment.
+   *
+   * <p>
+   *
+   * @deprecated Deprecated, use {@code deployment.environment.name} instead.
+   */
   public static final AttributeKey<String> DEPLOYMENT_STATUS = stringKey("deployment.status");
 
   // Enum definitions

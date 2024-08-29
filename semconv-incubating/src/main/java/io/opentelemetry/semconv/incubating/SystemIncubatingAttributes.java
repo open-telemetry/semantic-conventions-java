@@ -18,48 +18,160 @@ public final class SystemIncubatingAttributes {
   public static final AttributeKey<Long> SYSTEM_CPU_LOGICAL_NUMBER =
       longKey("system.cpu.logical_number");
 
-  /** The device identifier */
+  /**
+   * Deprecated, use {@code cpu.mode} instead.
+   *
+   * <p>
+   *
+   * @deprecated Replaced by {@code cpu.mode}
+   */
+  @Deprecated
+  public static final AttributeKey<String> SYSTEM_CPU_STATE = stringKey("system.cpu.state");
+
+  /**
+   * The device identifier
+   *
+   * <p>
+   *
+   * @deprecated Replaced by {@code cpu.mode}
+   */
   public static final AttributeKey<String> SYSTEM_DEVICE = stringKey("system.device");
 
-  /** The filesystem mode */
+  /**
+   * The filesystem mode
+   *
+   * <p>
+   *
+   * @deprecated Replaced by {@code cpu.mode}
+   */
   public static final AttributeKey<String> SYSTEM_FILESYSTEM_MODE =
       stringKey("system.filesystem.mode");
 
-  /** The filesystem mount path */
+  /**
+   * The filesystem mount path
+   *
+   * <p>
+   *
+   * @deprecated Replaced by {@code cpu.mode}
+   */
   public static final AttributeKey<String> SYSTEM_FILESYSTEM_MOUNTPOINT =
       stringKey("system.filesystem.mountpoint");
 
-  /** The filesystem state */
+  /**
+   * The filesystem state
+   *
+   * <p>
+   *
+   * @deprecated Replaced by {@code cpu.mode}
+   */
   public static final AttributeKey<String> SYSTEM_FILESYSTEM_STATE =
       stringKey("system.filesystem.state");
 
-  /** The filesystem type */
+  /**
+   * The filesystem type
+   *
+   * <p>
+   *
+   * @deprecated Replaced by {@code cpu.mode}
+   */
   public static final AttributeKey<String> SYSTEM_FILESYSTEM_TYPE =
       stringKey("system.filesystem.type");
 
-  /** The memory state */
+  /**
+   * The memory state
+   *
+   * <p>
+   *
+   * @deprecated Replaced by {@code cpu.mode}
+   */
   public static final AttributeKey<String> SYSTEM_MEMORY_STATE = stringKey("system.memory.state");
 
-  /** A stateless protocol MUST NOT set this attribute */
+  /**
+   * A stateless protocol MUST NOT set this attribute
+   *
+   * <p>
+   *
+   * @deprecated Replaced by {@code cpu.mode}
+   */
   public static final AttributeKey<String> SYSTEM_NETWORK_STATE = stringKey("system.network.state");
 
-  /** The paging access direction */
+  /**
+   * The paging access direction
+   *
+   * <p>
+   *
+   * @deprecated Replaced by {@code cpu.mode}
+   */
   public static final AttributeKey<String> SYSTEM_PAGING_DIRECTION =
       stringKey("system.paging.direction");
 
-  /** The memory paging state */
+  /**
+   * The memory paging state
+   *
+   * <p>
+   *
+   * @deprecated Replaced by {@code cpu.mode}
+   */
   public static final AttributeKey<String> SYSTEM_PAGING_STATE = stringKey("system.paging.state");
 
-  /** The memory paging type */
+  /**
+   * The memory paging type
+   *
+   * <p>
+   *
+   * @deprecated Replaced by {@code cpu.mode}
+   */
   public static final AttributeKey<String> SYSTEM_PAGING_TYPE = stringKey("system.paging.type");
 
   /**
    * The process state, e.g., <a
    * href="https://man7.org/linux/man-pages/man1/ps.1.html#PROCESS_STATE_CODES">Linux Process State
    * Codes</a>
+   *
+   * <p>
+   *
+   * @deprecated Replaced by {@code cpu.mode}
    */
   public static final AttributeKey<String> SYSTEM_PROCESS_STATUS =
       stringKey("system.process.status");
+
+  /**
+   * Deprecated, use {@code system.process.status} instead.
+   *
+   * <p>
+   *
+   * @deprecated Replaced by {@code system.process.status}.
+   */
+  @Deprecated
+  public static final AttributeKey<String> SYSTEM_PROCESSES_STATUS =
+      stringKey("system.processes.status");
+
+  // Enum definitions
+  /** Values for {@link #SYSTEM_CPU_STATE}. */
+  public static final class SystemCpuStateValues {
+    /** user. */
+    public static final String USER = "user";
+
+    /** system. */
+    public static final String SYSTEM = "system";
+
+    /** nice. */
+    public static final String NICE = "nice";
+
+    /** idle. */
+    public static final String IDLE = "idle";
+
+    /** iowait. */
+    public static final String IOWAIT = "iowait";
+
+    /** interrupt. */
+    public static final String INTERRUPT = "interrupt";
+
+    /** steal. */
+    public static final String STEAL = "steal";
+
+    private SystemCpuStateValues() {}
+  }
 
   // Enum definitions
   /** Values for {@link #SYSTEM_FILESYSTEM_STATE}. */
@@ -215,6 +327,24 @@ public final class SystemIncubatingAttributes {
     public static final String DEFUNCT = "defunct";
 
     private SystemProcessStatusValues() {}
+  }
+
+  // Enum definitions
+  /** Values for {@link #SYSTEM_PROCESSES_STATUS}. */
+  public static final class SystemProcessesStatusValues {
+    /** running. */
+    public static final String RUNNING = "running";
+
+    /** sleeping. */
+    public static final String SLEEPING = "sleeping";
+
+    /** stopped. */
+    public static final String STOPPED = "stopped";
+
+    /** defunct. */
+    public static final String DEFUNCT = "defunct";
+
+    private SystemProcessesStatusValues() {}
   }
 
   private SystemIncubatingAttributes() {}
