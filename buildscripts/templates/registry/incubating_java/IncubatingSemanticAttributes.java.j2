@@ -38,7 +38,7 @@ import java.util.List;
 // DO NOT EDIT, this is an Auto-generated file from buildscripts/templates/registry/incubating_java/IncubatingSemanticAttributes.java.j2
 @SuppressWarnings("unused")
 public final class {{ my_class_name }} {
-    {% for attribute in ctx.attributes | sort(attribute="name") %}{% if attribute is experimental %}
+    {% for attribute in ctx.attributes | rejectattr("name", "in", ctx.excluded_attributes)  | sort(attribute="name") %}{% if attribute is experimental %}
     {%- if attribute is deprecated %}
     {%- set deprecated_javadoc = "@deprecated " ~ attribute.deprecated -%}
     {%- endif -%}
@@ -50,7 +50,7 @@ public final class {{ my_class_name }} {
     @Deprecated public static final {{ to_java_key_type(attribute) | trim }} {{ attribute.name | screaming_snake_case }} = {{ to_java_key_factory(attribute) | trim }}("{{ attribute.name }}");
     {% endif %}
     {% endfor %}
-    {% for attribute in ctx.attributes | sort(attribute="name") %}{% if attribute.type is mapping and attribute is experimental %}
+    {% for attribute in ctx.attributes | select("enum") | select("experimental") | rejectattr("name", "in", ctx.excluded_attributes) | sort(attribute="name") %}
     // Enum definitions
     /** Values for {@link #{{ attribute.name | screaming_snake_case }}}. */
     public static final class {{ attribute.name | pascal_case }}Values {
@@ -60,7 +60,7 @@ public final class {{ my_class_name }} {
       {%- endfor %}
       private {{ attribute.name | pascal_case }}Values() {}
     }
-    {% endif %}{% endfor %}
+    {% endfor %}
 
     private {{ my_class_name }}() {}
 }

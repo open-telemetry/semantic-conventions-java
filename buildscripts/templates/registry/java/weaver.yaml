@@ -1,3 +1,6 @@
+params:
+  excluded_namespaces: ["ios", "aspnetcore", "signalr"]
+  excluded_attributes: ["messaging.client_id"]
 comment_formats:
   javadoc:
     format: html
@@ -15,7 +18,7 @@ templates:
   - pattern: SemanticAttributes.java.j2
     filter: > 
       semconv_grouped_attributes({
-        "exclude_root_namespace": ["ios", "aspnetcore", "signalr"], 
+        "exclude_root_namespace": $excluded_namespaces,
         "exclude_stability": ["experimental", "deprecated"],
         "exclude_deprecated": false
       })
