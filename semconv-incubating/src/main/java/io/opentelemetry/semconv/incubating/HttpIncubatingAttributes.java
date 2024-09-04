@@ -341,7 +341,11 @@ public final class HttpIncubatingAttributes {
     private HttpConnectionStateValues() {}
   }
 
-  /** Values for {@link #HTTP_FLAVOR}. */
+  /**
+   * Values for {@link HTTP_FLAVOR}
+   *
+   * @deprecated Replaced by {@code network.protocol.name}.
+   */
   public static final class HttpFlavorValues {
     /** HTTP/1.0 */
     public static final String HTTP_1_0 = "1.0";

@@ -420,7 +420,11 @@ public final class DbIncubatingAttributes {
     private DbClientConnectionStateValues() {}
   }
 
-  /** Values for {@link #DB_CLIENT_CONNECTIONS_STATE}. */
+  /**
+   * Values for {@link DB_CLIENT_CONNECTIONS_STATE}
+   *
+   * @deprecated Replaced by {@code db.client.connection.state}.
+   */
   public static final class DbClientConnectionsStateValues {
     /** idle. */
     public static final String IDLE = "idle";

@@ -83,7 +83,11 @@ public final class SystemIncubatingAttributes {
       stringKey("system.processes.status");
 
   // Enum definitions
-  /** Values for {@link #SYSTEM_CPU_STATE}. */
+  /**
+   * Values for {@link SYSTEM_CPU_STATE}
+   *
+   * @deprecated Replaced by {@code cpu.mode}
+   */
   public static final class SystemCpuStateValues {
     /** user. */
     public static final String USER = "user";
@@ -257,7 +261,11 @@ public final class SystemIncubatingAttributes {
     private SystemProcessStatusValues() {}
   }
 
-  /** Values for {@link #SYSTEM_PROCESSES_STATUS}. */
+  /**
+   * Values for {@link SYSTEM_PROCESSES_STATUS}
+   *
+   * @deprecated Replaced by {@code system.process.status}.
+   */
   public static final class SystemProcessesStatusValues {
     /** running. */
     public static final String RUNNING = "running";

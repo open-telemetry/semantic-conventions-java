@@ -119,7 +119,11 @@ public final class ContainerIncubatingAttributes {
   public static final AttributeKey<String> CONTAINER_RUNTIME = stringKey("container.runtime");
 
   // Enum definitions
-  /** Values for {@link #CONTAINER_CPU_STATE}. */
+  /**
+   * Values for {@link CONTAINER_CPU_STATE}
+   *
+   * @deprecated Replaced by {@code cpu.mode}
+   */
   public static final class ContainerCpuStateValues {
     /**
      * When tasks of the cgroup are in user mode (Linux). When all container processes are in user

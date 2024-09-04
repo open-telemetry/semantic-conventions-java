@@ -23,7 +23,11 @@ public final class OtherIncubatingAttributes {
   @Deprecated public static final AttributeKey<String> STATE = stringKey("state");
 
   // Enum definitions
-  /** Values for {@link #STATE}. */
+  /**
+   * Values for {@link STATE}
+   *
+   * @deprecated Replaced by {@code db.client.connection.state}.
+   */
   public static final class StateValues {
     /** idle. */
     public static final String IDLE = "idle";

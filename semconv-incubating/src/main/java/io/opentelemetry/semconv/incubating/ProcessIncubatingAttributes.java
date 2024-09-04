@@ -167,7 +167,11 @@ public final class ProcessIncubatingAttributes {
     private ProcessContextSwitchTypeValues() {}
   }
 
-  /** Values for {@link #PROCESS_CPU_STATE}. */
+  /**
+   * Values for {@link PROCESS_CPU_STATE}
+   *
+   * @deprecated Replaced by {@code cpu.mode}
+   */
   public static final class ProcessCpuStateValues {
     /** system. */
     public static final String SYSTEM = "system";
