@@ -57,6 +57,8 @@ public final class {{ my_class_name }} {
      *
      *  @deprecated deprecated in favor of stable {@link {{stable_class_link}}} attribute.
      */
+    {%- elif attribute is deprecated -%}
+    {{ ["Values for {@link " ~ attribute.name | screaming_snake_case ~ "}", "@deprecated " ~ attribute.deprecated ] | comment }}
     {%- else -%}
     /** Values for {@link #{{ attribute.name | screaming_snake_case }}}. */
     {%- endif -%}
