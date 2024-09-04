@@ -37,8 +37,8 @@ import java.util.List;
 @SuppressWarnings("unused")
 public final class {{ my_class_name }} {
     {% for attribute in ctx.attributes | rejectattr("name", "in", ctx.excluded_attributes) %}{% if attribute is experimental %}
-    {%- if attribute is deprecated %}
-    {%- set deprecated_javadoc = "@deprecated " ~ attribute.deprecated -%}
+    {%- if attribute is deprecated %}{%- set deprecated_javadoc = "@deprecated " ~ attribute.deprecated -%}
+    {%- else -%}{%- set deprecated_javadoc = "" -%}
     {%- endif -%}
     {{ [attribute.brief, concat_if("\n\nNotes:\n\n", attribute.note), deprecated_javadoc] | comment(indent=4) }}
     {% if attribute is deprecated %}@Deprecated{% endif %} public static final {{ to_java_key_type(attribute) | trim }} {{ attribute.name | screaming_snake_case }} = {{ to_java_key_factory(attribute) | trim }}("{{ attribute.name }}");
