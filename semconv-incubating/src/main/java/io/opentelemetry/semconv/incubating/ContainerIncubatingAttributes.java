@@ -51,10 +51,6 @@ public final class ContainerIncubatingAttributes {
    * Container ID. Usually a UUID, as for example used to <a
    * href="https://docs.docker.com/engine/reference/run/#container-identification">identify Docker
    * containers</a>. The UUID might be abbreviated.
-   *
-   * <p>
-   *
-   * @deprecated Replaced by {@code cpu.mode}
    */
   public static final AttributeKey<String> CONTAINER_ID = stringKey("container.id");
 
@@ -72,20 +68,10 @@ public final class ContainerIncubatingAttributes {
    * The ID is assigned by the container runtime and can vary in different environments. Consider
    * using {@code oci.manifest.digest} if it is important to identify the same image in different
    * environments/runtimes.
-   *
-   * <p>
-   *
-   * @deprecated Replaced by {@code cpu.mode}
    */
   public static final AttributeKey<String> CONTAINER_IMAGE_ID = stringKey("container.image.id");
 
-  /**
-   * Name of the image the container was built on.
-   *
-   * <p>
-   *
-   * @deprecated Replaced by {@code cpu.mode}
-   */
+  /** Name of the image the container was built on. */
   public static final AttributeKey<String> CONTAINER_IMAGE_NAME = stringKey("container.image.name");
 
   /**
@@ -98,10 +84,6 @@ public final class ContainerIncubatingAttributes {
    * and <a
    * href="https://github.com/kubernetes/cri-api/blob/c75ef5b473bbe2d0a4fc92f82235efd665ea8e9f/pkg/apis/runtime/v1/api.proto#L1237-L1238">CRI</a>
    * report those under the {@code RepoDigests} field.
-   *
-   * <p>
-   *
-   * @deprecated Replaced by {@code cpu.mode}
    */
   public static final AttributeKey<List<String>> CONTAINER_IMAGE_REPO_DIGESTS =
       stringArrayKey("container.image.repo_digests");
@@ -111,21 +93,11 @@ public final class ContainerIncubatingAttributes {
    * href="https://docs.docker.com/engine/api/v1.43/#tag/Image/operation/ImageInspect">Docker Image
    * Inspect</a>. Should be only the {@code <tag>} section of the full name for example from {@code
    * registry.example.com/my-org/my-image:<tag>}.
-   *
-   * <p>
-   *
-   * @deprecated Replaced by {@code cpu.mode}
    */
   public static final AttributeKey<List<String>> CONTAINER_IMAGE_TAGS =
       stringArrayKey("container.image.tags");
 
-  /**
-   * Container labels, {@code <key>} being the label name, the value being the label value.
-   *
-   * <p>
-   *
-   * @deprecated Replaced by {@code cpu.mode}
-   */
+  /** Container labels, {@code <key>} being the label name, the value being the label value. */
   public static final AttributeKeyTemplate<String> CONTAINER_LABEL =
       stringKeyTemplate("container.label");
 
@@ -140,22 +112,10 @@ public final class ContainerIncubatingAttributes {
   public static final AttributeKeyTemplate<String> CONTAINER_LABELS =
       stringKeyTemplate("container.labels");
 
-  /**
-   * Container name used by container runtime.
-   *
-   * <p>
-   *
-   * @deprecated Replaced by {@code container.label}.
-   */
+  /** Container name used by container runtime. */
   public static final AttributeKey<String> CONTAINER_NAME = stringKey("container.name");
 
-  /**
-   * The container runtime managing this container.
-   *
-   * <p>
-   *
-   * @deprecated Replaced by {@code container.label}.
-   */
+  /** The container runtime managing this container. */
   public static final AttributeKey<String> CONTAINER_RUNTIME = stringKey("container.runtime");
 
   // Enum definitions

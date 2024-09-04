@@ -28,109 +28,45 @@ public final class SystemIncubatingAttributes {
   @Deprecated
   public static final AttributeKey<String> SYSTEM_CPU_STATE = stringKey("system.cpu.state");
 
-  /**
-   * The device identifier
-   *
-   * <p>
-   *
-   * @deprecated Replaced by {@code cpu.mode}
-   */
+  /** The device identifier */
   public static final AttributeKey<String> SYSTEM_DEVICE = stringKey("system.device");
 
-  /**
-   * The filesystem mode
-   *
-   * <p>
-   *
-   * @deprecated Replaced by {@code cpu.mode}
-   */
+  /** The filesystem mode */
   public static final AttributeKey<String> SYSTEM_FILESYSTEM_MODE =
       stringKey("system.filesystem.mode");
 
-  /**
-   * The filesystem mount path
-   *
-   * <p>
-   *
-   * @deprecated Replaced by {@code cpu.mode}
-   */
+  /** The filesystem mount path */
   public static final AttributeKey<String> SYSTEM_FILESYSTEM_MOUNTPOINT =
       stringKey("system.filesystem.mountpoint");
 
-  /**
-   * The filesystem state
-   *
-   * <p>
-   *
-   * @deprecated Replaced by {@code cpu.mode}
-   */
+  /** The filesystem state */
   public static final AttributeKey<String> SYSTEM_FILESYSTEM_STATE =
       stringKey("system.filesystem.state");
 
-  /**
-   * The filesystem type
-   *
-   * <p>
-   *
-   * @deprecated Replaced by {@code cpu.mode}
-   */
+  /** The filesystem type */
   public static final AttributeKey<String> SYSTEM_FILESYSTEM_TYPE =
       stringKey("system.filesystem.type");
 
-  /**
-   * The memory state
-   *
-   * <p>
-   *
-   * @deprecated Replaced by {@code cpu.mode}
-   */
+  /** The memory state */
   public static final AttributeKey<String> SYSTEM_MEMORY_STATE = stringKey("system.memory.state");
 
-  /**
-   * A stateless protocol MUST NOT set this attribute
-   *
-   * <p>
-   *
-   * @deprecated Replaced by {@code cpu.mode}
-   */
+  /** A stateless protocol MUST NOT set this attribute */
   public static final AttributeKey<String> SYSTEM_NETWORK_STATE = stringKey("system.network.state");
 
-  /**
-   * The paging access direction
-   *
-   * <p>
-   *
-   * @deprecated Replaced by {@code cpu.mode}
-   */
+  /** The paging access direction */
   public static final AttributeKey<String> SYSTEM_PAGING_DIRECTION =
       stringKey("system.paging.direction");
 
-  /**
-   * The memory paging state
-   *
-   * <p>
-   *
-   * @deprecated Replaced by {@code cpu.mode}
-   */
+  /** The memory paging state */
   public static final AttributeKey<String> SYSTEM_PAGING_STATE = stringKey("system.paging.state");
 
-  /**
-   * The memory paging type
-   *
-   * <p>
-   *
-   * @deprecated Replaced by {@code cpu.mode}
-   */
+  /** The memory paging type */
   public static final AttributeKey<String> SYSTEM_PAGING_TYPE = stringKey("system.paging.type");
 
   /**
    * The process state, e.g., <a
    * href="https://man7.org/linux/man-pages/man1/ps.1.html#PROCESS_STATE_CODES">Linux Process State
    * Codes</a>
-   *
-   * <p>
-   *
-   * @deprecated Replaced by {@code cpu.mode}
    */
   public static final AttributeKey<String> SYSTEM_PROCESS_STATUS =
       stringKey("system.process.status");

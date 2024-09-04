@@ -26,13 +26,7 @@ public final class HttpIncubatingAttributes {
    */
   @Deprecated public static final AttributeKey<String> HTTP_CLIENT_IP = stringKey("http.client_ip");
 
-  /**
-   * State of the HTTP connection in the HTTP connection pool.
-   *
-   * <p>
-   *
-   * @deprecated Replaced by {@code client.address}.
-   */
+  /** State of the HTTP connection in the HTTP connection pool. */
   public static final AttributeKey<String> HTTP_CONNECTION_STATE =
       stringKey("http.connection.state");
 
@@ -70,10 +64,6 @@ public final class HttpIncubatingAttributes {
    * excluding headers and is often, but not always, present as the <a
    * href="https://www.rfc-editor.org/rfc/rfc9110.html#field.content-length">Content-Length</a>
    * header. For requests using transport encoding, this should be the compressed size.
-   *
-   * <p>
-   *
-   * @deprecated Replaced by {@code http.request.method}.
    */
   public static final AttributeKey<Long> HTTP_REQUEST_BODY_SIZE = longKey("http.request.body.size");
 
@@ -112,10 +102,6 @@ public final class HttpIncubatingAttributes {
    * The total size of the request in bytes. This should be the total number of bytes sent over the
    * wire, including the request line (HTTP/1.1), framing (HTTP/2 and HTTP/3), headers, and request
    * body if any.
-   *
-   * <p>
-   *
-   * @deprecated Replaced by {@code http.request.method}.
    */
   public static final AttributeKey<Long> HTTP_REQUEST_SIZE = longKey("http.request.size");
 
@@ -146,10 +132,6 @@ public final class HttpIncubatingAttributes {
    * excluding headers and is often, but not always, present as the <a
    * href="https://www.rfc-editor.org/rfc/rfc9110.html#field.content-length">Content-Length</a>
    * header. For requests using transport encoding, this should be the compressed size.
-   *
-   * <p>
-   *
-   * @deprecated Replaced by {@code http.request.body.size}.
    */
   public static final AttributeKey<Long> HTTP_RESPONSE_BODY_SIZE =
       longKey("http.response.body.size");
@@ -166,10 +148,6 @@ public final class HttpIncubatingAttributes {
    * The total size of the response in bytes. This should be the total number of bytes sent over the
    * wire, including the status line (HTTP/1.1), framing (HTTP/2 and HTTP/3), headers, and response
    * body and trailers if any.
-   *
-   * <p>
-   *
-   * @deprecated Replaced by {@code http.request.body.size}.
    */
   public static final AttributeKey<Long> HTTP_RESPONSE_SIZE = longKey("http.response.size");
 

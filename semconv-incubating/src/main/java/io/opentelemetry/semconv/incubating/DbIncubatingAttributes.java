@@ -64,21 +64,11 @@ public final class DbIncubatingAttributes {
    * server.address}, {@code server.port}, and {@code db.namespace}, formatted as {@code
    * server.address:server.port/db.namespace}. Instrumentations that generate connection pool name
    * following different patterns SHOULD document it.
-   *
-   * <p>
-   *
-   * @deprecated Replaced by {@code db.collection.name}.
    */
   public static final AttributeKey<String> DB_CLIENT_CONNECTION_POOL_NAME =
       stringKey("db.client.connection.pool.name");
 
-  /**
-   * The state of a connection in the pool
-   *
-   * <p>
-   *
-   * @deprecated Replaced by {@code db.collection.name}.
-   */
+  /** The state of a connection in the pool */
   public static final AttributeKey<String> DB_CLIENT_CONNECTION_STATE =
       stringKey("db.client.connection.state");
 
@@ -115,10 +105,6 @@ public final class DbIncubatingAttributes {
    * query text including any schema and database name prefix. For batch operations, if the
    * individual operations are known to have the same collection name then that collection name
    * SHOULD be used, otherwise {@code db.collection.name} SHOULD NOT be captured.
-   *
-   * <p>
-   *
-   * @deprecated Replaced by {@code db.client.connection.state}.
    */
   public static final AttributeKey<String> DB_COLLECTION_NAME = stringKey("db.collection.name");
 
@@ -132,23 +118,11 @@ public final class DbIncubatingAttributes {
   @Deprecated
   public static final AttributeKey<String> DB_CONNECTION_STRING = stringKey("db.connection_string");
 
-  /**
-   * Unique Cosmos client instance id.
-   *
-   * <p>
-   *
-   * @deprecated "Replaced by {@code server.address} and {@code server.port}."
-   */
+  /** Unique Cosmos client instance id. */
   public static final AttributeKey<String> DB_COSMOSDB_CLIENT_ID =
       stringKey("db.cosmosdb.client_id");
 
-  /**
-   * Cosmos client connection mode.
-   *
-   * <p>
-   *
-   * @deprecated "Replaced by {@code server.address} and {@code server.port}."
-   */
+  /** Cosmos client connection mode. */
   public static final AttributeKey<String> DB_COSMOSDB_CONNECTION_MODE =
       stringKey("db.cosmosdb.connection_mode");
 
@@ -163,53 +137,23 @@ public final class DbIncubatingAttributes {
   public static final AttributeKey<String> DB_COSMOSDB_CONTAINER =
       stringKey("db.cosmosdb.container");
 
-  /**
-   * CosmosDB Operation Type.
-   *
-   * <p>
-   *
-   * @deprecated Replaced by {@code db.collection.name}.
-   */
+  /** CosmosDB Operation Type. */
   public static final AttributeKey<String> DB_COSMOSDB_OPERATION_TYPE =
       stringKey("db.cosmosdb.operation_type");
 
-  /**
-   * RU consumed for that operation
-   *
-   * <p>
-   *
-   * @deprecated Replaced by {@code db.collection.name}.
-   */
+  /** RU consumed for that operation */
   public static final AttributeKey<Double> DB_COSMOSDB_REQUEST_CHARGE =
       doubleKey("db.cosmosdb.request_charge");
 
-  /**
-   * Request payload size in bytes
-   *
-   * <p>
-   *
-   * @deprecated Replaced by {@code db.collection.name}.
-   */
+  /** Request payload size in bytes */
   public static final AttributeKey<Long> DB_COSMOSDB_REQUEST_CONTENT_LENGTH =
       longKey("db.cosmosdb.request_content_length");
 
-  /**
-   * Cosmos DB status code.
-   *
-   * <p>
-   *
-   * @deprecated Replaced by {@code db.collection.name}.
-   */
+  /** Cosmos DB status code. */
   public static final AttributeKey<Long> DB_COSMOSDB_STATUS_CODE =
       longKey("db.cosmosdb.status_code");
 
-  /**
-   * Cosmos DB sub status code.
-   *
-   * <p>
-   *
-   * @deprecated Replaced by {@code db.collection.name}.
-   */
+  /** Cosmos DB sub status code. */
   public static final AttributeKey<Long> DB_COSMOSDB_SUB_STATUS_CODE =
       longKey("db.cosmosdb.sub_status_code");
 
@@ -226,10 +170,6 @@ public final class DbIncubatingAttributes {
 
   /**
    * Represents the human-readable identifier of the node/instance to which a request was routed.
-   *
-   * <p>
-   *
-   * @deprecated Replaced by {@code db.namespace}.
    */
   public static final AttributeKey<String> DB_ELASTICSEARCH_NODE_NAME =
       stringKey("db.elasticsearch.node.name");
@@ -244,10 +184,6 @@ public final class DbIncubatingAttributes {
    * url path part name. The implementation SHOULD reference the <a
    * href="https://raw.githubusercontent.com/elastic/elasticsearch-specification/main/output/schema/schema.json">elasticsearch
    * schema</a> in order to map the path part values to their names.
-   *
-   * <p>
-   *
-   * @deprecated Replaced by {@code db.namespace}.
    */
   public static final AttributeKeyTemplate<String> DB_ELASTICSEARCH_PATH_PARTS =
       stringKeyTemplate("db.elasticsearch.path_parts");
@@ -317,10 +253,6 @@ public final class DbIncubatingAttributes {
    * valid. Semantic conventions for individual database systems SHOULD document what {@code
    * db.namespace} means in the context of that system. It is RECOMMENDED to capture the value as
    * provided by the application without attempting to do any case normalization.
-   *
-   * <p>
-   *
-   * @deprecated Replaced by {@code db.namespace}.
    */
   public static final AttributeKey<String> DB_NAMESPACE = stringKey("db.namespace");
 
@@ -341,10 +273,6 @@ public final class DbIncubatingAttributes {
    *
    * <p>Operations are only considered batches when they contain two or more operations, and so
    * {@code db.operation.batch.size} SHOULD never be {@code 1}.
-   *
-   * <p>
-   *
-   * @deprecated Replaced by {@code db.operation.name}.
    */
   public static final AttributeKey<Long> DB_OPERATION_BATCH_SIZE =
       longKey("db.operation.batch.size");
@@ -360,10 +288,6 @@ public final class DbIncubatingAttributes {
    * are known to have the same operation name then that operation name SHOULD be used prepended by
    * {@code BATCH }, otherwise {@code db.operation.name} SHOULD be {@code BATCH} or some other
    * database system specific term if more applicable.
-   *
-   * <p>
-   *
-   * @deprecated Replaced by {@code db.operation.name}.
    */
   public static final AttributeKey<String> DB_OPERATION_NAME = stringKey("db.operation.name");
 
@@ -376,10 +300,6 @@ public final class DbIncubatingAttributes {
    * <p>Query parameters should only be captured when {@code db.query.text} is parameterized with
    * placeholders. If a parameter has no name and instead is referenced only by index, then {@code
    * <key>} SHOULD be the 0-based index.
-   *
-   * <p>
-   *
-   * @deprecated Replaced by {@code db.operation.name}.
    */
   public static final AttributeKeyTemplate<String> DB_QUERY_PARAMETER =
       stringKeyTemplate("db.query.parameter");
@@ -398,10 +318,6 @@ public final class DbIncubatingAttributes {
    * sensitive data, by using a parameterized query the user is giving a strong signal that any
    * sensitive data will be passed as parameter values, and the benefit to observability of
    * capturing the static part of the query text by default outweighs the risk.
-   *
-   * <p>
-   *
-   * @deprecated Replaced by {@code db.operation.name}.
    */
   public static final AttributeKey<String> DB_QUERY_TEXT = stringKey("db.query.text");
 
@@ -442,10 +358,6 @@ public final class DbIncubatingAttributes {
    * <p>The actual DBMS may differ from the one identified by the client. For example, when using
    * PostgreSQL client libraries to connect to a CockroachDB, the {@code db.system} is set to {@code
    * postgresql} based on the instrumentation's best knowledge.
-   *
-   * <p>
-   *
-   * @deprecated Replaced by {@code db.query.text}.
    */
   public static final AttributeKey<String> DB_SYSTEM = stringKey("db.system");
 

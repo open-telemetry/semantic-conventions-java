@@ -124,23 +124,11 @@ public final class GenAiIncubatingAttributes {
   public static final AttributeKey<Long> GEN_AI_USAGE_COMPLETION_TOKENS =
       longKey("gen_ai.usage.completion_tokens");
 
-  /**
-   * The number of tokens used in the GenAI input (prompt).
-   *
-   * <p>
-   *
-   * @deprecated Replaced by {@code gen_ai.usage.output_tokens} attribute.
-   */
+  /** The number of tokens used in the GenAI input (prompt). */
   public static final AttributeKey<Long> GEN_AI_USAGE_INPUT_TOKENS =
       longKey("gen_ai.usage.input_tokens");
 
-  /**
-   * The number of tokens used in the GenAI response (completion).
-   *
-   * <p>
-   *
-   * @deprecated Replaced by {@code gen_ai.usage.output_tokens} attribute.
-   */
+  /** The number of tokens used in the GenAI response (completion). */
   public static final AttributeKey<Long> GEN_AI_USAGE_OUTPUT_TOKENS =
       longKey("gen_ai.usage.output_tokens");
 

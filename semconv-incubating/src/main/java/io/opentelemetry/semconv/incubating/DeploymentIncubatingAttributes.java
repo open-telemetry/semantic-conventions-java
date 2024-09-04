@@ -41,37 +41,17 @@ public final class DeploymentIncubatingAttributes {
    *   <li>{@code service.name=frontend}, {@code deployment.environment.name=production}
    *   <li>{@code service.name=frontend}, {@code deployment.environment.name=staging}.
    * </ul>
-   *
-   * @deprecated Deprecated, use {@code deployment.environment.name} instead.
    */
   public static final AttributeKey<String> DEPLOYMENT_ENVIRONMENT_NAME =
       stringKey("deployment.environment.name");
 
-  /**
-   * The id of the deployment.
-   *
-   * <p>
-   *
-   * @deprecated Deprecated, use {@code deployment.environment.name} instead.
-   */
+  /** The id of the deployment. */
   public static final AttributeKey<String> DEPLOYMENT_ID = stringKey("deployment.id");
 
-  /**
-   * The name of the deployment.
-   *
-   * <p>
-   *
-   * @deprecated Deprecated, use {@code deployment.environment.name} instead.
-   */
+  /** The name of the deployment. */
   public static final AttributeKey<String> DEPLOYMENT_NAME = stringKey("deployment.name");
 
-  /**
-   * The status of the deployment.
-   *
-   * <p>
-   *
-   * @deprecated Deprecated, use {@code deployment.environment.name} instead.
-   */
+  /** The status of the deployment. */
   public static final AttributeKey<String> DEPLOYMENT_STATUS = stringKey("deployment.status");
 
   // Enum definitions
