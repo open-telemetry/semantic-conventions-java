@@ -51,11 +51,11 @@ public final class {{ my_class_name }} {
     // Enum definitions
     {% for attribute in ctx.attributes | select("enum") | rejectattr("name", "in", ctx.excluded_attributes) %}    
     {%- if attribute is stable -%}
-    {%- set stable_class_link = "io.opentelemetry.semconv." ~ stable_class_name ~ "#" ~ (attribute.name | screaming_snake_case) -%}
+    {%- set stable_class_link = "io.opentelemetry.semconv." ~ stable_class_name ~ "." ~ (attribute.name | pascal_case) ~ "Values" -%}
     /** 
      * Values for {@link #{{ attribute.name | screaming_snake_case }}}. 
      *
-     *  @deprecated deprecated in favor of stable {@link {{stable_class_link}}} attribute.
+     *  @deprecated deprecated in favor of stable {@link {{stable_class_link}}}.
      */
     {%- elif attribute is deprecated -%}
     {{ ["Values for {@link " ~ attribute.name | screaming_snake_case ~ "}", "@deprecated " ~ attribute.deprecated ] | comment }}
