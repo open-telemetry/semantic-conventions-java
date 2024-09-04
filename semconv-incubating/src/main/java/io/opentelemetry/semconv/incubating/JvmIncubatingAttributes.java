@@ -25,18 +25,45 @@ public final class JvmIncubatingAttributes {
   public static final AttributeKey<String> JVM_BUFFER_POOL_NAME = stringKey("jvm.buffer.pool.name");
 
   /**
+   * Name of the garbage collector action.
+   *
+   * <p>Notes:
+   *
+   * <p>Garbage collector action is generally obtained via <a
+   * href="https://docs.oracle.com/en/java/javase/11/docs/api/jdk.management/com/sun/management/GarbageCollectionNotificationInfo.html#getGcAction()">GarbageCollectionNotificationInfo#getGcAction()</a>.
+   *
+   * <p>
+   *
    * @deprecated deprecated in favor of stable {@link
    *     io.opentelemetry.semconv.JvmAttributes#JVM_GC_ACTION} attribute.
    */
   @Deprecated public static final AttributeKey<String> JVM_GC_ACTION = stringKey("jvm.gc.action");
 
   /**
+   * Name of the garbage collector.
+   *
+   * <p>Notes:
+   *
+   * <p>Garbage collector name is generally obtained via <a
+   * href="https://docs.oracle.com/en/java/javase/11/docs/api/jdk.management/com/sun/management/GarbageCollectionNotificationInfo.html#getGcName()">GarbageCollectionNotificationInfo#getGcName()</a>.
+   *
+   * <p>
+   *
    * @deprecated deprecated in favor of stable {@link
    *     io.opentelemetry.semconv.JvmAttributes#JVM_GC_NAME} attribute.
    */
   @Deprecated public static final AttributeKey<String> JVM_GC_NAME = stringKey("jvm.gc.name");
 
   /**
+   * Name of the memory pool.
+   *
+   * <p>Notes:
+   *
+   * <p>Pool names are generally obtained via <a
+   * href="https://docs.oracle.com/en/java/javase/11/docs/api/java.management/java/lang/management/MemoryPoolMXBean.html#getName()">MemoryPoolMXBean#getName()</a>.
+   *
+   * <p>
+   *
    * @deprecated deprecated in favor of stable {@link
    *     io.opentelemetry.semconv.JvmAttributes#JVM_MEMORY_POOL_NAME} attribute.
    */
@@ -44,6 +71,10 @@ public final class JvmIncubatingAttributes {
   public static final AttributeKey<String> JVM_MEMORY_POOL_NAME = stringKey("jvm.memory.pool.name");
 
   /**
+   * The type of memory.
+   *
+   * <p>
+   *
    * @deprecated deprecated in favor of stable {@link
    *     io.opentelemetry.semconv.JvmAttributes#JVM_MEMORY_TYPE} attribute.
    */
@@ -51,6 +82,10 @@ public final class JvmIncubatingAttributes {
   public static final AttributeKey<String> JVM_MEMORY_TYPE = stringKey("jvm.memory.type");
 
   /**
+   * Whether the thread is daemon or not.
+   *
+   * <p>
+   *
    * @deprecated deprecated in favor of stable {@link
    *     io.opentelemetry.semconv.JvmAttributes#JVM_THREAD_DAEMON} attribute.
    */
@@ -58,6 +93,10 @@ public final class JvmIncubatingAttributes {
   public static final AttributeKey<Boolean> JVM_THREAD_DAEMON = booleanKey("jvm.thread.daemon");
 
   /**
+   * State of the thread.
+   *
+   * <p>
+   *
    * @deprecated deprecated in favor of stable {@link
    *     io.opentelemetry.semconv.JvmAttributes#JVM_THREAD_STATE} attribute.
    */

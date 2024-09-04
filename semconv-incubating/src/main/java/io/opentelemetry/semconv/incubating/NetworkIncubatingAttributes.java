@@ -41,6 +41,10 @@ public final class NetworkIncubatingAttributes {
   public static final AttributeKey<String> NETWORK_IO_DIRECTION = stringKey("network.io.direction");
 
   /**
+   * Local address of the network connection - IP address or Unix domain socket name.
+   *
+   * <p>
+   *
    * @deprecated deprecated in favor of stable {@link
    *     io.opentelemetry.semconv.NetworkAttributes#NETWORK_LOCAL_ADDRESS} attribute.
    */
@@ -49,6 +53,10 @@ public final class NetworkIncubatingAttributes {
       stringKey("network.local.address");
 
   /**
+   * Local port number of the network connection.
+   *
+   * <p>
+   *
    * @deprecated deprecated in favor of stable {@link
    *     io.opentelemetry.semconv.NetworkAttributes#NETWORK_LOCAL_PORT} attribute.
    */
@@ -56,6 +64,10 @@ public final class NetworkIncubatingAttributes {
   public static final AttributeKey<Long> NETWORK_LOCAL_PORT = longKey("network.local.port");
 
   /**
+   * Peer address of the network connection - IP address or Unix domain socket name.
+   *
+   * <p>
+   *
    * @deprecated deprecated in favor of stable {@link
    *     io.opentelemetry.semconv.NetworkAttributes#NETWORK_PEER_ADDRESS} attribute.
    */
@@ -63,6 +75,10 @@ public final class NetworkIncubatingAttributes {
   public static final AttributeKey<String> NETWORK_PEER_ADDRESS = stringKey("network.peer.address");
 
   /**
+   * Peer port number of the network connection.
+   *
+   * <p>
+   *
    * @deprecated deprecated in favor of stable {@link
    *     io.opentelemetry.semconv.NetworkAttributes#NETWORK_PEER_PORT} attribute.
    */
@@ -70,6 +86,13 @@ public final class NetworkIncubatingAttributes {
   public static final AttributeKey<Long> NETWORK_PEER_PORT = longKey("network.peer.port");
 
   /**
+   * <a href="https://osi-model.com/application-layer/">OSI application layer</a> or non-OSI
+   * equivalent.
+   *
+   * <p>Notes:
+   *
+   * <p>The value SHOULD be normalized to lowercase.
+   *
    * @deprecated deprecated in favor of stable {@link
    *     io.opentelemetry.semconv.NetworkAttributes#NETWORK_PROTOCOL_NAME} attribute.
    */
@@ -78,6 +101,17 @@ public final class NetworkIncubatingAttributes {
       stringKey("network.protocol.name");
 
   /**
+   * The actual version of the protocol used for network communication.
+   *
+   * <p>Notes:
+   *
+   * <p>If protocol version is subject to negotiation (for example using <a
+   * href="https://www.rfc-editor.org/rfc/rfc7301.html">ALPN</a>), this attribute SHOULD be set to
+   * the negotiated version. If the actual protocol version is not known, this attribute SHOULD NOT
+   * be set.
+   *
+   * <p>
+   *
    * @deprecated deprecated in favor of stable {@link
    *     io.opentelemetry.semconv.NetworkAttributes#NETWORK_PROTOCOL_VERSION} attribute.
    */
@@ -86,6 +120,20 @@ public final class NetworkIncubatingAttributes {
       stringKey("network.protocol.version");
 
   /**
+   * <a href="https://osi-model.com/transport-layer/">OSI transport layer</a> or <a
+   * href="https://wikipedia.org/wiki/Inter-process_communication">inter-process communication
+   * method</a>.
+   *
+   * <p>Notes:
+   *
+   * <p>The value SHOULD be normalized to lowercase.
+   *
+   * <p>Consider always setting the transport when setting a port number, since a port number is
+   * ambiguous without knowing the transport. For example different processes could be listening on
+   * TCP port 12345 and UDP port 12345.
+   *
+   * <p>
+   *
    * @deprecated deprecated in favor of stable {@link
    *     io.opentelemetry.semconv.NetworkAttributes#NETWORK_TRANSPORT} attribute.
    */
@@ -93,6 +141,12 @@ public final class NetworkIncubatingAttributes {
   public static final AttributeKey<String> NETWORK_TRANSPORT = stringKey("network.transport");
 
   /**
+   * <a href="https://osi-model.com/network-layer/">OSI network layer</a> or non-OSI equivalent.
+   *
+   * <p>Notes:
+   *
+   * <p>The value SHOULD be normalized to lowercase.
+   *
    * @deprecated deprecated in favor of stable {@link
    *     io.opentelemetry.semconv.NetworkAttributes#NETWORK_TYPE} attribute.
    */

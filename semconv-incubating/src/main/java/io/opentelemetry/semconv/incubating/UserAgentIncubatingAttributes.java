@@ -26,6 +26,11 @@ public final class UserAgentIncubatingAttributes {
   public static final AttributeKey<String> USER_AGENT_NAME = stringKey("user_agent.name");
 
   /**
+   * Value of the <a href="https://www.rfc-editor.org/rfc/rfc9110.html#field.user-agent">HTTP
+   * User-Agent</a> header sent by the client.
+   *
+   * <p>
+   *
    * @deprecated deprecated in favor of stable {@link
    *     io.opentelemetry.semconv.UserAgentAttributes#USER_AGENT_ORIGINAL} attribute.
    */

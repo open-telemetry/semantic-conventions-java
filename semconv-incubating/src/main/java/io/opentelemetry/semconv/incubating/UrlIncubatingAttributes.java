@@ -39,12 +39,32 @@ public final class UrlIncubatingAttributes {
   public static final AttributeKey<String> URL_EXTENSION = stringKey("url.extension");
 
   /**
+   * The <a href="https://www.rfc-editor.org/rfc/rfc3986#section-3.5">URI fragment</a> component
+   *
+   * <p>
+   *
    * @deprecated deprecated in favor of stable {@link
    *     io.opentelemetry.semconv.UrlAttributes#URL_FRAGMENT} attribute.
    */
   @Deprecated public static final AttributeKey<String> URL_FRAGMENT = stringKey("url.fragment");
 
   /**
+   * Absolute URL describing a network resource according to <a
+   * href="https://www.rfc-editor.org/rfc/rfc3986">RFC3986</a>
+   *
+   * <p>Notes:
+   *
+   * <p>For network calls, URL usually has {@code scheme://host[:port][path][?query][#fragment]}
+   * format, where the fragment is not transmitted over HTTP, but if it is known, it SHOULD be
+   * included nevertheless. {@code url.full} MUST NOT contain credentials passed via URL in form of
+   * {@code https://username:password@www.example.com/}. In such case username and password SHOULD
+   * be redacted and attribute's value SHOULD be {@code https://REDACTED:REDACTED@www.example.com/}.
+   * {@code url.full} SHOULD capture the absolute URL when it is available (or can be
+   * reconstructed). Sensitive content provided in {@code url.full} SHOULD be scrubbed when
+   * instrumentations can identify it.
+   *
+   * <p>
+   *
    * @deprecated deprecated in favor of stable {@link
    *     io.opentelemetry.semconv.UrlAttributes#URL_FULL} attribute.
    */
@@ -64,6 +84,15 @@ public final class UrlIncubatingAttributes {
   public static final AttributeKey<String> URL_ORIGINAL = stringKey("url.original");
 
   /**
+   * The <a href="https://www.rfc-editor.org/rfc/rfc3986#section-3.3">URI path</a> component
+   *
+   * <p>Notes:
+   *
+   * <p>Sensitive content provided in {@code url.path} SHOULD be scrubbed when instrumentations can
+   * identify it.
+   *
+   * <p>
+   *
    * @deprecated deprecated in favor of stable {@link
    *     io.opentelemetry.semconv.UrlAttributes#URL_PATH} attribute.
    */
@@ -73,6 +102,15 @@ public final class UrlIncubatingAttributes {
   public static final AttributeKey<Long> URL_PORT = longKey("url.port");
 
   /**
+   * The <a href="https://www.rfc-editor.org/rfc/rfc3986#section-3.4">URI query</a> component
+   *
+   * <p>Notes:
+   *
+   * <p>Sensitive content provided in {@code url.query} SHOULD be scrubbed when instrumentations can
+   * identify it.
+   *
+   * <p>
+   *
    * @deprecated deprecated in favor of stable {@link
    *     io.opentelemetry.semconv.UrlAttributes#URL_QUERY} attribute.
    */
@@ -92,6 +130,11 @@ public final class UrlIncubatingAttributes {
       stringKey("url.registered_domain");
 
   /**
+   * The <a href="https://www.rfc-editor.org/rfc/rfc3986#section-3.1">URI scheme</a> component
+   * identifying the used protocol.
+   *
+   * <p>
+   *
    * @deprecated deprecated in favor of stable {@link
    *     io.opentelemetry.semconv.UrlAttributes#URL_SCHEME} attribute.
    */

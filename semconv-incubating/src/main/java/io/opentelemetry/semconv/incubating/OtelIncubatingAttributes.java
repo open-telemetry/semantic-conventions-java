@@ -26,6 +26,10 @@ public final class OtelIncubatingAttributes {
   public static final AttributeKey<String> OTEL_LIBRARY_VERSION = stringKey("otel.library.version");
 
   /**
+   * The name of the instrumentation scope - ({@code InstrumentationScope.Name} in OTLP).
+   *
+   * <p>
+   *
    * @deprecated deprecated in favor of stable {@link
    *     io.opentelemetry.semconv.OtelAttributes#OTEL_SCOPE_NAME} attribute.
    */
@@ -33,6 +37,10 @@ public final class OtelIncubatingAttributes {
   public static final AttributeKey<String> OTEL_SCOPE_NAME = stringKey("otel.scope.name");
 
   /**
+   * The version of the instrumentation scope - ({@code InstrumentationScope.Version} in OTLP).
+   *
+   * <p>
+   *
    * @deprecated deprecated in favor of stable {@link
    *     io.opentelemetry.semconv.OtelAttributes#OTEL_SCOPE_VERSION} attribute.
    */
@@ -40,6 +48,10 @@ public final class OtelIncubatingAttributes {
   public static final AttributeKey<String> OTEL_SCOPE_VERSION = stringKey("otel.scope.version");
 
   /**
+   * Name of the code, either "OK" or "ERROR". MUST NOT be set if the status code is UNSET.
+   *
+   * <p>
+   *
    * @deprecated deprecated in favor of stable {@link
    *     io.opentelemetry.semconv.OtelAttributes#OTEL_STATUS_CODE} attribute.
    */
@@ -47,6 +59,10 @@ public final class OtelIncubatingAttributes {
   public static final AttributeKey<String> OTEL_STATUS_CODE = stringKey("otel.status_code");
 
   /**
+   * Description of the Status if it has a value, otherwise not set.
+   *
+   * <p>
+   *
    * @deprecated deprecated in favor of stable {@link
    *     io.opentelemetry.semconv.OtelAttributes#OTEL_STATUS_DESCRIPTION} attribute.
    */
