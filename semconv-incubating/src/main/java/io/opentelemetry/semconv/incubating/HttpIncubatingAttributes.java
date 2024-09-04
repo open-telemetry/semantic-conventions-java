@@ -372,7 +372,7 @@ public final class HttpIncubatingAttributes {
    * Values for {@link #HTTP_REQUEST_METHOD}.
    *
    * @deprecated deprecated in favor of stable {@link
-   *     io.opentelemetry.semconv.HttpAttributes#HTTP_REQUEST_METHOD} attribute.
+   *     io.opentelemetry.semconv.HttpAttributes.HttpRequestMethodValues}.
    */
   @Deprecated
   public static final class HttpRequestMethodValues {

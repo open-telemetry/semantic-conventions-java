@@ -75,7 +75,7 @@ public final class OtelIncubatingAttributes {
    * Values for {@link #OTEL_STATUS_CODE}.
    *
    * @deprecated deprecated in favor of stable {@link
-   *     io.opentelemetry.semconv.OtelAttributes#OTEL_STATUS_CODE} attribute.
+   *     io.opentelemetry.semconv.OtelAttributes.OtelStatusCodeValues}.
    */
   @Deprecated
   public static final class OtelStatusCodeValues {

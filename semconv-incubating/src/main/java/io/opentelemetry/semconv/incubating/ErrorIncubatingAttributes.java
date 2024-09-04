@@ -54,7 +54,7 @@ public final class ErrorIncubatingAttributes {
    * Values for {@link #ERROR_TYPE}.
    *
    * @deprecated deprecated in favor of stable {@link
-   *     io.opentelemetry.semconv.ErrorAttributes#ERROR_TYPE} attribute.
+   *     io.opentelemetry.semconv.ErrorAttributes.ErrorTypeValues}.
    */
   @Deprecated
   public static final class ErrorTypeValues {

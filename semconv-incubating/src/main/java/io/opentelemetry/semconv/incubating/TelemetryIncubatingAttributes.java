@@ -78,7 +78,7 @@ public final class TelemetryIncubatingAttributes {
    * Values for {@link #TELEMETRY_SDK_LANGUAGE}.
    *
    * @deprecated deprecated in favor of stable {@link
-   *     io.opentelemetry.semconv.TelemetryAttributes#TELEMETRY_SDK_LANGUAGE} attribute.
+   *     io.opentelemetry.semconv.TelemetryAttributes.TelemetrySdkLanguageValues}.
    */
   @Deprecated
   public static final class TelemetrySdkLanguageValues {

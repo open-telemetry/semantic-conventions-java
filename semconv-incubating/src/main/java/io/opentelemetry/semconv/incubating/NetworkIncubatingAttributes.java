@@ -256,7 +256,7 @@ public final class NetworkIncubatingAttributes {
    * Values for {@link #NETWORK_TRANSPORT}.
    *
    * @deprecated deprecated in favor of stable {@link
-   *     io.opentelemetry.semconv.NetworkAttributes#NETWORK_TRANSPORT} attribute.
+   *     io.opentelemetry.semconv.NetworkAttributes.NetworkTransportValues}.
    */
   @Deprecated
   public static final class NetworkTransportValues {
@@ -282,7 +282,7 @@ public final class NetworkIncubatingAttributes {
    * Values for {@link #NETWORK_TYPE}.
    *
    * @deprecated deprecated in favor of stable {@link
-   *     io.opentelemetry.semconv.NetworkAttributes#NETWORK_TYPE} attribute.
+   *     io.opentelemetry.semconv.NetworkAttributes.NetworkTypeValues}.
    */
   @Deprecated
   public static final class NetworkTypeValues {

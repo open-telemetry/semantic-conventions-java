@@ -108,7 +108,7 @@ public final class JvmIncubatingAttributes {
    * Values for {@link #JVM_MEMORY_TYPE}.
    *
    * @deprecated deprecated in favor of stable {@link
-   *     io.opentelemetry.semconv.JvmAttributes#JVM_MEMORY_TYPE} attribute.
+   *     io.opentelemetry.semconv.JvmAttributes.JvmMemoryTypeValues}.
    */
   @Deprecated
   public static final class JvmMemoryTypeValues {
@@ -125,7 +125,7 @@ public final class JvmIncubatingAttributes {
    * Values for {@link #JVM_THREAD_STATE}.
    *
    * @deprecated deprecated in favor of stable {@link
-   *     io.opentelemetry.semconv.JvmAttributes#JVM_THREAD_STATE} attribute.
+   *     io.opentelemetry.semconv.JvmAttributes.JvmThreadStateValues}.
    */
   @Deprecated
   public static final class JvmThreadStateValues {
