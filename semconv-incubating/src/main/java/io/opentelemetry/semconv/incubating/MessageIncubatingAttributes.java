@@ -56,7 +56,7 @@ public final class MessageIncubatingAttributes {
 
   // Enum definitions
   /**
-   * Values for {@link MESSAGE_TYPE}
+   * Values for {@link #MESSAGE_TYPE}
    *
    * @deprecated Replaced by {@code rpc.message.type}.
    */

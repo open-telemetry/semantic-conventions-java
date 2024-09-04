@@ -342,7 +342,7 @@ public final class HttpIncubatingAttributes {
   }
 
   /**
-   * Values for {@link HTTP_FLAVOR}
+   * Values for {@link #HTTP_FLAVOR}
    *
    * @deprecated Replaced by {@code network.protocol.name}.
    */

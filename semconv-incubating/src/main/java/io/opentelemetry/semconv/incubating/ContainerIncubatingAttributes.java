@@ -120,7 +120,7 @@ public final class ContainerIncubatingAttributes {
 
   // Enum definitions
   /**
-   * Values for {@link CONTAINER_CPU_STATE}
+   * Values for {@link #CONTAINER_CPU_STATE}
    *
    * @deprecated Replaced by {@code cpu.mode}
    */

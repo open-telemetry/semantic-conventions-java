@@ -162,7 +162,7 @@ public final class NetIncubatingAttributes {
 
   // Enum definitions
   /**
-   * Values for {@link NET_SOCK_FAMILY}
+   * Values for {@link #NET_SOCK_FAMILY}
    *
    * @deprecated Split to {@code network.transport} and {@code network.type}.
    */
@@ -180,7 +180,7 @@ public final class NetIncubatingAttributes {
   }
 
   /**
-   * Values for {@link NET_TRANSPORT}
+   * Values for {@link #NET_TRANSPORT}
    *
    * @deprecated Replaced by {@code network.transport}.
    */

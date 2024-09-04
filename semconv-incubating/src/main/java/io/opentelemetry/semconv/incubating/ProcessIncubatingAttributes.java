@@ -168,7 +168,7 @@ public final class ProcessIncubatingAttributes {
   }
 
   /**
-   * Values for {@link PROCESS_CPU_STATE}
+   * Values for {@link #PROCESS_CPU_STATE}
    *
    * @deprecated Replaced by {@code cpu.mode}
    */

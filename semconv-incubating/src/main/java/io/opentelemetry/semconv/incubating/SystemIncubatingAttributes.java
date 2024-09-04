@@ -84,7 +84,7 @@ public final class SystemIncubatingAttributes {
 
   // Enum definitions
   /**
-   * Values for {@link SYSTEM_CPU_STATE}
+   * Values for {@link #SYSTEM_CPU_STATE}
    *
    * @deprecated Replaced by {@code cpu.mode}
    */
@@ -262,7 +262,7 @@ public final class SystemIncubatingAttributes {
   }
 
   /**
-   * Values for {@link SYSTEM_PROCESSES_STATUS}
+   * Values for {@link #SYSTEM_PROCESSES_STATUS}
    *
    * @deprecated Replaced by {@code system.process.status}.
    */

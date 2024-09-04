@@ -24,7 +24,7 @@ public final class OtherIncubatingAttributes {
 
   // Enum definitions
   /**
-   * Values for {@link STATE}
+   * Values for {@link #STATE}
    *
    * @deprecated Replaced by {@code db.client.connection.state}.
    */

@@ -421,7 +421,7 @@ public final class DbIncubatingAttributes {
   }
 
   /**
-   * Values for {@link DB_CLIENT_CONNECTIONS_STATE}
+   * Values for {@link #DB_CLIENT_CONNECTIONS_STATE}
    *
    * @deprecated Replaced by {@code db.client.connection.state}.
    */
