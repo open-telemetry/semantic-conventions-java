@@ -346,6 +346,7 @@ public final class HttpIncubatingAttributes {
    *
    * @deprecated Replaced by {@code network.protocol.name}.
    */
+  @Deprecated
   public static final class HttpFlavorValues {
     /** HTTP/1.0 */
     public static final String HTTP_1_0 = "1.0";

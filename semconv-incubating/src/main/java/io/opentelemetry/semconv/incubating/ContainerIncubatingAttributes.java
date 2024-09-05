@@ -124,6 +124,7 @@ public final class ContainerIncubatingAttributes {
    *
    * @deprecated Replaced by {@code cpu.mode}
    */
+  @Deprecated
   public static final class ContainerCpuStateValues {
     /**
      * When tasks of the cgroup are in user mode (Linux). When all container processes are in user

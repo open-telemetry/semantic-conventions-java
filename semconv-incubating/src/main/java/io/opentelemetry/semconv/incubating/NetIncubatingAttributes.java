@@ -166,6 +166,7 @@ public final class NetIncubatingAttributes {
    *
    * @deprecated Split to {@code network.transport} and {@code network.type}.
    */
+  @Deprecated
   public static final class NetSockFamilyValues {
     /** IPv4 address */
     public static final String INET = "inet";
@@ -184,6 +185,7 @@ public final class NetIncubatingAttributes {
    *
    * @deprecated Replaced by {@code network.transport}.
    */
+  @Deprecated
   public static final class NetTransportValues {
     /** ip_tcp. */
     public static final String IP_TCP = "ip_tcp";

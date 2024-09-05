@@ -88,6 +88,7 @@ public final class SystemIncubatingAttributes {
    *
    * @deprecated Replaced by {@code cpu.mode}
    */
+  @Deprecated
   public static final class SystemCpuStateValues {
     /** user. */
     public static final String USER = "user";
@@ -266,6 +267,7 @@ public final class SystemIncubatingAttributes {
    *
    * @deprecated Replaced by {@code system.process.status}.
    */
+  @Deprecated
   public static final class SystemProcessesStatusValues {
     /** running. */
     public static final String RUNNING = "running";

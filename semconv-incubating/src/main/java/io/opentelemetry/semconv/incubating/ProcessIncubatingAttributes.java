@@ -172,6 +172,7 @@ public final class ProcessIncubatingAttributes {
    *
    * @deprecated Replaced by {@code cpu.mode}
    */
+  @Deprecated
   public static final class ProcessCpuStateValues {
     /** system. */
     public static final String SYSTEM = "system";

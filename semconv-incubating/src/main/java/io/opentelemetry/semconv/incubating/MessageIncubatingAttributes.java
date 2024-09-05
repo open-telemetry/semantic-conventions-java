@@ -60,6 +60,7 @@ public final class MessageIncubatingAttributes {
    *
    * @deprecated Replaced by {@code rpc.message.type}.
    */
+  @Deprecated
   public static final class MessageTypeValues {
     /** sent. */
     public static final String SENT = "SENT";

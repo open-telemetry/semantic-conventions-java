@@ -28,6 +28,7 @@ public final class OtherIncubatingAttributes {
    *
    * @deprecated Replaced by {@code db.client.connection.state}.
    */
+  @Deprecated
   public static final class StateValues {
     /** idle. */
     public static final String IDLE = "idle";
