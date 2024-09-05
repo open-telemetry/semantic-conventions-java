@@ -62,7 +62,7 @@ public final class {{ my_class_name }} {
     {%- else -%}
     /** Values for {@link #{{ attribute.name | screaming_snake_case }}}. */
     {%- endif -%}
-    {% if attribute is stable %}@Deprecated{% endif %}
+    {% if attribute is stable or attribute is deprecated %}@Deprecated{% endif %}
     public static final class {{ attribute.name | pascal_case }}Values {
       {%- for member in attribute.type.members %}
       {{ [member.brief or (member.id ~ '.')] | comment(indent=4) }}
