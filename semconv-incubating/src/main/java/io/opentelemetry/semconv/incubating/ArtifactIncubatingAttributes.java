@@ -10,10 +10,9 @@ import static io.opentelemetry.api.common.AttributeKey.stringKey;
 import io.opentelemetry.api.common.AttributeKey;
 
 // DO NOT EDIT, this is an Auto-generated file from
-// buildscripts/templates/SemanticAttributes.java.j2
+// buildscripts/templates/registry/incubating_java/IncubatingSemanticAttributes.java.j2
 @SuppressWarnings("unused")
 public final class ArtifactIncubatingAttributes {
-
   /**
    * The provenance filename of the built attestation which directly relates to the build artifact
    * filename. This filename SHOULD accompany the artifact at publish time. See the <a
@@ -42,13 +41,11 @@ public final class ArtifactIncubatingAttributes {
    *
    * <p>Notes:
    *
-   * <ul>
-   *   <li>This file name can also act as the <a
-   *       href="https://slsa.dev/spec/v1.0/terminology#package-model">Package Name</a> in cases
-   *       where the package ecosystem maps accordingly. Additionally, the artifact <a
-   *       href="https://slsa.dev/spec/v1.0/terminology#software-supply-chain">can be published</a>
-   *       for others, but that is not a guarantee.
-   * </ul>
+   * <p>This file name can also act as the <a
+   * href="https://slsa.dev/spec/v1.0/terminology#package-model">Package Name</a> in cases where the
+   * package ecosystem maps accordingly. Additionally, the artifact <a
+   * href="https://slsa.dev/spec/v1.0/terminology#software-supply-chain">can be published</a> for
+   * others, but that is not a guarantee.
    */
   public static final AttributeKey<String> ARTIFACT_FILENAME = stringKey("artifact.filename");
 
@@ -59,14 +56,12 @@ public final class ArtifactIncubatingAttributes {
    *
    * <p>Notes:
    *
-   * <ul>
-   *   <li>The specific algorithm used to create the cryptographic hash value is not defined. In
-   *       situations where an artifact has multiple cryptographic hashes, it is up to the
-   *       implementer to choose which hash value to set here; this should be the most secure hash
-   *       algorithm that is suitable for the situation and consistent with the corresponding
-   *       attestation. The implementer can then provide the other hash values through an additional
-   *       set of attribute extensions as they deem necessary.
-   * </ul>
+   * <p>The specific algorithm used to create the cryptographic hash value is not defined. In
+   * situations where an artifact has multiple cryptographic hashes, it is up to the implementer to
+   * choose which hash value to set here; this should be the most secure hash algorithm that is
+   * suitable for the situation and consistent with the corresponding attestation. The implementer
+   * can then provide the other hash values through an additional set of attribute extensions as
+   * they deem necessary.
    */
   public static final AttributeKey<String> ARTIFACT_HASH = stringKey("artifact.hash");
 
@@ -79,6 +74,8 @@ public final class ArtifactIncubatingAttributes {
 
   /** The version of the artifact. */
   public static final AttributeKey<String> ARTIFACT_VERSION = stringKey("artifact.version");
+
+  // Enum definitions
 
   private ArtifactIncubatingAttributes() {}
 }

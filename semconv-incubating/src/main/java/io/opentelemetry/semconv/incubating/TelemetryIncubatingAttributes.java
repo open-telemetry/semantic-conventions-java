@@ -10,20 +10,17 @@ import static io.opentelemetry.api.common.AttributeKey.stringKey;
 import io.opentelemetry.api.common.AttributeKey;
 
 // DO NOT EDIT, this is an Auto-generated file from
-// buildscripts/templates/SemanticAttributes.java.j2
+// buildscripts/templates/registry/incubating_java/IncubatingSemanticAttributes.java.j2
 @SuppressWarnings("unused")
 public final class TelemetryIncubatingAttributes {
-
   /**
    * The name of the auto instrumentation agent or distribution, if used.
    *
    * <p>Notes:
    *
-   * <ul>
-   *   <li>Official auto instrumentation agents and distributions SHOULD set the {@code
-   *       telemetry.distro.name} attribute to a string starting with {@code opentelemetry-}, e.g.
-   *       {@code opentelemetry-java-instrumentation}.
-   * </ul>
+   * <p>Official auto instrumentation agents and distributions SHOULD set the {@code
+   * telemetry.distro.name} attribute to a string starting with {@code opentelemetry-}, e.g. {@code
+   * opentelemetry-java-instrumentation}.
    */
   public static final AttributeKey<String> TELEMETRY_DISTRO_NAME =
       stringKey("telemetry.distro.name");
@@ -34,6 +31,8 @@ public final class TelemetryIncubatingAttributes {
 
   /**
    * The language of the telemetry SDK.
+   *
+   * <p>
    *
    * @deprecated deprecated in favor of stable {@link
    *     io.opentelemetry.semconv.TelemetryAttributes#TELEMETRY_SDK_LANGUAGE} attribute.
@@ -47,15 +46,14 @@ public final class TelemetryIncubatingAttributes {
    *
    * <p>Notes:
    *
-   * <ul>
-   *   <li>The OpenTelemetry SDK MUST set the {@code telemetry.sdk.name} attribute to {@code
-   *       opentelemetry}. If another SDK, like a fork or a vendor-provided implementation, is used,
-   *       this SDK MUST set the {@code telemetry.sdk.name} attribute to the fully-qualified class
-   *       or module name of this SDK's main entry point or another suitable identifier depending on
-   *       the language. The identifier {@code opentelemetry} is reserved and MUST NOT be used in
-   *       this case. All custom identifiers SHOULD be stable across different versions of an
-   *       implementation.
-   * </ul>
+   * <p>The OpenTelemetry SDK MUST set the {@code telemetry.sdk.name} attribute to {@code
+   * opentelemetry}. If another SDK, like a fork or a vendor-provided implementation, is used, this
+   * SDK MUST set the {@code telemetry.sdk.name} attribute to the fully-qualified class or module
+   * name of this SDK's main entry point or another suitable identifier depending on the language.
+   * The identifier {@code opentelemetry} is reserved and MUST NOT be used in this case. All custom
+   * identifiers SHOULD be stable across different versions of an implementation.
+   *
+   * <p>
    *
    * @deprecated deprecated in favor of stable {@link
    *     io.opentelemetry.semconv.TelemetryAttributes#TELEMETRY_SDK_NAME} attribute.
@@ -65,6 +63,8 @@ public final class TelemetryIncubatingAttributes {
 
   /**
    * The version string of the telemetry SDK.
+   *
+   * <p>
    *
    * @deprecated deprecated in favor of stable {@link
    *     io.opentelemetry.semconv.TelemetryAttributes#TELEMETRY_SDK_VERSION} attribute.
@@ -78,7 +78,7 @@ public final class TelemetryIncubatingAttributes {
    * Values for {@link #TELEMETRY_SDK_LANGUAGE}.
    *
    * @deprecated deprecated in favor of stable {@link
-   *     io.opentelemetry.semconv.TelemetryAttributes.TelemetrySdkLanguageValues} attribute.
+   *     io.opentelemetry.semconv.TelemetryAttributes.TelemetrySdkLanguageValues}.
    */
   @Deprecated
   public static final class TelemetrySdkLanguageValues {

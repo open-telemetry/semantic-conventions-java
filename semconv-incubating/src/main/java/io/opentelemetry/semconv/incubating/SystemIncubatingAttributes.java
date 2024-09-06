@@ -11,10 +11,9 @@ import static io.opentelemetry.api.common.AttributeKey.stringKey;
 import io.opentelemetry.api.common.AttributeKey;
 
 // DO NOT EDIT, this is an Auto-generated file from
-// buildscripts/templates/SemanticAttributes.java.j2
+// buildscripts/templates/registry/incubating_java/IncubatingSemanticAttributes.java.j2
 @SuppressWarnings("unused")
 public final class SystemIncubatingAttributes {
-
   /** The logical CPU number [0..n-1] */
   public static final AttributeKey<Long> SYSTEM_CPU_LOGICAL_NUMBER =
       longKey("system.cpu.logical_number");
@@ -22,7 +21,9 @@ public final class SystemIncubatingAttributes {
   /**
    * Deprecated, use {@code cpu.mode} instead.
    *
-   * @deprecated Deprecated, use `cpu.mode` instead.
+   * <p>
+   *
+   * @deprecated Replaced by {@code cpu.mode}
    */
   @Deprecated
   public static final AttributeKey<String> SYSTEM_CPU_STATE = stringKey("system.cpu.state");
@@ -73,7 +74,9 @@ public final class SystemIncubatingAttributes {
   /**
    * Deprecated, use {@code system.process.status} instead.
    *
-   * @deprecated Deprecated, use `system.process.status` instead.
+   * <p>
+   *
+   * @deprecated Replaced by {@code system.process.status}.
    */
   @Deprecated
   public static final AttributeKey<String> SYSTEM_PROCESSES_STATUS =
@@ -81,9 +84,9 @@ public final class SystemIncubatingAttributes {
 
   // Enum definitions
   /**
-   * Values for {@link #SYSTEM_CPU_STATE}.
+   * Values for {@link #SYSTEM_CPU_STATE}
    *
-   * @deprecated Deprecated, use `cpu.mode` instead.
+   * @deprecated Replaced by {@code cpu.mode}
    */
   @Deprecated
   public static final class SystemCpuStateValues {
@@ -260,9 +263,9 @@ public final class SystemIncubatingAttributes {
   }
 
   /**
-   * Values for {@link #SYSTEM_PROCESSES_STATUS}.
+   * Values for {@link #SYSTEM_PROCESSES_STATUS}
    *
-   * @deprecated Deprecated, use `system.process.status` instead.
+   * @deprecated Replaced by {@code system.process.status}.
    */
   @Deprecated
   public static final class SystemProcessesStatusValues {

@@ -14,10 +14,9 @@ import io.opentelemetry.semconv.AttributeKeyTemplate;
 import java.util.List;
 
 // DO NOT EDIT, this is an Auto-generated file from
-// buildscripts/templates/SemanticAttributes.java.j2
+// buildscripts/templates/registry/incubating_java/IncubatingSemanticAttributes.java.j2
 @SuppressWarnings("unused")
 public final class RpcIncubatingAttributes {
-
   /**
    * The <a href="https://connect.build/docs/protocol/#error-codes">error codes</a> of the Connect
    * request. Error codes are always string values.
@@ -31,11 +30,9 @@ public final class RpcIncubatingAttributes {
    *
    * <p>Notes:
    *
-   * <ul>
-   *   <li>Instrumentations SHOULD require an explicit configuration of which metadata values are to
-   *       be captured. Including all request metadata values can be a security risk - explicit
-   *       configuration helps avoid leaking sensitive information.
-   * </ul>
+   * <p>Instrumentations SHOULD require an explicit configuration of which metadata values are to be
+   * captured. Including all request metadata values can be a security risk - explicit configuration
+   * helps avoid leaking sensitive information.
    */
   public static final AttributeKeyTemplate<List<String>> RPC_CONNECT_RPC_REQUEST_METADATA =
       stringArrayKeyTemplate("rpc.connect_rpc.request.metadata");
@@ -46,11 +43,9 @@ public final class RpcIncubatingAttributes {
    *
    * <p>Notes:
    *
-   * <ul>
-   *   <li>Instrumentations SHOULD require an explicit configuration of which metadata values are to
-   *       be captured. Including all response metadata values can be a security risk - explicit
-   *       configuration helps avoid leaking sensitive information.
-   * </ul>
+   * <p>Instrumentations SHOULD require an explicit configuration of which metadata values are to be
+   * captured. Including all response metadata values can be a security risk - explicit
+   * configuration helps avoid leaking sensitive information.
    */
   public static final AttributeKeyTemplate<List<String>> RPC_CONNECT_RPC_RESPONSE_METADATA =
       stringArrayKeyTemplate("rpc.connect_rpc.response.metadata");
@@ -61,11 +56,9 @@ public final class RpcIncubatingAttributes {
    *
    * <p>Notes:
    *
-   * <ul>
-   *   <li>Instrumentations SHOULD require an explicit configuration of which metadata values are to
-   *       be captured. Including all request metadata values can be a security risk - explicit
-   *       configuration helps avoid leaking sensitive information.
-   * </ul>
+   * <p>Instrumentations SHOULD require an explicit configuration of which metadata values are to be
+   * captured. Including all request metadata values can be a security risk - explicit configuration
+   * helps avoid leaking sensitive information.
    */
   public static final AttributeKeyTemplate<List<String>> RPC_GRPC_REQUEST_METADATA =
       stringArrayKeyTemplate("rpc.grpc.request.metadata");
@@ -76,11 +69,9 @@ public final class RpcIncubatingAttributes {
    *
    * <p>Notes:
    *
-   * <ul>
-   *   <li>Instrumentations SHOULD require an explicit configuration of which metadata values are to
-   *       be captured. Including all response metadata values can be a security risk - explicit
-   *       configuration helps avoid leaking sensitive information.
-   * </ul>
+   * <p>Instrumentations SHOULD require an explicit configuration of which metadata values are to be
+   * captured. Including all response metadata values can be a security risk - explicit
+   * configuration helps avoid leaking sensitive information.
    */
   public static final AttributeKeyTemplate<List<String>> RPC_GRPC_RESPONSE_METADATA =
       stringArrayKeyTemplate("rpc.grpc.response.metadata");
@@ -122,10 +113,7 @@ public final class RpcIncubatingAttributes {
    *
    * <p>Notes:
    *
-   * <ul>
-   *   <li>This way we guarantee that the values will be consistent between different
-   *       implementations.
-   * </ul>
+   * <p>This way we guarantee that the values will be consistent between different implementations.
    */
   public static final AttributeKey<Long> RPC_MESSAGE_ID = longKey("rpc.message.id");
 
@@ -142,12 +130,10 @@ public final class RpcIncubatingAttributes {
    *
    * <p>Notes:
    *
-   * <ul>
-   *   <li>This is the logical name of the method from the RPC interface perspective, which can be
-   *       different from the name of any implementing method/function. The {@code code.function}
-   *       attribute may be used to store the latter (e.g., method actually executing the call on
-   *       the server side, RPC client stub method on the client side).
-   * </ul>
+   * <p>This is the logical name of the method from the RPC interface perspective, which can be
+   * different from the name of any implementing method/function. The {@code code.function}
+   * attribute may be used to store the latter (e.g., method actually executing the call on the
+   * server side, RPC client stub method on the client side).
    */
   public static final AttributeKey<String> RPC_METHOD = stringKey("rpc.method");
 
@@ -156,13 +142,11 @@ public final class RpcIncubatingAttributes {
    *
    * <p>Notes:
    *
-   * <ul>
-   *   <li>This is the logical name of the service from the RPC interface perspective, which can be
-   *       different from the name of any implementing class. The {@code code.namespace} attribute
-   *       may be used to store the latter (despite the attribute name, it may include a class name;
-   *       e.g., class with method actually executing the call on the server side, RPC client stub
-   *       class on the client side).
-   * </ul>
+   * <p>This is the logical name of the service from the RPC interface perspective, which can be
+   * different from the name of any implementing class. The {@code code.namespace} attribute may be
+   * used to store the latter (despite the attribute name, it may include a class name; e.g., class
+   * with method actually executing the call on the server side, RPC client stub class on the client
+   * side).
    */
   public static final AttributeKey<String> RPC_SERVICE = stringKey("rpc.service");
 
@@ -225,55 +209,55 @@ public final class RpcIncubatingAttributes {
 
   /** Values for {@link #RPC_GRPC_STATUS_CODE}. */
   public static final class RpcGrpcStatusCodeValues {
-    /** OK. */
+    /** OK */
     public static final long OK = 0;
 
-    /** CANCELLED. */
+    /** CANCELLED */
     public static final long CANCELLED = 1;
 
-    /** UNKNOWN. */
+    /** UNKNOWN */
     public static final long UNKNOWN = 2;
 
-    /** INVALID_ARGUMENT. */
+    /** INVALID_ARGUMENT */
     public static final long INVALID_ARGUMENT = 3;
 
-    /** DEADLINE_EXCEEDED. */
+    /** DEADLINE_EXCEEDED */
     public static final long DEADLINE_EXCEEDED = 4;
 
-    /** NOT_FOUND. */
+    /** NOT_FOUND */
     public static final long NOT_FOUND = 5;
 
-    /** ALREADY_EXISTS. */
+    /** ALREADY_EXISTS */
     public static final long ALREADY_EXISTS = 6;
 
-    /** PERMISSION_DENIED. */
+    /** PERMISSION_DENIED */
     public static final long PERMISSION_DENIED = 7;
 
-    /** RESOURCE_EXHAUSTED. */
+    /** RESOURCE_EXHAUSTED */
     public static final long RESOURCE_EXHAUSTED = 8;
 
-    /** FAILED_PRECONDITION. */
+    /** FAILED_PRECONDITION */
     public static final long FAILED_PRECONDITION = 9;
 
-    /** ABORTED. */
+    /** ABORTED */
     public static final long ABORTED = 10;
 
-    /** OUT_OF_RANGE. */
+    /** OUT_OF_RANGE */
     public static final long OUT_OF_RANGE = 11;
 
-    /** UNIMPLEMENTED. */
+    /** UNIMPLEMENTED */
     public static final long UNIMPLEMENTED = 12;
 
-    /** INTERNAL. */
+    /** INTERNAL */
     public static final long INTERNAL = 13;
 
-    /** UNAVAILABLE. */
+    /** UNAVAILABLE */
     public static final long UNAVAILABLE = 14;
 
-    /** DATA_LOSS. */
+    /** DATA_LOSS */
     public static final long DATA_LOSS = 15;
 
-    /** UNAUTHENTICATED. */
+    /** UNAUTHENTICATED */
     public static final long UNAUTHENTICATED = 16;
 
     private RpcGrpcStatusCodeValues() {}
@@ -292,19 +276,19 @@ public final class RpcIncubatingAttributes {
 
   /** Values for {@link #RPC_SYSTEM}. */
   public static final class RpcSystemValues {
-    /** gRPC. */
+    /** gRPC */
     public static final String GRPC = "grpc";
 
-    /** Java RMI. */
+    /** Java RMI */
     public static final String JAVA_RMI = "java_rmi";
 
-    /** .NET WCF. */
+    /** .NET WCF */
     public static final String DOTNET_WCF = "dotnet_wcf";
 
-    /** Apache Dubbo. */
+    /** Apache Dubbo */
     public static final String APACHE_DUBBO = "apache_dubbo";
 
-    /** Connect RPC. */
+    /** Connect RPC */
     public static final String CONNECT_RPC = "connect_rpc";
 
     private RpcSystemValues() {}

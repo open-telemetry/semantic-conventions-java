@@ -10,10 +10,9 @@ import static io.opentelemetry.api.common.AttributeKey.stringKey;
 import io.opentelemetry.api.common.AttributeKey;
 
 // DO NOT EDIT, this is an Auto-generated file from
-// buildscripts/templates/SemanticAttributes.java.j2
+// buildscripts/templates/registry/incubating_java/IncubatingSemanticAttributes.java.j2
 @SuppressWarnings("unused")
 public final class OsIncubatingAttributes {
-
   /** Unique identifier for a particular build or compilation of the operating system. */
   public static final AttributeKey<String> OS_BUILD_ID = stringKey("os.build_id");
 
@@ -38,37 +37,37 @@ public final class OsIncubatingAttributes {
   // Enum definitions
   /** Values for {@link #OS_TYPE}. */
   public static final class OsTypeValues {
-    /** Microsoft Windows. */
+    /** Microsoft Windows */
     public static final String WINDOWS = "windows";
 
-    /** Linux. */
+    /** Linux */
     public static final String LINUX = "linux";
 
-    /** Apple Darwin. */
+    /** Apple Darwin */
     public static final String DARWIN = "darwin";
 
-    /** FreeBSD. */
+    /** FreeBSD */
     public static final String FREEBSD = "freebsd";
 
-    /** NetBSD. */
+    /** NetBSD */
     public static final String NETBSD = "netbsd";
 
-    /** OpenBSD. */
+    /** OpenBSD */
     public static final String OPENBSD = "openbsd";
 
-    /** DragonFly BSD. */
+    /** DragonFly BSD */
     public static final String DRAGONFLYBSD = "dragonflybsd";
 
-    /** HP-UX (Hewlett Packard Unix). */
+    /** HP-UX (Hewlett Packard Unix) */
     public static final String HPUX = "hpux";
 
-    /** AIX (Advanced Interactive eXecutive). */
+    /** AIX (Advanced Interactive eXecutive) */
     public static final String AIX = "aix";
 
-    /** SunOS, Oracle Solaris. */
+    /** SunOS, Oracle Solaris */
     public static final String SOLARIS = "solaris";
 
-    /** IBM z/OS. */
+    /** IBM z/OS */
     public static final String Z_OS = "z_os";
 
     private OsTypeValues() {}

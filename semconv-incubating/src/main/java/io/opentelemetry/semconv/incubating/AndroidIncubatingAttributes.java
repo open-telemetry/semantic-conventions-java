@@ -10,10 +10,9 @@ import static io.opentelemetry.api.common.AttributeKey.stringKey;
 import io.opentelemetry.api.common.AttributeKey;
 
 // DO NOT EDIT, this is an Auto-generated file from
-// buildscripts/templates/SemanticAttributes.java.j2
+// buildscripts/templates/registry/incubating_java/IncubatingSemanticAttributes.java.j2
 @SuppressWarnings("unused")
 public final class AndroidIncubatingAttributes {
-
   /**
    * Uniquely identifies the framework API revision offered by a version ({@code os.version}) of the
    * android operating system. More information can be found <a
@@ -27,11 +26,9 @@ public final class AndroidIncubatingAttributes {
    *
    * <p>Notes:
    *
-   * <ul>
-   *   <li>The Android lifecycle states are defined in <a
-   *       href="https://developer.android.com/guide/components/activities/activity-lifecycle#lc">Activity
-   *       lifecycle callbacks</a>, and from which the {@code OS identifiers} are derived.
-   * </ul>
+   * <p>The Android lifecycle states are defined in <a
+   * href="https://developer.android.com/guide/components/activities/activity-lifecycle#lc">Activity
+   * lifecycle callbacks</a>, and from which the {@code OS identifiers} are derived.
    */
   public static final AttributeKey<String> ANDROID_STATE = stringKey("android.state");
 

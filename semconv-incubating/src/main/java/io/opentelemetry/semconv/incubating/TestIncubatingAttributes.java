@@ -10,10 +10,9 @@ import static io.opentelemetry.api.common.AttributeKey.stringKey;
 import io.opentelemetry.api.common.AttributeKey;
 
 // DO NOT EDIT, this is an Auto-generated file from
-// buildscripts/templates/SemanticAttributes.java.j2
+// buildscripts/templates/registry/incubating_java/IncubatingSemanticAttributes.java.j2
 @SuppressWarnings("unused")
 public final class TestIncubatingAttributes {
-
   /**
    * The fully qualified human readable name of the <a
    * href="https://en.wikipedia.org/wiki/Test_case">test case</a>.
@@ -36,10 +35,10 @@ public final class TestIncubatingAttributes {
   // Enum definitions
   /** Values for {@link #TEST_CASE_RESULT_STATUS}. */
   public static final class TestCaseResultStatusValues {
-    /** pass. */
+    /** pass */
     public static final String PASS = "pass";
 
-    /** fail. */
+    /** fail */
     public static final String FAIL = "fail";
 
     private TestCaseResultStatusValues() {}
@@ -47,22 +46,22 @@ public final class TestIncubatingAttributes {
 
   /** Values for {@link #TEST_SUITE_RUN_STATUS}. */
   public static final class TestSuiteRunStatusValues {
-    /** success. */
+    /** success */
     public static final String SUCCESS = "success";
 
-    /** failure. */
+    /** failure */
     public static final String FAILURE = "failure";
 
-    /** skipped. */
+    /** skipped */
     public static final String SKIPPED = "skipped";
 
-    /** aborted. */
+    /** aborted */
     public static final String ABORTED = "aborted";
 
-    /** timed_out. */
+    /** timed_out */
     public static final String TIMED_OUT = "timed_out";
 
-    /** in_progress. */
+    /** in_progress */
     public static final String IN_PROGRESS = "in_progress";
 
     private TestSuiteRunStatusValues() {}

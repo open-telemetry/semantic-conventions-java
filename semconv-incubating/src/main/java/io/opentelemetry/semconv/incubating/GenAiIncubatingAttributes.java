@@ -14,19 +14,16 @@ import io.opentelemetry.api.common.AttributeKey;
 import java.util.List;
 
 // DO NOT EDIT, this is an Auto-generated file from
-// buildscripts/templates/SemanticAttributes.java.j2
+// buildscripts/templates/registry/incubating_java/IncubatingSemanticAttributes.java.j2
 @SuppressWarnings("unused")
 public final class GenAiIncubatingAttributes {
-
   /**
    * The full response received from the GenAI model.
    *
    * <p>Notes:
    *
-   * <ul>
-   *   <li>It's RECOMMENDED to format completions as JSON string matching <a
-   *       href="https://platform.openai.com/docs/guides/text-generation">OpenAI messages format</a>
-   * </ul>
+   * <p>It's RECOMMENDED to format completions as JSON string matching <a
+   * href="https://platform.openai.com/docs/guides/text-generation">OpenAI messages format</a>
    */
   public static final AttributeKey<String> GEN_AI_COMPLETION = stringKey("gen_ai.completion");
 
@@ -35,12 +32,10 @@ public final class GenAiIncubatingAttributes {
    *
    * <p>Notes:
    *
-   * <ul>
-   *   <li>If one of the predefined values applies, but specific system uses a different name it's
-   *       RECOMMENDED to document it in the semantic conventions for specific GenAI system and use
-   *       system-specific name in the instrumentation. If a different name is not documented,
-   *       instrumentation libraries SHOULD use applicable predefined value.
-   * </ul>
+   * <p>If one of the predefined values applies, but specific system uses a different name it's
+   * RECOMMENDED to document it in the semantic conventions for specific GenAI system and use
+   * system-specific name in the instrumentation. If a different name is not documented,
+   * instrumentation libraries SHOULD use applicable predefined value.
    */
   public static final AttributeKey<String> GEN_AI_OPERATION_NAME =
       stringKey("gen_ai.operation.name");
@@ -50,10 +45,8 @@ public final class GenAiIncubatingAttributes {
    *
    * <p>Notes:
    *
-   * <ul>
-   *   <li>It's RECOMMENDED to format prompts as JSON string matching <a
-   *       href="https://platform.openai.com/docs/guides/text-generation">OpenAI messages format</a>
-   * </ul>
+   * <p>It's RECOMMENDED to format prompts as JSON string matching <a
+   * href="https://platform.openai.com/docs/guides/text-generation">OpenAI messages format</a>
    */
   public static final AttributeKey<String> GEN_AI_PROMPT = stringKey("gen_ai.prompt");
 
@@ -105,15 +98,15 @@ public final class GenAiIncubatingAttributes {
    *
    * <p>Notes:
    *
-   * <ul>
-   *   <li>The {@code gen_ai.system} describes a family of GenAI models with specific model
-   *       identified by {@code gen_ai.request.model} and {@code gen_ai.response.model} attributes.
-   *   <li>The actual GenAI product may differ from the one identified by the client. For example,
-   *       when using OpenAI client libraries to communicate with Mistral, the {@code gen_ai.system}
-   *       is set to {@code openai} based on the instrumentation's best knowledge.
-   *   <li>For custom model, a custom friendly name SHOULD be used. If none of these options apply,
-   *       the {@code gen_ai.system} SHOULD be set to {@code _OTHER}.
-   * </ul>
+   * <p>The {@code gen_ai.system} describes a family of GenAI models with specific model identified
+   * by {@code gen_ai.request.model} and {@code gen_ai.response.model} attributes.
+   *
+   * <p>The actual GenAI product may differ from the one identified by the client. For example, when
+   * using OpenAI client libraries to communicate with Mistral, the {@code gen_ai.system} is set to
+   * {@code openai} based on the instrumentation's best knowledge.
+   *
+   * <p>For custom model, a custom friendly name SHOULD be used. If none of these options apply, the
+   * {@code gen_ai.system} SHOULD be set to {@code _OTHER}.
    */
   public static final AttributeKey<String> GEN_AI_SYSTEM = stringKey("gen_ai.system");
 
@@ -123,7 +116,9 @@ public final class GenAiIncubatingAttributes {
   /**
    * Deprecated, use {@code gen_ai.usage.output_tokens} instead.
    *
-   * @deprecated Deprecated, use `gen_ai.usage.output_tokens` instead.
+   * <p>
+   *
+   * @deprecated Replaced by {@code gen_ai.usage.output_tokens} attribute.
    */
   @Deprecated
   public static final AttributeKey<Long> GEN_AI_USAGE_COMPLETION_TOKENS =
@@ -140,7 +135,9 @@ public final class GenAiIncubatingAttributes {
   /**
    * Deprecated, use {@code gen_ai.usage.input_tokens} instead.
    *
-   * @deprecated Deprecated, use `gen_ai.usage.input_tokens` instead.
+   * <p>
+   *
+   * @deprecated Replaced by {@code gen_ai.usage.input_tokens} attribute.
    */
   @Deprecated
   public static final AttributeKey<Long> GEN_AI_USAGE_PROMPT_TOKENS =
@@ -150,14 +147,15 @@ public final class GenAiIncubatingAttributes {
   /** Values for {@link #GEN_AI_OPERATION_NAME}. */
   public static final class GenAiOperationNameValues {
     /**
-     * Chat completion operation such as [OpenAI Chat
-     * API](https://platform.openai.com/docs/api-reference/chat).
+     * Chat completion operation such as <a
+     * href="https://platform.openai.com/docs/api-reference/chat">OpenAI Chat API</a>
      */
     public static final String CHAT = "chat";
 
     /**
-     * Text completions operation such as [OpenAI Completions API
-     * (Legacy)](https://platform.openai.com/docs/api-reference/completions).
+     * Text completions operation such as <a
+     * href="https://platform.openai.com/docs/api-reference/completions">OpenAI Completions API
+     * (Legacy)</a>
      */
     public static final String TEXT_COMPLETION = "text_completion";
 
@@ -166,16 +164,16 @@ public final class GenAiIncubatingAttributes {
 
   /** Values for {@link #GEN_AI_SYSTEM}. */
   public static final class GenAiSystemValues {
-    /** OpenAI. */
+    /** OpenAI */
     public static final String OPENAI = "openai";
 
-    /** Vertex AI. */
+    /** Vertex AI */
     public static final String VERTEX_AI = "vertex_ai";
 
-    /** Anthropic. */
+    /** Anthropic */
     public static final String ANTHROPIC = "anthropic";
 
-    /** Cohere. */
+    /** Cohere */
     public static final String COHERE = "cohere";
 
     private GenAiSystemValues() {}
@@ -183,10 +181,10 @@ public final class GenAiIncubatingAttributes {
 
   /** Values for {@link #GEN_AI_TOKEN_TYPE}. */
   public static final class GenAiTokenTypeValues {
-    /** Input tokens (prompt, input, etc.). */
+    /** Input tokens (prompt, input, etc.) */
     public static final String INPUT = "input";
 
-    /** Output tokens (completion, response, etc.). */
+    /** Output tokens (completion, response, etc.) */
     public static final String COMPLETION = "output";
 
     private GenAiTokenTypeValues() {}

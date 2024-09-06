@@ -14,10 +14,9 @@ import io.opentelemetry.api.common.AttributeKey;
 import java.util.List;
 
 // DO NOT EDIT, this is an Auto-generated file from
-// buildscripts/templates/SemanticAttributes.java.j2
+// buildscripts/templates/registry/incubating_java/IncubatingSemanticAttributes.java.j2
 @SuppressWarnings("unused")
 public final class ProcessIncubatingAttributes {
-
   /**
    * The command used to launch the process (i.e. the command name). On Linux based systems, can be
    * set to the zeroth string in {@code proc/[pid]/cmdline}. On Windows, can be set to the first
@@ -48,7 +47,9 @@ public final class ProcessIncubatingAttributes {
   /**
    * Deprecated, use {@code cpu.mode} instead.
    *
-   * @deprecated Deprecated, use `cpu.mode` instead.
+   * <p>
+   *
+   * @deprecated Replaced by {@code cpu.mode}
    */
   @Deprecated
   public static final AttributeKey<String> PROCESS_CPU_STATE = stringKey("process.cpu.state");
@@ -149,11 +150,8 @@ public final class ProcessIncubatingAttributes {
    *
    * <p>Notes:
    *
-   * <ul>
-   *   <li>The process ID within a PID namespace. This is not necessarily unique across all
-   *       processes on the host but it is unique within the process namespace that the process
-   *       exists within.
-   * </ul>
+   * <p>The process ID within a PID namespace. This is not necessarily unique across all processes
+   * on the host but it is unique within the process namespace that the process exists within.
    */
   public static final AttributeKey<Long> PROCESS_VPID = longKey("process.vpid");
 
@@ -170,9 +168,9 @@ public final class ProcessIncubatingAttributes {
   }
 
   /**
-   * Values for {@link #PROCESS_CPU_STATE}.
+   * Values for {@link #PROCESS_CPU_STATE}
    *
-   * @deprecated Deprecated, use `cpu.mode` instead.
+   * @deprecated Replaced by {@code cpu.mode}
    */
   @Deprecated
   public static final class ProcessCpuStateValues {

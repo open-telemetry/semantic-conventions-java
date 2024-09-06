@@ -13,10 +13,9 @@ import io.opentelemetry.api.common.AttributeKey;
 import io.opentelemetry.semconv.AttributeKeyTemplate;
 
 // DO NOT EDIT, this is an Auto-generated file from
-// buildscripts/templates/SemanticAttributes.java.j2
+// buildscripts/templates/registry/incubating_java/IncubatingSemanticAttributes.java.j2
 @SuppressWarnings("unused")
 public final class K8sIncubatingAttributes {
-
   /** The name of the cluster. */
   public static final AttributeKey<String> K8S_CLUSTER_NAME = stringKey("k8s.cluster.name");
 
@@ -25,23 +24,29 @@ public final class K8sIncubatingAttributes {
    *
    * <p>Notes:
    *
-   * <ul>
-   *   <li>K8s doesn't have support for obtaining a cluster ID. If this is ever added, we will
-   *       recommend collecting the {@code k8s.cluster.uid} through the official APIs. In the
-   *       meantime, we are able to use the {@code uid} of the {@code kube-system} namespace as a
-   *       proxy for cluster ID. Read on for the rationale.
-   *   <li>Every object created in a K8s cluster is assigned a distinct UID. The {@code kube-system}
-   *       namespace is used by Kubernetes itself and will exist for the lifetime of the cluster.
-   *       Using the {@code uid} of the {@code kube-system} namespace is a reasonable proxy for the
-   *       K8s ClusterID as it will only change if the cluster is rebuilt. Furthermore, Kubernetes
-   *       UIDs are UUIDs as standardized by <a
-   *       href="https://www.itu.int/ITU-T/studygroups/com17/oid.html">ISO/IEC 9834-8 and ITU-T
-   *       X.667</a>. Which states:
-   *   <li>If generated according to one of the mechanisms defined in Rec. ITU-T X.667 | ISO/IEC
-   *       9834-8, a UUID is either guaranteed to be different from all other UUIDs generated before
-   *       3603 A.D., or is extremely likely to be different (depending on the mechanism chosen).
-   *   <li>Therefore, UIDs between clusters should be extremely unlikely to conflict.
-   * </ul>
+   * <p>K8s doesn't have support for obtaining a cluster ID. If this is ever added, we will
+   * recommend collecting the {@code k8s.cluster.uid} through the official APIs. In the meantime, we
+   * are able to use the {@code uid} of the {@code kube-system} namespace as a proxy for cluster ID.
+   * Read on for the rationale.
+   *
+   * <p>Every object created in a K8s cluster is assigned a distinct UID. The {@code kube-system}
+   * namespace is used by Kubernetes itself and will exist for the lifetime of the cluster. Using
+   * the {@code uid} of the {@code kube-system} namespace is a reasonable proxy for the K8s
+   * ClusterID as it will only change if the cluster is rebuilt. Furthermore, Kubernetes UIDs are
+   * UUIDs as standardized by <a href="https://www.itu.int/ITU-T/studygroups/com17/oid.html">ISO/IEC
+   * 9834-8 and ITU-T X.667</a>. Which states:
+   *
+   * <p>
+   *
+   * <blockquote>
+   *
+   * If generated according to one of the mechanisms defined in Rec. ITU-T X.667 | ISO/IEC 9834-8, a
+   * UUID is either guaranteed to be different from all other UUIDs generated before 3603 A.D., or
+   * is extremely likely to be different (depending on the mechanism chosen).
+   *
+   * </blockquote>
+   *
+   * <p>Therefore, UIDs between clusters should be extremely unlikely to conflict.
    */
   public static final AttributeKey<String> K8S_CLUSTER_UID = stringKey("k8s.cluster.uid");
 
@@ -112,7 +117,9 @@ public final class K8sIncubatingAttributes {
   /**
    * Deprecated, use {@code k8s.pod.label} instead.
    *
-   * @deprecated Deprecated, use `k8s.pod.label` instead.
+   * <p>
+   *
+   * @deprecated Replaced by {@code k8s.pod.label}.
    */
   @Deprecated
   public static final AttributeKeyTemplate<String> K8S_POD_LABELS =
@@ -135,6 +142,8 @@ public final class K8sIncubatingAttributes {
 
   /** The UID of the StatefulSet. */
   public static final AttributeKey<String> K8S_STATEFULSET_UID = stringKey("k8s.statefulset.uid");
+
+  // Enum definitions
 
   private K8sIncubatingAttributes() {}
 }

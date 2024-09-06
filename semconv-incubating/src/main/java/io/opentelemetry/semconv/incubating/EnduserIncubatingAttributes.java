@@ -10,30 +10,37 @@ import static io.opentelemetry.api.common.AttributeKey.stringKey;
 import io.opentelemetry.api.common.AttributeKey;
 
 // DO NOT EDIT, this is an Auto-generated file from
-// buildscripts/templates/SemanticAttributes.java.j2
+// buildscripts/templates/registry/incubating_java/IncubatingSemanticAttributes.java.j2
 @SuppressWarnings("unused")
 public final class EnduserIncubatingAttributes {
-
   /**
    * Deprecated, use {@code user.id} instead.
    *
-   * @deprecated Deprecated, use `user.id` instead.
+   * <p>
+   *
+   * @deprecated Replaced by {@code user.id} attribute.
    */
   @Deprecated public static final AttributeKey<String> ENDUSER_ID = stringKey("enduser.id");
 
   /**
    * Deprecated, use {@code user.roles} instead.
    *
-   * @deprecated Deprecated, use `user.roles` instead.
+   * <p>
+   *
+   * @deprecated Replaced by {@code user.roles} attribute.
    */
   @Deprecated public static final AttributeKey<String> ENDUSER_ROLE = stringKey("enduser.role");
 
   /**
    * Deprecated, no replacement at this time.
    *
-   * @deprecated Deprecated, no replacement at this time.
+   * <p>
+   *
+   * @deprecated Removed.
    */
   @Deprecated public static final AttributeKey<String> ENDUSER_SCOPE = stringKey("enduser.scope");
+
+  // Enum definitions
 
   private EnduserIncubatingAttributes() {}
 }

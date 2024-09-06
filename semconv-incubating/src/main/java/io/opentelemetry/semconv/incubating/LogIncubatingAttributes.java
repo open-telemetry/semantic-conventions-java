@@ -10,10 +10,9 @@ import static io.opentelemetry.api.common.AttributeKey.stringKey;
 import io.opentelemetry.api.common.AttributeKey;
 
 // DO NOT EDIT, this is an Auto-generated file from
-// buildscripts/templates/SemanticAttributes.java.j2
+// buildscripts/templates/registry/incubating_java/IncubatingSemanticAttributes.java.j2
 @SuppressWarnings("unused")
 public final class LogIncubatingAttributes {
-
   /** The basename of the file. */
   public static final AttributeKey<String> LOG_FILE_NAME = stringKey("log.file.name");
 
@@ -36,11 +35,9 @@ public final class LogIncubatingAttributes {
    *
    * <p>Notes:
    *
-   * <ul>
-   *   <li>This value MAY be added when processing a Log Record which was originally transmitted as
-   *       a string or equivalent data type AND the Body field of the Log Record does not contain
-   *       the same value. (e.g. a syslog or a log record read from a file.)
-   * </ul>
+   * <p>This value MAY be added when processing a Log Record which was originally transmitted as a
+   * string or equivalent data type AND the Body field of the Log Record does not contain the same
+   * value. (e.g. a syslog or a log record read from a file.)
    */
   public static final AttributeKey<String> LOG_RECORD_ORIGINAL = stringKey("log.record.original");
 
@@ -49,23 +46,21 @@ public final class LogIncubatingAttributes {
    *
    * <p>Notes:
    *
-   * <ul>
-   *   <li>If an id is provided, other log records with the same id will be considered duplicates
-   *       and can be removed safely. This means, that two distinguishable log records MUST have
-   *       different values. The id MAY be an <a href="https://github.com/ulid/spec">Universally
-   *       Unique Lexicographically Sortable Identifier (ULID)</a>, but other identifiers (e.g.
-   *       UUID) may be used as needed.
-   * </ul>
+   * <p>If an id is provided, other log records with the same id will be considered duplicates and
+   * can be removed safely. This means, that two distinguishable log records MUST have different
+   * values. The id MAY be an <a href="https://github.com/ulid/spec">Universally Unique
+   * Lexicographically Sortable Identifier (ULID)</a>, but other identifiers (e.g. UUID) may be used
+   * as needed.
    */
   public static final AttributeKey<String> LOG_RECORD_UID = stringKey("log.record.uid");
 
   // Enum definitions
   /** Values for {@link #LOG_IOSTREAM}. */
   public static final class LogIostreamValues {
-    /** Logs from stdout stream. */
+    /** Logs from stdout stream */
     public static final String STDOUT = "stdout";
 
-    /** Events from stderr stream. */
+    /** Events from stderr stream */
     public static final String STDERR = "stderr";
 
     private LogIostreamValues() {}

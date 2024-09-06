@@ -13,10 +13,9 @@ import io.opentelemetry.api.common.AttributeKey;
 import java.util.List;
 
 // DO NOT EDIT, this is an Auto-generated file from
-// buildscripts/templates/SemanticAttributes.java.j2
+// buildscripts/templates/registry/incubating_java/IncubatingSemanticAttributes.java.j2
 @SuppressWarnings("unused")
 public final class TlsIncubatingAttributes {
-
   /**
    * String indicating the <a
    * href="https://datatracker.ietf.org/doc/html/rfc5246#appendix-A.5">cipher</a> used during the
@@ -24,12 +23,9 @@ public final class TlsIncubatingAttributes {
    *
    * <p>Notes:
    *
-   * <ul>
-   *   <li>The values allowed for {@code tls.cipher} MUST be one of the {@code Descriptions} of the
-   *       <a
-   *       href="https://www.iana.org/assignments/tls-parameters/tls-parameters.xhtml#table-tls-parameters-4">registered
-   *       TLS Cipher Suits</a>.
-   * </ul>
+   * <p>The values allowed for {@code tls.cipher} MUST be one of the {@code Descriptions} of the <a
+   * href="https://www.iana.org/assignments/tls-parameters/tls-parameters.xhtml#table-tls-parameters-4">registered
+   * TLS Cipher Suits</a>.
    */
   public static final AttributeKey<String> TLS_CIPHER = stringKey("tls.cipher");
 
@@ -90,7 +86,9 @@ public final class TlsIncubatingAttributes {
   /**
    * Deprecated, use {@code server.address} instead.
    *
-   * @deprecated Deprecated, use `server.address` instead.
+   * <p>
+   *
+   * @deprecated Replaced by `server.address.
    */
   @Deprecated
   public static final AttributeKey<String> TLS_CLIENT_SERVER_NAME =

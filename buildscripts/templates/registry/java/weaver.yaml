@@ -1,0 +1,72 @@
+params:
+  excluded_namespaces: ["ios", "aspnetcore", "signalr"]
+  excluded_attributes: ["messaging.client_id"]
+comment_formats:
+  javadoc:
+    format: html
+    header: "/**"
+    prefix: " * "
+    footer: " */"
+    old_style_paragraph: true
+    omit_closing_li: true
+    inline_code_snippet: "{@code {{code}}}"
+    block_code_snippet: "<pre>{@code {{code}}}</pre>"
+    trim: true
+    remove_trailing_dots: false
+default_comment_format: javadoc
+templates:
+  - pattern: SemanticAttributes.java.j2
+    filter: > 
+      semconv_grouped_attributes({
+        "exclude_root_namespace": $excluded_namespaces,
+        "exclude_stability": ["experimental", "deprecated"],
+        "exclude_deprecated": false
+      })
+    application_mode: each
+    file_name: "{{ctx.root_namespace | pascal_case}}Attributes.java"
+text_maps:
+  java_enum_type:
+    int: long
+    double: double
+    boolean: boolean
+    string: String
+    string[]: String[]
+    int[]: long[]
+    double[]: double[]
+    boolean[]: boolean[]
+  java_key_type:
+    int: AttributeKey<Long>
+    double: AttributeKey<Double>
+    boolean: AttributeKey<Boolean>
+    string: AttributeKey<String>
+    string[]: AttributeKey<List<String>>
+    int[]: AttributeKey<List<Long>>
+    double[]: AttributeKey<List<Double>>
+    boolean[]: AttributeKey<List<Boolean>>
+  java_template_key_type:
+    int: AttributeKeyTemplate<Long>
+    double: AttributeKeyTemplate<Double>
+    boolean: AttributeKeyTemplate<Boolean>
+    string: AttributeKeyTemplate<String>
+    string[]: AttributeKeyTemplate<List<String>>
+    int[]: AttributeKeyTemplate<List<Long>>
+    double[]: AttributeKeyTemplate<List<Double>>
+    boolean[]: AttributeKeyTemplate<List<Boolean>>
+  java_key_factory:
+    int: longKey
+    double: doubleKey
+    boolean: booleanKey
+    string: stringKey
+    string[]: stringArrayKey
+    int[]: longArrayKey
+    double[]: doubleArrayKey
+    boolean[]: booleanArrayKey
+  java_template_key_factory:
+    int: longKeyTemplate
+    double: doubleKeyTemplate
+    boolean: booleanKeyTemplate
+    string: stringKeyTemplate
+    string[]: stringArrayKeyTemplate
+    int[]: longArrayKeyTemplate
+    double[]: doubleArrayKeyTemplate
+    boolean[]: booleanArrayKeyTemplate

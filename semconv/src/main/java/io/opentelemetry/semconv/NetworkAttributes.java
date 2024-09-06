@@ -11,10 +11,9 @@ import static io.opentelemetry.api.common.AttributeKey.stringKey;
 import io.opentelemetry.api.common.AttributeKey;
 
 // DO NOT EDIT, this is an Auto-generated file from
-// buildscripts/templates/SemanticAttributes.java.j2
+// buildscripts/templates/registry/java/SemanticAttributes.java.j2
 @SuppressWarnings("unused")
 public final class NetworkAttributes {
-
   /** Local address of the network connection - IP address or Unix domain socket name. */
   public static final AttributeKey<String> NETWORK_LOCAL_ADDRESS =
       stringKey("network.local.address");
@@ -34,9 +33,7 @@ public final class NetworkAttributes {
    *
    * <p>Notes:
    *
-   * <ul>
-   *   <li>The value SHOULD be normalized to lowercase.
-   * </ul>
+   * <p>The value SHOULD be normalized to lowercase.
    */
   public static final AttributeKey<String> NETWORK_PROTOCOL_NAME =
       stringKey("network.protocol.name");
@@ -46,12 +43,10 @@ public final class NetworkAttributes {
    *
    * <p>Notes:
    *
-   * <ul>
-   *   <li>If protocol version is subject to negotiation (for example using <a
-   *       href="https://www.rfc-editor.org/rfc/rfc7301.html">ALPN</a>), this attribute SHOULD be
-   *       set to the negotiated version. If the actual protocol version is not known, this
-   *       attribute SHOULD NOT be set.
-   * </ul>
+   * <p>If protocol version is subject to negotiation (for example using <a
+   * href="https://www.rfc-editor.org/rfc/rfc7301.html">ALPN</a>), this attribute SHOULD be set to
+   * the negotiated version. If the actual protocol version is not known, this attribute SHOULD NOT
+   * be set.
    */
   public static final AttributeKey<String> NETWORK_PROTOCOL_VERSION =
       stringKey("network.protocol.version");
@@ -63,12 +58,11 @@ public final class NetworkAttributes {
    *
    * <p>Notes:
    *
-   * <ul>
-   *   <li>The value SHOULD be normalized to lowercase.
-   *   <li>Consider always setting the transport when setting a port number, since a port number is
-   *       ambiguous without knowing the transport. For example different processes could be
-   *       listening on TCP port 12345 and UDP port 12345.
-   * </ul>
+   * <p>The value SHOULD be normalized to lowercase.
+   *
+   * <p>Consider always setting the transport when setting a port number, since a port number is
+   * ambiguous without knowing the transport. For example different processes could be listening on
+   * TCP port 12345 and UDP port 12345.
    */
   public static final AttributeKey<String> NETWORK_TRANSPORT = stringKey("network.transport");
 
@@ -77,39 +71,38 @@ public final class NetworkAttributes {
    *
    * <p>Notes:
    *
-   * <ul>
-   *   <li>The value SHOULD be normalized to lowercase.
-   * </ul>
+   * <p>The value SHOULD be normalized to lowercase.
    */
   public static final AttributeKey<String> NETWORK_TYPE = stringKey("network.type");
 
-  // Enum definitions
+  // Enum definition
   /** Values for {@link #NETWORK_TRANSPORT}. */
   public static final class NetworkTransportValues {
-    /** TCP. */
+    /** TCP */
     public static final String TCP = "tcp";
 
-    /** UDP. */
+    /** UDP */
     public static final String UDP = "udp";
 
     /** Named or anonymous pipe. */
     public static final String PIPE = "pipe";
 
-    /** Unix domain socket. */
+    /** Unix domain socket */
     public static final String UNIX = "unix";
 
-    /** QUIC. */
+    /** QUIC */
     public static final String QUIC = "quic";
 
     private NetworkTransportValues() {}
   }
 
+  // Enum definition
   /** Values for {@link #NETWORK_TYPE}. */
   public static final class NetworkTypeValues {
-    /** IPv4. */
+    /** IPv4 */
     public static final String IPV4 = "ipv4";
 
-    /** IPv6. */
+    /** IPv6 */
     public static final String IPV6 = "ipv6";
 
     private NetworkTypeValues() {}

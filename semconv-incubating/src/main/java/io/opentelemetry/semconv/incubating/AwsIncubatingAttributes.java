@@ -15,10 +15,9 @@ import io.opentelemetry.api.common.AttributeKey;
 import java.util.List;
 
 // DO NOT EDIT, this is an Auto-generated file from
-// buildscripts/templates/SemanticAttributes.java.j2
+// buildscripts/templates/registry/incubating_java/IncubatingSemanticAttributes.java.j2
 @SuppressWarnings("unused")
 public final class AwsIncubatingAttributes {
-
   /** The JSON-serialized value of each item in the {@code AttributeDefinitions} request field. */
   public static final AttributeKey<List<String>> AWS_DYNAMODB_ATTRIBUTE_DEFINITIONS =
       stringArrayKey("aws.dynamodb.attribute_definitions");
@@ -159,9 +158,7 @@ public final class AwsIncubatingAttributes {
    *
    * <p>Notes:
    *
-   * <ul>
-   *   <li>This may be different from {@code cloud.resource_id} if an alias is involved.
-   * </ul>
+   * <p>This may be different from {@code cloud.resource_id} if an alias is involved.
    */
   public static final AttributeKey<String> AWS_LAMBDA_INVOKED_ARN =
       stringKey("aws.lambda.invoked_arn");
@@ -171,11 +168,9 @@ public final class AwsIncubatingAttributes {
    *
    * <p>Notes:
    *
-   * <ul>
-   *   <li>See the <a
-   *       href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/iam-access-control-overview-cwl.html#CWL_ARN_Format">log
-   *       group ARN format documentation</a>.
-   * </ul>
+   * <p>See the <a
+   * href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/iam-access-control-overview-cwl.html#CWL_ARN_Format">log
+   * group ARN format documentation</a>.
    */
   public static final AttributeKey<List<String>> AWS_LOG_GROUP_ARNS =
       stringArrayKey("aws.log.group.arns");
@@ -185,10 +180,8 @@ public final class AwsIncubatingAttributes {
    *
    * <p>Notes:
    *
-   * <ul>
-   *   <li>Multiple log groups must be supported for cases like multi-container applications, where
-   *       a single application has sidecar containers, and each write to their own log group.
-   * </ul>
+   * <p>Multiple log groups must be supported for cases like multi-container applications, where a
+   * single application has sidecar containers, and each write to their own log group.
    */
   public static final AttributeKey<List<String>> AWS_LOG_GROUP_NAMES =
       stringArrayKey("aws.log.group.names");
@@ -198,12 +191,10 @@ public final class AwsIncubatingAttributes {
    *
    * <p>Notes:
    *
-   * <ul>
-   *   <li>See the <a
-   *       href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/iam-access-control-overview-cwl.html#CWL_ARN_Format">log
-   *       stream ARN format documentation</a>. One log group can contain several log streams, so
-   *       these ARNs necessarily identify both a log group and a log stream.
-   * </ul>
+   * <p>See the <a
+   * href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/iam-access-control-overview-cwl.html#CWL_ARN_Format">log
+   * stream ARN format documentation</a>. One log group can contain several log streams, so these
+   * ARNs necessarily identify both a log group and a log stream.
    */
   public static final AttributeKey<List<String>> AWS_LOG_STREAM_ARNS =
       stringArrayKey("aws.log.stream.arns");
@@ -225,11 +216,9 @@ public final class AwsIncubatingAttributes {
    *
    * <p>Notes:
    *
-   * <ul>
-   *   <li>The {@code bucket} attribute is applicable to all S3 operations that reference a bucket,
-   *       i.e. that require the bucket name as a mandatory parameter. This applies to almost all S3
-   *       operations except {@code list-buckets}.
-   * </ul>
+   * <p>The {@code bucket} attribute is applicable to all S3 operations that reference a bucket,
+   * i.e. that require the bucket name as a mandatory parameter. This applies to almost all S3
+   * operations except {@code list-buckets}.
    */
   public static final AttributeKey<String> AWS_S3_BUCKET = stringKey("aws.s3.bucket");
 
@@ -238,11 +227,14 @@ public final class AwsIncubatingAttributes {
    *
    * <p>Notes:
    *
+   * <p>The {@code copy_source} attribute applies to S3 copy operations and corresponds to the
+   * {@code --copy-source} parameter of the <a
+   * href="https://docs.aws.amazon.com/cli/latest/reference/s3api/copy-object.html">copy-object
+   * operation within the S3 API</a>. This applies in particular to the following operations:
+   *
+   * <p>
+   *
    * <ul>
-   *   <li>The {@code copy_source} attribute applies to S3 copy operations and corresponds to the
-   *       {@code --copy-source} parameter of the <a
-   *       href="https://docs.aws.amazon.com/cli/latest/reference/s3api/copy-object.html">copy-object
-   *       operation within the S3 API</a>. This applies in particular to the following operations:
    *   <li><a
    *       href="https://docs.aws.amazon.com/cli/latest/reference/s3api/copy-object.html">copy-object</a>
    *   <li><a
@@ -256,14 +248,11 @@ public final class AwsIncubatingAttributes {
    *
    * <p>Notes:
    *
-   * <ul>
-   *   <li>The {@code delete} attribute is only applicable to the <a
-   *       href="https://docs.aws.amazon.com/cli/latest/reference/s3api/delete-object.html">delete-object</a>
-   *       operation. The {@code delete} attribute corresponds to the {@code --delete} parameter of
-   *       the <a
-   *       href="https://docs.aws.amazon.com/cli/latest/reference/s3api/delete-objects.html">delete-objects
-   *       operation within the S3 API</a>.
-   * </ul>
+   * <p>The {@code delete} attribute is only applicable to the <a
+   * href="https://docs.aws.amazon.com/cli/latest/reference/s3api/delete-object.html">delete-object</a>
+   * operation. The {@code delete} attribute corresponds to the {@code --delete} parameter of the <a
+   * href="https://docs.aws.amazon.com/cli/latest/reference/s3api/delete-objects.html">delete-objects
+   * operation within the S3 API</a>.
    */
   public static final AttributeKey<String> AWS_S3_DELETE = stringKey("aws.s3.delete");
 
@@ -273,10 +262,13 @@ public final class AwsIncubatingAttributes {
    *
    * <p>Notes:
    *
+   * <p>The {@code key} attribute is applicable to all object-related S3 operations, i.e. that
+   * require the object key as a mandatory parameter. This applies in particular to the following
+   * operations:
+   *
+   * <p>
+   *
    * <ul>
-   *   <li>The {@code key} attribute is applicable to all object-related S3 operations, i.e. that
-   *       require the object key as a mandatory parameter. This applies in particular to the
-   *       following operations:
    *   <li><a
    *       href="https://docs.aws.amazon.com/cli/latest/reference/s3api/copy-object.html">copy-object</a>
    *   <li><a
@@ -313,16 +305,14 @@ public final class AwsIncubatingAttributes {
    *
    * <p>Notes:
    *
-   * <ul>
-   *   <li>The {@code part_number} attribute is only applicable to the <a
-   *       href="https://docs.aws.amazon.com/cli/latest/reference/s3api/upload-part.html">upload-part</a>
-   *       and <a
-   *       href="https://docs.aws.amazon.com/cli/latest/reference/s3api/upload-part-copy.html">upload-part-copy</a>
-   *       operations. The {@code part_number} attribute corresponds to the {@code --part-number}
-   *       parameter of the <a
-   *       href="https://docs.aws.amazon.com/cli/latest/reference/s3api/upload-part.html">upload-part
-   *       operation within the S3 API</a>.
-   * </ul>
+   * <p>The {@code part_number} attribute is only applicable to the <a
+   * href="https://docs.aws.amazon.com/cli/latest/reference/s3api/upload-part.html">upload-part</a>
+   * and <a
+   * href="https://docs.aws.amazon.com/cli/latest/reference/s3api/upload-part-copy.html">upload-part-copy</a>
+   * operations. The {@code part_number} attribute corresponds to the {@code --part-number}
+   * parameter of the <a
+   * href="https://docs.aws.amazon.com/cli/latest/reference/s3api/upload-part.html">upload-part
+   * operation within the S3 API</a>.
    */
   public static final AttributeKey<Long> AWS_S3_PART_NUMBER = longKey("aws.s3.part_number");
 
@@ -331,11 +321,14 @@ public final class AwsIncubatingAttributes {
    *
    * <p>Notes:
    *
+   * <p>The {@code upload_id} attribute applies to S3 multipart-upload operations and corresponds to
+   * the {@code --upload-id} parameter of the <a
+   * href="https://docs.aws.amazon.com/cli/latest/reference/s3api/index.html">S3 API</a> multipart
+   * operations. This applies in particular to the following operations:
+   *
+   * <p>
+   *
    * <ul>
-   *   <li>The {@code upload_id} attribute applies to S3 multipart-upload operations and corresponds
-   *       to the {@code --upload-id} parameter of the <a
-   *       href="https://docs.aws.amazon.com/cli/latest/reference/s3api/index.html">S3 API</a>
-   *       multipart operations. This applies in particular to the following operations:
    *   <li><a
    *       href="https://docs.aws.amazon.com/cli/latest/reference/s3api/abort-multipart-upload.html">abort-multipart-upload</a>
    *   <li><a

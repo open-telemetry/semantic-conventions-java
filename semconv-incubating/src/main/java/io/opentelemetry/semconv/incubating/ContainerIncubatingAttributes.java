@@ -14,19 +14,16 @@ import io.opentelemetry.semconv.AttributeKeyTemplate;
 import java.util.List;
 
 // DO NOT EDIT, this is an Auto-generated file from
-// buildscripts/templates/SemanticAttributes.java.j2
+// buildscripts/templates/registry/incubating_java/IncubatingSemanticAttributes.java.j2
 @SuppressWarnings("unused")
 public final class ContainerIncubatingAttributes {
-
   /**
    * The command used to run the container (i.e. the command name).
    *
    * <p>Notes:
    *
-   * <ul>
-   *   <li>If using embedded credentials or sensitive data, it is recommended to remove them to
-   *       prevent potential leakage.
-   * </ul>
+   * <p>If using embedded credentials or sensitive data, it is recommended to remove them to prevent
+   * potential leakage.
    */
   public static final AttributeKey<String> CONTAINER_COMMAND = stringKey("container.command");
 
@@ -43,7 +40,9 @@ public final class ContainerIncubatingAttributes {
   /**
    * Deprecated, use {@code cpu.mode} instead.
    *
-   * @deprecated Deprecated, use `cpu.mode` instead.
+   * <p>
+   *
+   * @deprecated Replaced by {@code cpu.mode}
    */
   @Deprecated
   public static final AttributeKey<String> CONTAINER_CPU_STATE = stringKey("container.cpu.state");
@@ -60,17 +59,15 @@ public final class ContainerIncubatingAttributes {
    *
    * <p>Notes:
    *
-   * <ul>
-   *   <li>Docker defines a sha256 of the image id; {@code container.image.id} corresponds to the
-   *       {@code Image} field from the Docker container inspect <a
-   *       href="https://docs.docker.com/engine/api/v1.43/#tag/Container/operation/ContainerInspect">API</a>
-   *       endpoint. K8s defines a link to the container registry repository with digest {@code
-   *       "imageID": "registry.azurecr.io
-   *       /namespace/service/dockerfile@sha256:bdeabd40c3a8a492eaf9e8e44d0ebbb84bac7ee25ac0cf8a7159d25f62555625"}.
-   *       The ID is assigned by the container runtime and can vary in different environments.
-   *       Consider using {@code oci.manifest.digest} if it is important to identify the same image
-   *       in different environments/runtimes.
-   * </ul>
+   * <p>Docker defines a sha256 of the image id; {@code container.image.id} corresponds to the
+   * {@code Image} field from the Docker container inspect <a
+   * href="https://docs.docker.com/engine/api/v1.43/#tag/Container/operation/ContainerInspect">API</a>
+   * endpoint. K8s defines a link to the container registry repository with digest {@code "imageID":
+   * "registry.azurecr.io
+   * /namespace/service/dockerfile@sha256:bdeabd40c3a8a492eaf9e8e44d0ebbb84bac7ee25ac0cf8a7159d25f62555625"}.
+   * The ID is assigned by the container runtime and can vary in different environments. Consider
+   * using {@code oci.manifest.digest} if it is important to identify the same image in different
+   * environments/runtimes.
    */
   public static final AttributeKey<String> CONTAINER_IMAGE_ID = stringKey("container.image.id");
 
@@ -82,13 +79,11 @@ public final class ContainerIncubatingAttributes {
    *
    * <p>Notes:
    *
-   * <ul>
-   *   <li><a
-   *       href="https://docs.docker.com/engine/api/v1.43/#tag/Image/operation/ImageInspect">Docker</a>
-   *       and <a
-   *       href="https://github.com/kubernetes/cri-api/blob/c75ef5b473bbe2d0a4fc92f82235efd665ea8e9f/pkg/apis/runtime/v1/api.proto#L1237-L1238">CRI</a>
-   *       report those under the {@code RepoDigests} field.
-   * </ul>
+   * <p><a
+   * href="https://docs.docker.com/engine/api/v1.43/#tag/Image/operation/ImageInspect">Docker</a>
+   * and <a
+   * href="https://github.com/kubernetes/cri-api/blob/c75ef5b473bbe2d0a4fc92f82235efd665ea8e9f/pkg/apis/runtime/v1/api.proto#L1237-L1238">CRI</a>
+   * report those under the {@code RepoDigests} field.
    */
   public static final AttributeKey<List<String>> CONTAINER_IMAGE_REPO_DIGESTS =
       stringArrayKey("container.image.repo_digests");
@@ -109,7 +104,9 @@ public final class ContainerIncubatingAttributes {
   /**
    * Deprecated, use {@code container.label} instead.
    *
-   * @deprecated Deprecated, use `container.label` instead.
+   * <p>
+   *
+   * @deprecated Replaced by {@code container.label}.
    */
   @Deprecated
   public static final AttributeKeyTemplate<String> CONTAINER_LABELS =
@@ -123,9 +120,9 @@ public final class ContainerIncubatingAttributes {
 
   // Enum definitions
   /**
-   * Values for {@link #CONTAINER_CPU_STATE}.
+   * Values for {@link #CONTAINER_CPU_STATE}
    *
-   * @deprecated Deprecated, use `cpu.mode` instead.
+   * @deprecated Replaced by {@code cpu.mode}
    */
   @Deprecated
   public static final class ContainerCpuStateValues {
@@ -135,7 +132,7 @@ public final class ContainerIncubatingAttributes {
      */
     public static final String USER = "user";
 
-    /** When CPU is used by the system (host OS). */
+    /** When CPU is used by the system (host OS) */
     public static final String SYSTEM = "system";
 
     /**
