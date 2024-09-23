@@ -10,27 +10,23 @@ import static io.opentelemetry.api.common.AttributeKey.stringKey;
 import io.opentelemetry.api.common.AttributeKey;
 
 // DO NOT EDIT, this is an Auto-generated file from
-// buildscripts/templates/SemanticAttributes.java.j2
+// buildscripts/templates/registry/java/SemanticAttributes.java.j2
 @SuppressWarnings("unused")
 public final class OtelAttributes {
-
   /** The name of the instrumentation scope - ({@code InstrumentationScope.Name} in OTLP). */
   public static final AttributeKey<String> OTEL_SCOPE_NAME = stringKey("otel.scope.name");
 
   /** The version of the instrumentation scope - ({@code InstrumentationScope.Version} in OTLP). */
   public static final AttributeKey<String> OTEL_SCOPE_VERSION = stringKey("otel.scope.version");
 
-  /**
-   * Name of the code, either &quot;OK&quot; or &quot;ERROR&quot;. MUST NOT be set if the status
-   * code is UNSET.
-   */
+  /** Name of the code, either "OK" or "ERROR". MUST NOT be set if the status code is UNSET. */
   public static final AttributeKey<String> OTEL_STATUS_CODE = stringKey("otel.status_code");
 
   /** Description of the Status if it has a value, otherwise not set. */
   public static final AttributeKey<String> OTEL_STATUS_DESCRIPTION =
       stringKey("otel.status_description");
 
-  // Enum definitions
+  // Enum definition
   /** Values for {@link #OTEL_STATUS_CODE}. */
   public static final class OtelStatusCodeValues {
     /**

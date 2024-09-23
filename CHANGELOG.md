@@ -2,6 +2,11 @@
 
 ## Unreleased
 
+## Version 1.27.0 (2024-08-20)
+
+* Update to semantic-conventions 1.27.0
+  ([#81](https://github.com/open-telemetry/semantic-conventions-java/pull/81))
+
 ## Version 1.26.0 (2024-07-08)
 
 * Update to semantic-conventions 1.26.0

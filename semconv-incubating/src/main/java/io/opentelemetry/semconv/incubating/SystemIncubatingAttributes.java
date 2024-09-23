@@ -11,10 +11,9 @@ import static io.opentelemetry.api.common.AttributeKey.stringKey;
 import io.opentelemetry.api.common.AttributeKey;
 
 // DO NOT EDIT, this is an Auto-generated file from
-// buildscripts/templates/SemanticAttributes.java.j2
+// buildscripts/templates/registry/incubating_java/IncubatingSemanticAttributes.java.j2
 @SuppressWarnings("unused")
 public final class SystemIncubatingAttributes {
-
   /** The logical CPU number [0..n-1] */
   public static final AttributeKey<Long> SYSTEM_CPU_LOGICAL_NUMBER =
       longKey("system.cpu.logical_number");
@@ -22,7 +21,9 @@ public final class SystemIncubatingAttributes {
   /**
    * Deprecated, use {@code cpu.mode} instead.
    *
-   * @deprecated Deprecated, use `cpu.mode` instead.
+   * <p>
+   *
+   * @deprecated Replaced by {@code cpu.mode}
    */
   @Deprecated
   public static final AttributeKey<String> SYSTEM_CPU_STATE = stringKey("system.cpu.state");
@@ -73,7 +74,9 @@ public final class SystemIncubatingAttributes {
   /**
    * Deprecated, use {@code system.process.status} instead.
    *
-   * @deprecated Deprecated, use `system.process.status` instead.
+   * <p>
+   *
+   * @deprecated Replaced by {@code system.process.status}.
    */
   @Deprecated
   public static final AttributeKey<String> SYSTEM_PROCESSES_STATUS =
@@ -81,12 +84,12 @@ public final class SystemIncubatingAttributes {
 
   // Enum definitions
   /**
-   * Values for {@link #SYSTEM_CPU_STATE}.
+   * Values for {@link #SYSTEM_CPU_STATE}
    *
-   * @deprecated Deprecated, use `cpu.mode` instead.
+   * @deprecated Replaced by {@code cpu.mode}
    */
   @Deprecated
-  public static final class SystemCpuStateIncubatingValues {
+  public static final class SystemCpuStateValues {
     /** user. */
     public static final String USER = "user";
 
@@ -108,11 +111,11 @@ public final class SystemIncubatingAttributes {
     /** steal. */
     public static final String STEAL = "steal";
 
-    private SystemCpuStateIncubatingValues() {}
+    private SystemCpuStateValues() {}
   }
 
   /** Values for {@link #SYSTEM_FILESYSTEM_STATE}. */
-  public static final class SystemFilesystemStateIncubatingValues {
+  public static final class SystemFilesystemStateValues {
     /** used. */
     public static final String USED = "used";
 
@@ -122,11 +125,11 @@ public final class SystemIncubatingAttributes {
     /** reserved. */
     public static final String RESERVED = "reserved";
 
-    private SystemFilesystemStateIncubatingValues() {}
+    private SystemFilesystemStateValues() {}
   }
 
   /** Values for {@link #SYSTEM_FILESYSTEM_TYPE}. */
-  public static final class SystemFilesystemTypeIncubatingValues {
+  public static final class SystemFilesystemTypeValues {
     /** fat32. */
     public static final String FAT32 = "fat32";
 
@@ -145,11 +148,11 @@ public final class SystemIncubatingAttributes {
     /** ext4. */
     public static final String EXT4 = "ext4";
 
-    private SystemFilesystemTypeIncubatingValues() {}
+    private SystemFilesystemTypeValues() {}
   }
 
   /** Values for {@link #SYSTEM_MEMORY_STATE}. */
-  public static final class SystemMemoryStateIncubatingValues {
+  public static final class SystemMemoryStateValues {
     /** used. */
     public static final String USED = "used";
 
@@ -165,11 +168,11 @@ public final class SystemIncubatingAttributes {
     /** cached. */
     public static final String CACHED = "cached";
 
-    private SystemMemoryStateIncubatingValues() {}
+    private SystemMemoryStateValues() {}
   }
 
   /** Values for {@link #SYSTEM_NETWORK_STATE}. */
-  public static final class SystemNetworkStateIncubatingValues {
+  public static final class SystemNetworkStateValues {
     /** close. */
     public static final String CLOSE = "close";
 
@@ -206,44 +209,44 @@ public final class SystemIncubatingAttributes {
     /** time_wait. */
     public static final String TIME_WAIT = "time_wait";
 
-    private SystemNetworkStateIncubatingValues() {}
+    private SystemNetworkStateValues() {}
   }
 
   /** Values for {@link #SYSTEM_PAGING_DIRECTION}. */
-  public static final class SystemPagingDirectionIncubatingValues {
+  public static final class SystemPagingDirectionValues {
     /** in. */
     public static final String IN = "in";
 
     /** out. */
     public static final String OUT = "out";
 
-    private SystemPagingDirectionIncubatingValues() {}
+    private SystemPagingDirectionValues() {}
   }
 
   /** Values for {@link #SYSTEM_PAGING_STATE}. */
-  public static final class SystemPagingStateIncubatingValues {
+  public static final class SystemPagingStateValues {
     /** used. */
     public static final String USED = "used";
 
     /** free. */
     public static final String FREE = "free";
 
-    private SystemPagingStateIncubatingValues() {}
+    private SystemPagingStateValues() {}
   }
 
   /** Values for {@link #SYSTEM_PAGING_TYPE}. */
-  public static final class SystemPagingTypeIncubatingValues {
+  public static final class SystemPagingTypeValues {
     /** major. */
     public static final String MAJOR = "major";
 
     /** minor. */
     public static final String MINOR = "minor";
 
-    private SystemPagingTypeIncubatingValues() {}
+    private SystemPagingTypeValues() {}
   }
 
   /** Values for {@link #SYSTEM_PROCESS_STATUS}. */
-  public static final class SystemProcessStatusIncubatingValues {
+  public static final class SystemProcessStatusValues {
     /** running. */
     public static final String RUNNING = "running";
 
@@ -256,16 +259,16 @@ public final class SystemIncubatingAttributes {
     /** defunct. */
     public static final String DEFUNCT = "defunct";
 
-    private SystemProcessStatusIncubatingValues() {}
+    private SystemProcessStatusValues() {}
   }
 
   /**
-   * Values for {@link #SYSTEM_PROCESSES_STATUS}.
+   * Values for {@link #SYSTEM_PROCESSES_STATUS}
    *
-   * @deprecated Deprecated, use `system.process.status` instead.
+   * @deprecated Replaced by {@code system.process.status}.
    */
   @Deprecated
-  public static final class SystemProcessesStatusIncubatingValues {
+  public static final class SystemProcessesStatusValues {
     /** running. */
     public static final String RUNNING = "running";
 
@@ -278,7 +281,7 @@ public final class SystemIncubatingAttributes {
     /** defunct. */
     public static final String DEFUNCT = "defunct";
 
-    private SystemProcessesStatusIncubatingValues() {}
+    private SystemProcessesStatusValues() {}
   }
 
   private SystemIncubatingAttributes() {}

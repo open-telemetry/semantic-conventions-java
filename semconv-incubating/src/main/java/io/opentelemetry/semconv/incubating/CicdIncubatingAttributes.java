@@ -10,10 +10,9 @@ import static io.opentelemetry.api.common.AttributeKey.stringKey;
 import io.opentelemetry.api.common.AttributeKey;
 
 // DO NOT EDIT, this is an Auto-generated file from
-// buildscripts/templates/SemanticAttributes.java.j2
+// buildscripts/templates/registry/incubating_java/IncubatingSemanticAttributes.java.j2
 @SuppressWarnings("unused")
 public final class CicdIncubatingAttributes {
-
   /** The human readable name of the pipeline within a CI/CD system. */
   public static final AttributeKey<String> CICD_PIPELINE_NAME = stringKey("cicd.pipeline.name");
 
@@ -45,17 +44,17 @@ public final class CicdIncubatingAttributes {
 
   // Enum definitions
   /** Values for {@link #CICD_PIPELINE_TASK_TYPE}. */
-  public static final class CicdPipelineTaskTypeIncubatingValues {
-    /** build. */
+  public static final class CicdPipelineTaskTypeValues {
+    /** build */
     public static final String BUILD = "build";
 
-    /** test. */
+    /** test */
     public static final String TEST = "test";
 
-    /** deploy. */
+    /** deploy */
     public static final String DEPLOY = "deploy";
 
-    private CicdPipelineTaskTypeIncubatingValues() {}
+    private CicdPipelineTaskTypeValues() {}
   }
 
   private CicdIncubatingAttributes() {}

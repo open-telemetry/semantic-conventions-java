@@ -11,21 +11,17 @@ import static io.opentelemetry.api.common.AttributeKey.stringKey;
 import io.opentelemetry.api.common.AttributeKey;
 
 // DO NOT EDIT, this is an Auto-generated file from
-// buildscripts/templates/SemanticAttributes.java.j2
+// buildscripts/templates/registry/incubating_java/IncubatingSemanticAttributes.java.j2
 @SuppressWarnings("unused")
 public final class GcpIncubatingAttributes {
-
   /**
    * Identifies the Google Cloud service for which the official client library is intended.
    *
    * <p>Notes:
    *
-   * <ul>
-   *   <li>Intended to be a stable identifier for Google Cloud client libraries that is uniform
-   *       across implementation languages. The value should be derived from the canonical service
-   *       domain for the service; for example, 'foo.googleapis.com' should result in a value of
-   *       'foo'.
-   * </ul>
+   * <p>Intended to be a stable identifier for Google Cloud client libraries that is uniform across
+   * implementation languages. The value should be derived from the canonical service domain for the
+   * service; for example, 'foo.googleapis.com' should result in a value of 'foo'.
    */
   public static final AttributeKey<String> GCP_CLIENT_SERVICE = stringKey("gcp.client.service");
 
@@ -63,6 +59,8 @@ public final class GcpIncubatingAttributes {
    */
   public static final AttributeKey<String> GCP_GCE_INSTANCE_NAME =
       stringKey("gcp.gce.instance.name");
+
+  // Enum definitions
 
   private GcpIncubatingAttributes() {}
 }

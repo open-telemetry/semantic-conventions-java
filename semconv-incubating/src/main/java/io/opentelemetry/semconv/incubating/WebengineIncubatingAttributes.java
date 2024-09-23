@@ -10,10 +10,9 @@ import static io.opentelemetry.api.common.AttributeKey.stringKey;
 import io.opentelemetry.api.common.AttributeKey;
 
 // DO NOT EDIT, this is an Auto-generated file from
-// buildscripts/templates/SemanticAttributes.java.j2
+// buildscripts/templates/registry/incubating_java/IncubatingSemanticAttributes.java.j2
 @SuppressWarnings("unused")
 public final class WebengineIncubatingAttributes {
-
   /** Additional description of the web engine (e.g. detailed version and edition information). */
   public static final AttributeKey<String> WEBENGINE_DESCRIPTION =
       stringKey("webengine.description");
@@ -23,6 +22,8 @@ public final class WebengineIncubatingAttributes {
 
   /** The version of the web engine. */
   public static final AttributeKey<String> WEBENGINE_VERSION = stringKey("webengine.version");
+
+  // Enum definitions
 
   private WebengineIncubatingAttributes() {}
 }

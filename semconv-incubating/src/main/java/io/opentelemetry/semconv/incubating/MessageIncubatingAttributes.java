@@ -11,14 +11,15 @@ import static io.opentelemetry.api.common.AttributeKey.stringKey;
 import io.opentelemetry.api.common.AttributeKey;
 
 // DO NOT EDIT, this is an Auto-generated file from
-// buildscripts/templates/SemanticAttributes.java.j2
+// buildscripts/templates/registry/incubating_java/IncubatingSemanticAttributes.java.j2
 @SuppressWarnings("unused")
 public final class MessageIncubatingAttributes {
-
   /**
    * Deprecated, use {@code rpc.message.compressed_size} instead.
    *
-   * @deprecated Deprecated, use `rpc.message.compressed_size` instead.
+   * <p>
+   *
+   * @deprecated Replaced by {@code rpc.message.compressed_size}.
    */
   @Deprecated
   public static final AttributeKey<Long> MESSAGE_COMPRESSED_SIZE =
@@ -27,21 +28,27 @@ public final class MessageIncubatingAttributes {
   /**
    * Deprecated, use {@code rpc.message.id} instead.
    *
-   * @deprecated Deprecated, use `rpc.message.id` instead.
+   * <p>
+   *
+   * @deprecated Replaced by {@code rpc.message.id}.
    */
   @Deprecated public static final AttributeKey<Long> MESSAGE_ID = longKey("message.id");
 
   /**
    * Deprecated, use {@code rpc.message.type} instead.
    *
-   * @deprecated Deprecated, use `rpc.message.type` instead.
+   * <p>
+   *
+   * @deprecated Replaced by {@code rpc.message.type}.
    */
   @Deprecated public static final AttributeKey<String> MESSAGE_TYPE = stringKey("message.type");
 
   /**
    * Deprecated, use {@code rpc.message.uncompressed_size} instead.
    *
-   * @deprecated Deprecated, use `rpc.message.uncompressed_size` instead.
+   * <p>
+   *
+   * @deprecated Replaced by {@code rpc.message.uncompressed_size}.
    */
   @Deprecated
   public static final AttributeKey<Long> MESSAGE_UNCOMPRESSED_SIZE =
@@ -49,19 +56,19 @@ public final class MessageIncubatingAttributes {
 
   // Enum definitions
   /**
-   * Values for {@link #MESSAGE_TYPE}.
+   * Values for {@link #MESSAGE_TYPE}
    *
-   * @deprecated Deprecated, use `rpc.message.type` instead.
+   * @deprecated Replaced by {@code rpc.message.type}.
    */
   @Deprecated
-  public static final class MessageTypeIncubatingValues {
+  public static final class MessageTypeValues {
     /** sent. */
     public static final String SENT = "SENT";
 
     /** received. */
     public static final String RECEIVED = "RECEIVED";
 
-    private MessageTypeIncubatingValues() {}
+    private MessageTypeValues() {}
   }
 
   private MessageIncubatingAttributes() {}

@@ -10,32 +10,33 @@ import static io.opentelemetry.api.common.AttributeKey.stringKey;
 import io.opentelemetry.api.common.AttributeKey;
 
 // DO NOT EDIT, this is an Auto-generated file from
-// buildscripts/templates/SemanticAttributes.java.j2
+// buildscripts/templates/registry/incubating_java/IncubatingSemanticAttributes.java.j2
 @SuppressWarnings("unused")
 public final class OtherIncubatingAttributes {
-
   /**
    * Deprecated, use {@code db.client.connection.state} instead.
    *
-   * @deprecated Deprecated, use `db.client.connection.state` instead.
+   * <p>
+   *
+   * @deprecated Replaced by {@code db.client.connection.state}.
    */
   @Deprecated public static final AttributeKey<String> STATE = stringKey("state");
 
   // Enum definitions
   /**
-   * Values for {@link #STATE}.
+   * Values for {@link #STATE}
    *
-   * @deprecated Deprecated, use `db.client.connection.state` instead.
+   * @deprecated Replaced by {@code db.client.connection.state}.
    */
   @Deprecated
-  public static final class StateIncubatingValues {
+  public static final class StateValues {
     /** idle. */
     public static final String IDLE = "idle";
 
     /** used. */
     public static final String USED = "used";
 
-    private StateIncubatingValues() {}
+    private StateValues() {}
   }
 
   private OtherIncubatingAttributes() {}

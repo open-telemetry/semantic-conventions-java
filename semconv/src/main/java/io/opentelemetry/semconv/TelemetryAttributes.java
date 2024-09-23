@@ -10,10 +10,9 @@ import static io.opentelemetry.api.common.AttributeKey.stringKey;
 import io.opentelemetry.api.common.AttributeKey;
 
 // DO NOT EDIT, this is an Auto-generated file from
-// buildscripts/templates/SemanticAttributes.java.j2
+// buildscripts/templates/registry/java/SemanticAttributes.java.j2
 @SuppressWarnings("unused")
 public final class TelemetryAttributes {
-
   /** The language of the telemetry SDK. */
   public static final AttributeKey<String> TELEMETRY_SDK_LANGUAGE =
       stringKey("telemetry.sdk.language");
@@ -23,15 +22,12 @@ public final class TelemetryAttributes {
    *
    * <p>Notes:
    *
-   * <ul>
-   *   <li>The OpenTelemetry SDK MUST set the {@code telemetry.sdk.name} attribute to {@code
-   *       opentelemetry}. If another SDK, like a fork or a vendor-provided implementation, is used,
-   *       this SDK MUST set the {@code telemetry.sdk.name} attribute to the fully-qualified class
-   *       or module name of this SDK's main entry point or another suitable identifier depending on
-   *       the language. The identifier {@code opentelemetry} is reserved and MUST NOT be used in
-   *       this case. All custom identifiers SHOULD be stable across different versions of an
-   *       implementation.
-   * </ul>
+   * <p>The OpenTelemetry SDK MUST set the {@code telemetry.sdk.name} attribute to {@code
+   * opentelemetry}. If another SDK, like a fork or a vendor-provided implementation, is used, this
+   * SDK MUST set the {@code telemetry.sdk.name} attribute to the fully-qualified class or module
+   * name of this SDK's main entry point or another suitable identifier depending on the language.
+   * The identifier {@code opentelemetry} is reserved and MUST NOT be used in this case. All custom
+   * identifiers SHOULD be stable across different versions of an implementation.
    */
   public static final AttributeKey<String> TELEMETRY_SDK_NAME = stringKey("telemetry.sdk.name");
 
@@ -39,7 +35,7 @@ public final class TelemetryAttributes {
   public static final AttributeKey<String> TELEMETRY_SDK_VERSION =
       stringKey("telemetry.sdk.version");
 
-  // Enum definitions
+  // Enum definition
   /** Values for {@link #TELEMETRY_SDK_LANGUAGE}. */
   public static final class TelemetrySdkLanguageValues {
     /** cpp. */

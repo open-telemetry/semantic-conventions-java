@@ -13,10 +13,9 @@ import io.opentelemetry.api.common.AttributeKey;
 import java.util.List;
 
 // DO NOT EDIT, this is an Auto-generated file from
-// buildscripts/templates/SemanticAttributes.java.j2
+// buildscripts/templates/registry/incubating_java/IncubatingSemanticAttributes.java.j2
 @SuppressWarnings("unused")
 public final class HostIncubatingAttributes {
-
   /** The CPU architecture the host system is running on. */
   public static final AttributeKey<String> HOST_ARCH = stringKey("host.arch");
 
@@ -43,11 +42,9 @@ public final class HostIncubatingAttributes {
    *
    * <p>Notes:
    *
-   * <ul>
-   *   <li><a href="https://wiki.osdev.org/CPUID">CPUID</a> command returns the vendor ID string in
-   *       EBX, EDX and ECX registers. Writing these to memory in this order results in a
-   *       12-character string.
-   * </ul>
+   * <p><a href="https://wiki.osdev.org/CPUID">CPUID</a> command returns the vendor ID string in
+   * EBX, EDX and ECX registers. Writing these to memory in this order results in a 12-character
+   * string.
    */
   public static final AttributeKey<String> HOST_CPU_VENDOR_ID = stringKey("host.cpu.vendor.id");
 
@@ -75,11 +72,8 @@ public final class HostIncubatingAttributes {
    *
    * <p>Notes:
    *
-   * <ul>
-   *   <li>IPv4 Addresses MUST be specified in dotted-quad notation. IPv6 addresses MUST be
-   *       specified in the <a href="https://www.rfc-editor.org/rfc/rfc5952.html">RFC 5952</a>
-   *       format.
-   * </ul>
+   * <p>IPv4 Addresses MUST be specified in dotted-quad notation. IPv6 addresses MUST be specified
+   * in the <a href="https://www.rfc-editor.org/rfc/rfc5952.html">RFC 5952</a> format.
    */
   public static final AttributeKey<List<String>> HOST_IP = stringArrayKey("host.ip");
 
@@ -88,12 +82,10 @@ public final class HostIncubatingAttributes {
    *
    * <p>Notes:
    *
-   * <ul>
-   *   <li>MAC Addresses MUST be represented in <a
-   *       href="https://standards.ieee.org/wp-content/uploads/import/documents/tutorials/eui.pdf">IEEE
-   *       RA hexadecimal form</a>: as hyphen-separated octets in uppercase hexadecimal form from
-   *       most to least significant.
-   * </ul>
+   * <p>MAC Addresses MUST be represented in <a
+   * href="https://standards.ieee.org/wp-content/uploads/import/documents/tutorials/eui.pdf">IEEE RA
+   * hexadecimal form</a>: as hyphen-separated octets in uppercase hexadecimal form from most to
+   * least significant.
    */
   public static final AttributeKey<List<String>> HOST_MAC = stringArrayKey("host.mac");
 
@@ -108,32 +100,32 @@ public final class HostIncubatingAttributes {
 
   // Enum definitions
   /** Values for {@link #HOST_ARCH}. */
-  public static final class HostArchIncubatingValues {
-    /** AMD64. */
+  public static final class HostArchValues {
+    /** AMD64 */
     public static final String AMD64 = "amd64";
 
-    /** ARM32. */
+    /** ARM32 */
     public static final String ARM32 = "arm32";
 
-    /** ARM64. */
+    /** ARM64 */
     public static final String ARM64 = "arm64";
 
-    /** Itanium. */
+    /** Itanium */
     public static final String IA64 = "ia64";
 
-    /** 32-bit PowerPC. */
+    /** 32-bit PowerPC */
     public static final String PPC32 = "ppc32";
 
-    /** 64-bit PowerPC. */
+    /** 64-bit PowerPC */
     public static final String PPC64 = "ppc64";
 
-    /** IBM z/Architecture. */
+    /** IBM z/Architecture */
     public static final String S390X = "s390x";
 
-    /** 32-bit x86. */
+    /** 32-bit x86 */
     public static final String X86 = "x86";
 
-    private HostArchIncubatingValues() {}
+    private HostArchValues() {}
   }
 
   private HostIncubatingAttributes() {}

@@ -12,10 +12,9 @@ import io.opentelemetry.api.common.AttributeKey;
 import java.util.List;
 
 // DO NOT EDIT, this is an Auto-generated file from
-// buildscripts/templates/SemanticAttributes.java.j2
+// buildscripts/templates/registry/incubating_java/IncubatingSemanticAttributes.java.j2
 @SuppressWarnings("unused")
 public final class UserIncubatingAttributes {
-
   /** User email address. */
   public static final AttributeKey<String> USER_EMAIL = stringKey("user.email");
 
@@ -27,10 +26,8 @@ public final class UserIncubatingAttributes {
    *
    * <p>Notes:
    *
-   * <ul>
-   *   <li>Useful if {@code user.id} or {@code user.name} contain confidential information and
-   *       cannot be used.
-   * </ul>
+   * <p>Useful if {@code user.id} or {@code user.name} contain confidential information and cannot
+   * be used.
    */
   public static final AttributeKey<String> USER_HASH = stringKey("user.hash");
 
@@ -42,6 +39,8 @@ public final class UserIncubatingAttributes {
 
   /** Array of user roles at the time of the event. */
   public static final AttributeKey<List<String>> USER_ROLES = stringArrayKey("user.roles");
+
+  // Enum definitions
 
   private UserIncubatingAttributes() {}
 }

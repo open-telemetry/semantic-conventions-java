@@ -10,14 +10,15 @@ import static io.opentelemetry.api.common.AttributeKey.stringKey;
 import io.opentelemetry.api.common.AttributeKey;
 
 // DO NOT EDIT, this is an Auto-generated file from
-// buildscripts/templates/SemanticAttributes.java.j2
+// buildscripts/templates/registry/incubating_java/IncubatingSemanticAttributes.java.j2
 @SuppressWarnings("unused")
 public final class DeploymentIncubatingAttributes {
-
   /**
    * 'Deprecated, use {@code deployment.environment.name} instead.'
    *
-   * @deprecated 'Deprecated, use `deployment.environment.name` instead.'.
+   * <p>
+   *
+   * @deprecated Deprecated, use {@code deployment.environment.name} instead.
    */
   @Deprecated
   public static final AttributeKey<String> DEPLOYMENT_ENVIRONMENT =
@@ -29,11 +30,14 @@ public final class DeploymentIncubatingAttributes {
    *
    * <p>Notes:
    *
+   * <p>{@code deployment.environment.name} does not affect the uniqueness constraints defined
+   * through the {@code service.namespace}, {@code service.name} and {@code service.instance.id}
+   * resource attributes. This implies that resources carrying the following attribute combinations
+   * MUST be considered to be identifying the same service:
+   *
+   * <p>
+   *
    * <ul>
-   *   <li>{@code deployment.environment.name} does not affect the uniqueness constraints defined
-   *       through the {@code service.namespace}, {@code service.name} and {@code
-   *       service.instance.id} resource attributes. This implies that resources carrying the
-   *       following attribute combinations MUST be considered to be identifying the same service:
    *   <li>{@code service.name=frontend}, {@code deployment.environment.name=production}
    *   <li>{@code service.name=frontend}, {@code deployment.environment.name=staging}.
    * </ul>
@@ -52,14 +56,14 @@ public final class DeploymentIncubatingAttributes {
 
   // Enum definitions
   /** Values for {@link #DEPLOYMENT_STATUS}. */
-  public static final class DeploymentStatusIncubatingValues {
-    /** failed. */
+  public static final class DeploymentStatusValues {
+    /** failed */
     public static final String FAILED = "failed";
 
-    /** succeeded. */
+    /** succeeded */
     public static final String SUCCEEDED = "succeeded";
 
-    private DeploymentStatusIncubatingValues() {}
+    private DeploymentStatusValues() {}
   }
 
   private DeploymentIncubatingAttributes() {}

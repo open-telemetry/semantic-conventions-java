@@ -10,10 +10,9 @@ import static io.opentelemetry.api.common.AttributeKey.stringKey;
 import io.opentelemetry.api.common.AttributeKey;
 
 // DO NOT EDIT, this is an Auto-generated file from
-// buildscripts/templates/SemanticAttributes.java.j2
+// buildscripts/templates/registry/incubating_java/IncubatingSemanticAttributes.java.j2
 @SuppressWarnings("unused")
 public final class V8jsIncubatingAttributes {
-
   /** The type of garbage collection. */
   public static final AttributeKey<String> V8JS_GC_TYPE = stringKey("v8js.gc.type");
 
@@ -22,17 +21,15 @@ public final class V8jsIncubatingAttributes {
    *
    * <p>Notes:
    *
-   * <ul>
-   *   <li>Value can be retrieved from value {@code space_name} of <a
-   *       href="https://nodejs.org/api/v8.html#v8getheapspacestatistics">{@code
-   *       v8.getHeapSpaceStatistics()}</a>
-   * </ul>
+   * <p>Value can be retrieved from value {@code space_name} of <a
+   * href="https://nodejs.org/api/v8.html#v8getheapspacestatistics">{@code
+   * v8.getHeapSpaceStatistics()}</a>
    */
   public static final AttributeKey<String> V8JS_HEAP_SPACE_NAME = stringKey("v8js.heap.space.name");
 
   // Enum definitions
   /** Values for {@link #V8JS_GC_TYPE}. */
-  public static final class V8jsGcTypeIncubatingValues {
+  public static final class V8jsGcTypeValues {
     /** Major (Mark Sweep Compact). */
     public static final String MAJOR = "major";
 
@@ -45,11 +42,11 @@ public final class V8jsIncubatingAttributes {
     /** Weak Callbacks (Process Weak Callbacks). */
     public static final String WEAKCB = "weakcb";
 
-    private V8jsGcTypeIncubatingValues() {}
+    private V8jsGcTypeValues() {}
   }
 
   /** Values for {@link #V8JS_HEAP_SPACE_NAME}. */
-  public static final class V8jsHeapSpaceNameIncubatingValues {
+  public static final class V8jsHeapSpaceNameValues {
     /** New memory space. */
     public static final String NEW_SPACE = "new_space";
 
@@ -65,7 +62,7 @@ public final class V8jsIncubatingAttributes {
     /** Large object memory space. */
     public static final String LARGE_OBJECT_SPACE = "large_object_space";
 
-    private V8jsHeapSpaceNameIncubatingValues() {}
+    private V8jsHeapSpaceNameValues() {}
   }
 
   private V8jsIncubatingAttributes() {}

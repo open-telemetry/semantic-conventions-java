@@ -11,19 +11,16 @@ import static io.opentelemetry.api.common.AttributeKey.stringKey;
 import io.opentelemetry.api.common.AttributeKey;
 
 // DO NOT EDIT, this is an Auto-generated file from
-// buildscripts/templates/SemanticAttributes.java.j2
+// buildscripts/templates/registry/incubating_java/IncubatingSemanticAttributes.java.j2
 @SuppressWarnings("unused")
 public final class JvmIncubatingAttributes {
-
   /**
    * Name of the buffer pool.
    *
    * <p>Notes:
    *
-   * <ul>
-   *   <li>Pool names are generally obtained via <a
-   *       href="https://docs.oracle.com/en/java/javase/11/docs/api/java.management/java/lang/management/BufferPoolMXBean.html#getName()">BufferPoolMXBean#getName()</a>.
-   * </ul>
+   * <p>Pool names are generally obtained via <a
+   * href="https://docs.oracle.com/en/java/javase/11/docs/api/java.management/java/lang/management/BufferPoolMXBean.html#getName()">BufferPoolMXBean#getName()</a>.
    */
   public static final AttributeKey<String> JVM_BUFFER_POOL_NAME = stringKey("jvm.buffer.pool.name");
 
@@ -32,10 +29,10 @@ public final class JvmIncubatingAttributes {
    *
    * <p>Notes:
    *
-   * <ul>
-   *   <li>Garbage collector action is generally obtained via <a
-   *       href="https://docs.oracle.com/en/java/javase/11/docs/api/jdk.management/com/sun/management/GarbageCollectionNotificationInfo.html#getGcAction()">GarbageCollectionNotificationInfo#getGcAction()</a>.
-   * </ul>
+   * <p>Garbage collector action is generally obtained via <a
+   * href="https://docs.oracle.com/en/java/javase/11/docs/api/jdk.management/com/sun/management/GarbageCollectionNotificationInfo.html#getGcAction()">GarbageCollectionNotificationInfo#getGcAction()</a>.
+   *
+   * <p>
    *
    * @deprecated deprecated in favor of stable {@link
    *     io.opentelemetry.semconv.JvmAttributes#JVM_GC_ACTION} attribute.
@@ -47,10 +44,10 @@ public final class JvmIncubatingAttributes {
    *
    * <p>Notes:
    *
-   * <ul>
-   *   <li>Garbage collector name is generally obtained via <a
-   *       href="https://docs.oracle.com/en/java/javase/11/docs/api/jdk.management/com/sun/management/GarbageCollectionNotificationInfo.html#getGcName()">GarbageCollectionNotificationInfo#getGcName()</a>.
-   * </ul>
+   * <p>Garbage collector name is generally obtained via <a
+   * href="https://docs.oracle.com/en/java/javase/11/docs/api/jdk.management/com/sun/management/GarbageCollectionNotificationInfo.html#getGcName()">GarbageCollectionNotificationInfo#getGcName()</a>.
+   *
+   * <p>
    *
    * @deprecated deprecated in favor of stable {@link
    *     io.opentelemetry.semconv.JvmAttributes#JVM_GC_NAME} attribute.
@@ -62,10 +59,10 @@ public final class JvmIncubatingAttributes {
    *
    * <p>Notes:
    *
-   * <ul>
-   *   <li>Pool names are generally obtained via <a
-   *       href="https://docs.oracle.com/en/java/javase/11/docs/api/java.management/java/lang/management/MemoryPoolMXBean.html#getName()">MemoryPoolMXBean#getName()</a>.
-   * </ul>
+   * <p>Pool names are generally obtained via <a
+   * href="https://docs.oracle.com/en/java/javase/11/docs/api/java.management/java/lang/management/MemoryPoolMXBean.html#getName()">MemoryPoolMXBean#getName()</a>.
+   *
+   * <p>
    *
    * @deprecated deprecated in favor of stable {@link
    *     io.opentelemetry.semconv.JvmAttributes#JVM_MEMORY_POOL_NAME} attribute.
@@ -76,6 +73,8 @@ public final class JvmIncubatingAttributes {
   /**
    * The type of memory.
    *
+   * <p>
+   *
    * @deprecated deprecated in favor of stable {@link
    *     io.opentelemetry.semconv.JvmAttributes#JVM_MEMORY_TYPE} attribute.
    */
@@ -85,6 +84,8 @@ public final class JvmIncubatingAttributes {
   /**
    * Whether the thread is daemon or not.
    *
+   * <p>
+   *
    * @deprecated deprecated in favor of stable {@link
    *     io.opentelemetry.semconv.JvmAttributes#JVM_THREAD_DAEMON} attribute.
    */
@@ -93,6 +94,8 @@ public final class JvmIncubatingAttributes {
 
   /**
    * State of the thread.
+   *
+   * <p>
    *
    * @deprecated deprecated in favor of stable {@link
    *     io.opentelemetry.semconv.JvmAttributes#JVM_THREAD_STATE} attribute.
@@ -105,27 +108,27 @@ public final class JvmIncubatingAttributes {
    * Values for {@link #JVM_MEMORY_TYPE}.
    *
    * @deprecated deprecated in favor of stable {@link
-   *     io.opentelemetry.semconv.JvmAttributes.JvmMemoryTypeValues} attribute.
+   *     io.opentelemetry.semconv.JvmAttributes.JvmMemoryTypeValues}.
    */
   @Deprecated
-  public static final class JvmMemoryTypeIncubatingValues {
+  public static final class JvmMemoryTypeValues {
     /** Heap memory. */
     public static final String HEAP = "heap";
 
-    /** Non-heap memory. */
+    /** Non-heap memory */
     public static final String NON_HEAP = "non_heap";
 
-    private JvmMemoryTypeIncubatingValues() {}
+    private JvmMemoryTypeValues() {}
   }
 
   /**
    * Values for {@link #JVM_THREAD_STATE}.
    *
    * @deprecated deprecated in favor of stable {@link
-   *     io.opentelemetry.semconv.JvmAttributes.JvmThreadStateValues} attribute.
+   *     io.opentelemetry.semconv.JvmAttributes.JvmThreadStateValues}.
    */
   @Deprecated
-  public static final class JvmThreadStateIncubatingValues {
+  public static final class JvmThreadStateValues {
     /** A thread that has not yet started is in this state. */
     public static final String NEW = "new";
 
@@ -150,7 +153,7 @@ public final class JvmIncubatingAttributes {
     /** A thread that has exited is in this state. */
     public static final String TERMINATED = "terminated";
 
-    private JvmThreadStateIncubatingValues() {}
+    private JvmThreadStateValues() {}
   }
 
   private JvmIncubatingAttributes() {}

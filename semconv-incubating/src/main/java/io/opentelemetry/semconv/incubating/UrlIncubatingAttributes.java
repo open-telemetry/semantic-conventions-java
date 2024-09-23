@@ -11,22 +11,19 @@ import static io.opentelemetry.api.common.AttributeKey.stringKey;
 import io.opentelemetry.api.common.AttributeKey;
 
 // DO NOT EDIT, this is an Auto-generated file from
-// buildscripts/templates/SemanticAttributes.java.j2
+// buildscripts/templates/registry/incubating_java/IncubatingSemanticAttributes.java.j2
 @SuppressWarnings("unused")
 public final class UrlIncubatingAttributes {
-
   /**
-   * Domain extracted from the {@code url.full}, such as &quot;opentelemetry.io&quot;.
+   * Domain extracted from the {@code url.full}, such as "opentelemetry.io".
    *
    * <p>Notes:
    *
-   * <ul>
-   *   <li>In some cases a URL may refer to an IP and/or port directly, without a domain name. In
-   *       this case, the IP address would go to the domain field. If the URL contains a <a
-   *       href="https://www.rfc-editor.org/rfc/rfc2732#section-2">literal IPv6 address</a> enclosed
-   *       by {@code [} and {@code ]}, the {@code [} and {@code ]} characters should also be
-   *       captured in the domain field.
-   * </ul>
+   * <p>In some cases a URL may refer to an IP and/or port directly, without a domain name. In this
+   * case, the IP address would go to the domain field. If the URL contains a <a
+   * href="https://www.rfc-editor.org/rfc/rfc2732#section-2">literal IPv6 address</a> enclosed by
+   * {@code [} and {@code ]}, the {@code [} and {@code ]} characters should also be captured in the
+   * domain field.
    */
   public static final AttributeKey<String> URL_DOMAIN = stringKey("url.domain");
 
@@ -35,16 +32,16 @@ public final class UrlIncubatingAttributes {
    *
    * <p>Notes:
    *
-   * <ul>
-   *   <li>The file extension is only set if it exists, as not every url has a file extension. When
-   *       the file name has multiple extensions {@code example.tar.gz}, only the last one should be
-   *       captured {@code gz}, not {@code tar.gz}.
-   * </ul>
+   * <p>The file extension is only set if it exists, as not every url has a file extension. When the
+   * file name has multiple extensions {@code example.tar.gz}, only the last one should be captured
+   * {@code gz}, not {@code tar.gz}.
    */
   public static final AttributeKey<String> URL_EXTENSION = stringKey("url.extension");
 
   /**
    * The <a href="https://www.rfc-editor.org/rfc/rfc3986#section-3.5">URI fragment</a> component
+   *
+   * <p>
    *
    * @deprecated deprecated in favor of stable {@link
    *     io.opentelemetry.semconv.UrlAttributes#URL_FRAGMENT} attribute.
@@ -57,16 +54,16 @@ public final class UrlIncubatingAttributes {
    *
    * <p>Notes:
    *
-   * <ul>
-   *   <li>For network calls, URL usually has {@code scheme://host[:port][path][?query][#fragment]}
-   *       format, where the fragment is not transmitted over HTTP, but if it is known, it SHOULD be
-   *       included nevertheless. {@code url.full} MUST NOT contain credentials passed via URL in
-   *       form of {@code https://username:password@www.example.com/}. In such case username and
-   *       password SHOULD be redacted and attribute's value SHOULD be {@code
-   *       https://REDACTED:REDACTED@www.example.com/}. {@code url.full} SHOULD capture the absolute
-   *       URL when it is available (or can be reconstructed). Sensitive content provided in {@code
-   *       url.full} SHOULD be scrubbed when instrumentations can identify it.
-   * </ul>
+   * <p>For network calls, URL usually has {@code scheme://host[:port][path][?query][#fragment]}
+   * format, where the fragment is not transmitted over HTTP, but if it is known, it SHOULD be
+   * included nevertheless. {@code url.full} MUST NOT contain credentials passed via URL in form of
+   * {@code https://username:password@www.example.com/}. In such case username and password SHOULD
+   * be redacted and attribute's value SHOULD be {@code https://REDACTED:REDACTED@www.example.com/}.
+   * {@code url.full} SHOULD capture the absolute URL when it is available (or can be
+   * reconstructed). Sensitive content provided in {@code url.full} SHOULD be scrubbed when
+   * instrumentations can identify it.
+   *
+   * <p>
    *
    * @deprecated deprecated in favor of stable {@link
    *     io.opentelemetry.semconv.UrlAttributes#URL_FULL} attribute.
@@ -78,13 +75,11 @@ public final class UrlIncubatingAttributes {
    *
    * <p>Notes:
    *
-   * <ul>
-   *   <li>In network monitoring, the observed URL may be a full URL, whereas in access logs, the
-   *       URL is often just represented as a path. This field is meant to represent the URL as it
-   *       was observed, complete or not. {@code url.original} might contain credentials passed via
-   *       URL in form of {@code https://username:password@www.example.com/}. In such case password
-   *       and username SHOULD NOT be redacted and attribute's value SHOULD remain the same.
-   * </ul>
+   * <p>In network monitoring, the observed URL may be a full URL, whereas in access logs, the URL
+   * is often just represented as a path. This field is meant to represent the URL as it was
+   * observed, complete or not. {@code url.original} might contain credentials passed via URL in
+   * form of {@code https://username:password@www.example.com/}. In such case password and username
+   * SHOULD NOT be redacted and attribute's value SHOULD remain the same.
    */
   public static final AttributeKey<String> URL_ORIGINAL = stringKey("url.original");
 
@@ -93,10 +88,10 @@ public final class UrlIncubatingAttributes {
    *
    * <p>Notes:
    *
-   * <ul>
-   *   <li>Sensitive content provided in {@code url.path} SHOULD be scrubbed when instrumentations
-   *       can identify it.
-   * </ul>
+   * <p>Sensitive content provided in {@code url.path} SHOULD be scrubbed when instrumentations can
+   * identify it.
+   *
+   * <p>
    *
    * @deprecated deprecated in favor of stable {@link
    *     io.opentelemetry.semconv.UrlAttributes#URL_PATH} attribute.
@@ -111,10 +106,10 @@ public final class UrlIncubatingAttributes {
    *
    * <p>Notes:
    *
-   * <ul>
-   *   <li>Sensitive content provided in {@code url.query} SHOULD be scrubbed when instrumentations
-   *       can identify it.
-   * </ul>
+   * <p>Sensitive content provided in {@code url.query} SHOULD be scrubbed when instrumentations can
+   * identify it.
+   *
+   * <p>
    *
    * @deprecated deprecated in favor of stable {@link
    *     io.opentelemetry.semconv.UrlAttributes#URL_QUERY} attribute.
@@ -126,12 +121,10 @@ public final class UrlIncubatingAttributes {
    *
    * <p>Notes:
    *
-   * <ul>
-   *   <li>This value can be determined precisely with the <a href="http://publicsuffix.org">public
-   *       suffix list</a>. For example, the registered domain for {@code foo.example.com} is {@code
-   *       example.com}. Trying to approximate this by simply taking the last two labels will not
-   *       work well for TLDs such as {@code co.uk}.
-   * </ul>
+   * <p>This value can be determined precisely with the <a href="http://publicsuffix.org">public
+   * suffix list</a>. For example, the registered domain for {@code foo.example.com} is {@code
+   * example.com}. Trying to approximate this by simply taking the last two labels will not work
+   * well for TLDs such as {@code co.uk}.
    */
   public static final AttributeKey<String> URL_REGISTERED_DOMAIN =
       stringKey("url.registered_domain");
@@ -139,6 +132,8 @@ public final class UrlIncubatingAttributes {
   /**
    * The <a href="https://www.rfc-editor.org/rfc/rfc3986#section-3.1">URI scheme</a> component
    * identifying the used protocol.
+   *
+   * <p>
    *
    * @deprecated deprecated in favor of stable {@link
    *     io.opentelemetry.semconv.UrlAttributes#URL_SCHEME} attribute.
@@ -153,11 +148,9 @@ public final class UrlIncubatingAttributes {
    *
    * <p>Notes:
    *
-   * <ul>
-   *   <li>The subdomain portion of {@code www.east.mydomain.co.uk} is {@code east}. If the domain
-   *       has multiple levels of subdomain, such as {@code sub2.sub1.example.com}, the subdomain
-   *       field should contain {@code sub2.sub1}, with no trailing period.
-   * </ul>
+   * <p>The subdomain portion of {@code www.east.mydomain.co.uk} is {@code east}. If the domain has
+   * multiple levels of subdomain, such as {@code sub2.sub1.example.com}, the subdomain field should
+   * contain {@code sub2.sub1}, with no trailing period.
    */
   public static final AttributeKey<String> URL_SUBDOMAIN = stringKey("url.subdomain");
 
@@ -173,12 +166,12 @@ public final class UrlIncubatingAttributes {
    *
    * <p>Notes:
    *
-   * <ul>
-   *   <li>This value can be determined precisely with the <a href="http://publicsuffix.org">public
-   *       suffix list</a>.
-   * </ul>
+   * <p>This value can be determined precisely with the <a href="http://publicsuffix.org">public
+   * suffix list</a>.
    */
   public static final AttributeKey<String> URL_TOP_LEVEL_DOMAIN = stringKey("url.top_level_domain");
+
+  // Enum definitions
 
   private UrlIncubatingAttributes() {}
 }

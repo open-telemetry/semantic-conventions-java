@@ -7,7 +7,7 @@ Java code-generation for the [OpenTelemetry Semantic Conventions](https://github
 
 Published releases are available on maven central. Replace `{{version}}` with the latest released version:
 
-| Artifact `{group}:{artifcatId}:{version}`                               | Latest Version                                                   | Description                                                                                                                                                                                                                                                                                      |
+| Artifact `{group}:{artifactId}:{version}`                               | Latest Version                                                   | Description                                                                                                                                                                                                                                                                                      |
 |-------------------------------------------------------------------------|------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `io.opentelemetry.semconv:opentelemetry-semconv:{{version}}`            | [![Maven Central][maven-image-stable]][maven-url-stable]         | Generated code for stable semantic conventions.</br>**NOTE:** Although this is for stable semantic conventions, the artifact still has the [-alpha][versioning] and comes with no compatibility guarantees. The goal is to mark this artifact stable.                                            |        
 | `io.opentelemetry.semconv:opentelemetry-semconv-incubating:{{version}}` | [![Maven Central][maven-image-incubating]][maven-url-incubating] | Generated code for experimental semantic conventions.</br>**NOTE:** This artifact has the [-alpha][versioning] and comes with no compatibility guarantees. Libraries can use this for testing, but should make copies of the attributes to avoid possible runtime errors from version conflicts. |        
@@ -69,11 +69,11 @@ Requires docker.
 In a shell, execute the following gradle tasks:
 
 ```shell
-./gradlew clean generateSemanticConventions --console=plain
+
 ./gradlew spotlessApply
 ```
 
-This will download the version
+This will download the version./gradlew clean generateSemanticConventions --console=plain
 of [open-telemetry/semantic-conventions](https://github.com/open-telemetry/semantic-conventions)
 defined in the `semanticConventionsVersion` variable of [build.gradle.kts](./build.gradle.kts) and
 generate semantic conventions classes from the release contents.

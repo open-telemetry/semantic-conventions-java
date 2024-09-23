@@ -10,10 +10,9 @@ import static io.opentelemetry.api.common.AttributeKey.stringKey;
 import io.opentelemetry.api.common.AttributeKey;
 
 // DO NOT EDIT, this is an Auto-generated file from
-// buildscripts/templates/SemanticAttributes.java.j2
+// buildscripts/templates/registry/incubating_java/IncubatingSemanticAttributes.java.j2
 @SuppressWarnings("unused")
 public final class FeatureFlagIncubatingAttributes {
-
   /** The unique identifier of the feature flag. */
   public static final AttributeKey<String> FEATURE_FLAG_KEY = stringKey("feature_flag.key");
 
@@ -27,17 +26,17 @@ public final class FeatureFlagIncubatingAttributes {
    *
    * <p>Notes:
    *
-   * <ul>
-   *   <li>A semantic identifier, commonly referred to as a variant, provides a means for referring
-   *       to a value without including the value itself. This can provide additional context for
-   *       understanding the meaning behind a value. For example, the variant {@code red} maybe be
-   *       used for the value {@code #c05543}.
-   *   <li>A stringified version of the value can be used in situations where a semantic identifier
-   *       is unavailable. String representation of the value should be determined by the
-   *       implementer.
-   * </ul>
+   * <p>A semantic identifier, commonly referred to as a variant, provides a means for referring to
+   * a value without including the value itself. This can provide additional context for
+   * understanding the meaning behind a value. For example, the variant {@code red} maybe be used
+   * for the value {@code #c05543}.
+   *
+   * <p>A stringified version of the value can be used in situations where a semantic identifier is
+   * unavailable. String representation of the value should be determined by the implementer.
    */
   public static final AttributeKey<String> FEATURE_FLAG_VARIANT = stringKey("feature_flag.variant");
+
+  // Enum definitions
 
   private FeatureFlagIncubatingAttributes() {}
 }

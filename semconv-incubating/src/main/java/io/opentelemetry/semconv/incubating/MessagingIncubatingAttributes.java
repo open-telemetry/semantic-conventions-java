@@ -14,22 +14,18 @@ import io.opentelemetry.api.common.AttributeKey;
 import java.util.List;
 
 // DO NOT EDIT, this is an Auto-generated file from
-// buildscripts/templates/SemanticAttributes.java.j2
+// buildscripts/templates/registry/incubating_java/IncubatingSemanticAttributes.java.j2
 @SuppressWarnings("unused")
 public final class MessagingIncubatingAttributes {
-
   /**
    * The number of messages sent, received, or processed in the scope of the batching operation.
    *
    * <p>Notes:
    *
-   * <ul>
-   *   <li>Instrumentations SHOULD NOT set {@code messaging.batch.message_count} on spans that
-   *       operate with a single message. When a messaging client library supports both batch and
-   *       single-message API for the same operation, instrumentations SHOULD use {@code
-   *       messaging.batch.message_count} for batching APIs and SHOULD NOT use it for single-message
-   *       APIs.
-   * </ul>
+   * <p>Instrumentations SHOULD NOT set {@code messaging.batch.message_count} on spans that operate
+   * with a single message. When a messaging client library supports both batch and single-message
+   * API for the same operation, instrumentations SHOULD use {@code messaging.batch.message_count}
+   * for batching APIs and SHOULD NOT use it for single-message APIs.
    */
   public static final AttributeKey<Long> MESSAGING_BATCH_MESSAGE_COUNT =
       longKey("messaging.batch.message_count");
@@ -42,11 +38,8 @@ public final class MessagingIncubatingAttributes {
    *
    * <p>Notes:
    *
-   * <ul>
-   *   <li>Semantic conventions for individual messaging systems SHOULD document whether {@code
-   *       messaging.consumer.group.name} is applicable and what it means in the context of that
-   *       system.
-   * </ul>
+   * <p>Semantic conventions for individual messaging systems SHOULD document whether {@code
+   * messaging.consumer.group.name} is applicable and what it means in the context of that system.
    */
   public static final AttributeKey<String> MESSAGING_CONSUMER_GROUP_NAME =
       stringKey("messaging.consumer.group.name");
@@ -63,11 +56,9 @@ public final class MessagingIncubatingAttributes {
    *
    * <p>Notes:
    *
-   * <ul>
-   *   <li>Destination name SHOULD uniquely identify a specific queue, topic or other entity within
-   *       the broker. If the broker doesn't have such notion, the destination name SHOULD uniquely
-   *       identify the broker.
-   * </ul>
+   * <p>Destination name SHOULD uniquely identify a specific queue, topic or other entity within the
+   * broker. If the broker doesn't have such notion, the destination name SHOULD uniquely identify
+   * the broker.
    */
   public static final AttributeKey<String> MESSAGING_DESTINATION_NAME =
       stringKey("messaging.destination.name");
@@ -84,11 +75,9 @@ public final class MessagingIncubatingAttributes {
    *
    * <p>Notes:
    *
-   * <ul>
-   *   <li>Semantic conventions for individual messaging systems SHOULD document whether {@code
-   *       messaging.destination.subscription.name} is applicable and what it means in the context
-   *       of that system.
-   * </ul>
+   * <p>Semantic conventions for individual messaging systems SHOULD document whether {@code
+   * messaging.destination.subscription.name} is applicable and what it means in the context of that
+   * system.
    */
   public static final AttributeKey<String> MESSAGING_DESTINATION_SUBSCRIPTION_NAME =
       stringKey("messaging.destination.subscription.name");
@@ -98,12 +87,10 @@ public final class MessagingIncubatingAttributes {
    *
    * <p>Notes:
    *
-   * <ul>
-   *   <li>Destination names could be constructed from templates. An example would be a destination
-   *       name involving a user name or product id. Although the destination name in this case is
-   *       of high cardinality, the underlying template is of low cardinality and can be effectively
-   *       used for grouping and aggregation.
-   * </ul>
+   * <p>Destination names could be constructed from templates. An example would be a destination
+   * name involving a user name or product id. Although the destination name in this case is of high
+   * cardinality, the underlying template is of low cardinality and can be effectively used for
+   * grouping and aggregation.
    */
   public static final AttributeKey<String> MESSAGING_DESTINATION_TEMPLATE =
       stringKey("messaging.destination.template");
@@ -118,7 +105,9 @@ public final class MessagingIncubatingAttributes {
   /**
    * Deprecated, no replacement at this time.
    *
-   * @deprecated Deprecated, no replacement at this time.
+   * <p>
+   *
+   * @deprecated No replacement at this time.
    */
   @Deprecated
   public static final AttributeKey<Boolean> MESSAGING_DESTINATION_PUBLISH_ANONYMOUS =
@@ -127,7 +116,9 @@ public final class MessagingIncubatingAttributes {
   /**
    * Deprecated, no replacement at this time.
    *
-   * @deprecated Deprecated, no replacement at this time.
+   * <p>
+   *
+   * @deprecated No replacement at this time.
    */
   @Deprecated
   public static final AttributeKey<String> MESSAGING_DESTINATION_PUBLISH_NAME =
@@ -136,7 +127,9 @@ public final class MessagingIncubatingAttributes {
   /**
    * Deprecated, use {@code messaging.consumer.group.name} instead.
    *
-   * @deprecated Deprecated, use `messaging.consumer.group.name` instead.
+   * <p>
+   *
+   * @deprecated Replaced by {@code messaging.consumer.group.name}.
    */
   @Deprecated
   public static final AttributeKey<String> MESSAGING_EVENTHUBS_CONSUMER_GROUP =
@@ -168,7 +161,9 @@ public final class MessagingIncubatingAttributes {
   /**
    * Deprecated, use {@code messaging.consumer.group.name} instead.
    *
-   * @deprecated Deprecated, use `messaging.consumer.group.name` instead.
+   * <p>
+   *
+   * @deprecated Replaced by {@code messaging.consumer.group.name}.
    */
   @Deprecated
   public static final AttributeKey<String> MESSAGING_KAFKA_CONSUMER_GROUP =
@@ -177,7 +172,9 @@ public final class MessagingIncubatingAttributes {
   /**
    * Deprecated, use {@code messaging.destination.partition.id} instead.
    *
-   * @deprecated Deprecated, use `messaging.destination.partition.id` instead.
+   * <p>
+   *
+   * @deprecated Replaced by {@code messaging.destination.partition.id}.
    */
   @Deprecated
   public static final AttributeKey<Long> MESSAGING_KAFKA_DESTINATION_PARTITION =
@@ -190,10 +187,8 @@ public final class MessagingIncubatingAttributes {
    *
    * <p>Notes:
    *
-   * <ul>
-   *   <li>If the key type is not string, it's string representation has to be supplied for the
-   *       attribute. If the key has no unambiguous, canonical string form, don't include its value.
-   * </ul>
+   * <p>If the key type is not string, it's string representation has to be supplied for the
+   * attribute. If the key has no unambiguous, canonical string form, don't include its value.
    */
   public static final AttributeKey<String> MESSAGING_KAFKA_MESSAGE_KEY =
       stringKey("messaging.kafka.message.key");
@@ -201,7 +196,9 @@ public final class MessagingIncubatingAttributes {
   /**
    * Deprecated, use {@code messaging.kafka.offset} instead.
    *
-   * @deprecated Deprecated, use `messaging.kafka.offset` instead.
+   * <p>
+   *
+   * @deprecated Replaced by {@code messaging.kafka.offset}.
    */
   @Deprecated
   public static final AttributeKey<Long> MESSAGING_KAFKA_MESSAGE_OFFSET =
@@ -219,17 +216,15 @@ public final class MessagingIncubatingAttributes {
    *
    * <p>Notes:
    *
-   * <ul>
-   *   <li>This can refer to both the compressed or uncompressed body size. If both sizes are known,
-   *       the uncompressed body size should be used.
-   * </ul>
+   * <p>This can refer to both the compressed or uncompressed body size. If both sizes are known,
+   * the uncompressed body size should be used.
    */
   public static final AttributeKey<Long> MESSAGING_MESSAGE_BODY_SIZE =
       longKey("messaging.message.body.size");
 
   /**
    * The conversation ID identifying the conversation to which the message belongs, represented as a
-   * string. Sometimes called &quot;Correlation ID&quot;.
+   * string. Sometimes called "Correlation ID".
    */
   public static final AttributeKey<String> MESSAGING_MESSAGE_CONVERSATION_ID =
       stringKey("messaging.message.conversation_id");
@@ -239,10 +234,8 @@ public final class MessagingIncubatingAttributes {
    *
    * <p>Notes:
    *
-   * <ul>
-   *   <li>This can refer to both the compressed or uncompressed size. If both sizes are known, the
-   *       uncompressed size should be used.
-   * </ul>
+   * <p>This can refer to both the compressed or uncompressed size. If both sizes are known, the
+   * uncompressed size should be used.
    */
   public static final AttributeKey<Long> MESSAGING_MESSAGE_ENVELOPE_SIZE =
       longKey("messaging.message.envelope.size");
@@ -255,7 +248,9 @@ public final class MessagingIncubatingAttributes {
   /**
    * Deprecated, use {@code messaging.operation.type} instead.
    *
-   * @deprecated Deprecated, use `messaging.operation.type` instead.
+   * <p>
+   *
+   * @deprecated Replaced by {@code messaging.operation.type}.
    */
   @Deprecated
   public static final AttributeKey<String> MESSAGING_OPERATION = stringKey("messaging.operation");
@@ -269,9 +264,7 @@ public final class MessagingIncubatingAttributes {
    *
    * <p>Notes:
    *
-   * <ul>
-   *   <li>If a custom value is used, it MUST be of low cardinality.
-   * </ul>
+   * <p>If a custom value is used, it MUST be of low cardinality.
    */
   public static final AttributeKey<String> MESSAGING_OPERATION_TYPE =
       stringKey("messaging.operation.type");
@@ -287,7 +280,10 @@ public final class MessagingIncubatingAttributes {
   /**
    * Deprecated, use {@code messaging.consumer.group.name} instead.
    *
-   * @deprecated Deprecated, use `messaging.consumer.group.name` instead.
+   * <p>
+   *
+   * @deprecated Replaced by {@code messaging.consumer.group.name} on the consumer spans. No
+   *     replacement for producer spans.
    */
   @Deprecated
   public static final AttributeKey<String> MESSAGING_ROCKETMQ_CLIENT_GROUP =
@@ -333,7 +329,9 @@ public final class MessagingIncubatingAttributes {
   /**
    * Deprecated, use {@code messaging.servicebus.destination.subscription_name} instead.
    *
-   * @deprecated Deprecated, use `messaging.servicebus.destination.subscription_name` instead.
+   * <p>
+   *
+   * @deprecated Replaced by {@code messaging.servicebus.destination.subscription_name}.
    */
   @Deprecated
   public static final AttributeKey<String> MESSAGING_SERVICEBUS_DESTINATION_SUBSCRIPTION_NAME =
@@ -360,27 +358,25 @@ public final class MessagingIncubatingAttributes {
    *
    * <p>Notes:
    *
-   * <ul>
-   *   <li>The actual messaging system may differ from the one known by the client. For example,
-   *       when using Kafka client libraries to communicate with Azure Event Hubs, the {@code
-   *       messaging.system} is set to {@code kafka} based on the instrumentation's best knowledge.
-   * </ul>
+   * <p>The actual messaging system may differ from the one known by the client. For example, when
+   * using Kafka client libraries to communicate with Azure Event Hubs, the {@code messaging.system}
+   * is set to {@code kafka} based on the instrumentation's best knowledge.
    */
   public static final AttributeKey<String> MESSAGING_SYSTEM = stringKey("messaging.system");
 
   // Enum definitions
   /** Values for {@link #MESSAGING_OPERATION_TYPE}. */
-  public static final class MessagingOperationTypeIncubatingValues {
+  public static final class MessagingOperationTypeValues {
     /**
      * One or more messages are provided for publishing to an intermediary. If a single message is
-     * published, the context of the &#34;Publish&#34; span can be used as the creation context and
-     * no &#34;Create&#34; span needs to be created.
+     * published, the context of the "Publish" span can be used as the creation context and no
+     * "Create" span needs to be created.
      */
     public static final String PUBLISH = "publish";
 
     /**
-     * A message is created. &#34;Create&#34; spans always refer to a single message and are used to
-     * provide a unique creation context for messages in batch publishing scenarios.
+     * A message is created. "Create" spans always refer to a single message and are used to provide
+     * a unique creation context for messages in batch publishing scenarios.
      */
     public static final String CREATE = "create";
 
@@ -396,93 +392,93 @@ public final class MessagingIncubatingAttributes {
     /** One or more messages are settled. */
     public static final String SETTLE = "settle";
 
-    /** Deprecated. Use `process` instead. */
+    /** Deprecated. Use {@code process} instead. */
     public static final String DELIVER = "deliver";
 
-    private MessagingOperationTypeIncubatingValues() {}
+    private MessagingOperationTypeValues() {}
   }
 
   /** Values for {@link #MESSAGING_ROCKETMQ_CONSUMPTION_MODEL}. */
-  public static final class MessagingRocketmqConsumptionModelIncubatingValues {
-    /** Clustering consumption model. */
+  public static final class MessagingRocketmqConsumptionModelValues {
+    /** Clustering consumption model */
     public static final String CLUSTERING = "clustering";
 
-    /** Broadcasting consumption model. */
+    /** Broadcasting consumption model */
     public static final String BROADCASTING = "broadcasting";
 
-    private MessagingRocketmqConsumptionModelIncubatingValues() {}
+    private MessagingRocketmqConsumptionModelValues() {}
   }
 
   /** Values for {@link #MESSAGING_ROCKETMQ_MESSAGE_TYPE}. */
-  public static final class MessagingRocketmqMessageTypeIncubatingValues {
-    /** Normal message. */
+  public static final class MessagingRocketmqMessageTypeValues {
+    /** Normal message */
     public static final String NORMAL = "normal";
 
-    /** FIFO message. */
+    /** FIFO message */
     public static final String FIFO = "fifo";
 
-    /** Delay message. */
+    /** Delay message */
     public static final String DELAY = "delay";
 
-    /** Transaction message. */
+    /** Transaction message */
     public static final String TRANSACTION = "transaction";
 
-    private MessagingRocketmqMessageTypeIncubatingValues() {}
+    private MessagingRocketmqMessageTypeValues() {}
   }
 
   /** Values for {@link #MESSAGING_SERVICEBUS_DISPOSITION_STATUS}. */
-  public static final class MessagingServicebusDispositionStatusIncubatingValues {
-    /** Message is completed. */
+  public static final class MessagingServicebusDispositionStatusValues {
+    /** Message is completed */
     public static final String COMPLETE = "complete";
 
-    /** Message is abandoned. */
+    /** Message is abandoned */
     public static final String ABANDON = "abandon";
 
-    /** Message is sent to dead letter queue. */
+    /** Message is sent to dead letter queue */
     public static final String DEAD_LETTER = "dead_letter";
 
-    /** Message is deferred. */
+    /** Message is deferred */
     public static final String DEFER = "defer";
 
-    private MessagingServicebusDispositionStatusIncubatingValues() {}
+    private MessagingServicebusDispositionStatusValues() {}
   }
 
   /** Values for {@link #MESSAGING_SYSTEM}. */
-  public static final class MessagingSystemIncubatingValues {
-    /** Apache ActiveMQ. */
+  public static final class MessagingSystemValues {
+    /** Apache ActiveMQ */
     public static final String ACTIVEMQ = "activemq";
 
-    /** Amazon Simple Queue Service (SQS). */
+    /** Amazon Simple Queue Service (SQS) */
     public static final String AWS_SQS = "aws_sqs";
 
-    /** Azure Event Grid. */
+    /** Azure Event Grid */
     public static final String EVENTGRID = "eventgrid";
 
-    /** Azure Event Hubs. */
+    /** Azure Event Hubs */
     public static final String EVENTHUBS = "eventhubs";
 
-    /** Azure Service Bus. */
+    /** Azure Service Bus */
     public static final String SERVICEBUS = "servicebus";
 
-    /** Google Cloud Pub/Sub. */
+    /** Google Cloud Pub/Sub */
     public static final String GCP_PUBSUB = "gcp_pubsub";
 
-    /** Java Message Service. */
+    /** Java Message Service */
     public static final String JMS = "jms";
 
-    /** Apache Kafka. */
+    /** Apache Kafka */
     public static final String KAFKA = "kafka";
 
-    /** RabbitMQ. */
+    /** RabbitMQ */
     public static final String RABBITMQ = "rabbitmq";
 
-    /** Apache RocketMQ. */
+    /** Apache RocketMQ */
     public static final String ROCKETMQ = "rocketmq";
 
-    /** Apache Pulsar. */
+    /** Apache Pulsar */
     public static final String PULSAR = "pulsar";
 
-    private MessagingSystemIncubatingValues() {}
+    private MessagingSystemValues() {}
   }
 
   private MessagingIncubatingAttributes() {}

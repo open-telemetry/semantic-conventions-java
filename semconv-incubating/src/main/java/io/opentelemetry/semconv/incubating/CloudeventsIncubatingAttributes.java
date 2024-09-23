@@ -10,10 +10,9 @@ import static io.opentelemetry.api.common.AttributeKey.stringKey;
 import io.opentelemetry.api.common.AttributeKey;
 
 // DO NOT EDIT, this is an Auto-generated file from
-// buildscripts/templates/SemanticAttributes.java.j2
+// buildscripts/templates/registry/incubating_java/IncubatingSemanticAttributes.java.j2
 @SuppressWarnings("unused")
 public final class CloudeventsIncubatingAttributes {
-
   /**
    * The <a
    * href="https://github.com/cloudevents/spec/blob/v1.0.2/cloudevents/spec.md#id">event_id</a>
@@ -52,6 +51,8 @@ public final class CloudeventsIncubatingAttributes {
    */
   public static final AttributeKey<String> CLOUDEVENTS_EVENT_TYPE =
       stringKey("cloudevents.event_type");
+
+  // Enum definitions
 
   private CloudeventsIncubatingAttributes() {}
 }

@@ -10,16 +10,15 @@ import static io.opentelemetry.api.common.AttributeKey.stringKey;
 import io.opentelemetry.api.common.AttributeKey;
 
 // DO NOT EDIT, this is an Auto-generated file from
-// buildscripts/templates/SemanticAttributes.java.j2
+// buildscripts/templates/registry/incubating_java/IncubatingSemanticAttributes.java.j2
 @SuppressWarnings("unused")
 public final class CpuIncubatingAttributes {
-
   /** The mode of the CPU */
   public static final AttributeKey<String> CPU_MODE = stringKey("cpu.mode");
 
   // Enum definitions
   /** Values for {@link #CPU_MODE}. */
-  public static final class CpuModeIncubatingValues {
+  public static final class CpuModeValues {
     /** user. */
     public static final String USER = "user";
 
@@ -44,7 +43,7 @@ public final class CpuIncubatingAttributes {
     /** kernel. */
     public static final String KERNEL = "kernel";
 
-    private CpuModeIncubatingValues() {}
+    private CpuModeValues() {}
   }
 
   private CpuIncubatingAttributes() {}
