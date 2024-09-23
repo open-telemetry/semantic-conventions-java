@@ -78,7 +78,7 @@ public final class OtelIncubatingAttributes {
    *     io.opentelemetry.semconv.OtelAttributes.OtelStatusCodeValues}.
    */
   @Deprecated
-  public static final class OtelStatusCodeValues {
+  public static final class OtelStatusCodeIncubatingValues {
     /**
      * The operation has been validated by an Application developer or Operator to have completed
      * successfully.
@@ -88,7 +88,7 @@ public final class OtelIncubatingAttributes {
     /** The operation contains an error. */
     public static final String ERROR = "ERROR";
 
-    private OtelStatusCodeValues() {}
+    private OtelStatusCodeIncubatingValues() {}
   }
 
   private OtelIncubatingAttributes() {}

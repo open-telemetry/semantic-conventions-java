@@ -125,7 +125,7 @@ public final class ContainerIncubatingAttributes {
    * @deprecated Replaced by {@code cpu.mode}
    */
   @Deprecated
-  public static final class ContainerCpuStateValues {
+  public static final class ContainerCpuStateIncubatingValues {
     /**
      * When tasks of the cgroup are in user mode (Linux). When all container processes are in user
      * mode (Windows).
@@ -141,7 +141,7 @@ public final class ContainerIncubatingAttributes {
      */
     public static final String KERNEL = "kernel";
 
-    private ContainerCpuStateValues() {}
+    private ContainerCpuStateIncubatingValues() {}
   }
 
   private ContainerIncubatingAttributes() {}
