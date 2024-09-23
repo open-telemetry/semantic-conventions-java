@@ -1132,8 +1132,8 @@ public final class ResourceAttributes {
    *       unknown_service:bash}. If {@code process.executable.name} is not available, the value
    *       MUST be set to {@code unknown_service}.
    * </ul>
-   * @deprecated deprecated in favor of stable {@link
-   *    io.opentelemetry.semconv.ServiceIncubatingAttributes#SERVICE_NAME} attribute.
+   * @deprecated deprecated in favor of stable {@see
+   *    io.opentelemetry.semconv.incubating.ServiceIncubatingAttributes#SERVICE_NAME} attribute.
    */
   @Deprecated public static final AttributeKey<String> SERVICE_NAME = stringKey("service.name");
 
