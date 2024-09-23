@@ -29,7 +29,7 @@ public final class V8jsIncubatingAttributes {
 
   // Enum definitions
   /** Values for {@link #V8JS_GC_TYPE}. */
-  public static final class V8jsGcTypeValues {
+  public static final class V8jsGcTypeIncubatingValues {
     /** Major (Mark Sweep Compact). */
     public static final String MAJOR = "major";
 
@@ -42,11 +42,11 @@ public final class V8jsIncubatingAttributes {
     /** Weak Callbacks (Process Weak Callbacks). */
     public static final String WEAKCB = "weakcb";
 
-    private V8jsGcTypeValues() {}
+    private V8jsGcTypeIncubatingValues() {}
   }
 
   /** Values for {@link #V8JS_HEAP_SPACE_NAME}. */
-  public static final class V8jsHeapSpaceNameValues {
+  public static final class V8jsHeapSpaceNameIncubatingValues {
     /** New memory space. */
     public static final String NEW_SPACE = "new_space";
 
@@ -62,7 +62,7 @@ public final class V8jsIncubatingAttributes {
     /** Large object memory space. */
     public static final String LARGE_OBJECT_SPACE = "large_object_space";
 
-    private V8jsHeapSpaceNameValues() {}
+    private V8jsHeapSpaceNameIncubatingValues() {}
   }
 
   private V8jsIncubatingAttributes() {}

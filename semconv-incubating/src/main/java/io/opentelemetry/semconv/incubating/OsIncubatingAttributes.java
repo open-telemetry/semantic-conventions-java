@@ -36,7 +36,7 @@ public final class OsIncubatingAttributes {
 
   // Enum definitions
   /** Values for {@link #OS_TYPE}. */
-  public static final class OsTypeValues {
+  public static final class OsTypeIncubatingValues {
     /** Microsoft Windows */
     public static final String WINDOWS = "windows";
 
@@ -70,7 +70,7 @@ public final class OsIncubatingAttributes {
     /** IBM z/OS */
     public static final String Z_OS = "z_os";
 
-    private OsTypeValues() {}
+    private OsTypeIncubatingValues() {}
   }
 
   private OsIncubatingAttributes() {}

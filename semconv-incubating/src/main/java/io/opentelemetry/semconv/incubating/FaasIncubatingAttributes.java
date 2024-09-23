@@ -171,7 +171,7 @@ public final class FaasIncubatingAttributes {
 
   // Enum definitions
   /** Values for {@link #FAAS_DOCUMENT_OPERATION}. */
-  public static final class FaasDocumentOperationValues {
+  public static final class FaasDocumentOperationIncubatingValues {
     /** When a new object is created. */
     public static final String INSERT = "insert";
 
@@ -181,11 +181,11 @@ public final class FaasIncubatingAttributes {
     /** When an object is deleted. */
     public static final String DELETE = "delete";
 
-    private FaasDocumentOperationValues() {}
+    private FaasDocumentOperationIncubatingValues() {}
   }
 
   /** Values for {@link #FAAS_INVOKED_PROVIDER}. */
-  public static final class FaasInvokedProviderValues {
+  public static final class FaasInvokedProviderIncubatingValues {
     /** Alibaba Cloud */
     public static final String ALIBABA_CLOUD = "alibaba_cloud";
 
@@ -201,11 +201,11 @@ public final class FaasIncubatingAttributes {
     /** Tencent Cloud */
     public static final String TENCENT_CLOUD = "tencent_cloud";
 
-    private FaasInvokedProviderValues() {}
+    private FaasInvokedProviderIncubatingValues() {}
   }
 
   /** Values for {@link #FAAS_TRIGGER}. */
-  public static final class FaasTriggerValues {
+  public static final class FaasTriggerIncubatingValues {
     /** A response to some data source operation such as a database or filesystem read/write */
     public static final String DATASOURCE = "datasource";
 
@@ -221,7 +221,7 @@ public final class FaasIncubatingAttributes {
     /** If none of the others apply */
     public static final String OTHER = "other";
 
-    private FaasTriggerValues() {}
+    private FaasTriggerIncubatingValues() {}
   }
 
   private FaasIncubatingAttributes() {}

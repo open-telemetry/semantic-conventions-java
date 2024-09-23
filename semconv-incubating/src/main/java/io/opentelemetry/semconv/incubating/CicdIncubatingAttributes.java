@@ -44,7 +44,7 @@ public final class CicdIncubatingAttributes {
 
   // Enum definitions
   /** Values for {@link #CICD_PIPELINE_TASK_TYPE}. */
-  public static final class CicdPipelineTaskTypeValues {
+  public static final class CicdPipelineTaskTypeIncubatingValues {
     /** build */
     public static final String BUILD = "build";
 
@@ -54,7 +54,7 @@ public final class CicdIncubatingAttributes {
     /** deploy */
     public static final String DEPLOY = "deploy";
 
-    private CicdPipelineTaskTypeValues() {}
+    private CicdPipelineTaskTypeIncubatingValues() {}
   }
 
   private CicdIncubatingAttributes() {}

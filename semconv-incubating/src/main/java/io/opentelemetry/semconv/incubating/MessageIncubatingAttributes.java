@@ -61,14 +61,14 @@ public final class MessageIncubatingAttributes {
    * @deprecated Replaced by {@code rpc.message.type}.
    */
   @Deprecated
-  public static final class MessageTypeValues {
+  public static final class MessageTypeIncubatingValues {
     /** sent. */
     public static final String SENT = "SENT";
 
     /** received. */
     public static final String RECEIVED = "RECEIVED";
 
-    private MessageTypeValues() {}
+    private MessageTypeIncubatingValues() {}
   }
 
   private MessageIncubatingAttributes() {}
