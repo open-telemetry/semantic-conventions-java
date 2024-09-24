@@ -63,12 +63,12 @@ public final class {{ my_class_name }} {
     /** Values for {@link #{{ attribute.name | screaming_snake_case }}}. */
     {%- endif -%}
     {% if attribute is stable or attribute is deprecated %}@Deprecated{% endif %}
-    public static final class {{ attribute.name | pascal_case }}Values {
+    public static final class {{ attribute.name | pascal_case }}IncubatingValues {
       {%- for member in attribute.type.members %}
       {{ [member.brief or (member.id ~ '.')] | comment(indent=4) }}
       public static final {{ attribute.type | instantiated_type | map_text("java_enum_type") }} {{ member.id | screaming_snake_case }} = {{ member.value | print_member_value }};
       {%- endfor %}
-      private {{ attribute.name | pascal_case }}Values() {}
+      private {{ attribute.name | pascal_case }}IncubatingValues() {}
     }
     {% endfor %}
 

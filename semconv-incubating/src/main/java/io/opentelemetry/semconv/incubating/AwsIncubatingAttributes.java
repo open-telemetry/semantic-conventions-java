@@ -345,14 +345,14 @@ public final class AwsIncubatingAttributes {
 
   // Enum definitions
   /** Values for {@link #AWS_ECS_LAUNCHTYPE}. */
-  public static final class AwsEcsLaunchtypeValues {
+  public static final class AwsEcsLaunchtypeIncubatingValues {
     /** ec2. */
     public static final String EC2 = "ec2";
 
     /** fargate. */
     public static final String FARGATE = "fargate";
 
-    private AwsEcsLaunchtypeValues() {}
+    private AwsEcsLaunchtypeIncubatingValues() {}
   }
 
   private AwsIncubatingAttributes() {}

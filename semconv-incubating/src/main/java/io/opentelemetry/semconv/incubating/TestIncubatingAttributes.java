@@ -34,18 +34,18 @@ public final class TestIncubatingAttributes {
 
   // Enum definitions
   /** Values for {@link #TEST_CASE_RESULT_STATUS}. */
-  public static final class TestCaseResultStatusValues {
+  public static final class TestCaseResultStatusIncubatingValues {
     /** pass */
     public static final String PASS = "pass";
 
     /** fail */
     public static final String FAIL = "fail";
 
-    private TestCaseResultStatusValues() {}
+    private TestCaseResultStatusIncubatingValues() {}
   }
 
   /** Values for {@link #TEST_SUITE_RUN_STATUS}. */
-  public static final class TestSuiteRunStatusValues {
+  public static final class TestSuiteRunStatusIncubatingValues {
     /** success */
     public static final String SUCCESS = "success";
 
@@ -64,7 +64,7 @@ public final class TestIncubatingAttributes {
     /** in_progress */
     public static final String IN_PROGRESS = "in_progress";
 
-    private TestSuiteRunStatusValues() {}
+    private TestSuiteRunStatusIncubatingValues() {}
   }
 
   private TestIncubatingAttributes() {}

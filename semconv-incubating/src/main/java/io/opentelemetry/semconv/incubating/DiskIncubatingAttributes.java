@@ -18,14 +18,14 @@ public final class DiskIncubatingAttributes {
 
   // Enum definitions
   /** Values for {@link #DISK_IO_DIRECTION}. */
-  public static final class DiskIoDirectionValues {
+  public static final class DiskIoDirectionIncubatingValues {
     /** read. */
     public static final String READ = "read";
 
     /** write. */
     public static final String WRITE = "write";
 
-    private DiskIoDirectionValues() {}
+    private DiskIoDirectionIncubatingValues() {}
   }
 
   private DiskIncubatingAttributes() {}

@@ -331,14 +331,14 @@ public final class HttpIncubatingAttributes {
 
   // Enum definitions
   /** Values for {@link #HTTP_CONNECTION_STATE}. */
-  public static final class HttpConnectionStateValues {
+  public static final class HttpConnectionStateIncubatingValues {
     /** active state. */
     public static final String ACTIVE = "active";
 
     /** idle state. */
     public static final String IDLE = "idle";
 
-    private HttpConnectionStateValues() {}
+    private HttpConnectionStateIncubatingValues() {}
   }
 
   /**
@@ -347,7 +347,7 @@ public final class HttpIncubatingAttributes {
    * @deprecated Replaced by {@code network.protocol.name}.
    */
   @Deprecated
-  public static final class HttpFlavorValues {
+  public static final class HttpFlavorIncubatingValues {
     /** HTTP/1.0 */
     public static final String HTTP_1_0 = "1.0";
 
@@ -366,7 +366,7 @@ public final class HttpIncubatingAttributes {
     /** QUIC protocol. */
     public static final String QUIC = "QUIC";
 
-    private HttpFlavorValues() {}
+    private HttpFlavorIncubatingValues() {}
   }
 
   /**
@@ -376,7 +376,7 @@ public final class HttpIncubatingAttributes {
    *     io.opentelemetry.semconv.HttpAttributes.HttpRequestMethodValues}.
    */
   @Deprecated
-  public static final class HttpRequestMethodValues {
+  public static final class HttpRequestMethodIncubatingValues {
     /** CONNECT method. */
     public static final String CONNECT = "CONNECT";
 
@@ -407,7 +407,7 @@ public final class HttpIncubatingAttributes {
     /** Any HTTP method that the instrumentation has no prior knowledge of. */
     public static final String OTHER = "_OTHER";
 
-    private HttpRequestMethodValues() {}
+    private HttpRequestMethodIncubatingValues() {}
   }
 
   private HttpIncubatingAttributes() {}

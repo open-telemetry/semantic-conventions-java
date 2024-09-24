@@ -195,14 +195,14 @@ public final class TlsIncubatingAttributes {
 
   // Enum definitions
   /** Values for {@link #TLS_PROTOCOL_NAME}. */
-  public static final class TlsProtocolNameValues {
+  public static final class TlsProtocolNameIncubatingValues {
     /** ssl. */
     public static final String SSL = "ssl";
 
     /** tls. */
     public static final String TLS = "tls";
 
-    private TlsProtocolNameValues() {}
+    private TlsProtocolNameIncubatingValues() {}
   }
 
   private TlsIncubatingAttributes() {}

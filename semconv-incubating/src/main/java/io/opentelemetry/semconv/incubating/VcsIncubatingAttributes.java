@@ -70,7 +70,7 @@ public final class VcsIncubatingAttributes {
 
   // Enum definitions
   /** Values for {@link #VCS_REPOSITORY_REF_TYPE}. */
-  public static final class VcsRepositoryRefTypeValues {
+  public static final class VcsRepositoryRefTypeIncubatingValues {
     /**
      * <a
      * href="https://git-scm.com/docs/gitglossary#Documentation/gitglossary.txt-aiddefbranchabranch">branch</a>
@@ -83,7 +83,7 @@ public final class VcsIncubatingAttributes {
      */
     public static final String TAG = "tag";
 
-    private VcsRepositoryRefTypeValues() {}
+    private VcsRepositoryRefTypeIncubatingValues() {}
   }
 
   private VcsIncubatingAttributes() {}
