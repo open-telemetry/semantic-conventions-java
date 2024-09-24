@@ -9,4 +9,5 @@ import org.gradle.api.provider.Property
 
 abstract class OtelJavaExtension {
     abstract val moduleName: Property<String>
+    abstract val bundleName: Property<String>
 }

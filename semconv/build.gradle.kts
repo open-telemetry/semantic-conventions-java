@@ -12,9 +12,12 @@ base {
   archivesName.set("opentelemetry-semconv")
 }
 otelJava.moduleName.set("io.opentelemetry.semconv")
+otelJava.bundleName.set("OpenTelemetry - Semantic Conventions")
 
 dependencies {
   compileOnly("io.opentelemetry:opentelemetry-api")
 
   testImplementation("io.opentelemetry:opentelemetry-api")
+  testImplementation("org.apache.felix:org.apache.felix.framework:7.0.5")
+  testImplementation("org.osgi:osgi.core:6.0.0")
 }
