@@ -1962,7 +1962,8 @@ public final class ResourceAttributes {
      * Linux.
      *
      * @deprecated deprecated in favor of {@see
-     *     io.opentelemetry.semconv.incubating.OsIncubatingAttributes.OsTypeIncubatingValues#LINUX} attribute.
+     *     io.opentelemetry.semconv.incubating.OsIncubatingAttributes.OsTypeIncubatingValues#LINUX}
+     *     attribute.
      */
     @Deprecated public static final String LINUX = "linux";
 
@@ -2015,7 +2016,8 @@ public final class ResourceAttributes {
      * HP-UX (Hewlett Packard Unix).
      *
      * @deprecated deprecated in favor of {@see
-     *     io.opentelemetry.semconv.incubating.OsIncubatingAttributes.OsTypeIncubatingValues#HPUX} attribute.
+     *     io.opentelemetry.semconv.incubating.OsIncubatingAttributes.OsTypeIncubatingValues#HPUX}
+     *     attribute.
      */
     @Deprecated public static final String HPUX = "hpux";
 
@@ -2023,7 +2025,8 @@ public final class ResourceAttributes {
      * AIX (Advanced Interactive eXecutive).
      *
      * @deprecated deprecated in favor of {@see
-     *     io.opentelemetry.semconv.incubating.OsIncubatingAttributes.OsTypeIncubatingValues#AIX} attribute.
+     *     io.opentelemetry.semconv.incubating.OsIncubatingAttributes.OsTypeIncubatingValues#AIX}
+     *     attribute.
      */
     @Deprecated public static final String AIX = "aix";
 
@@ -2040,7 +2043,8 @@ public final class ResourceAttributes {
      * IBM z/OS.
      *
      * @deprecated deprecated in favor of {@see
-     *     io.opentelemetry.semconv.incubating.OsIncubatingAttributes.OsTypeIncubatingValues#Z_OS} attribute.
+     *     io.opentelemetry.semconv.incubating.OsIncubatingAttributes.OsTypeIncubatingValues#Z_OS}
+     *     attribute.
      */
     @Deprecated public static final String Z_OS = "z_os";
 
