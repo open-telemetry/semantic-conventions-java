@@ -1503,7 +1503,6 @@ public final class ResourceAttributes {
   /**
    * Deprecated, use the {@code otel.scope.name} attribute.
    *
-   * @deprecated Deprecated, use the `otel.scope.name` attribute.
    * @deprecated deprecated in favor of {@see
    *     io.opentelemetry.semconv.incubating.OtelIncubatingAttributes#OTEL_LIBRARY_NAME} attribute.
    */
@@ -1513,7 +1512,6 @@ public final class ResourceAttributes {
   /**
    * Deprecated, use the {@code otel.scope.version} attribute.
    *
-   * @deprecated Deprecated, use the `otel.scope.version` attribute.
    * @deprecated deprecated in favor of {@see
    *     io.opentelemetry.semconv.incubating.OtelIncubatingAttributes#OTEL_LIBRARY_VERSION}
    *     attribute.
@@ -2165,8 +2163,6 @@ public final class ResourceAttributes {
   /**
    * Red Hat OpenShift on Google Cloud.
    *
-   * @deprecated This item has been removed as of 1.18.0 of the semantic conventions. Use {@link
-   *     ResourceAttributes#GCP_OPENSHIFT} instead.
    * @deprecated deprecated in favor of {@see
    *     io.opentelemetry.semconv.incubating.CloudIncubatingAttributes#GCP_OPENSHIFT} attribute.
    */
