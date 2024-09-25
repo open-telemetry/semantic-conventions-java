@@ -1539,7 +1539,7 @@ public final class ResourceAttributes {
      * Alibaba Cloud Elastic Compute Service.
      *
      * @deprecated deprecated in favor of {@see
-     *     io.opentelemetry.semconv.incubating.AlibabaIncubatingAttributes.CloudPlatformValues#ALIBABA_CLOUD_ECS}
+     *     io.opentelemetry.semconv.incubating.CloudIncubatingAttributes.CloudPlatformValues#ALIBABA_CLOUD_ECS}
      *     attribute.
      */
     @Deprecated public static final String ALIBABA_CLOUD_ECS = "alibaba_cloud_ecs";
@@ -1548,7 +1548,7 @@ public final class ResourceAttributes {
      * Alibaba Cloud Function Compute.
      *
      * @deprecated deprecated in favor of {@see
-     *     io.opentelemetry.semconv.incubating.AlibabaIncubatingAttributes.CloudPlatformValues#ALIBABA_CLOUD_FC}
+     *     io.opentelemetry.semconv.incubating.CloudIncubatingAttributes.CloudPlatformValues#ALIBABA_CLOUD_FC}
      *     attribute.
      */
     @Deprecated public static final String ALIBABA_CLOUD_FC = "alibaba_cloud_fc";
@@ -1557,7 +1557,7 @@ public final class ResourceAttributes {
      * Red Hat OpenShift on Alibaba Cloud.
      *
      * @deprecated deprecated in favor of {@see
-     *     io.opentelemetry.semconv.incubating.AlibabaIncubatingAttributes.CloudPlatformValues#ALIBABA_CLOUD_OPENSHIFT}
+     *     io.opentelemetry.semconv.incubating.CloudIncubatingAttributes.CloudPlatformValues#ALIBABA_CLOUD_OPENSHIFT}
      *     attribute.
      */
     @Deprecated public static final String ALIBABA_CLOUD_OPENSHIFT = "alibaba_cloud_openshift";
