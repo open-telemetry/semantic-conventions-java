@@ -1537,7 +1537,7 @@ public final class ResourceAttributes {
      * Alibaba Cloud Elastic Compute Service.
      *
      * @deprecated deprecated in favor of {@see
-     *     io.opentelemetry.semconv.incubating.CloudIncubatingAttributes.CloudPlatformValues#ALIBABA_CLOUD_ECS}
+     *     io.opentelemetry.semconv.incubating.CloudIncubatingAttributes.CloudPlatformIncubatingValues#ALIBABA_CLOUD_ECS}
      *     attribute.
      */
     @Deprecated public static final String ALIBABA_CLOUD_ECS = "alibaba_cloud_ecs";
@@ -1546,7 +1546,7 @@ public final class ResourceAttributes {
      * Alibaba Cloud Function Compute.
      *
      * @deprecated deprecated in favor of {@see
-     *     io.opentelemetry.semconv.incubating.CloudIncubatingAttributes.CloudPlatformValues#ALIBABA_CLOUD_FC}
+     *     io.opentelemetry.semconv.incubating.CloudIncubatingAttributes.CloudPlatformIncubatingValues#ALIBABA_CLOUD_FC}
      *     attribute.
      */
     @Deprecated public static final String ALIBABA_CLOUD_FC = "alibaba_cloud_fc";
@@ -1555,7 +1555,7 @@ public final class ResourceAttributes {
      * Red Hat OpenShift on Alibaba Cloud.
      *
      * @deprecated deprecated in favor of {@see
-     *     io.opentelemetry.semconv.incubating.CloudIncubatingAttributes.CloudPlatformValues#ALIBABA_CLOUD_OPENSHIFT}
+     *     io.opentelemetry.semconv.incubating.CloudIncubatingAttributes.CloudPlatformIncubatingValues#ALIBABA_CLOUD_OPENSHIFT}
      *     attribute.
      */
     @Deprecated public static final String ALIBABA_CLOUD_OPENSHIFT = "alibaba_cloud_openshift";
@@ -1564,7 +1564,7 @@ public final class ResourceAttributes {
      * AWS Elastic Compute Cloud.
      *
      * @deprecated deprecated in favor of {@see
-     *     io.opentelemetry.semconv.incubating.CloudIncubatingAttributes.CloudPlatformValues#AWS_EC2}
+     *     io.opentelemetry.semconv.incubating.CloudIncubatingAttributes.CloudPlatformIncubatingValues#AWS_EC2}
      *     attribute.
      */
     @Deprecated public static final String AWS_EC2 = "aws_ec2";
@@ -1573,7 +1573,7 @@ public final class ResourceAttributes {
      * AWS Elastic Container Service.
      *
      * @deprecated deprecated in favor of {@see
-     *     io.opentelemetry.semconv.incubating.CloudIncubatingAttributes.CloudPlatformValues#AWS_ECS}
+     *     io.opentelemetry.semconv.incubating.CloudIncubatingAttributes.CloudPlatformIncubatingValues#AWS_ECS}
      *     attribute.
      */
     @Deprecated public static final String AWS_ECS = "aws_ecs";
@@ -1582,7 +1582,7 @@ public final class ResourceAttributes {
      * AWS Elastic Kubernetes Service.
      *
      * @deprecated deprecated in favor of {@see
-     *     io.opentelemetry.semconv.incubating.CloudIncubatingAttributes.CloudPlatformValues#AWS_EKS}
+     *     io.opentelemetry.semconv.incubating.CloudIncubatingAttributes.CloudPlatformIncubatingValues#AWS_EKS}
      *     attribute.
      */
     @Deprecated public static final String AWS_EKS = "aws_eks";
@@ -1591,7 +1591,7 @@ public final class ResourceAttributes {
      * AWS Lambda.
      *
      * @deprecated deprecated in favor of {@see
-     *     io.opentelemetry.semconv.incubating.CloudIncubatingAttributes.CloudPlatformValues#AWS_LAMBDA}
+     *     io.opentelemetry.semconv.incubating.CloudIncubatingAttributes.CloudPlatformIncubatingValues#AWS_LAMBDA}
      *     attribute.
      */
     @Deprecated public static final String AWS_LAMBDA = "aws_lambda";
@@ -1600,7 +1600,7 @@ public final class ResourceAttributes {
      * AWS Elastic Beanstalk.
      *
      * @deprecated deprecated in favor of {@see
-     *     io.opentelemetry.semconv.incubating.CloudIncubatingAttributes.CloudPlatformValues#AWS_ELASTIC_BEANSTALK}
+     *     io.opentelemetry.semconv.incubating.CloudIncubatingAttributes.CloudPlatformIncubatingValues#AWS_ELASTIC_BEANSTALK}
      *     attribute.
      */
     @Deprecated public static final String AWS_ELASTIC_BEANSTALK = "aws_elastic_beanstalk";
@@ -1609,7 +1609,7 @@ public final class ResourceAttributes {
      * AWS App Runner.
      *
      * @deprecated deprecated in favor of {@see
-     *     io.opentelemetry.semconv.incubating.CloudIncubatingAttributes.CloudPlatformValues#AWS_APP_RUNNER}
+     *     io.opentelemetry.semconv.incubating.CloudIncubatingAttributes.CloudPlatformIncubatingValues#AWS_APP_RUNNER}
      *     attribute.
      */
     @Deprecated public static final String AWS_APP_RUNNER = "aws_app_runner";
@@ -1618,7 +1618,7 @@ public final class ResourceAttributes {
      * Red Hat OpenShift on AWS (ROSA).
      *
      * @deprecated deprecated in favor of {@see
-     *     io.opentelemetry.semconv.incubating.CloudIncubatingAttributes.CloudPlatformValues#AWS_OPENSHIFT}
+     *     io.opentelemetry.semconv.incubating.CloudIncubatingAttributes.CloudPlatformIncubatingValues#AWS_OPENSHIFT}
      *     attribute.
      */
     @Deprecated public static final String AWS_OPENSHIFT = "aws_openshift";
@@ -1627,7 +1627,7 @@ public final class ResourceAttributes {
      * Azure Virtual Machines.
      *
      * @deprecated deprecated in favor of {@see
-     *     io.opentelemetry.semconv.incubating.CloudIncubatingAttributes.CloudPlatformValues#AZURE_VM}
+     *     io.opentelemetry.semconv.incubating.CloudIncubatingAttributes.CloudPlatformIncubatingValues#AZURE_VM}
      *     attribute.
      */
     @Deprecated public static final String AZURE_VM = "azure_vm";
@@ -1636,7 +1636,7 @@ public final class ResourceAttributes {
      * Azure Container Instances.
      *
      * @deprecated deprecated in favor of {@see
-     *     io.opentelemetry.semconv.incubating.CloudIncubatingAttributes.CloudPlatformValues#AZURE_CONTAINER_INSTANCES}
+     *     io.opentelemetry.semconv.incubating.CloudIncubatingAttributes.CloudPlatformIncubatingValues#AZURE_CONTAINER_INSTANCES}
      *     attribute.
      */
     @Deprecated public static final String AZURE_CONTAINER_INSTANCES = "azure_container_instances";
@@ -1645,7 +1645,7 @@ public final class ResourceAttributes {
      * Azure Kubernetes Service.
      *
      * @deprecated deprecated in favor of {@see
-     *     io.opentelemetry.semconv.incubating.CloudIncubatingAttributes.CloudPlatformValues#AZURE_AKS}
+     *     io.opentelemetry.semconv.incubating.CloudIncubatingAttributes.CloudPlatformIncubatingValues#AZURE_AKS}
      *     attribute.
      */
     @Deprecated public static final String AZURE_AKS = "azure_aks";
@@ -1654,7 +1654,7 @@ public final class ResourceAttributes {
      * Azure Functions.
      *
      * @deprecated deprecated in favor of {@see
-     *     io.opentelemetry.semconv.incubating.CloudIncubatingAttributes.CloudPlatformValues#AZURE_FUNCTIONS}
+     *     io.opentelemetry.semconv.incubating.CloudIncubatingAttributes.CloudPlatformIncubatingValues#AZURE_FUNCTIONS}
      *     attribute.
      */
     @Deprecated public static final String AZURE_FUNCTIONS = "azure_functions";
@@ -1663,7 +1663,7 @@ public final class ResourceAttributes {
      * Azure App Service.
      *
      * @deprecated deprecated in favor of {@see
-     *     io.opentelemetry.semconv.incubating.CloudIncubatingAttributes.CloudPlatformValues#AZURE_APP_SERVICE}
+     *     io.opentelemetry.semconv.incubating.CloudIncubatingAttributes.CloudPlatformIncubatingValues#AZURE_APP_SERVICE}
      *     attribute.
      */
     @Deprecated public static final String AZURE_APP_SERVICE = "azure_app_service";
@@ -1672,7 +1672,7 @@ public final class ResourceAttributes {
      * Azure Red Hat OpenShift.
      *
      * @deprecated deprecated in favor of {@see
-     *     io.opentelemetry.semconv.incubating.CloudIncubatingAttributes.CloudPlatformValues#AZURE_OPENSHIFT}
+     *     io.opentelemetry.semconv.incubating.CloudIncubatingAttributes.CloudPlatformIncubatingValues#AZURE_OPENSHIFT}
      *     attribute.
      */
     @Deprecated public static final String AZURE_OPENSHIFT = "azure_openshift";
@@ -1681,7 +1681,7 @@ public final class ResourceAttributes {
      * Google Bare Metal Solution (BMS).
      *
      * @deprecated deprecated in favor of {@see
-     *     io.opentelemetry.semconv.incubating.CloudIncubatingAttributes.CloudPlatformValues#GCP_BARE_METAL_SOLUTION}
+     *     io.opentelemetry.semconv.incubating.CloudIncubatingAttributes.CloudPlatformIncubatingValues#GCP_BARE_METAL_SOLUTION}
      *     attribute.
      */
     @Deprecated public static final String GCP_BARE_METAL_SOLUTION = "gcp_bare_metal_solution";
@@ -1690,7 +1690,7 @@ public final class ResourceAttributes {
      * Google Cloud Compute Engine (GCE).
      *
      * @deprecated deprecated in favor of {@see
-     *     io.opentelemetry.semconv.incubating.CloudIncubatingAttributes.CloudPlatformValues#GCP_COMPUTE_ENGINE}
+     *     io.opentelemetry.semconv.incubating.CloudIncubatingAttributes.CloudPlatformIncubatingValues#GCP_COMPUTE_ENGINE}
      *     attribute.
      */
     @Deprecated public static final String GCP_COMPUTE_ENGINE = "gcp_compute_engine";
@@ -1699,7 +1699,7 @@ public final class ResourceAttributes {
      * Google Cloud Run.
      *
      * @deprecated deprecated in favor of {@see
-     *     io.opentelemetry.semconv.incubating.CloudIncubatingAttributes.CloudPlatformValues#GCP_CLOUD_RUN}
+     *     io.opentelemetry.semconv.incubating.CloudIncubatingAttributes.CloudPlatformIncubatingValues#GCP_CLOUD_RUN}
      *     attribute.
      */
     @Deprecated public static final String GCP_CLOUD_RUN = "gcp_cloud_run";
@@ -1708,7 +1708,7 @@ public final class ResourceAttributes {
      * Google Cloud Kubernetes Engine (GKE).
      *
      * @deprecated deprecated in favor of {@see
-     *     io.opentelemetry.semconv.incubating.CloudIncubatingAttributes.CloudPlatformValues#GCP_KUBERNETES_ENGINE}
+     *     io.opentelemetry.semconv.incubating.CloudIncubatingAttributes.CloudPlatformIncubatingValues#GCP_KUBERNETES_ENGINE}
      *     attribute.
      */
     @Deprecated public static final String GCP_KUBERNETES_ENGINE = "gcp_kubernetes_engine";
@@ -1717,7 +1717,7 @@ public final class ResourceAttributes {
      * Google Cloud Functions (GCF).
      *
      * @deprecated deprecated in favor of {@see
-     *     io.opentelemetry.semconv.incubating.CloudIncubatingAttributes.CloudPlatformValues#GCP_CLOUD_FUNCTIONS}
+     *     io.opentelemetry.semconv.incubating.CloudIncubatingAttributes.CloudPlatformIncubatingValues#GCP_CLOUD_FUNCTIONS}
      *     attribute.
      */
     @Deprecated public static final String GCP_CLOUD_FUNCTIONS = "gcp_cloud_functions";
@@ -1726,7 +1726,7 @@ public final class ResourceAttributes {
      * Google Cloud App Engine (GAE).
      *
      * @deprecated deprecated in favor of {@see
-     *     io.opentelemetry.semconv.incubating.CloudIncubatingAttributes.CloudPlatformValues#GCP_APP_ENGINE}
+     *     io.opentelemetry.semconv.incubating.CloudIncubatingAttributes.CloudPlatformIncubatingValues#GCP_APP_ENGINE}
      *     attribute.
      */
     @Deprecated public static final String GCP_APP_ENGINE = "gcp_app_engine";
@@ -1735,7 +1735,7 @@ public final class ResourceAttributes {
      * Red Hat OpenShift on Google Cloud.
      *
      * @deprecated deprecated in favor of {@see
-     *     io.opentelemetry.semconv.incubating.CloudIncubatingAttributes.CloudPlatformValues#GCP_OPENSHIFT}
+     *     io.opentelemetry.semconv.incubating.CloudIncubatingAttributes.CloudPlatformIncubatingValues#GCP_OPENSHIFT}
      *     attribute.
      */
     @Deprecated public static final String GCP_OPENSHIFT = "gcp_openshift";
@@ -1744,7 +1744,7 @@ public final class ResourceAttributes {
      * Red Hat OpenShift on IBM Cloud.
      *
      * @deprecated deprecated in favor of {@see
-     *     io.opentelemetry.semconv.incubating.CloudIncubatingAttributes.CloudPlatformValues#IBM_CLOUD_OPENSHIFT}
+     *     io.opentelemetry.semconv.incubating.CloudIncubatingAttributes.CloudPlatformIncubatingValues#IBM_CLOUD_OPENSHIFT}
      *     attribute.
      */
     @Deprecated public static final String IBM_CLOUD_OPENSHIFT = "ibm_cloud_openshift";
@@ -1753,7 +1753,7 @@ public final class ResourceAttributes {
      * Tencent Cloud Cloud Virtual Machine (CVM).
      *
      * @deprecated deprecated in favor of {@see
-     *     io.opentelemetry.semconv.incubating.CloudIncubatingAttributes.CloudPlatformValues#TENCENT_CLOUD_CVM}
+     *     io.opentelemetry.semconv.incubating.CloudIncubatingAttributes.CloudPlatformIncubatingValues#TENCENT_CLOUD_CVM}
      *     attribute.
      */
     @Deprecated public static final String TENCENT_CLOUD_CVM = "tencent_cloud_cvm";
@@ -1762,7 +1762,7 @@ public final class ResourceAttributes {
      * Tencent Cloud Elastic Kubernetes Service (EKS).
      *
      * @deprecated deprecated in favor of {@see
-     *     io.opentelemetry.semconv.incubating.CloudIncubatingAttributes.CloudPlatformValues#TENCENT_CLOUD_EKS}
+     *     io.opentelemetry.semconv.incubating.CloudIncubatingAttributes.CloudPlatformIncubatingValues#TENCENT_CLOUD_EKS}
      *     attribute.
      */
     @Deprecated public static final String TENCENT_CLOUD_EKS = "tencent_cloud_eks";
@@ -1771,7 +1771,7 @@ public final class ResourceAttributes {
      * Tencent Cloud Serverless Cloud Function (SCF).
      *
      * @deprecated deprecated in favor of {@see
-     *     io.opentelemetry.semconv.incubating.CloudIncubatingAttributes.CloudPlatformValues#TENCENT_CLOUD_SCF}
+     *     io.opentelemetry.semconv.incubating.CloudIncubatingAttributes.CloudPlatformIncubatingValues#TENCENT_CLOUD_SCF}
      *     attribute.
      */
     @Deprecated public static final String TENCENT_CLOUD_SCF = "tencent_cloud_scf";
@@ -1785,7 +1785,7 @@ public final class ResourceAttributes {
      * Alibaba Cloud.
      *
      * @deprecated deprecated in favor of {@see
-     *     io.opentelemetry.semconv.incubating.CloudIncubatingAttributes.CloudProviderValues#ALIBABA_CLOUD}
+     *     io.opentelemetry.semconv.incubating.CloudIncubatingAttributes.CloudProviderIncubatingValues#ALIBABA_CLOUD}
      *     attribute.
      */
     @Deprecated public static final String ALIBABA_CLOUD = "alibaba_cloud";
@@ -1794,7 +1794,7 @@ public final class ResourceAttributes {
      * Amazon Web Services.
      *
      * @deprecated deprecated in favor of {@see
-     *     io.opentelemetry.semconv.incubating.CloudIncubatingAttributes.CloudProviderValues#AWS}
+     *     io.opentelemetry.semconv.incubating.CloudIncubatingAttributes.CloudProviderIncubatingValues#AWS}
      *     attribute.
      */
     @Deprecated public static final String AWS = "aws";
@@ -1803,7 +1803,7 @@ public final class ResourceAttributes {
      * Microsoft Azure.
      *
      * @deprecated deprecated in favor of {@see
-     *     io.opentelemetry.semconv.incubating.CloudIncubatingAttributes.CloudProviderValues#AZURE}
+     *     io.opentelemetry.semconv.incubating.CloudIncubatingAttributes.CloudProviderIncubatingValues#AZURE}
      *     attribute.
      */
     @Deprecated public static final String AZURE = "azure";
@@ -1812,7 +1812,7 @@ public final class ResourceAttributes {
      * Google Cloud Platform.
      *
      * @deprecated deprecated in favor of {@see
-     *     io.opentelemetry.semconv.incubating.CloudIncubatingAttributes.CloudProviderValues#GCP}
+     *     io.opentelemetry.semconv.incubating.CloudIncubatingAttributes.CloudProviderIncubatingValues#GCP}
      *     attribute.
      */
     @Deprecated public static final String GCP = "gcp";
@@ -1821,7 +1821,7 @@ public final class ResourceAttributes {
      * Heroku Platform as a Service.
      *
      * @deprecated deprecated in favor of {@see
-     *     io.opentelemetry.semconv.incubating.CloudIncubatingAttributes.CloudProviderValues#HEROKU}
+     *     io.opentelemetry.semconv.incubating.CloudIncubatingAttributes.CloudProviderIncubatingValues#HEROKU}
      *     attribute.
      */
     @Deprecated public static final String HEROKU = "heroku";
@@ -1830,7 +1830,7 @@ public final class ResourceAttributes {
      * IBM Cloud.
      *
      * @deprecated deprecated in favor of {@see
-     *     io.opentelemetry.semconv.incubating.CloudIncubatingAttributes.CloudProviderValues#IBM_CLOUD}
+     *     io.opentelemetry.semconv.incubating.CloudIncubatingAttributes.CloudProviderIncubatingValues#IBM_CLOUD}
      *     attribute.
      */
     @Deprecated public static final String IBM_CLOUD = "ibm_cloud";
@@ -1839,7 +1839,7 @@ public final class ResourceAttributes {
      * Tencent Cloud.
      *
      * @deprecated deprecated in favor of {@see
-     *     io.opentelemetry.semconv.incubating.CloudIncubatingAttributes.CloudProviderValues#TENCENT_CLOUD}
+     *     io.opentelemetry.semconv.incubating.CloudIncubatingAttributes.CloudProviderIncubatingValues#TENCENT_CLOUD}
      *     attribute.
      */
     @Deprecated public static final String TENCENT_CLOUD = "tencent_cloud";
@@ -1853,7 +1853,7 @@ public final class ResourceAttributes {
      * ec2.
      *
      * @deprecated deprecated in favor of {@see
-     *     io.opentelemetry.semconv.incubating.AwsIncubatingAttributes.AwsEcsLaunchtypeValues#EC2}
+     *     io.opentelemetry.semconv.incubating.AwsIncubatingAttributes.AwsEcsLaunchtypeIncubatingValues#EC2}
      *     attribute.
      */
     @Deprecated public static final String EC2 = "ec2";
@@ -1876,7 +1876,7 @@ public final class ResourceAttributes {
      * AMD64.
      *
      * @deprecated deprecated in favor of {@see
-     *     io.opentelemetry.semconv.incubating.HostIncubatingAttributes.HostArchValues#AMD64}
+     *     io.opentelemetry.semconv.incubating.HostIncubatingAttributes.HostArchIncubatingValues#AMD64}
      *     attribute.
      */
     @Deprecated public static final String AMD64 = "amd64";
@@ -1885,7 +1885,7 @@ public final class ResourceAttributes {
      * ARM32.
      *
      * @deprecated deprecated in favor of {@see
-     *     io.opentelemetry.semconv.incubating.HostIncubatingAttributes.HostArchValues#ARM32}
+     *     io.opentelemetry.semconv.incubating.HostIncubatingAttributes.HostArchIncubatingValues#ARM32}
      *     attribute.
      */
     @Deprecated public static final String ARM32 = "arm32";
@@ -1894,7 +1894,7 @@ public final class ResourceAttributes {
      * ARM64.
      *
      * @deprecated deprecated in favor of {@see
-     *     io.opentelemetry.semconv.incubating.HostIncubatingAttributes.HostArchValues#ARM64}
+     *     io.opentelemetry.semconv.incubating.HostIncubatingAttributes.HostArchIncubatingValues#ARM64}
      *     attribute.
      */
     @Deprecated public static final String ARM64 = "arm64";
@@ -1903,7 +1903,7 @@ public final class ResourceAttributes {
      * Itanium.
      *
      * @deprecated deprecated in favor of {@see
-     *     io.opentelemetry.semconv.incubating.HostIncubatingAttributes.HostArchValues#IA64}
+     *     io.opentelemetry.semconv.incubating.HostIncubatingAttributes.HostArchIncubatingValues#IA64}
      *     attribute.
      */
     @Deprecated public static final String IA64 = "ia64";
@@ -1912,7 +1912,7 @@ public final class ResourceAttributes {
      * 32-bit PowerPC.
      *
      * @deprecated deprecated in favor of {@see
-     *     io.opentelemetry.semconv.incubating.HostIncubatingAttributes.HostArchValues#PPC32}
+     *     io.opentelemetry.semconv.incubating.HostIncubatingAttributes.HostArchIncubatingValues#PPC32}
      *     attribute.
      */
     @Deprecated public static final String PPC32 = "ppc32";
@@ -1921,7 +1921,7 @@ public final class ResourceAttributes {
      * 64-bit PowerPC.
      *
      * @deprecated deprecated in favor of {@see
-     *     io.opentelemetry.semconv.incubating.HostIncubatingAttributes.HostArchValues#PPC64}
+     *     io.opentelemetry.semconv.incubating.HostIncubatingAttributes.HostArchIncubatingValues#PPC64}
      *     attribute.
      */
     @Deprecated public static final String PPC64 = "ppc64";
@@ -1930,7 +1930,7 @@ public final class ResourceAttributes {
      * IBM z/Architecture.
      *
      * @deprecated deprecated in favor of {@see
-     *     io.opentelemetry.semconv.incubating.HostIncubatingAttributes.HostArchValues#S390X}
+     *     io.opentelemetry.semconv.incubating.HostIncubatingAttributes.HostArchIncubatingValues#S390X}
      *     attribute.
      */
     @Deprecated public static final String S390X = "s390x";
@@ -1939,7 +1939,7 @@ public final class ResourceAttributes {
      * 32-bit x86.
      *
      * @deprecated deprecated in favor of {@see
-     *     io.opentelemetry.semconv.incubating.HostIncubatingAttributes.HostArchValues#X86}
+     *     io.opentelemetry.semconv.incubating.HostIncubatingAttributes.HostArchIncubatingValues#X86}
      *     attribute.
      */
     @Deprecated public static final String X86 = "x86";
@@ -1953,7 +1953,7 @@ public final class ResourceAttributes {
      * Microsoft Windows.
      *
      * @deprecated deprecated in favor of {@see
-     *     io.opentelemetry.semconv.incubating.OsIncubatingAttributes.OsTypeValues#WINDOWS}
+     *     io.opentelemetry.semconv.incubating.OsIncubatingAttributes.OsTypeIncubatingValues#WINDOWS}
      *     attribute.
      */
     @Deprecated public static final String WINDOWS = "windows";
@@ -1962,7 +1962,7 @@ public final class ResourceAttributes {
      * Linux.
      *
      * @deprecated deprecated in favor of {@see
-     *     io.opentelemetry.semconv.incubating.OsIncubatingAttributes.OsTypeValues#LINUX} attribute.
+     *     io.opentelemetry.semconv.incubating.OsIncubatingAttributes.OsTypeIncubatingValues#LINUX} attribute.
      */
     @Deprecated public static final String LINUX = "linux";
 
@@ -1970,7 +1970,7 @@ public final class ResourceAttributes {
      * Apple Darwin.
      *
      * @deprecated deprecated in favor of {@see
-     *     io.opentelemetry.semconv.incubating.OsIncubatingAttributes.OsTypeValues#DARWIN}
+     *     io.opentelemetry.semconv.incubating.OsIncubatingAttributes.OsTypeIncubatingValues#DARWIN}
      *     attribute.
      */
     @Deprecated public static final String DARWIN = "darwin";
@@ -1979,7 +1979,7 @@ public final class ResourceAttributes {
      * FreeBSD.
      *
      * @deprecated deprecated in favor of {@see
-     *     io.opentelemetry.semconv.incubating.OsIncubatingAttributes.OsTypeValues#FREEBSD}
+     *     io.opentelemetry.semconv.incubating.OsIncubatingAttributes.OsTypeIncubatingValues#FREEBSD}
      *     attribute.
      */
     @Deprecated public static final String FREEBSD = "freebsd";
@@ -1988,7 +1988,7 @@ public final class ResourceAttributes {
      * NetBSD.
      *
      * @deprecated deprecated in favor of {@see
-     *     io.opentelemetry.semconv.incubating.OsIncubatingAttributes.OsTypeValues#NETBSD}
+     *     io.opentelemetry.semconv.incubating.OsIncubatingAttributes.OsTypeIncubatingValues#NETBSD}
      *     attribute.
      */
     @Deprecated public static final String NETBSD = "netbsd";
@@ -1997,7 +1997,7 @@ public final class ResourceAttributes {
      * OpenBSD.
      *
      * @deprecated deprecated in favor of {@see
-     *     io.opentelemetry.semconv.incubating.OsIncubatingAttributes.OsTypeValues#OPENBSD}
+     *     io.opentelemetry.semconv.incubating.OsIncubatingAttributes.OsTypeIncubatingValues#OPENBSD}
      *     attribute.
      */
     @Deprecated public static final String OPENBSD = "openbsd";
@@ -2006,7 +2006,7 @@ public final class ResourceAttributes {
      * DragonFly BSD.
      *
      * @deprecated deprecated in favor of {@see
-     *     io.opentelemetry.semconv.incubating.OsIncubatingAttributes.OsTypeValues#DRAGONFLYBSD}
+     *     io.opentelemetry.semconv.incubating.OsIncubatingAttributes.OsTypeIncubatingValues#DRAGONFLYBSD}
      *     attribute.
      */
     @Deprecated public static final String DRAGONFLYBSD = "dragonflybsd";
@@ -2015,7 +2015,7 @@ public final class ResourceAttributes {
      * HP-UX (Hewlett Packard Unix).
      *
      * @deprecated deprecated in favor of {@see
-     *     io.opentelemetry.semconv.incubating.OsIncubatingAttributes.OsTypeValues#HPUX} attribute.
+     *     io.opentelemetry.semconv.incubating.OsIncubatingAttributes.OsTypeIncubatingValues#HPUX} attribute.
      */
     @Deprecated public static final String HPUX = "hpux";
 
@@ -2023,7 +2023,7 @@ public final class ResourceAttributes {
      * AIX (Advanced Interactive eXecutive).
      *
      * @deprecated deprecated in favor of {@see
-     *     io.opentelemetry.semconv.incubating.OsIncubatingAttributes.OsTypeValues#AIX} attribute.
+     *     io.opentelemetry.semconv.incubating.OsIncubatingAttributes.OsTypeIncubatingValues#AIX} attribute.
      */
     @Deprecated public static final String AIX = "aix";
 
@@ -2031,7 +2031,7 @@ public final class ResourceAttributes {
      * SunOS, Oracle Solaris.
      *
      * @deprecated deprecated in favor of {@see
-     *     io.opentelemetry.semconv.incubating.OsIncubatingAttributes.OsTypeValues#SOLARIS}
+     *     io.opentelemetry.semconv.incubating.OsIncubatingAttributes.OsTypeIncubatingValues#SOLARIS}
      *     attribute.
      */
     @Deprecated public static final String SOLARIS = "solaris";
@@ -2040,7 +2040,7 @@ public final class ResourceAttributes {
      * IBM z/OS.
      *
      * @deprecated deprecated in favor of {@see
-     *     io.opentelemetry.semconv.incubating.OsIncubatingAttributes.OsTypeValues#Z_OS} attribute.
+     *     io.opentelemetry.semconv.incubating.OsIncubatingAttributes.OsTypeIncubatingValues#Z_OS} attribute.
      */
     @Deprecated public static final String Z_OS = "z_os";
 
@@ -2053,7 +2053,7 @@ public final class ResourceAttributes {
      * cpp.
      *
      * @deprecated deprecated in favor of {@see
-     *     io.opentelemetry.semconv.incubating.TelemetryIncubatingAttributes.TelemetrySdkLanguageValues#CPP}
+     *     io.opentelemetry.semconv.incubating.TelemetryIncubatingAttributes.TelemetrySdkLanguageIncubatingValues#CPP}
      *     attribute.
      */
     @Deprecated public static final String CPP = "cpp";
@@ -2062,7 +2062,7 @@ public final class ResourceAttributes {
      * dotnet.
      *
      * @deprecated deprecated in favor of {@see
-     *     io.opentelemetry.semconv.incubating.TelemetryIncubatingAttributes.TelemetrySdkLanguageValues#DOTNET}
+     *     io.opentelemetry.semconv.incubating.TelemetryIncubatingAttributes.TelemetrySdkLanguageIncubatingValues#DOTNET}
      *     attribute.
      */
     @Deprecated public static final String DOTNET = "dotnet";
@@ -2071,7 +2071,7 @@ public final class ResourceAttributes {
      * erlang.
      *
      * @deprecated deprecated in favor of {@see
-     *     io.opentelemetry.semconv.incubating.TelemetryIncubatingAttributes.TelemetrySdkLanguageValues#ERLANG}
+     *     io.opentelemetry.semconv.incubating.TelemetryIncubatingAttributes.TelemetrySdkLanguageIncubatingValues#ERLANG}
      *     attribute.
      */
     @Deprecated public static final String ERLANG = "erlang";
@@ -2080,7 +2080,7 @@ public final class ResourceAttributes {
      * go.
      *
      * @deprecated deprecated in favor of {@see
-     *     io.opentelemetry.semconv.incubating.TelemetryIncubatingAttributes.TelemetrySdkLanguageValues#GO}
+     *     io.opentelemetry.semconv.incubating.TelemetryIncubatingAttributes.TelemetrySdkLanguageIncubatingValues#GO}
      *     attribute.
      */
     @Deprecated public static final String GO = "go";
@@ -2089,7 +2089,7 @@ public final class ResourceAttributes {
      * java.
      *
      * @deprecated deprecated in favor of {@see
-     *     io.opentelemetry.semconv.incubating.TelemetryIncubatingAttributes.TelemetrySdkLanguageValues#JAVA}
+     *     io.opentelemetry.semconv.incubating.TelemetryIncubatingAttributes.TelemetrySdkLanguageIncubatingValues#JAVA}
      *     attribute.
      */
     @Deprecated public static final String JAVA = "java";
@@ -2098,7 +2098,7 @@ public final class ResourceAttributes {
      * nodejs.
      *
      * @deprecated deprecated in favor of {@see
-     *     io.opentelemetry.semconv.incubating.TelemetryIncubatingAttributes.TelemetrySdkLanguageValues#NODEJS}
+     *     io.opentelemetry.semconv.incubating.TelemetryIncubatingAttributes.TelemetrySdkLanguageIncubatingValues#NODEJS}
      *     attribute.
      */
     @Deprecated public static final String NODEJS = "nodejs";
@@ -2107,7 +2107,7 @@ public final class ResourceAttributes {
      * php.
      *
      * @deprecated deprecated in favor of {@see
-     *     io.opentelemetry.semconv.incubating.TelemetryIncubatingAttributes.TelemetrySdkLanguageValues#PHP}
+     *     io.opentelemetry.semconv.incubating.TelemetryIncubatingAttributes.TelemetrySdkLanguageIncubatingValues#PHP}
      *     attribute.
      */
     @Deprecated public static final String PHP = "php";
@@ -2116,7 +2116,7 @@ public final class ResourceAttributes {
      * python.
      *
      * @deprecated deprecated in favor of {@see
-     *     io.opentelemetry.semconv.incubating.TelemetryIncubatingAttributes.TelemetrySdkLanguageValues#PYTHON}
+     *     io.opentelemetry.semconv.incubating.TelemetryIncubatingAttributes.TelemetrySdkLanguageIncubatingValues#PYTHON}
      *     attribute.
      */
     @Deprecated public static final String PYTHON = "python";
@@ -2125,7 +2125,7 @@ public final class ResourceAttributes {
      * ruby.
      *
      * @deprecated deprecated in favor of {@see
-     *     io.opentelemetry.semconv.incubating.TelemetryIncubatingAttributes.TelemetrySdkLanguageValues#RUBY}
+     *     io.opentelemetry.semconv.incubating.TelemetryIncubatingAttributes.TelemetrySdkLanguageIncubatingValues#RUBY}
      *     attribute.
      */
     @Deprecated public static final String RUBY = "ruby";
@@ -2134,7 +2134,7 @@ public final class ResourceAttributes {
      * rust.
      *
      * @deprecated deprecated in favor of {@see
-     *     io.opentelemetry.semconv.incubating.TelemetryIncubatingAttributes.TelemetrySdkLanguageValues#RUST}
+     *     io.opentelemetry.semconv.incubating.TelemetryIncubatingAttributes.TelemetrySdkLanguageIncubatingValues#RUST}
      *     attribute.
      */
     @Deprecated public static final String RUST = "rust";
@@ -2143,7 +2143,7 @@ public final class ResourceAttributes {
      * swift.
      *
      * @deprecated deprecated in favor of {@see
-     *     io.opentelemetry.semconv.incubating.TelemetryIncubatingAttributes.TelemetrySdkLanguageValues#SWIFT}
+     *     io.opentelemetry.semconv.incubating.TelemetryIncubatingAttributes.TelemetrySdkLanguageIncubatingValues#SWIFT}
      *     attribute.
      */
     @Deprecated public static final String SWIFT = "swift";
@@ -2152,7 +2152,7 @@ public final class ResourceAttributes {
      * webjs.
      *
      * @deprecated deprecated in favor of {@see
-     *     io.opentelemetry.semconv.incubating.TelemetryIncubatingAttributes.TelemetrySdkLanguageValues#WEBJS}
+     *     io.opentelemetry.semconv.incubating.TelemetryIncubatingAttributes.TelemetrySdkLanguageIncubatingValues#WEBJS}
      *     attribute.
      */
     @Deprecated public static final String WEBJS = "webjs";
