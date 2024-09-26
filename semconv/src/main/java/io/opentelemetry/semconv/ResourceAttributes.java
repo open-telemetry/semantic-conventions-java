@@ -1862,7 +1862,7 @@ public final class ResourceAttributes {
      * fargate.
      *
      * @deprecated deprecated in favor of {@see
-     *     io.opentelemetry.semconv.incubating.AwsIncubatingAttributes.AwsEcsLaunchtypeValues#FARGATE}
+     *     io.opentelemetry.semconv.incubating.AwsIncubatingAttributes.AwsEcsLaunchtypeIncubatingValues#FARGATE}
      *     attribute.
      */
     @Deprecated public static final String FARGATE = "fargate";
