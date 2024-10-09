@@ -143,7 +143,57 @@ public final class K8sIncubatingAttributes {
   /** The UID of the StatefulSet. */
   public static final AttributeKey<String> K8S_STATEFULSET_UID = stringKey("k8s.statefulset.uid");
 
+  /** The name of the K8s volume. */
+  public static final AttributeKey<String> K8S_VOLUME_NAME = stringKey("k8s.volume.name");
+
+  /** The type of the K8s volume. */
+  public static final AttributeKey<String> K8S_VOLUME_TYPE = stringKey("k8s.volume.type");
+
   // Enum definitions
+  /** Values for {@link #K8S_VOLUME_TYPE}. */
+  public static final class K8sVolumeTypeIncubatingValues {
+    /**
+     * A <a
+     * href="https://v1-29.docs.kubernetes.io/docs/concepts/storage/volumes/#persistentvolumeclaim">persistentVolumeClaim</a>
+     * volume
+     */
+    public static final String PERSISTENT_VOLUME_CLAIM = "persistentVolumeClaim";
+
+    /**
+     * A <a
+     * href="https://v1-29.docs.kubernetes.io/docs/concepts/storage/volumes/#configmap">configMap</a>
+     * volume
+     */
+    public static final String CONFIG_MAP = "configMap";
+
+    /**
+     * A <a
+     * href="https://v1-29.docs.kubernetes.io/docs/concepts/storage/volumes/#downwardapi">downwardAPI</a>
+     * volume
+     */
+    public static final String DOWNWARD_API = "downwardAPI";
+
+    /**
+     * An <a
+     * href="https://v1-29.docs.kubernetes.io/docs/concepts/storage/volumes/#emptydir">emptyDir</a>
+     * volume
+     */
+    public static final String EMPTY_DIR = "emptyDir";
+
+    /**
+     * A <a href="https://v1-29.docs.kubernetes.io/docs/concepts/storage/volumes/#secret">secret</a>
+     * volume
+     */
+    public static final String SECRET = "secret";
+
+    /**
+     * A <a href="https://v1-29.docs.kubernetes.io/docs/concepts/storage/volumes/#local">local</a>
+     * volume
+     */
+    public static final String LOCAL = "local";
+
+    private K8sVolumeTypeIncubatingValues() {}
+  }
 
   private K8sIncubatingAttributes() {}
 }

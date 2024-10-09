@@ -31,7 +31,7 @@ public final class LogIncubatingAttributes {
   public static final AttributeKey<String> LOG_IOSTREAM = stringKey("log.iostream");
 
   /**
-   * The complete orignal Log Record.
+   * The complete original Log Record.
    *
    * <p>Notes:
    *
