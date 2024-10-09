@@ -27,13 +27,11 @@ public final class ContainerIncubatingAttributes {
    */
   public static final AttributeKey<String> CONTAINER_COMMAND = stringKey("container.command");
 
-  /**
-   * All the command arguments (including the command/executable itself) run by the container. [2]
-   */
+  /** All the command arguments (including the command/executable itself) run by the container. */
   public static final AttributeKey<List<String>> CONTAINER_COMMAND_ARGS =
       stringArrayKey("container.command_args");
 
-  /** The full command run by the container as a single string representing the full command. [2] */
+  /** The full command run by the container as a single string representing the full command. */
   public static final AttributeKey<String> CONTAINER_COMMAND_LINE =
       stringKey("container.command_line");
 
@@ -48,8 +46,33 @@ public final class ContainerIncubatingAttributes {
   public static final AttributeKey<String> CONTAINER_CPU_STATE = stringKey("container.cpu.state");
 
   /**
+   * The name of the CSI (<a href="https://github.com/container-storage-interface/spec">Container
+   * Storage Interface</a>) plugin used by the volume.
+   *
+   * <p>Notes:
+   *
+   * <p>This can sometimes be referred to as a "driver" in CSI implementations. This should
+   * represent the {@code name} field of the GetPluginInfo RPC.
+   */
+  public static final AttributeKey<String> CONTAINER_CSI_PLUGIN_NAME =
+      stringKey("container.csi.plugin.name");
+
+  /**
+   * The unique volume ID returned by the CSI (<a
+   * href="https://github.com/container-storage-interface/spec">Container Storage Interface</a>)
+   * plugin.
+   *
+   * <p>Notes:
+   *
+   * <p>This can sometimes be referred to as a "volume handle" in CSI implementations. This should
+   * represent the {@code Volume.volume_id} field in CSI spec.
+   */
+  public static final AttributeKey<String> CONTAINER_CSI_VOLUME_ID =
+      stringKey("container.csi.volume.id");
+
+  /**
    * Container ID. Usually a UUID, as for example used to <a
-   * href="https://docs.docker.com/engine/reference/run/#container-identification">identify Docker
+   * href="https://docs.docker.com/engine/containers/run/#container-identification">identify Docker
    * containers</a>. The UUID might be abbreviated.
    */
   public static final AttributeKey<String> CONTAINER_ID = stringKey("container.id");

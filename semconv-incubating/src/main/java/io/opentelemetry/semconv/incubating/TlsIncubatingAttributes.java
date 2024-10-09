@@ -88,7 +88,7 @@ public final class TlsIncubatingAttributes {
    *
    * <p>
    *
-   * @deprecated Replaced by `server.address.
+   * @deprecated Replaced by {@code server.address}.
    */
   @Deprecated
   public static final AttributeKey<String> TLS_CLIENT_SERVER_NAME =

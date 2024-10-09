@@ -327,11 +327,11 @@ public final class MessagingIncubatingAttributes {
       stringKey("messaging.rocketmq.namespace");
 
   /**
-   * Deprecated, use {@code messaging.servicebus.destination.subscription_name} instead.
+   * Deprecated, use {@code messaging.destination.subscription.name} instead.
    *
    * <p>
    *
-   * @deprecated Replaced by {@code messaging.servicebus.destination.subscription_name}.
+   * @deprecated Replaced by {@code messaging.destination.subscription.name}.
    */
   @Deprecated
   public static final AttributeKey<String> MESSAGING_SERVICEBUS_DESTINATION_SUBSCRIPTION_NAME =
@@ -368,17 +368,17 @@ public final class MessagingIncubatingAttributes {
   /** Values for {@link #MESSAGING_OPERATION_TYPE}. */
   public static final class MessagingOperationTypeIncubatingValues {
     /**
-     * One or more messages are provided for publishing to an intermediary. If a single message is
-     * published, the context of the "Publish" span can be used as the creation context and no
-     * "Create" span needs to be created.
-     */
-    public static final String PUBLISH = "publish";
-
-    /**
      * A message is created. "Create" spans always refer to a single message and are used to provide
-     * a unique creation context for messages in batch publishing scenarios.
+     * a unique creation context for messages in batch sending scenarios.
      */
     public static final String CREATE = "create";
+
+    /**
+     * One or more messages are provided for sending to an intermediary. If a single message is
+     * sent, the context of the "Send" span can be used as the creation context and no "Create" span
+     * needs to be created.
+     */
+    public static final String SEND = "send";
 
     /**
      * One or more messages are requested by a consumer. This operation refers to pull-based
@@ -394,6 +394,9 @@ public final class MessagingIncubatingAttributes {
 
     /** Deprecated. Use {@code process} instead. */
     public static final String DELIVER = "deliver";
+
+    /** Deprecated. Use {@code send} instead. */
+    public static final String PUBLISH = "publish";
 
     private MessagingOperationTypeIncubatingValues() {}
   }
