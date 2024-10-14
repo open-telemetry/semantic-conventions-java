@@ -29,11 +29,20 @@ public final class AndroidIncubatingAttributes {
    * <p>The Android lifecycle states are defined in <a
    * href="https://developer.android.com/guide/components/activities/activity-lifecycle#lc">Activity
    * lifecycle callbacks</a>, and from which the {@code OS identifiers} are derived.
+   *
+   * <p>
+   *
+   * @deprecated Replaced by {@code device.app.lifecycle}.
    */
-  public static final AttributeKey<String> ANDROID_STATE = stringKey("android.state");
+  @Deprecated public static final AttributeKey<String> ANDROID_STATE = stringKey("android.state");
 
   // Enum definitions
-  /** Values for {@link #ANDROID_STATE}. */
+  /**
+   * Values for {@link #ANDROID_STATE}
+   *
+   * @deprecated Replaced by {@code device.app.lifecycle}.
+   */
+  @Deprecated
   public static final class AndroidStateIncubatingValues {
     /**
      * Any time before Activity.onResume() or, if the app has no Activity, Context.startService()

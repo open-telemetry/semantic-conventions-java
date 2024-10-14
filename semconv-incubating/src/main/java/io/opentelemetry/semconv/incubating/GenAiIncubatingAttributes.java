@@ -18,14 +18,30 @@ import java.util.List;
 @SuppressWarnings("unused")
 public final class GenAiIncubatingAttributes {
   /**
-   * The full response received from the GenAI model.
+   * Deprecated, use Event API to report completions contents.
    *
-   * <p>Notes:
+   * <p>
    *
-   * <p>It's RECOMMENDED to format completions as JSON string matching <a
-   * href="https://platform.openai.com/docs/guides/text-generation">OpenAI messages format</a>
+   * @deprecated Removed, no replacement at this time.
    */
+  @Deprecated
   public static final AttributeKey<String> GEN_AI_COMPLETION = stringKey("gen_ai.completion");
+
+  /** The response format that is requested. */
+  public static final AttributeKey<String> GEN_AI_OPENAI_REQUEST_RESPONSE_FORMAT =
+      stringKey("gen_ai.openai.request.response_format");
+
+  /** Requests with same seed value more likely to return same result. */
+  public static final AttributeKey<Long> GEN_AI_OPENAI_REQUEST_SEED =
+      longKey("gen_ai.openai.request.seed");
+
+  /** The service tier requested. May be a specific tier, detault, or auto. */
+  public static final AttributeKey<String> GEN_AI_OPENAI_REQUEST_SERVICE_TIER =
+      stringKey("gen_ai.openai.request.service_tier");
+
+  /** The service tier used for the response. */
+  public static final AttributeKey<String> GEN_AI_OPENAI_RESPONSE_SERVICE_TIER =
+      stringKey("gen_ai.openai.response.service_tier");
 
   /**
    * The name of the operation being performed.
@@ -41,14 +57,13 @@ public final class GenAiIncubatingAttributes {
       stringKey("gen_ai.operation.name");
 
   /**
-   * The full prompt sent to the GenAI model.
+   * Deprecated, use Event API to report prompt contents.
    *
-   * <p>Notes:
+   * <p>
    *
-   * <p>It's RECOMMENDED to format prompts as JSON string matching <a
-   * href="https://platform.openai.com/docs/guides/text-generation">OpenAI messages format</a>
+   * @deprecated Removed, no replacement at this time.
    */
-  public static final AttributeKey<String> GEN_AI_PROMPT = stringKey("gen_ai.prompt");
+  @Deprecated public static final AttributeKey<String> GEN_AI_PROMPT = stringKey("gen_ai.prompt");
 
   /** The frequency penalty setting for the GenAI request. */
   public static final AttributeKey<Double> GEN_AI_REQUEST_FREQUENCY_PENALTY =
@@ -144,6 +159,31 @@ public final class GenAiIncubatingAttributes {
       longKey("gen_ai.usage.prompt_tokens");
 
   // Enum definitions
+  /** Values for {@link #GEN_AI_OPENAI_REQUEST_RESPONSE_FORMAT}. */
+  public static final class GenAiOpenaiRequestResponseFormatIncubatingValues {
+    /** Text response format */
+    public static final String TEXT = "text";
+
+    /** JSON object response format */
+    public static final String JSON_OBJECT = "json_object";
+
+    /** JSON schema response format */
+    public static final String JSON_SCHEMA = "json_schema";
+
+    private GenAiOpenaiRequestResponseFormatIncubatingValues() {}
+  }
+
+  /** Values for {@link #GEN_AI_OPENAI_REQUEST_SERVICE_TIER}. */
+  public static final class GenAiOpenaiRequestServiceTierIncubatingValues {
+    /** The system will utilize scale tier credits until they are exhausted. */
+    public static final String AUTO = "auto";
+
+    /** The system will utilize the default scale tier. */
+    public static final String DEFAULT = "default";
+
+    private GenAiOpenaiRequestServiceTierIncubatingValues() {}
+  }
+
   /** Values for {@link #GEN_AI_OPERATION_NAME}. */
   public static final class GenAiOperationNameIncubatingValues {
     /**

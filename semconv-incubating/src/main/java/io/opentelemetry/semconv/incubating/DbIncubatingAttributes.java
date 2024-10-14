@@ -104,7 +104,8 @@ public final class DbIncubatingAttributes {
    * the first collection name found in the query and it SHOULD match the value provided in the
    * query text including any schema and database name prefix. For batch operations, if the
    * individual operations are known to have the same collection name then that collection name
-   * SHOULD be used, otherwise {@code db.collection.name} SHOULD NOT be captured.
+   * SHOULD be used, otherwise {@code db.collection.name} SHOULD NOT be captured. This attribute has
+   * stability level RELEASE CANDIDATE.
    */
   public static final AttributeKey<String> DB_COLLECTION_NAME = stringKey("db.collection.name");
 
@@ -113,7 +114,7 @@ public final class DbIncubatingAttributes {
    *
    * <p>
    *
-   * @deprecated "Replaced by {@code server.address} and {@code server.port}."
+   * @deprecated Replaced by {@code server.address} and {@code server.port}.
    */
   @Deprecated
   public static final AttributeKey<String> DB_CONNECTION_STRING = stringKey("db.connection_string");
@@ -137,7 +138,7 @@ public final class DbIncubatingAttributes {
   public static final AttributeKey<String> DB_COSMOSDB_CONTAINER =
       stringKey("db.cosmosdb.container");
 
-  /** CosmosDB Operation Type. */
+  /** Cosmos DB Operation Type. */
   public static final AttributeKey<String> DB_COSMOSDB_OPERATION_TYPE =
       stringKey("db.cosmosdb.operation_type");
 
@@ -149,7 +150,14 @@ public final class DbIncubatingAttributes {
   public static final AttributeKey<Long> DB_COSMOSDB_REQUEST_CONTENT_LENGTH =
       longKey("db.cosmosdb.request_content_length");
 
-  /** Cosmos DB status code. */
+  /**
+   * Deprecated, use {@code db.response.status_code} instead.
+   *
+   * <p>
+   *
+   * @deprecated Replaced by {@code db.response.status_code}.
+   */
+  @Deprecated
   public static final AttributeKey<Long> DB_COSMOSDB_STATUS_CODE =
       longKey("db.cosmosdb.status_code");
 
@@ -252,7 +260,8 @@ public final class DbIncubatingAttributes {
    * general namespaces, to ensure that "startswith" queries for the more general namespaces will be
    * valid. Semantic conventions for individual database systems SHOULD document what {@code
    * db.namespace} means in the context of that system. It is RECOMMENDED to capture the value as
-   * provided by the application without attempting to do any case normalization.
+   * provided by the application without attempting to do any case normalization. This attribute has
+   * stability level RELEASE CANDIDATE.
    */
   public static final AttributeKey<String> DB_NAMESPACE = stringKey("db.namespace");
 
@@ -266,13 +275,13 @@ public final class DbIncubatingAttributes {
   @Deprecated public static final AttributeKey<String> DB_OPERATION = stringKey("db.operation");
 
   /**
-   * The number of queries included in a <a
-   * href="/docs/database/database-spans.md#batch-operations">batch operation</a>.
+   * The number of queries included in a batch operation.
    *
    * <p>Notes:
    *
    * <p>Operations are only considered batches when they contain two or more operations, and so
-   * {@code db.operation.batch.size} SHOULD never be {@code 1}.
+   * {@code db.operation.batch.size} SHOULD never be {@code 1}. This attribute has stability level
+   * RELEASE CANDIDATE.
    */
   public static final AttributeKey<Long> DB_OPERATION_BATCH_SIZE =
       longKey("db.operation.batch.size");
@@ -287,7 +296,8 @@ public final class DbIncubatingAttributes {
    * the first operation name found in the query. For batch operations, if the individual operations
    * are known to have the same operation name then that operation name SHOULD be used prepended by
    * {@code BATCH }, otherwise {@code db.operation.name} SHOULD be {@code BATCH} or some other
-   * database system specific term if more applicable.
+   * database system specific term if more applicable. This attribute has stability level RELEASE
+   * CANDIDATE.
    */
   public static final AttributeKey<String> DB_OPERATION_NAME = stringKey("db.operation.name");
 
@@ -299,7 +309,7 @@ public final class DbIncubatingAttributes {
    *
    * <p>Query parameters should only be captured when {@code db.query.text} is parameterized with
    * placeholders. If a parameter has no name and instead is referenced only by index, then {@code
-   * <key>} SHOULD be the 0-based index.
+   * <key>} SHOULD be the 0-based index. This attribute has stability level RELEASE CANDIDATE.
    */
   public static final AttributeKeyTemplate<String> DB_QUERY_PARAMETER =
       stringKeyTemplate("db.query.parameter");
@@ -317,7 +327,8 @@ public final class DbIncubatingAttributes {
    * separator if more applicable. Even though parameterized query text can potentially have
    * sensitive data, by using a parameterized query the user is giving a strong signal that any
    * sensitive data will be passed as parameter values, and the benefit to observability of
-   * capturing the static part of the query text by default outweighs the risk.
+   * capturing the static part of the query text by default outweighs the risk. This attribute has
+   * stability level RELEASE CANDIDATE.
    */
   public static final AttributeKey<String> DB_QUERY_TEXT = stringKey("db.query.text");
 
@@ -331,6 +342,20 @@ public final class DbIncubatingAttributes {
   @Deprecated
   public static final AttributeKey<Long> DB_REDIS_DATABASE_INDEX =
       longKey("db.redis.database_index");
+
+  /**
+   * Database response status code.
+   *
+   * <p>Notes:
+   *
+   * <p>The status code returned by the database. Usually it represents an error code, but may also
+   * represent partial success, warning, or differentiate between various types of successful
+   * outcomes. Semantic conventions for individual database systems SHOULD document what {@code
+   * db.response.status_code} means in the context of that system. This attribute has stability
+   * level RELEASE CANDIDATE.
+   */
+  public static final AttributeKey<String> DB_RESPONSE_STATUS_CODE =
+      stringKey("db.response.status_code");
 
   /**
    * Deprecated, use {@code db.collection.name} instead.
@@ -357,7 +382,8 @@ public final class DbIncubatingAttributes {
    *
    * <p>The actual DBMS may differ from the one identified by the client. For example, when using
    * PostgreSQL client libraries to connect to a CockroachDB, the {@code db.system} is set to {@code
-   * postgresql} based on the instrumentation's best knowledge.
+   * postgresql} based on the instrumentation's best knowledge. This attribute has stability level
+   * RELEASE CANDIDATE.
    */
   public static final AttributeKey<String> DB_SYSTEM = stringKey("db.system");
 
@@ -449,50 +475,50 @@ public final class DbIncubatingAttributes {
 
   /** Values for {@link #DB_COSMOSDB_OPERATION_TYPE}. */
   public static final class DbCosmosdbOperationTypeIncubatingValues {
-    /** invalid. */
-    public static final String INVALID = "Invalid";
+    /** batch. */
+    public static final String BATCH = "batch";
 
     /** create. */
-    public static final String CREATE = "Create";
-
-    /** patch. */
-    public static final String PATCH = "Patch";
-
-    /** read. */
-    public static final String READ = "Read";
-
-    /** read_feed. */
-    public static final String READ_FEED = "ReadFeed";
+    public static final String CREATE = "create";
 
     /** delete. */
-    public static final String DELETE = "Delete";
-
-    /** replace. */
-    public static final String REPLACE = "Replace";
+    public static final String DELETE = "delete";
 
     /** execute. */
-    public static final String EXECUTE = "Execute";
-
-    /** query. */
-    public static final String QUERY = "Query";
-
-    /** head. */
-    public static final String HEAD = "Head";
-
-    /** head_feed. */
-    public static final String HEAD_FEED = "HeadFeed";
-
-    /** upsert. */
-    public static final String UPSERT = "Upsert";
-
-    /** batch. */
-    public static final String BATCH = "Batch";
-
-    /** query_plan. */
-    public static final String QUERY_PLAN = "QueryPlan";
+    public static final String EXECUTE = "execute";
 
     /** execute_javascript. */
-    public static final String EXECUTE_JAVASCRIPT = "ExecuteJavaScript";
+    public static final String EXECUTE_JAVASCRIPT = "execute_javascript";
+
+    /** invalid. */
+    public static final String INVALID = "invalid";
+
+    /** head. */
+    public static final String HEAD = "head";
+
+    /** head_feed. */
+    public static final String HEAD_FEED = "head_feed";
+
+    /** patch. */
+    public static final String PATCH = "patch";
+
+    /** query. */
+    public static final String QUERY = "query";
+
+    /** query_plan. */
+    public static final String QUERY_PLAN = "query_plan";
+
+    /** read. */
+    public static final String READ = "read";
+
+    /** read_feed. */
+    public static final String READ_FEED = "read_feed";
+
+    /** replace. */
+    public static final String REPLACE = "replace";
+
+    /** upsert. */
+    public static final String UPSERT = "upsert";
 
     private DbCosmosdbOperationTypeIncubatingValues() {}
   }
@@ -592,7 +618,7 @@ public final class DbIncubatingAttributes {
     /** InterBase */
     public static final String INTERBASE = "interbase";
 
-    /** MariaDB */
+    /** MariaDB (This value has stability level RELEASE CANDIDATE) */
     public static final String MARIADB = "mariadb";
 
     /** SAP MaxDB */
@@ -604,13 +630,13 @@ public final class DbIncubatingAttributes {
     /** MongoDB */
     public static final String MONGODB = "mongodb";
 
-    /** Microsoft SQL Server */
+    /** Microsoft SQL Server (This value has stability level RELEASE CANDIDATE) */
     public static final String MSSQL = "mssql";
 
     /** Deprecated, Microsoft SQL Server Compact is discontinued. */
     public static final String MSSQLCOMPACT = "mssqlcompact";
 
-    /** MySQL */
+    /** MySQL (This value has stability level RELEASE CANDIDATE) */
     public static final String MYSQL = "mysql";
 
     /** Neo4j */
@@ -631,7 +657,7 @@ public final class DbIncubatingAttributes {
     /** PointBase */
     public static final String POINTBASE = "pointbase";
 
-    /** PostgreSQL */
+    /** PostgreSQL (This value has stability level RELEASE CANDIDATE) */
     public static final String POSTGRESQL = "postgresql";
 
     /** Progress Database */

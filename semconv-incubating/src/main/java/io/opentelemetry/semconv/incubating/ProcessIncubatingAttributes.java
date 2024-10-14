@@ -18,6 +18,16 @@ import java.util.List;
 @SuppressWarnings("unused")
 public final class ProcessIncubatingAttributes {
   /**
+   * Length of the process.command_args array
+   *
+   * <p>Notes:
+   *
+   * <p>This field can be useful for querying or performing bucket analysis on how many arguments
+   * were provided to start a process. More arguments may be an indication of suspicious activity.
+   */
+  public static final AttributeKey<Long> PROCESS_ARGS_COUNT = longKey("process.args_count");
+
+  /**
    * The command used to launch the process (i.e. the command name). On Linux based systems, can be
    * set to the zeroth string in {@code proc/[pid]/cmdline}. On Windows, can be set to the first
    * parameter extracted from {@code GetCommandLineW}.
@@ -57,6 +67,21 @@ public final class ProcessIncubatingAttributes {
   /** The date and time the process was created, in ISO 8601 format. */
   public static final AttributeKey<String> PROCESS_CREATION_TIME =
       stringKey("process.creation.time");
+
+  /** The GNU build ID as found in the {@code .note.gnu.build-id} ELF section (hex string). */
+  public static final AttributeKey<String> PROCESS_EXECUTABLE_BUILD_ID_GNU =
+      stringKey("process.executable.build_id.gnu");
+
+  /** The Go build ID as retrieved by {@code go tool buildid <go executable>}. */
+  public static final AttributeKey<String> PROCESS_EXECUTABLE_BUILD_ID_GO =
+      stringKey("process.executable.build_id.go");
+
+  /**
+   * Profiling specific build ID for executables. See the OTel specification for Profiles for more
+   * information.
+   */
+  public static final AttributeKey<String> PROCESS_EXECUTABLE_BUILD_ID_PROFILING =
+      stringKey("process.executable.build_id.profiling");
 
   /**
    * The name of the process executable. On Linux based systems, can be set to the {@code Name} in
@@ -139,6 +164,17 @@ public final class ProcessIncubatingAttributes {
   public static final AttributeKey<Long> PROCESS_SESSION_LEADER_PID =
       longKey("process.session_leader.pid");
 
+  /**
+   * Process title (proctitle)
+   *
+   * <p>Notes:
+   *
+   * <p>In many Unix-like systems, process title (proctitle), is the string that represents the name
+   * or command line of a running process, displayed by system monitoring tools like ps, top, and
+   * htop.
+   */
+  public static final AttributeKey<String> PROCESS_TITLE = stringKey("process.title");
+
   /** The effective user ID (EUID) of the process. */
   public static final AttributeKey<Long> PROCESS_USER_ID = longKey("process.user.id");
 
@@ -154,6 +190,10 @@ public final class ProcessIncubatingAttributes {
    * on the host but it is unique within the process namespace that the process exists within.
    */
   public static final AttributeKey<Long> PROCESS_VPID = longKey("process.vpid");
+
+  /** The working directory of the process. */
+  public static final AttributeKey<String> PROCESS_WORKING_DIRECTORY =
+      stringKey("process.working_directory");
 
   // Enum definitions
   /** Values for {@link #PROCESS_CONTEXT_SWITCH_TYPE}. */

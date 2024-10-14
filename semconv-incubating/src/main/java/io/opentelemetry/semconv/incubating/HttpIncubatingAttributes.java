@@ -162,11 +162,11 @@ public final class HttpIncubatingAttributes {
   public static final AttributeKey<Long> HTTP_REQUEST_SIZE = longKey("http.request.size");
 
   /**
-   * Deprecated, use {@code http.request.header.content-length} instead.
+   * Deprecated, use {@code http.request.header.<key>} instead.
    *
    * <p>
    *
-   * @deprecated Replaced by {@code http.request.header.content-length}.
+   * @deprecated Replaced by {@code http.request.header.<key>}.
    */
   @Deprecated
   public static final AttributeKey<Long> HTTP_REQUEST_CONTENT_LENGTH =
@@ -234,11 +234,11 @@ public final class HttpIncubatingAttributes {
       longKey("http.response.status_code");
 
   /**
-   * Deprecated, use {@code http.response.header.content-length} instead.
+   * Deprecated, use {@code http.response.header.<key>} instead.
    *
    * <p>
    *
-   * @deprecated Replaced by {@code http.response.header.content-length}.
+   * @deprecated Replaced by {@code http.response.header.<key>}.
    */
   @Deprecated
   public static final AttributeKey<Long> HTTP_RESPONSE_CONTENT_LENGTH =
