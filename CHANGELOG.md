@@ -2,6 +2,15 @@
 
 ## Unreleased
 
+* Use weaver for semantic convention codegen
+  ([#70](https://github.com/open-telemetry/semantic-conventions-java/pull/70))
+* Include Incubating prefix on enum inner class names
+  ([#83](https://github.com/open-telemetry/semantic-conventions-java/pull/83))
+* Add new class annotations to deprecated classes
+  ([#89](https://github.com/open-telemetry/semantic-conventions-java/pull/89))
+* Update to semantic-conventions 1.28.0
+  ([#91](https://github.com/open-telemetry/semantic-conventions-java/pull/91))
+
 ## Version 1.27.0 (2024-08-20)
 
 * Update to semantic-conventions 1.27.0
