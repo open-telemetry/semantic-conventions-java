@@ -1,6 +1,6 @@
 # Changelog
 
-## Unreleased
+## Version 1.28.0 (2024-10-14)
 
 * Use weaver for semantic convention codegen
   ([#70](https://github.com/open-telemetry/semantic-conventions-java/pull/70))
