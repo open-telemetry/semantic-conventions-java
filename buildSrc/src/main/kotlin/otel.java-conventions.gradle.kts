@@ -80,6 +80,8 @@ tasks {
 
       links("https://docs.oracle.com/javase/8/docs/api/")
       addBooleanOption("Xdoclint:all,-missing", true)
+      // non-standard option to fail on warnings, see https://bugs.openjdk.java.net/browse/JDK-8200363
+      addStringOption("Xwerror", "-quiet")
     }
   }
 
