@@ -21,10 +21,10 @@ jobs:
           distribution: temurin
           java-version: 17
 
+      - uses: gradle/actions/setup-gradle@v4
+
       - name: Build and publish artifacts
-        uses: gradle/gradle-build-action@v2
-        with:
-          arguments: assemble publishToSonatype closeAndReleaseSonatypeStagingRepository
+        run: ./gradlew assemble publishToSonatype closeAndReleaseSonatypeStagingRepository
         env:
           SONATYPE_USER: ${{ secrets.SONATYPE_USER }}
           SONATYPE_KEY: ${{ secrets.SONATYPE_KEY }}

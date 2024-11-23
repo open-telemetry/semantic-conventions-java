@@ -55,29 +55,25 @@ jobs:
           distribution: temurin
           java-version: 17
 
+      - uses: gradle/actions/setup-gradle@v4
+
       - name: build
-        uses: gradle/gradle-build-action@v2
-        with:
-          arguments: |
-            build
-            -PtestJavaVersion=${{ matrix.test-java-version }}
-            -Porg.gradle.java.installations.paths=${{ steps.setup-java-test.outputs.path }},${{ steps.setup-java.outputs.path }}
+        run: >
+          ./gradlew
+          build
+          -PtestJavaVersion=${{ matrix.test-java-version }}
+          -Porg.gradle.java.installations.paths=${{ steps.setup-java-test.outputs.path }},${{ steps.setup-java.outputs.path }}
         env:
           GRADLE_ENTERPRISE_ACCESS_KEY: ${{ secrets.GRADLE_ENTERPRISE_ACCESS_KEY }}
 
       - name: generate
         # Skip running on macos-latest which doesn't have docker
         if: matrix.os == 'ubuntu-latest'
-        uses: gradle/gradle-build-action@v2
-        with:
-          arguments: |
-            generateSemanticConventions --console=plain
+        run: ./gradlew generateSemanticConventions --console=plain
+
       # Run spotless after generate to format generated code
       - name: spotless
-        uses: gradle/gradle-build-action@v2
-        with:
-          arguments: |
-            spotlessApply
+        run: ./gradlew spotlessApply
 
       - name: Check for diff
         run: |
