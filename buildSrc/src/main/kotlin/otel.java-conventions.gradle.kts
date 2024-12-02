@@ -36,7 +36,6 @@ tasks {
     with(options) {
       release.set(8)
 
-      //disable deprecation warnings for the protobuf module
       compilerArgs.addAll(
         listOf(
           // Fail build on any warning
@@ -77,8 +76,6 @@ tasks {
       breakIterator(true)
 
       addBooleanOption("html5", true)
-
-      links("https://docs.oracle.com/javase/8/docs/api/")
       addBooleanOption("Xdoclint:all,-missing", true)
     }
   }

@@ -63,8 +63,6 @@ jobs:
           build
           -PtestJavaVersion=${{ matrix.test-java-version }}
           -Porg.gradle.java.installations.paths=${{ steps.setup-java-test.outputs.path }},${{ steps.setup-java.outputs.path }}
-        env:
-          GRADLE_ENTERPRISE_ACCESS_KEY: ${{ secrets.GRADLE_ENTERPRISE_ACCESS_KEY }}
 
       - name: generate
         # Skip running on macos-latest which doesn't have docker
