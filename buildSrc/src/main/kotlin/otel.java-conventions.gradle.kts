@@ -36,7 +36,6 @@ tasks {
     with(options) {
       release.set(8)
 
-      //disable deprecation warnings for the protobuf module
       compilerArgs.addAll(
         listOf(
           // Fail build on any warning
