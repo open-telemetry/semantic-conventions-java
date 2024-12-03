@@ -39,7 +39,7 @@ jobs:
             test-java-version: 21
 
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
 
       - id: setup-java-test
         name: Set up Java ${{ matrix.test-java-version }} for tests
