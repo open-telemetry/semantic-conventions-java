@@ -8,11 +8,13 @@ package io.opentelemetry.semconv.incubating;
 import static io.opentelemetry.api.common.AttributeKey.booleanKey;
 import static io.opentelemetry.api.common.AttributeKey.doubleKey;
 import static io.opentelemetry.api.common.AttributeKey.longKey;
+import static io.opentelemetry.api.common.AttributeKey.stringArrayKey;
 import static io.opentelemetry.api.common.AttributeKey.stringKey;
 import static io.opentelemetry.semconv.AttributeKeyTemplate.stringKeyTemplate;
 
 import io.opentelemetry.api.common.AttributeKey;
 import io.opentelemetry.semconv.AttributeKeyTemplate;
+import java.util.List;
 
 // DO NOT EDIT, this is an Auto-generated file from
 // buildscripts/templates/registry/incubating_java/IncubatingSemanticAttributes.java.j2
@@ -100,12 +102,15 @@ public final class DbIncubatingAttributes {
    * <p>Notes:
    *
    * <p>It is RECOMMENDED to capture the value as provided by the application without attempting to
-   * do any case normalization. If the collection name is parsed from the query text, it SHOULD be
-   * the first collection name found in the query and it SHOULD match the value provided in the
-   * query text including any schema and database name prefix. For batch operations, if the
-   * individual operations are known to have the same collection name then that collection name
-   * SHOULD be used, otherwise {@code db.collection.name} SHOULD NOT be captured. This attribute has
-   * stability level RELEASE CANDIDATE.
+   * do any case normalization.
+   *
+   * <p>The collection name SHOULD NOT be extracted from {@code db.query.text}, unless the query
+   * format is known to only ever have a single collection name present.
+   *
+   * <p>For batch operations, if the individual operations are known to have the same collection
+   * name then that collection name SHOULD be used.
+   *
+   * <p>This attribute has stability level RELEASE CANDIDATE.
    */
   public static final AttributeKey<String> DB_COLLECTION_NAME = stringKey("db.collection.name");
 
@@ -128,6 +133,13 @@ public final class DbIncubatingAttributes {
       stringKey("db.cosmosdb.connection_mode");
 
   /**
+   * Account or request <a
+   * href="https://learn.microsoft.com/azure/cosmos-db/consistency-levels">consistency level</a>.
+   */
+  public static final AttributeKey<String> DB_COSMOSDB_CONSISTENCY_LEVEL =
+      stringKey("db.cosmosdb.consistency_level");
+
+  /**
    * Deprecated, use {@code db.collection.name} instead.
    *
    * <p>
@@ -138,15 +150,36 @@ public final class DbIncubatingAttributes {
   public static final AttributeKey<String> DB_COSMOSDB_CONTAINER =
       stringKey("db.cosmosdb.container");
 
-  /** Cosmos DB Operation Type. */
+  /**
+   * Deprecated, no replacement at this time.
+   *
+   * <p>
+   *
+   * @deprecated No replacement at this time.
+   */
+  @Deprecated
   public static final AttributeKey<String> DB_COSMOSDB_OPERATION_TYPE =
       stringKey("db.cosmosdb.operation_type");
 
-  /** RU consumed for that operation */
+  /**
+   * List of regions contacted during operation in the order that they were contacted. If there is
+   * more than one region listed, it indicates that the operation was performed on multiple regions
+   * i.e. cross-regional call.
+   *
+   * <p>Notes:
+   *
+   * <p>Region name matches the format of {@code displayName} in <a
+   * href="https://learn.microsoft.com/rest/api/subscription/subscriptions/list-locations?view=rest-subscription-2021-10-01&tabs=HTTP#location">Azure
+   * Location API</a>
+   */
+  public static final AttributeKey<List<String>> DB_COSMOSDB_REGIONS_CONTACTED =
+      stringArrayKey("db.cosmosdb.regions_contacted");
+
+  /** Request units consumed for the operation. */
   public static final AttributeKey<Double> DB_COSMOSDB_REQUEST_CHARGE =
       doubleKey("db.cosmosdb.request_charge");
 
-  /** Request payload size in bytes */
+  /** Request payload size in bytes. */
   public static final AttributeKey<Long> DB_COSMOSDB_REQUEST_CONTENT_LENGTH =
       longKey("db.cosmosdb.request_content_length");
 
@@ -292,27 +325,60 @@ public final class DbIncubatingAttributes {
    * <p>Notes:
    *
    * <p>It is RECOMMENDED to capture the value as provided by the application without attempting to
-   * do any case normalization. If the operation name is parsed from the query text, it SHOULD be
-   * the first operation name found in the query. For batch operations, if the individual operations
-   * are known to have the same operation name then that operation name SHOULD be used prepended by
-   * {@code BATCH }, otherwise {@code db.operation.name} SHOULD be {@code BATCH} or some other
-   * database system specific term if more applicable. This attribute has stability level RELEASE
-   * CANDIDATE.
+   * do any case normalization.
+   *
+   * <p>The operation name SHOULD NOT be extracted from {@code db.query.text}, unless the query
+   * format is known to only ever have a single operation name present.
+   *
+   * <p>For batch operations, if the individual operations are known to have the same operation name
+   * then that operation name SHOULD be used prepended by {@code BATCH }, otherwise {@code
+   * db.operation.name} SHOULD be {@code BATCH} or some other database system specific term if more
+   * applicable.
+   *
+   * <p>This attribute has stability level RELEASE CANDIDATE.
    */
   public static final AttributeKey<String> DB_OPERATION_NAME = stringKey("db.operation.name");
+
+  /**
+   * A database operation parameter, with {@code <key>} being the parameter name, and the attribute
+   * value being a string representation of the parameter value.
+   *
+   * <p>Notes:
+   *
+   * <p>If a parameter has no name and instead is referenced only by index, then {@code <key>}
+   * SHOULD be the 0-based index. If {@code db.query.text} is also captured, then {@code
+   * db.operation.parameter.<key>} SHOULD match up with the parameterized placeholders present in
+   * {@code db.query.text}. This attribute has stability level RELEASE CANDIDATE.
+   */
+  public static final AttributeKeyTemplate<String> DB_OPERATION_PARAMETER =
+      stringKeyTemplate("db.operation.parameter");
 
   /**
    * A query parameter used in {@code db.query.text}, with {@code <key>} being the parameter name,
    * and the attribute value being a string representation of the parameter value.
    *
-   * <p>Notes:
+   * <p>
    *
-   * <p>Query parameters should only be captured when {@code db.query.text} is parameterized with
-   * placeholders. If a parameter has no name and instead is referenced only by index, then {@code
-   * <key>} SHOULD be the 0-based index. This attribute has stability level RELEASE CANDIDATE.
+   * @deprecated Replaced by {@code db.operation.parameter}.
    */
+  @Deprecated
   public static final AttributeKeyTemplate<String> DB_QUERY_PARAMETER =
       stringKeyTemplate("db.query.parameter");
+
+  /**
+   * Low cardinality representation of a database query text.
+   *
+   * <p>Notes:
+   *
+   * <p>{@code db.query.summary} provides static summary of the query text. It describes a class of
+   * database queries and is useful as a grouping key, especially when analyzing telemetry for
+   * database calls involving complex queries. Summary may be available to the instrumentation
+   * through instrumentation hooks or other means. If it is not available, instrumentations that
+   * support query parsing SHOULD generate a summary following <a
+   * href="../../docs/database/database-spans.md#generating-a-summary-of-the-query-text">Generating
+   * query summary</a> section. This attribute has stability level RELEASE CANDIDATE.
+   */
+  public static final AttributeKey<String> DB_QUERY_SUMMARY = stringKey("db.query.summary");
 
   /**
    * The database query being executed.
@@ -342,6 +408,10 @@ public final class DbIncubatingAttributes {
   @Deprecated
   public static final AttributeKey<Long> DB_REDIS_DATABASE_INDEX =
       longKey("db.redis.database_index");
+
+  /** Number of rows returned by the operation. */
+  public static final AttributeKey<Long> DB_RESPONSE_RETURNED_ROWS =
+      longKey("db.response.returned_rows");
 
   /**
    * Database response status code.
@@ -464,7 +534,7 @@ public final class DbIncubatingAttributes {
 
   /** Values for {@link #DB_COSMOSDB_CONNECTION_MODE}. */
   public static final class DbCosmosdbConnectionModeIncubatingValues {
-    /** Gateway (HTTP) connections mode */
+    /** Gateway (HTTP) connection. */
     public static final String GATEWAY = "gateway";
 
     /** Direct connection. */
@@ -473,7 +543,32 @@ public final class DbIncubatingAttributes {
     private DbCosmosdbConnectionModeIncubatingValues() {}
   }
 
-  /** Values for {@link #DB_COSMOSDB_OPERATION_TYPE}. */
+  /** Values for {@link #DB_COSMOSDB_CONSISTENCY_LEVEL}. */
+  public static final class DbCosmosdbConsistencyLevelIncubatingValues {
+    /** strong. */
+    public static final String STRONG = "Strong";
+
+    /** bounded_staleness. */
+    public static final String BOUNDED_STALENESS = "BoundedStaleness";
+
+    /** session. */
+    public static final String SESSION = "Session";
+
+    /** eventual. */
+    public static final String EVENTUAL = "Eventual";
+
+    /** consistent_prefix. */
+    public static final String CONSISTENT_PREFIX = "ConsistentPrefix";
+
+    private DbCosmosdbConsistencyLevelIncubatingValues() {}
+  }
+
+  /**
+   * Values for {@link #DB_COSMOSDB_OPERATION_TYPE}
+   *
+   * @deprecated No replacement at this time.
+   */
+  @Deprecated
   public static final class DbCosmosdbOperationTypeIncubatingValues {
     /** batch. */
     public static final String BATCH = "batch";

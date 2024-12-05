@@ -35,13 +35,17 @@ public final class GenAiIncubatingAttributes {
   public static final AttributeKey<Long> GEN_AI_OPENAI_REQUEST_SEED =
       longKey("gen_ai.openai.request.seed");
 
-  /** The service tier requested. May be a specific tier, detault, or auto. */
+  /** The service tier requested. May be a specific tier, default, or auto. */
   public static final AttributeKey<String> GEN_AI_OPENAI_REQUEST_SERVICE_TIER =
       stringKey("gen_ai.openai.request.service_tier");
 
   /** The service tier used for the response. */
   public static final AttributeKey<String> GEN_AI_OPENAI_RESPONSE_SERVICE_TIER =
       stringKey("gen_ai.openai.response.service_tier");
+
+  /** A fingerprint to track any eventual change in the Generative AI environment. */
+  public static final AttributeKey<String> GEN_AI_OPENAI_RESPONSE_SYSTEM_FINGERPRINT =
+      stringKey("gen_ai.openai.response.system_fingerprint");
 
   /**
    * The name of the operation being performed.
@@ -64,6 +68,17 @@ public final class GenAiIncubatingAttributes {
    * @deprecated Removed, no replacement at this time.
    */
   @Deprecated public static final AttributeKey<String> GEN_AI_PROMPT = stringKey("gen_ai.prompt");
+
+  /**
+   * The encoding formats requested in an embeddings operation, if specified.
+   *
+   * <p>Notes:
+   *
+   * <p>In some GenAI systems the encoding formats are called embedding types. Also, some GenAI
+   * systems only accept a single format per request.
+   */
+  public static final AttributeKey<List<String>> GEN_AI_REQUEST_ENCODING_FORMATS =
+      stringArrayKey("gen_ai.request.encoding_formats");
 
   /** The frequency penalty setting for the GenAI request. */
   public static final AttributeKey<Double> GEN_AI_REQUEST_FREQUENCY_PENALTY =
@@ -199,6 +214,13 @@ public final class GenAiIncubatingAttributes {
      */
     public static final String TEXT_COMPLETION = "text_completion";
 
+    /**
+     * Embeddings operation such as <a
+     * href="https://platform.openai.com/docs/api-reference/embeddings/create">OpenAI Create
+     * embeddings API</a>
+     */
+    public static final String EMBEDDINGS = "embeddings";
+
     private GenAiOperationNameIncubatingValues() {}
   }
 
@@ -215,6 +237,15 @@ public final class GenAiIncubatingAttributes {
 
     /** Cohere */
     public static final String COHERE = "cohere";
+
+    /** Azure AI Inference */
+    public static final String AZ_AI_INFERENCE = "az.ai.inference";
+
+    /** IBM Watsonx AI */
+    public static final String IBM_WATSONX_AI = "ibm.watsonx.ai";
+
+    /** AWS Bedrock */
+    public static final String AWS_BEDROCK = "aws.bedrock";
 
     private GenAiSystemIncubatingValues() {}
   }

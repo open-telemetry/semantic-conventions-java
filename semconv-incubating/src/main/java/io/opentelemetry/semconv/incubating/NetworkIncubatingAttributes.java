@@ -86,7 +86,7 @@ public final class NetworkIncubatingAttributes {
   public static final AttributeKey<Long> NETWORK_PEER_PORT = longKey("network.peer.port");
 
   /**
-   * <a href="https://osi-model.com/application-layer/">OSI application layer</a> or non-OSI
+   * <a href="https://wikipedia.org/wiki/Application_layer">OSI application layer</a> or non-OSI
    * equivalent.
    *
    * <p>Notes:
@@ -120,7 +120,7 @@ public final class NetworkIncubatingAttributes {
       stringKey("network.protocol.version");
 
   /**
-   * <a href="https://osi-model.com/transport-layer/">OSI transport layer</a> or <a
+   * <a href="https://wikipedia.org/wiki/Transport_layer">OSI transport layer</a> or <a
    * href="https://wikipedia.org/wiki/Inter-process_communication">inter-process communication
    * method</a>.
    *
@@ -141,7 +141,7 @@ public final class NetworkIncubatingAttributes {
   public static final AttributeKey<String> NETWORK_TRANSPORT = stringKey("network.transport");
 
   /**
-   * <a href="https://osi-model.com/network-layer/">OSI network layer</a> or non-OSI equivalent.
+   * <a href="https://wikipedia.org/wiki/Network_layer">OSI network layer</a> or non-OSI equivalent.
    *
    * <p>Notes:
    *

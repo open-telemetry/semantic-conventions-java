@@ -35,8 +35,6 @@ public final class DeploymentIncubatingAttributes {
    * resource attributes. This implies that resources carrying the following attribute combinations
    * MUST be considered to be identifying the same service:
    *
-   * <p>
-   *
    * <ul>
    *   <li>{@code service.name=frontend}, {@code deployment.environment.name=production}
    *   <li>{@code service.name=frontend}, {@code deployment.environment.name=staging}.

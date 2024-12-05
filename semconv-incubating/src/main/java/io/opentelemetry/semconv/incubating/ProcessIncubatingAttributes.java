@@ -80,6 +80,17 @@ public final class ProcessIncubatingAttributes {
    * Profiling specific build ID for executables. See the OTel specification for Profiles for more
    * information.
    */
+  public static final AttributeKey<String> PROCESS_EXECUTABLE_BUILD_ID_HTLHASH =
+      stringKey("process.executable.build_id.htlhash");
+
+  /**
+   * "Deprecated, use {@code process.executable.build_id.htlhash} instead."
+   *
+   * <p>
+   *
+   * @deprecated Replaced by {@code process.executable.build_id.htlhash}
+   */
+  @Deprecated
   public static final AttributeKey<String> PROCESS_EXECUTABLE_BUILD_ID_PROFILING =
       stringKey("process.executable.build_id.profiling");
 
@@ -113,6 +124,18 @@ public final class ProcessIncubatingAttributes {
 
   /** Whether the process is connected to an interactive shell. */
   public static final AttributeKey<Boolean> PROCESS_INTERACTIVE = booleanKey("process.interactive");
+
+  /**
+   * The control group associated with the process.
+   *
+   * <p>Notes:
+   *
+   * <p>Control groups (cgroups) are a kernel feature used to organize and manage process resources.
+   * This attribute provides the path(s) to the cgroup(s) associated with the process, which should
+   * match the contents of the <a
+   * href="https://man7.org/linux/man-pages/man7/cgroups.7.html">/proc/<PID>/cgroup</a> file.
+   */
+  public static final AttributeKey<String> PROCESS_LINUX_CGROUP = stringKey("process.linux.cgroup");
 
   /** The username of the user that owns the process. */
   public static final AttributeKey<String> PROCESS_OWNER = stringKey("process.owner");
