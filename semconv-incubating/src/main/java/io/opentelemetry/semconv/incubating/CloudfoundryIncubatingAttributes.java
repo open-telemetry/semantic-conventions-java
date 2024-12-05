@@ -30,7 +30,7 @@ public final class CloudfoundryIncubatingAttributes {
    * <p>Notes:
    *
    * <p>CloudFoundry defines the {@code instance_id} in the <a
-   * href="https://github.com/cloudfoundry/loggregator-api#v2-envelope">Loggegator v2 envelope</a>.
+   * href="https://github.com/cloudfoundry/loggregator-api#v2-envelope">Loggregator v2 envelope</a>.
    * It is used for logs and metrics emitted by CloudFoundry. It is supposed to contain the
    * application instance index for applications deployed on the runtime.
    *
