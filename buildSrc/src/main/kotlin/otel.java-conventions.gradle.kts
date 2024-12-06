@@ -77,6 +77,8 @@ tasks {
 
       addBooleanOption("html5", true)
       addBooleanOption("Xdoclint:all,-missing", true)
+      // non-standard option to fail on warnings, see https://bugs.openjdk.java.net/browse/JDK-8200363
+      addStringOption("Xwerror", "-quiet")
     }
   }
 
