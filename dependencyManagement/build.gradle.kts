@@ -8,7 +8,7 @@ val dependencyVersions = hashMapOf<String, String>()
 rootProject.extra["versions"] = dependencyVersions
 
 val DEPENDENCY_BOMS = listOf(
-  "org.assertj:assertj-bom:3.24.2",
+  "org.assertj:assertj-bom:3.26.3",
   "org.junit:junit-bom:5.11.3",
 )
 
