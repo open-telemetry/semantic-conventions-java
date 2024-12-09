@@ -36,8 +36,6 @@ public final class ErrorAttributes {
    * <p>If a specific domain defines its own set of error identifiers (such as HTTP or gRPC status
    * codes), it's RECOMMENDED to:
    *
-   * <p>
-   *
    * <ul>
    *   <li>Use a domain-specific attribute
    *   <li>Set {@code error.type} to capture all errors, regardless of whether they are defined

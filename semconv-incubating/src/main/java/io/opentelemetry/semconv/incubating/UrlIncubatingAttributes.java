@@ -56,12 +56,39 @@ public final class UrlIncubatingAttributes {
    *
    * <p>For network calls, URL usually has {@code scheme://host[:port][path][?query][#fragment]}
    * format, where the fragment is not transmitted over HTTP, but if it is known, it SHOULD be
-   * included nevertheless. {@code url.full} MUST NOT contain credentials passed via URL in form of
-   * {@code https://username:password@www.example.com/}. In such case username and password SHOULD
-   * be redacted and attribute's value SHOULD be {@code https://REDACTED:REDACTED@www.example.com/}.
-   * {@code url.full} SHOULD capture the absolute URL when it is available (or can be
-   * reconstructed). Sensitive content provided in {@code url.full} SHOULD be scrubbed when
-   * instrumentations can identify it.
+   * included nevertheless.
+   *
+   * <p>{@code url.full} MUST NOT contain credentials passed via URL in form of {@code
+   * https://username:password@www.example.com/}. In such case username and password SHOULD be
+   * redacted and attribute's value SHOULD be {@code https://REDACTED:REDACTED@www.example.com/}.
+   *
+   * <p>{@code url.full} SHOULD capture the absolute URL when it is available (or can be
+   * reconstructed).
+   *
+   * <p>Sensitive content provided in {@code url.full} SHOULD be scrubbed when instrumentations can
+   * identify it.
+   *
+   * <p>Query string values for the following keys SHOULD be redacted by default and replaced by the
+   * value {@code REDACTED}:
+   *
+   * <ul>
+   *   <li><a
+   *       href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/RESTAuthentication.html#RESTAuthenticationQueryStringAuth">{@code
+   *       AWSAccessKeyId}</a>
+   *   <li><a
+   *       href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/RESTAuthentication.html#RESTAuthenticationQueryStringAuth">{@code
+   *       Signature}</a>
+   *   <li><a
+   *       href="https://learn.microsoft.com/azure/storage/common/storage-sas-overview#sas-token">{@code
+   *       sig}</a>
+   *   <li><a href="https://cloud.google.com/storage/docs/access-control/signed-urls">{@code
+   *       X-Goog-Signature}</a>
+   * </ul>
+   *
+   * <p>This list is subject to change over time.
+   *
+   * <p>When a query string value is redacted, the query string key SHOULD still be preserved, e.g.
+   * {@code https://www.example.com/path?color=blue&sig=REDACTED}.
    *
    * <p>
    *
@@ -108,6 +135,28 @@ public final class UrlIncubatingAttributes {
    *
    * <p>Sensitive content provided in {@code url.query} SHOULD be scrubbed when instrumentations can
    * identify it.
+   *
+   * <p>Query string values for the following keys SHOULD be redacted by default and replaced by the
+   * value {@code REDACTED}:
+   *
+   * <ul>
+   *   <li><a
+   *       href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/RESTAuthentication.html#RESTAuthenticationQueryStringAuth">{@code
+   *       AWSAccessKeyId}</a>
+   *   <li><a
+   *       href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/RESTAuthentication.html#RESTAuthenticationQueryStringAuth">{@code
+   *       Signature}</a>
+   *   <li><a
+   *       href="https://learn.microsoft.com/azure/storage/common/storage-sas-overview#sas-token">{@code
+   *       sig}</a>
+   *   <li><a href="https://cloud.google.com/storage/docs/access-control/signed-urls">{@code
+   *       X-Goog-Signature}</a>
+   * </ul>
+   *
+   * <p>This list is subject to change over time.
+   *
+   * <p>When a query string value is redacted, the query string key SHOULD still be preserved, e.g.
+   * {@code q=OpenTelemetry&sig=REDACTED}.
    *
    * <p>
    *

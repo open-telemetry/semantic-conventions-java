@@ -232,8 +232,6 @@ public final class AwsIncubatingAttributes {
    * href="https://docs.aws.amazon.com/cli/latest/reference/s3api/copy-object.html">copy-object
    * operation within the S3 API</a>. This applies in particular to the following operations:
    *
-   * <p>
-   *
    * <ul>
    *   <li><a
    *       href="https://docs.aws.amazon.com/cli/latest/reference/s3api/copy-object.html">copy-object</a>
@@ -265,8 +263,6 @@ public final class AwsIncubatingAttributes {
    * <p>The {@code key} attribute is applicable to all object-related S3 operations, i.e. that
    * require the object key as a mandatory parameter. This applies in particular to the following
    * operations:
-   *
-   * <p>
    *
    * <ul>
    *   <li><a
@@ -325,8 +321,6 @@ public final class AwsIncubatingAttributes {
    * the {@code --upload-id} parameter of the <a
    * href="https://docs.aws.amazon.com/cli/latest/reference/s3api/index.html">S3 API</a> multipart
    * operations. This applies in particular to the following operations:
-   *
-   * <p>
    *
    * <ul>
    *   <li><a

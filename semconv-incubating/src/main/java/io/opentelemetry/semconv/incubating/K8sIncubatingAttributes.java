@@ -36,8 +36,6 @@ public final class K8sIncubatingAttributes {
    * UUIDs as standardized by <a href="https://www.itu.int/ITU-T/studygroups/com17/oid.html">ISO/IEC
    * 9834-8 and ITU-T X.667</a>. Which states:
    *
-   * <p>
-   *
    * <blockquote>
    *
    * If generated according to one of the mechanisms defined in Rec. ITU-T X.667 | ISO/IEC 9834-8, a
