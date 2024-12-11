@@ -138,20 +138,28 @@
             <property name="tokens" value="VARIABLE_DEF"/>
             <property name="allowSamelineMultipleAnnotations" value="true"/>
         </module>
-        <module name="NonEmptyAtclauseDescription"/>
-        <module name="JavadocTagContinuationIndentation"/>
+        <!-- TODO (trask) commented out until next semconv release,
+             see https://github.com/open-telemetry/semantic-conventions/pull/1664 -->
+        <!--module name="NonEmptyAtclauseDescription"/-->
+        <!-- TODO (trask) commented out until next semconv release,
+             see https://github.com/open-telemetry/semantic-conventions/pull/1664 -->
+        <!--module name="JavadocTagContinuationIndentation"/-->
         <module name="SummaryJavadoc">
             <property name="forbiddenSummaryFragments"
              value="^@return the *|^This method returns |^A [{]@code [a-zA-Z0-9]+[}]( is a )"/>
         </module>
-        <module name="JavadocParagraph">
+        <!-- TODO (trask) commented out until next semconv release,
+             see https://github.com/open-telemetry/semantic-conventions/pull/1664 -->
+        <!--module name="JavadocParagraph">
             <property name="allowNewlineParagraph" value="false"/>
-        </module>
-        <module name="AtclauseOrder">
+        </module-->
+        <!-- TODO (trask) commented out until next semconv release,
+             see https://github.com/open-telemetry/semantic-conventions/pull/1664 -->
+        <!--module name="AtclauseOrder">
             <property name="tagOrder" value="@param, @return, @throws, @deprecated"/>
             <property name="target"
              value="CLASS_DEF, INTERFACE_DEF, ENUM_DEF, METHOD_DEF, CTOR_DEF, VARIABLE_DEF"/>
-        </module>
+        </module-->
         <module name="JavadocMethod">
             <property name="scope" value="public"/>
             <property name="allowMissingParamTags" value="true"/>
@@ -170,10 +178,12 @@
             <message key="name.invalidPattern"
              value="Method name ''{0}'' must match pattern ''{1}''."/>
         </module>
-        <module name="SingleLineJavadoc">
+        <!-- TODO (trask) commented out until next semconv release,
+             see https://github.com/open-telemetry/semantic-conventions/pull/1664 -->
+        <!--module name="SingleLineJavadoc"-->
             <!-- <!-\- Wrong interpretation of the style guide; -\-> -->
             <!-- <property name="ignoreInlineTags" value="false"/ -->
-        </module>
+        <!--/module-->
         <module name="EmptyCatchBlock">
             <property name="exceptionVariableName" value="expected"/>
         </module>
