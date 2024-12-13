@@ -21,7 +21,7 @@ public final class CicdIncubatingAttributes {
 
   /**
    * The human readable name of a task within a pipeline. Task here most closely aligns with a <a
-   * href="https://en.wikipedia.org/wiki/Pipeline_(computing)">computing process</a> in a pipeline.
+   * href="https://wikipedia.org/wiki/Pipeline_(computing)">computing process</a> in a pipeline.
    * Other terms for tasks include commands, steps, and procedures.
    */
   public static final AttributeKey<String> CICD_PIPELINE_TASK_NAME =
@@ -32,8 +32,8 @@ public final class CicdIncubatingAttributes {
       stringKey("cicd.pipeline.task.run.id");
 
   /**
-   * The <a href="https://en.wikipedia.org/wiki/URL">URL</a> of the pipeline run providing the
-   * complete address in order to locate and identify the pipeline run.
+   * The <a href="https://wikipedia.org/wiki/URL">URL</a> of the pipeline run providing the complete
+   * address in order to locate and identify the pipeline run.
    */
   public static final AttributeKey<String> CICD_PIPELINE_TASK_RUN_URL_FULL =
       stringKey("cicd.pipeline.task.run.url.full");

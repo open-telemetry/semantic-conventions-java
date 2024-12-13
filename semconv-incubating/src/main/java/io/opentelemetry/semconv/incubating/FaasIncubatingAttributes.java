@@ -58,8 +58,6 @@ public final class FaasIncubatingAttributes {
    *
    * <p>Notes:
    *
-   * <p>
-   *
    * <ul>
    *   <li><strong>AWS Lambda:</strong> Use the (full) log stream name.
    * </ul>
@@ -123,8 +121,6 @@ public final class FaasIncubatingAttributes {
    * function name MUST be used for this attribute (and consequently the span name) for the listed
    * cloud providers/products:
    *
-   * <p>
-   *
    * <ul>
    *   <li><strong>Azure:</strong> The full name {@code <FUNCAPP>/<FUNC>}, i.e., function app name
    *       followed by a forward slash followed by the function name (this form can also be seen in
@@ -151,8 +147,6 @@ public final class FaasIncubatingAttributes {
    * <p>Notes:
    *
    * <p>Depending on the cloud provider and platform, use:
-   *
-   * <p>
    *
    * <ul>
    *   <li><strong>AWS Lambda:</strong> The <a

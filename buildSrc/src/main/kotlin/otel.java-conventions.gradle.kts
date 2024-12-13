@@ -76,7 +76,9 @@ tasks {
       breakIterator(true)
 
       addBooleanOption("html5", true)
-      addBooleanOption("Xdoclint:all,-missing", true)
+      // TODO (trask) need to disable html validation until next semconv release
+      //  see https://github.com/open-telemetry/semantic-conventions/pull/1664
+      addBooleanOption("Xdoclint:all,-missing,-html", true)
     }
   }
 
