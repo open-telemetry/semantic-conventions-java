@@ -9,7 +9,7 @@ rootProject.extra["versions"] = dependencyVersions
 
 val DEPENDENCY_BOMS = listOf(
   "org.assertj:assertj-bom:3.26.3",
-  "org.junit:junit-bom:5.11.3",
+  "org.junit:junit-bom:5.11.4",
 )
 
 val DEPENDENCIES = listOf(
