@@ -2,6 +2,9 @@
 
 ## Unreleased
 
+*  Update to semantic conventions 1.29.0 and weaver 0.12.0
+   ([#118](https://github.com/open-telemetry/semantic-conventions-java/pull/118))
+
 ## Version 1.28.0 (2024-10-14)
 
 * Use weaver for semantic convention codegen
