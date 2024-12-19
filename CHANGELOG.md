@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+## Version 1.29.0 (2024-12-19)
+
 *  Update to semantic conventions 1.29.0 and weaver 0.12.0
    ([#118](https://github.com/open-telemetry/semantic-conventions-java/pull/118))
 
