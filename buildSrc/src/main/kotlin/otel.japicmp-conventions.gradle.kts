@@ -109,6 +109,9 @@ if (!project.hasProperty("otel.release")) {
 
         // this is needed so that we only consider the current artifact, and not dependencies
         ignoreMissingClasses.set(true)
+        // TODO: remove exclusions after first stable release
+        classExcludes.add("io.opentelemetry.semconv.ResourceAttributes")
+        classExcludes.add("io.opentelemetry.semconv.SemanticAttributes")
         val baseVersionString = if (apiBaseVersion == null) "latest" else baselineVersion
         txtOutputFile.set(
             apiNewVersion?.let { file("$rootDir/docs/apidiffs/${apiNewVersion}_vs_$baselineVersion/${base.archivesName.get()}.txt") }
