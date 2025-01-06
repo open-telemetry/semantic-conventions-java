@@ -1,8 +1,6 @@
 plugins {
   id("otel.java-conventions")
   id("otel.publish-conventions")
-  // TODO: re-enable japicmp when artifact is stable
-  // id("otel.japicmp-conventions")
 
   id("otel.animalsniffer-conventions")
 }
