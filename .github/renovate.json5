@@ -1,0 +1,14 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": [
+    "config:base"
+  ],
+  "packageRules": [
+    {
+      // pin io.opentelemetry dependencies to avoid churn and for conservative api version requirement
+      "matchPackagePrefixes": ["io.opentelemetry:"],
+      "matchCurrentVersion": "1.33.0",
+      "enabled": false
+    }
+  ]
+}
