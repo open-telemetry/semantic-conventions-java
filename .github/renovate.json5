@@ -5,8 +5,8 @@
   ],
   "packageRules": [
     {
-      // pin io.opentelemetry dependencies to avoid churn and for conservative api version requirement
-      "matchPackagePrefixes": ["io.opentelemetry:"],
+      // pin opentelemetry-api dependency to: avoid churn, for conservative api version requirement, and because opentelemetry-api is a compileOnly dependency
+      "matchPackagePrefixes": ["io.opentelemetry:opentelemetry-api"],
       "matchCurrentVersion": "1.33.0",
       "enabled": false
     }
