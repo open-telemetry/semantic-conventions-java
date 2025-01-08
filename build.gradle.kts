@@ -18,9 +18,7 @@ val schemaUrlVersions = listOf(
     "1.27.0",
     "1.26.0",
     "1.25.0",
-    "1.24.0",
-    "1.23.1",
-    "1.22.0")
+    "1.24.0")
 
 // Compute the artifact version, which includes the "-alpha" suffix and includes "-SNAPSHOT" suffix if not releasing
 // Release example: version=1.21.0-alpha
