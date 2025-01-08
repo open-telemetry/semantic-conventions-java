@@ -1,6 +1,6 @@
 params:
   excluded_namespaces: ["ios", "aspnetcore", "signalr"]
-  excluded_attributes: ["messaging.client_id"]
+  excluded_attributes: ["messaging.client_id", "exception.escaped"]
 comment_formats:
   javadoc:
     format: html
