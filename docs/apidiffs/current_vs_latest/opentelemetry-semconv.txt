@@ -29,7 +29,6 @@ Comparing source compatibility of opentelemetry-semconv-1.29.0-SNAPSHOT.jar agai
 	+++  CLASS FILE FORMAT VERSION: 52.0 <- n.a.
 	+++  NEW SUPERCLASS: java.lang.Object
 	+++  NEW FIELD: PUBLIC(+) STATIC(+) FINAL(+) io.opentelemetry.api.common.AttributeKey<java.lang.String> EXCEPTION_TYPE
-	+++  NEW FIELD: PUBLIC(+) STATIC(+) FINAL(+) io.opentelemetry.api.common.AttributeKey<java.lang.Boolean> EXCEPTION_ESCAPED
 	+++  NEW FIELD: PUBLIC(+) STATIC(+) FINAL(+) io.opentelemetry.api.common.AttributeKey<java.lang.String> EXCEPTION_STACKTRACE
 	+++  NEW FIELD: PUBLIC(+) STATIC(+) FINAL(+) io.opentelemetry.api.common.AttributeKey<java.lang.String> EXCEPTION_MESSAGE
 +++  NEW CLASS: PUBLIC(+) FINAL(+) io.opentelemetry.semconv.HttpAttributes  (not serializable)
@@ -118,8 +117,6 @@ Comparing source compatibility of opentelemetry-semconv-1.29.0-SNAPSHOT.jar agai
 	+++  CLASS FILE FORMAT VERSION: 52.0 <- n.a.
 	+++  NEW SUPERCLASS: java.lang.Object
 	+++  NEW FIELD: PUBLIC(+) STATIC(+) FINAL(+) java.lang.String V1_24_0
-	+++  NEW FIELD: PUBLIC(+) STATIC(+) FINAL(+) java.lang.String V1_23_1
-	+++  NEW FIELD: PUBLIC(+) STATIC(+) FINAL(+) java.lang.String V1_22_0
 	+++  NEW FIELD: PUBLIC(+) STATIC(+) FINAL(+) java.lang.String V1_29_0
 	+++  NEW FIELD: PUBLIC(+) STATIC(+) FINAL(+) java.lang.String V1_28_0
 	+++  NEW FIELD: PUBLIC(+) STATIC(+) FINAL(+) java.lang.String V1_27_0
