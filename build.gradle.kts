@@ -18,9 +18,7 @@ val schemaUrlVersions = listOf(
     "1.27.0",
     "1.26.0",
     "1.25.0",
-    "1.24.0",
-    "1.23.1",
-    "1.22.0")
+    "1.24.0")
 
 allprojects {
   // Compute the artifact version.

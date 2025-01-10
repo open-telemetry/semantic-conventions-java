@@ -1,0 +1,14 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": [
+    "config:base"
+  ],
+  "packageRules": [
+    {
+      // pin opentelemetry-api dependency to: avoid churn, for conservative api version requirement, and because opentelemetry-api is a compileOnly dependency
+      "matchPackageNames": ["io.opentelemetry:opentelemetry-api"],
+      "matchCurrentVersion": "1.33.0",
+      "enabled": false
+    }
+  ]
+}
