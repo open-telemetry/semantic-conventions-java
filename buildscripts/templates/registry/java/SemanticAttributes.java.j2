@@ -36,7 +36,7 @@ import java.util.List;
 // DO NOT EDIT, this is an Auto-generated file from buildscripts/templates/registry/java/SemanticAttributes.java.j2
 @SuppressWarnings("unused")
 public final class {{ my_class_name }} {
-    {% for attribute in ctx.attributes %}{% if attribute is stable %}
+    {% for attribute in ctx.attributes | rejectattr("name", "in", ctx.excluded_attributes) %}{% if attribute is stable %}
     {%- if attribute is deprecated %}
     {%- set deprecated_javadoc = "@deprecated " ~ attribute.deprecated -%}
     {%- endif -%}
