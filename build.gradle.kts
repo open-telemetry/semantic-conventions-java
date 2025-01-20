@@ -20,16 +20,21 @@ val schemaUrlVersions = listOf(
     "1.25.0",
     "1.24.0")
 
-// Compute the artifact version, which includes the "-alpha" suffix and includes "-SNAPSHOT" suffix if not releasing
-// Release example: version=1.21.0-alpha
-// Snapshot example: version=1.21.0-alpha-SNAPSHOT
-var releaseVersion = semanticConventionsVersion + "-alpha"
-if (snapshot) {
-  releaseVersion += "-SNAPSHOT"
-}
-
 allprojects {
-  version = releaseVersion
+  // Compute the artifact version.
+  // Include the "-alpha" suffix if the artifact contains a gradle.properties file with contents "otel.release=alpha".
+  // Include the "-SNAPSHOT" suffix if not releasing.
+  // Release example: 1.21.0 OR 1.21.0-alpha
+  // Snapshot example: 1.21.0-SNAPSHOT OR 1.21.0-alpha-SNAPSHOT
+  var ver = semanticConventionsVersion
+  val release = findProperty("otel.release")
+  if (release != null) {
+    ver += "-" + release
+  }
+  if (snapshot) {
+    ver += "-SNAPSHOT"
+  }
+  version = ver
 }
 
 nexusPublishing {
