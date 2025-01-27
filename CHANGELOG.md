@@ -1,6 +1,17 @@
 # Changelog
 
-## Unreleased
+## Version 1.30.0-RC (2025-01-27)
+
+**NOTICE**: This is a release candidate (RC), preceding the first stable release of `io.opentelemetry.semconv:opentelemetry-semconv`.
+
+* **BREAKING**: Prepare for stable release. Remove deprecated `ResourceAttributes`, `SemanticAttributes`.
+  ([#130](https://github.com/open-telemetry/semantic-conventions-java/pull/130))
+* Exclude `exception.escaped` from (to-be-stable) artifact
+  ([#133](https://github.com/open-telemetry/semantic-conventions-java/pull/133))
+* Remove schema urls for `1.22.0`, `1.23.1`. 
+  ([#134](https://github.com/open-telemetry/semantic-conventions-java/pull/134))
+* Bump to semantic-conventions v1.30.0
+  ([#141](https://github.com/open-telemetry/semantic-conventions-java/pull/141))
 
 ## Version 1.29.0 (2024-12-19)
 
