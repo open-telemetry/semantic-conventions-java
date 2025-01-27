@@ -62,6 +62,14 @@ is the need to set the Gradle property `android.useFullClasspathForDexingTransfo
 builds. Please see [this](https://github.com/open-telemetry/opentelemetry-android/pull/309) 
 pull request on the OpenTelemetry Android Extension for details.
 
+## Compatibility
+
+Artifacts from this repository follow semantic versioning, mirroring the versions of the upstream [semantic-conventions](https://github.com/open-telemetry/semantic-conventions) repository. If a patch release is needed for logic in this repository, a release will be published with a fourth version component (i.e. `1.30.0.1` to patch an issue with `1.30.0`).  
+
+Stable artifacts (i.e. artifacts without -alpha version suffix) come with strong backwards compatibility guarantees for public APIs.
+
+Compatibility guarantees are inherited from [opentelemetry-java](https://github.com/open-telemetry/opentelemetry-java/blob/main/VERSIONING.md) .
+
 ## Generating semantic conventions
 
 Requires docker.
