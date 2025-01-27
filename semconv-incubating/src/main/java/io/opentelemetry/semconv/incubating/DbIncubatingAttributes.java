@@ -21,31 +21,67 @@ import java.util.List;
 @SuppressWarnings("unused")
 public final class DbIncubatingAttributes {
   /**
-   * The consistency level of the query. Based on consistency values from <a
-   * href="https://docs.datastax.com/en/cassandra-oss/3.0/cassandra/dml/dmlConfigConsistency.html">CQL</a>.
+   * Deprecated, use {@code cassandra.consistency.level} instead.
+   *
+   * <p>
+   *
+   * @deprecated Replaced by {@code cassandra.consistency.level}.
    */
+  @Deprecated
   public static final AttributeKey<String> DB_CASSANDRA_CONSISTENCY_LEVEL =
       stringKey("db.cassandra.consistency_level");
 
-  /** The data center of the coordinating node for a query. */
+  /**
+   * Deprecated, use {@code cassandra.coordinator.dc} instead.
+   *
+   * <p>
+   *
+   * @deprecated Replaced by {@code cassandra.coordinator.dc}.
+   */
+  @Deprecated
   public static final AttributeKey<String> DB_CASSANDRA_COORDINATOR_DC =
       stringKey("db.cassandra.coordinator.dc");
 
-  /** The ID of the coordinating node for a query. */
+  /**
+   * Deprecated, use {@code cassandra.coordinator.id} instead.
+   *
+   * <p>
+   *
+   * @deprecated Replaced by {@code cassandra.coordinator.id}.
+   */
+  @Deprecated
   public static final AttributeKey<String> DB_CASSANDRA_COORDINATOR_ID =
       stringKey("db.cassandra.coordinator.id");
 
-  /** Whether or not the query is idempotent. */
+  /**
+   * Deprecated, use {@code cassandra.query.idempotent} instead.
+   *
+   * <p>
+   *
+   * @deprecated Replaced by {@code cassandra.query.idempotent}.
+   */
+  @Deprecated
   public static final AttributeKey<Boolean> DB_CASSANDRA_IDEMPOTENCE =
       booleanKey("db.cassandra.idempotence");
 
-  /** The fetch size used for paging, i.e. how many rows will be returned at once. */
+  /**
+   * Deprecated, use {@code cassandra.page.size} instead.
+   *
+   * <p>
+   *
+   * @deprecated Replaced by {@code cassandra.page.size}.
+   */
+  @Deprecated
   public static final AttributeKey<Long> DB_CASSANDRA_PAGE_SIZE = longKey("db.cassandra.page_size");
 
   /**
-   * The number of times a query was speculatively executed. Not set or {@code 0} if the query was
-   * not executed speculatively.
+   * Deprecated, use {@code cassandra.speculative_execution.count} instead.
+   *
+   * <p>
+   *
+   * @deprecated Replaced by {@code cassandra.speculative_execution.count}.
    */
+  @Deprecated
   public static final AttributeKey<Long> DB_CASSANDRA_SPECULATIVE_EXECUTION_COUNT =
       longKey("db.cassandra.speculative_execution_count");
 
@@ -109,8 +145,6 @@ public final class DbIncubatingAttributes {
    *
    * <p>For batch operations, if the individual operations are known to have the same collection
    * name then that collection name SHOULD be used.
-   *
-   * <p>This attribute has stability level RELEASE CANDIDATE.
    */
   public static final AttributeKey<String> DB_COLLECTION_NAME = stringKey("db.collection.name");
 
@@ -124,18 +158,36 @@ public final class DbIncubatingAttributes {
   @Deprecated
   public static final AttributeKey<String> DB_CONNECTION_STRING = stringKey("db.connection_string");
 
-  /** Unique Cosmos client instance id. */
+  /**
+   * Deprecated, use {@code azure.client.id} instead.
+   *
+   * <p>
+   *
+   * @deprecated Replaced by {@code azure.client.id}.
+   */
+  @Deprecated
   public static final AttributeKey<String> DB_COSMOSDB_CLIENT_ID =
       stringKey("db.cosmosdb.client_id");
 
-  /** Cosmos client connection mode. */
+  /**
+   * Deprecated, use {@code azure.cosmosdb.connection.mode} instead.
+   *
+   * <p>
+   *
+   * @deprecated Replaced by {@code azure.cosmosdb.connection.mode}.
+   */
+  @Deprecated
   public static final AttributeKey<String> DB_COSMOSDB_CONNECTION_MODE =
       stringKey("db.cosmosdb.connection_mode");
 
   /**
-   * Account or request <a
-   * href="https://learn.microsoft.com/azure/cosmos-db/consistency-levels">consistency level</a>.
+   * Deprecated, use {@code cosmosdb.consistency.level} instead.
+   *
+   * <p>
+   *
+   * @deprecated Replaced by {@code azure.cosmosdb.consistency.level}.
    */
+  @Deprecated
   public static final AttributeKey<String> DB_COSMOSDB_CONSISTENCY_LEVEL =
       stringKey("db.cosmosdb.consistency_level");
 
@@ -162,24 +214,35 @@ public final class DbIncubatingAttributes {
       stringKey("db.cosmosdb.operation_type");
 
   /**
-   * List of regions contacted during operation in the order that they were contacted. If there is
-   * more than one region listed, it indicates that the operation was performed on multiple regions
-   * i.e. cross-regional call.
+   * Deprecated, use {@code azure.cosmosdb.operation.contacted_regions} instead.
    *
-   * <p>Notes:
+   * <p>
    *
-   * <p>Region name matches the format of {@code displayName} in <a
-   * href="https://learn.microsoft.com/rest/api/subscription/subscriptions/list-locations?view=rest-subscription-2021-10-01&tabs=HTTP#location">Azure
-   * Location API</a>
+   * @deprecated Replaced by {@code azure.cosmosdb.operation.contacted_regions}.
    */
+  @Deprecated
   public static final AttributeKey<List<String>> DB_COSMOSDB_REGIONS_CONTACTED =
       stringArrayKey("db.cosmosdb.regions_contacted");
 
-  /** Request units consumed for the operation. */
+  /**
+   * Deprecated, use {@code azure.cosmosdb.operation.request_charge} instead.
+   *
+   * <p>
+   *
+   * @deprecated Replaced by {@code azure.cosmosdb.operation.request_charge}.
+   */
+  @Deprecated
   public static final AttributeKey<Double> DB_COSMOSDB_REQUEST_CHARGE =
       doubleKey("db.cosmosdb.request_charge");
 
-  /** Request payload size in bytes. */
+  /**
+   * Deprecated, use {@code azure.cosmosdb.request.body.size} instead.
+   *
+   * <p>
+   *
+   * @deprecated Replaced by {@code azure.cosmosdb.request.body.size}.
+   */
+  @Deprecated
   public static final AttributeKey<Long> DB_COSMOSDB_REQUEST_CONTENT_LENGTH =
       longKey("db.cosmosdb.request_content_length");
 
@@ -194,7 +257,14 @@ public final class DbIncubatingAttributes {
   public static final AttributeKey<Long> DB_COSMOSDB_STATUS_CODE =
       longKey("db.cosmosdb.status_code");
 
-  /** Cosmos DB sub status code. */
+  /**
+   * Deprecated, use {@code azure.cosmosdb.response.sub_status_code} instead.
+   *
+   * <p>
+   *
+   * @deprecated Replaced by {@code azure.cosmosdb.response.sub_status_code}.
+   */
+  @Deprecated
   public static final AttributeKey<Long> DB_COSMOSDB_SUB_STATUS_CODE =
       longKey("db.cosmosdb.sub_status_code");
 
@@ -210,22 +280,24 @@ public final class DbIncubatingAttributes {
       stringKey("db.elasticsearch.cluster.name");
 
   /**
-   * Represents the human-readable identifier of the node/instance to which a request was routed.
+   * Deprecated, use {@code elasticsearch.node.name} instead.
+   *
+   * <p>
+   *
+   * @deprecated Replaced by {@code elasticsearch.node.name}.
    */
+  @Deprecated
   public static final AttributeKey<String> DB_ELASTICSEARCH_NODE_NAME =
       stringKey("db.elasticsearch.node.name");
 
   /**
-   * A dynamic value in the url path.
+   * Deprecated, use {@code db.operation.parameter} instead.
    *
-   * <p>Notes:
+   * <p>
    *
-   * <p>Many Elasticsearch url paths allow dynamic values. These SHOULD be recorded in span
-   * attributes in the format {@code db.elasticsearch.path_parts.<key>}, where {@code <key>} is the
-   * url path part name. The implementation SHOULD reference the <a
-   * href="https://raw.githubusercontent.com/elastic/elasticsearch-specification/main/output/schema/schema.json">elasticsearch
-   * schema</a> in order to map the path part values to their names.
+   * @deprecated Replaced by {@code db.operation.parameter}.
    */
+  @Deprecated
   public static final AttributeKeyTemplate<String> DB_ELASTICSEARCH_PATH_PARTS =
       stringKeyTemplate("db.elasticsearch.path_parts");
 
@@ -293,8 +365,7 @@ public final class DbIncubatingAttributes {
    * general namespaces, to ensure that "startswith" queries for the more general namespaces will be
    * valid. Semantic conventions for individual database systems SHOULD document what {@code
    * db.namespace} means in the context of that system. It is RECOMMENDED to capture the value as
-   * provided by the application without attempting to do any case normalization. This attribute has
-   * stability level RELEASE CANDIDATE.
+   * provided by the application without attempting to do any case normalization.
    */
   public static final AttributeKey<String> DB_NAMESPACE = stringKey("db.namespace");
 
@@ -313,8 +384,7 @@ public final class DbIncubatingAttributes {
    * <p>Notes:
    *
    * <p>Operations are only considered batches when they contain two or more operations, and so
-   * {@code db.operation.batch.size} SHOULD never be {@code 1}. This attribute has stability level
-   * RELEASE CANDIDATE.
+   * {@code db.operation.batch.size} SHOULD never be {@code 1}.
    */
   public static final AttributeKey<Long> DB_OPERATION_BATCH_SIZE =
       longKey("db.operation.batch.size");
@@ -334,8 +404,6 @@ public final class DbIncubatingAttributes {
    * then that operation name SHOULD be used prepended by {@code BATCH }, otherwise {@code
    * db.operation.name} SHOULD be {@code BATCH} or some other database system specific term if more
    * applicable.
-   *
-   * <p>This attribute has stability level RELEASE CANDIDATE.
    */
   public static final AttributeKey<String> DB_OPERATION_NAME = stringKey("db.operation.name");
 
@@ -348,7 +416,7 @@ public final class DbIncubatingAttributes {
    * <p>If a parameter has no name and instead is referenced only by index, then {@code <key>}
    * SHOULD be the 0-based index. If {@code db.query.text} is also captured, then {@code
    * db.operation.parameter.<key>} SHOULD match up with the parameterized placeholders present in
-   * {@code db.query.text}. This attribute has stability level RELEASE CANDIDATE.
+   * {@code db.query.text}.
    */
   public static final AttributeKeyTemplate<String> DB_OPERATION_PARAMETER =
       stringKeyTemplate("db.operation.parameter");
@@ -376,7 +444,7 @@ public final class DbIncubatingAttributes {
    * through instrumentation hooks or other means. If it is not available, instrumentations that
    * support query parsing SHOULD generate a summary following <a
    * href="../../docs/database/database-spans.md#generating-a-summary-of-the-query-text">Generating
-   * query summary</a> section. This attribute has stability level RELEASE CANDIDATE.
+   * query summary</a> section.
    */
   public static final AttributeKey<String> DB_QUERY_SUMMARY = stringKey("db.query.summary");
 
@@ -393,8 +461,7 @@ public final class DbIncubatingAttributes {
    * separator if more applicable. Even though parameterized query text can potentially have
    * sensitive data, by using a parameterized query the user is giving a strong signal that any
    * sensitive data will be passed as parameter values, and the benefit to observability of
-   * capturing the static part of the query text by default outweighs the risk. This attribute has
-   * stability level RELEASE CANDIDATE.
+   * capturing the static part of the query text by default outweighs the risk.
    */
   public static final AttributeKey<String> DB_QUERY_TEXT = stringKey("db.query.text");
 
@@ -421,8 +488,7 @@ public final class DbIncubatingAttributes {
    * <p>The status code returned by the database. Usually it represents an error code, but may also
    * represent partial success, warning, or differentiate between various types of successful
    * outcomes. Semantic conventions for individual database systems SHOULD document what {@code
-   * db.response.status_code} means in the context of that system. This attribute has stability
-   * level RELEASE CANDIDATE.
+   * db.response.status_code} means in the context of that system.
    */
   public static final AttributeKey<String> DB_RESPONSE_STATUS_CODE =
       stringKey("db.response.status_code");
@@ -446,16 +512,24 @@ public final class DbIncubatingAttributes {
   @Deprecated public static final AttributeKey<String> DB_STATEMENT = stringKey("db.statement");
 
   /**
+   * Deprecated, use {@code db.system.name} instead.
+   *
+   * <p>
+   *
+   * @deprecated Replaced by {@code db.system.name}.
+   */
+  @Deprecated public static final AttributeKey<String> DB_SYSTEM = stringKey("db.system");
+
+  /**
    * The database management system (DBMS) product as identified by the client instrumentation.
    *
    * <p>Notes:
    *
    * <p>The actual DBMS may differ from the one identified by the client. For example, when using
-   * PostgreSQL client libraries to connect to a CockroachDB, the {@code db.system} is set to {@code
-   * postgresql} based on the instrumentation's best knowledge. This attribute has stability level
-   * RELEASE CANDIDATE.
+   * PostgreSQL client libraries to connect to a CockroachDB, the {@code db.system.name} is set to
+   * {@code postgresql} based on the instrumentation's best knowledge.
    */
-  public static final AttributeKey<String> DB_SYSTEM = stringKey("db.system");
+  public static final AttributeKey<String> DB_SYSTEM_NAME = stringKey("db.system.name");
 
   /**
    * Deprecated, no replacement at this time.
@@ -467,7 +541,12 @@ public final class DbIncubatingAttributes {
   @Deprecated public static final AttributeKey<String> DB_USER = stringKey("db.user");
 
   // Enum definitions
-  /** Values for {@link #DB_CASSANDRA_CONSISTENCY_LEVEL}. */
+  /**
+   * Values for {@link #DB_CASSANDRA_CONSISTENCY_LEVEL}
+   *
+   * @deprecated Replaced by {@code cassandra.consistency.level}.
+   */
+  @Deprecated
   public static final class DbCassandraConsistencyLevelIncubatingValues {
     /** all. */
     public static final String ALL = "all";
@@ -532,7 +611,12 @@ public final class DbIncubatingAttributes {
     private DbClientConnectionsStateIncubatingValues() {}
   }
 
-  /** Values for {@link #DB_COSMOSDB_CONNECTION_MODE}. */
+  /**
+   * Values for {@link #DB_COSMOSDB_CONNECTION_MODE}
+   *
+   * @deprecated Replaced by {@code azure.cosmosdb.connection.mode}.
+   */
+  @Deprecated
   public static final class DbCosmosdbConnectionModeIncubatingValues {
     /** Gateway (HTTP) connection. */
     public static final String GATEWAY = "gateway";
@@ -543,7 +627,12 @@ public final class DbIncubatingAttributes {
     private DbCosmosdbConnectionModeIncubatingValues() {}
   }
 
-  /** Values for {@link #DB_COSMOSDB_CONSISTENCY_LEVEL}. */
+  /**
+   * Values for {@link #DB_COSMOSDB_CONSISTENCY_LEVEL}
+   *
+   * @deprecated Replaced by {@code azure.cosmosdb.consistency.level}.
+   */
+  @Deprecated
   public static final class DbCosmosdbConsistencyLevelIncubatingValues {
     /** strong. */
     public static final String STRONG = "Strong";
@@ -618,7 +707,12 @@ public final class DbIncubatingAttributes {
     private DbCosmosdbOperationTypeIncubatingValues() {}
   }
 
-  /** Values for {@link #DB_SYSTEM}. */
+  /**
+   * Values for {@link #DB_SYSTEM}
+   *
+   * @deprecated Replaced by {@code db.system.name}.
+   */
+  @Deprecated
   public static final class DbSystemIncubatingValues {
     /** Some other SQL database. Fallback only. See notes. */
     public static final String OTHER_SQL = "other_sql";
@@ -783,6 +877,140 @@ public final class DbIncubatingAttributes {
     public static final String VERTICA = "vertica";
 
     private DbSystemIncubatingValues() {}
+  }
+
+  /** Values for {@link #DB_SYSTEM_NAME}. */
+  public static final class DbSystemNameIncubatingValues {
+    /** Some other SQL database. Fallback only. */
+    public static final String OTHER_SQL = "other_sql";
+
+    /**
+     * <a href="https://documentation.softwareag.com/?pf=adabas">Adabas (Adaptable Database
+     * System)</a>
+     */
+    public static final String SOFTWAREAG_ADABAS = "softwareag.adabas";
+
+    /** <a href="https://www.actian.com/databases/ingres/">Actian Ingres</a> */
+    public static final String ACTIAN_INGRES = "actian.ingres";
+
+    /** <a href="https://aws.amazon.com/pm/dynamodb/">Amazon DynamoDB</a> */
+    public static final String AWS_DYNAMODB = "aws.dynamodb";
+
+    /** <a href="https://aws.amazon.com/redshift/">Amazon Redshift</a> */
+    public static final String AWS_REDSHIFT = "aws.redshift";
+
+    /** <a href="https://learn.microsoft.com/azure/cosmos-db">Azure Cosmos DB</a> */
+    public static final String AZURE_COSMOSDB = "azure.cosmosdb";
+
+    /** <a href="https://www.intersystems.com/products/cache/">InterSystems Caché</a> */
+    public static final String INTERSYSTEMS_CACHE = "intersystems.cache";
+
+    /** <a href="https://cassandra.apache.org/">Apache Cassandra</a> */
+    public static final String CASSANDRA = "cassandra";
+
+    /** <a href="https://clickhouse.com/">ClickHouse</a> */
+    public static final String CLICKHOUSE = "clickhouse";
+
+    /** <a href="https://www.cockroachlabs.com/">CockroachDB</a> */
+    public static final String COCKROACHDB = "cockroachdb";
+
+    /** <a href="https://www.couchbase.com/">Couchbase</a> */
+    public static final String COUCHBASE = "couchbase";
+
+    /** <a href="https://couchdb.apache.org/">Apache CouchDB</a> */
+    public static final String COUCHDB = "couchdb";
+
+    /** <a href="https://db.apache.org/derby/">Apache Derby</a> */
+    public static final String DERBY = "derby";
+
+    /** <a href="https://www.elastic.co/elasticsearch">Elasticsearch</a> */
+    public static final String ELASTICSEARCH = "elasticsearch";
+
+    /** <a href="https://www.firebirdsql.org/">Firebird</a> */
+    public static final String FIREBIRDSQL = "firebirdsql";
+
+    /** <a href="https://cloud.google.com/spanner">Google Cloud Spanner</a> */
+    public static final String GCP_SPANNER = "gcp.spanner";
+
+    /** <a href="https://geode.apache.org/">Apache Geode</a> */
+    public static final String GEODE = "geode";
+
+    /** <a href="https://h2database.com/">H2 Database</a> */
+    public static final String H2DATABASE = "h2database";
+
+    /** <a href="https://hbase.apache.org/">Apache HBase</a> */
+    public static final String HBASE = "hbase";
+
+    /** <a href="https://hive.apache.org/">Apache Hive</a> */
+    public static final String HIVE = "hive";
+
+    /** <a href="https://hsqldb.org/">HyperSQL Database</a> */
+    public static final String HSQLDB = "hsqldb";
+
+    /** <a href="https://www.ibm.com/db2">IBM Db2</a> */
+    public static final String IBM_DB2 = "ibm.db2";
+
+    /** <a href="https://www.ibm.com/products/informix">IBM Informix</a> */
+    public static final String IBM_INFORMIX = "ibm.informix";
+
+    /** <a href="https://www.ibm.com/products/netezza">IBM Netezza</a> */
+    public static final String IBM_NETEZZA = "ibm.netezza";
+
+    /** <a href="https://www.influxdata.com/">InfluxDB</a> */
+    public static final String INFLUXDB = "influxdb";
+
+    /** <a href="https://www.instantdb.com/">Instant</a> */
+    public static final String INSTANTDB = "instantdb";
+
+    /** <a href="https://mariadb.org/">MariaDB</a> */
+    public static final String MARIADB = "mariadb";
+
+    /** <a href="https://memcached.org/">Memcached</a> */
+    public static final String MEMCACHED = "memcached";
+
+    /** <a href="https://www.mongodb.com/">MongoDB</a> */
+    public static final String MONGODB = "mongodb";
+
+    /** <a href="https://www.microsoft.com/sql-server">Microsoft SQL Server</a> */
+    public static final String MICROSOFT_SQL_SERVER = "microsoft.sql_server";
+
+    /** <a href="https://www.mysql.com/">MySQL</a> */
+    public static final String MYSQL = "mysql";
+
+    /** <a href="https://neo4j.com/">Neo4j</a> */
+    public static final String NEO4J = "neo4j";
+
+    /** <a href="https://opensearch.org/">OpenSearch</a> */
+    public static final String OPENSEARCH = "opensearch";
+
+    /** <a href="https://www.oracle.com/database/">Oracle Database</a> */
+    public static final String ORACLE_DB = "oracle.db";
+
+    /** <a href="https://www.postgresql.org/">PostgreSQL</a> */
+    public static final String POSTGRESQL = "postgresql";
+
+    /** <a href="https://redis.io/">Redis</a> */
+    public static final String REDIS = "redis";
+
+    /**
+     * <a href="https://www.sap.com/products/technology-platform/hana/what-is-sap-hana.html">SAP
+     * HANA</a>
+     */
+    public static final String SAP_HANA = "sap.hana";
+
+    /** <a href="https://maxdb.sap.com/">SAP MaxDB</a> */
+    public static final String SAP_MAXDB = "sap.maxdb";
+
+    /** <a href="https://www.sqlite.org/">SQLite</a> */
+    public static final String SQLITE = "sqlite";
+
+    /** <a href="https://www.teradata.com/">Teradata</a> */
+    public static final String TERADATA = "teradata";
+
+    /** <a href="https://trino.io/">Trino</a> */
+    public static final String TRINO = "trino";
+
+    private DbSystemNameIncubatingValues() {}
   }
 
   private DbIncubatingAttributes() {}

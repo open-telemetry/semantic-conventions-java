@@ -131,7 +131,7 @@ public final class RpcIncubatingAttributes {
    * <p>Notes:
    *
    * <p>This is the logical name of the method from the RPC interface perspective, which can be
-   * different from the name of any implementing method/function. The {@code code.function}
+   * different from the name of any implementing method/function. The {@code code.function.name}
    * attribute may be used to store the latter (e.g., method actually executing the call on the
    * server side, RPC client stub method on the client side).
    */

@@ -151,6 +151,10 @@ public final class AwsIncubatingAttributes {
   /** The ARN of an EKS cluster. */
   public static final AttributeKey<String> AWS_EKS_CLUSTER_ARN = stringKey("aws.eks.cluster.arn");
 
+  /** The AWS extended request ID as returned in the response header {@code x-amz-id-2}. */
+  public static final AttributeKey<String> AWS_EXTENDED_REQUEST_ID =
+      stringKey("aws.extended_request_id");
+
   /**
    * The full invoked ARN as provided on the {@code Context} passed to the function ({@code
    * Lambda-Runtime-Invoked-Function-Arn} header on the {@code /runtime/invocation/next}
@@ -204,8 +208,8 @@ public final class AwsIncubatingAttributes {
       stringArrayKey("aws.log.stream.names");
 
   /**
-   * The AWS request ID as returned in the response headers {@code x-amz-request-id} or {@code
-   * x-amz-requestid}.
+   * The AWS request ID as returned in the response headers {@code x-amzn-requestid}, {@code
+   * x-amzn-request-id} or {@code x-amz-request-id}.
    */
   public static final AttributeKey<String> AWS_REQUEST_ID = stringKey("aws.request_id");
 

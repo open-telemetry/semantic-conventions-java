@@ -17,6 +17,7 @@ public class AvailabilityTest {
   @Test
   void available() {
     isValidClass("io.opentelemetry.semconv.ClientAttributes");
+    isValidClass("io.opentelemetry.semconv.DotnetAttributes");
     isValidClass("io.opentelemetry.semconv.ErrorAttributes");
     isValidClass("io.opentelemetry.semconv.ExceptionAttributes");
     isValidClass("io.opentelemetry.semconv.HttpAttributes");

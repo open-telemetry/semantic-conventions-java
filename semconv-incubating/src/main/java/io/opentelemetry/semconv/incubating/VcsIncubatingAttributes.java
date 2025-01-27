@@ -34,6 +34,12 @@ public final class VcsIncubatingAttributes {
   /**
    * The name of the <a href="https://git-scm.com/docs/gitglossary#def_ref">reference</a> such as
    * <strong>branch</strong> or <strong>tag</strong> in the repository.
+   *
+   * <p>Notes:
+   *
+   * <p>{@code base} refers to the starting point of a change. For example, {@code main} would be
+   * the base reference of type branch if you've created a new reference of type branch from it and
+   * created new commits.
    */
   public static final AttributeKey<String> VCS_REF_BASE_NAME = stringKey("vcs.ref.base.name");
 
@@ -44,7 +50,9 @@ public final class VcsIncubatingAttributes {
    *
    * <p>Notes:
    *
-   * <p>The revision can be a full <a
+   * <p>{@code base} refers to the starting point of a change. For example, {@code main} would be
+   * the base reference of type branch if you've created a new reference of type branch from it and
+   * created new commits. The revision can be a full <a
    * href="https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.186-5.pdf">hash value (see
    * glossary)</a>, of the recorded change to a ref within a repository pointing to a commit <a
    * href="https://git-scm.com/docs/git-commit">commit</a> object. It does not necessarily have to
@@ -60,12 +68,22 @@ public final class VcsIncubatingAttributes {
   /**
    * The type of the <a href="https://git-scm.com/docs/gitglossary#def_ref">reference</a> in the
    * repository.
+   *
+   * <p>Notes:
+   *
+   * <p>{@code base} refers to the starting point of a change. For example, {@code main} would be
+   * the base reference of type branch if you've created a new reference of type branch from it and
+   * created new commits.
    */
   public static final AttributeKey<String> VCS_REF_BASE_TYPE = stringKey("vcs.ref.base.type");
 
   /**
    * The name of the <a href="https://git-scm.com/docs/gitglossary#def_ref">reference</a> such as
    * <strong>branch</strong> or <strong>tag</strong> in the repository.
+   *
+   * <p>Notes:
+   *
+   * <p>{@code head} refers to where you are right now; the current reference at a given time.
    */
   public static final AttributeKey<String> VCS_REF_HEAD_NAME = stringKey("vcs.ref.head.name");
 
@@ -76,7 +94,8 @@ public final class VcsIncubatingAttributes {
    *
    * <p>Notes:
    *
-   * <p>The revision can be a full <a
+   * <p>{@code head} refers to where you are right now; the current reference at a given time.The
+   * revision can be a full <a
    * href="https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.186-5.pdf">hash value (see
    * glossary)</a>, of the recorded change to a ref within a repository pointing to a commit <a
    * href="https://git-scm.com/docs/git-commit">commit</a> object. It does not necessarily have to
@@ -92,6 +111,10 @@ public final class VcsIncubatingAttributes {
   /**
    * The type of the <a href="https://git-scm.com/docs/gitglossary#def_ref">reference</a> in the
    * repository.
+   *
+   * <p>Notes:
+   *
+   * <p>{@code head} refers to where you are right now; the current reference at a given time.
    */
   public static final AttributeKey<String> VCS_REF_HEAD_TYPE = stringKey("vcs.ref.head.type");
 
@@ -122,6 +145,17 @@ public final class VcsIncubatingAttributes {
   @Deprecated
   public static final AttributeKey<String> VCS_REPOSITORY_CHANGE_TITLE =
       stringKey("vcs.repository.change.title");
+
+  /**
+   * The human readable name of the repository. It SHOULD NOT include any additional identifier like
+   * Group/SubGroup in GitLab or organization in GitHub.
+   *
+   * <p>Notes:
+   *
+   * <p>Due to it only being the name, it can clash with forks of the same repository if collecting
+   * telemetry across multiple orgs or groups in the same backends.
+   */
+  public static final AttributeKey<String> VCS_REPOSITORY_NAME = stringKey("vcs.repository.name");
 
   /**
    * Deprecated, use {@code vcs.ref.head.name} instead.
@@ -157,8 +191,15 @@ public final class VcsIncubatingAttributes {
       stringKey("vcs.repository.ref.type");
 
   /**
-   * The <a href="https://wikipedia.org/wiki/URL">URL</a> of the repository providing the complete
-   * address in order to locate and identify the repository.
+   * The <a
+   * href="https://support.google.com/webmasters/answer/10347851?hl=en#:~:text=A%20canonical%20URL%20is%20the,Google%20chooses%20one%20as%20canonical.">canonical
+   * URL</a> of the repository providing the complete HTTP(S) address in order to locate and
+   * identify the repository through a browser.
+   *
+   * <p>Notes:
+   *
+   * <p>In Git Version Control Systems, the canonical URL SHOULD NOT include the {@code .git}
+   * extension.
    */
   public static final AttributeKey<String> VCS_REPOSITORY_URL_FULL =
       stringKey("vcs.repository.url.full");

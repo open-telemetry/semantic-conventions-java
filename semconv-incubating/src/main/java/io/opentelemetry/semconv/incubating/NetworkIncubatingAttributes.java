@@ -27,6 +27,17 @@ public final class NetworkIncubatingAttributes {
   public static final AttributeKey<String> NETWORK_CARRIER_NAME = stringKey("network.carrier.name");
 
   /**
+   * The state of network connection
+   *
+   * <p>Notes:
+   *
+   * <p>Connection states are defined as part of the <a
+   * href="https://datatracker.ietf.org/doc/html/rfc9293#section-3.3.2">rfc9293</a>
+   */
+  public static final AttributeKey<String> NETWORK_CONNECTION_STATE =
+      stringKey("network.connection.state");
+
+  /**
    * This describes more details regarding the connection.type. It may be the type of cell
    * technology connection, but it could be used for describing details about a wifi connection.
    */
@@ -36,6 +47,10 @@ public final class NetworkIncubatingAttributes {
   /** The internet connection type. */
   public static final AttributeKey<String> NETWORK_CONNECTION_TYPE =
       stringKey("network.connection.type");
+
+  /** The network interface name. */
+  public static final AttributeKey<String> NETWORK_INTERFACE_NAME =
+      stringKey("network.interface.name");
 
   /** The network IO operation direction. */
   public static final AttributeKey<String> NETWORK_IO_DIRECTION = stringKey("network.io.direction");
@@ -153,6 +168,44 @@ public final class NetworkIncubatingAttributes {
   @Deprecated public static final AttributeKey<String> NETWORK_TYPE = stringKey("network.type");
 
   // Enum definitions
+  /** Values for {@link #NETWORK_CONNECTION_STATE}. */
+  public static final class NetworkConnectionStateIncubatingValues {
+    /** closed. */
+    public static final String CLOSED = "closed";
+
+    /** close_wait. */
+    public static final String CLOSE_WAIT = "close_wait";
+
+    /** closing. */
+    public static final String CLOSING = "closing";
+
+    /** established. */
+    public static final String ESTABLISHED = "established";
+
+    /** fin_wait_1. */
+    public static final String FIN_WAIT_1 = "fin_wait_1";
+
+    /** fin_wait_2. */
+    public static final String FIN_WAIT_2 = "fin_wait_2";
+
+    /** last_ack. */
+    public static final String LAST_ACK = "last_ack";
+
+    /** listen. */
+    public static final String LISTEN = "listen";
+
+    /** syn_received. */
+    public static final String SYN_RECEIVED = "syn_received";
+
+    /** syn_sent. */
+    public static final String SYN_SENT = "syn_sent";
+
+    /** time_wait. */
+    public static final String TIME_WAIT = "time_wait";
+
+    private NetworkConnectionStateIncubatingValues() {}
+  }
+
   /** Values for {@link #NETWORK_CONNECTION_SUBTYPE}. */
   public static final class NetworkConnectionSubtypeIncubatingValues {
     /** GPRS */

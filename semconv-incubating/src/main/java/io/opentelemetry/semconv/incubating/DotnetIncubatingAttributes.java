@@ -13,12 +13,26 @@ import io.opentelemetry.api.common.AttributeKey;
 // buildscripts/templates/registry/incubating_java/IncubatingSemanticAttributes.java.j2
 @SuppressWarnings("unused")
 public final class DotnetIncubatingAttributes {
-  /** Name of the garbage collector managed heap generation. */
+  /**
+   * Name of the garbage collector managed heap generation.
+   *
+   * <p>
+   *
+   * @deprecated deprecated in favor of stable {@link
+   *     io.opentelemetry.semconv.DotnetAttributes#DOTNET_GC_HEAP_GENERATION} attribute.
+   */
+  @Deprecated
   public static final AttributeKey<String> DOTNET_GC_HEAP_GENERATION =
       stringKey("dotnet.gc.heap.generation");
 
   // Enum definitions
-  /** Values for {@link #DOTNET_GC_HEAP_GENERATION}. */
+  /**
+   * Values for {@link #DOTNET_GC_HEAP_GENERATION}.
+   *
+   * @deprecated deprecated in favor of stable {@link
+   *     io.opentelemetry.semconv.DotnetAttributes.DotnetGcHeapGenerationValues}.
+   */
+  @Deprecated
   public static final class DotnetGcHeapGenerationIncubatingValues {
     /** Generation 0 */
     public static final String GEN0 = "gen0";

@@ -16,8 +16,15 @@ public final class CicdIncubatingAttributes {
   /** The human readable name of the pipeline within a CI/CD system. */
   public static final AttributeKey<String> CICD_PIPELINE_NAME = stringKey("cicd.pipeline.name");
 
+  /** The result of a pipeline run. */
+  public static final AttributeKey<String> CICD_PIPELINE_RESULT = stringKey("cicd.pipeline.result");
+
   /** The unique identifier of a pipeline run within a CI/CD system. */
   public static final AttributeKey<String> CICD_PIPELINE_RUN_ID = stringKey("cicd.pipeline.run.id");
+
+  /** The pipeline run goes through these states during its lifecycle. */
+  public static final AttributeKey<String> CICD_PIPELINE_RUN_STATE =
+      stringKey("cicd.pipeline.run.state");
 
   /**
    * The human readable name of a task within a pipeline. Task here most closely aligns with a <a
@@ -42,7 +49,64 @@ public final class CicdIncubatingAttributes {
   public static final AttributeKey<String> CICD_PIPELINE_TASK_TYPE =
       stringKey("cicd.pipeline.task.type");
 
+  /** The name of a component of the CICD system. */
+  public static final AttributeKey<String> CICD_SYSTEM_COMPONENT =
+      stringKey("cicd.system.component");
+
+  /** The state of a CICD worker / agent. */
+  public static final AttributeKey<String> CICD_WORKER_STATE = stringKey("cicd.worker.state");
+
   // Enum definitions
+  /** Values for {@link #CICD_PIPELINE_RESULT}. */
+  public static final class CicdPipelineResultIncubatingValues {
+    /** The pipeline run finished successfully. */
+    public static final String SUCCESS = "success";
+
+    /**
+     * The pipeline run did not finish successfully, eg. due to a compile error or a failing test.
+     * Such failures are usually detected by non-zero exit codes of the tools executed in the
+     * pipeline run.
+     */
+    public static final String FAILURE = "failure";
+
+    /**
+     * The pipeline run failed due to an error in the CICD system, eg. due to the worker being
+     * killed.
+     */
+    public static final String ERROR = "error";
+
+    /** A timeout caused the pipeline run to be interrupted. */
+    public static final String TIMEOUT = "timeout";
+
+    /** The pipeline run was cancelled, eg. by a user manually cancelling the pipeline run. */
+    public static final String CANCELLATION = "cancellation";
+
+    /** The pipeline run was skipped, eg. due to a precondition not being met. */
+    public static final String SKIP = "skip";
+
+    private CicdPipelineResultIncubatingValues() {}
+  }
+
+  /** Values for {@link #CICD_PIPELINE_RUN_STATE}. */
+  public static final class CicdPipelineRunStateIncubatingValues {
+    /**
+     * The run pending state spans from the event triggering the pipeline run until the execution of
+     * the run starts (eg. time spent in a queue, provisioning agents, creating run resources).
+     */
+    public static final String PENDING = "pending";
+
+    /** The executing state spans the execution of any run tasks (eg. build, test). */
+    public static final String EXECUTING = "executing";
+
+    /**
+     * The finalizing state spans from when the run has finished executing (eg. cleanup of run
+     * resources).
+     */
+    public static final String FINALIZING = "finalizing";
+
+    private CicdPipelineRunStateIncubatingValues() {}
+  }
+
   /** Values for {@link #CICD_PIPELINE_TASK_TYPE}. */
   public static final class CicdPipelineTaskTypeIncubatingValues {
     /** build */
@@ -55,6 +119,23 @@ public final class CicdIncubatingAttributes {
     public static final String DEPLOY = "deploy";
 
     private CicdPipelineTaskTypeIncubatingValues() {}
+  }
+
+  /** Values for {@link #CICD_WORKER_STATE}. */
+  public static final class CicdWorkerStateIncubatingValues {
+    /**
+     * The worker is not performing work for the CICD system. It is available to the CICD system to
+     * perform work on (online / idle).
+     */
+    public static final String AVAILABLE = "available";
+
+    /** The worker is performing work for the CICD system. */
+    public static final String BUSY = "busy";
+
+    /** The worker is not available to the CICD system (disconnected / down). */
+    public static final String OFFLINE = "offline";
+
+    private CicdWorkerStateIncubatingValues() {}
   }
 
   private CicdIncubatingAttributes() {}

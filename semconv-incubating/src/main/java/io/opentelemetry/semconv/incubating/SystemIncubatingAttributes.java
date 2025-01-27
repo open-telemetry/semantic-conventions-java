@@ -50,7 +50,15 @@ public final class SystemIncubatingAttributes {
   /** The memory state */
   public static final AttributeKey<String> SYSTEM_MEMORY_STATE = stringKey("system.memory.state");
 
-  /** A stateless protocol MUST NOT set this attribute */
+  /**
+   * Deprecated, use {@code network.connection.state} instead.
+   *
+   * <p>
+   *
+   * @deprecated Removed, report network connection state with {@code network.connection.state}
+   *     attribute
+   */
+  @Deprecated
   public static final AttributeKey<String> SYSTEM_NETWORK_STATE = stringKey("system.network.state");
 
   /** The paging access direction */
@@ -171,7 +179,13 @@ public final class SystemIncubatingAttributes {
     private SystemMemoryStateIncubatingValues() {}
   }
 
-  /** Values for {@link #SYSTEM_NETWORK_STATE}. */
+  /**
+   * Values for {@link #SYSTEM_NETWORK_STATE}
+   *
+   * @deprecated Removed, report network connection state with {@code network.connection.state}
+   *     attribute
+   */
+  @Deprecated
   public static final class SystemNetworkStateIncubatingValues {
     /** close. */
     public static final String CLOSE = "close";
