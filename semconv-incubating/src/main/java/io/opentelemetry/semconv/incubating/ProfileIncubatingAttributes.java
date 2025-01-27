@@ -51,6 +51,9 @@ public final class ProfileIncubatingAttributes {
     /** <a href="https://wikipedia.org/wiki/V8_(JavaScript_engine)">V8JS</a> */
     public static final String V8JS = "v8js";
 
+    /** <a href="https://en.wikipedia.org/wiki/BEAM_(Erlang_virtual_machine)">Erlang</a> */
+    public static final String BEAM = "beam";
+
     private ProfileFrameTypeIncubatingValues() {}
   }
 

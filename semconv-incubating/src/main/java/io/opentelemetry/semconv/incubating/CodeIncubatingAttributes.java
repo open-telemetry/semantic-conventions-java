@@ -15,32 +15,62 @@ import io.opentelemetry.api.common.AttributeKey;
 @SuppressWarnings("unused")
 public final class CodeIncubatingAttributes {
   /**
-   * The column number in {@code code.filepath} best representing the operation. It SHOULD point
-   * within the code unit named in {@code code.function}.
+   * Deprecated, use {@code code.column.number}
+   *
+   * <p>
+   *
+   * @deprecated Replaced by {@code code.column.number}
    */
-  public static final AttributeKey<Long> CODE_COLUMN = longKey("code.column");
+  @Deprecated public static final AttributeKey<Long> CODE_COLUMN = longKey("code.column");
+
+  /**
+   * The column number in {@code code.file.path} best representing the operation. It SHOULD point
+   * within the code unit named in {@code code.function.name}.
+   */
+  public static final AttributeKey<Long> CODE_COLUMN_NUMBER = longKey("code.column.number");
 
   /**
    * The source code file name that identifies the code unit as uniquely as possible (preferably an
    * absolute file path).
    */
+  public static final AttributeKey<String> CODE_FILE_PATH = stringKey("code.file.path");
+
+  /** Deprecated, use {@code code.file.path} instead */
   public static final AttributeKey<String> CODE_FILEPATH = stringKey("code.filepath");
+
+  /**
+   * Deprecated, use {@code code.function.name} instead
+   *
+   * <p>
+   *
+   * @deprecated Replaced by {@code code.function.name}
+   */
+  @Deprecated public static final AttributeKey<String> CODE_FUNCTION = stringKey("code.function");
 
   /**
    * The method or function name, or equivalent (usually rightmost part of the code unit's name).
    */
-  public static final AttributeKey<String> CODE_FUNCTION = stringKey("code.function");
+  public static final AttributeKey<String> CODE_FUNCTION_NAME = stringKey("code.function.name");
 
   /**
-   * The line number in {@code code.filepath} best representing the operation. It SHOULD point
-   * within the code unit named in {@code code.function}.
+   * The line number in {@code code.file.path} best representing the operation. It SHOULD point
+   * within the code unit named in {@code code.function.name}.
    */
-  public static final AttributeKey<Long> CODE_LINENO = longKey("code.lineno");
+  public static final AttributeKey<Long> CODE_LINE_NUMBER = longKey("code.line.number");
 
   /**
-   * The "namespace" within which {@code code.function} is defined. Usually the qualified class or
-   * module name, such that {@code code.namespace} + some separator + {@code code.function} form a
-   * unique identifier for the code unit.
+   * Deprecated, use {@code code.line.number} instead
+   *
+   * <p>
+   *
+   * @deprecated Replaced by {@code code.line.number}
+   */
+  @Deprecated public static final AttributeKey<Long> CODE_LINENO = longKey("code.lineno");
+
+  /**
+   * The "namespace" within which {@code code.function.name} is defined. Usually the qualified class
+   * or module name, such that {@code code.namespace} + some separator + {@code code.function.name}
+   * form a unique identifier for the code unit.
    */
   public static final AttributeKey<String> CODE_NAMESPACE = stringKey("code.namespace");
 

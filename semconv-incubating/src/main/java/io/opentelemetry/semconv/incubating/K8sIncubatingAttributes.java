@@ -92,6 +92,17 @@ public final class K8sIncubatingAttributes {
   /** The name of the namespace that the pod is running in. */
   public static final AttributeKey<String> K8S_NAMESPACE_NAME = stringKey("k8s.namespace.name");
 
+  /**
+   * The phase of the K8s namespace.
+   *
+   * <p>Notes:
+   *
+   * <p>This attribute aligns with the {@code phase} field of the <a
+   * href="https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#namespacestatus-v1-core">K8s
+   * NamespaceStatus</a>
+   */
+  public static final AttributeKey<String> K8S_NAMESPACE_PHASE = stringKey("k8s.namespace.phase");
+
   /** The name of the Node. */
   public static final AttributeKey<String> K8S_NODE_NAME = stringKey("k8s.node.name");
 
@@ -148,44 +159,61 @@ public final class K8sIncubatingAttributes {
   public static final AttributeKey<String> K8S_VOLUME_TYPE = stringKey("k8s.volume.type");
 
   // Enum definitions
+  /** Values for {@link #K8S_NAMESPACE_PHASE}. */
+  public static final class K8sNamespacePhaseIncubatingValues {
+    /**
+     * Active namespace phase as described by <a
+     * href="https://pkg.go.dev/k8s.io/api@v0.31.3/core/v1#NamespacePhase">K8s API</a>
+     */
+    public static final String ACTIVE = "active";
+
+    /**
+     * Terminating namespace phase as described by <a
+     * href="https://pkg.go.dev/k8s.io/api@v0.31.3/core/v1#NamespacePhase">K8s API</a>
+     */
+    public static final String TERMINATING = "terminating";
+
+    private K8sNamespacePhaseIncubatingValues() {}
+  }
+
   /** Values for {@link #K8S_VOLUME_TYPE}. */
   public static final class K8sVolumeTypeIncubatingValues {
     /**
      * A <a
-     * href="https://v1-29.docs.kubernetes.io/docs/concepts/storage/volumes/#persistentvolumeclaim">persistentVolumeClaim</a>
+     * href="https://v1-30.docs.kubernetes.io/docs/concepts/storage/volumes/#persistentvolumeclaim">persistentVolumeClaim</a>
      * volume
      */
     public static final String PERSISTENT_VOLUME_CLAIM = "persistentVolumeClaim";
 
     /**
      * A <a
-     * href="https://v1-29.docs.kubernetes.io/docs/concepts/storage/volumes/#configmap">configMap</a>
+     * href="https://v1-30.docs.kubernetes.io/docs/concepts/storage/volumes/#configmap">configMap</a>
      * volume
      */
     public static final String CONFIG_MAP = "configMap";
 
     /**
      * A <a
-     * href="https://v1-29.docs.kubernetes.io/docs/concepts/storage/volumes/#downwardapi">downwardAPI</a>
+     * href="https://v1-30.docs.kubernetes.io/docs/concepts/storage/volumes/#downwardapi">downwardAPI</a>
      * volume
      */
     public static final String DOWNWARD_API = "downwardAPI";
 
     /**
      * An <a
-     * href="https://v1-29.docs.kubernetes.io/docs/concepts/storage/volumes/#emptydir">emptyDir</a>
+     * href="https://v1-30.docs.kubernetes.io/docs/concepts/storage/volumes/#emptydir">emptyDir</a>
      * volume
      */
     public static final String EMPTY_DIR = "emptyDir";
 
     /**
-     * A <a href="https://v1-29.docs.kubernetes.io/docs/concepts/storage/volumes/#secret">secret</a>
+     * A <a href="https://v1-30.docs.kubernetes.io/docs/concepts/storage/volumes/#secret">secret</a>
      * volume
      */
     public static final String SECRET = "secret";
 
     /**
-     * A <a href="https://v1-29.docs.kubernetes.io/docs/concepts/storage/volumes/#local">local</a>
+     * A <a href="https://v1-30.docs.kubernetes.io/docs/concepts/storage/volumes/#local">local</a>
      * volume
      */
     public static final String LOCAL = "local";

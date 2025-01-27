@@ -12,17 +12,14 @@ import io.opentelemetry.api.common.AttributeKey;
 // DO NOT EDIT, this is an Auto-generated file from
 // buildscripts/templates/registry/incubating_java/IncubatingSemanticAttributes.java.j2
 @SuppressWarnings("unused")
-public final class EventIncubatingAttributes {
+public final class ElasticsearchIncubatingAttributes {
   /**
-   * Identifies the class / type of event.
-   *
-   * <p>
-   *
-   * @deprecated Replaced by EventName top-level field on the LogRecord
+   * Represents the human-readable identifier of the node/instance to which a request was routed.
    */
-  @Deprecated public static final AttributeKey<String> EVENT_NAME = stringKey("event.name");
+  public static final AttributeKey<String> ELASTICSEARCH_NODE_NAME =
+      stringKey("elasticsearch.node.name");
 
   // Enum definitions
 
-  private EventIncubatingAttributes() {}
+  private ElasticsearchIncubatingAttributes() {}
 }

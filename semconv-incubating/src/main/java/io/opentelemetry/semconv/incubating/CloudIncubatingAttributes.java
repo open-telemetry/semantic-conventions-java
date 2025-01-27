@@ -167,6 +167,12 @@ public final class CloudIncubatingAttributes {
     /** Red Hat OpenShift on IBM Cloud */
     public static final String IBM_CLOUD_OPENSHIFT = "ibm_cloud_openshift";
 
+    /** Compute on Oracle Cloud Infrastructure (OCI) */
+    public static final String ORACLE_CLOUD_COMPUTE = "oracle_cloud_compute";
+
+    /** Kubernetes Engine (OKE) on Oracle Cloud Infrastructure (OCI) */
+    public static final String ORACLE_CLOUD_OKE = "oracle_cloud_oke";
+
     /** Tencent Cloud Cloud Virtual Machine (CVM) */
     public static final String TENCENT_CLOUD_CVM = "tencent_cloud_cvm";
 
@@ -198,6 +204,9 @@ public final class CloudIncubatingAttributes {
 
     /** IBM Cloud */
     public static final String IBM_CLOUD = "ibm_cloud";
+
+    /** Oracle Cloud Infrastructure (OCI) */
+    public static final String ORACLE_CLOUD = "oracle_cloud";
 
     /** Tencent Cloud */
     public static final String TENCENT_CLOUD = "tencent_cloud";

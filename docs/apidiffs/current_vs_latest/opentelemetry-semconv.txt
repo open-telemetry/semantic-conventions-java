@@ -1,4 +1,4 @@
-Comparing source compatibility of opentelemetry-semconv-1.29.0-SNAPSHOT.jar against 
+Comparing source compatibility of opentelemetry-semconv-1.30.0-SNAPSHOT.jar against 
 +++  NEW CLASS: PUBLIC(+) FINAL(+) io.opentelemetry.semconv.AttributeKeyTemplate  (not serializable)
 	+++  CLASS FILE FORMAT VERSION: 52.0 <- n.a.
 	GENERIC TEMPLATES: +++ T:java.lang.Object
@@ -117,6 +117,7 @@ Comparing source compatibility of opentelemetry-semconv-1.29.0-SNAPSHOT.jar agai
 	+++  CLASS FILE FORMAT VERSION: 52.0 <- n.a.
 	+++  NEW SUPERCLASS: java.lang.Object
 	+++  NEW FIELD: PUBLIC(+) STATIC(+) FINAL(+) java.lang.String V1_24_0
+	+++  NEW FIELD: PUBLIC(+) STATIC(+) FINAL(+) java.lang.String V1_30_0
 	+++  NEW FIELD: PUBLIC(+) STATIC(+) FINAL(+) java.lang.String V1_29_0
 	+++  NEW FIELD: PUBLIC(+) STATIC(+) FINAL(+) java.lang.String V1_28_0
 	+++  NEW FIELD: PUBLIC(+) STATIC(+) FINAL(+) java.lang.String V1_27_0

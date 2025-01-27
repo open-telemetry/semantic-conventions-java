@@ -31,7 +31,14 @@ public final class GenAiIncubatingAttributes {
   public static final AttributeKey<String> GEN_AI_OPENAI_REQUEST_RESPONSE_FORMAT =
       stringKey("gen_ai.openai.request.response_format");
 
-  /** Requests with same seed value more likely to return same result. */
+  /**
+   * Deprecated, use {@code gen_ai.request.seed}.
+   *
+   * <p>
+   *
+   * @deprecated Replaced by {@code gen_ai.request.seed} attribute.
+   */
+  @Deprecated
   public static final AttributeKey<Long> GEN_AI_OPENAI_REQUEST_SEED =
       longKey("gen_ai.openai.request.seed");
 
@@ -95,6 +102,9 @@ public final class GenAiIncubatingAttributes {
   public static final AttributeKey<Double> GEN_AI_REQUEST_PRESENCE_PENALTY =
       doubleKey("gen_ai.request.presence_penalty");
 
+  /** Requests with same seed value more likely to return same result. */
+  public static final AttributeKey<Long> GEN_AI_REQUEST_SEED = longKey("gen_ai.request.seed");
+
   /** List of sequences that the model will use to stop generating further tokens. */
   public static final AttributeKey<List<String>> GEN_AI_REQUEST_STOP_SEQUENCES =
       stringArrayKey("gen_ai.request.stop_sequences");
@@ -131,9 +141,11 @@ public final class GenAiIncubatingAttributes {
    * <p>The {@code gen_ai.system} describes a family of GenAI models with specific model identified
    * by {@code gen_ai.request.model} and {@code gen_ai.response.model} attributes.
    *
-   * <p>The actual GenAI product may differ from the one identified by the client. For example, when
-   * using OpenAI client libraries to communicate with Mistral, the {@code gen_ai.system} is set to
-   * {@code openai} based on the instrumentation's best knowledge.
+   * <p>The actual GenAI product may differ from the one identified by the client. Multiple systems,
+   * including Azure OpenAI and Gemini, are accessible by OpenAI client libraries. In such cases,
+   * the {@code gen_ai.system} is set to {@code openai} based on the instrumentation's best
+   * knowledge, instead of the actual system. The {@code server.address} attribute may help identify
+   * the actual system in use for {@code openai}.
    *
    * <p>For custom model, a custom friendly name SHOULD be used. If none of these options apply, the
    * {@code gen_ai.system} SHOULD be set to {@code _OTHER}.
@@ -232,6 +244,9 @@ public final class GenAiIncubatingAttributes {
     /** Vertex AI */
     public static final String VERTEX_AI = "vertex_ai";
 
+    /** Gemini */
+    public static final String GEMINI = "gemini";
+
     /** Anthropic */
     public static final String ANTHROPIC = "anthropic";
 
@@ -241,11 +256,29 @@ public final class GenAiIncubatingAttributes {
     /** Azure AI Inference */
     public static final String AZ_AI_INFERENCE = "az.ai.inference";
 
+    /** Azure OpenAI */
+    public static final String AZ_AI_OPENAI = "az.ai.openai";
+
     /** IBM Watsonx AI */
     public static final String IBM_WATSONX_AI = "ibm.watsonx.ai";
 
     /** AWS Bedrock */
     public static final String AWS_BEDROCK = "aws.bedrock";
+
+    /** Perplexity */
+    public static final String PERPLEXITY = "perplexity";
+
+    /** xAI */
+    public static final String XAI = "xai";
+
+    /** DeepSeek */
+    public static final String DEEPSEEK = "deepseek";
+
+    /** Groq */
+    public static final String GROQ = "groq";
+
+    /** Mistral AI */
+    public static final String MISTRAL_AI = "mistral_ai";
 
     private GenAiSystemIncubatingValues() {}
   }
