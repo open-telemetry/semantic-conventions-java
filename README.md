@@ -68,7 +68,7 @@ Artifacts from this repository follow semantic versioning, mirroring the version
 
 Stable artifacts (i.e. artifacts without -alpha version suffix) come with strong backwards compatibility guarantees for public APIs.
 
-Compatibility guarantees are inherited from [opentelemetry-java](https://github.com/open-telemetry/opentelemetry-java/blob/main/VERSIONING.md) .
+Compatibility guarantees are inherited from [opentelemetry-java](https://github.com/open-telemetry/opentelemetry-java/blob/main/VERSIONING.md).
 
 ## Generating semantic conventions
 
