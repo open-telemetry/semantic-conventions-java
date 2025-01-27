@@ -48,7 +48,6 @@ the `semantic-convention` release version, e.g. `v1.21.0.1`
 
   ```
   var ver = semanticConventionsVersion
-  ver += "-rc.1" // <-- ADD THIS LINE
   val release = findProperty("otel.release")
   if (release != null) {
     ver += "-" + release
@@ -56,6 +55,7 @@ the `semantic-convention` release version, e.g. `v1.21.0.1`
   if (snapshot) {
     ver += "-SNAPSHOT"
   }
+  ver += "-rc.1" // <-- ADD THIS LINE
   version = ver
   ```
 
