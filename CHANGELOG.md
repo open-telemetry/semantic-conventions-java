@@ -1,5 +1,7 @@
 # Changelog
 
+## Unreleased
+
 ## Version 1.30.0-RC (2025-01-27)
 
 **NOTICE**: This is a release candidate (RC), preceding the first stable release of `io.opentelemetry.semconv:opentelemetry-semconv`.
