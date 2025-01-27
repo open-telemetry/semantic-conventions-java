@@ -44,14 +44,6 @@ the `semantic-convention` release version, e.g. `v1.21.0.1`
   * `export GPG_PASSWORD=<password>`
   * `export SONATYPE_USER=<user>`
   * `export SONATYPE_KEY=<key>`
-* Set `snapshot = false` in [build.gradle.kts](./build.gradle.kts):
-
-  ```
-  // start - updated by ./.github/workflows/prepare-release-branch.yml
-  val snapshot = false // <-- UPDATE THIS LINE
-  // end
-  ```
-
 * Adjust version tag to include `-rc.<num>` suffix (i.e. `-rc.1` for the first release candidate) in [build.gradle.kts](./build.gradle.kts):
 
   ```
