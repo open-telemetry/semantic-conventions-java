@@ -17,18 +17,6 @@ Comparing source compatibility of opentelemetry-semconv-1.30.0-SNAPSHOT.jar agai
 	+++  NEW SUPERCLASS: java.lang.Object
 	+++  NEW FIELD: PUBLIC(+) STATIC(+) FINAL(+) io.opentelemetry.api.common.AttributeKey<java.lang.String> CLIENT_ADDRESS
 	+++  NEW FIELD: PUBLIC(+) STATIC(+) FINAL(+) io.opentelemetry.api.common.AttributeKey<java.lang.Long> CLIENT_PORT
-+++  NEW CLASS: PUBLIC(+) FINAL(+) io.opentelemetry.semconv.DotnetAttributes  (not serializable)
-	+++  CLASS FILE FORMAT VERSION: 52.0 <- n.a.
-	+++  NEW SUPERCLASS: java.lang.Object
-	+++  NEW FIELD: PUBLIC(+) STATIC(+) FINAL(+) io.opentelemetry.api.common.AttributeKey<java.lang.String> DOTNET_GC_HEAP_GENERATION
-+++  NEW CLASS: PUBLIC(+) STATIC(+) FINAL(+) io.opentelemetry.semconv.DotnetAttributes$DotnetGcHeapGenerationValues  (not serializable)
-	+++  CLASS FILE FORMAT VERSION: 52.0 <- n.a.
-	+++  NEW SUPERCLASS: java.lang.Object
-	+++  NEW FIELD: PUBLIC(+) STATIC(+) FINAL(+) java.lang.String GEN1
-	+++  NEW FIELD: PUBLIC(+) STATIC(+) FINAL(+) java.lang.String GEN0
-	+++  NEW FIELD: PUBLIC(+) STATIC(+) FINAL(+) java.lang.String GEN2
-	+++  NEW FIELD: PUBLIC(+) STATIC(+) FINAL(+) java.lang.String LOH
-	+++  NEW FIELD: PUBLIC(+) STATIC(+) FINAL(+) java.lang.String POH
 +++  NEW CLASS: PUBLIC(+) FINAL(+) io.opentelemetry.semconv.ErrorAttributes  (not serializable)
 	+++  CLASS FILE FORMAT VERSION: 52.0 <- n.a.
 	+++  NEW SUPERCLASS: java.lang.Object

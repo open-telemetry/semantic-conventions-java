@@ -37,7 +37,6 @@ public class IncubatingAvailabilityTest {
     isValidClass("io.opentelemetry.semconv.incubating.DeviceIncubatingAttributes");
     isValidClass("io.opentelemetry.semconv.incubating.DiskIncubatingAttributes");
     isValidClass("io.opentelemetry.semconv.incubating.DnsIncubatingAttributes");
-    isValidClass("io.opentelemetry.semconv.incubating.DotnetIncubatingAttributes");
     isValidClass("io.opentelemetry.semconv.incubating.ElasticsearchIncubatingAttributes");
     isValidClass("io.opentelemetry.semconv.incubating.EnduserIncubatingAttributes");
     isValidClass("io.opentelemetry.semconv.incubating.ErrorIncubatingAttributes");

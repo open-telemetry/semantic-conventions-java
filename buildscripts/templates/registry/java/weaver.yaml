@@ -1,5 +1,5 @@
 params:
-  excluded_namespaces: ["ios", "aspnetcore", "signalr"]
+  excluded_namespaces: ["dotnet", "ios", "aspnetcore", "signalr"]
   # excluding "exception.escaped" from stable attributes
   # because we are anticipating it being deprecated soon
   excluded_attributes: ["messaging.client_id", "exception.escaped"]
