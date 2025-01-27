@@ -1,15 +1,7 @@
-import japicmp.model.JApiChangeStatus
-import japicmp.model.JApiClass
-import japicmp.model.JApiCompatibility
-import japicmp.model.JApiCompatibilityChange
-import japicmp.model.JApiMethod
+import japicmp.model.*
 import me.champeau.gradle.japicmp.JapicmpTask
 import me.champeau.gradle.japicmp.report.Violation
-import me.champeau.gradle.japicmp.report.stdrules.AbstractRecordingSeenMembers
-import me.champeau.gradle.japicmp.report.stdrules.BinaryIncompatibleRule
-import me.champeau.gradle.japicmp.report.stdrules.RecordSeenMembersSetup
-import me.champeau.gradle.japicmp.report.stdrules.SourceCompatibleRule
-import me.champeau.gradle.japicmp.report.stdrules.UnchangedMemberRule
+import me.champeau.gradle.japicmp.report.stdrules.*
 
 
 plugins {
@@ -34,7 +26,7 @@ val latestReleasedVersion: String by lazy {
 class SourceIncompatibleRule : AbstractRecordingSeenMembers() {
   override fun maybeAddViolation(member: JApiCompatibility): Violation? {
     if (!member.isSourceCompatible()) {
-      return Violation.error(member, "Not source compatible")
+      return Violation.error(member, "Not source compatible: $member")
     }
     return null
   }
@@ -52,7 +44,7 @@ fun findArtifact(version: String): File {
     val depModule = "io.opentelemetry.semconv:${base.archivesName.get()}:$version@jar"
     val depJar = "${base.archivesName.get()}-$version.jar"
     val configuration: Configuration = configurations.detachedConfiguration(
-      dependencies.create(depModule),
+        dependencies.create(depModule),
     )
     return files(configuration.files).filter {
       it.name.equals(depJar)
@@ -72,7 +64,7 @@ if (!project.hasProperty("otel.release")) {
         // the japicmp "new" version is either the user-specified one, or the locally built jar.
         val apiNewVersion: String? by project
         val newArtifact = apiNewVersion?.let { findArtifact(it) }
-          ?: file(getByName<Jar>("jar").archiveFile)
+            ?: file(getByName<Jar>("jar").archiveFile)
         newClasspath.from(files(newArtifact))
 
         // only output changes, not everything
@@ -81,20 +73,23 @@ if (!project.hasProperty("otel.release")) {
         // the japicmp "old" version is either the user-specified one, or the latest release.
         val apiBaseVersion: String? by project
         val baselineVersion = apiBaseVersion ?: latestReleasedVersion
-        oldClasspath.from(
-          try {
-            files(findArtifact(baselineVersion))
-          } catch (e: Exception) {
-            // if we can't find the baseline artifact, this is probably one that's never been published before,
-            // so publish the whole API. We do that by flipping this flag, and comparing the current against nothing.
-            onlyModified.set(false)
-            files()
-          },
-        )
+        // TODO: uncomment after first stable release
+        // oldClasspath.from(
+        //    try {
+        //      files(findArtifact(baselineVersion))
+        //    } catch (e: Exception) {
+        //      // if we can't find the baseline artifact, this is probably one that's never been published before,
+        //      // so publish the whole API. We do that by flipping this flag, and comparing the current against nothing.
+        //      onlyModified.set(false)
+        //      files()
+        //    },
+        // )
 
         // Reproduce defaults from https://github.com/melix/japicmp-gradle-plugin/blob/09f52739ef1fccda6b4310cf3f4b19dc97377024/src/main/java/me/champeau/gradle/japicmp/report/ViolationsGenerator.java#L130
         // with some changes.
         val exclusions = mutableListOf<String>()
+        // Generics are not detected correctly
+        exclusions.add("CLASS_GENERIC_TEMPLATE_CHANGED")
         // Allow new default methods on interfaces
         exclusions.add("METHOD_NEW_DEFAULT")
         // Allow adding default implementations for default methods
@@ -115,7 +110,14 @@ if (!project.hasProperty("otel.release")) {
 
         // this is needed so that we only consider the current artifact, and not dependencies
         ignoreMissingClasses.set(true)
-        packageExcludes.addAll("*.internal", "*.internal.*")
+        // TODO: remove exclusions after first stable release
+        classExcludes.add("io.opentelemetry.semconv.ResourceAttributes")
+        classExcludes.add("io.opentelemetry.semconv.SemanticAttributes")
+        val baseVersionString = if (apiBaseVersion == null) "latest" else baselineVersion
+        txtOutputFile.set(
+            apiNewVersion?.let { file("$rootDir/docs/apidiffs/${apiNewVersion}_vs_$baselineVersion/${base.archivesName.get()}.txt") }
+                ?: file("$rootDir/docs/apidiffs/current_vs_$baseVersionString/${base.archivesName.get()}.txt"),
+        )
       }
       // have the check task depend on the api comparison task, to make it more likely it will get used.
       named("check") {
