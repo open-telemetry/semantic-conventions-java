@@ -1,6 +1,6 @@
 # Changelog
 
-## Unreleased
+## Version 1.30.0 (2025-01-27)
 
 ## Version 1.30.0-RC (2025-01-27)
 
