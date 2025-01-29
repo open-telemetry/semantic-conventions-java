@@ -66,7 +66,7 @@ val schemaUrl = "https://opentelemetry.io/schemas/$semanticConventionsVersion"
 
 val downloadSemanticConventions by tasks.registering(Download::class) {
   src(semanticConventionsRepoZip)
-  dest("$buildDir/semantic-conventions-${semanticConventionsVersion}/semantic-conventions.zip")
+  dest("${layout.buildDirectory.asFile.get()}/semantic-conventions-${semanticConventionsVersion}/semantic-conventions.zip")
   overwrite(false)
 }
 
@@ -79,7 +79,7 @@ val unzipConfigurationSchema by tasks.registering(Copy::class) {
     val pathParts = path.split("/")
     path = pathParts.subList(1, pathParts.size).joinToString("/")
   })
-  into("$buildDir/semantic-conventions-${semanticConventionsVersion}/")
+  into("${layout.buildDirectory.asFile.get()}/semantic-conventions-${semanticConventionsVersion}/")
 }
 
 fun generateTask(taskName: String, incubating: Boolean) {
@@ -105,7 +105,7 @@ fun generateTask(taskName: String, incubating: Boolean) {
     val weaver_args = listOf(
         "--rm",
         "--platform=linux/x86_64",
-        "--mount", "type=bind,source=$buildDir/semantic-conventions-${semanticConventionsVersion}/model,target=/home/weaver/source,readonly",
+        "--mount", "type=bind,source=${layout.buildDirectory.asFile.get()}/semantic-conventions-${semanticConventionsVersion}/model,target=/home/weaver/source,readonly",
         "--mount", "type=bind,source=$projectDir/buildscripts/templates,target=/home/weaver/templates,readonly",
         "--mount", "type=bind,source=$projectDir/$outputDir,target=/home/weaver/target",
         "otel/weaver:$generatorVersion",
