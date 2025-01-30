@@ -79,7 +79,7 @@ val unzipConfigurationSchema by tasks.registering(Copy::class) {
     val pathParts = path.split("/")
     path = pathParts.subList(1, pathParts.size).joinToString("/")
   })
-  into(layout.buildDirectory.file("semantic-conventions-${semanticConventionsVersion}/"))
+  into(layout.buildDirectory.dir("semantic-conventions-${semanticConventionsVersion}/"))
 }
 
 fun generateTask(taskName: String, incubating: Boolean) {
@@ -102,7 +102,7 @@ fun generateTask(taskName: String, incubating: Boolean) {
       val gid = unix.getGid() // $(id -g $USERNAME)
       listOf("-u", "$uid:$gid")
     }
-    val modelPath = layout.buildDirectory.file("semantic-conventions-${semanticConventionsVersion}/model").get()
+    val modelPath = layout.buildDirectory.dir("semantic-conventions-${semanticConventionsVersion}/model").get()
     val weaver_args = listOf(
         "--rm",
         "--platform=linux/x86_64",
