@@ -21,5 +21,5 @@ To build the project, run:
 ## Style guide
 
 See
-the [Style guide](https://github.com/open-telemetry/opentelemetry-java-instrumentation/blob/main/docs/contributing/style-guideline.md)
-from the opentelemetry-java-instrumentation repository.
+the [Style guide](https://github.com/open-telemetry/opentelemetry-java/blob/main/CONTRIBUTING.md#style-guideline)
+from the OpenTelemetry Java repository.
