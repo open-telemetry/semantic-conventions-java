@@ -1,9 +1,16 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [
-    "config:base"
+    "config:recommended",
+    "helpers:pinGitHubActionDigests"
   ],
   "packageRules": [
+    {
+      // this is to reduce the number of renovate PRs by consolidating them into a weekly batch
+      "matchManagers": ["github-actions"],
+      "extends": ["schedule:weekly"],
+      "groupName": "github actions"
+    },
     {
       // pin opentelemetry-api dependency to: avoid churn, for conservative api version requirement, and because opentelemetry-api is a compileOnly dependency
       "matchPackageNames": ["io.opentelemetry:opentelemetry-api"],
