@@ -2,35 +2,19 @@ plugins {
   `java-platform`
 }
 
-data class DependencySet(val group: String, val version: String, val modules: List<String>)
-
-val dependencyVersions = hashMapOf<String, String>()
-rootProject.extra["versions"] = dependencyVersions
-
-val DEPENDENCY_BOMS = listOf(
-  "org.assertj:assertj-bom:3.27.3",
-  "org.junit:junit-bom:5.11.4",
-)
-
-val DEPENDENCIES = listOf(
-  "io.opentelemetry:opentelemetry-api:1.33.0"
-)
-
 javaPlatform {
   allowDependencies()
 }
 
 dependencies {
-  for (bom in DEPENDENCY_BOMS) {
-    api(enforcedPlatform(bom))
-    val split = bom.split(':')
-    dependencyVersions[split[0]] = split[2]
-  }
+  // boms that are only used by tests should be added in otel.java-conventions.gradle.kts
+  // under JvmTestSuite so they don't show up as runtime dependencies in license and vulnerability scans
+  // (the constraints section below doesn't have this issue, and will only show up
+  // as runtime dependencies if they are actually used as runtime dependencies)
+
   constraints {
-    for (dependency in DEPENDENCIES) {
-      api(dependency)
-      val split = dependency.split(':')
-      dependencyVersions[split[0]] = split[2]
-    }
+    // pinned to: avoid churn, for conservative api version requirement,
+    // and because opentelemetry-api is a compileOnly dependency
+    api("io.opentelemetry:opentelemetry-api:1.33.0")
   }
 }
