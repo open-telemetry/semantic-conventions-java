@@ -107,8 +107,6 @@ of [open-telemetry/opentelemetry-java](https://github.com/open-telemetry/opentel
 See [opentelemetry-java contributors](https://github.com/open-telemetry/opentelemetry-java#contributing)
 for code owners.
 
-[ci-image]: https://github.com/open-telemetry/semantic-conventions-java/workflows/Build/badge.svg
-[ci-url]: https://github.com/open-telemetry/semantic-conventions-java/actions?query=workflow%3Abuild+branch%3Amain
 [maven-image-stable]: https://maven-badges.herokuapp.com/maven-central/io.opentelemetry.semconv/opentelemetry-semconv/badge.svg
 [maven-url-stable]: https://maven-badges.herokuapp.com/maven-central/io.opentelemetry.semconv/opentelemetry-semconv
 [maven-image-incubating]: https://maven-badges.herokuapp.com/maven-central/io.opentelemetry.semconv/opentelemetry-semconv-incubating/badge.svg
