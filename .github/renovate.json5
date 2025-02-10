@@ -17,5 +17,17 @@
       "matchCurrentVersion": "1.33.0",
       "enabled": false
     }
+  ],
+  "customManagers": [
+    {
+      "customType": "regex",
+      "datasourceTemplate": "docker",
+      "fileMatch": [
+        "^build.gradle.kts$"
+      ],
+      "matchStrings": [
+        "\"(?<depName>otel/weaver):(?<currentValue>[^\"]+)\""
+      ]
+    }
   ]
 }
