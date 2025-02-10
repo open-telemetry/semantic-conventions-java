@@ -2,8 +2,13 @@ name: Release
 on:
   workflow_dispatch:
 
+permissions:
+  contents: read
+
 jobs:
   release:
+    permissions:
+      contents: write # for creating the release
     runs-on: ubuntu-latest
     outputs:
       version: ${{ steps.create-github-release.outputs.version }}
