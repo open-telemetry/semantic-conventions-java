@@ -5,4 +5,4 @@ exemptions:
   - check: signed_releases
     reason: "Maven central releases are signed and there are no GitHub release artifacts"
   - check: openssf_badge
-    reason: "ETOOMANYBADGES, but the work has been done: https://www.bestpractices.dev/projects/9991"
+    reason: "ETOOMANYBADGES, but the work has been done: https://www.bestpractices.dev/projects/10003"
