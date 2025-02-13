@@ -1,8 +1,8 @@
 # OpenTelemetry Semantic Conventions for Java
 
 [![Release](https://img.shields.io/github/v/release/open-telemetry/semantic-conventions-java?include_prereleases&style=)](https://github.com/open-telemetry/semantic-conventions-java/releases/)
-[![FOSSA License Status](https://app.fossa.com/api/projects/custom%2B51454%2Fgithub.com%2Fopen-telemetry%2Fsemantic-conventions-java.svg?type=shield&issueType=license)](https://app.fossa.com/projects/custom%2B51454%2Fgithub.com%2Fopen-telemetry%2Fsemantic-conventions-java?ref=badge_shield&issueType=license)
-[![FOSSA Security Status](https://app.fossa.com/api/projects/custom%2B51454%2Fgithub.com%2Fopen-telemetry%2Fsemantic-conventions-java.svg?type=shield&issueType=security)](https://app.fossa.com/projects/custom%2B51454%2Fgithub.com%2Fopen-telemetry%2Fsemantic-conventions-java?ref=badge_shield&issueType=security)
+[![FOSSA License Status](https://app.fossa.com/api/projects/custom%2B162%2Fgithub.com%2Fopen-telemetry%2Fsemantic-conventions-java.svg?type=shield&issueType=license)](https://app.fossa.com/projects/custom%2B162%2Fgithub.com%2Fopen-telemetry%2Fsemantic-conventions-java?ref=badge_shield&issueType=license)
+[![FOSSA Security Status](https://app.fossa.com/api/projects/custom%2B162%2Fgithub.com%2Fopen-telemetry%2Fsemantic-conventions-java.svg?type=shield&issueType=security)](https://app.fossa.com/projects/custom%2B162%2Fgithub.com%2Fopen-telemetry%2Fsemantic-conventions-java?ref=badge_shield&issueType=security)
 [![OpenSSF Scorecard](https://api.scorecard.dev/projects/github.com/open-telemetry/semantic-conventions-java/badge)](https://scorecard.dev/viewer/?uri=github.com/open-telemetry/semantic-conventions-java)
 [![Slack](https://img.shields.io/badge/slack-@cncf/otel--java-blue.svg?logo=slack)](https://cloud-native.slack.com/archives/C014L2KCTE3)
 
