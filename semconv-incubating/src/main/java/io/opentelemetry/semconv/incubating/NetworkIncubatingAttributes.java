@@ -58,8 +58,6 @@ public final class NetworkIncubatingAttributes {
   /**
    * Local address of the network connection - IP address or Unix domain socket name.
    *
-   * <p>
-   *
    * @deprecated deprecated in favor of stable {@link
    *     io.opentelemetry.semconv.NetworkAttributes#NETWORK_LOCAL_ADDRESS} attribute.
    */
@@ -70,8 +68,6 @@ public final class NetworkIncubatingAttributes {
   /**
    * Local port number of the network connection.
    *
-   * <p>
-   *
    * @deprecated deprecated in favor of stable {@link
    *     io.opentelemetry.semconv.NetworkAttributes#NETWORK_LOCAL_PORT} attribute.
    */
@@ -81,8 +77,6 @@ public final class NetworkIncubatingAttributes {
   /**
    * Peer address of the network connection - IP address or Unix domain socket name.
    *
-   * <p>
-   *
    * @deprecated deprecated in favor of stable {@link
    *     io.opentelemetry.semconv.NetworkAttributes#NETWORK_PEER_ADDRESS} attribute.
    */
@@ -91,8 +85,6 @@ public final class NetworkIncubatingAttributes {
 
   /**
    * Peer port number of the network connection.
-   *
-   * <p>
    *
    * @deprecated deprecated in favor of stable {@link
    *     io.opentelemetry.semconv.NetworkAttributes#NETWORK_PEER_PORT} attribute.
@@ -125,8 +117,6 @@ public final class NetworkIncubatingAttributes {
    * the negotiated version. If the actual protocol version is not known, this attribute SHOULD NOT
    * be set.
    *
-   * <p>
-   *
    * @deprecated deprecated in favor of stable {@link
    *     io.opentelemetry.semconv.NetworkAttributes#NETWORK_PROTOCOL_VERSION} attribute.
    */
@@ -146,8 +136,6 @@ public final class NetworkIncubatingAttributes {
    * <p>Consider always setting the transport when setting a port number, since a port number is
    * ambiguous without knowing the transport. For example different processes could be listening on
    * TCP port 12345 and UDP port 12345.
-   *
-   * <p>
    *
    * @deprecated deprecated in favor of stable {@link
    *     io.opentelemetry.semconv.NetworkAttributes#NETWORK_TRANSPORT} attribute.

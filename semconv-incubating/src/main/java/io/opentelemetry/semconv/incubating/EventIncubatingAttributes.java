@@ -16,8 +16,6 @@ public final class EventIncubatingAttributes {
   /**
    * Identifies the class / type of event.
    *
-   * <p>
-   *
    * @deprecated Replaced by EventName top-level field on the LogRecord
    */
   @Deprecated public static final AttributeKey<String> EVENT_NAME = stringKey("event.name");

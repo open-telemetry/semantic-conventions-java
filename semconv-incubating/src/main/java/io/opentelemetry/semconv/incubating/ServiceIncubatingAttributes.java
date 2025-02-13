@@ -61,8 +61,6 @@ public final class ServiceIncubatingAttributes {
    * {@code process.executable.name} is not available, the value MUST be set to {@code
    * unknown_service}.
    *
-   * <p>
-   *
    * @deprecated deprecated in favor of stable {@link
    *     io.opentelemetry.semconv.ServiceAttributes#SERVICE_NAME} attribute.
    */
@@ -85,8 +83,6 @@ public final class ServiceIncubatingAttributes {
   /**
    * The version string of the service API or implementation. The format is not defined by these
    * conventions.
-   *
-   * <p>
    *
    * @deprecated deprecated in favor of stable {@link
    *     io.opentelemetry.semconv.ServiceAttributes#SERVICE_VERSION} attribute.

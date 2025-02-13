@@ -42,8 +42,6 @@ public final class ErrorIncubatingAttributes {
    *       within the domain-specific set or not.
    * </ul>
    *
-   * <p>
-   *
    * @deprecated deprecated in favor of stable {@link
    *     io.opentelemetry.semconv.ErrorAttributes#ERROR_TYPE} attribute.
    */

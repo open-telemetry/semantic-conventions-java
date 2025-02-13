@@ -16,8 +16,6 @@ public final class DeploymentIncubatingAttributes {
   /**
    * 'Deprecated, use {@code deployment.environment.name} instead.'
    *
-   * <p>
-   *
    * @deprecated Deprecated, use {@code deployment.environment.name} instead.
    */
   @Deprecated

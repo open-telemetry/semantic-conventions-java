@@ -41,8 +41,6 @@ public final class UrlIncubatingAttributes {
   /**
    * The <a href="https://www.rfc-editor.org/rfc/rfc3986#section-3.5">URI fragment</a> component
    *
-   * <p>
-   *
    * @deprecated deprecated in favor of stable {@link
    *     io.opentelemetry.semconv.UrlAttributes#URL_FRAGMENT} attribute.
    */
@@ -90,8 +88,6 @@ public final class UrlIncubatingAttributes {
    * <p>When a query string value is redacted, the query string key SHOULD still be preserved, e.g.
    * {@code https://www.example.com/path?color=blue&sig=REDACTED}.
    *
-   * <p>
-   *
    * @deprecated deprecated in favor of stable {@link
    *     io.opentelemetry.semconv.UrlAttributes#URL_FULL} attribute.
    */
@@ -117,8 +113,6 @@ public final class UrlIncubatingAttributes {
    *
    * <p>Sensitive content provided in {@code url.path} SHOULD be scrubbed when instrumentations can
    * identify it.
-   *
-   * <p>
    *
    * @deprecated deprecated in favor of stable {@link
    *     io.opentelemetry.semconv.UrlAttributes#URL_PATH} attribute.
@@ -158,8 +152,6 @@ public final class UrlIncubatingAttributes {
    * <p>When a query string value is redacted, the query string key SHOULD still be preserved, e.g.
    * {@code q=OpenTelemetry&sig=REDACTED}.
    *
-   * <p>
-   *
    * @deprecated deprecated in favor of stable {@link
    *     io.opentelemetry.semconv.UrlAttributes#URL_QUERY} attribute.
    */
@@ -181,8 +173,6 @@ public final class UrlIncubatingAttributes {
   /**
    * The <a href="https://www.rfc-editor.org/rfc/rfc3986#section-3.1">URI scheme</a> component
    * identifying the used protocol.
-   *
-   * <p>
    *
    * @deprecated deprecated in favor of stable {@link
    *     io.opentelemetry.semconv.UrlAttributes#URL_SCHEME} attribute.

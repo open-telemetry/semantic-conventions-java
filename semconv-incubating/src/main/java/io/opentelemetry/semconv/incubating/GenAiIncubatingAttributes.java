@@ -20,8 +20,6 @@ public final class GenAiIncubatingAttributes {
   /**
    * Deprecated, use Event API to report completions contents.
    *
-   * <p>
-   *
    * @deprecated Removed, no replacement at this time.
    */
   @Deprecated
@@ -33,8 +31,6 @@ public final class GenAiIncubatingAttributes {
 
   /**
    * Deprecated, use {@code gen_ai.request.seed}.
-   *
-   * <p>
    *
    * @deprecated Replaced by {@code gen_ai.request.seed} attribute.
    */
@@ -69,8 +65,6 @@ public final class GenAiIncubatingAttributes {
 
   /**
    * Deprecated, use Event API to report prompt contents.
-   *
-   * <p>
    *
    * @deprecated Removed, no replacement at this time.
    */
@@ -158,8 +152,6 @@ public final class GenAiIncubatingAttributes {
   /**
    * Deprecated, use {@code gen_ai.usage.output_tokens} instead.
    *
-   * <p>
-   *
    * @deprecated Replaced by {@code gen_ai.usage.output_tokens} attribute.
    */
   @Deprecated
@@ -176,8 +168,6 @@ public final class GenAiIncubatingAttributes {
 
   /**
    * Deprecated, use {@code gen_ai.usage.input_tokens} instead.
-   *
-   * <p>
    *
    * @deprecated Replaced by {@code gen_ai.usage.input_tokens} attribute.
    */

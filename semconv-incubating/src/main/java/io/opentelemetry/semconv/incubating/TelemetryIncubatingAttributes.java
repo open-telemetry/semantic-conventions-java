@@ -32,8 +32,6 @@ public final class TelemetryIncubatingAttributes {
   /**
    * The language of the telemetry SDK.
    *
-   * <p>
-   *
    * @deprecated deprecated in favor of stable {@link
    *     io.opentelemetry.semconv.TelemetryAttributes#TELEMETRY_SDK_LANGUAGE} attribute.
    */
@@ -53,8 +51,6 @@ public final class TelemetryIncubatingAttributes {
    * The identifier {@code opentelemetry} is reserved and MUST NOT be used in this case. All custom
    * identifiers SHOULD be stable across different versions of an implementation.
    *
-   * <p>
-   *
    * @deprecated deprecated in favor of stable {@link
    *     io.opentelemetry.semconv.TelemetryAttributes#TELEMETRY_SDK_NAME} attribute.
    */
@@ -63,8 +59,6 @@ public final class TelemetryIncubatingAttributes {
 
   /**
    * The version string of the telemetry SDK.
-   *
-   * <p>
    *
    * @deprecated deprecated in favor of stable {@link
    *     io.opentelemetry.semconv.TelemetryAttributes#TELEMETRY_SDK_VERSION} attribute.

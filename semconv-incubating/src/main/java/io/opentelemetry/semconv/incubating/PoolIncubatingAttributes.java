@@ -16,8 +16,6 @@ public final class PoolIncubatingAttributes {
   /**
    * Deprecated, use {@code db.client.connection.pool.name} instead.
    *
-   * <p>
-   *
    * @deprecated Replaced by {@code db.client.connection.pool.name}.
    */
   @Deprecated public static final AttributeKey<String> POOL_NAME = stringKey("pool.name");

@@ -17,8 +17,6 @@ public final class MessageIncubatingAttributes {
   /**
    * Deprecated, use {@code rpc.message.compressed_size} instead.
    *
-   * <p>
-   *
    * @deprecated Replaced by {@code rpc.message.compressed_size}.
    */
   @Deprecated
@@ -28,8 +26,6 @@ public final class MessageIncubatingAttributes {
   /**
    * Deprecated, use {@code rpc.message.id} instead.
    *
-   * <p>
-   *
    * @deprecated Replaced by {@code rpc.message.id}.
    */
   @Deprecated public static final AttributeKey<Long> MESSAGE_ID = longKey("message.id");
@@ -37,16 +33,12 @@ public final class MessageIncubatingAttributes {
   /**
    * Deprecated, use {@code rpc.message.type} instead.
    *
-   * <p>
-   *
    * @deprecated Replaced by {@code rpc.message.type}.
    */
   @Deprecated public static final AttributeKey<String> MESSAGE_TYPE = stringKey("message.type");
 
   /**
    * Deprecated, use {@code rpc.message.uncompressed_size} instead.
-   *
-   * <p>
    *
    * @deprecated Replaced by {@code rpc.message.uncompressed_size}.
    */

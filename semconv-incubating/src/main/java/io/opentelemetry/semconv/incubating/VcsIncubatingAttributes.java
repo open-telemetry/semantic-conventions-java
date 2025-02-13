@@ -127,8 +127,6 @@ public final class VcsIncubatingAttributes {
   /**
    * Deprecated, use {@code vcs.change.id} instead.
    *
-   * <p>
-   *
    * @deprecated Deprecated, use {@code vcs.change.id} instead.
    */
   @Deprecated
@@ -137,8 +135,6 @@ public final class VcsIncubatingAttributes {
 
   /**
    * Deprecated, use {@code vcs.change.title} instead.
-   *
-   * <p>
    *
    * @deprecated Deprecated, use {@code vcs.change.title} instead.
    */
@@ -160,8 +156,6 @@ public final class VcsIncubatingAttributes {
   /**
    * Deprecated, use {@code vcs.ref.head.name} instead.
    *
-   * <p>
-   *
    * @deprecated Deprecated, use {@code vcs.ref.head.name} instead.
    */
   @Deprecated
@@ -171,8 +165,6 @@ public final class VcsIncubatingAttributes {
   /**
    * Deprecated, use {@code vcs.ref.head.revision} instead.
    *
-   * <p>
-   *
    * @deprecated Deprecated, use {@code vcs.ref.head.revision} instead.
    */
   @Deprecated
@@ -181,8 +173,6 @@ public final class VcsIncubatingAttributes {
 
   /**
    * Deprecated, use {@code vcs.ref.head.type} instead.
-   *
-   * <p>
    *
    * @deprecated Deprecated, use {@code vcs.ref.head.type} instead.
    */

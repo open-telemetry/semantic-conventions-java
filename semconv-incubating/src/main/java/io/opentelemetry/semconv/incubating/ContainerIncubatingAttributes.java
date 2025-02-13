@@ -38,8 +38,6 @@ public final class ContainerIncubatingAttributes {
   /**
    * Deprecated, use {@code cpu.mode} instead.
    *
-   * <p>
-   *
    * @deprecated Replaced by {@code cpu.mode}
    */
   @Deprecated
@@ -126,8 +124,6 @@ public final class ContainerIncubatingAttributes {
 
   /**
    * Deprecated, use {@code container.label} instead.
-   *
-   * <p>
    *
    * @deprecated Replaced by {@code container.label}.
    */

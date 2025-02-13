@@ -57,8 +57,6 @@ public final class ProcessIncubatingAttributes {
   /**
    * Deprecated, use {@code cpu.mode} instead.
    *
-   * <p>
-   *
    * @deprecated Replaced by {@code cpu.mode}
    */
   @Deprecated
@@ -85,8 +83,6 @@ public final class ProcessIncubatingAttributes {
 
   /**
    * "Deprecated, use {@code process.executable.build_id.htlhash} instead."
-   *
-   * <p>
    *
    * @deprecated Replaced by {@code process.executable.build_id.htlhash}
    */

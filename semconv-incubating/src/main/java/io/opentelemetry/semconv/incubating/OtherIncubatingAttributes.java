@@ -16,8 +16,6 @@ public final class OtherIncubatingAttributes {
   /**
    * Deprecated, use {@code db.client.connection.state} instead.
    *
-   * <p>
-   *
    * @deprecated Replaced by {@code db.client.connection.state}.
    */
   @Deprecated public static final AttributeKey<String> STATE = stringKey("state");
