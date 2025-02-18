@@ -12,10 +12,10 @@ Java code-generation for the [OpenTelemetry Semantic Conventions](https://github
 
 Published releases are available on maven central. Replace `{{version}}` with the latest released version:
 
-| Artifact `{group}:{artifactId}:{version}`                               | Latest Version                                                   | Description                                                                                                                                                                                                                                                                                      |
-|-------------------------------------------------------------------------|------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `io.opentelemetry.semconv:opentelemetry-semconv:{{version}}`            | [![Maven Central][maven-image-stable]][maven-url-stable]         | Generated code for stable semantic conventions.</br>**NOTE:** Although this is for stable semantic conventions, the artifact still has the [-alpha][versioning] and comes with no compatibility guarantees. The goal is to mark this artifact stable.                                            |        
-| `io.opentelemetry.semconv:opentelemetry-semconv-incubating:{{version}}` | [![Maven Central][maven-image-incubating]][maven-url-incubating] | Generated code for experimental semantic conventions.</br>**NOTE:** This artifact has the [-alpha][versioning] and comes with no compatibility guarantees. Libraries can use this for testing, but should make copies of the attributes to avoid possible runtime errors from version conflicts. |        
+| Artifact `{group}:{artifactId}:{version}`                                     | Latest Version                                                   | Description                                                                                                                                                                                                                                                                                      |
+|-------------------------------------------------------------------------------|------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `io.opentelemetry.semconv:opentelemetry-semconv:{{version}}`                  | [![Maven Central][maven-image-stable]][maven-url-stable]         | Generated code for stable semantic conventions.                                                                                                                                                                                                                                                  |        
+| `io.opentelemetry.semconv:opentelemetry-semconv-incubating:{{version}}-alpha` | [![Maven Central][maven-image-incubating]][maven-url-incubating] | Generated code for experimental semantic conventions.</br>**NOTE:** This artifact has the [-alpha][versioning] and comes with no compatibility guarantees. Libraries can use this for testing, but should make copies of the attributes to avoid possible runtime errors from version conflicts. |        
 
 
 ### Maven
@@ -23,7 +23,6 @@ Published releases are available on maven central. Replace `{{version}}` with th
 ```xml
 <project>
   <dependencies>
-    <!-- Stable semantic conventions. Note: generated code is still subject to breaking changes while published with "-alpha" suffix. -->
     <dependency>
       <groupId>io.opentelemetry.semconv</groupId>
       <artifactId>opentelemetry-semconv</artifactId>
@@ -33,7 +32,7 @@ Published releases are available on maven central. Replace `{{version}}` with th
     <dependency>
       <groupId>io.opentelemetry.semconv</groupId>
       <artifactId>opentelemetry-semconv-incubating</artifactId>
-      <version>{{version}}</version>
+      <version>{{version}}-alpha</version>
     </dependency>
   </dependencies>
 </project>
@@ -43,10 +42,9 @@ Published releases are available on maven central. Replace `{{version}}` with th
 
 ```groovy
 dependencies {
-  // Stable semantic conventions. Note: generated code is still subject to breaking changes while published with "-alpha" suffix.
   implementation "io.opentelemetry.semconv:opentelemetry-semconv:{{version}}"
   // Incubating semantic conventions. Breaking changes expected. Library instrumentation SHOULD NOT depend on this.
-  implementation "io.opentelemetry.semconv:opentelemetry-semconv-incubating:{{version}}"
+  implementation "io.opentelemetry.semconv:opentelemetry-semconv-incubating:{{version}}-alpha"
 }
 ```
 
@@ -71,9 +69,9 @@ pull request on the OpenTelemetry Android Extension for details.
 
 Artifacts from this repository follow semantic versioning, mirroring the versions of the upstream [semantic-conventions](https://github.com/open-telemetry/semantic-conventions) repository. If a patch release is needed for logic in this repository, a release will be published with a fourth version component (i.e. `1.30.0.1` to patch an issue with `1.30.0`).  
 
-Stable artifacts (i.e. artifacts without -alpha version suffix) come with strong backwards compatibility guarantees for public APIs.
+Stable artifacts (i.e. artifacts without `-alpha` version suffix) come with strong backwards compatibility guarantees for public APIs.
 
-Compatibility guarantees are inherited from [opentelemetry-java](https://github.com/open-telemetry/opentelemetry-java/blob/main/VERSIONING.md).
+Compatibility guarantees are inherited from [opentelemetry-java][versioning].
 
 ## Generating semantic conventions
 
