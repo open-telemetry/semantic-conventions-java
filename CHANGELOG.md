@@ -2,6 +2,10 @@
 
 ## Unreleased
 
+## Version 1.30.0 (2025-02-18)
+
+See [1.30.0-rc.1](#version-1300-rc1-2025-01-27). No additional changes.
+
 ## Version 1.30.0-rc.1 (2025-01-27)
 
 **NOTICE**: This is a release candidate (RC), preceding the first stable release of `io.opentelemetry.semconv:opentelemetry-semconv`.
