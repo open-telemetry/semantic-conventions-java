@@ -16,8 +16,6 @@ public final class EnduserIncubatingAttributes {
   /**
    * Deprecated, use {@code user.id} instead.
    *
-   * <p>
-   *
    * @deprecated Replaced by {@code user.id} attribute.
    */
   @Deprecated public static final AttributeKey<String> ENDUSER_ID = stringKey("enduser.id");
@@ -25,16 +23,12 @@ public final class EnduserIncubatingAttributes {
   /**
    * Deprecated, use {@code user.roles} instead.
    *
-   * <p>
-   *
    * @deprecated Replaced by {@code user.roles} attribute.
    */
   @Deprecated public static final AttributeKey<String> ENDUSER_ROLE = stringKey("enduser.role");
 
   /**
    * Deprecated, no replacement at this time.
-   *
-   * <p>
    *
    * @deprecated Removed.
    */

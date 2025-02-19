@@ -24,8 +24,6 @@ public final class ServerIncubatingAttributes {
    * server.address} SHOULD represent the server address behind any intermediaries, for example
    * proxies, if it's available.
    *
-   * <p>
-   *
    * @deprecated deprecated in favor of stable {@link
    *     io.opentelemetry.semconv.ServerAttributes#SERVER_ADDRESS} attribute.
    */
@@ -39,8 +37,6 @@ public final class ServerIncubatingAttributes {
    * <p>When observed from the client side, and when communicating through an intermediary, {@code
    * server.port} SHOULD represent the server port behind any intermediaries, for example proxies,
    * if it's available.
-   *
-   * <p>
    *
    * @deprecated deprecated in favor of stable {@link
    *     io.opentelemetry.semconv.ServerAttributes#SERVER_PORT} attribute.

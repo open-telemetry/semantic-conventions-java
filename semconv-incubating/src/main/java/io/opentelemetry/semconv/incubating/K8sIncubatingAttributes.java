@@ -126,8 +126,6 @@ public final class K8sIncubatingAttributes {
   /**
    * Deprecated, use {@code k8s.pod.label} instead.
    *
-   * <p>
-   *
    * @deprecated Replaced by {@code k8s.pod.label}.
    */
   @Deprecated

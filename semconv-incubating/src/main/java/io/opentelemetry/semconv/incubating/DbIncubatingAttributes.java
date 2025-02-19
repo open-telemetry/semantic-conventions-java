@@ -23,8 +23,6 @@ public final class DbIncubatingAttributes {
   /**
    * Deprecated, use {@code cassandra.consistency.level} instead.
    *
-   * <p>
-   *
    * @deprecated Replaced by {@code cassandra.consistency.level}.
    */
   @Deprecated
@@ -33,8 +31,6 @@ public final class DbIncubatingAttributes {
 
   /**
    * Deprecated, use {@code cassandra.coordinator.dc} instead.
-   *
-   * <p>
    *
    * @deprecated Replaced by {@code cassandra.coordinator.dc}.
    */
@@ -45,8 +41,6 @@ public final class DbIncubatingAttributes {
   /**
    * Deprecated, use {@code cassandra.coordinator.id} instead.
    *
-   * <p>
-   *
    * @deprecated Replaced by {@code cassandra.coordinator.id}.
    */
   @Deprecated
@@ -55,8 +49,6 @@ public final class DbIncubatingAttributes {
 
   /**
    * Deprecated, use {@code cassandra.query.idempotent} instead.
-   *
-   * <p>
    *
    * @deprecated Replaced by {@code cassandra.query.idempotent}.
    */
@@ -67,8 +59,6 @@ public final class DbIncubatingAttributes {
   /**
    * Deprecated, use {@code cassandra.page.size} instead.
    *
-   * <p>
-   *
    * @deprecated Replaced by {@code cassandra.page.size}.
    */
   @Deprecated
@@ -76,8 +66,6 @@ public final class DbIncubatingAttributes {
 
   /**
    * Deprecated, use {@code cassandra.speculative_execution.count} instead.
-   *
-   * <p>
    *
    * @deprecated Replaced by {@code cassandra.speculative_execution.count}.
    */
@@ -87,8 +75,6 @@ public final class DbIncubatingAttributes {
 
   /**
    * Deprecated, use {@code db.collection.name} instead.
-   *
-   * <p>
    *
    * @deprecated Replaced by {@code db.collection.name}.
    */
@@ -113,8 +99,6 @@ public final class DbIncubatingAttributes {
   /**
    * Deprecated, use {@code db.client.connection.pool.name} instead.
    *
-   * <p>
-   *
    * @deprecated Replaced by {@code db.client.connection.pool.name}.
    */
   @Deprecated
@@ -123,8 +107,6 @@ public final class DbIncubatingAttributes {
 
   /**
    * Deprecated, use {@code db.client.connection.state} instead.
-   *
-   * <p>
    *
    * @deprecated Replaced by {@code db.client.connection.state}.
    */
@@ -151,8 +133,6 @@ public final class DbIncubatingAttributes {
   /**
    * Deprecated, use {@code server.address}, {@code server.port} attributes instead.
    *
-   * <p>
-   *
    * @deprecated Replaced by {@code server.address} and {@code server.port}.
    */
   @Deprecated
@@ -160,8 +140,6 @@ public final class DbIncubatingAttributes {
 
   /**
    * Deprecated, use {@code azure.client.id} instead.
-   *
-   * <p>
    *
    * @deprecated Replaced by {@code azure.client.id}.
    */
@@ -172,8 +150,6 @@ public final class DbIncubatingAttributes {
   /**
    * Deprecated, use {@code azure.cosmosdb.connection.mode} instead.
    *
-   * <p>
-   *
    * @deprecated Replaced by {@code azure.cosmosdb.connection.mode}.
    */
   @Deprecated
@@ -182,8 +158,6 @@ public final class DbIncubatingAttributes {
 
   /**
    * Deprecated, use {@code cosmosdb.consistency.level} instead.
-   *
-   * <p>
    *
    * @deprecated Replaced by {@code azure.cosmosdb.consistency.level}.
    */
@@ -194,8 +168,6 @@ public final class DbIncubatingAttributes {
   /**
    * Deprecated, use {@code db.collection.name} instead.
    *
-   * <p>
-   *
    * @deprecated Replaced by {@code db.collection.name}.
    */
   @Deprecated
@@ -204,8 +176,6 @@ public final class DbIncubatingAttributes {
 
   /**
    * Deprecated, no replacement at this time.
-   *
-   * <p>
    *
    * @deprecated No replacement at this time.
    */
@@ -216,8 +186,6 @@ public final class DbIncubatingAttributes {
   /**
    * Deprecated, use {@code azure.cosmosdb.operation.contacted_regions} instead.
    *
-   * <p>
-   *
    * @deprecated Replaced by {@code azure.cosmosdb.operation.contacted_regions}.
    */
   @Deprecated
@@ -226,8 +194,6 @@ public final class DbIncubatingAttributes {
 
   /**
    * Deprecated, use {@code azure.cosmosdb.operation.request_charge} instead.
-   *
-   * <p>
    *
    * @deprecated Replaced by {@code azure.cosmosdb.operation.request_charge}.
    */
@@ -238,8 +204,6 @@ public final class DbIncubatingAttributes {
   /**
    * Deprecated, use {@code azure.cosmosdb.request.body.size} instead.
    *
-   * <p>
-   *
    * @deprecated Replaced by {@code azure.cosmosdb.request.body.size}.
    */
   @Deprecated
@@ -248,8 +212,6 @@ public final class DbIncubatingAttributes {
 
   /**
    * Deprecated, use {@code db.response.status_code} instead.
-   *
-   * <p>
    *
    * @deprecated Replaced by {@code db.response.status_code}.
    */
@@ -260,8 +222,6 @@ public final class DbIncubatingAttributes {
   /**
    * Deprecated, use {@code azure.cosmosdb.response.sub_status_code} instead.
    *
-   * <p>
-   *
    * @deprecated Replaced by {@code azure.cosmosdb.response.sub_status_code}.
    */
   @Deprecated
@@ -270,8 +230,6 @@ public final class DbIncubatingAttributes {
 
   /**
    * Deprecated, use {@code db.namespace} instead.
-   *
-   * <p>
    *
    * @deprecated Replaced by {@code db.namespace}.
    */
@@ -282,8 +240,6 @@ public final class DbIncubatingAttributes {
   /**
    * Deprecated, use {@code elasticsearch.node.name} instead.
    *
-   * <p>
-   *
    * @deprecated Replaced by {@code elasticsearch.node.name}.
    */
   @Deprecated
@@ -292,8 +248,6 @@ public final class DbIncubatingAttributes {
 
   /**
    * Deprecated, use {@code db.operation.parameter} instead.
-   *
-   * <p>
    *
    * @deprecated Replaced by {@code db.operation.parameter}.
    */
@@ -305,8 +259,6 @@ public final class DbIncubatingAttributes {
    * Deprecated, no general replacement at this time. For Elasticsearch, use {@code
    * db.elasticsearch.node.name} instead.
    *
-   * <p>
-   *
    * @deprecated Deprecated, no general replacement at this time. For Elasticsearch, use {@code
    *     db.elasticsearch.node.name} instead.
    */
@@ -314,8 +266,6 @@ public final class DbIncubatingAttributes {
 
   /**
    * Removed, no replacement at this time.
-   *
-   * <p>
    *
    * @deprecated Removed as not used.
    */
@@ -326,8 +276,6 @@ public final class DbIncubatingAttributes {
   /**
    * Deprecated, use {@code db.collection.name} instead.
    *
-   * <p>
-   *
    * @deprecated Replaced by {@code db.collection.name}.
    */
   @Deprecated
@@ -337,8 +285,6 @@ public final class DbIncubatingAttributes {
   /**
    * Deprecated, SQL Server instance is now populated as a part of {@code db.namespace} attribute.
    *
-   * <p>
-   *
    * @deprecated Deprecated, no replacement at this time.
    */
   @Deprecated
@@ -347,8 +293,6 @@ public final class DbIncubatingAttributes {
 
   /**
    * Deprecated, use {@code db.namespace} instead.
-   *
-   * <p>
    *
    * @deprecated Replaced by {@code db.namespace}.
    */
@@ -371,8 +315,6 @@ public final class DbIncubatingAttributes {
 
   /**
    * Deprecated, use {@code db.operation.name} instead.
-   *
-   * <p>
    *
    * @deprecated Replaced by {@code db.operation.name}.
    */
@@ -425,8 +367,6 @@ public final class DbIncubatingAttributes {
    * A query parameter used in {@code db.query.text}, with {@code <key>} being the parameter name,
    * and the attribute value being a string representation of the parameter value.
    *
-   * <p>
-   *
    * @deprecated Replaced by {@code db.operation.parameter}.
    */
   @Deprecated
@@ -468,8 +408,6 @@ public final class DbIncubatingAttributes {
   /**
    * Deprecated, use {@code db.namespace} instead.
    *
-   * <p>
-   *
    * @deprecated Replaced by {@code db.namespace}.
    */
   @Deprecated
@@ -496,8 +434,6 @@ public final class DbIncubatingAttributes {
   /**
    * Deprecated, use {@code db.collection.name} instead.
    *
-   * <p>
-   *
    * @deprecated Replaced by {@code db.collection.name}.
    */
   @Deprecated public static final AttributeKey<String> DB_SQL_TABLE = stringKey("db.sql.table");
@@ -505,16 +441,12 @@ public final class DbIncubatingAttributes {
   /**
    * The database statement being executed.
    *
-   * <p>
-   *
    * @deprecated Replaced by {@code db.query.text}.
    */
   @Deprecated public static final AttributeKey<String> DB_STATEMENT = stringKey("db.statement");
 
   /**
    * Deprecated, use {@code db.system.name} instead.
-   *
-   * <p>
    *
    * @deprecated Replaced by {@code db.system.name}.
    */
@@ -533,8 +465,6 @@ public final class DbIncubatingAttributes {
 
   /**
    * Deprecated, no replacement at this time.
-   *
-   * <p>
    *
    * @deprecated No replacement at this time.
    */

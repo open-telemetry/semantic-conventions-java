@@ -30,8 +30,6 @@ public final class AndroidIncubatingAttributes {
    * href="https://developer.android.com/guide/components/activities/activity-lifecycle#lc">Activity
    * lifecycle callbacks</a>, and from which the {@code OS identifiers} are derived.
    *
-   * <p>
-   *
    * @deprecated Replaced by {@code device.app.lifecycle}.
    */
   @Deprecated public static final AttributeKey<String> ANDROID_STATE = stringKey("android.state");

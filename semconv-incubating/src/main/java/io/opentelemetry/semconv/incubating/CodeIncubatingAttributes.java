@@ -17,8 +17,6 @@ public final class CodeIncubatingAttributes {
   /**
    * Deprecated, use {@code code.column.number}
    *
-   * <p>
-   *
    * @deprecated Replaced by {@code code.column.number}
    */
   @Deprecated public static final AttributeKey<Long> CODE_COLUMN = longKey("code.column");
@@ -41,8 +39,6 @@ public final class CodeIncubatingAttributes {
   /**
    * Deprecated, use {@code code.function.name} instead
    *
-   * <p>
-   *
    * @deprecated Replaced by {@code code.function.name}
    */
   @Deprecated public static final AttributeKey<String> CODE_FUNCTION = stringKey("code.function");
@@ -60,8 +56,6 @@ public final class CodeIncubatingAttributes {
 
   /**
    * Deprecated, use {@code code.line.number} instead
-   *
-   * <p>
    *
    * @deprecated Replaced by {@code code.line.number}
    */

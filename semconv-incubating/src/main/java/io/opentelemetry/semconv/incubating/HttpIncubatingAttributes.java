@@ -20,8 +20,6 @@ public final class HttpIncubatingAttributes {
   /**
    * Deprecated, use {@code client.address} instead.
    *
-   * <p>
-   *
    * @deprecated Replaced by {@code client.address}.
    */
   @Deprecated public static final AttributeKey<String> HTTP_CLIENT_IP = stringKey("http.client_ip");
@@ -33,8 +31,6 @@ public final class HttpIncubatingAttributes {
   /**
    * Deprecated, use {@code network.protocol.name} instead.
    *
-   * <p>
-   *
    * @deprecated Replaced by {@code network.protocol.name}.
    */
   @Deprecated public static final AttributeKey<String> HTTP_FLAVOR = stringKey("http.flavor");
@@ -43,8 +39,6 @@ public final class HttpIncubatingAttributes {
    * Deprecated, use one of {@code server.address}, {@code client.address} or {@code
    * http.request.header.host} instead, depending on the usage.
    *
-   * <p>
-   *
    * @deprecated Replaced by one of {@code server.address}, {@code client.address} or {@code
    *     http.request.header.host}, depending on the usage.
    */
@@ -52,8 +46,6 @@ public final class HttpIncubatingAttributes {
 
   /**
    * Deprecated, use {@code http.request.method} instead.
-   *
-   * <p>
    *
    * @deprecated Replaced by {@code http.request.method}.
    */
@@ -80,8 +72,6 @@ public final class HttpIncubatingAttributes {
    * capture them even though it is not recommended. The attribute value MUST consist of either
    * multiple header values as an array of strings or a single-item array containing a possibly
    * comma-concatenated string, depending on the way the HTTP library provides access to headers.
-   *
-   * <p>
    *
    * @deprecated deprecated in favor of stable {@link
    *     io.opentelemetry.semconv.HttpAttributes#HTTP_REQUEST_HEADER} attribute.
@@ -116,8 +106,6 @@ public final class HttpIncubatingAttributes {
    * instrumentations that do so, MUST also set {@code http.request.method_original} to the original
    * value.
    *
-   * <p>
-   *
    * @deprecated deprecated in favor of stable {@link
    *     io.opentelemetry.semconv.HttpAttributes#HTTP_REQUEST_METHOD} attribute.
    */
@@ -126,8 +114,6 @@ public final class HttpIncubatingAttributes {
 
   /**
    * Original HTTP method sent by the client in the request line.
-   *
-   * <p>
    *
    * @deprecated deprecated in favor of stable {@link
    *     io.opentelemetry.semconv.HttpAttributes#HTTP_REQUEST_METHOD_ORIGINAL} attribute.
@@ -144,8 +130,6 @@ public final class HttpIncubatingAttributes {
    * <p>The resend count SHOULD be updated each time an HTTP request gets resent by the client,
    * regardless of what was the cause of the resending (e.g. redirection, authorization failure, 503
    * Server Unavailable, network issues, or any other).
-   *
-   * <p>
    *
    * @deprecated deprecated in favor of stable {@link
    *     io.opentelemetry.semconv.HttpAttributes#HTTP_REQUEST_RESEND_COUNT} attribute.
@@ -164,8 +148,6 @@ public final class HttpIncubatingAttributes {
   /**
    * Deprecated, use {@code http.request.header.<key>} instead.
    *
-   * <p>
-   *
    * @deprecated Replaced by {@code http.request.header.<key>}.
    */
   @Deprecated
@@ -174,8 +156,6 @@ public final class HttpIncubatingAttributes {
 
   /**
    * Deprecated, use {@code http.request.body.size} instead.
-   *
-   * <p>
    *
    * @deprecated Replaced by {@code http.request.body.size}.
    */
@@ -205,8 +185,6 @@ public final class HttpIncubatingAttributes {
    * header values as an array of strings or a single-item array containing a possibly
    * comma-concatenated string, depending on the way the HTTP library provides access to headers.
    *
-   * <p>
-   *
    * @deprecated deprecated in favor of stable {@link
    *     io.opentelemetry.semconv.HttpAttributes#HTTP_RESPONSE_HEADER} attribute.
    */
@@ -224,8 +202,6 @@ public final class HttpIncubatingAttributes {
   /**
    * <a href="https://tools.ietf.org/html/rfc7231#section-6">HTTP response status code</a>.
    *
-   * <p>
-   *
    * @deprecated deprecated in favor of stable {@link
    *     io.opentelemetry.semconv.HttpAttributes#HTTP_RESPONSE_STATUS_CODE} attribute.
    */
@@ -236,8 +212,6 @@ public final class HttpIncubatingAttributes {
   /**
    * Deprecated, use {@code http.response.header.<key>} instead.
    *
-   * <p>
-   *
    * @deprecated Replaced by {@code http.response.header.<key>}.
    */
   @Deprecated
@@ -246,8 +220,6 @@ public final class HttpIncubatingAttributes {
 
   /**
    * Deprecated, use {@code http.response.body.size} instead.
-   *
-   * <p>
    *
    * @deprecated Replace by {@code http.response.body.size}.
    */
@@ -266,8 +238,6 @@ public final class HttpIncubatingAttributes {
    * the <a href="/docs/http/http-spans.md#http-server-definitions">application root</a> if there is
    * one.
    *
-   * <p>
-   *
    * @deprecated deprecated in favor of stable {@link
    *     io.opentelemetry.semconv.HttpAttributes#HTTP_ROUTE} attribute.
    */
@@ -276,16 +246,12 @@ public final class HttpIncubatingAttributes {
   /**
    * Deprecated, use {@code url.scheme} instead.
    *
-   * <p>
-   *
    * @deprecated Replaced by {@code url.scheme} instead.
    */
   @Deprecated public static final AttributeKey<String> HTTP_SCHEME = stringKey("http.scheme");
 
   /**
    * Deprecated, use {@code server.address} instead.
-   *
-   * <p>
    *
    * @deprecated Replaced by {@code server.address}.
    */
@@ -295,16 +261,12 @@ public final class HttpIncubatingAttributes {
   /**
    * Deprecated, use {@code http.response.status_code} instead.
    *
-   * <p>
-   *
    * @deprecated Replaced by {@code http.response.status_code}.
    */
   @Deprecated public static final AttributeKey<Long> HTTP_STATUS_CODE = longKey("http.status_code");
 
   /**
    * Deprecated, use {@code url.path} and {@code url.query} instead.
-   *
-   * <p>
    *
    * @deprecated Split to {@code url.path} and `url.query.
    */
@@ -313,16 +275,12 @@ public final class HttpIncubatingAttributes {
   /**
    * Deprecated, use {@code url.full} instead.
    *
-   * <p>
-   *
    * @deprecated Replaced by {@code url.full}.
    */
   @Deprecated public static final AttributeKey<String> HTTP_URL = stringKey("http.url");
 
   /**
    * Deprecated, use {@code user_agent.original} instead.
-   *
-   * <p>
    *
    * @deprecated Replaced by {@code user_agent.original}.
    */

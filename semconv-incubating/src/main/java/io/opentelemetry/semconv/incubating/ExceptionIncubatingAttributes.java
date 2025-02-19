@@ -16,8 +16,6 @@ public final class ExceptionIncubatingAttributes {
   /**
    * The exception message.
    *
-   * <p>
-   *
    * @deprecated deprecated in favor of stable {@link
    *     io.opentelemetry.semconv.ExceptionAttributes#EXCEPTION_MESSAGE} attribute.
    */
@@ -28,8 +26,6 @@ public final class ExceptionIncubatingAttributes {
    * A stacktrace as a string in the natural representation for the language runtime. The
    * representation is to be determined and documented by each language SIG.
    *
-   * <p>
-   *
    * @deprecated deprecated in favor of stable {@link
    *     io.opentelemetry.semconv.ExceptionAttributes#EXCEPTION_STACKTRACE} attribute.
    */
@@ -39,8 +35,6 @@ public final class ExceptionIncubatingAttributes {
   /**
    * The type of the exception (its fully-qualified class name, if applicable). The dynamic type of
    * the exception should be preferred over the static type in languages that support it.
-   *
-   * <p>
    *
    * @deprecated deprecated in favor of stable {@link
    *     io.opentelemetry.semconv.ExceptionAttributes#EXCEPTION_TYPE} attribute.

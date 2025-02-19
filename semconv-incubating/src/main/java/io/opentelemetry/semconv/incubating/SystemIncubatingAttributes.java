@@ -21,8 +21,6 @@ public final class SystemIncubatingAttributes {
   /**
    * Deprecated, use {@code cpu.mode} instead.
    *
-   * <p>
-   *
    * @deprecated Replaced by {@code cpu.mode}
    */
   @Deprecated
@@ -53,8 +51,6 @@ public final class SystemIncubatingAttributes {
   /**
    * Deprecated, use {@code network.connection.state} instead.
    *
-   * <p>
-   *
    * @deprecated Removed, report network connection state with {@code network.connection.state}
    *     attribute
    */
@@ -81,8 +77,6 @@ public final class SystemIncubatingAttributes {
 
   /**
    * Deprecated, use {@code system.process.status} instead.
-   *
-   * <p>
    *
    * @deprecated Replaced by {@code system.process.status}.
    */

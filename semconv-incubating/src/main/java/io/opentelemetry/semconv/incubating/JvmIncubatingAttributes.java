@@ -32,8 +32,6 @@ public final class JvmIncubatingAttributes {
    * <p>Garbage collector action is generally obtained via <a
    * href="https://docs.oracle.com/en/java/javase/11/docs/api/jdk.management/com/sun/management/GarbageCollectionNotificationInfo.html#getGcAction()">GarbageCollectionNotificationInfo#getGcAction()</a>.
    *
-   * <p>
-   *
    * @deprecated deprecated in favor of stable {@link
    *     io.opentelemetry.semconv.JvmAttributes#JVM_GC_ACTION} attribute.
    */
@@ -46,8 +44,6 @@ public final class JvmIncubatingAttributes {
    *
    * <p>Garbage collector name is generally obtained via <a
    * href="https://docs.oracle.com/en/java/javase/11/docs/api/jdk.management/com/sun/management/GarbageCollectionNotificationInfo.html#getGcName()">GarbageCollectionNotificationInfo#getGcName()</a>.
-   *
-   * <p>
    *
    * @deprecated deprecated in favor of stable {@link
    *     io.opentelemetry.semconv.JvmAttributes#JVM_GC_NAME} attribute.
@@ -62,8 +58,6 @@ public final class JvmIncubatingAttributes {
    * <p>Pool names are generally obtained via <a
    * href="https://docs.oracle.com/en/java/javase/11/docs/api/java.management/java/lang/management/MemoryPoolMXBean.html#getName()">MemoryPoolMXBean#getName()</a>.
    *
-   * <p>
-   *
    * @deprecated deprecated in favor of stable {@link
    *     io.opentelemetry.semconv.JvmAttributes#JVM_MEMORY_POOL_NAME} attribute.
    */
@@ -72,8 +66,6 @@ public final class JvmIncubatingAttributes {
 
   /**
    * The type of memory.
-   *
-   * <p>
    *
    * @deprecated deprecated in favor of stable {@link
    *     io.opentelemetry.semconv.JvmAttributes#JVM_MEMORY_TYPE} attribute.
@@ -84,8 +76,6 @@ public final class JvmIncubatingAttributes {
   /**
    * Whether the thread is daemon or not.
    *
-   * <p>
-   *
    * @deprecated deprecated in favor of stable {@link
    *     io.opentelemetry.semconv.JvmAttributes#JVM_THREAD_DAEMON} attribute.
    */
@@ -94,8 +84,6 @@ public final class JvmIncubatingAttributes {
 
   /**
    * State of the thread.
-   *
-   * <p>
    *
    * @deprecated deprecated in favor of stable {@link
    *     io.opentelemetry.semconv.JvmAttributes#JVM_THREAD_STATE} attribute.

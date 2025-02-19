@@ -105,8 +105,6 @@ public final class MessagingIncubatingAttributes {
   /**
    * Deprecated, no replacement at this time.
    *
-   * <p>
-   *
    * @deprecated No replacement at this time.
    */
   @Deprecated
@@ -116,8 +114,6 @@ public final class MessagingIncubatingAttributes {
   /**
    * Deprecated, no replacement at this time.
    *
-   * <p>
-   *
    * @deprecated No replacement at this time.
    */
   @Deprecated
@@ -126,8 +122,6 @@ public final class MessagingIncubatingAttributes {
 
   /**
    * Deprecated, use {@code messaging.consumer.group.name} instead.
-   *
-   * <p>
    *
    * @deprecated Replaced by {@code messaging.consumer.group.name}.
    */
@@ -161,8 +155,6 @@ public final class MessagingIncubatingAttributes {
   /**
    * Deprecated, use {@code messaging.consumer.group.name} instead.
    *
-   * <p>
-   *
    * @deprecated Replaced by {@code messaging.consumer.group.name}.
    */
   @Deprecated
@@ -171,8 +163,6 @@ public final class MessagingIncubatingAttributes {
 
   /**
    * Deprecated, use {@code messaging.destination.partition.id} instead.
-   *
-   * <p>
    *
    * @deprecated Replaced by {@code messaging.destination.partition.id}.
    */
@@ -195,8 +185,6 @@ public final class MessagingIncubatingAttributes {
 
   /**
    * Deprecated, use {@code messaging.kafka.offset} instead.
-   *
-   * <p>
    *
    * @deprecated Replaced by {@code messaging.kafka.offset}.
    */
@@ -248,8 +236,6 @@ public final class MessagingIncubatingAttributes {
   /**
    * Deprecated, use {@code messaging.operation.type} instead.
    *
-   * <p>
-   *
    * @deprecated Replaced by {@code messaging.operation.type}.
    */
   @Deprecated
@@ -279,8 +265,6 @@ public final class MessagingIncubatingAttributes {
 
   /**
    * Deprecated, use {@code messaging.consumer.group.name} instead.
-   *
-   * <p>
    *
    * @deprecated Replaced by {@code messaging.consumer.group.name} on the consumer spans. No
    *     replacement for producer spans.
@@ -328,8 +312,6 @@ public final class MessagingIncubatingAttributes {
 
   /**
    * Deprecated, use {@code messaging.destination.subscription.name} instead.
-   *
-   * <p>
    *
    * @deprecated Replaced by {@code messaging.destination.subscription.name}.
    */

@@ -86,8 +86,6 @@ public final class TlsIncubatingAttributes {
   /**
    * Deprecated, use {@code server.address} instead.
    *
-   * <p>
-   *
    * @deprecated Replaced by {@code server.address}.
    */
   @Deprecated
