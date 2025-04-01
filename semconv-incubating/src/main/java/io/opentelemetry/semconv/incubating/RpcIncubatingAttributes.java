@@ -18,7 +18,7 @@ import java.util.List;
 @SuppressWarnings("unused")
 public final class RpcIncubatingAttributes {
   /**
-   * The <a href="https://connect.build/docs/protocol/#error-codes">error codes</a> of the Connect
+   * The <a href="https://connectrpc.com//docs/protocol/#error-codes">error codes</a> of the Connect
    * request. Error codes are always string values.
    */
   public static final AttributeKey<String> RPC_CONNECT_RPC_ERROR_CODE =

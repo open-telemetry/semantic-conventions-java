@@ -23,7 +23,7 @@ public final class OciIncubatingAttributes {
    * Image Manifest Specification</a>, and specifically the <a
    * href="https://github.com/opencontainers/image-spec/blob/main/descriptor.md#digests">Digest
    * property</a>. An example can be found in <a
-   * href="https://docs.docker.com/registry/spec/manifest-v2-2/#example-image-manifest">Example
+   * href="https://github.com/opencontainers/image-spec/blob/main/manifest.md#example-image-manifest">Example
    * Image Manifest</a>.
    */
   public static final AttributeKey<String> OCI_MANIFEST_DIGEST = stringKey("oci.manifest.digest");

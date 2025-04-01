@@ -14,7 +14,7 @@ import io.opentelemetry.api.common.AttributeKey;
 // buildscripts/templates/registry/incubating_java/IncubatingSemanticAttributes.java.j2
 @SuppressWarnings("unused")
 public final class SystemIncubatingAttributes {
-  /** The logical CPU number [0..n-1] */
+  /** Deprecated, use {@code cpu.logical_number} instead. */
   public static final AttributeKey<Long> SYSTEM_CPU_LOGICAL_NUMBER =
       longKey("system.cpu.logical_number");
 

@@ -33,8 +33,12 @@ public final class CodeIncubatingAttributes {
    */
   public static final AttributeKey<String> CODE_FILE_PATH = stringKey("code.file.path");
 
-  /** Deprecated, use {@code code.file.path} instead */
-  public static final AttributeKey<String> CODE_FILEPATH = stringKey("code.filepath");
+  /**
+   * Deprecated, use {@code code.file.path} instead
+   *
+   * @deprecated Replaced by {@code code.file.path}
+   */
+  @Deprecated public static final AttributeKey<String> CODE_FILEPATH = stringKey("code.filepath");
 
   /**
    * Deprecated, use {@code code.function.name} instead
@@ -44,7 +48,30 @@ public final class CodeIncubatingAttributes {
   @Deprecated public static final AttributeKey<String> CODE_FUNCTION = stringKey("code.function");
 
   /**
-   * The method or function name, or equivalent (usually rightmost part of the code unit's name).
+   * The method or function fully-qualified name without arguments. The value should fit the natural
+   * representation of the language runtime, which is also likely the same used within {@code
+   * code.stacktrace} attribute value.
+   *
+   * <p>Notes:
+   *
+   * <p>Values and format depends on each language runtime, thus it is impossible to provide an
+   * exhaustive list of examples. The values are usually the same (or prefixes of) the ones found in
+   * native stack trace representation stored in {@code code.stacktrace} without information on
+   * arguments.
+   *
+   * <p>Examples:
+   *
+   * <ul>
+   *   <li>Java method: {@code com.example.MyHttpService.serveRequest}
+   *   <li>Java anonymous class method: {@code com.mycompany.Main$1.myMethod}
+   *   <li>Java lambda method: {@code com.mycompany.Main$$Lambda/0x0000748ae4149c00.myMethod}
+   *   <li>PHP function: `GuzzleHttp\Client::transfer
+   *   <li>Go function: {@code github.com/my/repo/pkg.foo.func5}
+   *   <li>Elixir: {@code OpenTelemetry.Ctx.new}
+   *   <li>Erlang: {@code opentelemetry_ctx:new}
+   *   <li>Rust: {@code playground::my_module::my_cool_func}
+   *   <li>C function: {@code fopen}
+   * </ul>
    */
   public static final AttributeKey<String> CODE_FUNCTION_NAME = stringKey("code.function.name");
 
@@ -62,15 +89,18 @@ public final class CodeIncubatingAttributes {
   @Deprecated public static final AttributeKey<Long> CODE_LINENO = longKey("code.lineno");
 
   /**
-   * The "namespace" within which {@code code.function.name} is defined. Usually the qualified class
-   * or module name, such that {@code code.namespace} + some separator + {@code code.function.name}
-   * form a unique identifier for the code unit.
+   * Deprecated, namespace is now included into {@code code.function.name}
+   *
+   * @deprecated Value should be included in {@code code.function.name} which is expected to be a
+   *     fully-qualified name.
    */
-  public static final AttributeKey<String> CODE_NAMESPACE = stringKey("code.namespace");
+  @Deprecated public static final AttributeKey<String> CODE_NAMESPACE = stringKey("code.namespace");
 
   /**
    * A stacktrace as a string in the natural representation for the language runtime. The
-   * representation is to be determined and documented by each language SIG.
+   * representation is identical to <a
+   * href="/docs/exceptions/exceptions-spans.md#stacktrace-representation">{@code
+   * exception.stacktrace}</a>.
    */
   public static final AttributeKey<String> CODE_STACKTRACE = stringKey("code.stacktrace");
 

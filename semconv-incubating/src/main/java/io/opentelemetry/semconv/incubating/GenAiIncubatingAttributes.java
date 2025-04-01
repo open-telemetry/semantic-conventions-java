@@ -17,6 +17,16 @@ import java.util.List;
 // buildscripts/templates/registry/incubating_java/IncubatingSemanticAttributes.java.j2
 @SuppressWarnings("unused")
 public final class GenAiIncubatingAttributes {
+  /** Free-form description of the GenAI agent provided by the application. */
+  public static final AttributeKey<String> GEN_AI_AGENT_DESCRIPTION =
+      stringKey("gen_ai.agent.description");
+
+  /** The unique identifier of the GenAI agent. */
+  public static final AttributeKey<String> GEN_AI_AGENT_ID = stringKey("gen_ai.agent.id");
+
+  /** Human-readable name of the GenAI agent provided by the application. */
+  public static final AttributeKey<String> GEN_AI_AGENT_NAME = stringKey("gen_ai.agent.name");
+
   /**
    * Deprecated, use Event API to report completions contents.
    *
@@ -25,7 +35,12 @@ public final class GenAiIncubatingAttributes {
   @Deprecated
   public static final AttributeKey<String> GEN_AI_COMPLETION = stringKey("gen_ai.completion");
 
-  /** The response format that is requested. */
+  /**
+   * Deprecated, use {@code gen_ai.output.type}.
+   *
+   * @deprecated Replaced by {@code gen_ai.output.type}.
+   */
+  @Deprecated
   public static final AttributeKey<String> GEN_AI_OPENAI_REQUEST_RESPONSE_FORMAT =
       stringKey("gen_ai.openai.request.response_format");
 
@@ -64,11 +79,28 @@ public final class GenAiIncubatingAttributes {
       stringKey("gen_ai.operation.name");
 
   /**
+   * Represents the content type requested by the client.
+   *
+   * <p>Notes:
+   *
+   * <p>This attribute SHOULD be used when the client requests output of a specific type. The model
+   * may return zero or more outputs of this type. This attribute specifies the output modality and
+   * not the actual output format. For example, if an image is requested, the actual output could be
+   * a URL pointing to an image file. Additional output format details may be recorded in the future
+   * in the {@code gen_ai.output.{type}.*} attributes.
+   */
+  public static final AttributeKey<String> GEN_AI_OUTPUT_TYPE = stringKey("gen_ai.output.type");
+
+  /**
    * Deprecated, use Event API to report prompt contents.
    *
    * @deprecated Removed, no replacement at this time.
    */
   @Deprecated public static final AttributeKey<String> GEN_AI_PROMPT = stringKey("gen_ai.prompt");
+
+  /** The target number of candidate completions to return. */
+  public static final AttributeKey<Long> GEN_AI_REQUEST_CHOICE_COUNT =
+      longKey("gen_ai.request.choice.count");
 
   /**
    * The encoding formats requested in an embeddings operation, if specified.
@@ -149,6 +181,28 @@ public final class GenAiIncubatingAttributes {
   /** The type of token being counted. */
   public static final AttributeKey<String> GEN_AI_TOKEN_TYPE = stringKey("gen_ai.token.type");
 
+  /** The tool call identifier. */
+  public static final AttributeKey<String> GEN_AI_TOOL_CALL_ID = stringKey("gen_ai.tool.call.id");
+
+  /** Name of the tool utilized by the agent. */
+  public static final AttributeKey<String> GEN_AI_TOOL_NAME = stringKey("gen_ai.tool.name");
+
+  /**
+   * Type of the tool utilized by the agent
+   *
+   * <p>Notes:
+   *
+   * <p>Extension: A tool executed on the agent-side to directly call external APIs, bridging the
+   * gap between the agent and real-world systems. Agent-side operations involve actions that are
+   * performed by the agent on the server or within the agent's controlled environment. Function: A
+   * tool executed on the client-side, where the agent generates parameters for a predefined
+   * function, and the client executes the logic. Client-side operations are actions taken on the
+   * user's end or within the client application. Datastore: A tool used by the agent to access and
+   * query structured or unstructured external data for retrieval-augmented tasks or knowledge
+   * updates.
+   */
+  public static final AttributeKey<String> GEN_AI_TOOL_TYPE = stringKey("gen_ai.tool.type");
+
   /**
    * Deprecated, use {@code gen_ai.usage.output_tokens} instead.
    *
@@ -176,7 +230,12 @@ public final class GenAiIncubatingAttributes {
       longKey("gen_ai.usage.prompt_tokens");
 
   // Enum definitions
-  /** Values for {@link #GEN_AI_OPENAI_REQUEST_RESPONSE_FORMAT}. */
+  /**
+   * Values for {@link #GEN_AI_OPENAI_REQUEST_RESPONSE_FORMAT}
+   *
+   * @deprecated Replaced by {@code gen_ai.output.type}.
+   */
+  @Deprecated
   public static final class GenAiOpenaiRequestResponseFormatIncubatingValues {
     /** Text response format */
     public static final String TEXT = "text";
@@ -223,7 +282,30 @@ public final class GenAiIncubatingAttributes {
      */
     public static final String EMBEDDINGS = "embeddings";
 
+    /** Create GenAI agent */
+    public static final String CREATE_AGENT = "create_agent";
+
+    /** Execute a tool */
+    public static final String EXECUTE_TOOL = "execute_tool";
+
     private GenAiOperationNameIncubatingValues() {}
+  }
+
+  /** Values for {@link #GEN_AI_OUTPUT_TYPE}. */
+  public static final class GenAiOutputTypeIncubatingValues {
+    /** Plain text */
+    public static final String TEXT = "text";
+
+    /** JSON object with known or unknown schema */
+    public static final String JSON = "json";
+
+    /** Image */
+    public static final String IMAGE = "image";
+
+    /** Speech */
+    public static final String SPEECH = "speech";
+
+    private GenAiOutputTypeIncubatingValues() {}
   }
 
   /** Values for {@link #GEN_AI_SYSTEM}. */
@@ -280,6 +362,9 @@ public final class GenAiIncubatingAttributes {
 
     /** Output tokens (completion, response, etc.) */
     public static final String COMPLETION = "output";
+
+    /** Output tokens (completion, response, etc.) */
+    public static final String OUTPUT = "output";
 
     private GenAiTokenTypeIncubatingValues() {}
   }

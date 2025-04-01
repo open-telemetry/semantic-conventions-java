@@ -117,15 +117,15 @@ public final class TlsIncubatingAttributes {
 
   /**
    * Normalized lowercase protocol name parsed from original string of the negotiated <a
-   * href="https://www.openssl.org/docs/man1.1.1/man3/SSL_get_version.html#RETURN-VALUES">SSL/TLS
-   * protocol version</a>
+   * href="https://docs.openssl.org/1.1.1/man3/SSL_get_version/#return-values">SSL/TLS protocol
+   * version</a>
    */
   public static final AttributeKey<String> TLS_PROTOCOL_NAME = stringKey("tls.protocol.name");
 
   /**
    * Numeric part of the version parsed from the original string of the negotiated <a
-   * href="https://www.openssl.org/docs/man1.1.1/man3/SSL_get_version.html#RETURN-VALUES">SSL/TLS
-   * protocol version</a>
+   * href="https://docs.openssl.org/1.1.1/man3/SSL_get_version/#return-values">SSL/TLS protocol
+   * version</a>
    */
   public static final AttributeKey<String> TLS_PROTOCOL_VERSION = stringKey("tls.protocol.version");
 

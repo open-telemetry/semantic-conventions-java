@@ -58,8 +58,7 @@ public final class CloudIncubatingAttributes {
    * href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">ARN</a> on
    * AWS, a <a href="https://learn.microsoft.com/rest/api/resources/resources/get-by-id">fully
    * qualified resource ID</a> on Azure, a <a
-   * href="https://cloud.google.com/apis/design/resource_names#full_resource_name">full resource
-   * name</a> on GCP)
+   * href="https://google.aip.dev/122#full-resource-names">full resource name</a> on GCP)
    *
    * <p>Notes:
    *
