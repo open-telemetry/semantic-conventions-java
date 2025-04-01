@@ -36,6 +36,28 @@ public final class UserAgentIncubatingAttributes {
   public static final AttributeKey<String> USER_AGENT_ORIGINAL = stringKey("user_agent.original");
 
   /**
+   * Human readable operating system name.
+   *
+   * <p>Notes:
+   *
+   * <p>For mapping user agent strings to OS names, libraries such as <a
+   * href="https://github.com/ua-parser">ua-parser</a> can be utilized.
+   */
+  public static final AttributeKey<String> USER_AGENT_OS_NAME = stringKey("user_agent.os.name");
+
+  /**
+   * The version string of the operating system as defined in <a
+   * href="/docs/resource/README.md#version-attributes">Version Attributes</a>.
+   *
+   * <p>Notes:
+   *
+   * <p>For mapping user agent strings to OS versions, libraries such as <a
+   * href="https://github.com/ua-parser">ua-parser</a> can be utilized.
+   */
+  public static final AttributeKey<String> USER_AGENT_OS_VERSION =
+      stringKey("user_agent.os.version");
+
+  /**
    * Specifies the category of synthetic traffic, such as tests or bots.
    *
    * <p>Notes:

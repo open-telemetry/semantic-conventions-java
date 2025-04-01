@@ -83,6 +83,12 @@ public final class K8sIncubatingAttributes {
   /** The UID of the Deployment. */
   public static final AttributeKey<String> K8S_DEPLOYMENT_UID = stringKey("k8s.deployment.uid");
 
+  /** The name of the horizontal pod autoscaler. */
+  public static final AttributeKey<String> K8S_HPA_NAME = stringKey("k8s.hpa.name");
+
+  /** The UID of the horizontal pod autoscaler. */
+  public static final AttributeKey<String> K8S_HPA_UID = stringKey("k8s.hpa.uid");
+
   /** The name of the Job. */
   public static final AttributeKey<String> K8S_JOB_NAME = stringKey("k8s.job.name");
 
@@ -143,6 +149,22 @@ public final class K8sIncubatingAttributes {
 
   /** The UID of the ReplicaSet. */
   public static final AttributeKey<String> K8S_REPLICASET_UID = stringKey("k8s.replicaset.uid");
+
+  /** The name of the replication controller. */
+  public static final AttributeKey<String> K8S_REPLICATIONCONTROLLER_NAME =
+      stringKey("k8s.replicationcontroller.name");
+
+  /** The UID of the replication controller. */
+  public static final AttributeKey<String> K8S_REPLICATIONCONTROLLER_UID =
+      stringKey("k8s.replicationcontroller.uid");
+
+  /** The name of the resource quota. */
+  public static final AttributeKey<String> K8S_RESOURCEQUOTA_NAME =
+      stringKey("k8s.resourcequota.name");
+
+  /** The UID of the resource quota. */
+  public static final AttributeKey<String> K8S_RESOURCEQUOTA_UID =
+      stringKey("k8s.resourcequota.uid");
 
   /** The name of the StatefulSet. */
   public static final AttributeKey<String> K8S_STATEFULSET_NAME = stringKey("k8s.statefulset.name");

@@ -122,8 +122,8 @@ public final class DbIncubatingAttributes {
    * <p>It is RECOMMENDED to capture the value as provided by the application without attempting to
    * do any case normalization.
    *
-   * <p>The collection name SHOULD NOT be extracted from {@code db.query.text}, unless the query
-   * format is known to only ever have a single collection name present.
+   * <p>The collection name SHOULD NOT be extracted from {@code db.query.text}, when the database
+   * system supports cross-table queries in non-batch operations.
    *
    * <p>For batch operations, if the individual operations are known to have the same collection
    * name then that collection name SHOULD be used.
@@ -339,8 +339,8 @@ public final class DbIncubatingAttributes {
    * <p>It is RECOMMENDED to capture the value as provided by the application without attempting to
    * do any case normalization.
    *
-   * <p>The operation name SHOULD NOT be extracted from {@code db.query.text}, unless the query
-   * format is known to only ever have a single operation name present.
+   * <p>The operation name SHOULD NOT be extracted from {@code db.query.text}, when the database
+   * system supports cross-table queries in non-batch operations.
    *
    * <p>For batch operations, if the individual operations are known to have the same operation name
    * then that operation name SHOULD be used prepended by {@code BATCH }, otherwise {@code
@@ -383,8 +383,8 @@ public final class DbIncubatingAttributes {
    * database calls involving complex queries. Summary may be available to the instrumentation
    * through instrumentation hooks or other means. If it is not available, instrumentations that
    * support query parsing SHOULD generate a summary following <a
-   * href="../../docs/database/database-spans.md#generating-a-summary-of-the-query-text">Generating
-   * query summary</a> section.
+   * href="../database/database-spans.md#generating-a-summary-of-the-query-text">Generating query
+   * summary</a> section.
    */
   public static final AttributeKey<String> DB_QUERY_SUMMARY = stringKey("db.query.summary");
 
@@ -394,7 +394,7 @@ public final class DbIncubatingAttributes {
    * <p>Notes:
    *
    * <p>For sanitization see <a
-   * href="../../docs/database/database-spans.md#sanitization-of-dbquerytext">Sanitization of {@code
+   * href="../database/database-spans.md#sanitization-of-dbquerytext">Sanitization of {@code
    * db.query.text}</a>. For batch operations, if the individual operations are known to have the
    * same query text then that query text SHOULD be used, otherwise all of the individual query
    * texts SHOULD be concatenated with separator {@code ; } or some other database system specific

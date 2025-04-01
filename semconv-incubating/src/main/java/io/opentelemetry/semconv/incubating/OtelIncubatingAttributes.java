@@ -14,6 +14,43 @@ import io.opentelemetry.api.common.AttributeKey;
 @SuppressWarnings("unused")
 public final class OtelIncubatingAttributes {
   /**
+   * A name uniquely identifying the instance of the OpenTelemetry component within its containing
+   * SDK instance.
+   *
+   * <p>Notes:
+   *
+   * <p>Implementations SHOULD ensure a low cardinality for this attribute, even across application
+   * or SDK restarts. E.g. implementations MUST NOT use UUIDs as values for this attribute.
+   *
+   * <p>Implementations MAY achieve these goals by following a {@code
+   * <otel.component.type>/<instance-counter>} pattern, e.g. {@code batching_span_processor/0}.
+   * Hereby {@code otel.component.type} refers to the corresponding attribute value of the
+   * component.
+   *
+   * <p>The value of {@code instance-counter} MAY be automatically assigned by the component and
+   * uniqueness within the enclosing SDK instance MUST be guaranteed. For example, {@code
+   * <instance-counter>} MAY be implemented by using a monotonically increasing counter (starting
+   * with {@code 0}), which is incremented every time an instance of the given component type is
+   * started.
+   *
+   * <p>With this implementation, for example the first Batching Span Processor would have {@code
+   * batching_span_processor/0} as {@code otel.component.name}, the second one {@code
+   * batching_span_processor/1} and so on. These values will therefore be reused in the case of an
+   * application restart.
+   */
+  public static final AttributeKey<String> OTEL_COMPONENT_NAME = stringKey("otel.component.name");
+
+  /**
+   * A name identifying the type of the OpenTelemetry component.
+   *
+   * <p>Notes:
+   *
+   * <p>If none of the standardized values apply, implementations SHOULD use the language-defined
+   * name of the type. E.g. for Java the fully qualified classname SHOULD be used in this case.
+   */
+  public static final AttributeKey<String> OTEL_COMPONENT_TYPE = stringKey("otel.component.type");
+
+  /**
    * Deprecated. Use the {@code otel.scope.name} attribute
    *
    * @deprecated Use the {@code otel.scope.name} attribute.
@@ -47,6 +84,10 @@ public final class OtelIncubatingAttributes {
   @Deprecated
   public static final AttributeKey<String> OTEL_SCOPE_VERSION = stringKey("otel.scope.version");
 
+  /** The result value of the sampler for this span */
+  public static final AttributeKey<String> OTEL_SPAN_SAMPLING_RESULT =
+      stringKey("otel.span.sampling_result");
+
   /**
    * Name of the code, either "OK" or "ERROR". MUST NOT be set if the status code is UNSET.
    *
@@ -67,6 +108,40 @@ public final class OtelIncubatingAttributes {
       stringKey("otel.status_description");
 
   // Enum definitions
+  /** Values for {@link #OTEL_COMPONENT_TYPE}. */
+  public static final class OtelComponentTypeIncubatingValues {
+    /** The builtin SDK Batching Span Processor */
+    public static final String BATCHING_SPAN_PROCESSOR = "batching_span_processor";
+
+    /** The builtin SDK Simple Span Processor */
+    public static final String SIMPLE_SPAN_PROCESSOR = "simple_span_processor";
+
+    /** OTLP span exporter over gRPC with protobuf serialization */
+    public static final String OTLP_GRPC_SPAN_EXPORTER = "otlp_grpc_span_exporter";
+
+    /** OTLP span exporter over HTTP with protobuf serialization */
+    public static final String OTLP_HTTP_SPAN_EXPORTER = "otlp_http_span_exporter";
+
+    /** OTLP span exporter over HTTP with JSON serialization */
+    public static final String OTLP_HTTP_JSON_SPAN_EXPORTER = "otlp_http_json_span_exporter";
+
+    private OtelComponentTypeIncubatingValues() {}
+  }
+
+  /** Values for {@link #OTEL_SPAN_SAMPLING_RESULT}. */
+  public static final class OtelSpanSamplingResultIncubatingValues {
+    /** The span is not sampled and not recording */
+    public static final String DROP = "DROP";
+
+    /** The span is not sampled, but recording */
+    public static final String RECORD_ONLY = "RECORD_ONLY";
+
+    /** The span is sampled and recording */
+    public static final String RECORD_AND_SAMPLE = "RECORD_AND_SAMPLE";
+
+    private OtelSpanSamplingResultIncubatingValues() {}
+  }
+
   /**
    * Values for {@link #OTEL_STATUS_CODE}.
    *

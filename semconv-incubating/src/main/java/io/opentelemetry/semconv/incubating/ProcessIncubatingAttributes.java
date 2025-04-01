@@ -91,9 +91,9 @@ public final class ProcessIncubatingAttributes {
       stringKey("process.executable.build_id.profiling");
 
   /**
-   * The name of the process executable. On Linux based systems, can be set to the {@code Name} in
-   * {@code proc/[pid]/status}. On Windows, can be set to the base name of {@code
-   * GetProcessImageFileNameW}.
+   * The name of the process executable. On Linux based systems, this SHOULD be set to the base name
+   * of the target of {@code /proc/[pid]/exe}. On Windows, this SHOULD be set to the base name of
+   * {@code GetProcessImageFileNameW}.
    */
   public static final AttributeKey<String> PROCESS_EXECUTABLE_NAME =
       stringKey("process.executable.name");

@@ -162,7 +162,7 @@ public final class UrlIncubatingAttributes {
    *
    * <p>Notes:
    *
-   * <p>This value can be determined precisely with the <a href="http://publicsuffix.org">public
+   * <p>This value can be determined precisely with the <a href="https://publicsuffix.org/">public
    * suffix list</a>. For example, the registered domain for {@code foo.example.com} is {@code
    * example.com}. Trying to approximate this by simply taking the last two labels will not work
    * well for TLDs such as {@code co.uk}.
@@ -205,7 +205,7 @@ public final class UrlIncubatingAttributes {
    *
    * <p>Notes:
    *
-   * <p>This value can be determined precisely with the <a href="http://publicsuffix.org">public
+   * <p>This value can be determined precisely with the <a href="https://publicsuffix.org/">public
    * suffix list</a>.
    */
   public static final AttributeKey<String> URL_TOP_LEVEL_DOMAIN = stringKey("url.top_level_domain");
