@@ -29,10 +29,12 @@ public final class ProfileIncubatingAttributes {
     public static final String KERNEL = "kernel";
 
     /**
-     * <a href="https://wikipedia.org/wiki/C_(programming_language)">C</a>, <a
+     * Can be one of but not limited to <a
+     * href="https://wikipedia.org/wiki/C_(programming_language)">C</a>, <a
      * href="https://wikipedia.org/wiki/C%2B%2B">C++</a>, <a
-     * href="https://wikipedia.org/wiki/Go_(programming_language)">Go</a>, <a
-     * href="https://wikipedia.org/wiki/Rust_(programming_language)">Rust</a>
+     * href="https://wikipedia.org/wiki/Go_(programming_language)">Go</a> or <a
+     * href="https://wikipedia.org/wiki/Rust_(programming_language)">Rust</a>. If possible, a more
+     * precise value MUST be used.
      */
     public static final String NATIVE = "native";
 
@@ -53,6 +55,12 @@ public final class ProfileIncubatingAttributes {
 
     /** <a href="https://en.wikipedia.org/wiki/BEAM_(Erlang_virtual_machine)">Erlang</a> */
     public static final String BEAM = "beam";
+
+    /** <a href="https://wikipedia.org/wiki/Go_(programming_language)">Go</a>, */
+    public static final String GO = "go";
+
+    /** <a href="https://wikipedia.org/wiki/Rust_(programming_language)">Rust</a> */
+    public static final String RUST = "rust";
 
     private ProfileFrameTypeIncubatingValues() {}
   }

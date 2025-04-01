@@ -31,6 +31,12 @@ public final class VcsIncubatingAttributes {
   /** The type of line change being measured on a branch or change. */
   public static final AttributeKey<String> VCS_LINE_CHANGE_TYPE = stringKey("vcs.line_change.type");
 
+  /** The group owner within the version control system. */
+  public static final AttributeKey<String> VCS_OWNER_NAME = stringKey("vcs.owner.name");
+
+  /** The name of the version control system provider. */
+  public static final AttributeKey<String> VCS_PROVIDER_NAME = stringKey("vcs.provider.name");
+
   /**
    * The name of the <a href="https://git-scm.com/docs/gitglossary#def_ref">reference</a> such as
    * <strong>branch</strong> or <strong>tag</strong> in the repository.
@@ -237,6 +243,23 @@ public final class VcsIncubatingAttributes {
     public static final String REMOVED = "removed";
 
     private VcsLineChangeTypeIncubatingValues() {}
+  }
+
+  /** Values for {@link #VCS_PROVIDER_NAME}. */
+  public static final class VcsProviderNameIncubatingValues {
+    /** <a href="https://github.com">GitHub</a> */
+    public static final String GITHUB = "github";
+
+    /** <a href="https://gitlab.com">GitLab</a> */
+    public static final String GITLAB = "gitlab";
+
+    /** <a href="https://gitea.io">Gitea</a> */
+    public static final String GITTEA = "gittea";
+
+    /** <a href="https://bitbucket.org">Bitbucket</a> */
+    public static final String BITBUCKET = "bitbucket";
+
+    private VcsProviderNameIncubatingValues() {}
   }
 
   /** Values for {@link #VCS_REF_BASE_TYPE}. */

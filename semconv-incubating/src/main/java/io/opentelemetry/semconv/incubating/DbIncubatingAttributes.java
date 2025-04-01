@@ -342,6 +342,9 @@ public final class DbIncubatingAttributes {
    * <p>The operation name SHOULD NOT be extracted from {@code db.query.text}, when the database
    * system supports cross-table queries in non-batch operations.
    *
+   * <p>If spaces can occur in the operation name, multiple consecutive spaces SHOULD be normalized
+   * to a single space.
+   *
    * <p>For batch operations, if the individual operations are known to have the same operation name
    * then that operation name SHOULD be used prepended by {@code BATCH }, otherwise {@code
    * db.operation.name} SHOULD be {@code BATCH} or some other database system specific term if more
@@ -358,7 +361,8 @@ public final class DbIncubatingAttributes {
    * <p>If a parameter has no name and instead is referenced only by index, then {@code <key>}
    * SHOULD be the 0-based index. If {@code db.query.text} is also captured, then {@code
    * db.operation.parameter.<key>} SHOULD match up with the parameterized placeholders present in
-   * {@code db.query.text}.
+   * {@code db.query.text}. {@code db.operation.parameter.<key>} SHOULD NOT be captured on batch
+   * operations.
    */
   public static final AttributeKeyTemplate<String> DB_OPERATION_PARAMETER =
       stringKeyTemplate("db.operation.parameter");
@@ -432,9 +436,11 @@ public final class DbIncubatingAttributes {
       stringKey("db.response.status_code");
 
   /**
-   * Deprecated, use {@code db.collection.name} instead.
+   * Deprecated, use {@code db.collection.name} instead, but only if not extracting the value from
+   * {@code db.query.text}.
    *
-   * @deprecated Replaced by {@code db.collection.name}.
+   * @deprecated Replaced by {@code db.collection.name}, but only if not extracting the value from
+   *     {@code db.query.text}.
    */
   @Deprecated public static final AttributeKey<String> DB_SQL_TABLE = stringKey("db.sql.table");
 
@@ -444,6 +450,20 @@ public final class DbIncubatingAttributes {
    * @deprecated Replaced by {@code db.query.text}.
    */
   @Deprecated public static final AttributeKey<String> DB_STATEMENT = stringKey("db.statement");
+
+  /**
+   * The name of a stored procedure within the database.
+   *
+   * <p>Notes:
+   *
+   * <p>It is RECOMMENDED to capture the value as provided by the application without attempting to
+   * do any case normalization.
+   *
+   * <p>For batch operations, if the individual operations are known to have the same stored
+   * procedure name then that stored procedure name SHOULD be used.
+   */
+  public static final AttributeKey<String> DB_STORED_PROCEDURE_NAME =
+      stringKey("db.stored_procedure.name");
 
   /**
    * Deprecated, use {@code db.system.name} instead.

@@ -17,6 +17,7 @@ public class IncubatingAvailabilityTest {
   @Test
   void available() {
     isValidClass("io.opentelemetry.semconv.incubating.AndroidIncubatingAttributes");
+    isValidClass("io.opentelemetry.semconv.incubating.AppIncubatingAttributes");
     isValidClass("io.opentelemetry.semconv.incubating.ArtifactIncubatingAttributes");
     isValidClass("io.opentelemetry.semconv.incubating.AwsIncubatingAttributes");
     isValidClass("io.opentelemetry.semconv.incubating.AzIncubatingAttributes");
@@ -31,6 +32,7 @@ public class IncubatingAvailabilityTest {
     isValidClass("io.opentelemetry.semconv.incubating.CodeIncubatingAttributes");
     isValidClass("io.opentelemetry.semconv.incubating.ContainerIncubatingAttributes");
     isValidClass("io.opentelemetry.semconv.incubating.CpuIncubatingAttributes");
+    isValidClass("io.opentelemetry.semconv.incubating.CpythonIncubatingAttributes");
     isValidClass("io.opentelemetry.semconv.incubating.DbIncubatingAttributes");
     isValidClass("io.opentelemetry.semconv.incubating.DeploymentIncubatingAttributes");
     isValidClass("io.opentelemetry.semconv.incubating.DestinationIncubatingAttributes");

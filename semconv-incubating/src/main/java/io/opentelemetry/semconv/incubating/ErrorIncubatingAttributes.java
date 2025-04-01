@@ -14,6 +14,20 @@ import io.opentelemetry.api.common.AttributeKey;
 @SuppressWarnings("unused")
 public final class ErrorIncubatingAttributes {
   /**
+   * A message providing more detail about an error in human-readable form.
+   *
+   * <p>Notes:
+   *
+   * <p>{@code error.message} should provide additional context and detail about an error. It is NOT
+   * RECOMMENDED to duplicate the value of {@code error.type} in {@code error.message}. It is also
+   * NOT RECOMMENDED to duplicate the value of {@code exception.message} in {@code error.message}.
+   *
+   * <p>{@code error.message} is NOT RECOMMENDED for metrics or spans due to its unbounded
+   * cardinality and overlap with span status.
+   */
+  public static final AttributeKey<String> ERROR_MESSAGE = stringKey("error.message");
+
+  /**
    * Describes a class of error the operation ended with.
    *
    * <p>Notes:
