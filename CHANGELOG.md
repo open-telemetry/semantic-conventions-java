@@ -2,6 +2,25 @@
 
 ## Unreleased
 
+* Bump to semantic-conventions v1.31.0
+  ([#189](https://github.com/open-telemetry/semantic-conventions-java/pull/189)))
+*  Harden GitHub Actions
+  ([#152](https://github.com/open-telemetry/semantic-conventions-java/pull/152),
+   [#153](https://github.com/open-telemetry/semantic-conventions-java/pull/153),
+   [#155](https://github.com/open-telemetry/semantic-conventions-java/pull/155))
+* Add OSSF scorecard workflow
+  ([#156](https://github.com/open-telemetry/semantic-conventions-java/pull/156))
+* Add codeql
+  ([#157](https://github.com/open-telemetry/semantic-conventions-java/pull/157))
+* Restrict token permissions
+  ([#161](https://github.com/open-telemetry/semantic-conventions-java/pull/161))
+* Run gradle wrapper check all the time
+  ([#159](https://github.com/open-telemetry/semantic-conventions-java/pull/159))
+* Add FOSSA license scanning
+  ([#163](https://github.com/open-telemetry/semantic-conventions-java/pull/163))
+* Update to weaver 0.13.2 and enable javadoc validation
+  ([#174](https://github.com/open-telemetry/semantic-conventions-java/pull/174))
+
 ## Version 1.30.0 (2025-02-18)
 
 See [1.30.0-rc.1](#version-1300-rc1-2025-01-27). No additional changes.
