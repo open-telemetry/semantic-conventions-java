@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+## Version 1.32.0 (2025-04-02)
+
 * Bump to semantic-conventions v1.32.0
   ([#192](https://github.com/open-telemetry/semantic-conventions-java/pull/192)))
 
