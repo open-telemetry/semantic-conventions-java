@@ -65,7 +65,7 @@ public final class CodeIncubatingAttributes {
    *   <li>Java method: {@code com.example.MyHttpService.serveRequest}
    *   <li>Java anonymous class method: {@code com.mycompany.Main$1.myMethod}
    *   <li>Java lambda method: {@code com.mycompany.Main$$Lambda/0x0000748ae4149c00.myMethod}
-   *   <li>PHP function: `GuzzleHttp\Client::transfer
+   *   <li>PHP function: {@code GuzzleHttp\Client::transfer}
    *   <li>Go function: {@code github.com/my/repo/pkg.foo.func5}
    *   <li>Elixir: {@code OpenTelemetry.Ctx.new}
    *   <li>Erlang: {@code opentelemetry_ctx:new}

@@ -116,6 +116,12 @@ public final class OtelIncubatingAttributes {
     /** The builtin SDK Simple Span Processor */
     public static final String SIMPLE_SPAN_PROCESSOR = "simple_span_processor";
 
+    /** The builtin SDK Batching LogRecord Processor */
+    public static final String BATCHING_LOG_PROCESSOR = "batching_log_processor";
+
+    /** The builtin SDK Simple LogRecord Processor */
+    public static final String SIMPLE_LOG_PROCESSOR = "simple_log_processor";
+
     /** OTLP span exporter over gRPC with protobuf serialization */
     public static final String OTLP_GRPC_SPAN_EXPORTER = "otlp_grpc_span_exporter";
 
@@ -124,6 +130,15 @@ public final class OtelIncubatingAttributes {
 
     /** OTLP span exporter over HTTP with JSON serialization */
     public static final String OTLP_HTTP_JSON_SPAN_EXPORTER = "otlp_http_json_span_exporter";
+
+    /** OTLP LogRecord exporter over gRPC with protobuf serialization */
+    public static final String OTLP_GRPC_LOG_EXPORTER = "otlp_grpc_log_exporter";
+
+    /** OTLP LogRecord exporter over HTTP with protobuf serialization */
+    public static final String OTLP_HTTP_LOG_EXPORTER = "otlp_http_log_exporter";
+
+    /** OTLP LogRecord exporter over HTTP with JSON serialization */
+    public static final String OTLP_HTTP_JSON_LOG_EXPORTER = "otlp_http_json_log_exporter";
 
     private OtelComponentTypeIncubatingValues() {}
   }
