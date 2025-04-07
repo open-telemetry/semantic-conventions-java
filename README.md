@@ -12,10 +12,10 @@ Java code-generation for the [OpenTelemetry Semantic Conventions](https://github
 
 Published releases are available on maven central. Replace `{{version}}` with the latest released version:
 
-| Artifact `{group}:{artifactId}:{version}`                                     | Latest Version                                                   | Description                                                                                                                                                                                                                                                                                      |
-|-------------------------------------------------------------------------------|------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `io.opentelemetry.semconv:opentelemetry-semconv:{{version}}`                  | [![Maven Central][maven-image-stable]][maven-url-stable]         | Generated code for stable semantic conventions.                                                                                                                                                                                                                                                  |        
-| `io.opentelemetry.semconv:opentelemetry-semconv-incubating:{{version}}-alpha` | [![Maven Central][maven-image-incubating]][maven-url-incubating] | Generated code for experimental semantic conventions.</br>**NOTE:** This artifact has the [-alpha][versioning] and comes with no compatibility guarantees. Libraries can use this for testing, but should make copies of the attributes to avoid possible runtime errors from version conflicts. |        
+| Artifact `{group}:{artifactId}:{version}`                                     | Latest Version                           | Description                                                                                                                                                                                                                                                                                      |
+|-------------------------------------------------------------------------------|------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `io.opentelemetry.semconv:opentelemetry-semconv:{{version}}`                  | ![Maven Central][maven-badge-stable]     | Generated code for stable semantic conventions.                                                                                                                                                                                                                                                  |        
+| `io.opentelemetry.semconv:opentelemetry-semconv-incubating:{{version}}-alpha` | ![Maven Central][maven-badge-incubating] | Generated code for experimental semantic conventions.</br>**NOTE:** This artifact has the [-alpha][versioning] and comes with no compatibility guarantees. Libraries can use this for testing, but should make copies of the attributes to avoid possible runtime errors from version conflicts. |        
 
 
 ### Maven
@@ -104,10 +104,9 @@ of [open-telemetry/opentelemetry-java](https://github.com/open-telemetry/opentel
 See [opentelemetry-java contributors](https://github.com/open-telemetry/opentelemetry-java#contributing)
 for code owners.
 
-[maven-image-stable]: https://maven-badges.herokuapp.com/maven-central/io.opentelemetry.semconv/opentelemetry-semconv/badge.svg
-[maven-url-stable]: https://maven-badges.herokuapp.com/maven-central/io.opentelemetry.semconv/opentelemetry-semconv
-[maven-image-incubating]: https://maven-badges.herokuapp.com/maven-central/io.opentelemetry.semconv/opentelemetry-semconv-incubating/badge.svg
-[maven-url-incubating]: https://maven-badges.herokuapp.com/maven-central/io.opentelemetry.semconv/opentelemetry-semconv-incubating
+[maven-badge-stable]: https://img.shields.io/maven-central/v/io.opentelemetry.semconv/opentelemetry-semconv
+[maven-badge-incubating]: https://img.shields.io/maven-central/v/io.opentelemetry.semconv/opentelemetry-semconv-incubating
+
 [versioning]: https://github.com/open-telemetry/opentelemetry-java/blob/main/VERSIONING.md
 
 TODO(jack-berg): add code coverage badge?
