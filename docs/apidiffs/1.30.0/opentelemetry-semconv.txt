@@ -1,4 +1,8 @@
+<<<<<<< Updated upstream:docs/apidiffs/current_vs_latest/opentelemetry-semconv.txt
 Comparing source compatibility of opentelemetry-semconv-1.32.0-SNAPSHOT.jar against 
+=======
+Comparing source compatibility of opentelemetry-semconv-1.30.0.jar against 
+>>>>>>> Stashed changes:docs/apidiffs/1.30.0/opentelemetry-semconv.txt
 +++  NEW CLASS: PUBLIC(+) FINAL(+) io.opentelemetry.semconv.AttributeKeyTemplate  (not serializable)
 	+++  CLASS FILE FORMAT VERSION: 52.0 <- n.a.
 	GENERIC TEMPLATES: +++ T:java.lang.Object
