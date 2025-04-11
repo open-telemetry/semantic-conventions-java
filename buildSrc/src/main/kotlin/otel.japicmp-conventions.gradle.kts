@@ -73,17 +73,16 @@ if (!project.hasProperty("otel.release")) {
         // the japicmp "old" version is either the user-specified one, or the latest release.
         val apiBaseVersion: String? by project
         val baselineVersion = apiBaseVersion ?: latestReleasedVersion
-        // TODO: uncomment after first stable release
-        // oldClasspath.from(
-        //    try {
-        //      files(findArtifact(baselineVersion))
-        //    } catch (e: Exception) {
-        //      // if we can't find the baseline artifact, this is probably one that's never been published before,
-        //      // so publish the whole API. We do that by flipping this flag, and comparing the current against nothing.
-        //      onlyModified.set(false)
-        //      files()
-        //    },
-        // )
+         oldClasspath.from(
+            try {
+              files(findArtifact(baselineVersion))
+            } catch (e: Exception) {
+              // if we can't find the baseline artifact, this is probably one that's never been published before,
+              // so publish the whole API. We do that by flipping this flag, and comparing the current against nothing.
+              onlyModified.set(false)
+              files()
+            },
+         )
 
         // Reproduce defaults from https://github.com/melix/japicmp-gradle-plugin/blob/09f52739ef1fccda6b4310cf3f4b19dc97377024/src/main/java/me/champeau/gradle/japicmp/report/ViolationsGenerator.java#L130
         // with some changes.
@@ -110,9 +109,6 @@ if (!project.hasProperty("otel.release")) {
 
         // this is needed so that we only consider the current artifact, and not dependencies
         ignoreMissingClasses.set(true)
-        // TODO: remove exclusions after first stable release
-        classExcludes.add("io.opentelemetry.semconv.ResourceAttributes")
-        classExcludes.add("io.opentelemetry.semconv.SemanticAttributes")
         val baseVersionString = if (apiBaseVersion == null) "latest" else baselineVersion
         txtOutputFile.set(
             apiNewVersion?.let { file("$rootDir/docs/apidiffs/${apiNewVersion}_vs_$baselineVersion/${base.archivesName.get()}.txt") }
