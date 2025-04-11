@@ -1,0 +1,170 @@
+Comparing source compatibility of opentelemetry-semconv-1.30.0.jar against
++++  NEW CLASS: PUBLIC(+) FINAL(+) io.opentelemetry.semconv.AttributeKeyTemplate  (not serializable)
+	+++  CLASS FILE FORMAT VERSION: 52.0 <- n.a.
+	GENERIC TEMPLATES: +++ T:java.lang.Object
+	+++  NEW SUPERCLASS: java.lang.Object
+	+++  NEW METHOD: PUBLIC(+) STATIC(+) io.opentelemetry.semconv.AttributeKeyTemplate<java.util.List<java.lang.Boolean>> booleanArrayKeyTemplate(java.lang.String)
+	+++  NEW METHOD: PUBLIC(+) STATIC(+) io.opentelemetry.semconv.AttributeKeyTemplate<java.lang.Boolean> booleanKeyTemplate(java.lang.String)
+	+++  NEW METHOD: PUBLIC(+) STATIC(+) io.opentelemetry.semconv.AttributeKeyTemplate<java.util.List<java.lang.Double>> doubleArrayKeyTemplate(java.lang.String)
+	+++  NEW METHOD: PUBLIC(+) STATIC(+) io.opentelemetry.semconv.AttributeKeyTemplate<java.lang.Double> doubleKeyTemplate(java.lang.String)
+	+++  NEW METHOD: PUBLIC(+) io.opentelemetry.api.common.AttributeKey<T> getAttributeKey(java.lang.String)
+	+++  NEW METHOD: PUBLIC(+) STATIC(+) io.opentelemetry.semconv.AttributeKeyTemplate<java.util.List<java.lang.Long>> longArrayKeyTemplate(java.lang.String)
+	+++  NEW METHOD: PUBLIC(+) STATIC(+) io.opentelemetry.semconv.AttributeKeyTemplate<java.lang.Long> longKeyTemplate(java.lang.String)
+	+++  NEW METHOD: PUBLIC(+) STATIC(+) io.opentelemetry.semconv.AttributeKeyTemplate<java.util.List<java.lang.String>> stringArrayKeyTemplate(java.lang.String)
+	+++  NEW METHOD: PUBLIC(+) STATIC(+) io.opentelemetry.semconv.AttributeKeyTemplate<java.lang.String> stringKeyTemplate(java.lang.String)
++++  NEW CLASS: PUBLIC(+) FINAL(+) io.opentelemetry.semconv.ClientAttributes  (not serializable)
+	+++  CLASS FILE FORMAT VERSION: 52.0 <- n.a.
+	+++  NEW SUPERCLASS: java.lang.Object
+	+++  NEW FIELD: PUBLIC(+) STATIC(+) FINAL(+) io.opentelemetry.api.common.AttributeKey<java.lang.String> CLIENT_ADDRESS
+	+++  NEW FIELD: PUBLIC(+) STATIC(+) FINAL(+) io.opentelemetry.api.common.AttributeKey<java.lang.Long> CLIENT_PORT
++++  NEW CLASS: PUBLIC(+) FINAL(+) io.opentelemetry.semconv.ErrorAttributes  (not serializable)
+	+++  CLASS FILE FORMAT VERSION: 52.0 <- n.a.
+	+++  NEW SUPERCLASS: java.lang.Object
+	+++  NEW FIELD: PUBLIC(+) STATIC(+) FINAL(+) io.opentelemetry.api.common.AttributeKey<java.lang.String> ERROR_TYPE
++++  NEW CLASS: PUBLIC(+) STATIC(+) FINAL(+) io.opentelemetry.semconv.ErrorAttributes$ErrorTypeValues  (not serializable)
+	+++  CLASS FILE FORMAT VERSION: 52.0 <- n.a.
+	+++  NEW SUPERCLASS: java.lang.Object
+	+++  NEW FIELD: PUBLIC(+) STATIC(+) FINAL(+) java.lang.String OTHER
++++  NEW CLASS: PUBLIC(+) FINAL(+) io.opentelemetry.semconv.ExceptionAttributes  (not serializable)
+	+++  CLASS FILE FORMAT VERSION: 52.0 <- n.a.
+	+++  NEW SUPERCLASS: java.lang.Object
+	+++  NEW FIELD: PUBLIC(+) STATIC(+) FINAL(+) io.opentelemetry.api.common.AttributeKey<java.lang.String> EXCEPTION_TYPE
+	+++  NEW FIELD: PUBLIC(+) STATIC(+) FINAL(+) io.opentelemetry.api.common.AttributeKey<java.lang.String> EXCEPTION_STACKTRACE
+	+++  NEW FIELD: PUBLIC(+) STATIC(+) FINAL(+) io.opentelemetry.api.common.AttributeKey<java.lang.String> EXCEPTION_MESSAGE
++++  NEW CLASS: PUBLIC(+) FINAL(+) io.opentelemetry.semconv.HttpAttributes  (not serializable)
+	+++  CLASS FILE FORMAT VERSION: 52.0 <- n.a.
+	+++  NEW SUPERCLASS: java.lang.Object
+	+++  NEW FIELD: PUBLIC(+) STATIC(+) FINAL(+) io.opentelemetry.api.common.AttributeKey<java.lang.String> HTTP_ROUTE
+	+++  NEW FIELD: PUBLIC(+) STATIC(+) FINAL(+) io.opentelemetry.api.common.AttributeKey<java.lang.String> HTTP_REQUEST_METHOD
+	+++  NEW FIELD: PUBLIC(+) STATIC(+) FINAL(+) io.opentelemetry.api.common.AttributeKey<java.lang.Long> HTTP_RESPONSE_STATUS_CODE
+	+++  NEW FIELD: PUBLIC(+) STATIC(+) FINAL(+) io.opentelemetry.api.common.AttributeKey<java.lang.Long> HTTP_REQUEST_RESEND_COUNT
+	+++  NEW FIELD: PUBLIC(+) STATIC(+) FINAL(+) io.opentelemetry.semconv.AttributeKeyTemplate<java.util.List<java.lang.String>> HTTP_REQUEST_HEADER
+	+++  NEW FIELD: PUBLIC(+) STATIC(+) FINAL(+) io.opentelemetry.api.common.AttributeKey<java.lang.String> HTTP_REQUEST_METHOD_ORIGINAL
+	+++  NEW FIELD: PUBLIC(+) STATIC(+) FINAL(+) io.opentelemetry.semconv.AttributeKeyTemplate<java.util.List<java.lang.String>> HTTP_RESPONSE_HEADER
++++  NEW CLASS: PUBLIC(+) STATIC(+) FINAL(+) io.opentelemetry.semconv.HttpAttributes$HttpRequestMethodValues  (not serializable)
+	+++  CLASS FILE FORMAT VERSION: 52.0 <- n.a.
+	+++  NEW SUPERCLASS: java.lang.Object
+	+++  NEW FIELD: PUBLIC(+) STATIC(+) FINAL(+) java.lang.String TRACE
+	+++  NEW FIELD: PUBLIC(+) STATIC(+) FINAL(+) java.lang.String OTHER
+	+++  NEW FIELD: PUBLIC(+) STATIC(+) FINAL(+) java.lang.String HEAD
+	+++  NEW FIELD: PUBLIC(+) STATIC(+) FINAL(+) java.lang.String DELETE
+	+++  NEW FIELD: PUBLIC(+) STATIC(+) FINAL(+) java.lang.String POST
+	+++  NEW FIELD: PUBLIC(+) STATIC(+) FINAL(+) java.lang.String GET
+	+++  NEW FIELD: PUBLIC(+) STATIC(+) FINAL(+) java.lang.String CONNECT
+	+++  NEW FIELD: PUBLIC(+) STATIC(+) FINAL(+) java.lang.String OPTIONS
+	+++  NEW FIELD: PUBLIC(+) STATIC(+) FINAL(+) java.lang.String PATCH
+	+++  NEW FIELD: PUBLIC(+) STATIC(+) FINAL(+) java.lang.String PUT
++++  NEW CLASS: PUBLIC(+) FINAL(+) io.opentelemetry.semconv.JvmAttributes  (not serializable)
+	+++  CLASS FILE FORMAT VERSION: 52.0 <- n.a.
+	+++  NEW SUPERCLASS: java.lang.Object
+	+++  NEW FIELD: PUBLIC(+) STATIC(+) FINAL(+) io.opentelemetry.api.common.AttributeKey<java.lang.String> JVM_MEMORY_TYPE
+	+++  NEW FIELD: PUBLIC(+) STATIC(+) FINAL(+) io.opentelemetry.api.common.AttributeKey<java.lang.String> JVM_MEMORY_POOL_NAME
+	+++  NEW FIELD: PUBLIC(+) STATIC(+) FINAL(+) io.opentelemetry.api.common.AttributeKey<java.lang.String> JVM_THREAD_STATE
+	+++  NEW FIELD: PUBLIC(+) STATIC(+) FINAL(+) io.opentelemetry.api.common.AttributeKey<java.lang.String> JVM_GC_NAME
+	+++  NEW FIELD: PUBLIC(+) STATIC(+) FINAL(+) io.opentelemetry.api.common.AttributeKey<java.lang.Boolean> JVM_THREAD_DAEMON
+	+++  NEW FIELD: PUBLIC(+) STATIC(+) FINAL(+) io.opentelemetry.api.common.AttributeKey<java.lang.String> JVM_GC_ACTION
++++  NEW CLASS: PUBLIC(+) STATIC(+) FINAL(+) io.opentelemetry.semconv.JvmAttributes$JvmMemoryTypeValues  (not serializable)
+	+++  CLASS FILE FORMAT VERSION: 52.0 <- n.a.
+	+++  NEW SUPERCLASS: java.lang.Object
+	+++  NEW FIELD: PUBLIC(+) STATIC(+) FINAL(+) java.lang.String NON_HEAP
+	+++  NEW FIELD: PUBLIC(+) STATIC(+) FINAL(+) java.lang.String HEAP
++++  NEW CLASS: PUBLIC(+) STATIC(+) FINAL(+) io.opentelemetry.semconv.JvmAttributes$JvmThreadStateValues  (not serializable)
+	+++  CLASS FILE FORMAT VERSION: 52.0 <- n.a.
+	+++  NEW SUPERCLASS: java.lang.Object
+	+++  NEW FIELD: PUBLIC(+) STATIC(+) FINAL(+) java.lang.String NEW
+	+++  NEW FIELD: PUBLIC(+) STATIC(+) FINAL(+) java.lang.String TERMINATED
+	+++  NEW FIELD: PUBLIC(+) STATIC(+) FINAL(+) java.lang.String RUNNABLE
+	+++  NEW FIELD: PUBLIC(+) STATIC(+) FINAL(+) java.lang.String BLOCKED
+	+++  NEW FIELD: PUBLIC(+) STATIC(+) FINAL(+) java.lang.String WAITING
+	+++  NEW FIELD: PUBLIC(+) STATIC(+) FINAL(+) java.lang.String TIMED_WAITING
++++  NEW CLASS: PUBLIC(+) FINAL(+) io.opentelemetry.semconv.NetworkAttributes  (not serializable)
+	+++  CLASS FILE FORMAT VERSION: 52.0 <- n.a.
+	+++  NEW SUPERCLASS: java.lang.Object
+	+++  NEW FIELD: PUBLIC(+) STATIC(+) FINAL(+) io.opentelemetry.api.common.AttributeKey<java.lang.String> NETWORK_LOCAL_ADDRESS
+	+++  NEW FIELD: PUBLIC(+) STATIC(+) FINAL(+) io.opentelemetry.api.common.AttributeKey<java.lang.String> NETWORK_PEER_ADDRESS
+	+++  NEW FIELD: PUBLIC(+) STATIC(+) FINAL(+) io.opentelemetry.api.common.AttributeKey<java.lang.String> NETWORK_TYPE
+	+++  NEW FIELD: PUBLIC(+) STATIC(+) FINAL(+) io.opentelemetry.api.common.AttributeKey<java.lang.String> NETWORK_PROTOCOL_VERSION
+	+++  NEW FIELD: PUBLIC(+) STATIC(+) FINAL(+) io.opentelemetry.api.common.AttributeKey<java.lang.Long> NETWORK_LOCAL_PORT
+	+++  NEW FIELD: PUBLIC(+) STATIC(+) FINAL(+) io.opentelemetry.api.common.AttributeKey<java.lang.Long> NETWORK_PEER_PORT
+	+++  NEW FIELD: PUBLIC(+) STATIC(+) FINAL(+) io.opentelemetry.api.common.AttributeKey<java.lang.String> NETWORK_TRANSPORT
+	+++  NEW FIELD: PUBLIC(+) STATIC(+) FINAL(+) io.opentelemetry.api.common.AttributeKey<java.lang.String> NETWORK_PROTOCOL_NAME
++++  NEW CLASS: PUBLIC(+) STATIC(+) FINAL(+) io.opentelemetry.semconv.NetworkAttributes$NetworkTransportValues  (not serializable)
+	+++  CLASS FILE FORMAT VERSION: 52.0 <- n.a.
+	+++  NEW SUPERCLASS: java.lang.Object
+	+++  NEW FIELD: PUBLIC(+) STATIC(+) FINAL(+) java.lang.String TCP
+	+++  NEW FIELD: PUBLIC(+) STATIC(+) FINAL(+) java.lang.String UDP
+	+++  NEW FIELD: PUBLIC(+) STATIC(+) FINAL(+) java.lang.String QUIC
+	+++  NEW FIELD: PUBLIC(+) STATIC(+) FINAL(+) java.lang.String PIPE
+	+++  NEW FIELD: PUBLIC(+) STATIC(+) FINAL(+) java.lang.String UNIX
++++  NEW CLASS: PUBLIC(+) STATIC(+) FINAL(+) io.opentelemetry.semconv.NetworkAttributes$NetworkTypeValues  (not serializable)
+	+++  CLASS FILE FORMAT VERSION: 52.0 <- n.a.
+	+++  NEW SUPERCLASS: java.lang.Object
+	+++  NEW FIELD: PUBLIC(+) STATIC(+) FINAL(+) java.lang.String IPV6
+	+++  NEW FIELD: PUBLIC(+) STATIC(+) FINAL(+) java.lang.String IPV4
++++  NEW CLASS: PUBLIC(+) FINAL(+) io.opentelemetry.semconv.OtelAttributes  (not serializable)
+	+++  CLASS FILE FORMAT VERSION: 52.0 <- n.a.
+	+++  NEW SUPERCLASS: java.lang.Object
+	+++  NEW FIELD: PUBLIC(+) STATIC(+) FINAL(+) io.opentelemetry.api.common.AttributeKey<java.lang.String> OTEL_SCOPE_NAME
+	+++  NEW FIELD: PUBLIC(+) STATIC(+) FINAL(+) io.opentelemetry.api.common.AttributeKey<java.lang.String> OTEL_STATUS_DESCRIPTION
+	+++  NEW FIELD: PUBLIC(+) STATIC(+) FINAL(+) io.opentelemetry.api.common.AttributeKey<java.lang.String> OTEL_STATUS_CODE
+	+++  NEW FIELD: PUBLIC(+) STATIC(+) FINAL(+) io.opentelemetry.api.common.AttributeKey<java.lang.String> OTEL_SCOPE_VERSION
++++  NEW CLASS: PUBLIC(+) STATIC(+) FINAL(+) io.opentelemetry.semconv.OtelAttributes$OtelStatusCodeValues  (not serializable)
+	+++  CLASS FILE FORMAT VERSION: 52.0 <- n.a.
+	+++  NEW SUPERCLASS: java.lang.Object
+	+++  NEW FIELD: PUBLIC(+) STATIC(+) FINAL(+) java.lang.String ERROR
+	+++  NEW FIELD: PUBLIC(+) STATIC(+) FINAL(+) java.lang.String OK
++++  NEW CLASS: PUBLIC(+) FINAL(+) io.opentelemetry.semconv.SchemaUrls  (not serializable)
+	+++  CLASS FILE FORMAT VERSION: 52.0 <- n.a.
+	+++  NEW SUPERCLASS: java.lang.Object
+	+++  NEW FIELD: PUBLIC(+) STATIC(+) FINAL(+) java.lang.String V1_24_0
+	+++  NEW FIELD: PUBLIC(+) STATIC(+) FINAL(+) java.lang.String V1_30_0
+	+++  NEW FIELD: PUBLIC(+) STATIC(+) FINAL(+) java.lang.String V1_31_0
+	+++  NEW FIELD: PUBLIC(+) STATIC(+) FINAL(+) java.lang.String V1_29_0
+	+++  NEW FIELD: PUBLIC(+) STATIC(+) FINAL(+) java.lang.String V1_32_0
+	+++  NEW FIELD: PUBLIC(+) STATIC(+) FINAL(+) java.lang.String V1_28_0
+	+++  NEW FIELD: PUBLIC(+) STATIC(+) FINAL(+) java.lang.String V1_27_0
+	+++  NEW FIELD: PUBLIC(+) STATIC(+) FINAL(+) java.lang.String V1_26_0
+	+++  NEW FIELD: PUBLIC(+) STATIC(+) FINAL(+) java.lang.String V1_25_0
++++  NEW CLASS: PUBLIC(+) FINAL(+) io.opentelemetry.semconv.ServerAttributes  (not serializable)
+	+++  CLASS FILE FORMAT VERSION: 52.0 <- n.a.
+	+++  NEW SUPERCLASS: java.lang.Object
+	+++  NEW FIELD: PUBLIC(+) STATIC(+) FINAL(+) io.opentelemetry.api.common.AttributeKey<java.lang.Long> SERVER_PORT
+	+++  NEW FIELD: PUBLIC(+) STATIC(+) FINAL(+) io.opentelemetry.api.common.AttributeKey<java.lang.String> SERVER_ADDRESS
++++  NEW CLASS: PUBLIC(+) FINAL(+) io.opentelemetry.semconv.ServiceAttributes  (not serializable)
+	+++  CLASS FILE FORMAT VERSION: 52.0 <- n.a.
+	+++  NEW SUPERCLASS: java.lang.Object
+	+++  NEW FIELD: PUBLIC(+) STATIC(+) FINAL(+) io.opentelemetry.api.common.AttributeKey<java.lang.String> SERVICE_NAME
+	+++  NEW FIELD: PUBLIC(+) STATIC(+) FINAL(+) io.opentelemetry.api.common.AttributeKey<java.lang.String> SERVICE_VERSION
++++  NEW CLASS: PUBLIC(+) FINAL(+) io.opentelemetry.semconv.TelemetryAttributes  (not serializable)
+	+++  CLASS FILE FORMAT VERSION: 52.0 <- n.a.
+	+++  NEW SUPERCLASS: java.lang.Object
+	+++  NEW FIELD: PUBLIC(+) STATIC(+) FINAL(+) io.opentelemetry.api.common.AttributeKey<java.lang.String> TELEMETRY_SDK_LANGUAGE
+	+++  NEW FIELD: PUBLIC(+) STATIC(+) FINAL(+) io.opentelemetry.api.common.AttributeKey<java.lang.String> TELEMETRY_SDK_VERSION
+	+++  NEW FIELD: PUBLIC(+) STATIC(+) FINAL(+) io.opentelemetry.api.common.AttributeKey<java.lang.String> TELEMETRY_SDK_NAME
++++  NEW CLASS: PUBLIC(+) STATIC(+) FINAL(+) io.opentelemetry.semconv.TelemetryAttributes$TelemetrySdkLanguageValues  (not serializable)
+	+++  CLASS FILE FORMAT VERSION: 52.0 <- n.a.
+	+++  NEW SUPERCLASS: java.lang.Object
+	+++  NEW FIELD: PUBLIC(+) STATIC(+) FINAL(+) java.lang.String JAVA
+	+++  NEW FIELD: PUBLIC(+) STATIC(+) FINAL(+) java.lang.String CPP
+	+++  NEW FIELD: PUBLIC(+) STATIC(+) FINAL(+) java.lang.String RUST
+	+++  NEW FIELD: PUBLIC(+) STATIC(+) FINAL(+) java.lang.String WEBJS
+	+++  NEW FIELD: PUBLIC(+) STATIC(+) FINAL(+) java.lang.String GO
+	+++  NEW FIELD: PUBLIC(+) STATIC(+) FINAL(+) java.lang.String NODEJS
+	+++  NEW FIELD: PUBLIC(+) STATIC(+) FINAL(+) java.lang.String PHP
+	+++  NEW FIELD: PUBLIC(+) STATIC(+) FINAL(+) java.lang.String SWIFT
+	+++  NEW FIELD: PUBLIC(+) STATIC(+) FINAL(+) java.lang.String RUBY
+	+++  NEW FIELD: PUBLIC(+) STATIC(+) FINAL(+) java.lang.String PYTHON
+	+++  NEW FIELD: PUBLIC(+) STATIC(+) FINAL(+) java.lang.String DOTNET
+	+++  NEW FIELD: PUBLIC(+) STATIC(+) FINAL(+) java.lang.String ERLANG
++++  NEW CLASS: PUBLIC(+) FINAL(+) io.opentelemetry.semconv.UrlAttributes  (not serializable)
+	+++  CLASS FILE FORMAT VERSION: 52.0 <- n.a.
+	+++  NEW SUPERCLASS: java.lang.Object
+	+++  NEW FIELD: PUBLIC(+) STATIC(+) FINAL(+) io.opentelemetry.api.common.AttributeKey<java.lang.String> URL_FULL
+	+++  NEW FIELD: PUBLIC(+) STATIC(+) FINAL(+) io.opentelemetry.api.common.AttributeKey<java.lang.String> URL_QUERY
+	+++  NEW FIELD: PUBLIC(+) STATIC(+) FINAL(+) io.opentelemetry.api.common.AttributeKey<java.lang.String> URL_PATH
+	+++  NEW FIELD: PUBLIC(+) STATIC(+) FINAL(+) io.opentelemetry.api.common.AttributeKey<java.lang.String> URL_FRAGMENT
+	+++  NEW FIELD: PUBLIC(+) STATIC(+) FINAL(+) io.opentelemetry.api.common.AttributeKey<java.lang.String> URL_SCHEME
++++  NEW CLASS: PUBLIC(+) FINAL(+) io.opentelemetry.semconv.UserAgentAttributes  (not serializable)
+	+++  CLASS FILE FORMAT VERSION: 52.0 <- n.a.
+	+++  NEW SUPERCLASS: java.lang.Object
+	+++  NEW FIELD: PUBLIC(+) STATIC(+) FINAL(+) io.opentelemetry.api.common.AttributeKey<java.lang.String> USER_AGENT_ORIGINAL
