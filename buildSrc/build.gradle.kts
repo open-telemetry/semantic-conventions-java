@@ -13,5 +13,5 @@ dependencies {
   implementation("ru.vyarus:gradle-animalsniffer-plugin:2.0.0")
   implementation("me.champeau.gradle:japicmp-gradle-plugin:0.4.6")
   // Needed for japicmp but not automatically brought in for some reason.
-  implementation("com.google.guava:guava:33.4.7-jre")
+  implementation("com.google.guava:guava:33.4.8-jre")
 }
