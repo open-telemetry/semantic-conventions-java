@@ -47,6 +47,7 @@ public final class ErrorAttributes {
   // Enum definition
   /** Values for {@link #ERROR_TYPE}. */
   public static final class ErrorTypeValues {
+
     /** A fallback error value to be used when the instrumentation doesn't define a custom value. */
     public static final String OTHER = "_OTHER";
 

@@ -184,6 +184,10 @@ public final class GenAiIncubatingAttributes {
   /** The tool call identifier. */
   public static final AttributeKey<String> GEN_AI_TOOL_CALL_ID = stringKey("gen_ai.tool.call.id");
 
+  /** The tool description. */
+  public static final AttributeKey<String> GEN_AI_TOOL_DESCRIPTION =
+      stringKey("gen_ai.tool.description");
+
   /** Name of the tool utilized by the agent. */
   public static final AttributeKey<String> GEN_AI_TOOL_NAME = stringKey("gen_ai.tool.name");
 
@@ -269,6 +273,12 @@ public final class GenAiIncubatingAttributes {
     public static final String CHAT = "chat";
 
     /**
+     * Multimodal content generation operation such as <a
+     * href="https://ai.google.dev/api/generate-content">Gemini Generate Content</a>
+     */
+    public static final String GENERATE_CONTENT = "generate_content";
+
+    /**
      * Text completions operation such as <a
      * href="https://platform.openai.com/docs/api-reference/completions">OpenAI Completions API
      * (Legacy)</a>
@@ -284,6 +294,9 @@ public final class GenAiIncubatingAttributes {
 
     /** Create GenAI agent */
     public static final String CREATE_AGENT = "create_agent";
+
+    /** Invoke GenAI agent */
+    public static final String INVOKE_AGENT = "invoke_agent";
 
     /** Execute a tool */
     public static final String EXECUTE_TOOL = "execute_tool";
@@ -312,6 +325,15 @@ public final class GenAiIncubatingAttributes {
   public static final class GenAiSystemIncubatingValues {
     /** OpenAI */
     public static final String OPENAI = "openai";
+
+    /** Any Google generative AI endpoint */
+    public static final String GCP_GEN_AI = "gcp.gen_ai";
+
+    /** Vertex AI */
+    public static final String GCP_VERTEX_AI = "gcp.vertex_ai";
+
+    /** Gemini */
+    public static final String GCP_GEMINI = "gcp.gemini";
 
     /** Vertex AI */
     public static final String VERTEX_AI = "vertex_ai";
