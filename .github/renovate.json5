@@ -1,34 +1,37 @@
 {
-  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": [
-    "config:best-practices",
-    "helpers:pinGitHubActionDigestsToSemver"
+  $schema: 'https://docs.renovatebot.com/renovate-schema.json',
+  extends: [
+    'config:best-practices',
+    'helpers:pinGitHubActionDigestsToSemver',
   ],
-  "packageRules": [
+  packageRules: [
     {
-      // this is to reduce the number of renovate PRs by consolidating them into a weekly batch
-      "matchManagers": ["github-actions"],
-      "extends": ["schedule:weekly"],
-      "groupName": "github actions"
+      matchManagers: [
+        'github-actions',
+      ],
+      extends: [
+        'schedule:weekly',
+      ],
+      groupName: 'github actions',
     },
     {
-      // pin opentelemetry-api dependency to: avoid churn, for conservative api version requirement,
-      // and because opentelemetry-api is a compileOnly dependency
-      "matchPackageNames": ["io.opentelemetry:opentelemetry-api"],
-      "matchCurrentVersion": "1.33.0",
-      "enabled": false
-    }
-  ],
-  "customManagers": [
-    {
-      "customType": "regex",
-      "datasourceTemplate": "docker",
-      "fileMatch": [
-        "^build.gradle.kts$"
+      matchPackageNames: [
+        'io.opentelemetry:opentelemetry-api',
       ],
-      "matchStrings": [
-        "\"(?<depName>otel/weaver):(?<currentValue>[^\"]+)\""
-      ]
-    }
-  ]
+      matchCurrentVersion: '1.33.0',
+      enabled: false,
+    },
+  ],
+  customManagers: [
+    {
+      customType: 'regex',
+      datasourceTemplate: 'docker',
+      managerFilePatterns: [
+        '/^build.gradle.kts$/',
+      ],
+      matchStrings: [
+        '"(?<depName>otel/weaver):(?<currentValue>[^"]+)"',
+      ],
+    },
+  ],
 }
