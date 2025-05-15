@@ -56,6 +56,7 @@ public final class JvmAttributes {
   // Enum definition
   /** Values for {@link #JVM_MEMORY_TYPE}. */
   public static final class JvmMemoryTypeValues {
+
     /** Heap memory. */
     public static final String HEAP = "heap";
 
@@ -68,6 +69,7 @@ public final class JvmAttributes {
   // Enum definition
   /** Values for {@link #JVM_THREAD_STATE}. */
   public static final class JvmThreadStateValues {
+
     /** A thread that has not yet started is in this state. */
     public static final String NEW = "new";
 

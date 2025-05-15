@@ -21,6 +21,7 @@ public final class OtherIncubatingAttributes {
   @Deprecated public static final AttributeKey<String> STATE = stringKey("state");
 
   // Enum definitions
+
   /**
    * Values for {@link #STATE}
    *

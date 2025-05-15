@@ -288,6 +288,7 @@ public final class HttpIncubatingAttributes {
   public static final AttributeKey<String> HTTP_USER_AGENT = stringKey("http.user_agent");
 
   // Enum definitions
+
   /** Values for {@link #HTTP_CONNECTION_STATE}. */
   public static final class HttpConnectionStateIncubatingValues {
     /** active state. */

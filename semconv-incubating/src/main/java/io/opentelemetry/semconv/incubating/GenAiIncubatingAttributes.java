@@ -230,6 +230,7 @@ public final class GenAiIncubatingAttributes {
       longKey("gen_ai.usage.prompt_tokens");
 
   // Enum definitions
+
   /**
    * Values for {@link #GEN_AI_OPENAI_REQUEST_RESPONSE_FORMAT}
    *

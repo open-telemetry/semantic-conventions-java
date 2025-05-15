@@ -154,6 +154,7 @@ public final class RpcIncubatingAttributes {
   public static final AttributeKey<String> RPC_SYSTEM = stringKey("rpc.system");
 
   // Enum definitions
+
   /** Values for {@link #RPC_CONNECT_RPC_ERROR_CODE}. */
   public static final class RpcConnectRpcErrorCodeIncubatingValues {
     /** cancelled. */

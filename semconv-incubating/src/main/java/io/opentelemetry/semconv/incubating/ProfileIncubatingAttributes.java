@@ -17,6 +17,7 @@ public final class ProfileIncubatingAttributes {
   public static final AttributeKey<String> PROFILE_FRAME_TYPE = stringKey("profile.frame.type");
 
   // Enum definitions
+
   /** Values for {@link #PROFILE_FRAME_TYPE}. */
   public static final class ProfileFrameTypeIncubatingValues {
     /** <a href="https://wikipedia.org/wiki/.NET">.NET</a> */

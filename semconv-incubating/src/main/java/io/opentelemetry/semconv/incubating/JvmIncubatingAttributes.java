@@ -92,6 +92,7 @@ public final class JvmIncubatingAttributes {
   public static final AttributeKey<String> JVM_THREAD_STATE = stringKey("jvm.thread.state");
 
   // Enum definitions
+
   /**
    * Values for {@link #JVM_MEMORY_TYPE}.
    *

@@ -347,6 +347,7 @@ public final class MessagingIncubatingAttributes {
   public static final AttributeKey<String> MESSAGING_SYSTEM = stringKey("messaging.system");
 
   // Enum definitions
+
   /** Values for {@link #MESSAGING_OPERATION_TYPE}. */
   public static final class MessagingOperationTypeIncubatingValues {
     /**

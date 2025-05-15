@@ -108,6 +108,7 @@ public final class OtelIncubatingAttributes {
       stringKey("otel.status_description");
 
   // Enum definitions
+
   /** Values for {@link #OTEL_COMPONENT_TYPE}. */
   public static final class OtelComponentTypeIncubatingValues {
     /** The builtin SDK Batching Span Processor */

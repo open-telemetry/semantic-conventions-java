@@ -491,6 +491,7 @@ public final class DbIncubatingAttributes {
   @Deprecated public static final AttributeKey<String> DB_USER = stringKey("db.user");
 
   // Enum definitions
+
   /**
    * Values for {@link #DB_CASSANDRA_CONSISTENCY_LEVEL}
    *

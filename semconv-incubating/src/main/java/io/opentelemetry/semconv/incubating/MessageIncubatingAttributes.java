@@ -47,6 +47,7 @@ public final class MessageIncubatingAttributes {
       longKey("message.uncompressed_size");
 
   // Enum definitions
+
   /**
    * Values for {@link #MESSAGE_TYPE}
    *

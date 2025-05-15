@@ -342,6 +342,7 @@ public final class AwsIncubatingAttributes {
   public static final AttributeKey<String> AWS_S3_UPLOAD_ID = stringKey("aws.s3.upload_id");
 
   // Enum definitions
+
   /** Values for {@link #AWS_ECS_LAUNCHTYPE}. */
   public static final class AwsEcsLaunchtypeIncubatingValues {
     /** ec2. */

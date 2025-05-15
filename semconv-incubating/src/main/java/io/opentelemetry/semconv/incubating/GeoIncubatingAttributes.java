@@ -48,6 +48,7 @@ public final class GeoIncubatingAttributes {
   public static final AttributeKey<String> GEO_REGION_ISO_CODE = stringKey("geo.region.iso_code");
 
   // Enum definitions
+
   /** Values for {@link #GEO_CONTINENT_CODE}. */
   public static final class GeoContinentCodeIncubatingValues {
     /** Africa */

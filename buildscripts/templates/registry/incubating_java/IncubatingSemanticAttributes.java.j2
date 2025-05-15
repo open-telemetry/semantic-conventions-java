@@ -49,8 +49,19 @@ public final class {{ my_class_name }} {
     {% endif %}
     {% endfor %}
     // Enum definitions
-    {% for attribute in ctx.attributes | select("enum") | rejectattr("name", "in", ctx.excluded_attributes) %}    
-    {%- if attribute is stable -%}
+    {% for attribute in ctx.attributes | select("enum") | rejectattr("name", "in", ctx.excluded_attributes) %}
+    {% set enum_deprecated_in_favor_of_stable = namespace(value=false) %}
+    {% if attribute is stable %}
+      {%- set enum_deprecated_in_favor_of_stable.value = true -%}
+    {%- endif -%}
+    {%- for member in attribute.type.members %}
+    {% if member is experimental %}
+    {% if not member is deprecated %}
+      {%- set enum_deprecated_in_favor_of_stable.value = false -%}
+    {%- endif -%}
+    {%- endif -%}
+    {%- endfor %}
+    {%- if enum_deprecated_in_favor_of_stable.value -%}
     {%- set stable_class_link = "io.opentelemetry.semconv." ~ stable_class_name ~ "." ~ (attribute.name | pascal_case) ~ "Values" -%}
     /** 
      * Values for {@link #{{ attribute.name | screaming_snake_case }}}. 
@@ -62,11 +73,16 @@ public final class {{ my_class_name }} {
     {%- else -%}
     /** Values for {@link #{{ attribute.name | screaming_snake_case }}}. */
     {%- endif -%}
-    {% if attribute is stable or attribute is deprecated %}@Deprecated{% endif %}
+    {% if enum_deprecated_in_favor_of_stable.value or attribute is deprecated %}@Deprecated{% endif %}
     public static final class {{ attribute.name | pascal_case }}IncubatingValues {
       {%- for member in attribute.type.members %}
-      {{ [member.brief or (member.id ~ '.')] | comment(indent=4) }}
-      public static final {{ attribute.type | instantiated_type | map_text("java_enum_type") }} {{ member.id | screaming_snake_case }} = {{ member.value | print_member_value }};
+      {% if member is experimental or enum_deprecated_in_favor_of_stable.value %}{{ [member.brief or (member.id ~ '.')] | comment(indent=4) }}
+      {% if member is deprecated %}@Deprecated{% endif %} public static final {{ attribute.type | instantiated_type | map_text("java_enum_type") }} {{ member.id | screaming_snake_case }} = {{ member.value | print_member_value }};
+      {% elif member is stable %}
+      {%- set stable_class_link = "io.opentelemetry.semconv." ~ stable_class_name ~ "." ~ (attribute.name | pascal_case) ~ "Values#" ~ (member.id | screaming_snake_case) -%}
+      {{ [member.brief or (member.id ~ '.'), "@deprecated deprecated in favor of stable {@link " ~ stable_class_link ~ "} value."] | comment(indent=4) }}
+      @Deprecated public static final {{ attribute.type | instantiated_type | map_text("java_enum_type") }} {{ member.id | screaming_snake_case }} = {{ member.value | print_member_value }};
+      {%- endif -%}
       {%- endfor %}
       private {{ attribute.name | pascal_case }}IncubatingValues() {}
     }
