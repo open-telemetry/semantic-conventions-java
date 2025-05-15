@@ -45,6 +45,7 @@ public final class AndroidIncubatingAttributes {
   @Deprecated public static final AttributeKey<String> ANDROID_STATE = stringKey("android.state");
 
   // Enum definitions
+
   /** Values for {@link #ANDROID_APP_STATE}. */
   public static final class AndroidAppStateIncubatingValues {
     /**

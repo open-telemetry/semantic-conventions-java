@@ -75,6 +75,7 @@ public final class FeatureFlagIncubatingAttributes {
   public static final AttributeKey<String> FEATURE_FLAG_VERSION = stringKey("feature_flag.version");
 
   // Enum definitions
+
   /**
    * Values for {@link #FEATURE_FLAG_EVALUATION_REASON}
    *

@@ -35,6 +35,7 @@ public final class OsIncubatingAttributes {
   public static final AttributeKey<String> OS_VERSION = stringKey("os.version");
 
   // Enum definitions
+
   /** Values for {@link #OS_TYPE}. */
   public static final class OsTypeIncubatingValues {
     /** Microsoft Windows */

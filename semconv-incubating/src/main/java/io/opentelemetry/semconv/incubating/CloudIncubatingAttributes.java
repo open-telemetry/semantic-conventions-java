@@ -89,6 +89,7 @@ public final class CloudIncubatingAttributes {
   public static final AttributeKey<String> CLOUD_RESOURCE_ID = stringKey("cloud.resource_id");
 
   // Enum definitions
+
   /** Values for {@link #CLOUD_PLATFORM}. */
   public static final class CloudPlatformIncubatingValues {
     /** Alibaba Cloud Elastic Compute Service */

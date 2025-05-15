@@ -23,6 +23,7 @@ public final class OpentracingIncubatingAttributes {
   public static final AttributeKey<String> OPENTRACING_REF_TYPE = stringKey("opentracing.ref_type");
 
   // Enum definitions
+
   /** Values for {@link #OPENTRACING_REF_TYPE}. */
   public static final class OpentracingRefTypeIncubatingValues {
     /** The parent Span depends on the child Span in some capacity */

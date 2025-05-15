@@ -64,6 +64,7 @@ public final class CicdIncubatingAttributes {
   public static final AttributeKey<String> CICD_WORKER_STATE = stringKey("cicd.worker.state");
 
   // Enum definitions
+
   /** Values for {@link #CICD_PIPELINE_RESULT}. */
   public static final class CicdPipelineResultIncubatingValues {
     /** The pipeline run finished successfully. */

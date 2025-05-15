@@ -40,6 +40,7 @@ public final class HwIncubatingAttributes {
   public static final AttributeKey<String> HW_TYPE = stringKey("hw.type");
 
   // Enum definitions
+
   /** Values for {@link #HW_STATE}. */
   public static final class HwStateIncubatingValues {
     /** Ok */

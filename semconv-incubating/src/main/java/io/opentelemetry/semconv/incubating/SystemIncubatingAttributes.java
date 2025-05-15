@@ -85,6 +85,7 @@ public final class SystemIncubatingAttributes {
       stringKey("system.processes.status");
 
   // Enum definitions
+
   /**
    * Values for {@link #SYSTEM_CPU_STATE}
    *

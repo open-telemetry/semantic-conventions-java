@@ -156,6 +156,7 @@ public final class NetworkIncubatingAttributes {
   @Deprecated public static final AttributeKey<String> NETWORK_TYPE = stringKey("network.type");
 
   // Enum definitions
+
   /** Values for {@link #NETWORK_CONNECTION_STATE}. */
   public static final class NetworkConnectionStateIncubatingValues {
     /** closed. */
@@ -293,25 +294,39 @@ public final class NetworkIncubatingAttributes {
     private NetworkIoDirectionIncubatingValues() {}
   }
 
-  /**
-   * Values for {@link #NETWORK_TRANSPORT}.
-   *
-   * @deprecated deprecated in favor of stable {@link
-   *     io.opentelemetry.semconv.NetworkAttributes.NetworkTransportValues}.
-   */
-  @Deprecated
+  /** Values for {@link #NETWORK_TRANSPORT}. */
   public static final class NetworkTransportIncubatingValues {
-    /** TCP */
-    public static final String TCP = "tcp";
+    /**
+     * TCP
+     *
+     * @deprecated deprecated in favor of stable {@link
+     *     io.opentelemetry.semconv.NetworkAttributes.NetworkTransportValues#TCP} value.
+     */
+    @Deprecated public static final String TCP = "tcp";
 
-    /** UDP */
-    public static final String UDP = "udp";
+    /**
+     * UDP
+     *
+     * @deprecated deprecated in favor of stable {@link
+     *     io.opentelemetry.semconv.NetworkAttributes.NetworkTransportValues#UDP} value.
+     */
+    @Deprecated public static final String UDP = "udp";
 
-    /** Named or anonymous pipe. */
-    public static final String PIPE = "pipe";
+    /**
+     * Named or anonymous pipe.
+     *
+     * @deprecated deprecated in favor of stable {@link
+     *     io.opentelemetry.semconv.NetworkAttributes.NetworkTransportValues#PIPE} value.
+     */
+    @Deprecated public static final String PIPE = "pipe";
 
-    /** Unix domain socket */
-    public static final String UNIX = "unix";
+    /**
+     * Unix domain socket
+     *
+     * @deprecated deprecated in favor of stable {@link
+     *     io.opentelemetry.semconv.NetworkAttributes.NetworkTransportValues#UNIX} value.
+     */
+    @Deprecated public static final String UNIX = "unix";
 
     /** QUIC */
     public static final String QUIC = "quic";

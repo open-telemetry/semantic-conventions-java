@@ -215,6 +215,7 @@ public final class ProcessIncubatingAttributes {
       stringKey("process.working_directory");
 
   // Enum definitions
+
   /** Values for {@link #PROCESS_CONTEXT_SWITCH_TYPE}. */
   public static final class ProcessContextSwitchTypeIncubatingValues {
     /** voluntary. */

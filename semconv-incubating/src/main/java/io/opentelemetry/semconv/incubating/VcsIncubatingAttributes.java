@@ -205,6 +205,7 @@ public final class VcsIncubatingAttributes {
       stringKey("vcs.revision_delta.direction");
 
   // Enum definitions
+
   /** Values for {@link #VCS_CHANGE_STATE}. */
   public static final class VcsChangeStateIncubatingValues {
     /**

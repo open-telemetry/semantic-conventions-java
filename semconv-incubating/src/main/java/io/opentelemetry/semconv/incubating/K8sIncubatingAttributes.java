@@ -179,6 +179,7 @@ public final class K8sIncubatingAttributes {
   public static final AttributeKey<String> K8S_VOLUME_TYPE = stringKey("k8s.volume.type");
 
   // Enum definitions
+
   /** Values for {@link #K8S_NAMESPACE_PHASE}. */
   public static final class K8sNamespacePhaseIncubatingValues {
     /**

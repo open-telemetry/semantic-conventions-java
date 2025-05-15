@@ -21,6 +21,7 @@ public final class CpuIncubatingAttributes {
   public static final AttributeKey<String> CPU_MODE = stringKey("cpu.mode");
 
   // Enum definitions
+
   /** Values for {@link #CPU_MODE}. */
   public static final class CpuModeIncubatingValues {
     /** user. */

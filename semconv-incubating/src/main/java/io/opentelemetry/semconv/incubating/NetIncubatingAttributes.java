@@ -131,6 +131,7 @@ public final class NetIncubatingAttributes {
   @Deprecated public static final AttributeKey<String> NET_TRANSPORT = stringKey("net.transport");
 
   // Enum definitions
+
   /**
    * Values for {@link #NET_SOCK_FAMILY}
    *

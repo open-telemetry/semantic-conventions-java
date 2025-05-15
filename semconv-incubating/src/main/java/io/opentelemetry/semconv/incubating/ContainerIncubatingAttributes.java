@@ -138,6 +138,7 @@ public final class ContainerIncubatingAttributes {
   public static final AttributeKey<String> CONTAINER_RUNTIME = stringKey("container.runtime");
 
   // Enum definitions
+
   /**
    * Values for {@link #CONTAINER_CPU_STATE}
    *

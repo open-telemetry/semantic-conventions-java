@@ -28,6 +28,7 @@ public final class V8jsIncubatingAttributes {
   public static final AttributeKey<String> V8JS_HEAP_SPACE_NAME = stringKey("v8js.heap.space.name");
 
   // Enum definitions
+
   /** Values for {@link #V8JS_GC_TYPE}. */
   public static final class V8jsGcTypeIncubatingValues {
     /** Major (Mark Sweep Compact). */
