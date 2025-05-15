@@ -253,8 +253,11 @@ public final class VcsIncubatingAttributes {
     /** <a href="https://gitlab.com">GitLab</a> */
     public static final String GITLAB = "gitlab";
 
-    /** <a href="https://gitea.io">Gitea</a> */
+    /** Deprecated, use {@code gitea} instead. */
     public static final String GITTEA = "gittea";
+
+    /** <a href="https://gitea.io">Gitea</a> */
+    public static final String GITEA = "gitea";
 
     /** <a href="https://bitbucket.org">Bitbucket</a> */
     public static final String BITBUCKET = "bitbucket";

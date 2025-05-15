@@ -118,7 +118,14 @@ public final class ContainerIncubatingAttributes {
   public static final AttributeKey<List<String>> CONTAINER_IMAGE_TAGS =
       stringArrayKey("container.image.tags");
 
-  /** Container labels, {@code <key>} being the label name, the value being the label value. */
+  /**
+   * Container labels, {@code <key>} being the label name, the value being the label value.
+   *
+   * <p>Notes:
+   *
+   * <p>For example, a docker container label {@code app} with value {@code nginx} SHOULD be
+   * recorded as the {@code container.label.app} attribute with value {@code "nginx"}.
+   */
   public static final AttributeKeyTemplate<String> CONTAINER_LABEL =
       stringKeyTemplate("container.label");
 

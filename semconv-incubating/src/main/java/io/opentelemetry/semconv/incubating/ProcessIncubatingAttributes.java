@@ -9,8 +9,10 @@ import static io.opentelemetry.api.common.AttributeKey.booleanKey;
 import static io.opentelemetry.api.common.AttributeKey.longKey;
 import static io.opentelemetry.api.common.AttributeKey.stringArrayKey;
 import static io.opentelemetry.api.common.AttributeKey.stringKey;
+import static io.opentelemetry.semconv.AttributeKeyTemplate.stringKeyTemplate;
 
 import io.opentelemetry.api.common.AttributeKey;
+import io.opentelemetry.semconv.AttributeKeyTemplate;
 import java.util.List;
 
 // DO NOT EDIT, this is an Auto-generated file from
@@ -65,6 +67,25 @@ public final class ProcessIncubatingAttributes {
   /** The date and time the process was created, in ISO 8601 format. */
   public static final AttributeKey<String> PROCESS_CREATION_TIME =
       stringKey("process.creation.time");
+
+  /**
+   * Process environment variables, <key> being the environment variable name, the value being the
+   * environment variable value.
+   *
+   * <p>Notes:
+   *
+   * <p>Examples:
+   *
+   * <ul>
+   *   <li>an environment variable {@code USER} with value {@code "ubuntu"} SHOULD be recorded as
+   *       the {@code process.environment_variable.USER} attribute with value {@code "ubuntu"}.
+   *   <li>an environment variable {@code PATH} with value {@code "/usr/local/bin:/usr/bin"} SHOULD
+   *       be recorded as the {@code process.environment_variable.PATH} attribute with value {@code
+   *       "/usr/local/bin:/usr/bin"}.
+   * </ul>
+   */
+  public static final AttributeKeyTemplate<String> PROCESS_ENVIRONMENT_VARIABLE =
+      stringKeyTemplate("process.environment_variable");
 
   /** The GNU build ID as found in the {@code .note.gnu.build-id} ELF section (hex string). */
   public static final AttributeKey<String> PROCESS_EXECUTABLE_BUILD_ID_GNU =
