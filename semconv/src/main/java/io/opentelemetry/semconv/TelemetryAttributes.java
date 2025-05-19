@@ -38,6 +38,7 @@ public final class TelemetryAttributes {
   // Enum definition
   /** Values for {@link #TELEMETRY_SDK_LANGUAGE}. */
   public static final class TelemetrySdkLanguageValues {
+
     /** cpp. */
     public static final String CPP = "cpp";
 

@@ -18,6 +18,23 @@ import java.util.List;
 // buildscripts/templates/registry/incubating_java/IncubatingSemanticAttributes.java.j2
 @SuppressWarnings("unused")
 public final class AwsIncubatingAttributes {
+  /**
+   * The unique identifier of the AWS Bedrock Guardrail. A <a
+   * href="https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails.html">guardrail</a> helps
+   * safeguard and prevent unwanted behavior from model responses or user messages.
+   */
+  public static final AttributeKey<String> AWS_BEDROCK_GUARDRAIL_ID =
+      stringKey("aws.bedrock.guardrail.id");
+
+  /**
+   * The unique identifier of the AWS Bedrock Knowledge base. A <a
+   * href="https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base.html">knowledge
+   * base</a> is a bank of information that can be queried by models to generate more relevant
+   * responses and augment prompts.
+   */
+  public static final AttributeKey<String> AWS_BEDROCK_KNOWLEDGE_BASE_ID =
+      stringKey("aws.bedrock.knowledge_base.id");
+
   /** The JSON-serialized value of each item in the {@code AttributeDefinitions} request field. */
   public static final AttributeKey<List<String>> AWS_DYNAMODB_ATTRIBUTE_DEFINITIONS =
       stringArrayKey("aws.dynamodb.attribute_definitions");
@@ -156,6 +173,16 @@ public final class AwsIncubatingAttributes {
       stringKey("aws.extended_request_id");
 
   /**
+   * The name of the AWS Kinesis <a
+   * href="https://docs.aws.amazon.com/streams/latest/dev/introduction.html">stream</a> the request
+   * refers to. Corresponds to the {@code --stream-name} parameter of the Kinesis <a
+   * href="https://docs.aws.amazon.com/cli/latest/reference/kinesis/describe-stream.html">describe-stream</a>
+   * operation.
+   */
+  public static final AttributeKey<String> AWS_KINESIS_STREAM_NAME =
+      stringKey("aws.kinesis.stream_name");
+
+  /**
    * The full invoked ARN as provided on the {@code Context} passed to the function ({@code
    * Lambda-Runtime-Invoked-Function-Arn} header on the {@code /runtime/invocation/next}
    * applicable).
@@ -166,6 +193,18 @@ public final class AwsIncubatingAttributes {
    */
   public static final AttributeKey<String> AWS_LAMBDA_INVOKED_ARN =
       stringKey("aws.lambda.invoked_arn");
+
+  /**
+   * The UUID of the <a
+   * href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html">AWS
+   * Lambda EvenSource Mapping</a>. An event source is mapped to a lambda function. It's contents
+   * are read by Lambda and used to trigger a function. This isn't available in the lambda execution
+   * context or the lambda runtime environtment. This is going to be populated by the AWS SDK for
+   * each language when that UUID is present. Some of these operations are
+   * Create/Delete/Get/List/Update EventSourceMapping.
+   */
+  public static final AttributeKey<String> AWS_LAMBDA_RESOURCE_MAPPING_ID =
+      stringKey("aws.lambda.resource_mapping.id");
 
   /**
    * The Amazon Resource Name(s) (ARN) of the AWS log group(s).
@@ -341,7 +380,33 @@ public final class AwsIncubatingAttributes {
    */
   public static final AttributeKey<String> AWS_S3_UPLOAD_ID = stringKey("aws.s3.upload_id");
 
+  /** The ARN of the Secret stored in the Secrets Mangger */
+  public static final AttributeKey<String> AWS_SECRETSMANAGER_SECRET_ARN =
+      stringKey("aws.secretsmanager.secret.arn");
+
+  /**
+   * The ARN of the AWS SNS Topic. An Amazon SNS <a
+   * href="https://docs.aws.amazon.com/sns/latest/dg/sns-create-topic.html">topic</a> is a logical
+   * access point that acts as a communication channel.
+   */
+  public static final AttributeKey<String> AWS_SNS_TOPIC_ARN = stringKey("aws.sns.topic.arn");
+
+  /**
+   * The URL of the AWS SQS Queue. It's a unique identifier for a queue in Amazon Simple Queue
+   * Service (SQS) and is used to access the queue and perform actions on it.
+   */
+  public static final AttributeKey<String> AWS_SQS_QUEUE_URL = stringKey("aws.sqs.queue.url");
+
+  /** The ARN of the AWS Step Functions Activity. */
+  public static final AttributeKey<String> AWS_STEP_FUNCTIONS_ACTIVITY_ARN =
+      stringKey("aws.step_functions.activity.arn");
+
+  /** The ARN of the AWS Step Functions State Machine. */
+  public static final AttributeKey<String> AWS_STEP_FUNCTIONS_STATE_MACHINE_ARN =
+      stringKey("aws.step_functions.state_machine.arn");
+
   // Enum definitions
+
   /** Values for {@link #AWS_ECS_LAUNCHTYPE}. */
   public static final class AwsEcsLaunchtypeIncubatingValues {
     /** ec2. */

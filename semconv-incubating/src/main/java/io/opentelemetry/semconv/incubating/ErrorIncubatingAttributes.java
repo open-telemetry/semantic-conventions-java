@@ -62,6 +62,7 @@ public final class ErrorIncubatingAttributes {
   @Deprecated public static final AttributeKey<String> ERROR_TYPE = stringKey("error.type");
 
   // Enum definitions
+
   /**
    * Values for {@link #ERROR_TYPE}.
    *

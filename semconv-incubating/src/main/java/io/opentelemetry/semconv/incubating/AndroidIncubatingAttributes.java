@@ -32,19 +32,14 @@ public final class AndroidIncubatingAttributes {
   public static final AttributeKey<String> ANDROID_OS_API_LEVEL = stringKey("android.os.api_level");
 
   /**
-   * Deprecated. Use {@code android.app.state} instead.
+   * Deprecated. Use {@code android.app.state} body field instead.
    *
-   * <p>Notes:
-   *
-   * <p>The Android lifecycle states are defined in <a
-   * href="https://developer.android.com/guide/components/activities/activity-lifecycle#lc">Activity
-   * lifecycle callbacks</a>, and from which the {@code OS identifiers} are derived.
-   *
-   * @deprecated Renamed to {@code android.app.state}
+   * @deprecated Use {@code android.app.state} body field instead.
    */
   @Deprecated public static final AttributeKey<String> ANDROID_STATE = stringKey("android.state");
 
   // Enum definitions
+
   /** Values for {@link #ANDROID_APP_STATE}. */
   public static final class AndroidAppStateIncubatingValues {
     /**
@@ -71,7 +66,7 @@ public final class AndroidIncubatingAttributes {
   /**
    * Values for {@link #ANDROID_STATE}
    *
-   * @deprecated Renamed to {@code android.app.state}
+   * @deprecated Use {@code android.app.state} body field instead.
    */
   @Deprecated
   public static final class AndroidStateIncubatingValues {

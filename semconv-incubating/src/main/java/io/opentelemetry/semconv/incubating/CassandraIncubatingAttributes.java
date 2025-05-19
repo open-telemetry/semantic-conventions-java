@@ -45,6 +45,7 @@ public final class CassandraIncubatingAttributes {
       longKey("cassandra.speculative_execution.count");
 
   // Enum definitions
+
   /** Values for {@link #CASSANDRA_CONSISTENCY_LEVEL}. */
   public static final class CassandraConsistencyLevelIncubatingValues {
     /** all. */

@@ -13,6 +13,10 @@ import io.opentelemetry.api.common.AttributeKey;
 // buildscripts/templates/registry/incubating_java/IncubatingSemanticAttributes.java.j2
 @SuppressWarnings("unused")
 public final class CicdIncubatingAttributes {
+  /** The kind of action a pipeline run is performing. */
+  public static final AttributeKey<String> CICD_PIPELINE_ACTION_NAME =
+      stringKey("cicd.pipeline.action.name");
+
   /** The human readable name of the pipeline within a CI/CD system. */
   public static final AttributeKey<String> CICD_PIPELINE_NAME = stringKey("cicd.pipeline.name");
 
@@ -45,6 +49,10 @@ public final class CicdIncubatingAttributes {
   public static final AttributeKey<String> CICD_PIPELINE_TASK_RUN_ID =
       stringKey("cicd.pipeline.task.run.id");
 
+  /** The result of a task run. */
+  public static final AttributeKey<String> CICD_PIPELINE_TASK_RUN_RESULT =
+      stringKey("cicd.pipeline.task.run.result");
+
   /**
    * The <a href="https://wikipedia.org/wiki/URL">URL</a> of the pipeline task run, providing the
    * complete address in order to locate and identify the pipeline task run.
@@ -60,10 +68,37 @@ public final class CicdIncubatingAttributes {
   public static final AttributeKey<String> CICD_SYSTEM_COMPONENT =
       stringKey("cicd.system.component");
 
+  /** The unique identifier of a worker within a CICD system. */
+  public static final AttributeKey<String> CICD_WORKER_ID = stringKey("cicd.worker.id");
+
+  /** The name of a worker within a CICD system. */
+  public static final AttributeKey<String> CICD_WORKER_NAME = stringKey("cicd.worker.name");
+
   /** The state of a CICD worker / agent. */
   public static final AttributeKey<String> CICD_WORKER_STATE = stringKey("cicd.worker.state");
 
+  /**
+   * The <a href="https://wikipedia.org/wiki/URL">URL</a> of the worker, providing the complete
+   * address in order to locate and identify the worker.
+   */
+  public static final AttributeKey<String> CICD_WORKER_URL_FULL = stringKey("cicd.worker.url.full");
+
   // Enum definitions
+
+  /** Values for {@link #CICD_PIPELINE_ACTION_NAME}. */
+  public static final class CicdPipelineActionNameIncubatingValues {
+    /** The pipeline run is executing a build. */
+    public static final String BUILD = "BUILD";
+
+    /** The pipeline run is executing. */
+    public static final String RUN = "RUN";
+
+    /** The pipeline run is executing a sync. */
+    public static final String SYNC = "SYNC";
+
+    private CicdPipelineActionNameIncubatingValues() {}
+  }
+
   /** Values for {@link #CICD_PIPELINE_RESULT}. */
   public static final class CicdPipelineResultIncubatingValues {
     /** The pipeline run finished successfully. */
@@ -112,6 +147,34 @@ public final class CicdIncubatingAttributes {
     public static final String FINALIZING = "finalizing";
 
     private CicdPipelineRunStateIncubatingValues() {}
+  }
+
+  /** Values for {@link #CICD_PIPELINE_TASK_RUN_RESULT}. */
+  public static final class CicdPipelineTaskRunResultIncubatingValues {
+    /** The task run finished successfully. */
+    public static final String SUCCESS = "success";
+
+    /**
+     * The task run did not finish successfully, eg. due to a compile error or a failing test. Such
+     * failures are usually detected by non-zero exit codes of the tools executed in the task run.
+     */
+    public static final String FAILURE = "failure";
+
+    /**
+     * The task run failed due to an error in the CICD system, eg. due to the worker being killed.
+     */
+    public static final String ERROR = "error";
+
+    /** A timeout caused the task run to be interrupted. */
+    public static final String TIMEOUT = "timeout";
+
+    /** The task run was cancelled, eg. by a user manually cancelling the task run. */
+    public static final String CANCELLATION = "cancellation";
+
+    /** The task run was skipped, eg. due to a precondition not being met. */
+    public static final String SKIP = "skip";
+
+    private CicdPipelineTaskRunResultIncubatingValues() {}
   }
 
   /** Values for {@link #CICD_PIPELINE_TASK_TYPE}. */

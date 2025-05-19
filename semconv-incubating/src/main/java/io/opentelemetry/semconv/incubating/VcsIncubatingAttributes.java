@@ -133,7 +133,7 @@ public final class VcsIncubatingAttributes {
   /**
    * Deprecated, use {@code vcs.change.id} instead.
    *
-   * @deprecated Deprecated, use {@code vcs.change.id} instead.
+   * @deprecated Replaced by {@code vcs.change.id}.
    */
   @Deprecated
   public static final AttributeKey<String> VCS_REPOSITORY_CHANGE_ID =
@@ -142,7 +142,7 @@ public final class VcsIncubatingAttributes {
   /**
    * Deprecated, use {@code vcs.change.title} instead.
    *
-   * @deprecated Deprecated, use {@code vcs.change.title} instead.
+   * @deprecated Replaced by {@code vcs.change.title}.
    */
   @Deprecated
   public static final AttributeKey<String> VCS_REPOSITORY_CHANGE_TITLE =
@@ -162,7 +162,7 @@ public final class VcsIncubatingAttributes {
   /**
    * Deprecated, use {@code vcs.ref.head.name} instead.
    *
-   * @deprecated Deprecated, use {@code vcs.ref.head.name} instead.
+   * @deprecated Replaced by {@code vcs.ref.head.name}.
    */
   @Deprecated
   public static final AttributeKey<String> VCS_REPOSITORY_REF_NAME =
@@ -171,7 +171,7 @@ public final class VcsIncubatingAttributes {
   /**
    * Deprecated, use {@code vcs.ref.head.revision} instead.
    *
-   * @deprecated Deprecated, use {@code vcs.ref.head.revision} instead.
+   * @deprecated Replaced by {@code vcs.ref.head.revision}.
    */
   @Deprecated
   public static final AttributeKey<String> VCS_REPOSITORY_REF_REVISION =
@@ -180,7 +180,7 @@ public final class VcsIncubatingAttributes {
   /**
    * Deprecated, use {@code vcs.ref.head.type} instead.
    *
-   * @deprecated Deprecated, use {@code vcs.ref.head.type} instead.
+   * @deprecated Replaced by {@code vcs.ref.head.type}.
    */
   @Deprecated
   public static final AttributeKey<String> VCS_REPOSITORY_REF_TYPE =
@@ -205,6 +205,7 @@ public final class VcsIncubatingAttributes {
       stringKey("vcs.revision_delta.direction");
 
   // Enum definitions
+
   /** Values for {@link #VCS_CHANGE_STATE}. */
   public static final class VcsChangeStateIncubatingValues {
     /**
@@ -253,8 +254,11 @@ public final class VcsIncubatingAttributes {
     /** <a href="https://gitlab.com">GitLab</a> */
     public static final String GITLAB = "gitlab";
 
-    /** <a href="https://gitea.io">Gitea</a> */
+    /** Deprecated, use {@code gitea} instead. */
     public static final String GITTEA = "gittea";
+
+    /** <a href="https://gitea.io">Gitea</a> */
+    public static final String GITEA = "gitea";
 
     /** <a href="https://bitbucket.org">Bitbucket</a> */
     public static final String BITBUCKET = "bitbucket";
@@ -316,7 +320,7 @@ public final class VcsIncubatingAttributes {
   /**
    * Values for {@link #VCS_REPOSITORY_REF_TYPE}
    *
-   * @deprecated Deprecated, use {@code vcs.ref.head.type} instead.
+   * @deprecated Replaced by {@code vcs.ref.head.type}.
    */
   @Deprecated
   public static final class VcsRepositoryRefTypeIncubatingValues {

@@ -78,6 +78,7 @@ public final class NetworkAttributes {
   // Enum definition
   /** Values for {@link #NETWORK_TRANSPORT}. */
   public static final class NetworkTransportValues {
+
     /** TCP */
     public static final String TCP = "tcp";
 
@@ -99,6 +100,7 @@ public final class NetworkAttributes {
   // Enum definition
   /** Values for {@link #NETWORK_TYPE}. */
   public static final class NetworkTypeValues {
+
     /** IPv4 */
     public static final String IPV4 = "ipv4";
 

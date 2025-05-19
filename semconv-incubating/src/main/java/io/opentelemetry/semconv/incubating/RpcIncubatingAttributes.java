@@ -33,6 +33,10 @@ public final class RpcIncubatingAttributes {
    * <p>Instrumentations SHOULD require an explicit configuration of which metadata values are to be
    * captured. Including all request metadata values can be a security risk - explicit configuration
    * helps avoid leaking sensitive information.
+   *
+   * <p>For example, a property {@code my-custom-key} with value {@code ["1.2.3.4", "1.2.3.5"]}
+   * SHOULD be recorded as the {@code rpc.connect_rpc.request.metadata.my-custom-key} attribute with
+   * value {@code ["1.2.3.4", "1.2.3.5"]}
    */
   public static final AttributeKeyTemplate<List<String>> RPC_CONNECT_RPC_REQUEST_METADATA =
       stringArrayKeyTemplate("rpc.connect_rpc.request.metadata");
@@ -46,6 +50,10 @@ public final class RpcIncubatingAttributes {
    * <p>Instrumentations SHOULD require an explicit configuration of which metadata values are to be
    * captured. Including all response metadata values can be a security risk - explicit
    * configuration helps avoid leaking sensitive information.
+   *
+   * <p>For example, a property {@code my-custom-key} with value {@code "attribute_value"} SHOULD be
+   * recorded as the {@code rpc.connect_rpc.response.metadata.my-custom-key} attribute with value
+   * {@code ["attribute_value"]}
    */
   public static final AttributeKeyTemplate<List<String>> RPC_CONNECT_RPC_RESPONSE_METADATA =
       stringArrayKeyTemplate("rpc.connect_rpc.response.metadata");
@@ -59,6 +67,10 @@ public final class RpcIncubatingAttributes {
    * <p>Instrumentations SHOULD require an explicit configuration of which metadata values are to be
    * captured. Including all request metadata values can be a security risk - explicit configuration
    * helps avoid leaking sensitive information.
+   *
+   * <p>For example, a property {@code my-custom-key} with value {@code ["1.2.3.4", "1.2.3.5"]}
+   * SHOULD be recorded as {@code rpc.grpc.request.metadata.my-custom-key} attribute with value
+   * {@code ["1.2.3.4", "1.2.3.5"]}
    */
   public static final AttributeKeyTemplate<List<String>> RPC_GRPC_REQUEST_METADATA =
       stringArrayKeyTemplate("rpc.grpc.request.metadata");
@@ -72,6 +84,10 @@ public final class RpcIncubatingAttributes {
    * <p>Instrumentations SHOULD require an explicit configuration of which metadata values are to be
    * captured. Including all response metadata values can be a security risk - explicit
    * configuration helps avoid leaking sensitive information.
+   *
+   * <p>For example, a property {@code my-custom-key} with value {@code ["attribute_value"]} SHOULD
+   * be recorded as the {@code rpc.grpc.response.metadata.my-custom-key} attribute with value {@code
+   * ["attribute_value"]}
    */
   public static final AttributeKeyTemplate<List<String>> RPC_GRPC_RESPONSE_METADATA =
       stringArrayKeyTemplate("rpc.grpc.response.metadata");
@@ -154,6 +170,7 @@ public final class RpcIncubatingAttributes {
   public static final AttributeKey<String> RPC_SYSTEM = stringKey("rpc.system");
 
   // Enum definitions
+
   /** Values for {@link #RPC_CONNECT_RPC_ERROR_CODE}. */
   public static final class RpcConnectRpcErrorCodeIncubatingValues {
     /** cancelled. */

@@ -36,7 +36,7 @@ import java.util.List;
 // DO NOT EDIT, this is an Auto-generated file from buildscripts/templates/registry/incubating_java/IncubatingSemanticAttributes.java.j2
 @SuppressWarnings("unused")
 public final class {{ my_class_name }} {
-    {% for attribute in ctx.attributes | rejectattr("name", "in", ctx.excluded_attributes) %}{% if attribute is experimental %}
+    {% for attribute in ctx.attributes | rejectattr("name", "in", ctx.excluded_attributes) | rejectattr("type", "eq", "any") %}{% if attribute is experimental %}
     {%- if attribute is deprecated %}{%- set deprecated_javadoc = "@deprecated " ~ attribute.deprecated.note -%}
     {%- else -%}{%- set deprecated_javadoc = "" -%}
     {%- endif -%}
