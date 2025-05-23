@@ -55,6 +55,7 @@ public final class LogIncubatingAttributes {
   public static final AttributeKey<String> LOG_RECORD_UID = stringKey("log.record.uid");
 
   // Enum definitions
+
   /** Values for {@link #LOG_IOSTREAM}. */
   public static final class LogIostreamIncubatingValues {
     /** Logs from stdout stream */

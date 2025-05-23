@@ -123,11 +123,15 @@ public final class DbIncubatingAttributes {
    * do any case normalization.
    *
    * <p>The collection name SHOULD NOT be extracted from {@code db.query.text}, when the database
-   * system supports cross-table queries in non-batch operations.
+   * system supports query text with multiple collections in non-batch operations.
    *
    * <p>For batch operations, if the individual operations are known to have the same collection
    * name then that collection name SHOULD be used.
+   *
+   * @deprecated deprecated in favor of stable {@link
+   *     io.opentelemetry.semconv.DbAttributes#DB_COLLECTION_NAME} attribute.
    */
+  @Deprecated
   public static final AttributeKey<String> DB_COLLECTION_NAME = stringKey("db.collection.name");
 
   /**
@@ -177,7 +181,7 @@ public final class DbIncubatingAttributes {
   /**
    * Deprecated, no replacement at this time.
    *
-   * @deprecated No replacement at this time.
+   * @deprecated Removed, no replacement at this time.
    */
   @Deprecated
   public static final AttributeKey<String> DB_COSMOSDB_OPERATION_TYPE =
@@ -259,7 +263,7 @@ public final class DbIncubatingAttributes {
    * Deprecated, no general replacement at this time. For Elasticsearch, use {@code
    * db.elasticsearch.node.name} instead.
    *
-   * @deprecated Deprecated, no general replacement at this time. For Elasticsearch, use {@code
+   * @deprecated Removed, no general replacement at this time. For Elasticsearch, use {@code
    *     db.elasticsearch.node.name} instead.
    */
   @Deprecated public static final AttributeKey<String> DB_INSTANCE_ID = stringKey("db.instance.id");
@@ -267,7 +271,7 @@ public final class DbIncubatingAttributes {
   /**
    * Removed, no replacement at this time.
    *
-   * @deprecated Removed as not used.
+   * @deprecated Removed, no replacement at this time.
    */
   @Deprecated
   public static final AttributeKey<String> DB_JDBC_DRIVER_CLASSNAME =
@@ -285,7 +289,7 @@ public final class DbIncubatingAttributes {
   /**
    * Deprecated, SQL Server instance is now populated as a part of {@code db.namespace} attribute.
    *
-   * @deprecated Deprecated, no replacement at this time.
+   * @deprecated Removed, no replacement at this time.
    */
   @Deprecated
   public static final AttributeKey<String> DB_MSSQL_INSTANCE_NAME =
@@ -303,15 +307,17 @@ public final class DbIncubatingAttributes {
    *
    * <p>Notes:
    *
-   * <p>If a database system has multiple namespace components, they SHOULD be concatenated
-   * (potentially using database system specific conventions) from most general to most specific
-   * namespace component, and more specific namespaces SHOULD NOT be captured without the more
-   * general namespaces, to ensure that "startswith" queries for the more general namespaces will be
-   * valid. Semantic conventions for individual database systems SHOULD document what {@code
-   * db.namespace} means in the context of that system. It is RECOMMENDED to capture the value as
-   * provided by the application without attempting to do any case normalization.
+   * <p>If a database system has multiple namespace components, they SHOULD be concatenated from the
+   * most general to the most specific namespace component, using {@code |} as a separator between
+   * the components. Any missing components (and their associated separators) SHOULD be omitted.
+   * Semantic conventions for individual database systems SHOULD document what {@code db.namespace}
+   * means in the context of that system. It is RECOMMENDED to capture the value as provided by the
+   * application without attempting to do any case normalization.
+   *
+   * @deprecated deprecated in favor of stable {@link
+   *     io.opentelemetry.semconv.DbAttributes#DB_NAMESPACE} attribute.
    */
-  public static final AttributeKey<String> DB_NAMESPACE = stringKey("db.namespace");
+  @Deprecated public static final AttributeKey<String> DB_NAMESPACE = stringKey("db.namespace");
 
   /**
    * Deprecated, use {@code db.operation.name} instead.
@@ -327,7 +333,11 @@ public final class DbIncubatingAttributes {
    *
    * <p>Operations are only considered batches when they contain two or more operations, and so
    * {@code db.operation.batch.size} SHOULD never be {@code 1}.
+   *
+   * @deprecated deprecated in favor of stable {@link
+   *     io.opentelemetry.semconv.DbAttributes#DB_OPERATION_BATCH_SIZE} attribute.
    */
+  @Deprecated
   public static final AttributeKey<Long> DB_OPERATION_BATCH_SIZE =
       longKey("db.operation.batch.size");
 
@@ -340,7 +350,7 @@ public final class DbIncubatingAttributes {
    * do any case normalization.
    *
    * <p>The operation name SHOULD NOT be extracted from {@code db.query.text}, when the database
-   * system supports cross-table queries in non-batch operations.
+   * system supports query text with multiple operations in non-batch operations.
    *
    * <p>If spaces can occur in the operation name, multiple consecutive spaces SHOULD be normalized
    * to a single space.
@@ -349,7 +359,11 @@ public final class DbIncubatingAttributes {
    * then that operation name SHOULD be used prepended by {@code BATCH }, otherwise {@code
    * db.operation.name} SHOULD be {@code BATCH} or some other database system specific term if more
    * applicable.
+   *
+   * @deprecated deprecated in favor of stable {@link
+   *     io.opentelemetry.semconv.DbAttributes#DB_OPERATION_NAME} attribute.
    */
+  @Deprecated
   public static final AttributeKey<String> DB_OPERATION_NAME = stringKey("db.operation.name");
 
   /**
@@ -358,38 +372,60 @@ public final class DbIncubatingAttributes {
    *
    * <p>Notes:
    *
-   * <p>If a parameter has no name and instead is referenced only by index, then {@code <key>}
-   * SHOULD be the 0-based index. If {@code db.query.text} is also captured, then {@code
-   * db.operation.parameter.<key>} SHOULD match up with the parameterized placeholders present in
-   * {@code db.query.text}. {@code db.operation.parameter.<key>} SHOULD NOT be captured on batch
-   * operations.
+   * <p>For example, a client-side maximum number of rows to read from the database MAY be recorded
+   * as the {@code db.operation.parameter.max_rows} attribute.
+   *
+   * <p>{@code db.query.text} parameters SHOULD be captured using {@code db.query.parameter.<key>}
+   * instead of {@code db.operation.parameter.<key>}.
    */
   public static final AttributeKeyTemplate<String> DB_OPERATION_PARAMETER =
       stringKeyTemplate("db.operation.parameter");
 
   /**
-   * A query parameter used in {@code db.query.text}, with {@code <key>} being the parameter name,
-   * and the attribute value being a string representation of the parameter value.
+   * A database query parameter, with {@code <key>} being the parameter name, and the attribute
+   * value being a string representation of the parameter value.
    *
-   * @deprecated Replaced by {@code db.operation.parameter}.
+   * <p>Notes:
+   *
+   * <p>If a query parameter has no name and instead is referenced only by index, then {@code <key>}
+   * SHOULD be the 0-based index.
+   *
+   * <p>{@code db.query.parameter.<key>} SHOULD match up with the parameterized placeholders present
+   * in {@code db.query.text}.
+   *
+   * <p>{@code db.query.parameter.<key>} SHOULD NOT be captured on batch operations.
+   *
+   * <p>Examples:
+   *
+   * <ul>
+   *   <li>For a query {@code SELECT * FROM users where username = %s} with the parameter {@code
+   *       "jdoe"}, the attribute {@code db.query.parameter.0} SHOULD be set to {@code "jdoe"}.
+   *   <li>For a query {@code "SELECT * FROM users WHERE username = %(username)s;} with parameter
+   *       {@code username = "jdoe"}, the attribute {@code db.query.parameter.username} SHOULD be
+   *       set to {@code "jdoe"}.
+   * </ul>
    */
-  @Deprecated
   public static final AttributeKeyTemplate<String> DB_QUERY_PARAMETER =
       stringKeyTemplate("db.query.parameter");
 
   /**
-   * Low cardinality representation of a database query text.
+   * Low cardinality summary of a database query.
    *
    * <p>Notes:
    *
-   * <p>{@code db.query.summary} provides static summary of the query text. It describes a class of
-   * database queries and is useful as a grouping key, especially when analyzing telemetry for
-   * database calls involving complex queries. Summary may be available to the instrumentation
-   * through instrumentation hooks or other means. If it is not available, instrumentations that
-   * support query parsing SHOULD generate a summary following <a
-   * href="../database/database-spans.md#generating-a-summary-of-the-query-text">Generating query
+   * <p>The query summary describes a class of database queries and is useful as a grouping key,
+   * especially when analyzing telemetry for database calls involving complex queries.
+   *
+   * <p>Summary may be available to the instrumentation through instrumentation hooks or other
+   * means. If it is not available, instrumentations that support query parsing SHOULD generate a
+   * summary following <a
+   * href="/docs/database/database-spans.md#generating-a-summary-of-the-query">Generating query
    * summary</a> section.
+   *
+   * @deprecated deprecated in favor of stable {@link
+   *     io.opentelemetry.semconv.DbAttributes#DB_QUERY_SUMMARY} attribute.
    */
+  @Deprecated
   public static final AttributeKey<String> DB_QUERY_SUMMARY = stringKey("db.query.summary");
 
   /**
@@ -398,16 +434,20 @@ public final class DbIncubatingAttributes {
    * <p>Notes:
    *
    * <p>For sanitization see <a
-   * href="../database/database-spans.md#sanitization-of-dbquerytext">Sanitization of {@code
+   * href="/docs/database/database-spans.md#sanitization-of-dbquerytext">Sanitization of {@code
    * db.query.text}</a>. For batch operations, if the individual operations are known to have the
    * same query text then that query text SHOULD be used, otherwise all of the individual query
    * texts SHOULD be concatenated with separator {@code ; } or some other database system specific
-   * separator if more applicable. Even though parameterized query text can potentially have
-   * sensitive data, by using a parameterized query the user is giving a strong signal that any
-   * sensitive data will be passed as parameter values, and the benefit to observability of
-   * capturing the static part of the query text by default outweighs the risk.
+   * separator if more applicable. Parameterized query text SHOULD NOT be sanitized. Even though
+   * parameterized query text can potentially have sensitive data, by using a parameterized query
+   * the user is giving a strong signal that any sensitive data will be passed as parameter values,
+   * and the benefit to observability of capturing the static part of the query text by default
+   * outweighs the risk.
+   *
+   * @deprecated deprecated in favor of stable {@link
+   *     io.opentelemetry.semconv.DbAttributes#DB_QUERY_TEXT} attribute.
    */
-  public static final AttributeKey<String> DB_QUERY_TEXT = stringKey("db.query.text");
+  @Deprecated public static final AttributeKey<String> DB_QUERY_TEXT = stringKey("db.query.text");
 
   /**
    * Deprecated, use {@code db.namespace} instead.
@@ -431,13 +471,16 @@ public final class DbIncubatingAttributes {
    * represent partial success, warning, or differentiate between various types of successful
    * outcomes. Semantic conventions for individual database systems SHOULD document what {@code
    * db.response.status_code} means in the context of that system.
+   *
+   * @deprecated deprecated in favor of stable {@link
+   *     io.opentelemetry.semconv.DbAttributes#DB_RESPONSE_STATUS_CODE} attribute.
    */
+  @Deprecated
   public static final AttributeKey<String> DB_RESPONSE_STATUS_CODE =
       stringKey("db.response.status_code");
 
   /**
-   * Deprecated, use {@code db.collection.name} instead, but only if not extracting the value from
-   * {@code db.query.text}.
+   * Deprecated, use {@code db.collection.name} instead.
    *
    * @deprecated Replaced by {@code db.collection.name}, but only if not extracting the value from
    *     {@code db.query.text}.
@@ -461,7 +504,11 @@ public final class DbIncubatingAttributes {
    *
    * <p>For batch operations, if the individual operations are known to have the same stored
    * procedure name then that stored procedure name SHOULD be used.
+   *
+   * @deprecated deprecated in favor of stable {@link
+   *     io.opentelemetry.semconv.DbAttributes#DB_STORED_PROCEDURE_NAME} attribute.
    */
+  @Deprecated
   public static final AttributeKey<String> DB_STORED_PROCEDURE_NAME =
       stringKey("db.stored_procedure.name");
 
@@ -480,17 +527,21 @@ public final class DbIncubatingAttributes {
    * <p>The actual DBMS may differ from the one identified by the client. For example, when using
    * PostgreSQL client libraries to connect to a CockroachDB, the {@code db.system.name} is set to
    * {@code postgresql} based on the instrumentation's best knowledge.
+   *
+   * @deprecated deprecated in favor of stable {@link
+   *     io.opentelemetry.semconv.DbAttributes#DB_SYSTEM_NAME} attribute.
    */
-  public static final AttributeKey<String> DB_SYSTEM_NAME = stringKey("db.system.name");
+  @Deprecated public static final AttributeKey<String> DB_SYSTEM_NAME = stringKey("db.system.name");
 
   /**
    * Deprecated, no replacement at this time.
    *
-   * @deprecated No replacement at this time.
+   * @deprecated Removed, no replacement at this time.
    */
   @Deprecated public static final AttributeKey<String> DB_USER = stringKey("db.user");
 
   // Enum definitions
+
   /**
    * Values for {@link #DB_CASSANDRA_CONSISTENCY_LEVEL}
    *
@@ -605,7 +656,7 @@ public final class DbIncubatingAttributes {
   /**
    * Values for {@link #DB_COSMOSDB_OPERATION_TYPE}
    *
-   * @deprecated No replacement at this time.
+   * @deprecated Removed, no replacement at this time.
    */
   @Deprecated
   public static final class DbCosmosdbOperationTypeIncubatingValues {
@@ -757,7 +808,7 @@ public final class DbIncubatingAttributes {
     /** InterBase */
     public static final String INTERBASE = "interbase";
 
-    /** MariaDB (This value has stability level RELEASE CANDIDATE) */
+    /** MariaDB */
     public static final String MARIADB = "mariadb";
 
     /** SAP MaxDB */
@@ -769,13 +820,13 @@ public final class DbIncubatingAttributes {
     /** MongoDB */
     public static final String MONGODB = "mongodb";
 
-    /** Microsoft SQL Server (This value has stability level RELEASE CANDIDATE) */
+    /** Microsoft SQL Server */
     public static final String MSSQL = "mssql";
 
     /** Deprecated, Microsoft SQL Server Compact is discontinued. */
     public static final String MSSQLCOMPACT = "mssqlcompact";
 
-    /** MySQL (This value has stability level RELEASE CANDIDATE) */
+    /** MySQL */
     public static final String MYSQL = "mysql";
 
     /** Neo4j */
@@ -796,7 +847,7 @@ public final class DbIncubatingAttributes {
     /** PointBase */
     public static final String POINTBASE = "pointbase";
 
-    /** PostgreSQL (This value has stability level RELEASE CANDIDATE) */
+    /** PostgreSQL */
     public static final String POSTGRESQL = "postgresql";
 
     /** Progress Database */
@@ -912,8 +963,13 @@ public final class DbIncubatingAttributes {
     /** <a href="https://www.instantdb.com/">Instant</a> */
     public static final String INSTANTDB = "instantdb";
 
-    /** <a href="https://mariadb.org/">MariaDB</a> */
-    public static final String MARIADB = "mariadb";
+    /**
+     * <a href="https://mariadb.org/">MariaDB</a>
+     *
+     * @deprecated deprecated in favor of stable {@link
+     *     io.opentelemetry.semconv.DbAttributes.DbSystemNameValues#MARIADB} value.
+     */
+    @Deprecated public static final String MARIADB = "mariadb";
 
     /** <a href="https://memcached.org/">Memcached</a> */
     public static final String MEMCACHED = "memcached";
@@ -921,11 +977,21 @@ public final class DbIncubatingAttributes {
     /** <a href="https://www.mongodb.com/">MongoDB</a> */
     public static final String MONGODB = "mongodb";
 
-    /** <a href="https://www.microsoft.com/sql-server">Microsoft SQL Server</a> */
-    public static final String MICROSOFT_SQL_SERVER = "microsoft.sql_server";
+    /**
+     * <a href="https://www.microsoft.com/sql-server">Microsoft SQL Server</a>
+     *
+     * @deprecated deprecated in favor of stable {@link
+     *     io.opentelemetry.semconv.DbAttributes.DbSystemNameValues#MICROSOFT_SQL_SERVER} value.
+     */
+    @Deprecated public static final String MICROSOFT_SQL_SERVER = "microsoft.sql_server";
 
-    /** <a href="https://www.mysql.com/">MySQL</a> */
-    public static final String MYSQL = "mysql";
+    /**
+     * <a href="https://www.mysql.com/">MySQL</a>
+     *
+     * @deprecated deprecated in favor of stable {@link
+     *     io.opentelemetry.semconv.DbAttributes.DbSystemNameValues#MYSQL} value.
+     */
+    @Deprecated public static final String MYSQL = "mysql";
 
     /** <a href="https://neo4j.com/">Neo4j</a> */
     public static final String NEO4J = "neo4j";
@@ -936,8 +1002,13 @@ public final class DbIncubatingAttributes {
     /** <a href="https://www.oracle.com/database/">Oracle Database</a> */
     public static final String ORACLE_DB = "oracle.db";
 
-    /** <a href="https://www.postgresql.org/">PostgreSQL</a> */
-    public static final String POSTGRESQL = "postgresql";
+    /**
+     * <a href="https://www.postgresql.org/">PostgreSQL</a>
+     *
+     * @deprecated deprecated in favor of stable {@link
+     *     io.opentelemetry.semconv.DbAttributes.DbSystemNameValues#POSTGRESQL} value.
+     */
+    @Deprecated public static final String POSTGRESQL = "postgresql";
 
     /** <a href="https://redis.io/">Redis</a> */
     public static final String REDIS = "redis";

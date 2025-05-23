@@ -29,6 +29,7 @@ public final class OtelAttributes {
   // Enum definition
   /** Values for {@link #OTEL_STATUS_CODE}. */
   public static final class OtelStatusCodeValues {
+
     /**
      * The operation has been validated by an Application developer or Operator to have completed
      * successfully.

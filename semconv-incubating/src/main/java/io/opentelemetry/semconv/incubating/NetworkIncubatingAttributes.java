@@ -156,6 +156,7 @@ public final class NetworkIncubatingAttributes {
   @Deprecated public static final AttributeKey<String> NETWORK_TYPE = stringKey("network.type");
 
   // Enum definitions
+
   /** Values for {@link #NETWORK_CONNECTION_STATE}. */
   public static final class NetworkConnectionStateIncubatingValues {
     /** closed. */

@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-package io.opentelemetry.semconv.incubating;
+package io.opentelemetry.semconv;
 
 import static io.opentelemetry.api.common.AttributeKey.longKey;
 import static io.opentelemetry.api.common.AttributeKey.stringKey;
@@ -11,26 +11,15 @@ import static io.opentelemetry.api.common.AttributeKey.stringKey;
 import io.opentelemetry.api.common.AttributeKey;
 
 // DO NOT EDIT, this is an Auto-generated file from
-// buildscripts/templates/registry/incubating_java/IncubatingSemanticAttributes.java.j2
+// buildscripts/templates/registry/java/SemanticAttributes.java.j2
 @SuppressWarnings("unused")
-public final class CodeIncubatingAttributes {
-  /**
-   * Deprecated, use {@code code.column.number}
-   *
-   * @deprecated Replaced by {@code code.column.number}.
-   */
-  @Deprecated public static final AttributeKey<Long> CODE_COLUMN = longKey("code.column");
-
+public final class CodeAttributes {
   /**
    * The column number in {@code code.file.path} best representing the operation. It SHOULD point
    * within the code unit named in {@code code.function.name}. This attribute MUST NOT be used on
    * the Profile signal since the data is already captured in 'message Line'. This constraint is
    * imposed to prevent redundancy and maintain data integrity.
-   *
-   * @deprecated deprecated in favor of stable {@link
-   *     io.opentelemetry.semconv.CodeAttributes#CODE_COLUMN_NUMBER} attribute.
    */
-  @Deprecated
   public static final AttributeKey<Long> CODE_COLUMN_NUMBER = longKey("code.column.number");
 
   /**
@@ -38,26 +27,8 @@ public final class CodeIncubatingAttributes {
    * absolute file path). This attribute MUST NOT be used on the Profile signal since the data is
    * already captured in 'message Function'. This constraint is imposed to prevent redundancy and
    * maintain data integrity.
-   *
-   * @deprecated deprecated in favor of stable {@link
-   *     io.opentelemetry.semconv.CodeAttributes#CODE_FILE_PATH} attribute.
    */
-  @Deprecated public static final AttributeKey<String> CODE_FILE_PATH = stringKey("code.file.path");
-
-  /**
-   * Deprecated, use {@code code.file.path} instead
-   *
-   * @deprecated Replaced by {@code code.file.path}.
-   */
-  @Deprecated public static final AttributeKey<String> CODE_FILEPATH = stringKey("code.filepath");
-
-  /**
-   * Deprecated, use {@code code.function.name} instead
-   *
-   * @deprecated Value should be included in {@code code.function.name} which is expected to be a
-   *     fully-qualified name.
-   */
-  @Deprecated public static final AttributeKey<String> CODE_FUNCTION = stringKey("code.function");
+  public static final AttributeKey<String> CODE_FILE_PATH = stringKey("code.file.path");
 
   /**
    * The method or function fully-qualified name without arguments. The value should fit the natural
@@ -86,11 +57,7 @@ public final class CodeIncubatingAttributes {
    *   <li>Rust: {@code playground::my_module::my_cool_func}
    *   <li>C function: {@code fopen}
    * </ul>
-   *
-   * @deprecated deprecated in favor of stable {@link
-   *     io.opentelemetry.semconv.CodeAttributes#CODE_FUNCTION_NAME} attribute.
    */
-  @Deprecated
   public static final AttributeKey<String> CODE_FUNCTION_NAME = stringKey("code.function.name");
 
   /**
@@ -98,26 +65,8 @@ public final class CodeIncubatingAttributes {
    * within the code unit named in {@code code.function.name}. This attribute MUST NOT be used on
    * the Profile signal since the data is already captured in 'message Line'. This constraint is
    * imposed to prevent redundancy and maintain data integrity.
-   *
-   * @deprecated deprecated in favor of stable {@link
-   *     io.opentelemetry.semconv.CodeAttributes#CODE_LINE_NUMBER} attribute.
    */
-  @Deprecated public static final AttributeKey<Long> CODE_LINE_NUMBER = longKey("code.line.number");
-
-  /**
-   * Deprecated, use {@code code.line.number} instead
-   *
-   * @deprecated Replaced by {@code code.line.number}.
-   */
-  @Deprecated public static final AttributeKey<Long> CODE_LINENO = longKey("code.lineno");
-
-  /**
-   * Deprecated, namespace is now included into {@code code.function.name}
-   *
-   * @deprecated Value should be included in {@code code.function.name} which is expected to be a
-   *     fully-qualified name.
-   */
-  @Deprecated public static final AttributeKey<String> CODE_NAMESPACE = stringKey("code.namespace");
+  public static final AttributeKey<Long> CODE_LINE_NUMBER = longKey("code.line.number");
 
   /**
    * A stacktrace as a string in the natural representation for the language runtime. The
@@ -126,14 +75,8 @@ public final class CodeIncubatingAttributes {
    * exception.stacktrace}</a>. This attribute MUST NOT be used on the Profile signal since the data
    * is already captured in 'message Location'. This constraint is imposed to prevent redundancy and
    * maintain data integrity.
-   *
-   * @deprecated deprecated in favor of stable {@link
-   *     io.opentelemetry.semconv.CodeAttributes#CODE_STACKTRACE} attribute.
    */
-  @Deprecated
   public static final AttributeKey<String> CODE_STACKTRACE = stringKey("code.stacktrace");
 
-  // Enum definitions
-
-  private CodeIncubatingAttributes() {}
+  private CodeAttributes() {}
 }

@@ -86,6 +86,7 @@ public final class UserAgentIncubatingAttributes {
   public static final AttributeKey<String> USER_AGENT_VERSION = stringKey("user_agent.version");
 
   // Enum definitions
+
   /** Values for {@link #USER_AGENT_SYNTHETIC_TYPE}. */
   public static final class UserAgentSyntheticTypeIncubatingValues {
     /** Bot source. */

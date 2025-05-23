@@ -5,6 +5,7 @@
 
 package io.opentelemetry.semconv.incubating;
 
+import static io.opentelemetry.api.common.AttributeKey.longKey;
 import static io.opentelemetry.api.common.AttributeKey.stringKey;
 
 import io.opentelemetry.api.common.AttributeKey;
@@ -47,6 +48,33 @@ public final class AppIncubatingAttributes {
    * href="https://developer.android.com/training/articles/user-data-ids">here</a>.
    */
   public static final AttributeKey<String> APP_INSTALLATION_ID = stringKey("app.installation.id");
+
+  /** The x (horizontal) coordinate of a screen coordinate, in screen pixels. */
+  public static final AttributeKey<Long> APP_SCREEN_COORDINATE_X =
+      longKey("app.screen.coordinate.x");
+
+  /** The y (vertical) component of a screen coordinate, in screen pixels. */
+  public static final AttributeKey<Long> APP_SCREEN_COORDINATE_Y =
+      longKey("app.screen.coordinate.y");
+
+  /**
+   * An identifier that uniquely differentiates this widget from other widgets in the same
+   * application.
+   *
+   * <p>Notes:
+   *
+   * <p>A widget is an application component, typically an on-screen visual GUI element.
+   */
+  public static final AttributeKey<String> APP_WIDGET_ID = stringKey("app.widget.id");
+
+  /**
+   * The name of an application widget.
+   *
+   * <p>Notes:
+   *
+   * <p>A widget is an application component, typically an on-screen visual GUI element.
+   */
+  public static final AttributeKey<String> APP_WIDGET_NAME = stringKey("app.widget.name");
 
   // Enum definitions
 

@@ -16,7 +16,7 @@ public final class DeploymentIncubatingAttributes {
   /**
    * 'Deprecated, use {@code deployment.environment.name} instead.'
    *
-   * @deprecated Deprecated, use {@code deployment.environment.name} instead.
+   * @deprecated Replaced by {@code deployment.environment.name}.
    */
   @Deprecated
   public static final AttributeKey<String> DEPLOYMENT_ENVIRONMENT =
@@ -51,6 +51,7 @@ public final class DeploymentIncubatingAttributes {
   public static final AttributeKey<String> DEPLOYMENT_STATUS = stringKey("deployment.status");
 
   // Enum definitions
+
   /** Values for {@link #DEPLOYMENT_STATUS}. */
   public static final class DeploymentStatusIncubatingValues {
     /** failed */
