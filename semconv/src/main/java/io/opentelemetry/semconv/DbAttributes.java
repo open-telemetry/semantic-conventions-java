@@ -151,7 +151,6 @@ public final class DbAttributes {
   // Enum definition
   /** Values for {@link #DB_SYSTEM_NAME}. */
   public static final class DbSystemNameValues {
-
     /** <a href="https://mariadb.org/">MariaDB</a> */
     public static final String MARIADB = "mariadb";
 

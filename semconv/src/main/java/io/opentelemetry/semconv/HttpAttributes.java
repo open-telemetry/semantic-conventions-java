@@ -141,7 +141,6 @@ public final class HttpAttributes {
   // Enum definition
   /** Values for {@link #HTTP_REQUEST_METHOD}. */
   public static final class HttpRequestMethodValues {
-
     /** CONNECT method. */
     public static final String CONNECT = "CONNECT";
 
