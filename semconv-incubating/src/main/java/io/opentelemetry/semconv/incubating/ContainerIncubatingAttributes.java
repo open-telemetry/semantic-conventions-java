@@ -38,7 +38,7 @@ public final class ContainerIncubatingAttributes {
   /**
    * Deprecated, use {@code cpu.mode} instead.
    *
-   * @deprecated Replaced by {@code cpu.mode}
+   * @deprecated Replaced by {@code cpu.mode}.
    */
   @Deprecated
   public static final AttributeKey<String> CONTAINER_CPU_STATE = stringKey("container.cpu.state");
@@ -118,7 +118,14 @@ public final class ContainerIncubatingAttributes {
   public static final AttributeKey<List<String>> CONTAINER_IMAGE_TAGS =
       stringArrayKey("container.image.tags");
 
-  /** Container labels, {@code <key>} being the label name, the value being the label value. */
+  /**
+   * Container labels, {@code <key>} being the label name, the value being the label value.
+   *
+   * <p>Notes:
+   *
+   * <p>For example, a docker container label {@code app} with value {@code nginx} SHOULD be
+   * recorded as the {@code container.label.app} attribute with value {@code "nginx"}.
+   */
   public static final AttributeKeyTemplate<String> CONTAINER_LABEL =
       stringKeyTemplate("container.label");
 
@@ -138,10 +145,11 @@ public final class ContainerIncubatingAttributes {
   public static final AttributeKey<String> CONTAINER_RUNTIME = stringKey("container.runtime");
 
   // Enum definitions
+
   /**
    * Values for {@link #CONTAINER_CPU_STATE}
    *
-   * @deprecated Replaced by {@code cpu.mode}
+   * @deprecated Replaced by {@code cpu.mode}.
    */
   @Deprecated
   public static final class ContainerCpuStateIncubatingValues {

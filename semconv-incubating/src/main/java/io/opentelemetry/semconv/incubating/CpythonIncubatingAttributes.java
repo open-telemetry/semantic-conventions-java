@@ -17,6 +17,7 @@ public final class CpythonIncubatingAttributes {
   public static final AttributeKey<Long> CPYTHON_GC_GENERATION = longKey("cpython.gc.generation");
 
   // Enum definitions
+
   /** Values for {@link #CPYTHON_GC_GENERATION}. */
   public static final class CpythonGcGenerationIncubatingValues {
     /** Generation 0 */

@@ -68,6 +68,7 @@ public final class TelemetryIncubatingAttributes {
       stringKey("telemetry.sdk.version");
 
   // Enum definitions
+
   /**
    * Values for {@link #TELEMETRY_SDK_LANGUAGE}.
    *

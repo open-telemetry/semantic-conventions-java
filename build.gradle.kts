@@ -11,9 +11,11 @@ val snapshot = true
 // end
 
 // The release version of https://github.com/open-telemetry/semantic-conventions used to generate classes
-var semanticConventionsVersion = "1.32.0"
+var semanticConventionsVersion = "1.34.0"
 val schemaUrlVersions = listOf(
     semanticConventionsVersion,
+    "1.33.0",
+    "1.32.0",
     "1.31.0",
     "1.30.0",
     "1.29.0",
@@ -110,7 +112,7 @@ fun generateTask(taskName: String, incubating: Boolean) {
         "--mount", "type=bind,source=${modelPath},target=/home/weaver/source,readonly",
         "--mount", "type=bind,source=$projectDir/buildscripts/templates,target=/home/weaver/templates,readonly",
         "--mount", "type=bind,source=$projectDir/$outputDir,target=/home/weaver/target",
-        "otel/weaver:v0.15.0",
+        "otel/weaver:v0.15.1",
         "registry", "generate",
         "--registry=/home/weaver/source",
         "--templates=/home/weaver/templates",

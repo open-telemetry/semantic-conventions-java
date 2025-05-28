@@ -38,6 +38,16 @@ public final class JvmIncubatingAttributes {
   @Deprecated public static final AttributeKey<String> JVM_GC_ACTION = stringKey("jvm.gc.action");
 
   /**
+   * Name of the garbage collector cause.
+   *
+   * <p>Notes:
+   *
+   * <p>Garbage collector cause is generally obtained via <a
+   * href="https://docs.oracle.com/en/java/javase/11/docs/api/jdk.management/com/sun/management/GarbageCollectionNotificationInfo.html#getGcCause()">GarbageCollectionNotificationInfo#getGcCause()</a>.
+   */
+  public static final AttributeKey<String> JVM_GC_CAUSE = stringKey("jvm.gc.cause");
+
+  /**
    * Name of the garbage collector.
    *
    * <p>Notes:
@@ -92,6 +102,7 @@ public final class JvmIncubatingAttributes {
   public static final AttributeKey<String> JVM_THREAD_STATE = stringKey("jvm.thread.state");
 
   // Enum definitions
+
   /**
    * Values for {@link #JVM_MEMORY_TYPE}.
    *

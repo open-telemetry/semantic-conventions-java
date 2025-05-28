@@ -17,7 +17,12 @@ public final class FeatureFlagIncubatingAttributes {
   public static final AttributeKey<String> FEATURE_FLAG_CONTEXT_ID =
       stringKey("feature_flag.context.id");
 
-  /** A message explaining the nature of an error occurring during flag evaluation. */
+  /**
+   * Deprecated, use {@code error.message} instead.
+   *
+   * @deprecated Replaced by {@code error.message}.
+   */
+  @Deprecated
   public static final AttributeKey<String> FEATURE_FLAG_EVALUATION_ERROR_MESSAGE =
       stringKey("feature_flag.evaluation.error.message");
 
@@ -35,7 +40,7 @@ public final class FeatureFlagIncubatingAttributes {
 
   /** Identifies the feature flag provider. */
   public static final AttributeKey<String> FEATURE_FLAG_PROVIDER_NAME =
-      stringKey("feature_flag.provider_name");
+      stringKey("feature_flag.provider.name");
 
   /** The reason code which shows how a feature flag value was determined. */
   public static final AttributeKey<String> FEATURE_FLAG_RESULT_REASON =
@@ -75,6 +80,7 @@ public final class FeatureFlagIncubatingAttributes {
   public static final AttributeKey<String> FEATURE_FLAG_VERSION = stringKey("feature_flag.version");
 
   // Enum definitions
+
   /**
    * Values for {@link #FEATURE_FLAG_EVALUATION_REASON}
    *

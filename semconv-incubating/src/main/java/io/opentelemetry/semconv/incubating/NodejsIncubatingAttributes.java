@@ -18,6 +18,7 @@ public final class NodejsIncubatingAttributes {
       stringKey("nodejs.eventloop.state");
 
   // Enum definitions
+
   /** Values for {@link #NODEJS_EVENTLOOP_STATE}. */
   public static final class NodejsEventloopStateIncubatingValues {
     /** Active time. */

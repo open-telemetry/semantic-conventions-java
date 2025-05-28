@@ -18,6 +18,7 @@ public final class LinuxIncubatingAttributes {
       stringKey("linux.memory.slab.state");
 
   // Enum definitions
+
   /** Values for {@link #LINUX_MEMORY_SLAB_STATE}. */
   public static final class LinuxMemorySlabStateIncubatingValues {
     /** reclaimable. */

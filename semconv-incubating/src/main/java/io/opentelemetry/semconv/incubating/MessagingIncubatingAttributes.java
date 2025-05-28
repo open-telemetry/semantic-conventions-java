@@ -105,7 +105,7 @@ public final class MessagingIncubatingAttributes {
   /**
    * Deprecated, no replacement at this time.
    *
-   * @deprecated No replacement at this time.
+   * @deprecated Removed. No replacement at this time.
    */
   @Deprecated
   public static final AttributeKey<Boolean> MESSAGING_DESTINATION_PUBLISH_ANONYMOUS =
@@ -114,7 +114,7 @@ public final class MessagingIncubatingAttributes {
   /**
    * Deprecated, no replacement at this time.
    *
-   * @deprecated No replacement at this time.
+   * @deprecated Removed. No replacement at this time.
    */
   @Deprecated
   public static final AttributeKey<String> MESSAGING_DESTINATION_PUBLISH_NAME =
@@ -347,6 +347,7 @@ public final class MessagingIncubatingAttributes {
   public static final AttributeKey<String> MESSAGING_SYSTEM = stringKey("messaging.system");
 
   // Enum definitions
+
   /** Values for {@link #MESSAGING_OPERATION_TYPE}. */
   public static final class MessagingOperationTypeIncubatingValues {
     /**

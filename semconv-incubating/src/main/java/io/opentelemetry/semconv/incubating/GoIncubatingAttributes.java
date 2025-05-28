@@ -17,6 +17,7 @@ public final class GoIncubatingAttributes {
   public static final AttributeKey<String> GO_MEMORY_TYPE = stringKey("go.memory.type");
 
   // Enum definitions
+
   /** Values for {@link #GO_MEMORY_TYPE}. */
   public static final class GoMemoryTypeIncubatingValues {
     /**

@@ -9,8 +9,10 @@ import static io.opentelemetry.api.common.AttributeKey.booleanKey;
 import static io.opentelemetry.api.common.AttributeKey.longKey;
 import static io.opentelemetry.api.common.AttributeKey.stringArrayKey;
 import static io.opentelemetry.api.common.AttributeKey.stringKey;
+import static io.opentelemetry.semconv.AttributeKeyTemplate.stringKeyTemplate;
 
 import io.opentelemetry.api.common.AttributeKey;
+import io.opentelemetry.semconv.AttributeKeyTemplate;
 import java.util.List;
 
 // DO NOT EDIT, this is an Auto-generated file from
@@ -38,7 +40,8 @@ public final class ProcessIncubatingAttributes {
    * All the command arguments (including the command/executable itself) as received by the process.
    * On Linux-based systems (and some other Unixoid systems supporting procfs), can be set according
    * to the list of null-delimited strings extracted from {@code proc/[pid]/cmdline}. For libc-based
-   * executables, this would be the full argv vector passed to {@code main}.
+   * executables, this would be the full argv vector passed to {@code main}. SHOULD NOT be collected
+   * by default unless there is sanitization that excludes sensitive data.
    */
   public static final AttributeKey<List<String>> PROCESS_COMMAND_ARGS =
       stringArrayKey("process.command_args");
@@ -46,7 +49,8 @@ public final class ProcessIncubatingAttributes {
   /**
    * The full command used to launch the process as a single string representing the full command.
    * On Windows, can be set to the result of {@code GetCommandLineW}. Do not set this if you have to
-   * assemble it just for monitoring; use {@code process.command_args} instead.
+   * assemble it just for monitoring; use {@code process.command_args} instead. SHOULD NOT be
+   * collected by default unless there is sanitization that excludes sensitive data.
    */
   public static final AttributeKey<String> PROCESS_COMMAND_LINE = stringKey("process.command_line");
 
@@ -57,7 +61,7 @@ public final class ProcessIncubatingAttributes {
   /**
    * Deprecated, use {@code cpu.mode} instead.
    *
-   * @deprecated Replaced by {@code cpu.mode}
+   * @deprecated Replaced by {@code cpu.mode}.
    */
   @Deprecated
   public static final AttributeKey<String> PROCESS_CPU_STATE = stringKey("process.cpu.state");
@@ -65,6 +69,25 @@ public final class ProcessIncubatingAttributes {
   /** The date and time the process was created, in ISO 8601 format. */
   public static final AttributeKey<String> PROCESS_CREATION_TIME =
       stringKey("process.creation.time");
+
+  /**
+   * Process environment variables, <key> being the environment variable name, the value being the
+   * environment variable value.
+   *
+   * <p>Notes:
+   *
+   * <p>Examples:
+   *
+   * <ul>
+   *   <li>an environment variable {@code USER} with value {@code "ubuntu"} SHOULD be recorded as
+   *       the {@code process.environment_variable.USER} attribute with value {@code "ubuntu"}.
+   *   <li>an environment variable {@code PATH} with value {@code "/usr/local/bin:/usr/bin"} SHOULD
+   *       be recorded as the {@code process.environment_variable.PATH} attribute with value {@code
+   *       "/usr/local/bin:/usr/bin"}.
+   * </ul>
+   */
+  public static final AttributeKeyTemplate<String> PROCESS_ENVIRONMENT_VARIABLE =
+      stringKeyTemplate("process.environment_variable");
 
   /** The GNU build ID as found in the {@code .note.gnu.build-id} ELF section (hex string). */
   public static final AttributeKey<String> PROCESS_EXECUTABLE_BUILD_ID_GNU =
@@ -84,7 +107,7 @@ public final class ProcessIncubatingAttributes {
   /**
    * "Deprecated, use {@code process.executable.build_id.htlhash} instead."
    *
-   * @deprecated Replaced by {@code process.executable.build_id.htlhash}
+   * @deprecated Replaced by {@code process.executable.build_id.htlhash}.
    */
   @Deprecated
   public static final AttributeKey<String> PROCESS_EXECUTABLE_BUILD_ID_PROFILING =
@@ -215,6 +238,7 @@ public final class ProcessIncubatingAttributes {
       stringKey("process.working_directory");
 
   // Enum definitions
+
   /** Values for {@link #PROCESS_CONTEXT_SWITCH_TYPE}. */
   public static final class ProcessContextSwitchTypeIncubatingValues {
     /** voluntary. */
@@ -229,7 +253,7 @@ public final class ProcessIncubatingAttributes {
   /**
    * Values for {@link #PROCESS_CPU_STATE}
    *
-   * @deprecated Replaced by {@code cpu.mode}
+   * @deprecated Replaced by {@code cpu.mode}.
    */
   @Deprecated
   public static final class ProcessCpuStateIncubatingValues {
