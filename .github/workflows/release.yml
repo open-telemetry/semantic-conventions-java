@@ -12,6 +12,7 @@ jobs:
     runs-on: ubuntu-latest
     outputs:
       version: ${{ steps.create-github-release.outputs.version }}
+      prior-version: ${{ steps.create-github-release.outputs.prior-version }}
     steps:
       - run: |
           if [[ $GITHUB_REF_NAME != release/* ]]; then
@@ -114,4 +115,86 @@ jobs:
                             --notes-file /tmp/release-notes.txt \
                             v$VERSION
 
+          # these are used as job outputs
           echo "version=$VERSION" >> $GITHUB_OUTPUT
+          echo "prior-version=$PRIOR_VERSION" >> $GITHUB_OUTPUT
+
+  update-apidiff-baseline-to-released-version:
+    permissions:
+      contents: write # for git push to PR branch
+    runs-on: ubuntu-latest
+    needs:
+      - release
+    steps:
+      # add change log sync (if any) into this PR since the apidiff update
+      # is required before any other PR can be merged anyway
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+
+      - name: Copy change log section from release branch
+        env:
+          VERSION: ${{ needs.release.outputs.version }}
+        run: |
+          sed -n "0,/^## Version $VERSION /d;/^## Version /q;p" CHANGELOG.md \
+            > /tmp/changelog-section.md
+
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        with:
+          ref: main
+
+      - name: Merge change log to main
+        env:
+          VERSION: ${{ needs.release.outputs.version }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          release_date=$(gh release view v$VERSION --json publishedAt --jq .publishedAt | sed 's/T.*//')
+          RELEASE_DATE=$release_date .github/scripts/merge-change-log-after-release.sh
+          git add CHANGELOG.md
+
+      - name: Wait for release to be available in maven central
+        env:
+          VERSION: ${{ needs.release.outputs.version }}
+        run: |
+          until curl --silent \
+                     --show-error \
+                     --output /dev/null \
+                     --head \
+                     --fail \
+                     https://repo1.maven.org/maven2/io/opentelemetry/semconv/opentelemetry-semconv/$VERSION/opentelemetry-semconv-$VERSION.jar
+          do
+            sleep 60
+          done
+
+      - name: Update apidiff baseline
+        env:
+          VERSION: ${{ needs.release.outputs.version }}
+          PRIOR_VERSION: ${{ needs.release.outputs.prior-version }}
+        run: |
+          ./gradlew japicmp -PapiBaseVersion=$PRIOR_VERSION -PapiNewVersion=$VERSION
+          ./gradlew --refresh-dependencies japicmp
+          git add docs/apidiffs
+
+      - name: Use CLA approved bot
+        run: .github/scripts/use-cla-approved-bot.sh
+
+      - uses: actions/create-github-app-token@21cfef2b496dd8ef5b904c159339626a10ad380e # v1.11.6
+        id: otelbot-token
+        with:
+          app-id: ${{ vars.OTELBOT_APP_ID }}
+          private-key: ${{ secrets.OTELBOT_PRIVATE_KEY }}
+
+      - name: Create pull request against main
+        env:
+          VERSION: ${{ needs.release.outputs.version }}
+          # not using secrets.GITHUB_TOKEN since pull requests from that token do not run workflows
+          GH_TOKEN: ${{ steps.otelbot-token.outputs.token }}
+        run: |
+          message="Update apidiff baseline to released version $VERSION"
+          body="Update apidiff baseline to released version \`$VERSION\`."
+          branch="otelbot/update-apidiff-baseline-to-released-version-${VERSION}"
+
+          git checkout -b $branch
+          git commit -m "$message"
+          git push --set-upstream origin $branch
+          gh pr create --title "$message" \
+                       --body "$body" \
+                       --base main
