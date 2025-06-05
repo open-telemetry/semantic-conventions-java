@@ -164,6 +164,7 @@ public final class FaasIncubatingAttributes {
   public static final AttributeKey<String> FAAS_VERSION = stringKey("faas.version");
 
   // Enum definitions
+
   /** Values for {@link #FAAS_DOCUMENT_OPERATION}. */
   public static final class FaasDocumentOperationIncubatingValues {
     /** When a new object is created. */

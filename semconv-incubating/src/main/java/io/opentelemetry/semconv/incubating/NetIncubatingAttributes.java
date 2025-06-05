@@ -110,7 +110,7 @@ public final class NetIncubatingAttributes {
   /**
    * Deprecated, no replacement at this time.
    *
-   * @deprecated Removed.
+   * @deprecated Removed. No replacement at this time.
    */
   @Deprecated
   public static final AttributeKey<String> NET_SOCK_PEER_NAME = stringKey("net.sock.peer.name");
@@ -131,6 +131,7 @@ public final class NetIncubatingAttributes {
   @Deprecated public static final AttributeKey<String> NET_TRANSPORT = stringKey("net.transport");
 
   // Enum definitions
+
   /**
    * Values for {@link #NET_SOCK_FAMILY}
    *

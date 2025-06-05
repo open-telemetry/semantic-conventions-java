@@ -40,7 +40,10 @@ public final class CloudIncubatingAttributes {
   public static final AttributeKey<String> CLOUD_PROVIDER = stringKey("cloud.provider");
 
   /**
-   * The geographical region the resource is running.
+   * The geographical region within a cloud provider. When associated with a resource, this
+   * attribute specifies the region where the resource operates. When calling services or APIs
+   * deployed on a cloud, this attribute identifies the region where the called destination is
+   * deployed.
    *
    * <p>Notes:
    *
@@ -89,6 +92,7 @@ public final class CloudIncubatingAttributes {
   public static final AttributeKey<String> CLOUD_RESOURCE_ID = stringKey("cloud.resource_id");
 
   // Enum definitions
+
   /** Values for {@link #CLOUD_PLATFORM}. */
   public static final class CloudPlatformIncubatingValues {
     /** Alibaba Cloud Elastic Compute Service */

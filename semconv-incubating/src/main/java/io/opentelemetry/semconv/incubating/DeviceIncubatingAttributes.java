@@ -40,7 +40,7 @@ public final class DeviceIncubatingAttributes {
    * appropriate compliance clearance. Any instrumentation providing this identifier MUST implement
    * it as an opt-in feature.
    *
-   * <p>See <a href="/docs/attributes-registry/app.md#app-installation-id">{@code
+   * <p>See <a href="/docs/registry/attributes/app.md#app-installation-id">{@code
    * app.installation.id}</a> for a more privacy-preserving alternative.
    *
    * </blockquote>

@@ -21,7 +21,7 @@ public final class SystemIncubatingAttributes {
   /**
    * Deprecated, use {@code cpu.mode} instead.
    *
-   * @deprecated Replaced by {@code cpu.mode}
+   * @deprecated Replaced by {@code cpu.mode}.
    */
   @Deprecated
   public static final AttributeKey<String> SYSTEM_CPU_STATE = stringKey("system.cpu.state");
@@ -51,8 +51,7 @@ public final class SystemIncubatingAttributes {
   /**
    * Deprecated, use {@code network.connection.state} instead.
    *
-   * @deprecated Removed, report network connection state with {@code network.connection.state}
-   *     attribute
+   * @deprecated Replaced by {@code network.connection.state}.
    */
   @Deprecated
   public static final AttributeKey<String> SYSTEM_NETWORK_STATE = stringKey("system.network.state");
@@ -85,10 +84,11 @@ public final class SystemIncubatingAttributes {
       stringKey("system.processes.status");
 
   // Enum definitions
+
   /**
    * Values for {@link #SYSTEM_CPU_STATE}
    *
-   * @deprecated Replaced by {@code cpu.mode}
+   * @deprecated Replaced by {@code cpu.mode}.
    */
   @Deprecated
   public static final class SystemCpuStateIncubatingValues {
@@ -176,8 +176,7 @@ public final class SystemIncubatingAttributes {
   /**
    * Values for {@link #SYSTEM_NETWORK_STATE}
    *
-   * @deprecated Removed, report network connection state with {@code network.connection.state}
-   *     attribute
+   * @deprecated Replaced by {@code network.connection.state}.
    */
   @Deprecated
   public static final class SystemNetworkStateIncubatingValues {
