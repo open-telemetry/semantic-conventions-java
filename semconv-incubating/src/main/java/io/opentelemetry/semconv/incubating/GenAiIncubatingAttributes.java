@@ -36,6 +36,29 @@ public final class GenAiIncubatingAttributes {
   public static final AttributeKey<String> GEN_AI_COMPLETION = stringKey("gen_ai.completion");
 
   /**
+   * The unique identifier for a conversation (session, thread), used to store and correlate
+   * messages within this conversation.
+   */
+  public static final AttributeKey<String> GEN_AI_CONVERSATION_ID =
+      stringKey("gen_ai.conversation.id");
+
+  /**
+   * The data source identifier.
+   *
+   * <p>Notes:
+   *
+   * <p>Data sources are used by AI agents and RAG applications to store grounding data. A data
+   * source may be an external database, object store, document collection, website, or any other
+   * storage system used by the GenAI agent or application. The {@code gen_ai.data_source.id} SHOULD
+   * match the identifier used by the GenAI system rather than a name specific to the external
+   * storage, such as a database or object store. Semantic conventions referencing {@code
+   * gen_ai.data_source.id} MAY also leverage additional attributes, such as {@code db.*}, to
+   * further identify and describe the data source.
+   */
+  public static final AttributeKey<String> GEN_AI_DATA_SOURCE_ID =
+      stringKey("gen_ai.data_source.id");
+
+  /**
    * Deprecated, use {@code gen_ai.output.type}.
    *
    * @deprecated Replaced by {@code gen_ai.output.type}.
@@ -47,7 +70,7 @@ public final class GenAiIncubatingAttributes {
   /**
    * Deprecated, use {@code gen_ai.request.seed}.
    *
-   * @deprecated Replaced by {@code gen_ai.request.seed} attribute.
+   * @deprecated Replaced by {@code gen_ai.request.seed}.
    */
   @Deprecated
   public static final AttributeKey<Long> GEN_AI_OPENAI_REQUEST_SEED =
@@ -184,6 +207,10 @@ public final class GenAiIncubatingAttributes {
   /** The tool call identifier. */
   public static final AttributeKey<String> GEN_AI_TOOL_CALL_ID = stringKey("gen_ai.tool.call.id");
 
+  /** The tool description. */
+  public static final AttributeKey<String> GEN_AI_TOOL_DESCRIPTION =
+      stringKey("gen_ai.tool.description");
+
   /** Name of the tool utilized by the agent. */
   public static final AttributeKey<String> GEN_AI_TOOL_NAME = stringKey("gen_ai.tool.name");
 
@@ -206,7 +233,7 @@ public final class GenAiIncubatingAttributes {
   /**
    * Deprecated, use {@code gen_ai.usage.output_tokens} instead.
    *
-   * @deprecated Replaced by {@code gen_ai.usage.output_tokens} attribute.
+   * @deprecated Replaced by {@code gen_ai.usage.output_tokens}.
    */
   @Deprecated
   public static final AttributeKey<Long> GEN_AI_USAGE_COMPLETION_TOKENS =
@@ -223,13 +250,14 @@ public final class GenAiIncubatingAttributes {
   /**
    * Deprecated, use {@code gen_ai.usage.input_tokens} instead.
    *
-   * @deprecated Replaced by {@code gen_ai.usage.input_tokens} attribute.
+   * @deprecated Replaced by {@code gen_ai.usage.input_tokens}.
    */
   @Deprecated
   public static final AttributeKey<Long> GEN_AI_USAGE_PROMPT_TOKENS =
       longKey("gen_ai.usage.prompt_tokens");
 
   // Enum definitions
+
   /**
    * Values for {@link #GEN_AI_OPENAI_REQUEST_RESPONSE_FORMAT}
    *
@@ -269,6 +297,12 @@ public final class GenAiIncubatingAttributes {
     public static final String CHAT = "chat";
 
     /**
+     * Multimodal content generation operation such as <a
+     * href="https://ai.google.dev/api/generate-content">Gemini Generate Content</a>
+     */
+    public static final String GENERATE_CONTENT = "generate_content";
+
+    /**
      * Text completions operation such as <a
      * href="https://platform.openai.com/docs/api-reference/completions">OpenAI Completions API
      * (Legacy)</a>
@@ -284,6 +318,9 @@ public final class GenAiIncubatingAttributes {
 
     /** Create GenAI agent */
     public static final String CREATE_AGENT = "create_agent";
+
+    /** Invoke GenAI agent */
+    public static final String INVOKE_AGENT = "invoke_agent";
 
     /** Execute a tool */
     public static final String EXECUTE_TOOL = "execute_tool";
@@ -312,6 +349,15 @@ public final class GenAiIncubatingAttributes {
   public static final class GenAiSystemIncubatingValues {
     /** OpenAI */
     public static final String OPENAI = "openai";
+
+    /** Any Google generative AI endpoint */
+    public static final String GCP_GEN_AI = "gcp.gen_ai";
+
+    /** Vertex AI */
+    public static final String GCP_VERTEX_AI = "gcp.vertex_ai";
+
+    /** Gemini */
+    public static final String GCP_GEMINI = "gcp.gemini";
 
     /** Vertex AI */
     public static final String VERTEX_AI = "vertex_ai";

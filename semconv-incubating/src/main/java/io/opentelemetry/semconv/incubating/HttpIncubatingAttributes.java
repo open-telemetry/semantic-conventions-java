@@ -67,11 +67,25 @@ public final class HttpIncubatingAttributes {
    *
    * <p>Instrumentations SHOULD require an explicit configuration of which headers are to be
    * captured. Including all request headers can be a security risk - explicit configuration helps
-   * avoid leaking sensitive information. The {@code User-Agent} header is already captured in the
-   * {@code user_agent.original} attribute. Users MAY explicitly configure instrumentations to
-   * capture them even though it is not recommended. The attribute value MUST consist of either
-   * multiple header values as an array of strings or a single-item array containing a possibly
-   * comma-concatenated string, depending on the way the HTTP library provides access to headers.
+   * avoid leaking sensitive information.
+   *
+   * <p>The {@code User-Agent} header is already captured in the {@code user_agent.original}
+   * attribute. Users MAY explicitly configure instrumentations to capture them even though it is
+   * not recommended.
+   *
+   * <p>The attribute value MUST consist of either multiple header values as an array of strings or
+   * a single-item array containing a possibly comma-concatenated string, depending on the way the
+   * HTTP library provides access to headers.
+   *
+   * <p>Examples:
+   *
+   * <ul>
+   *   <li>A header {@code Content-Type: application/json} SHOULD be recorded as the {@code
+   *       http.request.header.content-type} attribute with value {@code ["application/json"]}.
+   *   <li>A header {@code X-Forwarded-For: 1.2.3.4, 1.2.3.5} SHOULD be recorded as the {@code
+   *       http.request.header.x-forwarded-for} attribute with value {@code ["1.2.3.4", "1.2.3.5"]}
+   *       or {@code ["1.2.3.4, 1.2.3.5"]} depending on the HTTP library.
+   * </ul>
    *
    * @deprecated deprecated in favor of stable {@link
    *     io.opentelemetry.semconv.HttpAttributes#HTTP_REQUEST_HEADER} attribute.
@@ -146,9 +160,9 @@ public final class HttpIncubatingAttributes {
   public static final AttributeKey<Long> HTTP_REQUEST_SIZE = longKey("http.request.size");
 
   /**
-   * Deprecated, use {@code http.request.header.<key>} instead.
+   * Deprecated, use {@code http.request.header.content-length} instead.
    *
-   * @deprecated Replaced by {@code http.request.header.<key>}.
+   * @deprecated Replaced by {@code http.request.header.content-length}.
    */
   @Deprecated
   public static final AttributeKey<Long> HTTP_REQUEST_CONTENT_LENGTH =
@@ -180,10 +194,24 @@ public final class HttpIncubatingAttributes {
    *
    * <p>Instrumentations SHOULD require an explicit configuration of which headers are to be
    * captured. Including all response headers can be a security risk - explicit configuration helps
-   * avoid leaking sensitive information. Users MAY explicitly configure instrumentations to capture
-   * them even though it is not recommended. The attribute value MUST consist of either multiple
-   * header values as an array of strings or a single-item array containing a possibly
-   * comma-concatenated string, depending on the way the HTTP library provides access to headers.
+   * avoid leaking sensitive information.
+   *
+   * <p>Users MAY explicitly configure instrumentations to capture them even though it is not
+   * recommended.
+   *
+   * <p>The attribute value MUST consist of either multiple header values as an array of strings or
+   * a single-item array containing a possibly comma-concatenated string, depending on the way the
+   * HTTP library provides access to headers.
+   *
+   * <p>Examples:
+   *
+   * <ul>
+   *   <li>A header {@code Content-Type: application/json} header SHOULD be recorded as the {@code
+   *       http.request.response.content-type} attribute with value {@code ["application/json"]}.
+   *   <li>A header {@code My-custom-header: abc, def} header SHOULD be recorded as the {@code
+   *       http.response.header.my-custom-header} attribute with value {@code ["abc", "def"]} or
+   *       {@code ["abc, def"]} depending on the HTTP library.
+   * </ul>
    *
    * @deprecated deprecated in favor of stable {@link
    *     io.opentelemetry.semconv.HttpAttributes#HTTP_RESPONSE_HEADER} attribute.
@@ -210,9 +238,9 @@ public final class HttpIncubatingAttributes {
       longKey("http.response.status_code");
 
   /**
-   * Deprecated, use {@code http.response.header.<key>} instead.
+   * Deprecated, use {@code http.response.header.content-length} instead.
    *
-   * @deprecated Replaced by {@code http.response.header.<key>}.
+   * @deprecated hp.response.header.content-length
    */
   @Deprecated
   public static final AttributeKey<Long> HTTP_RESPONSE_CONTENT_LENGTH =
@@ -221,7 +249,7 @@ public final class HttpIncubatingAttributes {
   /**
    * Deprecated, use {@code http.response.body.size} instead.
    *
-   * @deprecated Replace by {@code http.response.body.size}.
+   * @deprecated Replaced by {@code http.response.body.size}.
    */
   @Deprecated
   public static final AttributeKey<Long> HTTP_RESPONSE_CONTENT_LENGTH_UNCOMPRESSED =
@@ -246,7 +274,7 @@ public final class HttpIncubatingAttributes {
   /**
    * Deprecated, use {@code url.scheme} instead.
    *
-   * @deprecated Replaced by {@code url.scheme} instead.
+   * @deprecated Replaced by {@code url.scheme}.
    */
   @Deprecated public static final AttributeKey<String> HTTP_SCHEME = stringKey("http.scheme");
 
@@ -268,7 +296,7 @@ public final class HttpIncubatingAttributes {
   /**
    * Deprecated, use {@code url.path} and {@code url.query} instead.
    *
-   * @deprecated Split to {@code url.path} and `url.query.
+   * @deprecated Split to {@code url.path} and {@code url.query}.
    */
   @Deprecated public static final AttributeKey<String> HTTP_TARGET = stringKey("http.target");
 
@@ -288,6 +316,7 @@ public final class HttpIncubatingAttributes {
   public static final AttributeKey<String> HTTP_USER_AGENT = stringKey("http.user_agent");
 
   // Enum definitions
+
   /** Values for {@link #HTTP_CONNECTION_STATE}. */
   public static final class HttpConnectionStateIncubatingValues {
     /** active state. */

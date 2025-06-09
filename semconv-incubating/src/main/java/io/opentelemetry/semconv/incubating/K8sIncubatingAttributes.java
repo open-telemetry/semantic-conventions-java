@@ -65,17 +65,97 @@ public final class K8sIncubatingAttributes {
   public static final AttributeKey<String> K8S_CONTAINER_STATUS_LAST_TERMINATED_REASON =
       stringKey("k8s.container.status.last_terminated_reason");
 
+  /**
+   * The cronjob annotation placed on the CronJob, the {@code <key>} being the annotation name, the
+   * value being the annotation value.
+   *
+   * <p>Notes:
+   *
+   * <p>Examples:
+   *
+   * <ul>
+   *   <li>An annotation {@code retries} with value {@code 4} SHOULD be recorded as the {@code
+   *       k8s.cronjob.annotation.retries} attribute with value {@code "4"}.
+   *   <li>An annotation {@code data} with empty string value SHOULD be recorded as the {@code
+   *       k8s.cronjob.annotation.data} attribute with value {@code ""}.
+   * </ul>
+   */
+  public static final AttributeKeyTemplate<String> K8S_CRONJOB_ANNOTATION =
+      stringKeyTemplate("k8s.cronjob.annotation");
+
+  /**
+   * The label placed on the CronJob, the {@code <key>} being the label name, the value being the
+   * label value.
+   *
+   * <p>Notes:
+   *
+   * <p>Examples:
+   *
+   * <ul>
+   *   <li>A label {@code type} with value {@code weekly} SHOULD be recorded as the {@code
+   *       k8s.cronjob.label.type} attribute with value {@code "weekly"}.
+   *   <li>A label {@code automated} with empty string value SHOULD be recorded as the {@code
+   *       k8s.cronjob.label.automated} attribute with value {@code ""}.
+   * </ul>
+   */
+  public static final AttributeKeyTemplate<String> K8S_CRONJOB_LABEL =
+      stringKeyTemplate("k8s.cronjob.label");
+
   /** The name of the CronJob. */
   public static final AttributeKey<String> K8S_CRONJOB_NAME = stringKey("k8s.cronjob.name");
 
   /** The UID of the CronJob. */
   public static final AttributeKey<String> K8S_CRONJOB_UID = stringKey("k8s.cronjob.uid");
 
+  /**
+   * The annotation key-value pairs placed on the DaemonSet.
+   *
+   * <p>Notes:
+   *
+   * <p>The {@code <key>} being the annotation name, the value being the annotation value, even if
+   * the value is empty.
+   */
+  public static final AttributeKeyTemplate<String> K8S_DAEMONSET_ANNOTATION =
+      stringKeyTemplate("k8s.daemonset.annotation");
+
+  /**
+   * The label key-value pairs placed on the DaemonSet.
+   *
+   * <p>Notes:
+   *
+   * <p>The {@code <key>} being the label name, the value being the label value, even if the value
+   * is empty.
+   */
+  public static final AttributeKeyTemplate<String> K8S_DAEMONSET_LABEL =
+      stringKeyTemplate("k8s.daemonset.label");
+
   /** The name of the DaemonSet. */
   public static final AttributeKey<String> K8S_DAEMONSET_NAME = stringKey("k8s.daemonset.name");
 
   /** The UID of the DaemonSet. */
   public static final AttributeKey<String> K8S_DAEMONSET_UID = stringKey("k8s.daemonset.uid");
+
+  /**
+   * The annotation key-value pairs placed on the Deployment.
+   *
+   * <p>Notes:
+   *
+   * <p>The {@code <key>} being the annotation name, the value being the annotation value, even if
+   * the value is empty.
+   */
+  public static final AttributeKeyTemplate<String> K8S_DEPLOYMENT_ANNOTATION =
+      stringKeyTemplate("k8s.deployment.annotation");
+
+  /**
+   * The label key-value pairs placed on the Deployment.
+   *
+   * <p>Notes:
+   *
+   * <p>The {@code <key>} being the label name, the value being the label value, even if the value
+   * is empty.
+   */
+  public static final AttributeKeyTemplate<String> K8S_DEPLOYMENT_LABEL =
+      stringKeyTemplate("k8s.deployment.label");
 
   /** The name of the Deployment. */
   public static final AttributeKey<String> K8S_DEPLOYMENT_NAME = stringKey("k8s.deployment.name");
@@ -89,11 +169,55 @@ public final class K8sIncubatingAttributes {
   /** The UID of the horizontal pod autoscaler. */
   public static final AttributeKey<String> K8S_HPA_UID = stringKey("k8s.hpa.uid");
 
+  /**
+   * The annotation key-value pairs placed on the Job.
+   *
+   * <p>Notes:
+   *
+   * <p>The {@code <key>} being the annotation name, the value being the annotation value, even if
+   * the value is empty.
+   */
+  public static final AttributeKeyTemplate<String> K8S_JOB_ANNOTATION =
+      stringKeyTemplate("k8s.job.annotation");
+
+  /**
+   * The label key-value pairs placed on the Job.
+   *
+   * <p>Notes:
+   *
+   * <p>The {@code <key>} being the label name, the value being the label value, even if the value
+   * is empty.
+   */
+  public static final AttributeKeyTemplate<String> K8S_JOB_LABEL =
+      stringKeyTemplate("k8s.job.label");
+
   /** The name of the Job. */
   public static final AttributeKey<String> K8S_JOB_NAME = stringKey("k8s.job.name");
 
   /** The UID of the Job. */
   public static final AttributeKey<String> K8S_JOB_UID = stringKey("k8s.job.uid");
+
+  /**
+   * The annotation key-value pairs placed on the Namespace.
+   *
+   * <p>Notes:
+   *
+   * <p>The {@code <key>} being the annotation name, the value being the annotation value, even if
+   * the value is empty.
+   */
+  public static final AttributeKeyTemplate<String> K8S_NAMESPACE_ANNOTATION =
+      stringKeyTemplate("k8s.namespace.annotation");
+
+  /**
+   * The label key-value pairs placed on the Namespace.
+   *
+   * <p>Notes:
+   *
+   * <p>The {@code <key>} being the label name, the value being the label value, even if the value
+   * is empty.
+   */
+  public static final AttributeKeyTemplate<String> K8S_NAMESPACE_LABEL =
+      stringKeyTemplate("k8s.namespace.label");
 
   /** The name of the namespace that the pod is running in. */
   public static final AttributeKey<String> K8S_NAMESPACE_NAME = stringKey("k8s.namespace.name");
@@ -109,6 +233,43 @@ public final class K8sIncubatingAttributes {
    */
   public static final AttributeKey<String> K8S_NAMESPACE_PHASE = stringKey("k8s.namespace.phase");
 
+  /**
+   * The annotation placed on the Node, the {@code <key>} being the annotation name, the value being
+   * the annotation value, even if the value is empty.
+   *
+   * <p>Notes:
+   *
+   * <p>Examples:
+   *
+   * <ul>
+   *   <li>An annotation {@code node.alpha.kubernetes.io/ttl} with value {@code 0} SHOULD be
+   *       recorded as the {@code k8s.node.annotation.node.alpha.kubernetes.io/ttl} attribute with
+   *       value {@code "0"}.
+   *   <li>An annotation {@code data} with empty string value SHOULD be recorded as the {@code
+   *       k8s.node.annotation.data} attribute with value {@code ""}.
+   * </ul>
+   */
+  public static final AttributeKeyTemplate<String> K8S_NODE_ANNOTATION =
+      stringKeyTemplate("k8s.node.annotation");
+
+  /**
+   * The label placed on the Node, the {@code <key>} being the label name, the value being the label
+   * value, even if the value is empty.
+   *
+   * <p>Notes:
+   *
+   * <p>Examples:
+   *
+   * <ul>
+   *   <li>A label {@code kubernetes.io/arch} with value {@code arm64} SHOULD be recorded as the
+   *       {@code k8s.node.label.kubernetes.io/arch} attribute with value {@code "arm64"}.
+   *   <li>A label {@code data} with empty string value SHOULD be recorded as the {@code
+   *       k8s.node.label.data} attribute with value {@code ""}.
+   * </ul>
+   */
+  public static final AttributeKeyTemplate<String> K8S_NODE_LABEL =
+      stringKeyTemplate("k8s.node.label");
+
   /** The name of the Node. */
   public static final AttributeKey<String> K8S_NODE_NAME = stringKey("k8s.node.name");
 
@@ -116,15 +277,43 @@ public final class K8sIncubatingAttributes {
   public static final AttributeKey<String> K8S_NODE_UID = stringKey("k8s.node.uid");
 
   /**
-   * The annotation key-value pairs placed on the Pod, the {@code <key>} being the annotation name,
-   * the value being the annotation value.
+   * The annotation placed on the Pod, the {@code <key>} being the annotation name, the value being
+   * the annotation value.
+   *
+   * <p>Notes:
+   *
+   * <p>Examples:
+   *
+   * <ul>
+   *   <li>An annotation {@code kubernetes.io/enforce-mountable-secrets} with value {@code true}
+   *       SHOULD be recorded as the {@code
+   *       k8s.pod.annotation.kubernetes.io/enforce-mountable-secrets} attribute with value {@code
+   *       "true"}.
+   *   <li>An annotation {@code mycompany.io/arch} with value {@code x64} SHOULD be recorded as the
+   *       {@code k8s.pod.annotation.mycompany.io/arch} attribute with value {@code "x64"}.
+   *   <li>An annotation {@code data} with empty string value SHOULD be recorded as the {@code
+   *       k8s.pod.annotation.data} attribute with value {@code ""}.
+   * </ul>
    */
   public static final AttributeKeyTemplate<String> K8S_POD_ANNOTATION =
       stringKeyTemplate("k8s.pod.annotation");
 
   /**
-   * The label key-value pairs placed on the Pod, the {@code <key>} being the label name, the value
-   * being the label value.
+   * The label placed on the Pod, the {@code <key>} being the label name, the value being the label
+   * value.
+   *
+   * <p>Notes:
+   *
+   * <p>Examples:
+   *
+   * <ul>
+   *   <li>A label {@code app} with value {@code my-app} SHOULD be recorded as the {@code
+   *       k8s.pod.label.app} attribute with value {@code "my-app"}.
+   *   <li>A label {@code mycompany.io/arch} with value {@code x64} SHOULD be recorded as the {@code
+   *       k8s.pod.label.mycompany.io/arch} attribute with value {@code "x64"}.
+   *   <li>A label {@code data} with empty string value SHOULD be recorded as the {@code
+   *       k8s.pod.label.data} attribute with value {@code ""}.
+   * </ul>
    */
   public static final AttributeKeyTemplate<String> K8S_POD_LABEL =
       stringKeyTemplate("k8s.pod.label");
@@ -143,6 +332,28 @@ public final class K8sIncubatingAttributes {
 
   /** The UID of the Pod. */
   public static final AttributeKey<String> K8S_POD_UID = stringKey("k8s.pod.uid");
+
+  /**
+   * The annotation key-value pairs placed on the ReplicaSet.
+   *
+   * <p>Notes:
+   *
+   * <p>The {@code <key>} being the annotation name, the value being the annotation value, even if
+   * the value is empty.
+   */
+  public static final AttributeKeyTemplate<String> K8S_REPLICASET_ANNOTATION =
+      stringKeyTemplate("k8s.replicaset.annotation");
+
+  /**
+   * The label key-value pairs placed on the ReplicaSet.
+   *
+   * <p>Notes:
+   *
+   * <p>The {@code <key>} being the label name, the value being the label value, even if the value
+   * is empty.
+   */
+  public static final AttributeKeyTemplate<String> K8S_REPLICASET_LABEL =
+      stringKeyTemplate("k8s.replicaset.label");
 
   /** The name of the ReplicaSet. */
   public static final AttributeKey<String> K8S_REPLICASET_NAME = stringKey("k8s.replicaset.name");
@@ -166,6 +377,28 @@ public final class K8sIncubatingAttributes {
   public static final AttributeKey<String> K8S_RESOURCEQUOTA_UID =
       stringKey("k8s.resourcequota.uid");
 
+  /**
+   * The annotation key-value pairs placed on the StatefulSet.
+   *
+   * <p>Notes:
+   *
+   * <p>The {@code <key>} being the annotation name, the value being the annotation value, even if
+   * the value is empty.
+   */
+  public static final AttributeKeyTemplate<String> K8S_STATEFULSET_ANNOTATION =
+      stringKeyTemplate("k8s.statefulset.annotation");
+
+  /**
+   * The label key-value pairs placed on the StatefulSet.
+   *
+   * <p>Notes:
+   *
+   * <p>The {@code <key>} being the label name, the value being the label value, even if the value
+   * is empty.
+   */
+  public static final AttributeKeyTemplate<String> K8S_STATEFULSET_LABEL =
+      stringKeyTemplate("k8s.statefulset.label");
+
   /** The name of the StatefulSet. */
   public static final AttributeKey<String> K8S_STATEFULSET_NAME = stringKey("k8s.statefulset.name");
 
@@ -179,6 +412,7 @@ public final class K8sIncubatingAttributes {
   public static final AttributeKey<String> K8S_VOLUME_TYPE = stringKey("k8s.volume.type");
 
   // Enum definitions
+
   /** Values for {@link #K8S_NAMESPACE_PHASE}. */
   public static final class K8sNamespacePhaseIncubatingValues {
     /**

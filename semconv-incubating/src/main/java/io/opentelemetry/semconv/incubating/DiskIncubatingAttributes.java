@@ -17,6 +17,7 @@ public final class DiskIncubatingAttributes {
   public static final AttributeKey<String> DISK_IO_DIRECTION = stringKey("disk.io.direction");
 
   // Enum definitions
+
   /** Values for {@link #DISK_IO_DIRECTION}. */
   public static final class DiskIoDirectionIncubatingValues {
     /** read. */

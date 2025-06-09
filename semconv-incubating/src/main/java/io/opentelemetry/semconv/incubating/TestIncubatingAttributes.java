@@ -33,6 +33,7 @@ public final class TestIncubatingAttributes {
       stringKey("test.suite.run.status");
 
   // Enum definitions
+
   /** Values for {@link #TEST_CASE_RESULT_STATUS}. */
   public static final class TestCaseResultStatusIncubatingValues {
     /** pass */

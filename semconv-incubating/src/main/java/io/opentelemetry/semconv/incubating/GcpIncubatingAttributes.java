@@ -125,6 +125,7 @@ public final class GcpIncubatingAttributes {
       stringKey("gcp.gce.instance.name");
 
   // Enum definitions
+
   /** Values for {@link #GCP_APPHUB_SERVICE_CRITICALITY_TYPE}. */
   public static final class GcpApphubServiceCriticalityTypeIncubatingValues {
     /** Mission critical service. */

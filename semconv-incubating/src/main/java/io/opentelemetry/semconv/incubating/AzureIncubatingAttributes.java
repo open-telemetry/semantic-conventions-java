@@ -58,6 +58,7 @@ public final class AzureIncubatingAttributes {
       longKey("azure.cosmosdb.response.sub_status_code");
 
   // Enum definitions
+
   /** Values for {@link #AZURE_COSMOSDB_CONNECTION_MODE}. */
   public static final class AzureCosmosdbConnectionModeIncubatingValues {
     /** Gateway (HTTP) connection. */
