@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+## Version 1.34.0 (2025-06-10)
+
 Note: there was no v1.33.0 release
 (see [details](https://github.com/open-telemetry/semantic-conventions-java/pull/217#discussion_r2109393759)).
 
