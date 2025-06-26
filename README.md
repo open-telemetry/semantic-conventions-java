@@ -99,14 +99,19 @@ Make sure to review the projects [license](LICENSE) and sign
 the [CNCF CLA](https://identity.linuxfoundation.org/projects/cncf). A signed CLA will be enforced by
 an automatic check once you submit a PR, but you can also sign it after opening your PR.
 
-This repository is an extension
-of [open-telemetry/opentelemetry-java](https://github.com/open-telemetry/opentelemetry-java).
-See [opentelemetry-java contributors](https://github.com/open-telemetry/opentelemetry-java#contributing)
-for code owners.
+### Maintainers
+
+- [OpenTelemetry Java Maintainers](https://github.com/open-telemetry/opentelemetry-java#maintainers)
+- [OpenTelemetry Java Instrumentation Maintainers](https://github.com/open-telemetry/opentelemetry-java-instrumentation#maintainers)
+
+### Approvers
+
+- [OpenTelemetry Java Approvers](https://github.com/open-telemetry/opentelemetry-java#approvers)
+- [OpenTelemetry Java Instrumentation Approvers](https://github.com/open-telemetry/opentelemetry-java-instrumentation#approvers)
 
 [maven-badge-stable]: https://img.shields.io/maven-central/v/io.opentelemetry.semconv/opentelemetry-semconv
 [maven-badge-incubating]: https://img.shields.io/maven-central/v/io.opentelemetry.semconv/opentelemetry-semconv-incubating
 
 [versioning]: https://github.com/open-telemetry/opentelemetry-java/blob/main/VERSIONING.md
 
-TODO(jack-berg): add code coverage badge?
+<!-- TODO(jack-berg): add code coverage badge? -->
