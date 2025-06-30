@@ -132,6 +132,9 @@ public final class OtelIncubatingAttributes {
     /** OTLP span exporter over HTTP with JSON serialization */
     public static final String OTLP_HTTP_JSON_SPAN_EXPORTER = "otlp_http_json_span_exporter";
 
+    /** Zipkin span exporter over HTTP */
+    public static final String ZIPKIN_HTTP_SPAN_EXPORTER = "zipkin_http_span_exporter";
+
     /** OTLP log record exporter over gRPC with protobuf serialization */
     public static final String OTLP_GRPC_LOG_EXPORTER = "otlp_grpc_log_exporter";
 
@@ -152,6 +155,10 @@ public final class OtelIncubatingAttributes {
 
     /** OTLP metric exporter over HTTP with JSON serialization */
     public static final String OTLP_HTTP_JSON_METRIC_EXPORTER = "otlp_http_json_metric_exporter";
+
+    /** Prometheus metric exporter over HTTP with the default text-based format */
+    public static final String PROMETHEUS_HTTP_TEXT_METRIC_EXPORTER =
+        "prometheus_http_text_metric_exporter";
 
     private OtelComponentTypeIncubatingValues() {}
   }

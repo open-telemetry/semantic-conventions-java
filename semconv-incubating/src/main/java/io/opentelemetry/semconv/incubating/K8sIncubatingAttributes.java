@@ -66,6 +66,24 @@ public final class K8sIncubatingAttributes {
       stringKey("k8s.container.status.last_terminated_reason");
 
   /**
+   * The reason for the container state. Corresponds to the {@code reason} field of the: <a
+   * href="https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#containerstatewaiting-v1-core">K8s
+   * ContainerStateWaiting</a> or <a
+   * href="https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#containerstateterminated-v1-core">K8s
+   * ContainerStateTerminated</a>
+   */
+  public static final AttributeKey<String> K8S_CONTAINER_STATUS_REASON =
+      stringKey("k8s.container.status.reason");
+
+  /**
+   * The state of the container. <a
+   * href="https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#containerstate-v1-core">K8s
+   * ContainerState</a>
+   */
+  public static final AttributeKey<String> K8S_CONTAINER_STATUS_STATE =
+      stringKey("k8s.container.status.state");
+
+  /**
    * The cronjob annotation placed on the CronJob, the {@code <key>} being the annotation name, the
    * value being the annotation value.
    *
@@ -108,23 +126,37 @@ public final class K8sIncubatingAttributes {
   public static final AttributeKey<String> K8S_CRONJOB_UID = stringKey("k8s.cronjob.uid");
 
   /**
-   * The annotation key-value pairs placed on the DaemonSet.
+   * The annotation placed on the DaemonSet, the {@code <key>} being the annotation name, the value
+   * being the annotation value, even if the value is empty.
    *
    * <p>Notes:
    *
-   * <p>The {@code <key>} being the annotation name, the value being the annotation value, even if
-   * the value is empty.
+   * <p>Examples:
+   *
+   * <ul>
+   *   <li>A label {@code replicas} with value {@code 1} SHOULD be recorded as the {@code
+   *       k8s.daemonset.annotation.replicas} attribute with value {@code "1"}.
+   *   <li>A label {@code data} with empty string value SHOULD be recorded as the {@code
+   *       k8s.daemonset.annotation.data} attribute with value {@code ""}.
+   * </ul>
    */
   public static final AttributeKeyTemplate<String> K8S_DAEMONSET_ANNOTATION =
       stringKeyTemplate("k8s.daemonset.annotation");
 
   /**
-   * The label key-value pairs placed on the DaemonSet.
+   * The label placed on the DaemonSet, the {@code <key>} being the label name, the value being the
+   * label value, even if the value is empty.
    *
    * <p>Notes:
    *
-   * <p>The {@code <key>} being the label name, the value being the label value, even if the value
-   * is empty.
+   * <p>Examples:
+   *
+   * <ul>
+   *   <li>A label {@code app} with value {@code guestbook} SHOULD be recorded as the {@code
+   *       k8s.daemonset.label.app} attribute with value {@code "guestbook"}.
+   *   <li>A label {@code data} with empty string value SHOULD be recorded as the {@code
+   *       k8s.daemonset.label.injected} attribute with value {@code ""}.
+   * </ul>
    */
   public static final AttributeKeyTemplate<String> K8S_DAEMONSET_LABEL =
       stringKeyTemplate("k8s.daemonset.label");
@@ -136,23 +168,37 @@ public final class K8sIncubatingAttributes {
   public static final AttributeKey<String> K8S_DAEMONSET_UID = stringKey("k8s.daemonset.uid");
 
   /**
-   * The annotation key-value pairs placed on the Deployment.
+   * The annotation placed on the Deployment, the {@code <key>} being the annotation name, the value
+   * being the annotation value, even if the value is empty.
    *
    * <p>Notes:
    *
-   * <p>The {@code <key>} being the annotation name, the value being the annotation value, even if
-   * the value is empty.
+   * <p>Examples:
+   *
+   * <ul>
+   *   <li>A label {@code replicas} with value {@code 1} SHOULD be recorded as the {@code
+   *       k8s.deployment.annotation.replicas} attribute with value {@code "1"}.
+   *   <li>A label {@code data} with empty string value SHOULD be recorded as the {@code
+   *       k8s.deployment.annotation.data} attribute with value {@code ""}.
+   * </ul>
    */
   public static final AttributeKeyTemplate<String> K8S_DEPLOYMENT_ANNOTATION =
       stringKeyTemplate("k8s.deployment.annotation");
 
   /**
-   * The label key-value pairs placed on the Deployment.
+   * The label placed on the Deployment, the {@code <key>} being the label name, the value being the
+   * label value, even if the value is empty.
    *
    * <p>Notes:
    *
-   * <p>The {@code <key>} being the label name, the value being the label value, even if the value
-   * is empty.
+   * <p>Examples:
+   *
+   * <ul>
+   *   <li>A label {@code replicas} with value {@code 0} SHOULD be recorded as the {@code
+   *       k8s.deployment.label.app} attribute with value {@code "guestbook"}.
+   *   <li>A label {@code injected} with empty string value SHOULD be recorded as the {@code
+   *       k8s.deployment.label.injected} attribute with value {@code ""}.
+   * </ul>
    */
   public static final AttributeKeyTemplate<String> K8S_DEPLOYMENT_LABEL =
       stringKeyTemplate("k8s.deployment.label");
@@ -163,30 +209,86 @@ public final class K8sIncubatingAttributes {
   /** The UID of the Deployment. */
   public static final AttributeKey<String> K8S_DEPLOYMENT_UID = stringKey("k8s.deployment.uid");
 
+  /**
+   * The type of metric source for the horizontal pod autoscaler.
+   *
+   * <p>Notes:
+   *
+   * <p>This attribute reflects the {@code type} field of spec.metrics[] in the HPA.
+   */
+  public static final AttributeKey<String> K8S_HPA_METRIC_TYPE = stringKey("k8s.hpa.metric.type");
+
   /** The name of the horizontal pod autoscaler. */
   public static final AttributeKey<String> K8S_HPA_NAME = stringKey("k8s.hpa.name");
+
+  /**
+   * The API version of the target resource to scale for the HorizontalPodAutoscaler.
+   *
+   * <p>Notes:
+   *
+   * <p>This maps to the {@code apiVersion} field in the {@code scaleTargetRef} of the HPA spec.
+   */
+  public static final AttributeKey<String> K8S_HPA_SCALETARGETREF_API_VERSION =
+      stringKey("k8s.hpa.scaletargetref.api_version");
+
+  /**
+   * The kind of the target resource to scale for the HorizontalPodAutoscaler.
+   *
+   * <p>Notes:
+   *
+   * <p>This maps to the {@code kind} field in the {@code scaleTargetRef} of the HPA spec.
+   */
+  public static final AttributeKey<String> K8S_HPA_SCALETARGETREF_KIND =
+      stringKey("k8s.hpa.scaletargetref.kind");
+
+  /**
+   * The name of the target resource to scale for the HorizontalPodAutoscaler.
+   *
+   * <p>Notes:
+   *
+   * <p>This maps to the {@code name} field in the {@code scaleTargetRef} of the HPA spec.
+   */
+  public static final AttributeKey<String> K8S_HPA_SCALETARGETREF_NAME =
+      stringKey("k8s.hpa.scaletargetref.name");
 
   /** The UID of the horizontal pod autoscaler. */
   public static final AttributeKey<String> K8S_HPA_UID = stringKey("k8s.hpa.uid");
 
+  /** The size (identifier) of the K8s huge page. */
+  public static final AttributeKey<String> K8S_HUGEPAGE_SIZE = stringKey("k8s.hugepage.size");
+
   /**
-   * The annotation key-value pairs placed on the Job.
+   * The annotation placed on the Job, the {@code <key>} being the annotation name, the value being
+   * the annotation value, even if the value is empty.
    *
    * <p>Notes:
    *
-   * <p>The {@code <key>} being the annotation name, the value being the annotation value, even if
-   * the value is empty.
+   * <p>Examples:
+   *
+   * <ul>
+   *   <li>A label {@code number} with value {@code 1} SHOULD be recorded as the {@code
+   *       k8s.job.annotation.number} attribute with value {@code "1"}.
+   *   <li>A label {@code data} with empty string value SHOULD be recorded as the {@code
+   *       k8s.job.annotation.data} attribute with value {@code ""}.
+   * </ul>
    */
   public static final AttributeKeyTemplate<String> K8S_JOB_ANNOTATION =
       stringKeyTemplate("k8s.job.annotation");
 
   /**
-   * The label key-value pairs placed on the Job.
+   * The label placed on the Job, the {@code <key>} being the label name, the value being the label
+   * value, even if the value is empty.
    *
    * <p>Notes:
    *
-   * <p>The {@code <key>} being the label name, the value being the label value, even if the value
-   * is empty.
+   * <p>Examples:
+   *
+   * <ul>
+   *   <li>A label {@code jobtype} with value {@code ci} SHOULD be recorded as the {@code
+   *       k8s.job.label.jobtype} attribute with value {@code "ci"}.
+   *   <li>A label {@code data} with empty string value SHOULD be recorded as the {@code
+   *       k8s.job.label.automated} attribute with value {@code ""}.
+   * </ul>
    */
   public static final AttributeKeyTemplate<String> K8S_JOB_LABEL =
       stringKeyTemplate("k8s.job.label");
@@ -198,23 +300,38 @@ public final class K8sIncubatingAttributes {
   public static final AttributeKey<String> K8S_JOB_UID = stringKey("k8s.job.uid");
 
   /**
-   * The annotation key-value pairs placed on the Namespace.
+   * The annotation placed on the Namespace, the {@code <key>} being the annotation name, the value
+   * being the annotation value, even if the value is empty.
    *
    * <p>Notes:
    *
-   * <p>The {@code <key>} being the annotation name, the value being the annotation value, even if
-   * the value is empty.
+   * <p>Examples:
+   *
+   * <ul>
+   *   <li>A label {@code ttl} with value {@code 0} SHOULD be recorded as the {@code
+   *       k8s.namespace.annotation.ttl} attribute with value {@code "0"}.
+   *   <li>A label {@code data} with empty string value SHOULD be recorded as the {@code
+   *       k8s.namespace.annotation.data} attribute with value {@code ""}.
+   * </ul>
    */
   public static final AttributeKeyTemplate<String> K8S_NAMESPACE_ANNOTATION =
       stringKeyTemplate("k8s.namespace.annotation");
 
   /**
-   * The label key-value pairs placed on the Namespace.
+   * The label placed on the Namespace, the {@code <key>} being the label name, the value being the
+   * label value, even if the value is empty.
    *
    * <p>Notes:
    *
-   * <p>The {@code <key>} being the label name, the value being the label value, even if the value
-   * is empty.
+   * <p>Examples:
+   *
+   * <ul>
+   *   <li>A label {@code kubernetes.io/metadata.name} with value {@code default} SHOULD be recorded
+   *       as the {@code k8s.namespace.label.kubernetes.io/metadata.name} attribute with value
+   *       {@code "default"}.
+   *   <li>A label {@code data} with empty string value SHOULD be recorded as the {@code
+   *       k8s.namespace.label.data} attribute with value {@code ""}.
+   * </ul>
    */
   public static final AttributeKeyTemplate<String> K8S_NAMESPACE_LABEL =
       stringKeyTemplate("k8s.namespace.label");
@@ -251,6 +368,36 @@ public final class K8sIncubatingAttributes {
    */
   public static final AttributeKeyTemplate<String> K8S_NODE_ANNOTATION =
       stringKeyTemplate("k8s.node.annotation");
+
+  /**
+   * The status of the condition, one of True, False, Unknown.
+   *
+   * <p>Notes:
+   *
+   * <p>This attribute aligns with the {@code status} field of the <a
+   * href="https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#nodecondition-v1-core">NodeCondition</a>
+   */
+  public static final AttributeKey<String> K8S_NODE_CONDITION_STATUS =
+      stringKey("k8s.node.condition.status");
+
+  /**
+   * The condition type of a K8s Node.
+   *
+   * <p>Notes:
+   *
+   * <p>K8s Node conditions as described by <a
+   * href="https://v1-32.docs.kubernetes.io/docs/reference/node/node-status/#condition">K8s
+   * documentation</a>.
+   *
+   * <p>This attribute aligns with the {@code type} field of the <a
+   * href="https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#nodecondition-v1-core">NodeCondition</a>
+   *
+   * <p>The set of possible values is not limited to those listed here. Managed Kubernetes
+   * environments, or custom controllers MAY introduce additional node condition types. When this
+   * occurs, the exact value as reported by the Kubernetes API SHOULD be used.
+   */
+  public static final AttributeKey<String> K8S_NODE_CONDITION_TYPE =
+      stringKey("k8s.node.condition.type");
 
   /**
    * The label placed on the Node, the {@code <key>} being the label name, the value being the label
@@ -334,23 +481,37 @@ public final class K8sIncubatingAttributes {
   public static final AttributeKey<String> K8S_POD_UID = stringKey("k8s.pod.uid");
 
   /**
-   * The annotation key-value pairs placed on the ReplicaSet.
+   * The annotation placed on the ReplicaSet, the {@code <key>} being the annotation name, the value
+   * being the annotation value, even if the value is empty.
    *
    * <p>Notes:
    *
-   * <p>The {@code <key>} being the annotation name, the value being the annotation value, even if
-   * the value is empty.
+   * <p>Examples:
+   *
+   * <ul>
+   *   <li>A label {@code replicas} with value {@code 0} SHOULD be recorded as the {@code
+   *       k8s.replicaset.annotation.replicas} attribute with value {@code "0"}.
+   *   <li>A label {@code data} with empty string value SHOULD be recorded as the {@code
+   *       k8s.replicaset.annotation.data} attribute with value {@code ""}.
+   * </ul>
    */
   public static final AttributeKeyTemplate<String> K8S_REPLICASET_ANNOTATION =
       stringKeyTemplate("k8s.replicaset.annotation");
 
   /**
-   * The label key-value pairs placed on the ReplicaSet.
+   * The label placed on the ReplicaSet, the {@code <key>} being the label name, the value being the
+   * label value, even if the value is empty.
    *
    * <p>Notes:
    *
-   * <p>The {@code <key>} being the label name, the value being the label value, even if the value
-   * is empty.
+   * <p>Examples:
+   *
+   * <ul>
+   *   <li>A label {@code app} with value {@code guestbook} SHOULD be recorded as the {@code
+   *       k8s.replicaset.label.app} attribute with value {@code "guestbook"}.
+   *   <li>A label {@code injected} with empty string value SHOULD be recorded as the {@code
+   *       k8s.replicaset.label.injected} attribute with value {@code ""}.
+   * </ul>
    */
   public static final AttributeKeyTemplate<String> K8S_REPLICASET_LABEL =
       stringKeyTemplate("k8s.replicaset.label");
@@ -373,28 +534,57 @@ public final class K8sIncubatingAttributes {
   public static final AttributeKey<String> K8S_RESOURCEQUOTA_NAME =
       stringKey("k8s.resourcequota.name");
 
+  /**
+   * The name of the K8s resource a resource quota defines.
+   *
+   * <p>Notes:
+   *
+   * <p>The value for this attribute can be either the full {@code count/<resource>[.<group>]}
+   * string (e.g., count/deployments.apps, count/pods), or, for certain core Kubernetes resources,
+   * just the resource name (e.g., pods, services, configmaps). Both forms are supported by
+   * Kubernetes for object count quotas. See <a
+   * href="https://kubernetes.io/docs/concepts/policy/resource-quotas/#object-count-quota">Kubernetes
+   * Resource Quotas documentation</a> for more details.
+   */
+  public static final AttributeKey<String> K8S_RESOURCEQUOTA_RESOURCE_NAME =
+      stringKey("k8s.resourcequota.resource_name");
+
   /** The UID of the resource quota. */
   public static final AttributeKey<String> K8S_RESOURCEQUOTA_UID =
       stringKey("k8s.resourcequota.uid");
 
   /**
-   * The annotation key-value pairs placed on the StatefulSet.
+   * The annotation placed on the StatefulSet, the {@code <key>} being the annotation name, the
+   * value being the annotation value, even if the value is empty.
    *
    * <p>Notes:
    *
-   * <p>The {@code <key>} being the annotation name, the value being the annotation value, even if
-   * the value is empty.
+   * <p>Examples:
+   *
+   * <ul>
+   *   <li>A label {@code replicas} with value {@code 1} SHOULD be recorded as the {@code
+   *       k8s.statefulset.annotation.replicas} attribute with value {@code "1"}.
+   *   <li>A label {@code data} with empty string value SHOULD be recorded as the {@code
+   *       k8s.statefulset.annotation.data} attribute with value {@code ""}.
+   * </ul>
    */
   public static final AttributeKeyTemplate<String> K8S_STATEFULSET_ANNOTATION =
       stringKeyTemplate("k8s.statefulset.annotation");
 
   /**
-   * The label key-value pairs placed on the StatefulSet.
+   * The label placed on the StatefulSet, the {@code <key>} being the label name, the value being
+   * the label value, even if the value is empty.
    *
    * <p>Notes:
    *
-   * <p>The {@code <key>} being the label name, the value being the label value, even if the value
-   * is empty.
+   * <p>Examples:
+   *
+   * <ul>
+   *   <li>A label {@code replicas} with value {@code 0} SHOULD be recorded as the {@code
+   *       k8s.statefulset.label.app} attribute with value {@code "guestbook"}.
+   *   <li>A label {@code injected} with empty string value SHOULD be recorded as the {@code
+   *       k8s.statefulset.label.injected} attribute with value {@code ""}.
+   * </ul>
    */
   public static final AttributeKeyTemplate<String> K8S_STATEFULSET_LABEL =
       stringKeyTemplate("k8s.statefulset.label");
@@ -405,6 +595,14 @@ public final class K8sIncubatingAttributes {
   /** The UID of the StatefulSet. */
   public static final AttributeKey<String> K8S_STATEFULSET_UID = stringKey("k8s.statefulset.uid");
 
+  /**
+   * The name of K8s <a
+   * href="https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#storageclass-v1-storage-k8s-io">StorageClass</a>
+   * object.
+   */
+  public static final AttributeKey<String> K8S_STORAGECLASS_NAME =
+      stringKey("k8s.storageclass.name");
+
   /** The name of the K8s volume. */
   public static final AttributeKey<String> K8S_VOLUME_NAME = stringKey("k8s.volume.name");
 
@@ -412,6 +610,52 @@ public final class K8sIncubatingAttributes {
   public static final AttributeKey<String> K8S_VOLUME_TYPE = stringKey("k8s.volume.type");
 
   // Enum definitions
+
+  /** Values for {@link #K8S_CONTAINER_STATUS_REASON}. */
+  public static final class K8sContainerStatusReasonIncubatingValues {
+    /** The container is being created. */
+    public static final String CONTAINER_CREATING = "ContainerCreating";
+
+    /** The container is in a crash loop back off state. */
+    public static final String CRASH_LOOP_BACK_OFF = "CrashLoopBackOff";
+
+    /** There was an error creating the container configuration. */
+    public static final String CREATE_CONTAINER_CONFIG_ERROR = "CreateContainerConfigError";
+
+    /** There was an error pulling the container image. */
+    public static final String ERR_IMAGE_PULL = "ErrImagePull";
+
+    /** The container image pull is in back off state. */
+    public static final String IMAGE_PULL_BACK_OFF = "ImagePullBackOff";
+
+    /** The container was killed due to out of memory. */
+    public static final String OOM_KILLED = "OOMKilled";
+
+    /** The container has completed execution. */
+    public static final String COMPLETED = "Completed";
+
+    /** There was an error with the container. */
+    public static final String ERROR = "Error";
+
+    /** The container cannot run. */
+    public static final String CONTAINER_CANNOT_RUN = "ContainerCannotRun";
+
+    private K8sContainerStatusReasonIncubatingValues() {}
+  }
+
+  /** Values for {@link #K8S_CONTAINER_STATUS_STATE}. */
+  public static final class K8sContainerStatusStateIncubatingValues {
+    /** The container has terminated. */
+    public static final String TERMINATED = "terminated";
+
+    /** The container is running. */
+    public static final String RUNNING = "running";
+
+    /** The container is waiting. */
+    public static final String WAITING = "waiting";
+
+    private K8sContainerStatusStateIncubatingValues() {}
+  }
 
   /** Values for {@link #K8S_NAMESPACE_PHASE}. */
   public static final class K8sNamespacePhaseIncubatingValues {
@@ -428,6 +672,40 @@ public final class K8sIncubatingAttributes {
     public static final String TERMINATING = "terminating";
 
     private K8sNamespacePhaseIncubatingValues() {}
+  }
+
+  /** Values for {@link #K8S_NODE_CONDITION_STATUS}. */
+  public static final class K8sNodeConditionStatusIncubatingValues {
+    /** condition_true. */
+    public static final String CONDITION_TRUE = "true";
+
+    /** condition_false. */
+    public static final String CONDITION_FALSE = "false";
+
+    /** condition_unknown. */
+    public static final String CONDITION_UNKNOWN = "unknown";
+
+    private K8sNodeConditionStatusIncubatingValues() {}
+  }
+
+  /** Values for {@link #K8S_NODE_CONDITION_TYPE}. */
+  public static final class K8sNodeConditionTypeIncubatingValues {
+    /** The node is healthy and ready to accept pods */
+    public static final String READY = "Ready";
+
+    /** Pressure exists on the disk size—that is, if the disk capacity is low */
+    public static final String DISK_PRESSURE = "DiskPressure";
+
+    /** Pressure exists on the node memory—that is, if the node memory is low */
+    public static final String MEMORY_PRESSURE = "MemoryPressure";
+
+    /** Pressure exists on the processes—that is, if there are too many processes on the node */
+    public static final String PID_PRESSURE = "PIDPressure";
+
+    /** The network for the node is not correctly configured */
+    public static final String NETWORK_UNAVAILABLE = "NetworkUnavailable";
+
+    private K8sNodeConditionTypeIncubatingValues() {}
   }
 
   /** Values for {@link #K8S_VOLUME_TYPE}. */
