@@ -136,7 +136,7 @@ testing {
   suites.withType(JvmTestSuite::class).configureEach {
     dependencies {
       implementation(project(project.path))
-      implementation(enforcedPlatform("org.junit:junit-bom:5.13.2"))
+      implementation(enforcedPlatform("org.junit:junit-bom:5.13.3"))
       implementation(enforcedPlatform("org.assertj:assertj-bom:3.27.3"))
 
       implementation("org.junit.jupiter:junit-jupiter-api")
