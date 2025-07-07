@@ -146,27 +146,6 @@ public final class CloudIncubatingAttributes {
     /** Azure Red Hat OpenShift */
     public static final String AZURE_OPENSHIFT = "azure.openshift";
 
-    /** Azure Virtual Machines */
-    public static final String AZURE_VM = "azure_vm";
-
-    /** Azure Container Apps */
-    public static final String AZURE_CONTAINER_APPS = "azure_container_apps";
-
-    /** Azure Container Instances */
-    public static final String AZURE_CONTAINER_INSTANCES = "azure_container_instances";
-
-    /** Azure Kubernetes Service */
-    public static final String AZURE_AKS = "azure_aks";
-
-    /** Azure Functions */
-    public static final String AZURE_FUNCTIONS = "azure_functions";
-
-    /** Azure App Service */
-    public static final String AZURE_APP_SERVICE = "azure_app_service";
-
-    /** Azure Red Hat OpenShift */
-    public static final String AZURE_OPENSHIFT = "azure_openshift";
-
     /** Google Bare Metal Solution (BMS) */
     public static final String GCP_BARE_METAL_SOLUTION = "gcp_bare_metal_solution";
 

@@ -84,6 +84,14 @@ public final class OtelIncubatingAttributes {
   @Deprecated
   public static final AttributeKey<String> OTEL_SCOPE_VERSION = stringKey("otel.scope.version");
 
+  /**
+   * Determines whether the span has a parent span, and if so, <a
+   * href="https://opentelemetry.io/docs/specs/otel/trace/api/#isremote">whether it is a remote
+   * parent</a>
+   */
+  public static final AttributeKey<String> OTEL_SPAN_PARENT_ORIGIN =
+      stringKey("otel.span.parent.origin");
+
   /** The result value of the sampler for this span */
   public static final AttributeKey<String> OTEL_SPAN_SAMPLING_RESULT =
       stringKey("otel.span.sampling_result");
@@ -161,6 +169,26 @@ public final class OtelIncubatingAttributes {
         "prometheus_http_text_metric_exporter";
 
     private OtelComponentTypeIncubatingValues() {}
+  }
+
+  /** Values for {@link #OTEL_SPAN_PARENT_ORIGIN}. */
+  public static final class OtelSpanParentOriginIncubatingValues {
+    /** The span does not have a parent, it is a root span */
+    public static final String NONE = "none";
+
+    /**
+     * The span has a parent and the parent's span context <a
+     * href="https://opentelemetry.io/docs/specs/otel/trace/api/#isremote">isRemote()</a> is false
+     */
+    public static final String LOCAL = "local";
+
+    /**
+     * The span has a parent and the parent's span context <a
+     * href="https://opentelemetry.io/docs/specs/otel/trace/api/#isremote">isRemote()</a> is true
+     */
+    public static final String REMOTE = "remote";
+
+    private OtelSpanParentOriginIncubatingValues() {}
   }
 
   /** Values for {@link #OTEL_SPAN_SAMPLING_RESULT}. */
