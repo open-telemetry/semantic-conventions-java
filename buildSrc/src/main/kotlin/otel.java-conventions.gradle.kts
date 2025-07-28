@@ -76,9 +76,7 @@ tasks {
       breakIterator(true)
 
       addBooleanOption("html5", true)
-      // TODO (trask) remove "-html" after next semconv release
-      //  (see https://github.com/open-telemetry/semantic-conventions/pull/2304)
-      addBooleanOption("Xdoclint:all,-missing,-html", true)
+      addBooleanOption("Xdoclint:all,-missing", true)
       // non-standard option to fail on warnings, see https://bugs.openjdk.java.net/browse/JDK-8200363
       addStringOption("Xwerror", "-quiet")
     }
