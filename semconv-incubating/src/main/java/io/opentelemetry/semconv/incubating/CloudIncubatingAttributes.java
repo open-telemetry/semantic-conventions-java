@@ -81,7 +81,7 @@ public final class CloudIncubatingAttributes {
    *   <li><strong>GCP:</strong> The <a
    *       href="https://cloud.google.com/iam/docs/full-resource-names">URI of the resource</a>
    *   <li><strong>Azure:</strong> The <a
-   *       href="https://docs.microsoft.com/rest/api/resources/resources/get-by-id">Fully Qualified
+   *       href="https://learn.microsoft.com/rest/api/resources/resources/get-by-id">Fully Qualified
    *       Resource ID</a> of the invoked function, <em>not</em> the function app, having the form
    *       {@code
    *       /subscriptions/<SUBSCRIPTION_GUID>/resourceGroups/<RG>/providers/Microsoft.Web/sites/<FUNCAPP>/functions/<FUNC>}.
@@ -126,25 +126,25 @@ public final class CloudIncubatingAttributes {
     public static final String AWS_OPENSHIFT = "aws_openshift";
 
     /** Azure Virtual Machines */
-    public static final String AZURE_VM = "azure_vm";
+    public static final String AZURE_VM = "azure.vm";
 
     /** Azure Container Apps */
-    public static final String AZURE_CONTAINER_APPS = "azure_container_apps";
+    public static final String AZURE_CONTAINER_APPS = "azure.container_apps";
 
     /** Azure Container Instances */
-    public static final String AZURE_CONTAINER_INSTANCES = "azure_container_instances";
+    public static final String AZURE_CONTAINER_INSTANCES = "azure.container_instances";
 
     /** Azure Kubernetes Service */
-    public static final String AZURE_AKS = "azure_aks";
+    public static final String AZURE_AKS = "azure.aks";
 
     /** Azure Functions */
-    public static final String AZURE_FUNCTIONS = "azure_functions";
+    public static final String AZURE_FUNCTIONS = "azure.functions";
 
     /** Azure App Service */
-    public static final String AZURE_APP_SERVICE = "azure_app_service";
+    public static final String AZURE_APP_SERVICE = "azure.app_service";
 
     /** Azure Red Hat OpenShift */
-    public static final String AZURE_OPENSHIFT = "azure_openshift";
+    public static final String AZURE_OPENSHIFT = "azure.openshift";
 
     /** Google Bare Metal Solution (BMS) */
     public static final String GCP_BARE_METAL_SOLUTION = "gcp_bare_metal_solution";

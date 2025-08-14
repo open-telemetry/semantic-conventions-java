@@ -372,10 +372,16 @@ public final class GenAiIncubatingAttributes {
     public static final String COHERE = "cohere";
 
     /** Azure AI Inference */
+    public static final String AZURE_AI_INFERENCE = "azure.ai.inference";
+
+    /** Azure OpenAI */
+    public static final String AZURE_AI_OPENAI = "azure.ai.openai";
+
+    /** Azure AI Inference */
     public static final String AZ_AI_INFERENCE = "az.ai.inference";
 
     /** Azure OpenAI */
-    public static final String AZ_AI_OPENAI = "az.ai.openai";
+    public static final String AZ_AI_OPENAI = "azure.ai.openai";
 
     /** IBM Watsonx AI */
     public static final String IBM_WATSONX_AI = "ibm.watsonx.ai";

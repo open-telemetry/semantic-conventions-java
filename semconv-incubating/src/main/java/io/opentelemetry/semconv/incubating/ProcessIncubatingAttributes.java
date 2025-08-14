@@ -71,8 +71,8 @@ public final class ProcessIncubatingAttributes {
       stringKey("process.creation.time");
 
   /**
-   * Process environment variables, <key> being the environment variable name, the value being the
-   * environment variable value.
+   * Process environment variables, {@code <key>} being the environment variable name, the value
+   * being the environment variable value.
    *
    * <p>Notes:
    *

@@ -240,7 +240,7 @@ public final class HttpIncubatingAttributes {
   /**
    * Deprecated, use {@code http.response.header.content-length} instead.
    *
-   * @deprecated hp.response.header.content-length
+   * @deprecated Replaced by {@code http.response.header.content-length}.
    */
   @Deprecated
   public static final AttributeKey<Long> HTTP_RESPONSE_CONTENT_LENGTH =
