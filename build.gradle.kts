@@ -117,7 +117,7 @@ fun generateTask(taskName: String, incubating: Boolean) {
         "--mount", "type=bind,source=${modelPath},target=/home/weaver/source,readonly",
         "--mount", "type=bind,source=$projectDir/buildscripts/templates,target=/home/weaver/templates,readonly",
         "--mount", "type=bind,source=$projectDir/$outputDir,target=/home/weaver/target",
-        "otel/weaver:v0.16.1",
+        "otel/weaver:v0.16.1@sha256:5ca4901b460217604ddb83feaca05238e2b016a226ecfb9b87a95555918a03af",
         "registry", "generate",
         "--registry=/home/weaver/source",
         "--templates=/home/weaver/templates",
