@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+## Version 1.36.0 (2025-08-26)
+
 Note: there was no v1.35.0 release
 (see [details](https://github.com/open-telemetry/semantic-conventions/issues/2455)).
 
