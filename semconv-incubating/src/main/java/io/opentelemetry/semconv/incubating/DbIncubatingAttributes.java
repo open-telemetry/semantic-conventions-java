@@ -722,7 +722,7 @@ public final class DbIncubatingAttributes {
     public static final String ADABAS = "adabas";
 
     /** Deprecated, use {@code intersystems_cache} instead. */
-    public static final String CACHE = "cache";
+    @Deprecated public static final String CACHE = "cache";
 
     /** InterSystems Caché */
     public static final String INTERSYSTEMS_CACHE = "intersystems_cache";
@@ -734,13 +734,13 @@ public final class DbIncubatingAttributes {
     public static final String CLICKHOUSE = "clickhouse";
 
     /** Deprecated, use {@code other_sql} instead. */
-    public static final String CLOUDSCAPE = "cloudscape";
+    @Deprecated public static final String CLOUDSCAPE = "cloudscape";
 
     /** CockroachDB */
     public static final String COCKROACHDB = "cockroachdb";
 
     /** Deprecated, no replacement at this time. */
-    public static final String COLDFUSION = "coldfusion";
+    @Deprecated public static final String COLDFUSION = "coldfusion";
 
     /** Microsoft Azure Cosmos DB */
     public static final String COSMOSDB = "cosmosdb";
@@ -773,7 +773,7 @@ public final class DbIncubatingAttributes {
     public static final String FIREBIRD = "firebird";
 
     /** Deprecated, use {@code other_sql} instead. */
-    public static final String FIRSTSQL = "firstsql";
+    @Deprecated public static final String FIRSTSQL = "firstsql";
 
     /** Apache Geode */
     public static final String GEODE = "geode";
@@ -824,7 +824,7 @@ public final class DbIncubatingAttributes {
     public static final String MSSQL = "mssql";
 
     /** Deprecated, Microsoft SQL Server Compact is discontinued. */
-    public static final String MSSQLCOMPACT = "mssqlcompact";
+    @Deprecated public static final String MSSQLCOMPACT = "mssqlcompact";
 
     /** MySQL */
     public static final String MYSQL = "mysql";

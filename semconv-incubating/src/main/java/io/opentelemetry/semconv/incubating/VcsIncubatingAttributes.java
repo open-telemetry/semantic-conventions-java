@@ -255,7 +255,7 @@ public final class VcsIncubatingAttributes {
     public static final String GITLAB = "gitlab";
 
     /** Deprecated, use {@code gitea} instead. */
-    public static final String GITTEA = "gittea";
+    @Deprecated public static final String GITTEA = "gittea";
 
     /** <a href="https://gitea.io">Gitea</a> */
     public static final String GITEA = "gitea";

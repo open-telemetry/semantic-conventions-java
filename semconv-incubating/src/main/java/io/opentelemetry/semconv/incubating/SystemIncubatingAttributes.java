@@ -162,7 +162,7 @@ public final class SystemIncubatingAttributes {
     public static final String FREE = "free";
 
     /** shared. */
-    public static final String SHARED = "shared";
+    @Deprecated public static final String SHARED = "shared";
 
     /** buffers. */
     public static final String BUFFERS = "buffers";

@@ -69,7 +69,7 @@ public final class OsIncubatingAttributes {
     public static final String SOLARIS = "solaris";
 
     /** Deprecated. Use {@code zos} instead. */
-    public static final String Z_OS = "z_os";
+    @Deprecated public static final String Z_OS = "z_os";
 
     /** IBM z/OS */
     public static final String ZOS = "zos";

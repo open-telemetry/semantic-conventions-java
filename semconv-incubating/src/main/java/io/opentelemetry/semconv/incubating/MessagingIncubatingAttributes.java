@@ -376,10 +376,10 @@ public final class MessagingIncubatingAttributes {
     public static final String SETTLE = "settle";
 
     /** Deprecated. Use {@code process} instead. */
-    public static final String DELIVER = "deliver";
+    @Deprecated public static final String DELIVER = "deliver";
 
     /** Deprecated. Use {@code send} instead. */
-    public static final String PUBLISH = "publish";
+    @Deprecated public static final String PUBLISH = "publish";
 
     private MessagingOperationTypeIncubatingValues() {}
   }
