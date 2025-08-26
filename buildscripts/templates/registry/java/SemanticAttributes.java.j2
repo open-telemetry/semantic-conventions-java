@@ -1,17 +1,19 @@
 {%- macro to_java_key_type(attribute) -%}
-    {%- if attribute.type is template_type -%}
-        {{ attribute.type | instantiated_type | map_text("java_template_key_type") }}
-    {%- else -%}
-        {{ attribute.type | instantiated_type | map_text("java_key_type") }}
-    {%- endif %}
+  {%- if attribute.type is template_type -%}
+    {{ attribute.type | instantiated_type | map_text("java_template_key_type") }}
+  {%- else -%}
+    {{ attribute.type | instantiated_type | map_text("java_key_type") }}
+  {%- endif %}
 {%- endmacro %}
+
 {%- macro to_java_key_factory(attribute) -%}
-    {%- if attribute.type is template_type -%}
-        {{ attribute.type | instantiated_type | map_text("java_template_key_factory") }}
-    {%- else -%}
-        {{ attribute.type | instantiated_type | map_text("java_key_factory") }}
-    {%- endif %}
+  {%- if attribute.type is template_type -%}
+    {{ attribute.type | instantiated_type | map_text("java_template_key_factory") }}
+  {%- else -%}
+    {{ attribute.type | instantiated_type | map_text("java_key_factory") }}
+  {%- endif %}
 {%- endmacro %}
+
 {%- set my_class_name = ctx.root_namespace | pascal_case ~ "Attributes" -%}
 
 /*
@@ -36,24 +38,31 @@ import java.util.List;
 // DO NOT EDIT, this is an Auto-generated file from buildscripts/templates/registry/java/SemanticAttributes.java.j2
 @SuppressWarnings("unused")
 public final class {{ my_class_name }} {
-    {% for attribute in ctx.attributes | rejectattr("name", "in", ctx.excluded_attributes) %}{% if attribute is stable %}
-    {%- if attribute is deprecated %}
-    {%- set deprecated_javadoc = "@deprecated " ~ attribute.deprecated.note -%}
+  {%- for attribute in ctx.attributes | rejectattr("name", "in", ctx.excluded_attributes) -%}
+    {%- if attribute is stable -%}
+      {%- if attribute is deprecated -%}
+        {%- set deprecated_javadoc = "@deprecated " ~ attribute.deprecated.note -%}
+      {%- endif -%}
+      {{ [attribute.brief, concat_if("\n\nNotes:\n\n", attribute.note), deprecated_javadoc] | comment }}
+      {%- if attribute is deprecated -%}
+        @Deprecated
+      {%- endif %} public static final {{ to_java_key_type(attribute) | trim }} {{ attribute.name | screaming_snake_case }} = {{ to_java_key_factory(attribute) | trim }}("{{ attribute.name }}");
     {%- endif -%}
-    {{ [attribute.brief, concat_if("\n\nNotes:\n\n", attribute.note), deprecated_javadoc] | comment(indent=4) }}
-    {% if attribute is deprecated %}@Deprecated{% endif %} public static final {{ to_java_key_type(attribute) | trim }} {{ attribute.name | screaming_snake_case }} = {{ to_java_key_factory(attribute) | trim }}("{{ attribute.name }}");
-    {% endif %}{% endfor %}
-    {% for attribute in ctx.attributes %}{% if attribute is enum and attribute is stable %}
-    // Enum definition
-    /** Values for {@link #{{ attribute.name | screaming_snake_case }}}. */
-    public static final class {{ attribute.name | pascal_case }}Values {
-      {%- for member in attribute.type.members %}
-      {{ [member.brief or (member.id ~ '.')] | comment(indent=4) }}
-      public static final {{ attribute.type | instantiated_type | map_text("java_enum_type") }} {{ member.id | screaming_snake_case }} = {{ member.value | print_member_value }};
-      {%- endfor %}
-      private {{ attribute.name | pascal_case }}Values() {}
-    }
-    {% endif %}{% endfor %}
+  {%- endfor %}
 
-    private {{ my_class_name }}() {}
+  {%- for attribute in ctx.attributes -%}
+    {%- if attribute is enum and attribute is stable %}
+      // Enum definition
+      /** Values for {@link #{{ attribute.name | screaming_snake_case }}}. */
+      public static final class {{ attribute.name | pascal_case }}Values {
+        {%- for member in attribute.type.members %}
+          {{ [member.brief or (member.id ~ '.')] | comment }}
+          public static final {{ attribute.type | instantiated_type | map_text("java_enum_type") }} {{ member.id | screaming_snake_case }} = {{ member.value | print_member_value }};
+        {%- endfor %}
+        private {{ attribute.name | pascal_case }}Values() {}
+      }
+    {%- endif -%}
+  {%- endfor %}
+
+  private {{ my_class_name }}() {}
 }
