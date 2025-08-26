@@ -68,7 +68,11 @@ public final class OsIncubatingAttributes {
     /** SunOS, Oracle Solaris */
     public static final String SOLARIS = "solaris";
 
-    /** Deprecated. Use {@code zos} instead. */
+    /**
+     * Deprecated. Use {@code zos} instead.
+     *
+     * @deprecated Replaced by {@code zos}.
+     */
     @Deprecated public static final String Z_OS = "z_os";
 
     /** IBM z/OS */

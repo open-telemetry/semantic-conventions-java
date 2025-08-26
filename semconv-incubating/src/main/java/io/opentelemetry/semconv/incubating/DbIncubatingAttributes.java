@@ -721,7 +721,11 @@ public final class DbIncubatingAttributes {
     /** Adabas (Adaptable Database System) */
     public static final String ADABAS = "adabas";
 
-    /** Deprecated, use {@code intersystems_cache} instead. */
+    /**
+     * Deprecated, use {@code intersystems_cache} instead.
+     *
+     * @deprecated Replaced by {@code intersystems_cache}.
+     */
     @Deprecated public static final String CACHE = "cache";
 
     /** InterSystems Caché */
@@ -733,13 +737,21 @@ public final class DbIncubatingAttributes {
     /** ClickHouse */
     public static final String CLICKHOUSE = "clickhouse";
 
-    /** Deprecated, use {@code other_sql} instead. */
+    /**
+     * Deprecated, use {@code other_sql} instead.
+     *
+     * @deprecated Replaced by {@code other_sql}.
+     */
     @Deprecated public static final String CLOUDSCAPE = "cloudscape";
 
     /** CockroachDB */
     public static final String COCKROACHDB = "cockroachdb";
 
-    /** Deprecated, no replacement at this time. */
+    /**
+     * Deprecated, no replacement at this time.
+     *
+     * @deprecated Removed.
+     */
     @Deprecated public static final String COLDFUSION = "coldfusion";
 
     /** Microsoft Azure Cosmos DB */
@@ -772,7 +784,11 @@ public final class DbIncubatingAttributes {
     /** Firebird */
     public static final String FIREBIRD = "firebird";
 
-    /** Deprecated, use {@code other_sql} instead. */
+    /**
+     * Deprecated, use {@code other_sql} instead.
+     *
+     * @deprecated Replaced by {@code other_sql}.
+     */
     @Deprecated public static final String FIRSTSQL = "firstsql";
 
     /** Apache Geode */
@@ -823,7 +839,11 @@ public final class DbIncubatingAttributes {
     /** Microsoft SQL Server */
     public static final String MSSQL = "mssql";
 
-    /** Deprecated, Microsoft SQL Server Compact is discontinued. */
+    /**
+     * Deprecated, Microsoft SQL Server Compact is discontinued.
+     *
+     * @deprecated Removed, use {@code other_sql} instead.
+     */
     @Deprecated public static final String MSSQLCOMPACT = "mssqlcompact";
 
     /** MySQL */

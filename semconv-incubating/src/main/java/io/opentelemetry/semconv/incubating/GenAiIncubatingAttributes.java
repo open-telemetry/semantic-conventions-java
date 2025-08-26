@@ -359,10 +359,18 @@ public final class GenAiIncubatingAttributes {
     /** Gemini */
     public static final String GCP_GEMINI = "gcp.gemini";
 
-    /** Vertex AI */
+    /**
+     * Vertex AI
+     *
+     * @deprecated Use 'gcp.vertex_ai' instead.
+     */
     @Deprecated public static final String VERTEX_AI = "vertex_ai";
 
-    /** Gemini */
+    /**
+     * Gemini
+     *
+     * @deprecated Use 'gcp.gemini' instead.
+     */
     @Deprecated public static final String GEMINI = "gemini";
 
     /** Anthropic */
@@ -377,10 +385,18 @@ public final class GenAiIncubatingAttributes {
     /** Azure OpenAI */
     public static final String AZURE_AI_OPENAI = "azure.ai.openai";
 
-    /** Azure AI Inference */
+    /**
+     * Azure AI Inference
+     *
+     * @deprecated Replaced by azure.ai.inference
+     */
     @Deprecated public static final String AZ_AI_INFERENCE = "az.ai.inference";
 
-    /** Azure OpenAI */
+    /**
+     * Azure OpenAI
+     *
+     * @deprecated Replaced by azure.ai.openai
+     */
     @Deprecated public static final String AZ_AI_OPENAI = "azure.ai.openai";
 
     /** IBM Watsonx AI */
@@ -412,7 +428,11 @@ public final class GenAiIncubatingAttributes {
     /** Input tokens (prompt, input, etc.) */
     public static final String INPUT = "input";
 
-    /** Output tokens (completion, response, etc.) */
+    /**
+     * Output tokens (completion, response, etc.)
+     *
+     * @deprecated Replaced by {@code output}.
+     */
     @Deprecated public static final String COMPLETION = "output";
 
     /** Output tokens (completion, response, etc.) */

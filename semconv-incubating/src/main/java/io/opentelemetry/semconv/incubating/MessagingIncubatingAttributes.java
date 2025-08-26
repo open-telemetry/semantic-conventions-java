@@ -375,10 +375,18 @@ public final class MessagingIncubatingAttributes {
     /** One or more messages are settled. */
     public static final String SETTLE = "settle";
 
-    /** Deprecated. Use {@code process} instead. */
+    /**
+     * Deprecated. Use {@code process} instead.
+     *
+     * @deprecated Replaced by {@code process}.
+     */
     @Deprecated public static final String DELIVER = "deliver";
 
-    /** Deprecated. Use {@code send} instead. */
+    /**
+     * Deprecated. Use {@code send} instead.
+     *
+     * @deprecated Replaced by {@code send}.
+     */
     @Deprecated public static final String PUBLISH = "publish";
 
     private MessagingOperationTypeIncubatingValues() {}

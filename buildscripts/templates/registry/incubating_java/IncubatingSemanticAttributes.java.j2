@@ -89,7 +89,11 @@ public final class {{ my_class_name }} {
     {% endif %}
     public static final class {{ attribute.name | pascal_case }}IncubatingValues {
       {%- for member in attribute.type.members %}
-        {% if member is experimental or enum_deprecated_in_favor_of_stable.value %}{{ [member.brief or (member.id ~ '.')] | comment }}
+        {%- if member is experimental and member is deprecated -%}
+          {{ [member.brief or (member.id ~ '.'), "@deprecated " ~ member.deprecated.note] | comment }}
+            @Deprecated public static final {{ attribute.type | instantiated_type | map_text("java_enum_type") }} {{ member.id | screaming_snake_case }} = {{ member.value | print_member_value }};
+        {% elif member is experimental or enum_deprecated_in_favor_of_stable.value %}
+          {{ [member.brief or (member.id ~ '.')] | comment }}
           {%- if member is deprecated -%}
             @Deprecated
           {%- endif -%}
