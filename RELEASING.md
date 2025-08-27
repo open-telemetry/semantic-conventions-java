@@ -13,7 +13,7 @@ Applies to major, minor and patch releases of `open-telemetry/semantic-conventio
   * Bump the `semanticConventionsVersion` variable in `build.gradle.kts` to version
     of `semantic-conventions` to be released
   * Follow the instructions
-    to [generate the semantic conventions](README.md#generating-semantic-conventions)
+    to [generate the semantic conventions](CONTRIBUTING.md#generating-semantic-conventions)
 * Run
   the [Prepare release branch workflow](https://github.com/open-telemetry/semantic-conventions-java/actions/workflows/prepare-release-branch.yml)
   * Press the "Run workflow" button, and leave the default branch `main` selected
