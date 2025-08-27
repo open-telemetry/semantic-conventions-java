@@ -1,0 +1,32 @@
+Comparing source compatibility of opentelemetry-semconv-1.34.0.jar against opentelemetry-semconv-1.32.0.jar
++++  NEW CLASS: PUBLIC(+) FINAL(+) io.opentelemetry.semconv.CodeAttributes  (not serializable)
+	+++  CLASS FILE FORMAT VERSION: 52.0 <- n.a.
+	+++  NEW SUPERCLASS: java.lang.Object
+	+++  NEW FIELD: PUBLIC(+) STATIC(+) FINAL(+) io.opentelemetry.api.common.AttributeKey<java.lang.String> CODE_FUNCTION_NAME
+	+++  NEW FIELD: PUBLIC(+) STATIC(+) FINAL(+) io.opentelemetry.api.common.AttributeKey<java.lang.String> CODE_STACKTRACE
+	+++  NEW FIELD: PUBLIC(+) STATIC(+) FINAL(+) io.opentelemetry.api.common.AttributeKey<java.lang.String> CODE_FILE_PATH
+	+++  NEW FIELD: PUBLIC(+) STATIC(+) FINAL(+) io.opentelemetry.api.common.AttributeKey<java.lang.Long> CODE_LINE_NUMBER
+	+++  NEW FIELD: PUBLIC(+) STATIC(+) FINAL(+) io.opentelemetry.api.common.AttributeKey<java.lang.Long> CODE_COLUMN_NUMBER
++++  NEW CLASS: PUBLIC(+) FINAL(+) io.opentelemetry.semconv.DbAttributes  (not serializable)
+	+++  CLASS FILE FORMAT VERSION: 52.0 <- n.a.
+	+++  NEW SUPERCLASS: java.lang.Object
+	+++  NEW FIELD: PUBLIC(+) STATIC(+) FINAL(+) io.opentelemetry.api.common.AttributeKey<java.lang.String> DB_COLLECTION_NAME
+	+++  NEW FIELD: PUBLIC(+) STATIC(+) FINAL(+) io.opentelemetry.api.common.AttributeKey<java.lang.Long> DB_OPERATION_BATCH_SIZE
+	+++  NEW FIELD: PUBLIC(+) STATIC(+) FINAL(+) io.opentelemetry.api.common.AttributeKey<java.lang.String> DB_OPERATION_NAME
+	+++  NEW FIELD: PUBLIC(+) STATIC(+) FINAL(+) io.opentelemetry.api.common.AttributeKey<java.lang.String> DB_STORED_PROCEDURE_NAME
+	+++  NEW FIELD: PUBLIC(+) STATIC(+) FINAL(+) io.opentelemetry.api.common.AttributeKey<java.lang.String> DB_NAMESPACE
+	+++  NEW FIELD: PUBLIC(+) STATIC(+) FINAL(+) io.opentelemetry.api.common.AttributeKey<java.lang.String> DB_QUERY_TEXT
+	+++  NEW FIELD: PUBLIC(+) STATIC(+) FINAL(+) io.opentelemetry.api.common.AttributeKey<java.lang.String> DB_SYSTEM_NAME
+	+++  NEW FIELD: PUBLIC(+) STATIC(+) FINAL(+) io.opentelemetry.api.common.AttributeKey<java.lang.String> DB_QUERY_SUMMARY
+	+++  NEW FIELD: PUBLIC(+) STATIC(+) FINAL(+) io.opentelemetry.api.common.AttributeKey<java.lang.String> DB_RESPONSE_STATUS_CODE
++++  NEW CLASS: PUBLIC(+) STATIC(+) FINAL(+) io.opentelemetry.semconv.DbAttributes$DbSystemNameValues  (not serializable)
+	+++  CLASS FILE FORMAT VERSION: 52.0 <- n.a.
+	+++  NEW SUPERCLASS: java.lang.Object
+	+++  NEW FIELD: PUBLIC(+) STATIC(+) FINAL(+) java.lang.String MICROSOFT_SQL_SERVER
+	+++  NEW FIELD: PUBLIC(+) STATIC(+) FINAL(+) java.lang.String MARIADB
+	+++  NEW FIELD: PUBLIC(+) STATIC(+) FINAL(+) java.lang.String MYSQL
+	+++  NEW FIELD: PUBLIC(+) STATIC(+) FINAL(+) java.lang.String POSTGRESQL
+***  MODIFIED CLASS: PUBLIC FINAL io.opentelemetry.semconv.SchemaUrls  (not serializable)
+	===  CLASS FILE FORMAT VERSION: 52.0 <- 52.0
+	+++  NEW FIELD: PUBLIC(+) STATIC(+) FINAL(+) java.lang.String V1_33_0
+	+++  NEW FIELD: PUBLIC(+) STATIC(+) FINAL(+) java.lang.String V1_34_0
