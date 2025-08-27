@@ -161,8 +161,13 @@ public final class SystemIncubatingAttributes {
     /** free. */
     public static final String FREE = "free";
 
-    /** shared. */
-    public static final String SHARED = "shared";
+    /**
+     * shared.
+     *
+     * @deprecated Removed, report shared memory usage with {@code metric.system.memory.shared}
+     *     metric
+     */
+    @Deprecated public static final String SHARED = "shared";
 
     /** buffers. */
     public static final String BUFFERS = "buffers";

@@ -359,11 +359,19 @@ public final class GenAiIncubatingAttributes {
     /** Gemini */
     public static final String GCP_GEMINI = "gcp.gemini";
 
-    /** Vertex AI */
-    public static final String VERTEX_AI = "vertex_ai";
+    /**
+     * Vertex AI
+     *
+     * @deprecated Use 'gcp.vertex_ai' instead.
+     */
+    @Deprecated public static final String VERTEX_AI = "vertex_ai";
 
-    /** Gemini */
-    public static final String GEMINI = "gemini";
+    /**
+     * Gemini
+     *
+     * @deprecated Use 'gcp.gemini' instead.
+     */
+    @Deprecated public static final String GEMINI = "gemini";
 
     /** Anthropic */
     public static final String ANTHROPIC = "anthropic";
@@ -377,11 +385,19 @@ public final class GenAiIncubatingAttributes {
     /** Azure OpenAI */
     public static final String AZURE_AI_OPENAI = "azure.ai.openai";
 
-    /** Azure AI Inference */
-    public static final String AZ_AI_INFERENCE = "az.ai.inference";
+    /**
+     * Azure AI Inference
+     *
+     * @deprecated Replaced by azure.ai.inference
+     */
+    @Deprecated public static final String AZ_AI_INFERENCE = "az.ai.inference";
 
-    /** Azure OpenAI */
-    public static final String AZ_AI_OPENAI = "azure.ai.openai";
+    /**
+     * Azure OpenAI
+     *
+     * @deprecated Replaced by azure.ai.openai
+     */
+    @Deprecated public static final String AZ_AI_OPENAI = "azure.ai.openai";
 
     /** IBM Watsonx AI */
     public static final String IBM_WATSONX_AI = "ibm.watsonx.ai";
@@ -412,8 +428,12 @@ public final class GenAiIncubatingAttributes {
     /** Input tokens (prompt, input, etc.) */
     public static final String INPUT = "input";
 
-    /** Output tokens (completion, response, etc.) */
-    public static final String COMPLETION = "output";
+    /**
+     * Output tokens (completion, response, etc.)
+     *
+     * @deprecated Replaced by {@code output}.
+     */
+    @Deprecated public static final String COMPLETION = "output";
 
     /** Output tokens (completion, response, etc.) */
     public static final String OUTPUT = "output";
