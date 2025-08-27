@@ -18,6 +18,22 @@ To build the project, run:
 ./gradlew assemble
 ```
 
+## Generating semantic conventions
+
+Requires docker.
+
+In a shell, execute the following gradle tasks:
+
+```shell
+./gradlew clean generateSemanticConventions --console=plain
+./gradlew spotlessApply
+```
+
+This will download the version
+of [open-telemetry/semantic-conventions](https://github.com/open-telemetry/semantic-conventions)
+defined in the `semanticConventionsVersion` variable of [build.gradle.kts](./build.gradle.kts) and
+generate semantic conventions classes from the release contents.
+
 ## Style guide
 
 This repository follows the OpenTelemetry Java

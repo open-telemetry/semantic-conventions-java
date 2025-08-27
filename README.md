@@ -73,31 +73,9 @@ Stable artifacts (i.e. artifacts without `-alpha` version suffix) come with stro
 
 Compatibility guarantees are inherited from [opentelemetry-java][versioning].
 
-## Generating semantic conventions
-
-Requires docker.
-
-In a shell, execute the following gradle tasks:
-
-```shell
-./gradlew clean generateSemanticConventions --console=plain
-./gradlew spotlessApply
-```
-
-This will download the version
-of [open-telemetry/semantic-conventions](https://github.com/open-telemetry/semantic-conventions)
-defined in the `semanticConventionsVersion` variable of [build.gradle.kts](./build.gradle.kts) and
-generate semantic conventions classes from the release contents.
-
 ## Contributing
 
-Before you start - see OpenTelemetry
-general [contributing](https://github.com/open-telemetry/community/tree/main/guides/contributor)
-requirements and recommendations.
-
-Make sure to review the projects [license](LICENSE) and sign
-the [CNCF CLA](https://identity.linuxfoundation.org/projects/cncf). A signed CLA will be enforced by
-an automatic check once you submit a PR, but you can also sign it after opening your PR.
+See [CONTRIBUTING.md](CONTRIBUTING.md).
 
 ### Maintainers
 
