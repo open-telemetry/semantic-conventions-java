@@ -14,7 +14,7 @@ import io.opentelemetry.api.common.AttributeKey;
 @SuppressWarnings("unused")
 public final class DeploymentIncubatingAttributes {
   /**
-   * 'Deprecated, use {@code deployment.environment.name} instead.'
+   * Deprecated, use {@code deployment.environment.name} instead.
    *
    * @deprecated Replaced by {@code deployment.environment.name}.
    */

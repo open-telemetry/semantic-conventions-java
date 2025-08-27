@@ -26,15 +26,16 @@ public final class AndroidIncubatingAttributes {
 
   /**
    * Uniquely identifies the framework API revision offered by a version ({@code os.version}) of the
-   * android operating system. More information can be found <a
-   * href="https://developer.android.com/guide/topics/manifest/uses-sdk-element#ApiLevels">here</a>.
+   * android operating system. More information can be found in the <a
+   * href="https://developer.android.com/guide/topics/manifest/uses-sdk-element#ApiLevels">Android
+   * API levels documentation</a>.
    */
   public static final AttributeKey<String> ANDROID_OS_API_LEVEL = stringKey("android.os.api_level");
 
   /**
-   * Deprecated. Use {@code android.app.state} body field instead.
+   * Deprecated. Use {@code android.app.state} attribute instead.
    *
-   * @deprecated Use {@code android.app.state} body field instead.
+   * @deprecated Replaced by {@code android.app.state}.
    */
   @Deprecated public static final AttributeKey<String> ANDROID_STATE = stringKey("android.state");
 
@@ -66,7 +67,7 @@ public final class AndroidIncubatingAttributes {
   /**
    * Values for {@link #ANDROID_STATE}
    *
-   * @deprecated Use {@code android.app.state} body field instead.
+   * @deprecated Replaced by {@code android.app.state}.
    */
   @Deprecated
   public static final class AndroidStateIncubatingValues {

@@ -24,28 +24,28 @@ public final class CpuIncubatingAttributes {
 
   /** Values for {@link #CPU_MODE}. */
   public static final class CpuModeIncubatingValues {
-    /** user. */
+    /** User */
     public static final String USER = "user";
 
-    /** system. */
+    /** System */
     public static final String SYSTEM = "system";
 
-    /** nice. */
+    /** Nice */
     public static final String NICE = "nice";
 
-    /** idle. */
+    /** Idle */
     public static final String IDLE = "idle";
 
-    /** iowait. */
+    /** IO Wait */
     public static final String IOWAIT = "iowait";
 
-    /** interrupt. */
+    /** Interrupt */
     public static final String INTERRUPT = "interrupt";
 
-    /** steal. */
+    /** Steal */
     public static final String STEAL = "steal";
 
-    /** kernel. */
+    /** Kernel */
     public static final String KERNEL = "kernel";
 
     private CpuModeIncubatingValues() {}

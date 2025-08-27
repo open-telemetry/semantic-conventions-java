@@ -23,8 +23,9 @@ public final class DeviceIncubatingAttributes {
    * device. Hardware IDs (e.g. vendor-specific serial number, IMEI or MAC address) MAY be used as
    * values.
    *
-   * <p>More information about Android identifier best practices can be found <a
-   * href="https://developer.android.com/training/articles/user-data-ids">here</a>.
+   * <p>More information about Android identifier best practices can be found in the <a
+   * href="https://developer.android.com/training/articles/user-data-ids">Android user data IDs
+   * guide</a>.
    *
    * <blockquote>
    *

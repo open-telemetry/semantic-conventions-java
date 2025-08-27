@@ -155,7 +155,7 @@ public final class SystemIncubatingAttributes {
 
   /** Values for {@link #SYSTEM_MEMORY_STATE}. */
   public static final class SystemMemoryStateIncubatingValues {
-    /** used. */
+    /** Actual used virtual memory in bytes. */
     public static final String USED = "used";
 
     /** free. */

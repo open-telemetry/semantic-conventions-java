@@ -442,6 +442,9 @@ public final class MessagingIncubatingAttributes {
     /** Apache ActiveMQ */
     public static final String ACTIVEMQ = "activemq";
 
+    /** Amazon Simple Notification Service (SNS) */
+    public static final String AWS_SNS = "aws.sns";
+
     /** Amazon Simple Queue Service (SQS) */
     public static final String AWS_SQS = "aws_sqs";
 
