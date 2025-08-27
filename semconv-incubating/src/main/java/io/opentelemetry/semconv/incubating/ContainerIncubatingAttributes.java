@@ -141,8 +141,30 @@ public final class ContainerIncubatingAttributes {
   /** Container name used by container runtime. */
   public static final AttributeKey<String> CONTAINER_NAME = stringKey("container.name");
 
-  /** The container runtime managing this container. */
+  /**
+   * The container runtime managing this container.
+   *
+   * @deprecated Replaced by {@code container.runtime.name}.
+   */
+  @Deprecated
   public static final AttributeKey<String> CONTAINER_RUNTIME = stringKey("container.runtime");
+
+  /**
+   * A description about the runtime which could include, for example details about the CRI/API
+   * version being used or other customisations.
+   */
+  public static final AttributeKey<String> CONTAINER_RUNTIME_DESCRIPTION =
+      stringKey("container.runtime.description");
+
+  /** The container runtime managing this container. */
+  public static final AttributeKey<String> CONTAINER_RUNTIME_NAME =
+      stringKey("container.runtime.name");
+
+  /**
+   * The version of the runtime of this process, as returned by the runtime without modification.
+   */
+  public static final AttributeKey<String> CONTAINER_RUNTIME_VERSION =
+      stringKey("container.runtime.version");
 
   // Enum definitions
 

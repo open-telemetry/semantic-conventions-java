@@ -5,6 +5,7 @@
 
 package io.opentelemetry.semconv.incubating;
 
+import static io.opentelemetry.api.common.AttributeKey.doubleKey;
 import static io.opentelemetry.api.common.AttributeKey.longKey;
 import static io.opentelemetry.api.common.AttributeKey.stringKey;
 
@@ -14,6 +15,9 @@ import io.opentelemetry.api.common.AttributeKey;
 // buildscripts/templates/registry/incubating_java/IncubatingSemanticAttributes.java.j2
 @SuppressWarnings("unused")
 public final class AppIncubatingAttributes {
+  /** Unique identifier for a particular build or compilation of the application. */
+  public static final AttributeKey<String> APP_BUILD_ID = stringKey("app.build_id");
+
   /**
    * A unique identifier representing the installation of an application on a specific device
    *
@@ -44,10 +48,26 @@ public final class AppIncubatingAttributes {
    *       Settings.getString(Settings.Secure.ANDROID_ID)}</a>.
    * </ul>
    *
-   * <p>More information about Android identifier best practices can be found <a
-   * href="https://developer.android.com/training/articles/user-data-ids">here</a>.
+   * <p>More information about Android identifier best practices can be found in the <a
+   * href="https://developer.android.com/training/articles/user-data-ids">Android user data IDs
+   * guide</a>.
    */
   public static final AttributeKey<String> APP_INSTALLATION_ID = stringKey("app.installation.id");
+
+  /**
+   * A number of frame renders that experienced jank.
+   *
+   * <p>Notes:
+   *
+   * <p>Depending on platform limitations, the value provided MAY be approximation.
+   */
+  public static final AttributeKey<Long> APP_JANK_FRAME_COUNT = longKey("app.jank.frame_count");
+
+  /** The time period, in seconds, for which this jank is being reported. */
+  public static final AttributeKey<Double> APP_JANK_PERIOD = doubleKey("app.jank.period");
+
+  /** The minimum rendering threshold for this jank, in seconds. */
+  public static final AttributeKey<Double> APP_JANK_THRESHOLD = doubleKey("app.jank.threshold");
 
   /** The x (horizontal) coordinate of a screen coordinate, in screen pixels. */
   public static final AttributeKey<Long> APP_SCREEN_COORDINATE_X =

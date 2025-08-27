@@ -76,15 +76,30 @@ public final class GenAiIncubatingAttributes {
   public static final AttributeKey<Long> GEN_AI_OPENAI_REQUEST_SEED =
       longKey("gen_ai.openai.request.seed");
 
-  /** The service tier requested. May be a specific tier, default, or auto. */
+  /**
+   * Deprecated, use {@code openai.request.service_tier}.
+   *
+   * @deprecated Replaced by {@code openai.request.service_tier}.
+   */
+  @Deprecated
   public static final AttributeKey<String> GEN_AI_OPENAI_REQUEST_SERVICE_TIER =
       stringKey("gen_ai.openai.request.service_tier");
 
-  /** The service tier used for the response. */
+  /**
+   * Deprecated, use {@code openai.response.service_tier}.
+   *
+   * @deprecated Replaced by {@code openai.response.service_tier}.
+   */
+  @Deprecated
   public static final AttributeKey<String> GEN_AI_OPENAI_RESPONSE_SERVICE_TIER =
       stringKey("gen_ai.openai.response.service_tier");
 
-  /** A fingerprint to track any eventual change in the Generative AI environment. */
+  /**
+   * Deprecated, use {@code openai.response.system_fingerprint}.
+   *
+   * @deprecated Replaced by {@code openai.response.system_fingerprint}.
+   */
+  @Deprecated
   public static final AttributeKey<String> GEN_AI_OPENAI_RESPONSE_SYSTEM_FINGERPRINT =
       stringKey("gen_ai.openai.response.system_fingerprint");
 
@@ -120,6 +135,30 @@ public final class GenAiIncubatingAttributes {
    * @deprecated Removed, no replacement at this time.
    */
   @Deprecated public static final AttributeKey<String> GEN_AI_PROMPT = stringKey("gen_ai.prompt");
+
+  /**
+   * The Generative AI provider as identified by the client or server instrumentation.
+   *
+   * <p>Notes:
+   *
+   * <p>The attribute SHOULD be set based on the instrumentation's best knowledge and may differ
+   * from the actual model provider.
+   *
+   * <p>Multiple providers, including Azure OpenAI, Gemini, and AI hosting platforms are accessible
+   * using the OpenAI REST API and corresponding client libraries, but may proxy or host models from
+   * different providers.
+   *
+   * <p>The {@code gen_ai.request.model}, {@code gen_ai.response.model}, and {@code server.address}
+   * attributes may help identify the actual system in use.
+   *
+   * <p>The {@code gen_ai.provider.name} attribute acts as a discriminator that identifies the GenAI
+   * telemetry format flavor specific to that provider within GenAI semantic conventions. It SHOULD
+   * be set consistently with provider-specific attributes and signals. For example, GenAI spans,
+   * metrics, and events related to AWS Bedrock should have the {@code gen_ai.provider.name} set to
+   * {@code aws.bedrock} and include applicable {@code aws.bedrock.*} attributes and are not
+   * expected to include {@code openai.*} attributes.
+   */
+  public static final AttributeKey<String> GEN_AI_PROVIDER_NAME = stringKey("gen_ai.provider.name");
 
   /** The target number of candidate completions to return. */
   public static final AttributeKey<Long> GEN_AI_REQUEST_CHOICE_COUNT =
@@ -183,23 +222,11 @@ public final class GenAiIncubatingAttributes {
       stringKey("gen_ai.response.model");
 
   /**
-   * The Generative AI product as identified by the client or server instrumentation.
+   * Deprecated, use {@code gen_ai.provider.name} instead.
    *
-   * <p>Notes:
-   *
-   * <p>The {@code gen_ai.system} describes a family of GenAI models with specific model identified
-   * by {@code gen_ai.request.model} and {@code gen_ai.response.model} attributes.
-   *
-   * <p>The actual GenAI product may differ from the one identified by the client. Multiple systems,
-   * including Azure OpenAI and Gemini, are accessible by OpenAI client libraries. In such cases,
-   * the {@code gen_ai.system} is set to {@code openai} based on the instrumentation's best
-   * knowledge, instead of the actual system. The {@code server.address} attribute may help identify
-   * the actual system in use for {@code openai}.
-   *
-   * <p>For custom model, a custom friendly name SHOULD be used. If none of these options apply, the
-   * {@code gen_ai.system} SHOULD be set to {@code _OTHER}.
+   * @deprecated Replaced by {@code gen_ai.provider.name}.
    */
-  public static final AttributeKey<String> GEN_AI_SYSTEM = stringKey("gen_ai.system");
+  @Deprecated public static final AttributeKey<String> GEN_AI_SYSTEM = stringKey("gen_ai.system");
 
   /** The type of token being counted. */
   public static final AttributeKey<String> GEN_AI_TOKEN_TYPE = stringKey("gen_ai.token.type");
@@ -277,7 +304,12 @@ public final class GenAiIncubatingAttributes {
     private GenAiOpenaiRequestResponseFormatIncubatingValues() {}
   }
 
-  /** Values for {@link #GEN_AI_OPENAI_REQUEST_SERVICE_TIER}. */
+  /**
+   * Values for {@link #GEN_AI_OPENAI_REQUEST_SERVICE_TIER}
+   *
+   * @deprecated Replaced by {@code openai.request.service_tier}.
+   */
+  @Deprecated
   public static final class GenAiOpenaiRequestServiceTierIncubatingValues {
     /** The system will utilize scale tier credits until they are exhausted. */
     public static final String AUTO = "auto";
@@ -345,7 +377,64 @@ public final class GenAiIncubatingAttributes {
     private GenAiOutputTypeIncubatingValues() {}
   }
 
-  /** Values for {@link #GEN_AI_SYSTEM}. */
+  /** Values for {@link #GEN_AI_PROVIDER_NAME}. */
+  public static final class GenAiProviderNameIncubatingValues {
+    /** <a href="https://openai.com/">OpenAI</a> */
+    public static final String OPENAI = "openai";
+
+    /** Any Google generative AI endpoint */
+    public static final String GCP_GEN_AI = "gcp.gen_ai";
+
+    /** <a href="https://cloud.google.com/vertex-ai">Vertex AI</a> */
+    public static final String GCP_VERTEX_AI = "gcp.vertex_ai";
+
+    /** <a href="https://cloud.google.com/products/gemini">Gemini</a> */
+    public static final String GCP_GEMINI = "gcp.gemini";
+
+    /** <a href="https://www.anthropic.com/">Anthropic</a> */
+    public static final String ANTHROPIC = "anthropic";
+
+    /** <a href="https://cohere.com/">Cohere</a> */
+    public static final String COHERE = "cohere";
+
+    /** Azure AI Inference */
+    public static final String AZURE_AI_INFERENCE = "azure.ai.inference";
+
+    /**
+     * <a href="https://azure.microsoft.com/products/ai-services/openai-service/">Azure OpenAI</a>
+     */
+    public static final String AZURE_AI_OPENAI = "azure.ai.openai";
+
+    /** <a href="https://www.ibm.com/products/watsonx-ai">IBM Watsonx AI</a> */
+    public static final String IBM_WATSONX_AI = "ibm.watsonx.ai";
+
+    /** <a href="https://aws.amazon.com/bedrock">AWS Bedrock</a> */
+    public static final String AWS_BEDROCK = "aws.bedrock";
+
+    /** <a href="https://www.perplexity.ai/">Perplexity</a> */
+    public static final String PERPLEXITY = "perplexity";
+
+    /** <a href="https://x.ai/">xAI</a> */
+    public static final String X_AI = "x_ai";
+
+    /** <a href="https://www.deepseek.com/">DeepSeek</a> */
+    public static final String DEEPSEEK = "deepseek";
+
+    /** <a href="https://groq.com/">Groq</a> */
+    public static final String GROQ = "groq";
+
+    /** <a href="https://mistral.ai/">Mistral AI</a> */
+    public static final String MISTRAL_AI = "mistral_ai";
+
+    private GenAiProviderNameIncubatingValues() {}
+  }
+
+  /**
+   * Values for {@link #GEN_AI_SYSTEM}
+   *
+   * @deprecated Replaced by {@code gen_ai.provider.name}.
+   */
+  @Deprecated
   public static final class GenAiSystemIncubatingValues {
     /** OpenAI */
     public static final String OPENAI = "openai";
@@ -362,14 +451,14 @@ public final class GenAiIncubatingAttributes {
     /**
      * Vertex AI
      *
-     * @deprecated Use 'gcp.vertex_ai' instead.
+     * @deprecated Replaced by {@code gcp.vertex_ai}.
      */
     @Deprecated public static final String VERTEX_AI = "vertex_ai";
 
     /**
      * Gemini
      *
-     * @deprecated Use 'gcp.gemini' instead.
+     * @deprecated Replaced by {@code gcp.gemini}.
      */
     @Deprecated public static final String GEMINI = "gemini";
 
@@ -380,24 +469,16 @@ public final class GenAiIncubatingAttributes {
     public static final String COHERE = "cohere";
 
     /** Azure AI Inference */
+    public static final String AZ_AI_INFERENCE = "az.ai.inference";
+
+    /** Azure OpenAI */
+    public static final String AZ_AI_OPENAI = "az.ai.openai";
+
+    /** Azure AI Inference */
     public static final String AZURE_AI_INFERENCE = "azure.ai.inference";
 
     /** Azure OpenAI */
     public static final String AZURE_AI_OPENAI = "azure.ai.openai";
-
-    /**
-     * Azure AI Inference
-     *
-     * @deprecated Replaced by azure.ai.inference
-     */
-    @Deprecated public static final String AZ_AI_INFERENCE = "az.ai.inference";
-
-    /**
-     * Azure OpenAI
-     *
-     * @deprecated Replaced by azure.ai.openai
-     */
-    @Deprecated public static final String AZ_AI_OPENAI = "azure.ai.openai";
 
     /** IBM Watsonx AI */
     public static final String IBM_WATSONX_AI = "ibm.watsonx.ai";
@@ -408,8 +489,12 @@ public final class GenAiIncubatingAttributes {
     /** Perplexity */
     public static final String PERPLEXITY = "perplexity";
 
-    /** xAI */
-    public static final String XAI = "xai";
+    /**
+     * xAI
+     *
+     * @deprecated Replaced by {@code x_ai}.
+     */
+    @Deprecated public static final String XAI = "xai";
 
     /** DeepSeek */
     public static final String DEEPSEEK = "deepseek";

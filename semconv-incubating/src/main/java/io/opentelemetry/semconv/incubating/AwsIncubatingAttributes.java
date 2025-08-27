@@ -409,10 +409,10 @@ public final class AwsIncubatingAttributes {
 
   /** Values for {@link #AWS_ECS_LAUNCHTYPE}. */
   public static final class AwsEcsLaunchtypeIncubatingValues {
-    /** ec2. */
+    /** Amazon EC2 */
     public static final String EC2 = "ec2";
 
-    /** fargate. */
+    /** Amazon Fargate */
     public static final String FARGATE = "fargate";
 
     private AwsEcsLaunchtypeIncubatingValues() {}

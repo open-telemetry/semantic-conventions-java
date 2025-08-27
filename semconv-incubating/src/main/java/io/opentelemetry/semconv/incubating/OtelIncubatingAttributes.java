@@ -75,6 +75,10 @@ public final class OtelIncubatingAttributes {
   @Deprecated
   public static final AttributeKey<String> OTEL_SCOPE_NAME = stringKey("otel.scope.name");
 
+  /** The schema URL of the instrumentation scope. */
+  public static final AttributeKey<String> OTEL_SCOPE_SCHEMA_URL =
+      stringKey("otel.scope.schema_url");
+
   /**
    * The version of the instrumentation scope - ({@code InstrumentationScope.Version} in OTLP).
    *

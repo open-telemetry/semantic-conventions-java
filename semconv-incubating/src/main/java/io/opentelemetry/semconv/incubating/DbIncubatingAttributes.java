@@ -750,7 +750,7 @@ public final class DbIncubatingAttributes {
     /**
      * Deprecated, no replacement at this time.
      *
-     * @deprecated Removed.
+     * @deprecated Obsoleted.
      */
     @Deprecated public static final String COLDFUSION = "coldfusion";
 
@@ -842,7 +842,7 @@ public final class DbIncubatingAttributes {
     /**
      * Deprecated, Microsoft SQL Server Compact is discontinued.
      *
-     * @deprecated Removed, use {@code other_sql} instead.
+     * @deprecated Replaced by {@code other_sql}.
      */
     @Deprecated public static final String MSSQLCOMPACT = "mssqlcompact";
 

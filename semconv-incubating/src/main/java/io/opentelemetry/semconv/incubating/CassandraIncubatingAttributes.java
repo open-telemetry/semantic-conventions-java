@@ -48,37 +48,37 @@ public final class CassandraIncubatingAttributes {
 
   /** Values for {@link #CASSANDRA_CONSISTENCY_LEVEL}. */
   public static final class CassandraConsistencyLevelIncubatingValues {
-    /** all. */
+    /** All */
     public static final String ALL = "all";
 
-    /** each_quorum. */
+    /** Each Quorum */
     public static final String EACH_QUORUM = "each_quorum";
 
-    /** quorum. */
+    /** Quorum */
     public static final String QUORUM = "quorum";
 
-    /** local_quorum. */
+    /** Local Quorum */
     public static final String LOCAL_QUORUM = "local_quorum";
 
-    /** one. */
+    /** One */
     public static final String ONE = "one";
 
-    /** two. */
+    /** Two */
     public static final String TWO = "two";
 
-    /** three. */
+    /** Three */
     public static final String THREE = "three";
 
-    /** local_one. */
+    /** Local One */
     public static final String LOCAL_ONE = "local_one";
 
-    /** any. */
+    /** Any */
     public static final String ANY = "any";
 
-    /** serial. */
+    /** Serial */
     public static final String SERIAL = "serial";
 
-    /** local_serial. */
+    /** Local Serial */
     public static final String LOCAL_SERIAL = "local_serial";
 
     private CassandraConsistencyLevelIncubatingValues() {}

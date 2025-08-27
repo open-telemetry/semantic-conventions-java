@@ -87,19 +87,19 @@ public final class AzureIncubatingAttributes {
 
   /** Values for {@link #AZURE_COSMOSDB_CONSISTENCY_LEVEL}. */
   public static final class AzureCosmosdbConsistencyLevelIncubatingValues {
-    /** strong. */
+    /** Strong */
     public static final String STRONG = "Strong";
 
-    /** bounded_staleness. */
+    /** Bounded Staleness */
     public static final String BOUNDED_STALENESS = "BoundedStaleness";
 
-    /** session. */
+    /** Session */
     public static final String SESSION = "Session";
 
-    /** eventual. */
+    /** Eventual */
     public static final String EVENTUAL = "Eventual";
 
-    /** consistent_prefix. */
+    /** Consistent Prefix */
     public static final String CONSISTENT_PREFIX = "ConsistentPrefix";
 
     private AzureCosmosdbConsistencyLevelIncubatingValues() {}
