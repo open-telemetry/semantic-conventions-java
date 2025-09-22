@@ -135,7 +135,7 @@ testing {
     dependencies {
       implementation(project(project.path))
       implementation(enforcedPlatform("org.junit:junit-bom:5.13.4"))
-      implementation(enforcedPlatform("org.assertj:assertj-bom:3.27.5"))
+      implementation(enforcedPlatform("org.assertj:assertj-bom:3.27.6"))
 
       implementation("org.junit.jupiter:junit-jupiter-api")
       implementation("org.junit.jupiter:junit-jupiter-params")
