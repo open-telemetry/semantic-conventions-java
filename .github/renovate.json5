@@ -24,6 +24,16 @@
       matchCurrentVersion: '1.33.0',
       enabled: false,
     },
+    {
+      // junit 6+ requires Java 17+
+      matchPackageNames: [
+        'org.junit:**',
+      ],
+      matchUpdateTypes: [
+        'major',
+      ],
+      enabled: false,
+    },
   ],
   customManagers: [
     {
