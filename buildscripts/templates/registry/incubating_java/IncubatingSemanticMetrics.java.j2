@@ -1,0 +1,65 @@
+{%- set my_class_name = ctx.root_namespace | pascal_case ~ "IncubatingMetrics" -%}
+
+/*
+ * Copyright The OpenTelemetry Authors
+ * SPDX-License-Identifier: Apache-2.0
+ */
+package io.opentelemetry.semconv.incubating;
+
+// DO NOT EDIT, this is an Auto-generated file from buildscripts/templates/registry/incubating_java/IncubatingSemanticMetrics.java.j2
+@SuppressWarnings("unused")
+public final class {{ my_class_name }} {
+  {%- for metric in ctx.metrics -%}
+    {%- if metric is experimental -%}
+      {%- if metric is deprecated -%}
+        {%- set deprecated_javadoc = "@deprecated " ~ metric.deprecated.note -%}
+      {%- else -%}
+        {%- set deprecated_javadoc = "" -%}
+      {%- endif %}
+
+  /** Name of the {@code {{ metric.metric_name }}} metric. */
+      {%- if metric is deprecated %}
+  @Deprecated
+      {%- endif %}
+  public static final String {{ metric.metric_name | replace(".", "_") | screaming_snake_case }}_NAME = "{{ metric.metric_name }}";
+
+  /** Unit of the {@code {{ metric.metric_name }}} metric. */
+      {%- if metric is deprecated %}
+  @Deprecated
+      {%- endif %}
+  public static final String {{ metric.metric_name | replace(".", "_") | screaming_snake_case }}_UNIT = "{{ metric.unit }}";
+
+  /** Description of the {@code {{ metric.metric_name }}} metric. */
+      {%- if metric is deprecated %}
+  @Deprecated
+      {%- endif %}
+  public static final String {{ metric.metric_name | replace(".", "_") | screaming_snake_case }}_DESCRIPTION = "{{ metric.brief | replace('\n', ' ') | replace('"', '\\"') }}";
+    {%- elif metric is stable -%}
+      {%- set stable_class_name = ctx.root_namespace | pascal_case ~ "Metrics" -%}
+      {%- set stable_class_link = "io.opentelemetry.semconv." ~ stable_class_name ~ "#" ~ (metric.metric_name | replace(".", "_") | screaming_snake_case) -%}
+
+  /**
+   * Name of the {@code {{ metric.metric_name }}} metric.
+   *
+   * @deprecated deprecated in favor of stable {@link {{ stable_class_link }}_NAME} constant.
+   */
+  @Deprecated public static final String {{ metric.metric_name | replace(".", "_") | screaming_snake_case }}_NAME = "{{ metric.metric_name }}";
+
+  /**
+   * Unit of the {@code {{ metric.metric_name }}} metric.
+   *
+   * @deprecated deprecated in favor of stable {@link {{ stable_class_link }}_UNIT} constant.
+   */
+  @Deprecated public static final String {{ metric.metric_name | replace(".", "_") | screaming_snake_case }}_UNIT = "{{ metric.unit }}";
+
+  /**
+   * Description of the {@code {{ metric.metric_name }}} metric.
+   *
+   * @deprecated deprecated in favor of stable {@link {{ stable_class_link }}_DESCRIPTION} constant.
+   */
+  @Deprecated public static final String {{ metric.metric_name | replace(".", "_") | screaming_snake_case }}_DESCRIPTION = "{{ metric.brief | replace('\n', ' ') | replace('"', '\\"') }}";
+    {%- endif -%}
+  {%- endfor %}
+
+  private {{ my_class_name }}() {}
+}
