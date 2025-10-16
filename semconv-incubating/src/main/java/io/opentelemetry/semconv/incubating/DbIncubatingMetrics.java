@@ -241,30 +241,13 @@ public final class DbIncubatingMetrics {
   public static final String DB_CLIENT_COSMOSDB_OPERATION_REQUEST_CHARGE_DESCRIPTION =
       "Deprecated, use `azure.cosmosdb.client.operation.request_charge` instead.";
 
-  /**
-   * Name of the {@code db.client.operation.duration} metric.
-   *
-   * @deprecated deprecated in favor of stable {@link
-   *     io.opentelemetry.semconv.DbMetrics#DB_CLIENT_OPERATION_DURATION_NAME} constant.
-   */
-  @Deprecated
+  /** Name of the {@code db.client.operation.duration} metric. */
   public static final String DB_CLIENT_OPERATION_DURATION_NAME = "db.client.operation.duration";
 
-  /**
-   * Unit of the {@code db.client.operation.duration} metric.
-   *
-   * @deprecated deprecated in favor of stable {@link
-   *     io.opentelemetry.semconv.DbMetrics#DB_CLIENT_OPERATION_DURATION_UNIT} constant.
-   */
-  @Deprecated public static final String DB_CLIENT_OPERATION_DURATION_UNIT = "s";
+  /** Unit of the {@code db.client.operation.duration} metric. */
+  public static final String DB_CLIENT_OPERATION_DURATION_UNIT = "s";
 
-  /**
-   * Description of the {@code db.client.operation.duration} metric.
-   *
-   * @deprecated deprecated in favor of stable {@link
-   *     io.opentelemetry.semconv.DbMetrics#DB_CLIENT_OPERATION_DURATION_DESCRIPTION} constant.
-   */
-  @Deprecated
+  /** Description of the {@code db.client.operation.duration} metric. */
   public static final String DB_CLIENT_OPERATION_DURATION_DESCRIPTION =
       "Duration of database client operations.";
 

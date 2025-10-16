@@ -35,29 +35,15 @@ public final class {{ my_class_name }} {
       {%- endif %}
   public static final String {{ metric.metric_name | replace(".", "_") | screaming_snake_case }}_DESCRIPTION = "{{ metric.brief | replace('\n', ' ') | replace('"', '\\"') }}";
     {%- elif metric is stable -%}
-      {%- set stable_class_name = ctx.root_namespace | pascal_case ~ "Metrics" -%}
-      {%- set stable_class_link = "io.opentelemetry.semconv." ~ stable_class_name ~ "#" ~ (metric.metric_name | replace(".", "_") | screaming_snake_case) -%}
 
-  /**
-   * Name of the {@code {{ metric.metric_name }}} metric.
-   *
-   * @deprecated deprecated in favor of stable {@link {{ stable_class_link }}_NAME} constant.
-   */
-  @Deprecated public static final String {{ metric.metric_name | replace(".", "_") | screaming_snake_case }}_NAME = "{{ metric.metric_name }}";
+  /** Name of the {@code {{ metric.metric_name }}} metric. */
+  public static final String {{ metric.metric_name | replace(".", "_") | screaming_snake_case }}_NAME = "{{ metric.metric_name }}";
 
-  /**
-   * Unit of the {@code {{ metric.metric_name }}} metric.
-   *
-   * @deprecated deprecated in favor of stable {@link {{ stable_class_link }}_UNIT} constant.
-   */
-  @Deprecated public static final String {{ metric.metric_name | replace(".", "_") | screaming_snake_case }}_UNIT = "{{ metric.unit }}";
+  /** Unit of the {@code {{ metric.metric_name }}} metric. */
+  public static final String {{ metric.metric_name | replace(".", "_") | screaming_snake_case }}_UNIT = "{{ metric.unit }}";
 
-  /**
-   * Description of the {@code {{ metric.metric_name }}} metric.
-   *
-   * @deprecated deprecated in favor of stable {@link {{ stable_class_link }}_DESCRIPTION} constant.
-   */
-  @Deprecated public static final String {{ metric.metric_name | replace(".", "_") | screaming_snake_case }}_DESCRIPTION = "{{ metric.brief | replace('\n', ' ') | replace('"', '\\"') }}";
+  /** Description of the {@code {{ metric.metric_name }}} metric. */
+  public static final String {{ metric.metric_name | replace(".", "_") | screaming_snake_case }}_DESCRIPTION = "{{ metric.brief | replace('\n', ' ') | replace('"', '\\"') }}";
     {%- endif -%}
   {%- endfor %}
 
