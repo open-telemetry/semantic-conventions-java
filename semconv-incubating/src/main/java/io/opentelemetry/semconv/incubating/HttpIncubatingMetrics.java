@@ -51,30 +51,13 @@ public final class HttpIncubatingMetrics {
   public static final String HTTP_CLIENT_REQUEST_BODY_SIZE_DESCRIPTION =
       "Size of HTTP client request bodies.";
 
-  /**
-   * Name of the {@code http.client.request.duration} metric.
-   *
-   * @deprecated deprecated in favor of stable {@link
-   *     io.opentelemetry.semconv.HttpMetrics#HTTP_CLIENT_REQUEST_DURATION_NAME} constant.
-   */
-  @Deprecated
+  /** Name of the {@code http.client.request.duration} metric. */
   public static final String HTTP_CLIENT_REQUEST_DURATION_NAME = "http.client.request.duration";
 
-  /**
-   * Unit of the {@code http.client.request.duration} metric.
-   *
-   * @deprecated deprecated in favor of stable {@link
-   *     io.opentelemetry.semconv.HttpMetrics#HTTP_CLIENT_REQUEST_DURATION_UNIT} constant.
-   */
-  @Deprecated public static final String HTTP_CLIENT_REQUEST_DURATION_UNIT = "s";
+  /** Unit of the {@code http.client.request.duration} metric. */
+  public static final String HTTP_CLIENT_REQUEST_DURATION_UNIT = "s";
 
-  /**
-   * Description of the {@code http.client.request.duration} metric.
-   *
-   * @deprecated deprecated in favor of stable {@link
-   *     io.opentelemetry.semconv.HttpMetrics#HTTP_CLIENT_REQUEST_DURATION_DESCRIPTION} constant.
-   */
-  @Deprecated
+  /** Description of the {@code http.client.request.duration} metric. */
   public static final String HTTP_CLIENT_REQUEST_DURATION_DESCRIPTION =
       "Duration of HTTP client requests.";
 
@@ -108,30 +91,13 @@ public final class HttpIncubatingMetrics {
   public static final String HTTP_SERVER_REQUEST_BODY_SIZE_DESCRIPTION =
       "Size of HTTP server request bodies.";
 
-  /**
-   * Name of the {@code http.server.request.duration} metric.
-   *
-   * @deprecated deprecated in favor of stable {@link
-   *     io.opentelemetry.semconv.HttpMetrics#HTTP_SERVER_REQUEST_DURATION_NAME} constant.
-   */
-  @Deprecated
+  /** Name of the {@code http.server.request.duration} metric. */
   public static final String HTTP_SERVER_REQUEST_DURATION_NAME = "http.server.request.duration";
 
-  /**
-   * Unit of the {@code http.server.request.duration} metric.
-   *
-   * @deprecated deprecated in favor of stable {@link
-   *     io.opentelemetry.semconv.HttpMetrics#HTTP_SERVER_REQUEST_DURATION_UNIT} constant.
-   */
-  @Deprecated public static final String HTTP_SERVER_REQUEST_DURATION_UNIT = "s";
+  /** Unit of the {@code http.server.request.duration} metric. */
+  public static final String HTTP_SERVER_REQUEST_DURATION_UNIT = "s";
 
-  /**
-   * Description of the {@code http.server.request.duration} metric.
-   *
-   * @deprecated deprecated in favor of stable {@link
-   *     io.opentelemetry.semconv.HttpMetrics#HTTP_SERVER_REQUEST_DURATION_DESCRIPTION} constant.
-   */
-  @Deprecated
+  /** Description of the {@code http.server.request.duration} metric. */
   public static final String HTTP_SERVER_REQUEST_DURATION_DESCRIPTION =
       "Duration of HTTP server requests.";
 
