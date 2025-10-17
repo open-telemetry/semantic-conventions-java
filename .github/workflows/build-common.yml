@@ -1,0 +1,110 @@
+name: Reusable - Common
+
+on:
+  workflow_call:
+    inputs:
+      cache-read-only:
+        type: boolean
+        required: false
+      no-build-cache:
+        type: boolean
+        required: false
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    name: Build
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os:
+          - macos-latest
+          - macos-13
+          - ubuntu-latest
+        test-java-version:
+          - 8
+          - 11
+          - 17
+          - 21
+          - 25 # renovate: datasource=java-version
+        # macos-latest drops support for java 8 temurin. Run java 8 on macos-13. Run java 11+ on macos-latest.
+        exclude:
+          - os: macos-latest
+            test-java-version: 8
+          - os: macos-13
+            test-java-version: 11
+          - os: macos-13
+            test-java-version: 17
+          - os: macos-13
+            test-java-version: 21
+          - os: macos-13
+            test-java-version: 25 # renovate: datasource=java-version
+
+    steps:
+      - uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
+
+      - id: setup-java-test
+        name: Set up Java ${{ matrix.test-java-version }} for tests
+        uses: actions/setup-java@dded0888837ed1f317902acf8a20df0ad188d165 # v5.0.0
+        with:
+          distribution: temurin
+          java-version: ${{ matrix.test-java-version }}
+
+      - id: setup-java
+        name: Set up Java for build
+        uses: actions/setup-java@dded0888837ed1f317902acf8a20df0ad188d165 # v5.0.0
+        with:
+          distribution: temurin
+          java-version: 17
+
+      - uses: gradle/actions/setup-gradle@4d9f0ba0025fe599b4ebab900eb7f3a1d93ef4c2 # v5.0.0
+
+      - name: build
+        run: >
+          ./gradlew
+          build
+          -PtestJavaVersion=${{ matrix.test-java-version }}
+          -Porg.gradle.java.installations.paths=${{ steps.setup-java-test.outputs.path }},${{ steps.setup-java.outputs.path }}
+      - name: generate
+        # Skip running on macos-latest which doesn't have docker
+        if: matrix.os == 'ubuntu-latest'
+        run: ./gradlew generateSemanticConventions --console=plain
+
+      # Run spotless after generate to format generated code
+      - name: spotless
+        run: ./gradlew spotlessApply
+
+      - name: Check that semconv generation is up to date
+        run: |
+          # need to "git add" in case any generated files did not already exist
+          # select files from both /semconv and /semconv-incubating
+          git add semconv**
+          if git diff --cached --quiet
+          then 
+            echo "No diff detected."
+          else 
+            echo "Diff detected - did you run './gradlew generateSemanticConventions spotlessApply'?"
+            echo $(git diff --cached --name-only)
+            echo $(git diff --cached)
+            exit 1
+          fi
+
+      - name: Check that API diffs are up to date
+        run: |
+          # need to "git add" in case any generated files did not already exist
+          git add docs/apidiffs/
+          if git diff --cached --quiet
+          then 
+            echo "No diff detected in apidiffs."
+          else 
+            echo "Diff detected in apidiffs - did you run './gradlew jApiCmp'?"
+            echo $(git diff --cached --name-only)
+            echo $(git diff --cached)
+            exit 1
+          fi
+
+  misspell-check:
+    uses: ./.github/workflows/reusable-misspell-check.yml
