@@ -9,6 +9,9 @@ on:
       no-build-cache:
         type: boolean
         required: false
+    secrets:
+      DEVELOCITY_ACCESS_KEY:
+        required: false
 
 permissions:
   contents: read
@@ -68,14 +71,20 @@ jobs:
           build
           -PtestJavaVersion=${{ matrix.test-java-version }}
           -Porg.gradle.java.installations.paths=${{ steps.setup-java-test.outputs.path }},${{ steps.setup-java.outputs.path }}
+        env:
+          DEVELOCITY_ACCESS_KEY: ${{ secrets.DEVELOCITY_ACCESS_KEY }}
       - name: generate
         # Skip running on macos-latest which doesn't have docker
         if: matrix.os == 'ubuntu-latest'
         run: ./gradlew generateSemanticConventions --console=plain
+        env:
+          DEVELOCITY_ACCESS_KEY: ${{ secrets.DEVELOCITY_ACCESS_KEY }}
 
       # Run spotless after generate to format generated code
       - name: spotless
         run: ./gradlew spotlessApply
+        env:
+          DEVELOCITY_ACCESS_KEY: ${{ secrets.DEVELOCITY_ACCESS_KEY }}
 
       - name: Check that semconv generation is up to date
         run: |
