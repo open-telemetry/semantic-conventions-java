@@ -9,6 +9,9 @@ on:
       no-build-cache:
         type: boolean
         required: false
+    secrets:
+      DEVELOCITY_ACCESS_KEY:
+        required: false
 
 permissions:
   contents: read
