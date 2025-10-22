@@ -116,7 +116,6 @@ configurations.configureEach {
 val dependencyManagement by configurations.creating {
   isCanBeConsumed = false
   isCanBeResolved = false
-  isVisible = false
 }
 
 dependencies {
