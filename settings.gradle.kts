@@ -45,12 +45,6 @@ develocity {
     capture {
       fileFingerprints = true
     }
-
-    buildScanPublished {
-      java.io.File("build-scan.txt").printWriter().use { writer ->
-        writer.println(buildScanUri)
-      }
-    }
   }
 }
 
