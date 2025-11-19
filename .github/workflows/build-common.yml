@@ -50,6 +50,9 @@ jobs:
             test-java-version: 17
           - os: windows-latest
             test-java-version: 21
+    defaults:
+      run:
+        shell: bash # Use bash shell on all OSes for consistency
 
     steps:
       - uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
