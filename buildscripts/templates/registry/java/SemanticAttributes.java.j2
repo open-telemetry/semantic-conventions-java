@@ -42,6 +42,8 @@ public final class {{ my_class_name }} {
     {%- if attribute is stable -%}
       {%- if attribute is deprecated -%}
         {%- set deprecated_javadoc = "@deprecated " ~ attribute.deprecated.note -%}
+      {%- else -%}
+        {%- set deprecated_javadoc = "" -%}
       {%- endif -%}
       {{ [attribute.brief, concat_if("\n\nNotes:\n\n", attribute.note), deprecated_javadoc] | comment }}
       {%- if attribute is deprecated -%}
