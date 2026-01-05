@@ -15,7 +15,7 @@ val otelJava = extensions.create<OtelJavaExtension>("otelJava")
 
 java {
   toolchain {
-    languageVersion.set(JavaLanguageVersion.of(17))
+    languageVersion.set(JavaLanguageVersion.of(21))
   }
 
   withJavadocJar()
@@ -37,9 +37,12 @@ tasks {
       release.set(8)
 
       compilerArgs.addAll(
+
         listOf(
           // Fail build on any warning
-          "-Werror"
+          "-Werror",
+          // Suppress warning about java 8 deprecation
+          "-Xlint:-options"
         )
       )
 
