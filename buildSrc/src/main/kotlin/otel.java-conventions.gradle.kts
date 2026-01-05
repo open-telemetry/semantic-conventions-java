@@ -15,7 +15,7 @@ val otelJava = extensions.create<OtelJavaExtension>("otelJava")
 
 java {
   toolchain {
-    languageVersion.set(JavaLanguageVersion.of(17))
+    languageVersion.set(JavaLanguageVersion.of(21))
   }
 
   withJavadocJar()
@@ -24,7 +24,7 @@ java {
 
 checkstyle {
   configDirectory.set(file("$rootDir/buildscripts/"))
-  toolVersion = "12.3.1"
+  toolVersion = "13.0.0"
   isIgnoreFailures = false
   configProperties["rootDir"] = rootDir
 }
@@ -37,9 +37,12 @@ tasks {
       release.set(8)
 
       compilerArgs.addAll(
+
         listOf(
           // Fail build on any warning
-          "-Werror"
+          "-Werror",
+          // Suppress warning about java 8 deprecation
+          "-Xlint:-options"
         )
       )
 
