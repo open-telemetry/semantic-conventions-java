@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+## Version 1.38.0 (2026-01-27)
+
 * Bump to semconv v1.38.0
 
 ## Version 1.37.0 (2025-08-27)
