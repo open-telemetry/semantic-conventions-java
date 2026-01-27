@@ -52,7 +52,7 @@ jobs:
           echo "RELEASE_BRANCH_NAME=$release_branch_name" >> $GITHUB_ENV
 
       - name: Update version
-        run: sed -Ei "s/val snapshot = true/val snapshot = false/" build.gradle.kts
+        run: .github/scripts/update-version.sh $VERSION
 
       - name: Update the change log with the approximate release date
         run: |
