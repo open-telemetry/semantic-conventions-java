@@ -43,7 +43,11 @@ public final class {{ my_class_name }} {
   {%- for attribute in ctx.attributes | rejectattr("name", "in", ctx.excluded_attributes) | rejectattr("type", "eq", "any") -%}
     {%- if attribute is experimental -%}
       {%- if attribute is deprecated -%}
-        {%- set deprecated_javadoc = "@deprecated " ~ attribute.deprecated.note -%}
+        {%- if attribute.deprecated.note == "Uncategorized." -%}
+          {%- set deprecated_javadoc = "@deprecated" -%}
+        {%- else -%}
+          {%- set deprecated_javadoc = "@deprecated " ~ attribute.deprecated.note -%}
+        {%- endif -%}
       {%- else -%}
         {%- set deprecated_javadoc = "" -%}
       {%- endif -%}
@@ -80,7 +84,11 @@ public final class {{ my_class_name }} {
        *  @deprecated deprecated in favor of stable {@link {{stable_class_link}}}.
        */
     {%- elif attribute is deprecated -%}
-      {{ ["Values for {@link #" ~ attribute.name | screaming_snake_case ~ "}", "@deprecated " ~ attribute.deprecated.note ] | comment }}
+      {%- if attribute.deprecated.note == "Uncategorized." -%}
+        {{ ["Values for {@link #" ~ attribute.name | screaming_snake_case ~ "}", "@deprecated"] | comment }}
+      {%- else -%}
+        {{ ["Values for {@link #" ~ attribute.name | screaming_snake_case ~ "}", "@deprecated " ~ attribute.deprecated.note ] | comment }}
+      {%- endif -%}
     {%- else -%}
       /** Values for {@link #{{ attribute.name | screaming_snake_case }}}. */
     {%- endif -%}
@@ -90,7 +98,11 @@ public final class {{ my_class_name }} {
     public static final class {{ attribute.name | pascal_case }}IncubatingValues {
       {%- for member in attribute.type.members %}
         {%- if member is experimental and member is deprecated -%}
-          {{ [member.brief or (member.id ~ '.'), "@deprecated " ~ member.deprecated.note] | comment }}
+          {%- if member.deprecated.note == "Uncategorized." -%}
+            {{ [member.brief or (member.id ~ '.'), "@deprecated"] | comment }}
+          {%- else -%}
+            {{ [member.brief or (member.id ~ '.'), "@deprecated " ~ member.deprecated.note] | comment }}
+          {%- endif -%}
             @Deprecated public static final {{ attribute.type | instantiated_type | map_text("java_enum_type") }} {{ member.id | screaming_snake_case }} = {{ member.value | print_member_value }};
         {% elif member is experimental or enum_deprecated_in_favor_of_stable.value %}
           {{ [member.brief or (member.id ~ '.')] | comment }}

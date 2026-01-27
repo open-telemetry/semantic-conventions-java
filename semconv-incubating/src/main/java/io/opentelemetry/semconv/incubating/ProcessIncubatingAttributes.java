@@ -56,7 +56,7 @@ public final class ProcessIncubatingAttributes {
 
   /** Specifies whether the context switches for this data point were voluntary or involuntary. */
   public static final AttributeKey<String> PROCESS_CONTEXT_SWITCH_TYPE =
-      stringKey("process.context_switch_type");
+      stringKey("process.context_switch.type");
 
   /**
    * Deprecated, use {@code cpu.mode} instead.
@@ -160,9 +160,11 @@ public final class ProcessIncubatingAttributes {
   public static final AttributeKey<String> PROCESS_OWNER = stringKey("process.owner");
 
   /**
-   * The type of page fault for this data point. Type {@code major} is for major/hard page faults,
-   * and {@code minor} is for minor/soft page faults.
+   * Deprecated, use {@code system.paging.fault.type} instead.
+   *
+   * @deprecated Replaced by {@code system.paging.fault.type}.
    */
+  @Deprecated
   public static final AttributeKey<String> PROCESS_PAGING_FAULT_TYPE =
       stringKey("process.paging.fault_type");
 
@@ -205,6 +207,13 @@ public final class ProcessIncubatingAttributes {
   /** The PID of the process's session leader. This is also the session ID (SID) of the process. */
   public static final AttributeKey<Long> PROCESS_SESSION_LEADER_PID =
       longKey("process.session_leader.pid");
+
+  /**
+   * The process state, e.g., <a
+   * href="https://man7.org/linux/man-pages/man1/ps.1.html#PROCESS_STATE_CODES">Linux Process State
+   * Codes</a>
+   */
+  public static final AttributeKey<String> PROCESS_STATE = stringKey("process.state");
 
   /**
    * Process title (proctitle)
@@ -269,7 +278,12 @@ public final class ProcessIncubatingAttributes {
     private ProcessCpuStateIncubatingValues() {}
   }
 
-  /** Values for {@link #PROCESS_PAGING_FAULT_TYPE}. */
+  /**
+   * Values for {@link #PROCESS_PAGING_FAULT_TYPE}
+   *
+   * @deprecated Replaced by {@code system.paging.fault.type}.
+   */
+  @Deprecated
   public static final class ProcessPagingFaultTypeIncubatingValues {
     /** major. */
     public static final String MAJOR = "major";
@@ -278,6 +292,23 @@ public final class ProcessIncubatingAttributes {
     public static final String MINOR = "minor";
 
     private ProcessPagingFaultTypeIncubatingValues() {}
+  }
+
+  /** Values for {@link #PROCESS_STATE}. */
+  public static final class ProcessStateIncubatingValues {
+    /** running. */
+    public static final String RUNNING = "running";
+
+    /** sleeping. */
+    public static final String SLEEPING = "sleeping";
+
+    /** stopped. */
+    public static final String STOPPED = "stopped";
+
+    /** defunct. */
+    public static final String DEFUNCT = "defunct";
+
+    private ProcessStateIncubatingValues() {}
   }
 
   private ProcessIncubatingAttributes() {}

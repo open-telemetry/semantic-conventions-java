@@ -187,10 +187,9 @@ public final class VcsIncubatingAttributes {
       stringKey("vcs.repository.ref.type");
 
   /**
-   * The <a
-   * href="https://support.google.com/webmasters/answer/10347851?hl=en#:~:text=A%20canonical%20URL%20is%20the,Google%20chooses%20one%20as%20canonical.">canonical
-   * URL</a> of the repository providing the complete HTTP(S) address in order to locate and
-   * identify the repository through a browser.
+   * The <a href="https://support.google.com/webmasters/answer/10347851">canonical URL</a> of the
+   * repository providing the complete HTTP(S) address in order to locate and identify the
+   * repository through a browser.
    *
    * <p>Notes:
    *

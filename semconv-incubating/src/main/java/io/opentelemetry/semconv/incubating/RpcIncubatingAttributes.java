@@ -140,29 +140,11 @@ public final class RpcIncubatingAttributes {
   public static final AttributeKey<Long> RPC_MESSAGE_UNCOMPRESSED_SIZE =
       longKey("rpc.message.uncompressed_size");
 
-  /**
-   * The name of the (logical) method being called, must be equal to the $method part in the span
-   * name.
-   *
-   * <p>Notes:
-   *
-   * <p>This is the logical name of the method from the RPC interface perspective, which can be
-   * different from the name of any implementing method/function. The {@code code.function.name}
-   * attribute may be used to store the latter (e.g., method actually executing the call on the
-   * server side, RPC client stub method on the client side).
-   */
+  /** This is the logical name of the method from the RPC interface perspective. */
   public static final AttributeKey<String> RPC_METHOD = stringKey("rpc.method");
 
   /**
    * The full (logical) name of the service being called, including its package name, if applicable.
-   *
-   * <p>Notes:
-   *
-   * <p>This is the logical name of the service from the RPC interface perspective, which can be
-   * different from the name of any implementing class. The {@code code.namespace} attribute may be
-   * used to store the latter (despite the attribute name, it may include a class name; e.g., class
-   * with method actually executing the call on the server side, RPC client stub class on the client
-   * side).
    */
   public static final AttributeKey<String> RPC_SERVICE = stringKey("rpc.service");
 
@@ -307,6 +289,12 @@ public final class RpcIncubatingAttributes {
 
     /** Connect RPC */
     public static final String CONNECT_RPC = "connect_rpc";
+
+    /** <a href="https://datatracker.ietf.org/doc/html/rfc5531">ONC RPC (Sun RPC)</a> */
+    public static final String ONC_RPC = "onc_rpc";
+
+    /** JSON-RPC */
+    public static final String JSONRPC = "jsonrpc";
 
     private RpcSystemIncubatingValues() {}
   }

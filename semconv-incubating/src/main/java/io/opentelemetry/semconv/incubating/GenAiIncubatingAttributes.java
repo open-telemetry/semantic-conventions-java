@@ -58,6 +58,36 @@ public final class GenAiIncubatingAttributes {
   public static final AttributeKey<String> GEN_AI_DATA_SOURCE_ID =
       stringKey("gen_ai.data_source.id");
 
+  /** The number of dimensions the resulting output embeddings should have. */
+  public static final AttributeKey<Long> GEN_AI_EMBEDDINGS_DIMENSION_COUNT =
+      longKey("gen_ai.embeddings.dimension.count");
+
+  /** A free-form explanation for the assigned score provided by the evaluator. */
+  public static final AttributeKey<String> GEN_AI_EVALUATION_EXPLANATION =
+      stringKey("gen_ai.evaluation.explanation");
+
+  /** The name of the evaluation metric used for the GenAI response. */
+  public static final AttributeKey<String> GEN_AI_EVALUATION_NAME =
+      stringKey("gen_ai.evaluation.name");
+
+  /**
+   * Human readable label for evaluation.
+   *
+   * <p>Notes:
+   *
+   * <p>This attribute provides a human-readable interpretation of the evaluation score produced by
+   * an evaluator. For example, a score value of 1 could mean "relevant" in one evaluation system
+   * and "not relevant" in another, depending on the scoring range and evaluator. The label SHOULD
+   * have low cardinality. Possible values depend on the evaluation metric and evaluator used;
+   * implementations SHOULD document the possible values.
+   */
+  public static final AttributeKey<String> GEN_AI_EVALUATION_SCORE_LABEL =
+      stringKey("gen_ai.evaluation.score.label");
+
+  /** The evaluation score returned by the evaluator. */
+  public static final AttributeKey<Double> GEN_AI_EVALUATION_SCORE_VALUE =
+      doubleKey("gen_ai.evaluation.score.value");
+
   /**
    * Deprecated, use {@code gen_ai.output.type}.
    *
@@ -468,11 +498,19 @@ public final class GenAiIncubatingAttributes {
     /** Cohere */
     public static final String COHERE = "cohere";
 
-    /** Azure AI Inference */
-    public static final String AZ_AI_INFERENCE = "az.ai.inference";
+    /**
+     * Azure AI Inference
+     *
+     * @deprecated Replaced by {@code azure.ai.inference}.
+     */
+    @Deprecated public static final String AZ_AI_INFERENCE = "az.ai.inference";
 
-    /** Azure OpenAI */
-    public static final String AZ_AI_OPENAI = "az.ai.openai";
+    /**
+     * Azure OpenAI
+     *
+     * @deprecated Replaced by {@code azure.ai.openai}.
+     */
+    @Deprecated public static final String AZ_AI_OPENAI = "az.ai.openai";
 
     /** Azure AI Inference */
     public static final String AZURE_AI_INFERENCE = "azure.ai.inference";
@@ -489,12 +527,8 @@ public final class GenAiIncubatingAttributes {
     /** Perplexity */
     public static final String PERPLEXITY = "perplexity";
 
-    /**
-     * xAI
-     *
-     * @deprecated Replaced by {@code x_ai}.
-     */
-    @Deprecated public static final String XAI = "xai";
+    /** xAI */
+    public static final String XAI = "xai";
 
     /** DeepSeek */
     public static final String DEEPSEEK = "deepseek";
