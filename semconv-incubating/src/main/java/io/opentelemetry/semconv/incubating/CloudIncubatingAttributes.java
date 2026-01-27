@@ -95,6 +95,9 @@ public final class CloudIncubatingAttributes {
 
   /** Values for {@link #CLOUD_PLATFORM}. */
   public static final class CloudPlatformIncubatingValues {
+    /** Akamai Cloud Compute */
+    public static final String AKAMAI_CLOUD_COMPUTE = "akamai_cloud.compute";
+
     /** Alibaba Cloud Elastic Compute Service */
     public static final String ALIBABA_CLOUD_ECS = "alibaba_cloud_ecs";
 
@@ -146,6 +149,9 @@ public final class CloudIncubatingAttributes {
     /** Azure Red Hat OpenShift */
     public static final String AZURE_OPENSHIFT = "azure.openshift";
 
+    /** Google Vertex AI Agent Engine */
+    public static final String GCP_AGENT_ENGINE = "gcp.agent_engine";
+
     /** Google Bare Metal Solution (BMS) */
     public static final String GCP_BARE_METAL_SOLUTION = "gcp_bare_metal_solution";
 
@@ -167,6 +173,9 @@ public final class CloudIncubatingAttributes {
     /** Red Hat OpenShift on Google Cloud */
     public static final String GCP_OPENSHIFT = "gcp_openshift";
 
+    /** Server on Hetzner Cloud */
+    public static final String HETZNER_CLOUD_SERVER = "hetzner.cloud_server";
+
     /** Red Hat OpenShift on IBM Cloud */
     public static final String IBM_CLOUD_OPENSHIFT = "ibm_cloud_openshift";
 
@@ -185,11 +194,17 @@ public final class CloudIncubatingAttributes {
     /** Tencent Cloud Serverless Cloud Function (SCF) */
     public static final String TENCENT_CLOUD_SCF = "tencent_cloud_scf";
 
+    /** Vultr Cloud Compute */
+    public static final String VULTR_CLOUD_COMPUTE = "vultr.cloud_compute";
+
     private CloudPlatformIncubatingValues() {}
   }
 
   /** Values for {@link #CLOUD_PROVIDER}. */
   public static final class CloudProviderIncubatingValues {
+    /** Akamai Cloud */
+    public static final String AKAMAI_CLOUD = "akamai_cloud";
+
     /** Alibaba Cloud */
     public static final String ALIBABA_CLOUD = "alibaba_cloud";
 
@@ -205,6 +220,9 @@ public final class CloudIncubatingAttributes {
     /** Heroku Platform as a Service */
     public static final String HEROKU = "heroku";
 
+    /** Hetzner */
+    public static final String HETZNER = "hetzner";
+
     /** IBM Cloud */
     public static final String IBM_CLOUD = "ibm_cloud";
 
@@ -213,6 +231,9 @@ public final class CloudIncubatingAttributes {
 
     /** Tencent Cloud */
     public static final String TENCENT_CLOUD = "tencent_cloud";
+
+    /** Vultr */
+    public static final String VULTR = "vultr";
 
     private CloudProviderIncubatingValues() {}
   }

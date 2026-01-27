@@ -29,9 +29,9 @@ public final class HttpIncubatingAttributes {
       stringKey("http.connection.state");
 
   /**
-   * Deprecated, use {@code network.protocol.name} instead.
+   * Deprecated, use {@code network.protocol.name} and {@code network.protocol.version} instead.
    *
-   * @deprecated Replaced by {@code network.protocol.name}.
+   * @deprecated Split into {@code network.protocol.name} and {@code network.protocol.version}
    */
   @Deprecated public static final AttributeKey<String> HTTP_FLAVOR = stringKey("http.flavor");
 
@@ -101,8 +101,10 @@ public final class HttpIncubatingAttributes {
    *
    * <p>HTTP request method value SHOULD be "known" to the instrumentation. By default, this
    * convention defines "known" methods as the ones listed in <a
-   * href="https://www.rfc-editor.org/rfc/rfc9110.html#name-methods">RFC9110</a> and the PATCH
-   * method defined in <a href="https://www.rfc-editor.org/rfc/rfc5789.html">RFC5789</a>.
+   * href="https://www.rfc-editor.org/rfc/rfc9110.html#name-methods">RFC9110</a>, the PATCH method
+   * defined in <a href="https://www.rfc-editor.org/rfc/rfc5789.html">RFC5789</a> and the QUERY
+   * method defined in <a
+   * href="https://datatracker.ietf.org/doc/draft-ietf-httpbis-safe-method-w-body/?include_text=1">httpbis-safe-method-w-body</a>.
    *
    * <p>If the HTTP request method is not known to instrumentation, it MUST set the {@code
    * http.request.method} attribute to {@code _OTHER}.
@@ -256,8 +258,8 @@ public final class HttpIncubatingAttributes {
       longKey("http.response_content_length_uncompressed");
 
   /**
-   * The matched route, that is, the path template in the format used by the respective server
-   * framework.
+   * The matched route template for the request. This MUST be low-cardinality and include all static
+   * path segments, with dynamic path segments represented with placeholders.
    *
    * <p>Notes:
    *
@@ -265,6 +267,18 @@ public final class HttpIncubatingAttributes {
    * attribute should have low-cardinality and the URI path can NOT substitute it. SHOULD include
    * the <a href="/docs/http/http-spans.md#http-server-definitions">application root</a> if there is
    * one.
+   *
+   * <p>A static path segment is a part of the route template with a fixed, low-cardinality value.
+   * This includes literal strings like {@code /users/} and placeholders that are constrained to a
+   * finite, predefined set of values, e.g. {@code {controller}} or {@code {action}}.
+   *
+   * <p>A dynamic path segment is a placeholder for a value that can have high cardinality and is
+   * not constrained to a predefined list like static path segments.
+   *
+   * <p>Instrumentations SHOULD use routing information provided by the corresponding web framework.
+   * They SHOULD pick the most precise source of routing information and MAY support custom route
+   * formatting. Instrumentations SHOULD document the format and the API used to obtain the route
+   * string.
    *
    * @deprecated deprecated in favor of stable {@link
    *     io.opentelemetry.semconv.HttpAttributes#HTTP_ROUTE} attribute.
@@ -331,7 +345,7 @@ public final class HttpIncubatingAttributes {
   /**
    * Values for {@link #HTTP_FLAVOR}
    *
-   * @deprecated Replaced by {@code network.protocol.name}.
+   * @deprecated Split into {@code network.protocol.name} and {@code network.protocol.version}
    */
   @Deprecated
   public static final class HttpFlavorIncubatingValues {
@@ -356,43 +370,90 @@ public final class HttpIncubatingAttributes {
     private HttpFlavorIncubatingValues() {}
   }
 
-  /**
-   * Values for {@link #HTTP_REQUEST_METHOD}.
-   *
-   * @deprecated deprecated in favor of stable {@link
-   *     io.opentelemetry.semconv.HttpAttributes.HttpRequestMethodValues}.
-   */
-  @Deprecated
+  /** Values for {@link #HTTP_REQUEST_METHOD}. */
   public static final class HttpRequestMethodIncubatingValues {
-    /** CONNECT method. */
-    public static final String CONNECT = "CONNECT";
+    /**
+     * CONNECT method.
+     *
+     * @deprecated deprecated in favor of stable {@link
+     *     io.opentelemetry.semconv.HttpAttributes.HttpRequestMethodValues#CONNECT} value.
+     */
+    @Deprecated public static final String CONNECT = "CONNECT";
 
-    /** DELETE method. */
-    public static final String DELETE = "DELETE";
+    /**
+     * DELETE method.
+     *
+     * @deprecated deprecated in favor of stable {@link
+     *     io.opentelemetry.semconv.HttpAttributes.HttpRequestMethodValues#DELETE} value.
+     */
+    @Deprecated public static final String DELETE = "DELETE";
 
-    /** GET method. */
-    public static final String GET = "GET";
+    /**
+     * GET method.
+     *
+     * @deprecated deprecated in favor of stable {@link
+     *     io.opentelemetry.semconv.HttpAttributes.HttpRequestMethodValues#GET} value.
+     */
+    @Deprecated public static final String GET = "GET";
 
-    /** HEAD method. */
-    public static final String HEAD = "HEAD";
+    /**
+     * HEAD method.
+     *
+     * @deprecated deprecated in favor of stable {@link
+     *     io.opentelemetry.semconv.HttpAttributes.HttpRequestMethodValues#HEAD} value.
+     */
+    @Deprecated public static final String HEAD = "HEAD";
 
-    /** OPTIONS method. */
-    public static final String OPTIONS = "OPTIONS";
+    /**
+     * OPTIONS method.
+     *
+     * @deprecated deprecated in favor of stable {@link
+     *     io.opentelemetry.semconv.HttpAttributes.HttpRequestMethodValues#OPTIONS} value.
+     */
+    @Deprecated public static final String OPTIONS = "OPTIONS";
 
-    /** PATCH method. */
-    public static final String PATCH = "PATCH";
+    /**
+     * PATCH method.
+     *
+     * @deprecated deprecated in favor of stable {@link
+     *     io.opentelemetry.semconv.HttpAttributes.HttpRequestMethodValues#PATCH} value.
+     */
+    @Deprecated public static final String PATCH = "PATCH";
 
-    /** POST method. */
-    public static final String POST = "POST";
+    /**
+     * POST method.
+     *
+     * @deprecated deprecated in favor of stable {@link
+     *     io.opentelemetry.semconv.HttpAttributes.HttpRequestMethodValues#POST} value.
+     */
+    @Deprecated public static final String POST = "POST";
 
-    /** PUT method. */
-    public static final String PUT = "PUT";
+    /**
+     * PUT method.
+     *
+     * @deprecated deprecated in favor of stable {@link
+     *     io.opentelemetry.semconv.HttpAttributes.HttpRequestMethodValues#PUT} value.
+     */
+    @Deprecated public static final String PUT = "PUT";
 
-    /** TRACE method. */
-    public static final String TRACE = "TRACE";
+    /**
+     * TRACE method.
+     *
+     * @deprecated deprecated in favor of stable {@link
+     *     io.opentelemetry.semconv.HttpAttributes.HttpRequestMethodValues#TRACE} value.
+     */
+    @Deprecated public static final String TRACE = "TRACE";
 
-    /** Any HTTP method that the instrumentation has no prior knowledge of. */
-    public static final String OTHER = "_OTHER";
+    /** QUERY method. */
+    public static final String QUERY = "QUERY";
+
+    /**
+     * Any HTTP method that the instrumentation has no prior knowledge of.
+     *
+     * @deprecated deprecated in favor of stable {@link
+     *     io.opentelemetry.semconv.HttpAttributes.HttpRequestMethodValues#OTHER} value.
+     */
+    @Deprecated public static final String OTHER = "_OTHER";
 
     private HttpRequestMethodIncubatingValues() {}
   }

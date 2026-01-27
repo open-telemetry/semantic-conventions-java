@@ -217,7 +217,7 @@ public final class DbIncubatingAttributes {
   /**
    * Deprecated, use {@code db.response.status_code} instead.
    *
-   * @deprecated Replaced by {@code db.response.status_code}.
+   * @deprecated Use {@code db.response.status_code} instead.
    */
   @Deprecated
   public static final AttributeKey<Long> DB_COSMOSDB_STATUS_CODE =
@@ -393,6 +393,9 @@ public final class DbIncubatingAttributes {
    * <p>{@code db.query.parameter.<key>} SHOULD match up with the parameterized placeholders present
    * in {@code db.query.text}.
    *
+   * <p>It is RECOMMENDED to capture the value as provided by the application without attempting to
+   * do any case normalization.
+   *
    * <p>{@code db.query.parameter.<key>} SHOULD NOT be captured on batch operations.
    *
    * <p>Examples:
@@ -400,8 +403,8 @@ public final class DbIncubatingAttributes {
    * <ul>
    *   <li>For a query {@code SELECT * FROM users where username = %s} with the parameter {@code
    *       "jdoe"}, the attribute {@code db.query.parameter.0} SHOULD be set to {@code "jdoe"}.
-   *   <li>For a query {@code "SELECT * FROM users WHERE username = %(username)s;} with parameter
-   *       {@code username = "jdoe"}, the attribute {@code db.query.parameter.username} SHOULD be
+   *   <li>For a query {@code "SELECT * FROM users WHERE username = %(userName)s;} with parameter
+   *       {@code userName = "jdoe"}, the attribute {@code db.query.parameter.userName} SHOULD be
    *       set to {@code "jdoe"}.
    * </ul>
    */
@@ -419,7 +422,7 @@ public final class DbIncubatingAttributes {
    * <p>Summary may be available to the instrumentation through instrumentation hooks or other
    * means. If it is not available, instrumentations that support query parsing SHOULD generate a
    * summary following <a
-   * href="/docs/database/database-spans.md#generating-a-summary-of-the-query">Generating query
+   * href="/docs/db/database-spans.md#generating-a-summary-of-the-query">Generating query
    * summary</a> section.
    *
    * @deprecated deprecated in favor of stable {@link
@@ -434,7 +437,7 @@ public final class DbIncubatingAttributes {
    * <p>Notes:
    *
    * <p>For sanitization see <a
-   * href="/docs/database/database-spans.md#sanitization-of-dbquerytext">Sanitization of {@code
+   * href="/docs/db/database-spans.md#sanitization-of-dbquerytext">Sanitization of {@code
    * db.query.text}</a>. For batch operations, if the individual operations are known to have the
    * same query text then that query text SHOULD be used, otherwise all of the individual query
    * texts SHOULD be concatenated with separator {@code ; } or some other database system specific
@@ -452,7 +455,7 @@ public final class DbIncubatingAttributes {
   /**
    * Deprecated, use {@code db.namespace} instead.
    *
-   * @deprecated Replaced by {@code db.namespace}.
+   * @deprecated Uncategorized.
    */
   @Deprecated
   public static final AttributeKey<Long> DB_REDIS_DATABASE_INDEX =

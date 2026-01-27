@@ -14,7 +14,12 @@ import io.opentelemetry.api.common.AttributeKey;
 // buildscripts/templates/registry/incubating_java/IncubatingSemanticAttributes.java.j2
 @SuppressWarnings("unused")
 public final class SystemIncubatingAttributes {
-  /** Deprecated, use {@code cpu.logical_number} instead. */
+  /**
+   * Deprecated, use {@code cpu.logical_number} instead.
+   *
+   * @deprecated Replaced by {@code cpu.logical_number}.
+   */
+  @Deprecated
   public static final AttributeKey<Long> SYSTEM_CPU_LOGICAL_NUMBER =
       longKey("system.cpu.logical_number");
 
@@ -45,6 +50,10 @@ public final class SystemIncubatingAttributes {
   public static final AttributeKey<String> SYSTEM_FILESYSTEM_TYPE =
       stringKey("system.filesystem.type");
 
+  /** The Linux Slab memory state */
+  public static final AttributeKey<String> SYSTEM_MEMORY_LINUX_SLAB_STATE =
+      stringKey("system.memory.linux.slab.state");
+
   /** The memory state */
   public static final AttributeKey<String> SYSTEM_MEMORY_STATE = stringKey("system.memory.state");
 
@@ -60,24 +69,34 @@ public final class SystemIncubatingAttributes {
   public static final AttributeKey<String> SYSTEM_PAGING_DIRECTION =
       stringKey("system.paging.direction");
 
+  /** The paging fault type */
+  public static final AttributeKey<String> SYSTEM_PAGING_FAULT_TYPE =
+      stringKey("system.paging.fault.type");
+
   /** The memory paging state */
   public static final AttributeKey<String> SYSTEM_PAGING_STATE = stringKey("system.paging.state");
 
-  /** The memory paging type */
+  /**
+   * Deprecated, use {@code system.paging.fault.type} instead.
+   *
+   * @deprecated Replaced by {@code system.paging.fault.type}.
+   */
+  @Deprecated
   public static final AttributeKey<String> SYSTEM_PAGING_TYPE = stringKey("system.paging.type");
 
   /**
-   * The process state, e.g., <a
-   * href="https://man7.org/linux/man-pages/man1/ps.1.html#PROCESS_STATE_CODES">Linux Process State
-   * Codes</a>
+   * Deprecated, use {@code process.state} instead.
+   *
+   * @deprecated Replaced by {@code process.state}.
    */
+  @Deprecated
   public static final AttributeKey<String> SYSTEM_PROCESS_STATUS =
       stringKey("system.process.status");
 
   /**
-   * Deprecated, use {@code system.process.status} instead.
+   * Deprecated, use {@code process.state} instead.
    *
-   * @deprecated Replaced by {@code system.process.status}.
+   * @deprecated Replaced by {@code process.state}.
    */
   @Deprecated
   public static final AttributeKey<String> SYSTEM_PROCESSES_STATUS =
@@ -151,6 +170,17 @@ public final class SystemIncubatingAttributes {
     public static final String EXT4 = "ext4";
 
     private SystemFilesystemTypeIncubatingValues() {}
+  }
+
+  /** Values for {@link #SYSTEM_MEMORY_LINUX_SLAB_STATE}. */
+  public static final class SystemMemoryLinuxSlabStateIncubatingValues {
+    /** reclaimable. */
+    public static final String RECLAIMABLE = "reclaimable";
+
+    /** unreclaimable. */
+    public static final String UNRECLAIMABLE = "unreclaimable";
+
+    private SystemMemoryLinuxSlabStateIncubatingValues() {}
   }
 
   /** Values for {@link #SYSTEM_MEMORY_STATE}. */
@@ -235,6 +265,17 @@ public final class SystemIncubatingAttributes {
     private SystemPagingDirectionIncubatingValues() {}
   }
 
+  /** Values for {@link #SYSTEM_PAGING_FAULT_TYPE}. */
+  public static final class SystemPagingFaultTypeIncubatingValues {
+    /** major. */
+    public static final String MAJOR = "major";
+
+    /** minor. */
+    public static final String MINOR = "minor";
+
+    private SystemPagingFaultTypeIncubatingValues() {}
+  }
+
   /** Values for {@link #SYSTEM_PAGING_STATE}. */
   public static final class SystemPagingStateIncubatingValues {
     /** used. */
@@ -246,7 +287,12 @@ public final class SystemIncubatingAttributes {
     private SystemPagingStateIncubatingValues() {}
   }
 
-  /** Values for {@link #SYSTEM_PAGING_TYPE}. */
+  /**
+   * Values for {@link #SYSTEM_PAGING_TYPE}
+   *
+   * @deprecated Replaced by {@code system.paging.fault.type}.
+   */
+  @Deprecated
   public static final class SystemPagingTypeIncubatingValues {
     /** major. */
     public static final String MAJOR = "major";
@@ -257,7 +303,12 @@ public final class SystemIncubatingAttributes {
     private SystemPagingTypeIncubatingValues() {}
   }
 
-  /** Values for {@link #SYSTEM_PROCESS_STATUS}. */
+  /**
+   * Values for {@link #SYSTEM_PROCESS_STATUS}
+   *
+   * @deprecated Replaced by {@code process.state}.
+   */
+  @Deprecated
   public static final class SystemProcessStatusIncubatingValues {
     /** running. */
     public static final String RUNNING = "running";
@@ -277,7 +328,7 @@ public final class SystemIncubatingAttributes {
   /**
    * Values for {@link #SYSTEM_PROCESSES_STATUS}
    *
-   * @deprecated Replaced by {@code system.process.status}.
+   * @deprecated Replaced by {@code process.state}.
    */
   @Deprecated
   public static final class SystemProcessesStatusIncubatingValues {

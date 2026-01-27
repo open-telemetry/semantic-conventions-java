@@ -17,8 +17,21 @@ public final class PeerIncubatingAttributes {
    * The <a href="/docs/resource/README.md#service">{@code service.name}</a> of the remote service.
    * SHOULD be equal to the actual {@code service.name} resource attribute of the remote service if
    * any.
+   *
+   * <p>Notes:
+   *
+   * <p>Examples of {@code peer.service} that users may specify:
+   *
+   * <ul>
+   *   <li>A Redis cache of auth tokens as {@code peer.service="AuthTokenCache"}.
+   *   <li>A gRPC service {@code rpc.service="io.opentelemetry.AuthService"} may be hosted in both a
+   *       gateway, {@code peer.service="ExternalApiService"} and a backend, {@code
+   *       peer.service="AuthService"}.
+   * </ul>
+   *
+   * @deprecated Replaced by {@code service.peer.name}.
    */
-  public static final AttributeKey<String> PEER_SERVICE = stringKey("peer.service");
+  @Deprecated public static final AttributeKey<String> PEER_SERVICE = stringKey("peer.service");
 
   // Enum definitions
 

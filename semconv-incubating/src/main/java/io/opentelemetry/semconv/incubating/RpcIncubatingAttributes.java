@@ -18,105 +18,95 @@ import java.util.List;
 @SuppressWarnings("unused")
 public final class RpcIncubatingAttributes {
   /**
-   * The <a href="https://connectrpc.com//docs/protocol/#error-codes">error codes</a> of the Connect
-   * request. Error codes are always string values.
+   * Deprecated, use {@code rpc.response.status_code} attribute instead.
+   *
+   * @deprecated Replaced by {@code rpc.response.status_code}.
    */
+  @Deprecated
   public static final AttributeKey<String> RPC_CONNECT_RPC_ERROR_CODE =
       stringKey("rpc.connect_rpc.error_code");
 
   /**
-   * Connect request metadata, {@code <key>} being the normalized Connect Metadata key (lowercase),
-   * the value being the metadata values.
+   * Deprecated, use {@code rpc.request.metadata} instead.
    *
-   * <p>Notes:
-   *
-   * <p>Instrumentations SHOULD require an explicit configuration of which metadata values are to be
-   * captured. Including all request metadata values can be a security risk - explicit configuration
-   * helps avoid leaking sensitive information.
-   *
-   * <p>For example, a property {@code my-custom-key} with value {@code ["1.2.3.4", "1.2.3.5"]}
-   * SHOULD be recorded as the {@code rpc.connect_rpc.request.metadata.my-custom-key} attribute with
-   * value {@code ["1.2.3.4", "1.2.3.5"]}
+   * @deprecated Replaced by {@code rpc.request.metadata}.
    */
+  @Deprecated
   public static final AttributeKeyTemplate<List<String>> RPC_CONNECT_RPC_REQUEST_METADATA =
       stringArrayKeyTemplate("rpc.connect_rpc.request.metadata");
 
   /**
-   * Connect response metadata, {@code <key>} being the normalized Connect Metadata key (lowercase),
-   * the value being the metadata values.
+   * Deprecated, use {@code rpc.response.metadata} instead.
    *
-   * <p>Notes:
-   *
-   * <p>Instrumentations SHOULD require an explicit configuration of which metadata values are to be
-   * captured. Including all response metadata values can be a security risk - explicit
-   * configuration helps avoid leaking sensitive information.
-   *
-   * <p>For example, a property {@code my-custom-key} with value {@code "attribute_value"} SHOULD be
-   * recorded as the {@code rpc.connect_rpc.response.metadata.my-custom-key} attribute with value
-   * {@code ["attribute_value"]}
+   * @deprecated Replaced by {@code rpc.response.metadata}.
    */
+  @Deprecated
   public static final AttributeKeyTemplate<List<String>> RPC_CONNECT_RPC_RESPONSE_METADATA =
       stringArrayKeyTemplate("rpc.connect_rpc.response.metadata");
 
   /**
-   * gRPC request metadata, {@code <key>} being the normalized gRPC Metadata key (lowercase), the
-   * value being the metadata values.
+   * Deprecated, use {@code rpc.request.metadata} instead.
    *
-   * <p>Notes:
-   *
-   * <p>Instrumentations SHOULD require an explicit configuration of which metadata values are to be
-   * captured. Including all request metadata values can be a security risk - explicit configuration
-   * helps avoid leaking sensitive information.
-   *
-   * <p>For example, a property {@code my-custom-key} with value {@code ["1.2.3.4", "1.2.3.5"]}
-   * SHOULD be recorded as {@code rpc.grpc.request.metadata.my-custom-key} attribute with value
-   * {@code ["1.2.3.4", "1.2.3.5"]}
+   * @deprecated Replaced by {@code rpc.request.metadata}.
    */
+  @Deprecated
   public static final AttributeKeyTemplate<List<String>> RPC_GRPC_REQUEST_METADATA =
       stringArrayKeyTemplate("rpc.grpc.request.metadata");
 
   /**
-   * gRPC response metadata, {@code <key>} being the normalized gRPC Metadata key (lowercase), the
-   * value being the metadata values.
+   * Deprecated, use {@code rpc.response.metadata} instead.
    *
-   * <p>Notes:
-   *
-   * <p>Instrumentations SHOULD require an explicit configuration of which metadata values are to be
-   * captured. Including all response metadata values can be a security risk - explicit
-   * configuration helps avoid leaking sensitive information.
-   *
-   * <p>For example, a property {@code my-custom-key} with value {@code ["attribute_value"]} SHOULD
-   * be recorded as the {@code rpc.grpc.response.metadata.my-custom-key} attribute with value {@code
-   * ["attribute_value"]}
+   * @deprecated Replaced by {@code rpc.response.metadata}.
    */
+  @Deprecated
   public static final AttributeKeyTemplate<List<String>> RPC_GRPC_RESPONSE_METADATA =
       stringArrayKeyTemplate("rpc.grpc.response.metadata");
 
   /**
-   * The <a href="https://github.com/grpc/grpc/blob/v1.33.2/doc/statuscodes.md">numeric status
-   * code</a> of the gRPC request.
+   * Deprecated, use string representation on the {@code rpc.response.status_code} attribute
+   * instead.
+   *
+   * @deprecated Use string representation of the gRPC status code on the {@code
+   *     rpc.response.status_code} attribute.
    */
+  @Deprecated
   public static final AttributeKey<Long> RPC_GRPC_STATUS_CODE = longKey("rpc.grpc.status_code");
 
-  /** {@code error.code} property of response if it is an error response. */
+  /**
+   * Deprecated, use string representation on the {@code rpc.response.status_code} attribute
+   * instead.
+   *
+   * @deprecated Use string representation of the error code on the {@code rpc.response.status_code}
+   *     attribute.
+   */
+  @Deprecated
   public static final AttributeKey<Long> RPC_JSONRPC_ERROR_CODE = longKey("rpc.jsonrpc.error_code");
 
-  /** {@code error.message} property of response if it is an error response. */
+  /**
+   * Deprecated, use span status description or {@code error.message} attribute on other signals.
+   *
+   * @deprecated Use the span status description or {@code error.message} attribute on other
+   *     signals.
+   */
+  @Deprecated
   public static final AttributeKey<String> RPC_JSONRPC_ERROR_MESSAGE =
       stringKey("rpc.jsonrpc.error_message");
 
   /**
-   * {@code id} property of request or response. Since protocol allows id to be int, string, {@code
-   * null} or missing (for notifications), value is expected to be cast to string for simplicity.
-   * Use empty string in case of {@code null} value. Omit entirely if this is a notification.
+   * Deprecated, use {@code jsonrpc.request.id} instead.
+   *
+   * @deprecated Replaced by {@code jsonrpc.request.id}.
    */
+  @Deprecated
   public static final AttributeKey<String> RPC_JSONRPC_REQUEST_ID =
       stringKey("rpc.jsonrpc.request_id");
 
   /**
-   * Protocol version as in {@code jsonrpc} property of request/response. Since JSON-RPC 1.0 doesn't
-   * specify this, the value can be omitted.
+   * Deprecated, use {@code jsonrpc.protocol.version} instead.
+   *
+   * @deprecated Replaced by {@code jsonrpc.protocol.version}.
    */
+  @Deprecated
   public static final AttributeKey<String> RPC_JSONRPC_VERSION = stringKey("rpc.jsonrpc.version");
 
   /** Compressed size of the message in bytes. */
@@ -141,37 +131,116 @@ public final class RpcIncubatingAttributes {
       longKey("rpc.message.uncompressed_size");
 
   /**
-   * The name of the (logical) method being called, must be equal to the $method part in the span
-   * name.
+   * The fully-qualified logical name of the method from the RPC interface perspective.
    *
    * <p>Notes:
    *
-   * <p>This is the logical name of the method from the RPC interface perspective, which can be
-   * different from the name of any implementing method/function. The {@code code.function.name}
-   * attribute may be used to store the latter (e.g., method actually executing the call on the
-   * server side, RPC client stub method on the client side).
+   * <p>The method name MAY have unbounded cardinality in edge or error cases.
+   *
+   * <p>Some RPC frameworks or libraries provide a fixed set of recognized methods for client stubs
+   * and server implementations. Instrumentations for such frameworks MUST set this attribute to the
+   * original method name only when the method is recognized by the framework or library.
+   *
+   * <p>When the method is not recognized, for example, when the server receives a request for a
+   * method that is not predefined on the server, or when instrumentation is not able to reliably
+   * detect if the method is predefined, the attribute MUST be set to {@code _OTHER}. In such cases,
+   * tracing instrumentations MUST also set {@code rpc.method_original} attribute to the original
+   * method value.
+   *
+   * <p>If the RPC instrumentation could end up converting valid RPC methods to {@code _OTHER}, then
+   * it SHOULD provide a way to configure the list of recognized RPC methods.
+   *
+   * <p>The {@code rpc.method} can be different from the name of any implementing method/function.
+   * The {@code code.function.name} attribute may be used to record the fully-qualified method
+   * actually executing the call on the server side, or the RPC client stub method on the client
+   * side.
    */
   public static final AttributeKey<String> RPC_METHOD = stringKey("rpc.method");
 
+  /** The original name of the method used by the client. */
+  public static final AttributeKey<String> RPC_METHOD_ORIGINAL = stringKey("rpc.method_original");
+
   /**
-   * The full (logical) name of the service being called, including its package name, if applicable.
+   * RPC request metadata, {@code <key>} being the normalized RPC metadata key (lowercase), the
+   * value being the metadata values.
    *
    * <p>Notes:
    *
-   * <p>This is the logical name of the service from the RPC interface perspective, which can be
-   * different from the name of any implementing class. The {@code code.namespace} attribute may be
-   * used to store the latter (despite the attribute name, it may include a class name; e.g., class
-   * with method actually executing the call on the server side, RPC client stub class on the client
-   * side).
+   * <p>Instrumentations SHOULD require an explicit configuration of which metadata values are to be
+   * captured. Including all request metadata values can be a security risk - explicit configuration
+   * helps avoid leaking sensitive information.
+   *
+   * <p>For example, a property {@code my-custom-key} with value {@code ["1.2.3.4", "1.2.3.5"]}
+   * SHOULD be recorded as {@code rpc.request.metadata.my-custom-key} attribute with value {@code
+   * ["1.2.3.4", "1.2.3.5"]}
    */
-  public static final AttributeKey<String> RPC_SERVICE = stringKey("rpc.service");
+  public static final AttributeKeyTemplate<List<String>> RPC_REQUEST_METADATA =
+      stringArrayKeyTemplate("rpc.request.metadata");
 
-  /** A string identifying the remoting system. See below for a list of well-known identifiers. */
-  public static final AttributeKey<String> RPC_SYSTEM = stringKey("rpc.system");
+  /**
+   * RPC response metadata, {@code <key>} being the normalized RPC metadata key (lowercase), the
+   * value being the metadata values.
+   *
+   * <p>Notes:
+   *
+   * <p>Instrumentations SHOULD require an explicit configuration of which metadata values are to be
+   * captured. Including all response metadata values can be a security risk - explicit
+   * configuration helps avoid leaking sensitive information.
+   *
+   * <p>For example, a property {@code my-custom-key} with value {@code ["attribute_value"]} SHOULD
+   * be recorded as the {@code rpc.response.metadata.my-custom-key} attribute with value {@code
+   * ["attribute_value"]}
+   */
+  public static final AttributeKeyTemplate<List<String>> RPC_RESPONSE_METADATA =
+      stringArrayKeyTemplate("rpc.response.metadata");
+
+  /**
+   * Status code of the RPC returned by the RPC server or generated by the client
+   *
+   * <p>Notes:
+   *
+   * <p>Usually it represents an error code, but may also represent partial success, warning, or
+   * differentiate between various types of successful outcomes. Semantic conventions for individual
+   * RPC frameworks SHOULD document what {@code rpc.response.status_code} means in the context of
+   * that system and which values are considered to represent errors.
+   */
+  public static final AttributeKey<String> RPC_RESPONSE_STATUS_CODE =
+      stringKey("rpc.response.status_code");
+
+  /**
+   * Deprecated, use fully-qualified {@code rpc.method} instead.
+   *
+   * @deprecated Value should be included in {@code rpc.method} which is expected to be a
+   *     fully-qualified name.
+   */
+  @Deprecated public static final AttributeKey<String> RPC_SERVICE = stringKey("rpc.service");
+
+  /**
+   * Deprecated, use {@code rpc.system.name} attribute instead.
+   *
+   * @deprecated Replaced by {@code rpc.system.name}.
+   */
+  @Deprecated public static final AttributeKey<String> RPC_SYSTEM = stringKey("rpc.system");
+
+  /**
+   * The Remote Procedure Call (RPC) system.
+   *
+   * <p>Notes:
+   *
+   * <p>The client and server RPC systems may differ for the same RPC interaction. For example, a
+   * client may use Apache Dubbo or Connect RPC to communicate with a server that uses gRPC since
+   * both protocols provide compatibility with gRPC.
+   */
+  public static final AttributeKey<String> RPC_SYSTEM_NAME = stringKey("rpc.system.name");
 
   // Enum definitions
 
-  /** Values for {@link #RPC_CONNECT_RPC_ERROR_CODE}. */
+  /**
+   * Values for {@link #RPC_CONNECT_RPC_ERROR_CODE}
+   *
+   * @deprecated Replaced by {@code rpc.response.status_code}.
+   */
+  @Deprecated
   public static final class RpcConnectRpcErrorCodeIncubatingValues {
     /** cancelled. */
     public static final String CANCELLED = "cancelled";
@@ -224,7 +293,13 @@ public final class RpcIncubatingAttributes {
     private RpcConnectRpcErrorCodeIncubatingValues() {}
   }
 
-  /** Values for {@link #RPC_GRPC_STATUS_CODE}. */
+  /**
+   * Values for {@link #RPC_GRPC_STATUS_CODE}
+   *
+   * @deprecated Use string representation of the gRPC status code on the {@code
+   *     rpc.response.status_code} attribute.
+   */
+  @Deprecated
   public static final class RpcGrpcStatusCodeIncubatingValues {
     /** OK */
     public static final long OK = 0;
@@ -291,7 +366,12 @@ public final class RpcIncubatingAttributes {
     private RpcMessageTypeIncubatingValues() {}
   }
 
-  /** Values for {@link #RPC_SYSTEM}. */
+  /**
+   * Values for {@link #RPC_SYSTEM}
+   *
+   * @deprecated Replaced by {@code rpc.system.name}.
+   */
+  @Deprecated
   public static final class RpcSystemIncubatingValues {
     /** gRPC */
     public static final String GRPC = "grpc";
@@ -308,7 +388,30 @@ public final class RpcIncubatingAttributes {
     /** Connect RPC */
     public static final String CONNECT_RPC = "connect_rpc";
 
+    /** <a href="https://datatracker.ietf.org/doc/html/rfc5531">ONC RPC (Sun RPC)</a> */
+    public static final String ONC_RPC = "onc_rpc";
+
+    /** JSON-RPC */
+    public static final String JSONRPC = "jsonrpc";
+
     private RpcSystemIncubatingValues() {}
+  }
+
+  /** Values for {@link #RPC_SYSTEM_NAME}. */
+  public static final class RpcSystemNameIncubatingValues {
+    /** <a href="https://grpc.io/">gRPC</a> */
+    public static final String GRPC = "grpc";
+
+    /** <a href="https://dubbo.apache.org/">Apache Dubbo</a> */
+    public static final String DUBBO = "dubbo";
+
+    /** <a href="https://connectrpc.com/">Connect RPC</a> */
+    public static final String CONNECTRPC = "connectrpc";
+
+    /** <a href="https://www.jsonrpc.org/">JSON-RPC</a> */
+    public static final String JSONRPC = "jsonrpc";
+
+    private RpcSystemNameIncubatingValues() {}
   }
 
   private RpcIncubatingAttributes() {}

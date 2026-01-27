@@ -78,6 +78,58 @@ public final class GcpIncubatingAttributes {
   public static final AttributeKey<String> GCP_APPHUB_WORKLOAD_ID =
       stringKey("gcp.apphub.workload.id");
 
+  /** The container within GCP where the AppHub destination application is defined. */
+  public static final AttributeKey<String> GCP_APPHUB_DESTINATION_APPLICATION_CONTAINER =
+      stringKey("gcp.apphub_destination.application.container");
+
+  /** The name of the destination application as configured in AppHub. */
+  public static final AttributeKey<String> GCP_APPHUB_DESTINATION_APPLICATION_ID =
+      stringKey("gcp.apphub_destination.application.id");
+
+  /** The GCP zone or region where the destination application is defined. */
+  public static final AttributeKey<String> GCP_APPHUB_DESTINATION_APPLICATION_LOCATION =
+      stringKey("gcp.apphub_destination.application.location");
+
+  /**
+   * Criticality of a destination workload indicates its importance to the business as specified in
+   * <a href="https://cloud.google.com/app-hub/docs/reference/rest/v1/Attributes#type">AppHub type
+   * enum</a>
+   */
+  public static final AttributeKey<String> GCP_APPHUB_DESTINATION_SERVICE_CRITICALITY_TYPE =
+      stringKey("gcp.apphub_destination.service.criticality_type");
+
+  /**
+   * Software lifecycle stage of a destination service as defined <a
+   * href="https://cloud.google.com/app-hub/docs/reference/rest/v1/Attributes#type_1">AppHub
+   * environment type</a>
+   */
+  public static final AttributeKey<String> GCP_APPHUB_DESTINATION_SERVICE_ENVIRONMENT_TYPE =
+      stringKey("gcp.apphub_destination.service.environment_type");
+
+  /** The name of the destination service as configured in AppHub. */
+  public static final AttributeKey<String> GCP_APPHUB_DESTINATION_SERVICE_ID =
+      stringKey("gcp.apphub_destination.service.id");
+
+  /**
+   * Criticality of a destination workload indicates its importance to the business as specified in
+   * <a href="https://cloud.google.com/app-hub/docs/reference/rest/v1/Attributes#type">AppHub type
+   * enum</a>
+   */
+  public static final AttributeKey<String> GCP_APPHUB_DESTINATION_WORKLOAD_CRITICALITY_TYPE =
+      stringKey("gcp.apphub_destination.workload.criticality_type");
+
+  /**
+   * Environment of a destination workload is the stage of a software lifecycle as provided in the
+   * <a href="https://cloud.google.com/app-hub/docs/reference/rest/v1/Attributes#type_1">AppHub
+   * environment type</a>
+   */
+  public static final AttributeKey<String> GCP_APPHUB_DESTINATION_WORKLOAD_ENVIRONMENT_TYPE =
+      stringKey("gcp.apphub_destination.workload.environment_type");
+
+  /** The name of the destination workload as configured in AppHub. */
+  public static final AttributeKey<String> GCP_APPHUB_DESTINATION_WORKLOAD_ID =
+      stringKey("gcp.apphub_destination.workload.id");
+
   /**
    * Identifies the Google Cloud service for which the official client library is intended.
    *
@@ -192,6 +244,74 @@ public final class GcpIncubatingAttributes {
     public static final String DEVELOPMENT = "DEVELOPMENT";
 
     private GcpApphubWorkloadEnvironmentTypeIncubatingValues() {}
+  }
+
+  /** Values for {@link #GCP_APPHUB_DESTINATION_SERVICE_CRITICALITY_TYPE}. */
+  public static final class GcpApphubDestinationServiceCriticalityTypeIncubatingValues {
+    /** Mission critical service. */
+    public static final String MISSION_CRITICAL = "MISSION_CRITICAL";
+
+    /** High impact. */
+    public static final String HIGH = "HIGH";
+
+    /** Medium impact. */
+    public static final String MEDIUM = "MEDIUM";
+
+    /** Low impact. */
+    public static final String LOW = "LOW";
+
+    private GcpApphubDestinationServiceCriticalityTypeIncubatingValues() {}
+  }
+
+  /** Values for {@link #GCP_APPHUB_DESTINATION_SERVICE_ENVIRONMENT_TYPE}. */
+  public static final class GcpApphubDestinationServiceEnvironmentTypeIncubatingValues {
+    /** Production environment. */
+    public static final String PRODUCTION = "PRODUCTION";
+
+    /** Staging environment. */
+    public static final String STAGING = "STAGING";
+
+    /** Test environment. */
+    public static final String TEST = "TEST";
+
+    /** Development environment. */
+    public static final String DEVELOPMENT = "DEVELOPMENT";
+
+    private GcpApphubDestinationServiceEnvironmentTypeIncubatingValues() {}
+  }
+
+  /** Values for {@link #GCP_APPHUB_DESTINATION_WORKLOAD_CRITICALITY_TYPE}. */
+  public static final class GcpApphubDestinationWorkloadCriticalityTypeIncubatingValues {
+    /** Mission critical service. */
+    public static final String MISSION_CRITICAL = "MISSION_CRITICAL";
+
+    /** High impact. */
+    public static final String HIGH = "HIGH";
+
+    /** Medium impact. */
+    public static final String MEDIUM = "MEDIUM";
+
+    /** Low impact. */
+    public static final String LOW = "LOW";
+
+    private GcpApphubDestinationWorkloadCriticalityTypeIncubatingValues() {}
+  }
+
+  /** Values for {@link #GCP_APPHUB_DESTINATION_WORKLOAD_ENVIRONMENT_TYPE}. */
+  public static final class GcpApphubDestinationWorkloadEnvironmentTypeIncubatingValues {
+    /** Production environment. */
+    public static final String PRODUCTION = "PRODUCTION";
+
+    /** Staging environment. */
+    public static final String STAGING = "STAGING";
+
+    /** Test environment. */
+    public static final String TEST = "TEST";
+
+    /** Development environment. */
+    public static final String DEVELOPMENT = "DEVELOPMENT";
+
+    private GcpApphubDestinationWorkloadEnvironmentTypeIncubatingValues() {}
   }
 
   private GcpIncubatingAttributes() {}

@@ -12,16 +12,16 @@ import io.opentelemetry.api.common.AttributeKey;
 // DO NOT EDIT, this is an Auto-generated file from
 // buildscripts/templates/registry/incubating_java/IncubatingSemanticAttributes.java.j2
 @SuppressWarnings("unused")
-public final class EventIncubatingAttributes {
-  /**
-   * Identifies the class / type of event.
-   *
-   * @deprecated The value of this attribute MUST now be set as the value of the EventName field on
-   *     the LogRecord to indicate that the LogRecord represents an Event.
-   */
-  @Deprecated public static final AttributeKey<String> EVENT_NAME = stringKey("event.name");
+public final class OpenshiftIncubatingAttributes {
+  /** The name of the cluster quota. */
+  public static final AttributeKey<String> OPENSHIFT_CLUSTERQUOTA_NAME =
+      stringKey("openshift.clusterquota.name");
+
+  /** The UID of the cluster quota. */
+  public static final AttributeKey<String> OPENSHIFT_CLUSTERQUOTA_UID =
+      stringKey("openshift.clusterquota.uid");
 
   // Enum definitions
 
-  private EventIncubatingAttributes() {}
+  private OpenshiftIncubatingAttributes() {}
 }

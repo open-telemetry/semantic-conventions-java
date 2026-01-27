@@ -446,6 +446,33 @@ public final class K8sIncubatingAttributes {
       stringKeyTemplate("k8s.pod.annotation");
 
   /**
+   * Specifies the hostname of the Pod.
+   *
+   * <p>Notes:
+   *
+   * <p>The K8s Pod spec has an optional hostname field, which can be used to specify a hostname.
+   * Refer to <a
+   * href="https://kubernetes.io/docs/concepts/services-networking/dns-pod-service/#pod-hostname-and-subdomain-field">K8s
+   * docs</a> for more information about this field.
+   *
+   * <p>This attribute aligns with the {@code hostname} field of the <a
+   * href="https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.34/#podspec-v1-core">K8s
+   * PodSpec</a>.
+   */
+  public static final AttributeKey<String> K8S_POD_HOSTNAME = stringKey("k8s.pod.hostname");
+
+  /**
+   * IP address allocated to the Pod.
+   *
+   * <p>Notes:
+   *
+   * <p>This attribute aligns with the {@code podIP} field of the <a
+   * href="https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.34/#podstatus-v1-core">K8s
+   * PodStatus</a>.
+   */
+  public static final AttributeKey<String> K8S_POD_IP = stringKey("k8s.pod.ip");
+
+  /**
    * The label placed on the Pod, the {@code <key>} being the label name, the value being the label
    * value.
    *
@@ -476,6 +503,35 @@ public final class K8sIncubatingAttributes {
 
   /** The name of the Pod. */
   public static final AttributeKey<String> K8S_POD_NAME = stringKey("k8s.pod.name");
+
+  /**
+   * The start timestamp of the Pod.
+   *
+   * <p>Notes:
+   *
+   * <p>Date and time at which the object was acknowledged by the Kubelet. This is before the
+   * Kubelet pulled the container image(s) for the pod.
+   *
+   * <p>This attribute aligns with the {@code startTime} field of the <a
+   * href="https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.34/#podstatus-v1-core">K8s
+   * PodStatus</a>, in ISO 8601 (RFC 3339 compatible) format.
+   */
+  public static final AttributeKey<String> K8S_POD_START_TIME = stringKey("k8s.pod.start_time");
+
+  /**
+   * The phase for the pod. Corresponds to the {@code phase} field of the: <a
+   * href="https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.33/#podstatus-v1-core">K8s
+   * PodStatus</a>
+   */
+  public static final AttributeKey<String> K8S_POD_STATUS_PHASE = stringKey("k8s.pod.status.phase");
+
+  /**
+   * The reason for the pod state. Corresponds to the {@code reason} field of the: <a
+   * href="https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.33/#podstatus-v1-core">K8s
+   * PodStatus</a>
+   */
+  public static final AttributeKey<String> K8S_POD_STATUS_REASON =
+      stringKey("k8s.pod.status.reason");
 
   /** The UID of the Pod. */
   public static final AttributeKey<String> K8S_POD_UID = stringKey("k8s.pod.uid");
@@ -543,7 +599,7 @@ public final class K8sIncubatingAttributes {
    * string (e.g., count/deployments.apps, count/pods), or, for certain core Kubernetes resources,
    * just the resource name (e.g., pods, services, configmaps). Both forms are supported by
    * Kubernetes for object count quotas. See <a
-   * href="https://kubernetes.io/docs/concepts/policy/resource-quotas/#object-count-quota">Kubernetes
+   * href="https://kubernetes.io/docs/concepts/policy/resource-quotas/#quota-on-object-count">Kubernetes
    * Resource Quotas documentation</a> for more details.
    */
   public static final AttributeKey<String> K8S_RESOURCEQUOTA_RESOURCE_NAME =
@@ -706,6 +762,68 @@ public final class K8sIncubatingAttributes {
     public static final String NETWORK_UNAVAILABLE = "NetworkUnavailable";
 
     private K8sNodeConditionTypeIncubatingValues() {}
+  }
+
+  /** Values for {@link #K8S_POD_STATUS_PHASE}. */
+  public static final class K8sPodStatusPhaseIncubatingValues {
+    /**
+     * The pod has been accepted by the system, but one or more of the containers has not been
+     * started. This includes time before being bound to a node, as well as time spent pulling
+     * images onto the host.
+     */
+    public static final String PENDING = "Pending";
+
+    /**
+     * The pod has been bound to a node and all of the containers have been started. At least one
+     * container is still running or is in the process of being restarted.
+     */
+    public static final String RUNNING = "Running";
+
+    /**
+     * All containers in the pod have voluntarily terminated with a container exit code of 0, and
+     * the system is not going to restart any of these containers.
+     */
+    public static final String SUCCEEDED = "Succeeded";
+
+    /**
+     * All containers in the pod have terminated, and at least one container has terminated in a
+     * failure (exited with a non-zero exit code or was stopped by the system).
+     */
+    public static final String FAILED = "Failed";
+
+    /**
+     * For some reason the state of the pod could not be obtained, typically due to an error in
+     * communicating with the host of the pod.
+     */
+    public static final String UNKNOWN = "Unknown";
+
+    private K8sPodStatusPhaseIncubatingValues() {}
+  }
+
+  /** Values for {@link #K8S_POD_STATUS_REASON}. */
+  public static final class K8sPodStatusReasonIncubatingValues {
+    /** The pod is evicted. */
+    public static final String EVICTED = "Evicted";
+
+    /** The pod is in a status because of its node affinity */
+    public static final String NODE_AFFINITY = "NodeAffinity";
+
+    /**
+     * The reason on a pod when its state cannot be confirmed as kubelet is unresponsive on the node
+     * it is (was) running.
+     */
+    public static final String NODE_LOST = "NodeLost";
+
+    /** The node is shutdown */
+    public static final String SHUTDOWN = "Shutdown";
+
+    /**
+     * The pod was rejected admission to the node because of an error during admission that could
+     * not be categorized.
+     */
+    public static final String UNEXPECTED_ADMISSION_ERROR = "UnexpectedAdmissionError";
+
+    private K8sPodStatusReasonIncubatingValues() {}
   }
 
   /** Values for {@link #K8S_VOLUME_TYPE}. */
