@@ -164,7 +164,8 @@ public final class MessagingIncubatingAttributes {
   /**
    * Deprecated, use {@code messaging.destination.partition.id} instead.
    *
-   * @deprecated Replaced by {@code messaging.destination.partition.id}.
+   * @deprecated Record string representation of the partition id in {@code
+   *     messaging.destination.partition.id} attribute.
    */
   @Deprecated
   public static final AttributeKey<Long> MESSAGING_KAFKA_DESTINATION_PARTITION =

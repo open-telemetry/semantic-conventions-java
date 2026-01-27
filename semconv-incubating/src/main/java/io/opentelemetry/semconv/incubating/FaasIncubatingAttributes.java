@@ -156,7 +156,7 @@ public final class FaasIncubatingAttributes {
    *       href="https://cloud.google.com/run/docs/managing/revisions">revision</a> (i.e., the
    *       function name plus the revision suffix).
    *   <li><strong>Google Cloud Functions:</strong> The value of the <a
-   *       href="https://cloud.google.com/functions/docs/env-var#runtime_environment_variables_set_automatically">{@code
+   *       href="https://cloud.google.com/run/docs/container-contract#services-env-vars">{@code
    *       K_REVISION} environment variable</a>.
    *   <li><strong>Azure Functions:</strong> Not applicable. Do not set this attribute.
    * </ul>

@@ -48,7 +48,7 @@ public final class EnduserIncubatingAttributes {
   /**
    * Deprecated, use {@code user.roles} instead.
    *
-   * @deprecated Replaced by {@code user.roles}.
+   * @deprecated Use {@code user.roles} instead.
    */
   @Deprecated public static final AttributeKey<String> ENDUSER_ROLE = stringKey("enduser.role");
 

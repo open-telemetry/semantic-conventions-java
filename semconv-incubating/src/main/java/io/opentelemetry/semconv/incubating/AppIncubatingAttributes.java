@@ -78,6 +78,29 @@ public final class AppIncubatingAttributes {
       longKey("app.screen.coordinate.y");
 
   /**
+   * An identifier that uniquely differentiates this screen from other screens in the same
+   * application.
+   *
+   * <p>Notes:
+   *
+   * <p>A screen represents only the part of the device display drawn by the app. It typically
+   * contains multiple widgets or UI components and is larger in scope than individual widgets.
+   * Multiple screens can coexist on the same display simultaneously (e.g., split view on tablets).
+   */
+  public static final AttributeKey<String> APP_SCREEN_ID = stringKey("app.screen.id");
+
+  /**
+   * The name of an application screen.
+   *
+   * <p>Notes:
+   *
+   * <p>A screen represents only the part of the device display drawn by the app. It typically
+   * contains multiple widgets or UI components and is larger in scope than individual widgets.
+   * Multiple screens can coexist on the same display simultaneously (e.g., split view on tablets).
+   */
+  public static final AttributeKey<String> APP_SCREEN_NAME = stringKey("app.screen.name");
+
+  /**
    * An identifier that uniquely differentiates this widget from other widgets in the same
    * application.
    *
