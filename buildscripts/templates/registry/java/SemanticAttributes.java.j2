@@ -41,7 +41,11 @@ public final class {{ my_class_name }} {
   {%- for attribute in ctx.attributes | rejectattr("name", "in", ctx.excluded_attributes) -%}
     {%- if attribute is stable -%}
       {%- if attribute is deprecated -%}
-        {%- set deprecated_javadoc = "@deprecated " ~ attribute.deprecated.note -%}
+        {%- if attribute.deprecated.note == "Uncategorized." -%}
+          {%- set deprecated_javadoc = "@deprecated" -%}
+        {%- else -%}
+          {%- set deprecated_javadoc = "@deprecated " ~ attribute.deprecated.note -%}
+        {%- endif -%}
       {%- endif -%}
       {{ [attribute.brief, concat_if("\n\nNotes:\n\n", attribute.note), deprecated_javadoc] | comment }}
       {%- if attribute is deprecated -%}

@@ -455,7 +455,7 @@ public final class DbIncubatingAttributes {
   /**
    * Deprecated, use {@code db.namespace} instead.
    *
-   * @deprecated Uncategorized.
+   * @deprecated
    */
   @Deprecated
   public static final AttributeKey<Long> DB_REDIS_DATABASE_INDEX =
