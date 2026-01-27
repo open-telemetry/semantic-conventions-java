@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+## Version 1.38.0 (2026-01-27)
+
 * Bump to semconv v1.38.0
   ([#384](https://github.com/open-telemetry/semantic-conventions-java/pull/384))
 
