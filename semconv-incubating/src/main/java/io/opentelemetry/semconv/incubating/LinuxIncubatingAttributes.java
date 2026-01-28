@@ -13,13 +13,23 @@ import io.opentelemetry.api.common.AttributeKey;
 // buildscripts/templates/registry/incubating_java/IncubatingSemanticAttributes.java.j2
 @SuppressWarnings("unused")
 public final class LinuxIncubatingAttributes {
-  /** The Linux Slab memory state */
+  /**
+   * The Linux Slab memory state
+   *
+   * @deprecated Replaced by {@code system.memory.linux.slab.state}.
+   */
+  @Deprecated
   public static final AttributeKey<String> LINUX_MEMORY_SLAB_STATE =
       stringKey("linux.memory.slab.state");
 
   // Enum definitions
 
-  /** Values for {@link #LINUX_MEMORY_SLAB_STATE}. */
+  /**
+   * Values for {@link #LINUX_MEMORY_SLAB_STATE}
+   *
+   * @deprecated Replaced by {@code system.memory.linux.slab.state}.
+   */
+  @Deprecated
   public static final class LinuxMemorySlabStateIncubatingValues {
     /** reclaimable. */
     public static final String RECLAIMABLE = "reclaimable";

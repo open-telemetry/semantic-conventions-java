@@ -50,6 +50,10 @@ public final class SystemIncubatingAttributes {
   public static final AttributeKey<String> SYSTEM_FILESYSTEM_TYPE =
       stringKey("system.filesystem.type");
 
+  /** The Linux Slab memory state */
+  public static final AttributeKey<String> SYSTEM_MEMORY_LINUX_SLAB_STATE =
+      stringKey("system.memory.linux.slab.state");
+
   /** The memory state */
   public static final AttributeKey<String> SYSTEM_MEMORY_STATE = stringKey("system.memory.state");
 
@@ -166,6 +170,17 @@ public final class SystemIncubatingAttributes {
     public static final String EXT4 = "ext4";
 
     private SystemFilesystemTypeIncubatingValues() {}
+  }
+
+  /** Values for {@link #SYSTEM_MEMORY_LINUX_SLAB_STATE}. */
+  public static final class SystemMemoryLinuxSlabStateIncubatingValues {
+    /** reclaimable. */
+    public static final String RECLAIMABLE = "reclaimable";
+
+    /** unreclaimable. */
+    public static final String UNRECLAIMABLE = "unreclaimable";
+
+    private SystemMemoryLinuxSlabStateIncubatingValues() {}
   }
 
   /** Values for {@link #SYSTEM_MEMORY_STATE}. */

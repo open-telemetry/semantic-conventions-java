@@ -27,8 +27,7 @@ public final class ServiceAttributes {
   public static final AttributeKey<String> SERVICE_NAME = stringKey("service.name");
 
   /**
-   * The version string of the service API or implementation. The format is not defined by these
-   * conventions.
+   * The version string of the service component. The format is not defined by these conventions.
    */
   public static final AttributeKey<String> SERVICE_VERSION = stringKey("service.version");
 

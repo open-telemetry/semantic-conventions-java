@@ -18,7 +18,7 @@ public final class UserAgentIncubatingAttributes {
    *
    * <p>Notes:
    *
-   * <p><a href="https://www.whatsmyua.info">Example</a> of extracting browser's name from original
+   * <p><a href="https://uaparser.dev/#demo">Example</a> of extracting browser's name from original
    * string. In the case of using a user-agent for non-browser products, such as microservices with
    * multiple names/versions inside the {@code user_agent.original}, the most significant name
    * SHOULD be selected. In such a scenario it should align with {@code user_agent.version}
@@ -77,7 +77,7 @@ public final class UserAgentIncubatingAttributes {
    *
    * <p>Notes:
    *
-   * <p><a href="https://www.whatsmyua.info">Example</a> of extracting browser's version from
+   * <p><a href="https://uaparser.dev/#demo">Example</a> of extracting browser's version from
    * original string. In the case of using a user-agent for non-browser products, such as
    * microservices with multiple names/versions inside the {@code user_agent.original}, the most
    * significant version SHOULD be selected. In such a scenario it should align with {@code

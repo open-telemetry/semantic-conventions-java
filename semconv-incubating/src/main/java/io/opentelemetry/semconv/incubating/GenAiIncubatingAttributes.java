@@ -166,6 +166,9 @@ public final class GenAiIncubatingAttributes {
    */
   @Deprecated public static final AttributeKey<String> GEN_AI_PROMPT = stringKey("gen_ai.prompt");
 
+  /** The name of the prompt that uniquely identifies it. */
+  public static final AttributeKey<String> GEN_AI_PROMPT_NAME = stringKey("gen_ai.prompt.name");
+
   /**
    * The Generative AI provider as identified by the client or server instrumentation.
    *

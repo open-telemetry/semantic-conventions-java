@@ -81,8 +81,22 @@ public final class ServiceIncubatingAttributes {
   public static final AttributeKey<String> SERVICE_NAMESPACE = stringKey("service.namespace");
 
   /**
-   * The version string of the service API or implementation. The format is not defined by these
-   * conventions.
+   * Logical name of the service on the other side of the connection. SHOULD be equal to the actual
+   * <a href="/docs/resource/README.md#service">{@code service.name}</a> resource attribute of the
+   * remote service if any.
+   */
+  public static final AttributeKey<String> SERVICE_PEER_NAME = stringKey("service.peer.name");
+
+  /**
+   * Logical namespace of the service on the other side of the connection. SHOULD be equal to the
+   * actual <a href="/docs/resource/README.md#service">{@code service.namespace}</a> resource
+   * attribute of the remote service if any.
+   */
+  public static final AttributeKey<String> SERVICE_PEER_NAMESPACE =
+      stringKey("service.peer.namespace");
+
+  /**
+   * The version string of the service component. The format is not defined by these conventions.
    *
    * @deprecated deprecated in favor of stable {@link
    *     io.opentelemetry.semconv.ServiceAttributes#SERVICE_VERSION} attribute.

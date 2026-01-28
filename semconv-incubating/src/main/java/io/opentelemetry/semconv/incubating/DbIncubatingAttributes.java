@@ -422,7 +422,7 @@ public final class DbIncubatingAttributes {
    * <p>Summary may be available to the instrumentation through instrumentation hooks or other
    * means. If it is not available, instrumentations that support query parsing SHOULD generate a
    * summary following <a
-   * href="/docs/database/database-spans.md#generating-a-summary-of-the-query">Generating query
+   * href="/docs/db/database-spans.md#generating-a-summary-of-the-query">Generating query
    * summary</a> section.
    *
    * @deprecated deprecated in favor of stable {@link
@@ -437,7 +437,7 @@ public final class DbIncubatingAttributes {
    * <p>Notes:
    *
    * <p>For sanitization see <a
-   * href="/docs/database/database-spans.md#sanitization-of-dbquerytext">Sanitization of {@code
+   * href="/docs/db/database-spans.md#sanitization-of-dbquerytext">Sanitization of {@code
    * db.query.text}</a>. For batch operations, if the individual operations are known to have the
    * same query text then that query text SHOULD be used, otherwise all of the individual query
    * texts SHOULD be concatenated with separator {@code ; } or some other database system specific
