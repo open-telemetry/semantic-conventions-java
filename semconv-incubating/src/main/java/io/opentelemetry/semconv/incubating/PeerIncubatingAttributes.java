@@ -28,8 +28,10 @@ public final class PeerIncubatingAttributes {
    *       gateway, {@code peer.service="ExternalApiService"} and a backend, {@code
    *       peer.service="AuthService"}.
    * </ul>
+   *
+   * @deprecated Replaced by {@code service.peer.name}.
    */
-  public static final AttributeKey<String> PEER_SERVICE = stringKey("peer.service");
+  @Deprecated public static final AttributeKey<String> PEER_SERVICE = stringKey("peer.service");
 
   // Enum definitions
 

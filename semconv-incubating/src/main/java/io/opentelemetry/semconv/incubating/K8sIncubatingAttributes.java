@@ -446,6 +446,33 @@ public final class K8sIncubatingAttributes {
       stringKeyTemplate("k8s.pod.annotation");
 
   /**
+   * Specifies the hostname of the Pod.
+   *
+   * <p>Notes:
+   *
+   * <p>The K8s Pod spec has an optional hostname field, which can be used to specify a hostname.
+   * Refer to <a
+   * href="https://kubernetes.io/docs/concepts/services-networking/dns-pod-service/#pod-hostname-and-subdomain-field">K8s
+   * docs</a> for more information about this field.
+   *
+   * <p>This attribute aligns with the {@code hostname} field of the <a
+   * href="https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.34/#podspec-v1-core">K8s
+   * PodSpec</a>.
+   */
+  public static final AttributeKey<String> K8S_POD_HOSTNAME = stringKey("k8s.pod.hostname");
+
+  /**
+   * IP address allocated to the Pod.
+   *
+   * <p>Notes:
+   *
+   * <p>This attribute aligns with the {@code podIP} field of the <a
+   * href="https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.34/#podstatus-v1-core">K8s
+   * PodStatus</a>.
+   */
+  public static final AttributeKey<String> K8S_POD_IP = stringKey("k8s.pod.ip");
+
+  /**
    * The label placed on the Pod, the {@code <key>} being the label name, the value being the label
    * value.
    *
@@ -476,6 +503,20 @@ public final class K8sIncubatingAttributes {
 
   /** The name of the Pod. */
   public static final AttributeKey<String> K8S_POD_NAME = stringKey("k8s.pod.name");
+
+  /**
+   * The start timestamp of the Pod.
+   *
+   * <p>Notes:
+   *
+   * <p>Date and time at which the object was acknowledged by the Kubelet. This is before the
+   * Kubelet pulled the container image(s) for the pod.
+   *
+   * <p>This attribute aligns with the {@code startTime} field of the <a
+   * href="https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.34/#podstatus-v1-core">K8s
+   * PodStatus</a>, in ISO 8601 (RFC 3339 compatible) format.
+   */
+  public static final AttributeKey<String> K8S_POD_START_TIME = stringKey("k8s.pod.start_time");
 
   /**
    * The phase for the pod. Corresponds to the {@code phase} field of the: <a

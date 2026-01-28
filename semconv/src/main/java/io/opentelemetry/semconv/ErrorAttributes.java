@@ -33,7 +33,7 @@ public final class ErrorAttributes {
    * <p>If the operation has completed successfully, instrumentations SHOULD NOT set {@code
    * error.type}.
    *
-   * <p>If a specific domain defines its own set of error identifiers (such as HTTP or gRPC status
+   * <p>If a specific domain defines its own set of error identifiers (such as HTTP or RPC status
    * codes), it's RECOMMENDED to:
    *
    * <ul>
