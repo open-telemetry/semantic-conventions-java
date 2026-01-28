@@ -64,8 +64,7 @@ public final class ServiceIncubatingAttributes {
    * @deprecated deprecated in favor of stable {@link
    *     io.opentelemetry.semconv.ServiceAttributes#SERVICE_NAME} attribute.
    */
-  @Deprecated
-  public static final AttributeKey<String> SERVICE_NAME = stringKey("service.name");
+  @Deprecated public static final AttributeKey<String> SERVICE_NAME = stringKey("service.name");
 
   /**
    * A namespace for {@code service.name}.

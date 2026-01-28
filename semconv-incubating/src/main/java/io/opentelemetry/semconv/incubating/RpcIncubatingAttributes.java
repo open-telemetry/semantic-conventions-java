@@ -213,16 +213,14 @@ public final class RpcIncubatingAttributes {
    * @deprecated Value should be included in {@code rpc.method} which is expected to be a
    *     fully-qualified name.
    */
-  @Deprecated
-  public static final AttributeKey<String> RPC_SERVICE = stringKey("rpc.service");
+  @Deprecated public static final AttributeKey<String> RPC_SERVICE = stringKey("rpc.service");
 
   /**
    * Deprecated, use {@code rpc.system.name} attribute instead.
    *
    * @deprecated Replaced by {@code rpc.system.name}.
    */
-  @Deprecated
-  public static final AttributeKey<String> RPC_SYSTEM = stringKey("rpc.system");
+  @Deprecated public static final AttributeKey<String> RPC_SYSTEM = stringKey("rpc.system");
 
   /**
    * The Remote Procedure Call (RPC) system.
