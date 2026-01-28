@@ -31,7 +31,8 @@ public final class PeerIncubatingAttributes {
    *
    * @deprecated Replaced by {@code service.peer.name}.
    */
-  @Deprecated public static final AttributeKey<String> PEER_SERVICE = stringKey("peer.service");
+  @Deprecated
+  public static final AttributeKey<String> PEER_SERVICE = stringKey("peer.service");
 
   // Enum definitions
 
