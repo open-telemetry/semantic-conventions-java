@@ -1,0 +1,112 @@
+name: Auto-update semantic conventions
+
+on:
+  schedule:
+    # hourly at minute 46
+    - cron: "46 * * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  check-versions:
+    runs-on: ubuntu-latest
+    outputs:
+      current-version: ${{ steps.check-versions.outputs.current-version }}
+      latest-version: ${{ steps.check-versions.outputs.latest-version }}
+      already-opened: ${{ steps.check-versions.outputs.already-opened }}
+    steps:
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+
+      - id: check-versions
+        name: Check versions
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          current_version=$(grep -Po 'var semanticConventionsVersion = "\K[0-9]+\.[0-9]+\.[0-9]+' build.gradle.kts)
+          latest_version=$(gh release view \
+                             --repo open-telemetry/semantic-conventions \
+                             --json tagName \
+                             --jq .tagName \
+                           | sed 's/^v//')
+
+          matches=$(gh pr list \
+                       --author app/otelbot \
+                       --state open \
+                       --search "in:title \"Update the semantic conventions version to $latest_version\"")
+          if [ ! -z "$matches" ]
+          then
+            already_opened=true
+          fi
+
+          echo "current-version=$current_version" >> $GITHUB_OUTPUT
+          echo "latest-version=$latest_version" >> $GITHUB_OUTPUT
+          echo "already-opened=$already_opened" >> $GITHUB_OUTPUT
+
+  update-semconv:
+    runs-on: ubuntu-latest
+    if: |
+      needs.check-versions.outputs.current-version != needs.check-versions.outputs.latest-version &&
+      needs.check-versions.outputs.already-opened != 'true'
+    needs:
+      - check-versions
+    steps:
+      - uses: actions/create-github-app-token@29824e69f54612133e76f7eaac726eef6c875baf # v2.2.1
+        id: otelbot-token
+        with:
+          app-id: ${{ vars.OTELBOT_SEMANTIC_CONVENTIONS_JAVA_APP_ID }}
+          private-key: ${{ secrets.OTELBOT_SEMANTIC_CONVENTIONS_JAVA_PRIVATE_KEY }}
+
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+        with:
+          # using custom token so the changelog PR link update push triggers workflows
+          token: ${{ steps.otelbot-token.outputs.token }}
+
+      - name: Update version
+        env:
+          VERSION: ${{ needs.check-versions.outputs.latest-version }}
+        run: ./.github/scripts/update-semconv-version.sh $VERSION
+
+      - name: Set up Java for build
+        uses: actions/setup-java@be666c2fcd27ec809703dec50e508c2fdc7f6654 # v5.2.0
+        with:
+          distribution: temurin
+          java-version: 21
+
+      - uses: gradle/actions/setup-gradle@4d9f0ba0025fe599b4ebab900eb7f3a1d93ef4c2 # v5.0.0
+
+      - name: Generate code
+        run: ./gradlew clean generateSemanticConventions --console=plain
+
+      - name: Apply formatting
+        run: ./gradlew spotlessApply
+
+      - name: Use CLA approved bot
+        run: .github/scripts/use-cla-approved-bot.sh
+
+      - name: Create pull request against main
+        if: success() || failure()
+        env:
+          VERSION: ${{ needs.check-versions.outputs.latest-version }}
+          # not using secrets.GITHUB_TOKEN since pull requests from that token do not run workflows
+          GH_TOKEN: ${{ steps.otelbot-token.outputs.token }}
+        run: |
+          message="Update the semantic conventions version to $VERSION"
+          body="Update the semantic conventions version to \`$VERSION\`."
+          branch="otelbot/update-semconv-to-${VERSION}"
+
+          git checkout -b $branch
+          git add -u
+          git add semconv**/src/main/java
+          git commit -m "$message"
+          git push --set-upstream origin $branch
+          pr_url=$(gh pr create --title "$message" \
+                                --body "$body" \
+                                --base main)
+
+          pr_number=$(echo "$pr_url" | grep -oE '[0-9]+$')
+          sed -i "s/PRNUM/${pr_number}/g" CHANGELOG.md
+          git add CHANGELOG.md
+          git commit -m "Update changelog PR link"
+          git push
