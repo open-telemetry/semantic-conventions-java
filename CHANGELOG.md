@@ -1,6 +1,6 @@
 # Changelog
 
-## Unreleased
+## Version 1.39.0 (2026-01-28)
 
 ## Version 1.39.0 (2026-01-28)
 
