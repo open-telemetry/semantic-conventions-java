@@ -16,6 +16,7 @@ plugins {
 val latestReleasedVersion: String by lazy {
   // hack to find the current released version of the project
   val temp: Configuration = configurations.create("tempConfig")
+  temp.resolutionStrategy.cacheDynamicVersionsFor(0, TimeUnit.SECONDS)
   dependencies.add(temp.name, "io.opentelemetry.semconv:opentelemetry-semconv:latest.release")
   val moduleVersion = configurations["tempConfig"].resolvedConfiguration.firstLevelModuleDependencies.elementAt(0).moduleVersion
   configurations.remove(temp)
