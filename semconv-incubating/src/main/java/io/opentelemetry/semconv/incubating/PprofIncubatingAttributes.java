@@ -73,6 +73,29 @@ public final class PprofIncubatingAttributes {
   public static final AttributeKey<String> PPROF_PROFILE_KEEP_FRAMES =
       stringKey("pprof.profile.keep_frames");
 
+  /**
+   * Records the pprof's default_sample_type in the original profile. Not set if the default sample
+   * type was missing.
+   *
+   * <p>Notes:
+   *
+   * <p>This attribute, if present, MUST be set at the scope level
+   * (resource_profiles[].scope_profiles[].scope.attributes[]).
+   */
+  public static final AttributeKey<String> PPROF_SCOPE_DEFAULT_SAMPLE_TYPE =
+      stringKey("pprof.scope.default_sample_type");
+
+  /**
+   * Records the indexes of the sample types in the original profile.
+   *
+   * <p>Notes:
+   *
+   * <p>This attribute, if present, MUST be set at the scope level
+   * (resource_profiles[].scope_profiles[].scope.attributes[]).
+   */
+  public static final AttributeKey<List<Long>> PPROF_SCOPE_SAMPLE_TYPE_ORDER =
+      longArrayKey("pprof.scope.sample_type_order");
+
   // Enum definitions
 
   private PprofIncubatingAttributes() {}

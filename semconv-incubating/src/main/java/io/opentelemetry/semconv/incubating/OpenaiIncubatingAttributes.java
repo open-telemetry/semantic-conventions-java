@@ -13,6 +13,9 @@ import io.opentelemetry.api.common.AttributeKey;
 // buildscripts/templates/registry/incubating_java/IncubatingSemanticAttributes.java.j2
 @SuppressWarnings("unused")
 public final class OpenaiIncubatingAttributes {
+  /** The type of OpenAI API being used. */
+  public static final AttributeKey<String> OPENAI_API_TYPE = stringKey("openai.api.type");
+
   /** The service tier requested. May be a specific tier, default, or auto. */
   public static final AttributeKey<String> OPENAI_REQUEST_SERVICE_TIER =
       stringKey("openai.request.service_tier");
@@ -26,6 +29,24 @@ public final class OpenaiIncubatingAttributes {
       stringKey("openai.response.system_fingerprint");
 
   // Enum definitions
+
+  /** Values for {@link #OPENAI_API_TYPE}. */
+  public static final class OpenaiApiTypeIncubatingValues {
+    /**
+     * The OpenAI <a
+     * href="https://developers.openai.com/api/reference/chat-completions/overview">Chat Completions
+     * API</a>.
+     */
+    public static final String CHAT_COMPLETIONS = "chat_completions";
+
+    /**
+     * The OpenAI <a href="https://developers.openai.com/api/reference/responses/overview">Responses
+     * API</a>.
+     */
+    public static final String RESPONSES = "responses";
+
+    private OpenaiApiTypeIncubatingValues() {}
+  }
 
   /** Values for {@link #OPENAI_REQUEST_SERVICE_TIER}. */
   public static final class OpenaiRequestServiceTierIncubatingValues {

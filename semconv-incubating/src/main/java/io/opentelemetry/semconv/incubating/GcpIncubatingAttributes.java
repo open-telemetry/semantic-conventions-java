@@ -176,6 +176,24 @@ public final class GcpIncubatingAttributes {
   public static final AttributeKey<String> GCP_GCE_INSTANCE_NAME =
       stringKey("gcp.gce.instance.name");
 
+  /** The name of the Instance Group Manager (IGM) that manages this VM, if any. */
+  public static final AttributeKey<String> GCP_GCE_INSTANCE_GROUP_MANAGER_NAME =
+      stringKey("gcp.gce.instance_group_manager.name");
+
+  /**
+   * The region of a <strong>regional</strong> Instance Group Manager (e.g., {@code us-central1}).
+   * Set this <strong>only</strong> when the IGM is regional.
+   */
+  public static final AttributeKey<String> GCP_GCE_INSTANCE_GROUP_MANAGER_REGION =
+      stringKey("gcp.gce.instance_group_manager.region");
+
+  /**
+   * The zone of a <strong>zonal</strong> Instance Group Manager (e.g., {@code us-central1-a}). Set
+   * this <strong>only</strong> when the IGM is zonal.
+   */
+  public static final AttributeKey<String> GCP_GCE_INSTANCE_GROUP_MANAGER_ZONE =
+      stringKey("gcp.gce.instance_group_manager.zone");
+
   // Enum definitions
 
   /** Values for {@link #GCP_APPHUB_SERVICE_CRITICALITY_TYPE}. */

@@ -89,6 +89,11 @@ public final class DbAttributes {
    * summary following <a
    * href="/docs/db/database-spans.md#generating-a-summary-of-the-query">Generating query
    * summary</a> section.
+   *
+   * <p>For batch operations, if the individual operations are known to have the same query summary
+   * then that query summary SHOULD be used prepended by {@code BATCH }, otherwise {@code
+   * db.query.summary} SHOULD be {@code BATCH} or some other database system specific term if more
+   * applicable.
    */
   public static final AttributeKey<String> DB_QUERY_SUMMARY = stringKey("db.query.summary");
 

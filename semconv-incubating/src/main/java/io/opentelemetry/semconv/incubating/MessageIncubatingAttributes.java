@@ -15,32 +15,32 @@ import io.opentelemetry.api.common.AttributeKey;
 @SuppressWarnings("unused")
 public final class MessageIncubatingAttributes {
   /**
-   * Deprecated, use {@code rpc.message.compressed_size} instead.
+   * Deprecated, no replacement at this time.
    *
-   * @deprecated Replaced by {@code rpc.message.compressed_size}.
+   * @deprecated Deprecated, no replacement at this time.
    */
   @Deprecated
   public static final AttributeKey<Long> MESSAGE_COMPRESSED_SIZE =
       longKey("message.compressed_size");
 
   /**
-   * Deprecated, use {@code rpc.message.id} instead.
+   * Deprecated, no replacement at this time.
    *
-   * @deprecated Replaced by {@code rpc.message.id}.
+   * @deprecated Deprecated, no replacement at this time.
    */
   @Deprecated public static final AttributeKey<Long> MESSAGE_ID = longKey("message.id");
 
   /**
-   * Deprecated, use {@code rpc.message.type} instead.
+   * Deprecated, no replacement at this time.
    *
-   * @deprecated Replaced by {@code rpc.message.type}.
+   * @deprecated Deprecated, no replacement at this time.
    */
   @Deprecated public static final AttributeKey<String> MESSAGE_TYPE = stringKey("message.type");
 
   /**
-   * Deprecated, use {@code rpc.message.uncompressed_size} instead.
+   * Deprecated, no replacement at this time.
    *
-   * @deprecated Replaced by {@code rpc.message.uncompressed_size}.
+   * @deprecated Deprecated, no replacement at this time.
    */
   @Deprecated
   public static final AttributeKey<Long> MESSAGE_UNCOMPRESSED_SIZE =
@@ -51,7 +51,7 @@ public final class MessageIncubatingAttributes {
   /**
    * Values for {@link #MESSAGE_TYPE}
    *
-   * @deprecated Replaced by {@code rpc.message.type}.
+   * @deprecated Deprecated, no replacement at this time.
    */
   @Deprecated
   public static final class MessageTypeIncubatingValues {

@@ -55,6 +55,14 @@ public final class UrlAttributes {
    *
    * <p>This list is subject to change over time.
    *
+   * <p>Matching of query parameter keys against the sensitive list SHOULD be case-sensitive.
+   *
+   * <p>Instrumentation MAY provide a way to override this list via declarative configuration. If
+   * so, it SHOULD use the {@code sensitive_query_parameters} property (an array of case-sensitive
+   * strings with minimum items 0) under {@code
+   * .instrumentation/development.general.sanitization.url}. This list is a full override of the
+   * default sensitive query parameter keys, it is not a list of keys in addition to the defaults.
+   *
    * <p>When a query string value is redacted, the query string key SHOULD still be preserved, e.g.
    * {@code https://www.example.com/path?color=blue&sig=REDACTED}.
    */
@@ -96,6 +104,14 @@ public final class UrlAttributes {
    * </ul>
    *
    * <p>This list is subject to change over time.
+   *
+   * <p>Matching of query parameter keys against the sensitive list SHOULD be case-sensitive.
+   *
+   * <p>Instrumentation MAY provide a way to override this list via declarative configuration. If
+   * so, it SHOULD use the {@code sensitive_query_parameters} property (an array of case-sensitive
+   * strings with minimum items 0) under {@code
+   * .instrumentation/development.general.sanitization.url}. This list is a full override of the
+   * default sensitive query parameter keys, it is not a list of keys in addition to the defaults.
    *
    * <p>When a query string value is redacted, the query string key SHOULD still be preserved, e.g.
    * {@code q=OpenTelemetry&sig=REDACTED}.

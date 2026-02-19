@@ -16,6 +16,16 @@ public final class ExceptionIncubatingAttributes {
   /**
    * The exception message.
    *
+   * <p>Notes:
+   *
+   * <blockquote>
+   *
+   * [!WARNING]
+   *
+   * <p>This attribute may contain sensitive information.
+   *
+   * </blockquote>
+   *
    * @deprecated deprecated in favor of stable {@link
    *     io.opentelemetry.semconv.ExceptionAttributes#EXCEPTION_MESSAGE} attribute.
    */

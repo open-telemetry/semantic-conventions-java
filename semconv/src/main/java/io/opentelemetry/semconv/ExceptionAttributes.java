@@ -13,7 +13,19 @@ import io.opentelemetry.api.common.AttributeKey;
 // buildscripts/templates/registry/java/SemanticAttributes.java.j2
 @SuppressWarnings("unused")
 public final class ExceptionAttributes {
-  /** The exception message. */
+  /**
+   * The exception message.
+   *
+   * <p>Notes:
+   *
+   * <blockquote>
+   *
+   * [!WARNING]
+   *
+   * <p>This attribute may contain sensitive information.
+   *
+   * </blockquote>
+   */
   public static final AttributeKey<String> EXCEPTION_MESSAGE = stringKey("exception.message");
 
   /**

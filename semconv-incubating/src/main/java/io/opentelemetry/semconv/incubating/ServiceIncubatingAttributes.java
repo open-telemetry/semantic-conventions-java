@@ -14,6 +14,17 @@ import io.opentelemetry.api.common.AttributeKey;
 @SuppressWarnings("unused")
 public final class ServiceIncubatingAttributes {
   /**
+   * The operational criticality of the service.
+   *
+   * <p>Notes:
+   *
+   * <p>Application developers are encouraged to set {@code service.criticality} to express the
+   * operational importance of their services. Telemetry consumers MAY use this attribute to
+   * optimize telemetry collection or improve user experience.
+   */
+  public static final AttributeKey<String> SERVICE_CRITICALITY = stringKey("service.criticality");
+
+  /**
    * The string ID of the service instance.
    *
    * <p>Notes:
@@ -47,7 +58,11 @@ public final class ServiceIncubatingAttributes {
    * the {@code service.instance.id} if they can unambiguously determine the service instance for
    * that telemetry. This is typically the case for scraping receivers, as they know the target
    * address and port.
+   *
+   * @deprecated deprecated in favor of stable {@link
+   *     io.opentelemetry.semconv.ServiceAttributes#SERVICE_INSTANCE_ID} attribute.
    */
+  @Deprecated
   public static final AttributeKey<String> SERVICE_INSTANCE_ID = stringKey("service.instance.id");
 
   /**
@@ -77,7 +92,11 @@ public final class ServiceIncubatingAttributes {
    * {@code service.name} is expected to be unique for all services that have no explicit namespace
    * defined (so the empty/unspecified namespace is simply one more valid namespace). Zero-length
    * namespace string is assumed equal to unspecified namespace.
+   *
+   * @deprecated deprecated in favor of stable {@link
+   *     io.opentelemetry.semconv.ServiceAttributes#SERVICE_NAMESPACE} attribute.
    */
+  @Deprecated
   public static final AttributeKey<String> SERVICE_NAMESPACE = stringKey("service.namespace");
 
   /**
@@ -105,6 +124,26 @@ public final class ServiceIncubatingAttributes {
   public static final AttributeKey<String> SERVICE_VERSION = stringKey("service.version");
 
   // Enum definitions
+
+  /** Values for {@link #SERVICE_CRITICALITY}. */
+  public static final class ServiceCriticalityIncubatingValues {
+    /**
+     * Service is business-critical; downtime directly impacts revenue, user experience, or core
+     * functionality.
+     */
+    public static final String CRITICAL = "critical";
+
+    /** Service is important but has degradation tolerance or fallback mechanisms. */
+    public static final String HIGH = "high";
+
+    /** Service provides supplementary functionality; degradation has limited user impact. */
+    public static final String MEDIUM = "medium";
+
+    /** Service is non-essential to core operations; used for background tasks or internal tools. */
+    public static final String LOW = "low";
+
+    private ServiceCriticalityIncubatingValues() {}
+  }
 
   private ServiceIncubatingAttributes() {}
 }

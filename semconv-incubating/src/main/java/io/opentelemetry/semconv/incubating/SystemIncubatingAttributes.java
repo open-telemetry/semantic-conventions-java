@@ -194,8 +194,8 @@ public final class SystemIncubatingAttributes {
     /**
      * shared.
      *
-     * @deprecated Removed, report shared memory usage with {@code metric.system.memory.shared}
-     *     metric
+     * @deprecated Removed, report shared memory usage with {@code
+     *     metric.system.memory.linux.shared} metric
      */
     @Deprecated public static final String SHARED = "shared";
 
