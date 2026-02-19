@@ -82,6 +82,9 @@ jobs:
       - name: Apply formatting
         run: ./gradlew spotlessApply
 
+      - name: Generate API diffs
+        run: ./gradlew jApiCmp
+
       - name: Use CLA approved bot
         run: .github/scripts/use-cla-approved-bot.sh
 
@@ -99,6 +102,7 @@ jobs:
           git checkout -b $branch
           git add -u
           git add semconv**/src/main/java
+          git add docs/apidiffs/
           git commit -m "$message"
           git push --set-upstream origin $branch
           pr_url=$(gh pr create --title "$message" \

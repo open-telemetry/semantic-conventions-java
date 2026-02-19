@@ -113,8 +113,15 @@ public final class HttpIncubatingAttributes {
    * _OTHER}, then it MUST provide a way to override the list of known HTTP methods. If this
    * override is done via environment variable, then the environment variable MUST be named
    * OTEL_INSTRUMENTATION_HTTP_KNOWN_METHODS and support a comma-separated list of case-sensitive
-   * known HTTP methods (this list MUST be a full override of the default known method, it is not a
-   * list of known methods in addition to the defaults).
+   * known HTTP methods.
+   *
+   * <p>If this override is done via declarative configuration, then the list MUST be configurable
+   * via the {@code known_methods} property (an array of case-sensitive strings with minimum items
+   * 0) under {@code .instrumentation/development.general.http.client} and/or {@code
+   * .instrumentation/development.general.http.server}.
+   *
+   * <p>In either case, this list MUST be a full override of the default known methods, it is not a
+   * list of known methods in addition to the defaults.
    *
    * <p>HTTP method names are case-sensitive and {@code http.request.method} attribute value MUST
    * match a known HTTP method name exactly. Instrumentations for specific web frameworks that

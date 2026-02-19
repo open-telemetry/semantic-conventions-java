@@ -18,9 +18,16 @@ public final class FeatureFlagIncubatingAttributes {
       stringKey("feature_flag.context.id");
 
   /**
-   * Deprecated, use {@code error.message} instead.
+   * A message providing more detail about an error that occurred during feature flag evaluation in
+   * human-readable form.
+   */
+  public static final AttributeKey<String> FEATURE_FLAG_ERROR_MESSAGE =
+      stringKey("feature_flag.error.message");
+
+  /**
+   * Deprecated, use {@code feature_flag.error.message} instead.
    *
-   * @deprecated Replaced by {@code error.message}.
+   * @deprecated Replaced by {@code feature_flag.error.message}.
    */
   @Deprecated
   public static final AttributeKey<String> FEATURE_FLAG_EVALUATION_ERROR_MESSAGE =

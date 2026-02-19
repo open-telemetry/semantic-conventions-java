@@ -15,7 +15,7 @@ sed -Ei "s/(    semanticConventionsVersion,)/\1\n    \"$old_version\",/" build.g
 
 # Add new version constant to SchemaUrls.java
 version_underscore=${version//./_}
-sed -Ei "s/(public final class SchemaUrls \{)/\1\n\n  public static final String V${version_underscore} = \"https:\/\/opentelemetry.io\/schemas\/${version}\";/" \
+sed -Ei "s/(public final class SchemaUrls \{)/\1\n  public static final String V${version_underscore} = \"https:\/\/opentelemetry.io\/schemas\/${version}\";/" \
   semconv/src/main/java/io/opentelemetry/semconv/SchemaUrls.java
 
 # Add changelog entry

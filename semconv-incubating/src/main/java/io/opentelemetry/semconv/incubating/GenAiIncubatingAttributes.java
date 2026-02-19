@@ -27,6 +27,9 @@ public final class GenAiIncubatingAttributes {
   /** Human-readable name of the GenAI agent provided by the application. */
   public static final AttributeKey<String> GEN_AI_AGENT_NAME = stringKey("gen_ai.agent.name");
 
+  /** The version of the GenAI agent. */
+  public static final AttributeKey<String> GEN_AI_AGENT_VERSION = stringKey("gen_ai.agent.version");
+
   /**
    * Deprecated, use Event API to report completions contents.
    *
@@ -255,6 +258,20 @@ public final class GenAiIncubatingAttributes {
       stringKey("gen_ai.response.model");
 
   /**
+   * The query text used for retrieval.
+   *
+   * <p>Notes:
+   *
+   * <blockquote>
+   *
+   * [!Warning] This attribute may contain sensitive information.
+   *
+   * </blockquote>
+   */
+  public static final AttributeKey<String> GEN_AI_RETRIEVAL_QUERY_TEXT =
+      stringKey("gen_ai.retrieval.query.text");
+
+  /**
    * Deprecated, use {@code gen_ai.provider.name} instead.
    *
    * @deprecated Replaced by {@code gen_ai.provider.name}.
@@ -291,6 +308,26 @@ public final class GenAiIncubatingAttributes {
   public static final AttributeKey<String> GEN_AI_TOOL_TYPE = stringKey("gen_ai.tool.type");
 
   /**
+   * The number of input tokens written to a provider-managed cache.
+   *
+   * <p>Notes:
+   *
+   * <p>The value SHOULD be included in {@code gen_ai.usage.input_tokens}.
+   */
+  public static final AttributeKey<Long> GEN_AI_USAGE_CACHE_CREATION_INPUT_TOKENS =
+      longKey("gen_ai.usage.cache_creation.input_tokens");
+
+  /**
+   * The number of input tokens served from a provider-managed cache.
+   *
+   * <p>Notes:
+   *
+   * <p>The value SHOULD be included in {@code gen_ai.usage.input_tokens}.
+   */
+  public static final AttributeKey<Long> GEN_AI_USAGE_CACHE_READ_INPUT_TOKENS =
+      longKey("gen_ai.usage.cache_read.input_tokens");
+
+  /**
    * Deprecated, use {@code gen_ai.usage.output_tokens} instead.
    *
    * @deprecated Replaced by {@code gen_ai.usage.output_tokens}.
@@ -299,7 +336,16 @@ public final class GenAiIncubatingAttributes {
   public static final AttributeKey<Long> GEN_AI_USAGE_COMPLETION_TOKENS =
       longKey("gen_ai.usage.completion_tokens");
 
-  /** The number of tokens used in the GenAI input (prompt). */
+  /**
+   * The number of tokens used in the GenAI input (prompt).
+   *
+   * <p>Notes:
+   *
+   * <p>This value SHOULD include all types of input tokens, including cached tokens.
+   * Instrumentations SHOULD make a best effort to populate this value, using a total provided by
+   * the provider when available or, depending on the provider API, by summing different token types
+   * parsed from the provider output.
+   */
   public static final AttributeKey<Long> GEN_AI_USAGE_INPUT_TOKENS =
       longKey("gen_ai.usage.input_tokens");
 
@@ -380,6 +426,13 @@ public final class GenAiIncubatingAttributes {
      * embeddings API</a>
      */
     public static final String EMBEDDINGS = "embeddings";
+
+    /**
+     * Retrieval operation such as <a
+     * href="https://platform.openai.com/docs/api-reference/vector-stores/search">OpenAI Search
+     * Vector Store API</a>
+     */
+    public static final String RETRIEVAL = "retrieval";
 
     /** Create GenAI agent */
     public static final String CREATE_AGENT = "create_agent";

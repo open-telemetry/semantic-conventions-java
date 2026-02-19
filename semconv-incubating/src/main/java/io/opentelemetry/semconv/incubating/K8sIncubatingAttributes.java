@@ -5,6 +5,7 @@
 
 package io.opentelemetry.semconv.incubating;
 
+import static io.opentelemetry.api.common.AttributeKey.booleanKey;
 import static io.opentelemetry.api.common.AttributeKey.longKey;
 import static io.opentelemetry.api.common.AttributeKey.stringKey;
 import static io.opentelemetry.semconv.AttributeKeyTemplate.stringKeyTemplate;
@@ -610,6 +611,159 @@ public final class K8sIncubatingAttributes {
       stringKey("k8s.resourcequota.uid");
 
   /**
+   * The annotation placed on the Service, the {@code <key>} being the annotation name, the value
+   * being the annotation value, even if the value is empty.
+   *
+   * <p>Notes:
+   *
+   * <p>Examples:
+   *
+   * <ul>
+   *   <li>An annotation {@code prometheus.io/scrape} with value {@code true} SHOULD be recorded as
+   *       the {@code k8s.service.annotation.prometheus.io/scrape} attribute with value {@code
+   *       "true"}.
+   *   <li>An annotation {@code data} with empty string value SHOULD be recorded as the {@code
+   *       k8s.service.annotation.data} attribute with value {@code ""}.
+   * </ul>
+   */
+  public static final AttributeKeyTemplate<String> K8S_SERVICE_ANNOTATION =
+      stringKeyTemplate("k8s.service.annotation");
+
+  /**
+   * The address type of the service endpoint.
+   *
+   * <p>Notes:
+   *
+   * <p>The network address family or type of the endpoint. This attribute aligns with the {@code
+   * addressType} field of the <a
+   * href="https://kubernetes.io/docs/reference/kubernetes-api/service-resources/endpoint-slice-v1/">K8s
+   * EndpointSlice</a>. It is used to differentiate metrics when a Service is backed by multiple
+   * address types (e.g., in dual-stack clusters).
+   */
+  public static final AttributeKey<String> K8S_SERVICE_ENDPOINT_ADDRESS_TYPE =
+      stringKey("k8s.service.endpoint.address_type");
+
+  /**
+   * The condition of the service endpoint.
+   *
+   * <p>Notes:
+   *
+   * <p>The current operational condition of the service endpoint. An endpoint can have multiple
+   * conditions set at once (e.g., both {@code serving} and {@code terminating} during rollout).
+   * This attribute aligns with the condition fields in the <a
+   * href="https://kubernetes.io/docs/reference/kubernetes-api/service-resources/endpoint-slice-v1/">K8s
+   * EndpointSlice</a>.
+   */
+  public static final AttributeKey<String> K8S_SERVICE_ENDPOINT_CONDITION =
+      stringKey("k8s.service.endpoint.condition");
+
+  /**
+   * The zone of the service endpoint.
+   *
+   * <p>Notes:
+   *
+   * <p>The zone where the endpoint is located, typically corresponding to a failure domain. This
+   * attribute aligns with the {@code zone} field of endpoints in the <a
+   * href="https://kubernetes.io/docs/reference/kubernetes-api/service-resources/endpoint-slice-v1/">K8s
+   * EndpointSlice</a>. It enables zone-aware monitoring of service endpoint distribution and
+   * supports features like <a
+   * href="https://kubernetes.io/docs/concepts/services-networking/topology-aware-routing/">Topology
+   * Aware Routing</a>.
+   *
+   * <p>If the zone is not populated (e.g., nodes without the {@code topology.kubernetes.io/zone}
+   * label), the attribute value will be an empty string.
+   */
+  public static final AttributeKey<String> K8S_SERVICE_ENDPOINT_ZONE =
+      stringKey("k8s.service.endpoint.zone");
+
+  /**
+   * The label placed on the Service, the {@code <key>} being the label name, the value being the
+   * label value, even if the value is empty.
+   *
+   * <p>Notes:
+   *
+   * <p>Examples:
+   *
+   * <ul>
+   *   <li>A label {@code app} with value {@code my-service} SHOULD be recorded as the {@code
+   *       k8s.service.label.app} attribute with value {@code "my-service"}.
+   *   <li>A label {@code data} with empty string value SHOULD be recorded as the {@code
+   *       k8s.service.label.data} attribute with value {@code ""}.
+   * </ul>
+   */
+  public static final AttributeKeyTemplate<String> K8S_SERVICE_LABEL =
+      stringKeyTemplate("k8s.service.label");
+
+  /** The name of the Service. */
+  public static final AttributeKey<String> K8S_SERVICE_NAME = stringKey("k8s.service.name");
+
+  /**
+   * Whether the Service publishes not-ready endpoints.
+   *
+   * <p>Notes:
+   *
+   * <p>Whether the Service is configured to publish endpoints before the pods are ready. This
+   * attribute is typically used to indicate that a Service (such as a headless Service for a
+   * StatefulSet) allows peer discovery before pods pass their readiness probes. It aligns with the
+   * {@code publishNotReadyAddresses} field of the <a
+   * href="https://kubernetes.io/docs/reference/kubernetes-api/service-resources/service-v1/#ServiceSpec">K8s
+   * ServiceSpec</a>.
+   */
+  public static final AttributeKey<Boolean> K8S_SERVICE_PUBLISH_NOT_READY_ADDRESSES =
+      booleanKey("k8s.service.publish_not_ready_addresses");
+
+  /**
+   * The selector key-value pair placed on the Service, the {@code <key>} being the selector key,
+   * the value being the selector value.
+   *
+   * <p>Notes:
+   *
+   * <p>These selectors are used to correlate with pod labels. Each selector key-value pair becomes
+   * a separate attribute.
+   *
+   * <p>Examples:
+   *
+   * <ul>
+   *   <li>A selector {@code app=my-app} SHOULD be recorded as the {@code k8s.service.selector.app}
+   *       attribute with value {@code "my-app"}.
+   *   <li>A selector {@code version=v1} SHOULD be recorded as the {@code
+   *       k8s.service.selector.version} attribute with value {@code "v1"}.
+   * </ul>
+   */
+  public static final AttributeKeyTemplate<String> K8S_SERVICE_SELECTOR =
+      stringKeyTemplate("k8s.service.selector");
+
+  /**
+   * The traffic distribution policy for the Service.
+   *
+   * <p>Notes:
+   *
+   * <p>Specifies how traffic is distributed to endpoints for this Service. This attribute aligns
+   * with the {@code trafficDistribution} field of the <a
+   * href="https://kubernetes.io/docs/reference/networking/virtual-ips/#traffic-distribution">K8s
+   * ServiceSpec</a>. Known values include {@code PreferSameZone} (prefer endpoints in the same zone
+   * as the client) and {@code PreferSameNode} (prefer endpoints on the same node, fallback to same
+   * zone, then cluster-wide). If this field is not set on the Service, the attribute SHOULD NOT be
+   * emitted. When not set, Kubernetes distributes traffic evenly across all endpoints cluster-wide.
+   */
+  public static final AttributeKey<String> K8S_SERVICE_TRAFFIC_DISTRIBUTION =
+      stringKey("k8s.service.traffic_distribution");
+
+  /**
+   * The type of the Kubernetes Service.
+   *
+   * <p>Notes:
+   *
+   * <p>This attribute aligns with the {@code type} field of the <a
+   * href="https://kubernetes.io/docs/reference/kubernetes-api/service-resources/service-v1/#ServiceSpec">K8s
+   * ServiceSpec</a>.
+   */
+  public static final AttributeKey<String> K8S_SERVICE_TYPE = stringKey("k8s.service.type");
+
+  /** The UID of the Service. */
+  public static final AttributeKey<String> K8S_SERVICE_UID = stringKey("k8s.service.uid");
+
+  /**
    * The annotation placed on the StatefulSet, the {@code <key>} being the annotation name, the
    * value being the annotation value, even if the value is empty.
    *
@@ -824,6 +978,51 @@ public final class K8sIncubatingAttributes {
     public static final String UNEXPECTED_ADMISSION_ERROR = "UnexpectedAdmissionError";
 
     private K8sPodStatusReasonIncubatingValues() {}
+  }
+
+  /** Values for {@link #K8S_SERVICE_ENDPOINT_ADDRESS_TYPE}. */
+  public static final class K8sServiceEndpointAddressTypeIncubatingValues {
+    /** IPv4 address type */
+    public static final String IPV4 = "IPv4";
+
+    /** IPv6 address type */
+    public static final String IPV6 = "IPv6";
+
+    /** FQDN address type */
+    public static final String FQDN = "FQDN";
+
+    private K8sServiceEndpointAddressTypeIncubatingValues() {}
+  }
+
+  /** Values for {@link #K8S_SERVICE_ENDPOINT_CONDITION}. */
+  public static final class K8sServiceEndpointConditionIncubatingValues {
+    /** The endpoint is ready to receive new connections. */
+    public static final String READY = "ready";
+
+    /** The endpoint is currently handling traffic. */
+    public static final String SERVING = "serving";
+
+    /** The endpoint is in the process of shutting down. */
+    public static final String TERMINATING = "terminating";
+
+    private K8sServiceEndpointConditionIncubatingValues() {}
+  }
+
+  /** Values for {@link #K8S_SERVICE_TYPE}. */
+  public static final class K8sServiceTypeIncubatingValues {
+    /** ClusterIP service type */
+    public static final String CLUSTER_IP = "ClusterIP";
+
+    /** NodePort service type */
+    public static final String NODE_PORT = "NodePort";
+
+    /** LoadBalancer service type */
+    public static final String LOAD_BALANCER = "LoadBalancer";
+
+    /** ExternalName service type */
+    public static final String EXTERNAL_NAME = "ExternalName";
+
+    private K8sServiceTypeIncubatingValues() {}
   }
 
   /** Values for {@link #K8S_VOLUME_TYPE}. */

@@ -83,10 +83,9 @@ public final class RpcIncubatingAttributes {
   public static final AttributeKey<Long> RPC_JSONRPC_ERROR_CODE = longKey("rpc.jsonrpc.error_code");
 
   /**
-   * Deprecated, use span status description or {@code error.message} attribute on other signals.
+   * Deprecated, use the span status description when reporting JSON-RPC spans.
    *
-   * @deprecated Use the span status description or {@code error.message} attribute on other
-   *     signals.
+   * @deprecated Use the span status description when reporting JSON-RPC spans.
    */
   @Deprecated
   public static final AttributeKey<String> RPC_JSONRPC_ERROR_MESSAGE =
@@ -109,7 +108,12 @@ public final class RpcIncubatingAttributes {
   @Deprecated
   public static final AttributeKey<String> RPC_JSONRPC_VERSION = stringKey("rpc.jsonrpc.version");
 
-  /** Compressed size of the message in bytes. */
+  /**
+   * Compressed size of the message in bytes.
+   *
+   * @deprecated Deprecated, no replacement at this time.
+   */
+  @Deprecated
   public static final AttributeKey<Long> RPC_MESSAGE_COMPRESSED_SIZE =
       longKey("rpc.message.compressed_size");
 
@@ -120,13 +124,25 @@ public final class RpcIncubatingAttributes {
    * <p>Notes:
    *
    * <p>This way we guarantee that the values will be consistent between different implementations.
+   *
+   * @deprecated Deprecated, no replacement at this time.
    */
-  public static final AttributeKey<Long> RPC_MESSAGE_ID = longKey("rpc.message.id");
+  @Deprecated public static final AttributeKey<Long> RPC_MESSAGE_ID = longKey("rpc.message.id");
 
-  /** Whether this is a received or sent message. */
+  /**
+   * Whether this is a received or sent message.
+   *
+   * @deprecated Deprecated, no replacement at this time.
+   */
+  @Deprecated
   public static final AttributeKey<String> RPC_MESSAGE_TYPE = stringKey("rpc.message.type");
 
-  /** Uncompressed size of the message in bytes. */
+  /**
+   * Uncompressed size of the message in bytes.
+   *
+   * @deprecated Deprecated, no replacement at this time.
+   */
+  @Deprecated
   public static final AttributeKey<Long> RPC_MESSAGE_UNCOMPRESSED_SIZE =
       longKey("rpc.message.uncompressed_size");
 
@@ -355,7 +371,12 @@ public final class RpcIncubatingAttributes {
     private RpcGrpcStatusCodeIncubatingValues() {}
   }
 
-  /** Values for {@link #RPC_MESSAGE_TYPE}. */
+  /**
+   * Values for {@link #RPC_MESSAGE_TYPE}
+   *
+   * @deprecated Deprecated, no replacement at this time.
+   */
+  @Deprecated
   public static final class RpcMessageTypeIncubatingValues {
     /** sent. */
     public static final String SENT = "SENT";

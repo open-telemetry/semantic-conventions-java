@@ -24,8 +24,11 @@ public final class ErrorIncubatingAttributes {
    *
    * <p>{@code error.message} is NOT RECOMMENDED for metrics or spans due to its unbounded
    * cardinality and overlap with span status.
+   *
+   * @deprecated Use domain-specific error message attribute. For example, use {@code
+   *     feature_flag.error.message} for feature flag errors.
    */
-  public static final AttributeKey<String> ERROR_MESSAGE = stringKey("error.message");
+  @Deprecated public static final AttributeKey<String> ERROR_MESSAGE = stringKey("error.message");
 
   /**
    * Describes a class of error the operation ended with.
