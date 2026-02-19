@@ -78,7 +78,8 @@ query($q: String!, $endCursor: String) {
   | sed 's/^\["//' \
   | sed 's/".*//')
 
-echo "$contributors1" "$contributors2" \
+# echo separately to avoid space separator between args when contributors2 is empty
+{ echo "$contributors1"; echo "$contributors2"; } \
   | sed 's/ /\n/g' \
   | sort -uf \
   | grep -v codecov \
