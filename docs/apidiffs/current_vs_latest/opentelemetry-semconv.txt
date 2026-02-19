@@ -1,4 +1,4 @@
-Comparing source compatibility of opentelemetry-semconv-1.40.0-SNAPSHOT.jar against opentelemetry-semconv-1.39.0.jar
+Comparing source compatibility of opentelemetry-semconv-1.40.0.jar against opentelemetry-semconv-1.39.0.jar
 ***  MODIFIED CLASS: PUBLIC FINAL io.opentelemetry.semconv.SchemaUrls  (not serializable)
 	===  CLASS FILE FORMAT VERSION: 52.0 <- 52.0
 	+++  NEW FIELD: PUBLIC(+) STATIC(+) FINAL(+) java.lang.String V1_40_0
