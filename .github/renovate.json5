@@ -6,8 +6,22 @@
     'customManagers:githubActionsVersions',
   ],
   packageRules: [
+
+    // ── Scheduling & grouping ──────────────────────────────────────────
+
     {
-      // this is to reduce the number of renovate PRs by consolidating them into a weekly batch
+      // group all patch updates into a single weekly PR
+      groupName: 'all patch versions',
+      matchUpdateTypes: [
+        'patch',
+      ],
+      schedule: [
+        'before 8am on Tuesday',
+      ],
+    },
+    {
+      // group all GitHub Actions updates into a single weekly PR
+      // (must be after patch rule so that it wins for GH Action patches)
       matchManagers: [
         'github-actions',
       ],
@@ -16,6 +30,9 @@
       ],
       groupName: 'github actions',
     },
+
+    // ── Disabled updates ───────────────────────────────────────────────
+
     {
       // pin opentelemetry-api dependency to: avoid churn, for conservative api version requirement,
       // and because opentelemetry-api is a compileOnly dependency
