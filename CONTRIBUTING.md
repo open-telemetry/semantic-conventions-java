@@ -4,7 +4,7 @@ Welcome to the OpenTelemetry Semantic Convention Java repository!
 
 ## Building
 
-Java 17 or higher is required to build the projects in this repository
+Java 21 or higher is required to build the projects in this repository
 (the built artifacts can be used on Java 8 or higher).
 To check your Java version, run:
 
