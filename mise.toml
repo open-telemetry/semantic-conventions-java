@@ -2,10 +2,6 @@
 "github:grafana/flint" = "0.21.0"
 lychee = "0.23.0"
 
-[settings]
-# Only install tools explicitly defined in the [tools] section above
-idiomatic_version_file_enable_tools = []
-
 [tasks.lint]
 description = "Run link checks"
 raw_args = true
