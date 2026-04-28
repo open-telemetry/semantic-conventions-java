@@ -59,7 +59,11 @@ public final class OtelIncubatingAttributes {
    * EventName} or equivalent field. This attribute MAY be used by applications using existing
    * logging libraries so that it can be used to set the {@code EventName} field by Collector or SDK
    * components.
+   *
+   * @deprecated deprecated in favor of stable {@link
+   *     io.opentelemetry.semconv.OtelAttributes#OTEL_EVENT_NAME} attribute.
    */
+  @Deprecated
   public static final AttributeKey<String> OTEL_EVENT_NAME = stringKey("otel.event.name");
 
   /**

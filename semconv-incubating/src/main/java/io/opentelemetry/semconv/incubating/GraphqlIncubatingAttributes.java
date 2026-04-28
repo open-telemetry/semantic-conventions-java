@@ -18,7 +18,7 @@ public final class GraphqlIncubatingAttributes {
    *
    * <p>Notes:
    *
-   * <p>The value may be sanitized to exclude sensitive information.
+   * <p>If instrumentation can reliably identify and redact sensitive information it SHOULD do it.
    */
   public static final AttributeKey<String> GRAPHQL_DOCUMENT = stringKey("graphql.document");
 
