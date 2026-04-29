@@ -36,5 +36,5 @@ generate semantic conventions classes from the release contents.
 
 ## Style guide
 
-This repository follows the OpenTelemetry Java
-repository's [style guide](https://github.com/open-telemetry/opentelemetry-java/blob/main/CONTRIBUTING.md#style-guideline).
+This repository follows the OpenTelemetry Java repository's
+[coding patterns](https://github.com/open-telemetry/opentelemetry-java/blob/main/docs/knowledge/README.md).
