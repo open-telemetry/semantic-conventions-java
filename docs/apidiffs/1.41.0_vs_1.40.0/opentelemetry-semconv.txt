@@ -1,0 +1,22 @@
+Comparing source compatibility of opentelemetry-semconv-1.41.0.jar against opentelemetry-semconv-1.40.0.jar
++++  NEW CLASS: PUBLIC(+) FINAL(+) io.opentelemetry.semconv.DeploymentAttributes  (not serializable)
+	+++  CLASS FILE FORMAT VERSION: 52.0 <- n.a.
+	+++  NEW SUPERCLASS: java.lang.Object
+	+++  NEW FIELD: PUBLIC(+) STATIC(+) FINAL(+) io.opentelemetry.api.common.AttributeKey<java.lang.String> DEPLOYMENT_ENVIRONMENT_NAME
++++  NEW CLASS: PUBLIC(+) STATIC(+) FINAL(+) io.opentelemetry.semconv.DeploymentAttributes$DeploymentEnvironmentNameValues  (not serializable)
+	+++  CLASS FILE FORMAT VERSION: 52.0 <- n.a.
+	+++  NEW SUPERCLASS: java.lang.Object
+	+++  NEW FIELD: PUBLIC(+) STATIC(+) FINAL(+) java.lang.String TEST
+	+++  NEW FIELD: PUBLIC(+) STATIC(+) FINAL(+) java.lang.String DEVELOPMENT
+	+++  NEW FIELD: PUBLIC(+) STATIC(+) FINAL(+) java.lang.String STAGING
+	+++  NEW FIELD: PUBLIC(+) STATIC(+) FINAL(+) java.lang.String PRODUCTION
+***  MODIFIED CLASS: PUBLIC FINAL io.opentelemetry.semconv.OtelAttributes  (not serializable)
+	===  CLASS FILE FORMAT VERSION: 52.0 <- 52.0
+	+++  NEW FIELD: PUBLIC(+) STATIC(+) FINAL(+) io.opentelemetry.api.common.AttributeKey<java.lang.String> OTEL_EVENT_NAME
+***  MODIFIED CLASS: PUBLIC FINAL io.opentelemetry.semconv.SchemaUrls  (not serializable)
+	===  CLASS FILE FORMAT VERSION: 52.0 <- 52.0
+	+++  NEW FIELD: PUBLIC(+) STATIC(+) FINAL(+) java.lang.String V1_41_0
+***  MODIFIED CLASS: PUBLIC FINAL io.opentelemetry.semconv.TelemetryAttributes  (not serializable)
+	===  CLASS FILE FORMAT VERSION: 52.0 <- 52.0
+	+++  NEW FIELD: PUBLIC(+) STATIC(+) FINAL(+) io.opentelemetry.api.common.AttributeKey<java.lang.String> TELEMETRY_DISTRO_VERSION
+	+++  NEW FIELD: PUBLIC(+) STATIC(+) FINAL(+) io.opentelemetry.api.common.AttributeKey<java.lang.String> TELEMETRY_DISTRO_NAME
