@@ -45,7 +45,16 @@ public final class CicdIncubatingAttributes {
   public static final AttributeKey<String> CICD_PIPELINE_TASK_NAME =
       stringKey("cicd.pipeline.task.name");
 
-  /** The unique identifier of a task run within a pipeline. */
+  /**
+   * The unique identifier of a task run within a pipeline.
+   *
+   * <p>Notes:
+   *
+   * <p>For a given pipeline run and task, the {@code cicd.pipeline.task.run.id} MUST be unique
+   * within that run. For the same task across different runs of the same pipeline, the {@code
+   * cicd.pipeline.task.run.id} MAY remain the same, enabling correlation of {@code
+   * cicd.pipeline.task.run.result} values across multiple pipeline runs.
+   */
   public static final AttributeKey<String> CICD_PIPELINE_TASK_RUN_ID =
       stringKey("cicd.pipeline.task.run.id");
 

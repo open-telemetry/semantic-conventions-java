@@ -15,7 +15,7 @@ import java.util.List;
 // buildscripts/templates/registry/incubating_java/IncubatingSemanticAttributes.java.j2
 @SuppressWarnings("unused")
 public final class HwIncubatingAttributes {
-  /** Design capacity in Watts-hours or Amper-hours */
+  /** Design capacity in Watts-hours or Ampere-hours */
   public static final AttributeKey<String> HW_BATTERY_CAPACITY = stringKey("hw.battery.capacity");
 
   /**

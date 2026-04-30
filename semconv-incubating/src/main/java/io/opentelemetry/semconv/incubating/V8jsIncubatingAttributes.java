@@ -27,6 +27,9 @@ public final class V8jsIncubatingAttributes {
    */
   public static final AttributeKey<String> V8JS_HEAP_SPACE_NAME = stringKey("v8js.heap.space.name");
 
+  /** The type of resource keeping the event loop active. */
+  public static final AttributeKey<String> V8JS_RESOURCE_TYPE = stringKey("v8js.resource.type");
+
   // Enum definitions
 
   /** Values for {@link #V8JS_GC_TYPE}. */
@@ -64,6 +67,26 @@ public final class V8jsIncubatingAttributes {
     public static final String LARGE_OBJECT_SPACE = "large_object_space";
 
     private V8jsHeapSpaceNameIncubatingValues() {}
+  }
+
+  /** Values for {@link #V8JS_RESOURCE_TYPE}. */
+  public static final class V8jsResourceTypeIncubatingValues {
+    /** Active {@code setImmediate} callbacks. */
+    public static final String IMMEDIATE = "Immediate";
+
+    /** Active TCP Servers. */
+    public static final String TCPSERVERWRAP = "TCPServerWrap";
+
+    /** Active TCP connections. */
+    public static final String TCPWRAP = "TCPWrap";
+
+    /** Active {@code setTimeout} or {@code setInterval} timers. */
+    public static final String TIMEOUT = "Timeout";
+
+    /** Active Terminal I/O (stdin/stdout). */
+    public static final String TTYWRAP = "TTYWrap";
+
+    private V8jsResourceTypeIncubatingValues() {}
   }
 
   private V8jsIncubatingAttributes() {}

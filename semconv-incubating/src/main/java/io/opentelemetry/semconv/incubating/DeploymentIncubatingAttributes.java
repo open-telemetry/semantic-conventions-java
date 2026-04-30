@@ -37,7 +37,11 @@ public final class DeploymentIncubatingAttributes {
    *   <li>{@code service.name=frontend}, {@code deployment.environment.name=production}
    *   <li>{@code service.name=frontend}, {@code deployment.environment.name=staging}.
    * </ul>
+   *
+   * @deprecated deprecated in favor of stable {@link
+   *     io.opentelemetry.semconv.DeploymentAttributes#DEPLOYMENT_ENVIRONMENT_NAME} attribute.
    */
+  @Deprecated
   public static final AttributeKey<String> DEPLOYMENT_ENVIRONMENT_NAME =
       stringKey("deployment.environment.name");
 
@@ -51,6 +55,29 @@ public final class DeploymentIncubatingAttributes {
   public static final AttributeKey<String> DEPLOYMENT_STATUS = stringKey("deployment.status");
 
   // Enum definitions
+
+  /**
+   * Values for {@link #DEPLOYMENT_ENVIRONMENT_NAME}.
+   *
+   * @deprecated deprecated in favor of stable {@link
+   *     io.opentelemetry.semconv.DeploymentAttributes.DeploymentEnvironmentNameValues}.
+   */
+  @Deprecated
+  public static final class DeploymentEnvironmentNameIncubatingValues {
+    /** Production environment */
+    public static final String PRODUCTION = "production";
+
+    /** Staging environment */
+    public static final String STAGING = "staging";
+
+    /** Testing environment */
+    public static final String TEST = "test";
+
+    /** Development environment */
+    public static final String DEVELOPMENT = "development";
+
+    private DeploymentEnvironmentNameIncubatingValues() {}
+  }
 
   /** Values for {@link #DEPLOYMENT_STATUS}. */
   public static final class DeploymentStatusIncubatingValues {
