@@ -93,3 +93,10 @@ See [CONTRIBUTING.md](CONTRIBUTING.md).
 [versioning]: https://github.com/open-telemetry/opentelemetry-java/blob/main/VERSIONING.md
 
 <!-- TODO(jack-berg): add code coverage badge? -->
+
+### Emeritus
+
+- [Josh Suereth](https://github.com/jsuereth), Approver
+
+For more information about the emeritus role, see the
+[community repository](https://github.com/open-telemetry/community/blob/main/guides/contributor/membership.md#emeritus-maintainerapprovertriager).
