@@ -46,6 +46,13 @@ public final class ExceptionIncubatingAttributes {
    * The type of the exception (its fully-qualified class name, if applicable). The dynamic type of
    * the exception should be preferred over the static type in languages that support it.
    *
+   * <p>Notes:
+   *
+   * <p>If the recorded exception type is a wrapper that is not meaningful for failure
+   * classification, instrumentation MAY use the type of the inner exception instead. For example,
+   * in Go, errors created with {@code fmt.Errorf} using {@code %w} MAY be unwrapped when the
+   * wrapper type does not help classify the failure.
+   *
    * @deprecated deprecated in favor of stable {@link
    *     io.opentelemetry.semconv.ExceptionAttributes#EXCEPTION_TYPE} attribute.
    */

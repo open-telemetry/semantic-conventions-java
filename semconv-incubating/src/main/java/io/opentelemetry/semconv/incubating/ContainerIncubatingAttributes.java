@@ -151,7 +151,7 @@ public final class ContainerIncubatingAttributes {
 
   /**
    * A description about the runtime which could include, for example details about the CRI/API
-   * version being used or other customisations.
+   * version being used or other customizations.
    */
   public static final AttributeKey<String> CONTAINER_RUNTIME_DESCRIPTION =
       stringKey("container.runtime.description");

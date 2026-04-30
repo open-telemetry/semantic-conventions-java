@@ -50,6 +50,10 @@ public final class SystemIncubatingAttributes {
   public static final AttributeKey<String> SYSTEM_FILESYSTEM_TYPE =
       stringKey("system.filesystem.type");
 
+  /** The Linux HugePages memory state */
+  public static final AttributeKey<String> SYSTEM_MEMORY_LINUX_HUGEPAGES_STATE =
+      stringKey("system.memory.linux.hugepages.state");
+
   /** The Linux Slab memory state */
   public static final AttributeKey<String> SYSTEM_MEMORY_LINUX_SLAB_STATE =
       stringKey("system.memory.linux.slab.state");
@@ -170,6 +174,17 @@ public final class SystemIncubatingAttributes {
     public static final String EXT4 = "ext4";
 
     private SystemFilesystemTypeIncubatingValues() {}
+  }
+
+  /** Values for {@link #SYSTEM_MEMORY_LINUX_HUGEPAGES_STATE}. */
+  public static final class SystemMemoryLinuxHugepagesStateIncubatingValues {
+    /** free. */
+    public static final String FREE = "free";
+
+    /** used. */
+    public static final String USED = "used";
+
+    private SystemMemoryLinuxHugepagesStateIncubatingValues() {}
   }
 
   /** Values for {@link #SYSTEM_MEMORY_LINUX_SLAB_STATE}. */

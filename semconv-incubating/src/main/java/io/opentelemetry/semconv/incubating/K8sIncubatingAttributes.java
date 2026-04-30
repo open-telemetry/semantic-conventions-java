@@ -421,8 +421,140 @@ public final class K8sIncubatingAttributes {
   /** The name of the Node. */
   public static final AttributeKey<String> K8S_NODE_NAME = stringKey("k8s.node.name");
 
+  /** The name of the system container running on the K8s Node. */
+  public static final AttributeKey<String> K8S_NODE_SYSTEM_CONTAINER_NAME =
+      stringKey("k8s.node.system_container.name");
+
   /** The UID of the Node. */
   public static final AttributeKey<String> K8S_NODE_UID = stringKey("k8s.node.uid");
+
+  /**
+   * The annotation placed on the PersistentVolume, the {@code <key>} being the annotation name, the
+   * value being the annotation value, even if the value is empty.
+   *
+   * <p>Notes:
+   *
+   * <p>Examples:
+   *
+   * <ul>
+   *   <li>An annotation {@code pv.kubernetes.io/provisioned-by} with value {@code
+   *       kubernetes.io/aws-ebs} SHOULD be recorded as the {@code
+   *       k8s.persistentvolume.annotation.pv.kubernetes.io/provisioned-by} attribute with value
+   *       {@code "kubernetes.io/aws-ebs"}.
+   *   <li>An annotation {@code data} with empty string value SHOULD be recorded as the {@code
+   *       k8s.persistentvolume.annotation.data} attribute with value {@code ""}.
+   * </ul>
+   */
+  public static final AttributeKeyTemplate<String> K8S_PERSISTENTVOLUME_ANNOTATION =
+      stringKeyTemplate("k8s.persistentvolume.annotation");
+
+  /**
+   * The label placed on the PersistentVolume, the {@code <key>} being the label name, the value
+   * being the label value, even if the value is empty.
+   *
+   * <p>Notes:
+   *
+   * <p>Examples:
+   *
+   * <ul>
+   *   <li>A label {@code type} with value {@code ssd} SHOULD be recorded as the {@code
+   *       k8s.persistentvolume.label.type} attribute with value {@code "ssd"}.
+   *   <li>A label {@code data} with empty string value SHOULD be recorded as the {@code
+   *       k8s.persistentvolume.label.data} attribute with value {@code ""}.
+   * </ul>
+   */
+  public static final AttributeKeyTemplate<String> K8S_PERSISTENTVOLUME_LABEL =
+      stringKeyTemplate("k8s.persistentvolume.label");
+
+  /** The name of the PersistentVolume. */
+  public static final AttributeKey<String> K8S_PERSISTENTVOLUME_NAME =
+      stringKey("k8s.persistentvolume.name");
+
+  /**
+   * The reclaim policy of the PersistentVolume.
+   *
+   * <p>Notes:
+   *
+   * <p>This attribute aligns with the {@code persistentVolumeReclaimPolicy} field of the <a
+   * href="https://kubernetes.io/docs/reference/kubernetes-api/config-and-storage-resources/persistent-volume-v1/#PersistentVolumeSpec">K8s
+   * PersistentVolumeSpec</a>.
+   */
+  public static final AttributeKey<String> K8S_PERSISTENTVOLUME_RECLAIM_POLICY =
+      stringKey("k8s.persistentvolume.reclaim_policy");
+
+  /**
+   * The phase of the PersistentVolume.
+   *
+   * <p>Notes:
+   *
+   * <p>This attribute aligns with the {@code phase} field of the <a
+   * href="https://kubernetes.io/docs/reference/kubernetes-api/config-and-storage-resources/persistent-volume-v1/#PersistentVolumeStatus">K8s
+   * PersistentVolumeStatus</a>.
+   */
+  public static final AttributeKey<String> K8S_PERSISTENTVOLUME_STATUS_PHASE =
+      stringKey("k8s.persistentvolume.status.phase");
+
+  /** The UID of the PersistentVolume. */
+  public static final AttributeKey<String> K8S_PERSISTENTVOLUME_UID =
+      stringKey("k8s.persistentvolume.uid");
+
+  /**
+   * The annotation placed on the PersistentVolumeClaim, the {@code <key>} being the annotation
+   * name, the value being the annotation value, even if the value is empty.
+   *
+   * <p>Notes:
+   *
+   * <p>Examples:
+   *
+   * <ul>
+   *   <li>An annotation {@code volume.beta.kubernetes.io/storage-provisioner} with value {@code
+   *       kubernetes.io/aws-ebs} SHOULD be recorded as the {@code
+   *       k8s.persistentvolumeclaim.annotation.volume.beta.kubernetes.io/storage-provisioner}
+   *       attribute with value {@code "kubernetes.io/aws-ebs"}.
+   *   <li>An annotation {@code data} with empty string value SHOULD be recorded as the {@code
+   *       k8s.persistentvolumeclaim.annotation.data} attribute with value {@code ""}.
+   * </ul>
+   */
+  public static final AttributeKeyTemplate<String> K8S_PERSISTENTVOLUMECLAIM_ANNOTATION =
+      stringKeyTemplate("k8s.persistentvolumeclaim.annotation");
+
+  /**
+   * The label placed on the PersistentVolumeClaim, the {@code <key>} being the label name, the
+   * value being the label value, even if the value is empty.
+   *
+   * <p>Notes:
+   *
+   * <p>Examples:
+   *
+   * <ul>
+   *   <li>A label {@code app} with value {@code my-app} SHOULD be recorded as the {@code
+   *       k8s.persistentvolumeclaim.label.app} attribute with value {@code "my-app"}.
+   *   <li>A label {@code data} with empty string value SHOULD be recorded as the {@code
+   *       k8s.persistentvolumeclaim.label.data} attribute with value {@code ""}.
+   * </ul>
+   */
+  public static final AttributeKeyTemplate<String> K8S_PERSISTENTVOLUMECLAIM_LABEL =
+      stringKeyTemplate("k8s.persistentvolumeclaim.label");
+
+  /** The name of the PersistentVolumeClaim. */
+  public static final AttributeKey<String> K8S_PERSISTENTVOLUMECLAIM_NAME =
+      stringKey("k8s.persistentvolumeclaim.name");
+
+  /**
+   * The phase of the PersistentVolumeClaim.
+   *
+   * <p>Notes:
+   *
+   * <p>This attribute aligns with the {@code phase} field of the <a
+   * href="https://kubernetes.io/docs/reference/kubernetes-api/config-and-storage-resources/persistent-volume-claim-v1/#PersistentVolumeClaimStatus">K8s
+   * PersistentVolumeClaimStatus</a>.
+   */
+  public static final AttributeKey<String> K8S_PERSISTENTVOLUMECLAIM_STATUS_PHASE =
+      stringKey("k8s.persistentvolumeclaim.status.phase");
+
+  /** The UID of the PersistentVolumeClaim. */
+  public static final AttributeKey<String> K8S_PERSISTENTVOLUMECLAIM_UID =
+      stringKey("k8s.persistentvolumeclaim.uid");
 
   /**
    * The annotation placed on the Pod, the {@code <key>} being the annotation name, the value being
@@ -916,6 +1048,54 @@ public final class K8sIncubatingAttributes {
     public static final String NETWORK_UNAVAILABLE = "NetworkUnavailable";
 
     private K8sNodeConditionTypeIncubatingValues() {}
+  }
+
+  /** Values for {@link #K8S_PERSISTENTVOLUME_RECLAIM_POLICY}. */
+  public static final class K8sPersistentvolumeReclaimPolicyIncubatingValues {
+    /** The volume will be deleted when released from its claim. */
+    public static final String DELETE = "Delete";
+
+    /** The volume will be recycled (basic scrub) when released from its claim. */
+    public static final String RECYCLE = "Recycle";
+
+    /** The volume will be retained when released from its claim. */
+    public static final String RETAIN = "Retain";
+
+    private K8sPersistentvolumeReclaimPolicyIncubatingValues() {}
+  }
+
+  /** Values for {@link #K8S_PERSISTENTVOLUME_STATUS_PHASE}. */
+  public static final class K8sPersistentvolumeStatusPhaseIncubatingValues {
+    /** The volume is available and not yet bound to a claim. */
+    public static final String AVAILABLE = "Available";
+
+    /** The volume is bound to a claim. */
+    public static final String BOUND = "Bound";
+
+    /** The volume has failed its automatic reclamation. */
+    public static final String FAILED = "Failed";
+
+    /** The volume is being provisioned. */
+    public static final String PENDING = "Pending";
+
+    /** The claim has been deleted but the volume is not yet available. */
+    public static final String RELEASED = "Released";
+
+    private K8sPersistentvolumeStatusPhaseIncubatingValues() {}
+  }
+
+  /** Values for {@link #K8S_PERSISTENTVOLUMECLAIM_STATUS_PHASE}. */
+  public static final class K8sPersistentvolumeclaimStatusPhaseIncubatingValues {
+    /** The claim is bound to a volume. */
+    public static final String BOUND = "Bound";
+
+    /** The claim has lost its underlying volume (the volume does not exist anymore). */
+    public static final String LOST = "Lost";
+
+    /** The claim has not yet been bound to a volume. */
+    public static final String PENDING = "Pending";
+
+    private K8sPersistentvolumeclaimStatusPhaseIncubatingValues() {}
   }
 
   /** Values for {@link #K8S_POD_STATUS_PHASE}. */

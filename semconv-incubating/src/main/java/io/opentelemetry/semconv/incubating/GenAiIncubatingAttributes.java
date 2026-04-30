@@ -5,6 +5,7 @@
 
 package io.opentelemetry.semconv.incubating;
 
+import static io.opentelemetry.api.common.AttributeKey.booleanKey;
 import static io.opentelemetry.api.common.AttributeKey.doubleKey;
 import static io.opentelemetry.api.common.AttributeKey.longKey;
 import static io.opentelemetry.api.common.AttributeKey.stringArrayKey;
@@ -233,6 +234,10 @@ public final class GenAiIncubatingAttributes {
   public static final AttributeKey<List<String>> GEN_AI_REQUEST_STOP_SEQUENCES =
       stringArrayKey("gen_ai.request.stop_sequences");
 
+  /** Indicates whether the GenAI request was made in streaming mode. */
+  public static final AttributeKey<Boolean> GEN_AI_REQUEST_STREAM =
+      booleanKey("gen_ai.request.stream");
+
   /** The temperature setting for the GenAI request. */
   public static final AttributeKey<Double> GEN_AI_REQUEST_TEMPERATURE =
       doubleKey("gen_ai.request.temperature");
@@ -256,6 +261,14 @@ public final class GenAiIncubatingAttributes {
   /** The name of the model that generated the response. */
   public static final AttributeKey<String> GEN_AI_RESPONSE_MODEL =
       stringKey("gen_ai.response.model");
+
+  /**
+   * Time to first chunk in a streaming response, measured from request issuance, in seconds. The
+   * value is measured from when the client issues the generation request to when the first chunk is
+   * received in the response stream.
+   */
+  public static final AttributeKey<Double> GEN_AI_RESPONSE_TIME_TO_FIRST_CHUNK =
+      doubleKey("gen_ai.response.time_to_first_chunk");
 
   /**
    * The query text used for retrieval.
@@ -362,6 +375,26 @@ public final class GenAiIncubatingAttributes {
   public static final AttributeKey<Long> GEN_AI_USAGE_PROMPT_TOKENS =
       longKey("gen_ai.usage.prompt_tokens");
 
+  /**
+   * The number of output tokens used for reasoning (e.g. chain-of-thought, extended thinking).
+   *
+   * <p>Notes:
+   *
+   * <p>The value SHOULD be included in {@code gen_ai.usage.output_tokens}.
+   */
+  public static final AttributeKey<Long> GEN_AI_USAGE_REASONING_OUTPUT_TOKENS =
+      longKey("gen_ai.usage.reasoning.output_tokens");
+
+  /**
+   * Human-readable name of the GenAI workflow provided by the application.
+   *
+   * <p>Notes:
+   *
+   * <p>This attribute can be populated in different frameworks eg: name of the first chain in
+   * LangChain OR name of the crew in CrewAI.
+   */
+  public static final AttributeKey<String> GEN_AI_WORKFLOW_NAME = stringKey("gen_ai.workflow.name");
+
   // Enum definitions
 
   /**
@@ -443,6 +476,9 @@ public final class GenAiIncubatingAttributes {
     /** Execute a tool */
     public static final String EXECUTE_TOOL = "execute_tool";
 
+    /** Invoke GenAI workflow */
+    public static final String INVOKE_WORKFLOW = "invoke_workflow";
+
     private GenAiOperationNameIncubatingValues() {}
   }
 
@@ -487,7 +523,8 @@ public final class GenAiIncubatingAttributes {
     public static final String AZURE_AI_INFERENCE = "azure.ai.inference";
 
     /**
-     * <a href="https://azure.microsoft.com/products/ai-services/openai-service/">Azure OpenAI</a>
+     * <a href="https://learn.microsoft.com/en-us/azure/ai-services/openai/overview">Azure
+     * OpenAI</a>
      */
     public static final String AZURE_AI_OPENAI = "azure.ai.openai";
 
