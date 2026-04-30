@@ -7,13 +7,12 @@ with [open-telemetry/semantic-conventions](https://github.com/open-telemetry/sem
 
 Applies to major, minor and patch releases of `open-telemetry/semantic-conventions`.
 
-* Merge a PR to `main` with the following changes:
-  * Update the `CHANGELOG.md`
+* The semantic conventions version bump and code generation are handled automatically by the
+  [auto-update-semconv workflow](.github/workflows/auto-update-semconv.yml), which opens a PR
+  against `main` whenever a new `open-telemetry/semantic-conventions` release is published.
+* Optionally, merge a PR to `main` updating `CHANGELOG.md` if there are any notable changes
+  beyond the straight semantic conventions version update in this release.
     * The heading for the unreleased entries should be `## Unreleased`
-  * Bump the `semanticConventionsVersion` variable in `build.gradle.kts` to version
-    of `semantic-conventions` to be released
-  * Follow the instructions
-    to [generate the semantic conventions](CONTRIBUTING.md#generating-semantic-conventions)
 * Run
   the [Prepare release branch workflow](https://github.com/open-telemetry/semantic-conventions-java/actions/workflows/prepare-release-branch.yml)
   * Press the "Run workflow" button, and leave the default branch `main` selected
