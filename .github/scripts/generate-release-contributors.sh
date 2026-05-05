@@ -78,10 +78,10 @@ query($q: String!, $endCursor: String) {
   | sed 's/^\["//' \
   | sed 's/".*//')
 
-# echo separately to avoid space separator between args when contributors2 is empty
-{ echo "$contributors1"; echo "$contributors2"; } \
+echo "$contributors1" "$contributors2" \
   | sed 's/ /\n/g' \
   | sort -uf \
+  | grep -v '^$' \
   | grep -v codecov \
   | grep -v copilot-pull-request-reviewer \
   | grep -v copilot-swe-agent \
