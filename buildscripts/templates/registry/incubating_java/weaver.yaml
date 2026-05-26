@@ -27,6 +27,18 @@ templates:
       })
     application_mode: each
     file_name: "{{ctx.root_namespace | pascal_case}}IncubatingAttributes.java"
+  - pattern: IncubatingSemanticEvents.java.j2
+    filter: >
+      semconv_signal("event"; {
+        "exclude_root_namespace": $excluded_namespaces
+      })
+      | group_by(.root_namespace)
+      | map({
+          root_namespace: .[0].root_namespace,
+          events: sort_by(.name)
+        })
+    application_mode: each
+    file_name: "{{ctx.root_namespace | pascal_case}}IncubatingEvents.java"
 text_maps:
   java_enum_type:
     int: long
@@ -73,4 +85,3 @@ text_maps:
     int[]: longArrayKeyTemplate
     double[]: doubleArrayKeyTemplate
     boolean[]: booleanArrayKeyTemplate
-

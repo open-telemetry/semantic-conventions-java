@@ -31,6 +31,11 @@ public class AvailabilityTest {
     isValidClass("io.opentelemetry.semconv.SchemaUrls");
   }
 
+  @Test
+  void availableEvents() {
+    isValidClass("io.opentelemetry.semconv.ExceptionEvents");
+  }
+
   private static void isValidClass(String fqcn) {
     Class<?> clazz = null;
     try {
