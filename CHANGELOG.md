@@ -3,7 +3,7 @@
 ## Unreleased
 
 * Bump to semconv v1.42.0
-  ([#PRNUM](https://github.com/open-telemetry/semantic-conventions-java/pull/PRNUM))
+  ([#497](https://github.com/open-telemetry/semantic-conventions-java/pull/497))
 
 ## Version 1.41.1 (2026-05-12)
 
