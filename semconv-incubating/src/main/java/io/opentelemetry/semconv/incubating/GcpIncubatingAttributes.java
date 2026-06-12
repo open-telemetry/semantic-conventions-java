@@ -7,8 +7,10 @@ package io.opentelemetry.semconv.incubating;
 
 import static io.opentelemetry.api.common.AttributeKey.longKey;
 import static io.opentelemetry.api.common.AttributeKey.stringKey;
+import static io.opentelemetry.semconv.AttributeKeyTemplate.stringKeyTemplate;
 
 import io.opentelemetry.api.common.AttributeKey;
+import io.opentelemetry.semconv.AttributeKeyTemplate;
 
 // DO NOT EDIT, this is an Auto-generated file from
 // buildscripts/templates/registry/incubating_java/IncubatingSemanticAttributes.java.j2
@@ -165,6 +167,18 @@ public final class GcpIncubatingAttributes {
    */
   public static final AttributeKey<String> GCP_GCE_INSTANCE_HOSTNAME =
       stringKey("gcp.gce.instance.hostname");
+
+  /**
+   * GCE instance labels, {@code <key>} being the label name and the value being the label value.
+   *
+   * <p>Notes:
+   *
+   * <p>For example, a GCE instance label {@code team} with value {@code observability} SHOULD be
+   * recorded as the {@code gcp.gce.instance.labels.team} attribute with value {@code
+   * "observability"}. The {@code <key>} MUST be the exact GCE instance label key.
+   */
+  public static final AttributeKeyTemplate<String> GCP_GCE_INSTANCE_LABELS =
+      stringKeyTemplate("gcp.gce.instance.labels");
 
   /**
    * The instance name of a GCE instance. This is the value provided by {@code host.name}, the

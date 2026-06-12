@@ -28,6 +28,13 @@ public final class BrowserIncubatingAttributes {
   public static final AttributeKey<List<String>> BROWSER_BRANDS = stringArrayKey("browser.brands");
 
   /**
+   * Absolute URL of the current browser document according to <a
+   * href="https://www.rfc-editor.org/rfc/rfc3986">RFC3986</a>.
+   */
+  public static final AttributeKey<String> BROWSER_DOCUMENT_URL_FULL =
+      stringKey("browser.document.url.full");
+
+  /**
    * Preferred language of the user using the browser
    *
    * <p>Notes:

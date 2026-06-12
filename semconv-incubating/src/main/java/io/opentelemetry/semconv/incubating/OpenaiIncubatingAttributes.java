@@ -13,24 +13,59 @@ import io.opentelemetry.api.common.AttributeKey;
 // buildscripts/templates/registry/incubating_java/IncubatingSemanticAttributes.java.j2
 @SuppressWarnings("unused")
 public final class OpenaiIncubatingAttributes {
-  /** The type of OpenAI API being used. */
+  /**
+   * The type of OpenAI API being used.
+   *
+   * @deprecated Moved to the <a
+   *     href="https://github.com/open-telemetry/semantic-conventions-genai">OpenTelemetry GenAI
+   *     semantic conventions repository</a>.
+   */
+  @Deprecated
   public static final AttributeKey<String> OPENAI_API_TYPE = stringKey("openai.api.type");
 
-  /** The service tier requested. May be a specific tier, default, or auto. */
+  /**
+   * The service tier requested. May be a specific tier, default, or auto.
+   *
+   * @deprecated Moved to the <a
+   *     href="https://github.com/open-telemetry/semantic-conventions-genai">OpenTelemetry GenAI
+   *     semantic conventions repository</a>.
+   */
+  @Deprecated
   public static final AttributeKey<String> OPENAI_REQUEST_SERVICE_TIER =
       stringKey("openai.request.service_tier");
 
-  /** The service tier used for the response. */
+  /**
+   * The service tier used for the response.
+   *
+   * @deprecated Moved to the <a
+   *     href="https://github.com/open-telemetry/semantic-conventions-genai">OpenTelemetry GenAI
+   *     semantic conventions repository</a>.
+   */
+  @Deprecated
   public static final AttributeKey<String> OPENAI_RESPONSE_SERVICE_TIER =
       stringKey("openai.response.service_tier");
 
-  /** A fingerprint to track any eventual change in the Generative AI environment. */
+  /**
+   * A fingerprint to track any eventual change in the Generative AI environment.
+   *
+   * @deprecated Moved to the <a
+   *     href="https://github.com/open-telemetry/semantic-conventions-genai">OpenTelemetry GenAI
+   *     semantic conventions repository</a>.
+   */
+  @Deprecated
   public static final AttributeKey<String> OPENAI_RESPONSE_SYSTEM_FINGERPRINT =
       stringKey("openai.response.system_fingerprint");
 
   // Enum definitions
 
-  /** Values for {@link #OPENAI_API_TYPE}. */
+  /**
+   * Values for {@link #OPENAI_API_TYPE}
+   *
+   * @deprecated Moved to the <a
+   *     href="https://github.com/open-telemetry/semantic-conventions-genai">OpenTelemetry GenAI
+   *     semantic conventions repository</a>.
+   */
+  @Deprecated
   public static final class OpenaiApiTypeIncubatingValues {
     /**
      * The OpenAI <a
@@ -48,7 +83,14 @@ public final class OpenaiIncubatingAttributes {
     private OpenaiApiTypeIncubatingValues() {}
   }
 
-  /** Values for {@link #OPENAI_REQUEST_SERVICE_TIER}. */
+  /**
+   * Values for {@link #OPENAI_REQUEST_SERVICE_TIER}
+   *
+   * @deprecated Moved to the <a
+   *     href="https://github.com/open-telemetry/semantic-conventions-genai">OpenTelemetry GenAI
+   *     semantic conventions repository</a>.
+   */
+  @Deprecated
   public static final class OpenaiRequestServiceTierIncubatingValues {
     /** The system will utilize scale tier credits until they are exhausted. */
     public static final String AUTO = "auto";

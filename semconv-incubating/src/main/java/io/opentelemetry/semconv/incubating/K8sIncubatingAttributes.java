@@ -17,7 +17,13 @@ import io.opentelemetry.semconv.AttributeKeyTemplate;
 // buildscripts/templates/registry/incubating_java/IncubatingSemanticAttributes.java.j2
 @SuppressWarnings("unused")
 public final class K8sIncubatingAttributes {
-  /** The name of the cluster. */
+  /**
+   * The name of the cluster.
+   *
+   * @deprecated deprecated in favor of stable {@link
+   *     io.opentelemetry.semconv.K8sAttributes#K8S_CLUSTER_NAME} attribute.
+   */
+  @Deprecated
   public static final AttributeKey<String> K8S_CLUSTER_NAME = stringKey("k8s.cluster.name");
 
   /**
@@ -46,19 +52,42 @@ public final class K8sIncubatingAttributes {
    * </blockquote>
    *
    * <p>Therefore, UIDs between clusters should be extremely unlikely to conflict.
+   *
+   * @deprecated deprecated in favor of stable {@link
+   *     io.opentelemetry.semconv.K8sAttributes#K8S_CLUSTER_UID} attribute.
    */
+  @Deprecated
   public static final AttributeKey<String> K8S_CLUSTER_UID = stringKey("k8s.cluster.uid");
+
+  /**
+   * The type of file system component for ephemeral storage.
+   *
+   * <p>Notes:
+   *
+   * <p>Eviction decisions based on ephemeral-storage resource limits are made based on the total
+   * container usage.
+   */
+  public static final AttributeKey<String> K8S_CONTAINER_EPHEMERAL_STORAGE_FS_TYPE =
+      stringKey("k8s.container.ephemeral_storage.fs_type");
 
   /**
    * The name of the Container from Pod specification, must be unique within a Pod. Container
    * runtime usually uses different globally unique name ({@code container.name}).
+   *
+   * @deprecated deprecated in favor of stable {@link
+   *     io.opentelemetry.semconv.K8sAttributes#K8S_CONTAINER_NAME} attribute.
    */
+  @Deprecated
   public static final AttributeKey<String> K8S_CONTAINER_NAME = stringKey("k8s.container.name");
 
   /**
    * Number of times the container was restarted. This attribute can be used to identify a
    * particular container (running or stopped) within a container spec.
+   *
+   * @deprecated deprecated in favor of stable {@link
+   *     io.opentelemetry.semconv.K8sAttributes#K8S_CONTAINER_RESTART_COUNT} attribute.
    */
+  @Deprecated
   public static final AttributeKey<Long> K8S_CONTAINER_RESTART_COUNT =
       longKey("k8s.container.restart_count");
 
@@ -68,9 +97,9 @@ public final class K8sIncubatingAttributes {
 
   /**
    * The reason for the container state. Corresponds to the {@code reason} field of the: <a
-   * href="https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#containerstatewaiting-v1-core">K8s
+   * href="https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.34/#containerstatewaiting-v1-core">K8s
    * ContainerStateWaiting</a> or <a
-   * href="https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#containerstateterminated-v1-core">K8s
+   * href="https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.34/#containerstateterminated-v1-core">K8s
    * ContainerStateTerminated</a>
    */
   public static final AttributeKey<String> K8S_CONTAINER_STATUS_REASON =
@@ -78,7 +107,7 @@ public final class K8sIncubatingAttributes {
 
   /**
    * The state of the container. <a
-   * href="https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#containerstate-v1-core">K8s
+   * href="https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.34/#containerstate-v1-core">K8s
    * ContainerState</a>
    */
   public static final AttributeKey<String> K8S_CONTAINER_STATUS_STATE =
@@ -98,7 +127,11 @@ public final class K8sIncubatingAttributes {
    *   <li>An annotation {@code data} with empty string value SHOULD be recorded as the {@code
    *       k8s.cronjob.annotation.data} attribute with value {@code ""}.
    * </ul>
+   *
+   * @deprecated deprecated in favor of stable {@link
+   *     io.opentelemetry.semconv.K8sAttributes#K8S_CRONJOB_ANNOTATION} attribute.
    */
+  @Deprecated
   public static final AttributeKeyTemplate<String> K8S_CRONJOB_ANNOTATION =
       stringKeyTemplate("k8s.cronjob.annotation");
 
@@ -116,14 +149,30 @@ public final class K8sIncubatingAttributes {
    *   <li>A label {@code automated} with empty string value SHOULD be recorded as the {@code
    *       k8s.cronjob.label.automated} attribute with value {@code ""}.
    * </ul>
+   *
+   * @deprecated deprecated in favor of stable {@link
+   *     io.opentelemetry.semconv.K8sAttributes#K8S_CRONJOB_LABEL} attribute.
    */
+  @Deprecated
   public static final AttributeKeyTemplate<String> K8S_CRONJOB_LABEL =
       stringKeyTemplate("k8s.cronjob.label");
 
-  /** The name of the CronJob. */
+  /**
+   * The name of the CronJob.
+   *
+   * @deprecated deprecated in favor of stable {@link
+   *     io.opentelemetry.semconv.K8sAttributes#K8S_CRONJOB_NAME} attribute.
+   */
+  @Deprecated
   public static final AttributeKey<String> K8S_CRONJOB_NAME = stringKey("k8s.cronjob.name");
 
-  /** The UID of the CronJob. */
+  /**
+   * The UID of the CronJob.
+   *
+   * @deprecated deprecated in favor of stable {@link
+   *     io.opentelemetry.semconv.K8sAttributes#K8S_CRONJOB_UID} attribute.
+   */
+  @Deprecated
   public static final AttributeKey<String> K8S_CRONJOB_UID = stringKey("k8s.cronjob.uid");
 
   /**
@@ -140,7 +189,11 @@ public final class K8sIncubatingAttributes {
    *   <li>A label {@code data} with empty string value SHOULD be recorded as the {@code
    *       k8s.daemonset.annotation.data} attribute with value {@code ""}.
    * </ul>
+   *
+   * @deprecated deprecated in favor of stable {@link
+   *     io.opentelemetry.semconv.K8sAttributes#K8S_DAEMONSET_ANNOTATION} attribute.
    */
+  @Deprecated
   public static final AttributeKeyTemplate<String> K8S_DAEMONSET_ANNOTATION =
       stringKeyTemplate("k8s.daemonset.annotation");
 
@@ -158,14 +211,30 @@ public final class K8sIncubatingAttributes {
    *   <li>A label {@code data} with empty string value SHOULD be recorded as the {@code
    *       k8s.daemonset.label.injected} attribute with value {@code ""}.
    * </ul>
+   *
+   * @deprecated deprecated in favor of stable {@link
+   *     io.opentelemetry.semconv.K8sAttributes#K8S_DAEMONSET_LABEL} attribute.
    */
+  @Deprecated
   public static final AttributeKeyTemplate<String> K8S_DAEMONSET_LABEL =
       stringKeyTemplate("k8s.daemonset.label");
 
-  /** The name of the DaemonSet. */
+  /**
+   * The name of the DaemonSet.
+   *
+   * @deprecated deprecated in favor of stable {@link
+   *     io.opentelemetry.semconv.K8sAttributes#K8S_DAEMONSET_NAME} attribute.
+   */
+  @Deprecated
   public static final AttributeKey<String> K8S_DAEMONSET_NAME = stringKey("k8s.daemonset.name");
 
-  /** The UID of the DaemonSet. */
+  /**
+   * The UID of the DaemonSet.
+   *
+   * @deprecated deprecated in favor of stable {@link
+   *     io.opentelemetry.semconv.K8sAttributes#K8S_DAEMONSET_UID} attribute.
+   */
+  @Deprecated
   public static final AttributeKey<String> K8S_DAEMONSET_UID = stringKey("k8s.daemonset.uid");
 
   /**
@@ -182,7 +251,11 @@ public final class K8sIncubatingAttributes {
    *   <li>A label {@code data} with empty string value SHOULD be recorded as the {@code
    *       k8s.deployment.annotation.data} attribute with value {@code ""}.
    * </ul>
+   *
+   * @deprecated deprecated in favor of stable {@link
+   *     io.opentelemetry.semconv.K8sAttributes#K8S_DEPLOYMENT_ANNOTATION} attribute.
    */
+  @Deprecated
   public static final AttributeKeyTemplate<String> K8S_DEPLOYMENT_ANNOTATION =
       stringKeyTemplate("k8s.deployment.annotation");
 
@@ -200,14 +273,30 @@ public final class K8sIncubatingAttributes {
    *   <li>A label {@code injected} with empty string value SHOULD be recorded as the {@code
    *       k8s.deployment.label.injected} attribute with value {@code ""}.
    * </ul>
+   *
+   * @deprecated deprecated in favor of stable {@link
+   *     io.opentelemetry.semconv.K8sAttributes#K8S_DEPLOYMENT_LABEL} attribute.
    */
+  @Deprecated
   public static final AttributeKeyTemplate<String> K8S_DEPLOYMENT_LABEL =
       stringKeyTemplate("k8s.deployment.label");
 
-  /** The name of the Deployment. */
+  /**
+   * The name of the Deployment.
+   *
+   * @deprecated deprecated in favor of stable {@link
+   *     io.opentelemetry.semconv.K8sAttributes#K8S_DEPLOYMENT_NAME} attribute.
+   */
+  @Deprecated
   public static final AttributeKey<String> K8S_DEPLOYMENT_NAME = stringKey("k8s.deployment.name");
 
-  /** The UID of the Deployment. */
+  /**
+   * The UID of the Deployment.
+   *
+   * @deprecated deprecated in favor of stable {@link
+   *     io.opentelemetry.semconv.K8sAttributes#K8S_DEPLOYMENT_UID} attribute.
+   */
+  @Deprecated
   public static final AttributeKey<String> K8S_DEPLOYMENT_UID = stringKey("k8s.deployment.uid");
 
   /**
@@ -272,7 +361,11 @@ public final class K8sIncubatingAttributes {
    *   <li>A label {@code data} with empty string value SHOULD be recorded as the {@code
    *       k8s.job.annotation.data} attribute with value {@code ""}.
    * </ul>
+   *
+   * @deprecated deprecated in favor of stable {@link
+   *     io.opentelemetry.semconv.K8sAttributes#K8S_JOB_ANNOTATION} attribute.
    */
+  @Deprecated
   public static final AttributeKeyTemplate<String> K8S_JOB_ANNOTATION =
       stringKeyTemplate("k8s.job.annotation");
 
@@ -290,15 +383,29 @@ public final class K8sIncubatingAttributes {
    *   <li>A label {@code data} with empty string value SHOULD be recorded as the {@code
    *       k8s.job.label.automated} attribute with value {@code ""}.
    * </ul>
+   *
+   * @deprecated deprecated in favor of stable {@link
+   *     io.opentelemetry.semconv.K8sAttributes#K8S_JOB_LABEL} attribute.
    */
+  @Deprecated
   public static final AttributeKeyTemplate<String> K8S_JOB_LABEL =
       stringKeyTemplate("k8s.job.label");
 
-  /** The name of the Job. */
-  public static final AttributeKey<String> K8S_JOB_NAME = stringKey("k8s.job.name");
+  /**
+   * The name of the Job.
+   *
+   * @deprecated deprecated in favor of stable {@link
+   *     io.opentelemetry.semconv.K8sAttributes#K8S_JOB_NAME} attribute.
+   */
+  @Deprecated public static final AttributeKey<String> K8S_JOB_NAME = stringKey("k8s.job.name");
 
-  /** The UID of the Job. */
-  public static final AttributeKey<String> K8S_JOB_UID = stringKey("k8s.job.uid");
+  /**
+   * The UID of the Job.
+   *
+   * @deprecated deprecated in favor of stable {@link
+   *     io.opentelemetry.semconv.K8sAttributes#K8S_JOB_UID} attribute.
+   */
+  @Deprecated public static final AttributeKey<String> K8S_JOB_UID = stringKey("k8s.job.uid");
 
   /**
    * The annotation placed on the Namespace, the {@code <key>} being the annotation name, the value
@@ -314,7 +421,11 @@ public final class K8sIncubatingAttributes {
    *   <li>A label {@code data} with empty string value SHOULD be recorded as the {@code
    *       k8s.namespace.annotation.data} attribute with value {@code ""}.
    * </ul>
+   *
+   * @deprecated deprecated in favor of stable {@link
+   *     io.opentelemetry.semconv.K8sAttributes#K8S_NAMESPACE_ANNOTATION} attribute.
    */
+  @Deprecated
   public static final AttributeKeyTemplate<String> K8S_NAMESPACE_ANNOTATION =
       stringKeyTemplate("k8s.namespace.annotation");
 
@@ -333,11 +444,21 @@ public final class K8sIncubatingAttributes {
    *   <li>A label {@code data} with empty string value SHOULD be recorded as the {@code
    *       k8s.namespace.label.data} attribute with value {@code ""}.
    * </ul>
+   *
+   * @deprecated deprecated in favor of stable {@link
+   *     io.opentelemetry.semconv.K8sAttributes#K8S_NAMESPACE_LABEL} attribute.
    */
+  @Deprecated
   public static final AttributeKeyTemplate<String> K8S_NAMESPACE_LABEL =
       stringKeyTemplate("k8s.namespace.label");
 
-  /** The name of the namespace that the pod is running in. */
+  /**
+   * The name of the namespace that the pod is running in.
+   *
+   * @deprecated deprecated in favor of stable {@link
+   *     io.opentelemetry.semconv.K8sAttributes#K8S_NAMESPACE_NAME} attribute.
+   */
+  @Deprecated
   public static final AttributeKey<String> K8S_NAMESPACE_NAME = stringKey("k8s.namespace.name");
 
   /**
@@ -346,7 +467,7 @@ public final class K8sIncubatingAttributes {
    * <p>Notes:
    *
    * <p>This attribute aligns with the {@code phase} field of the <a
-   * href="https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#namespacestatus-v1-core">K8s
+   * href="https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.34/#namespacestatus-v1-core">K8s
    * NamespaceStatus</a>
    */
   public static final AttributeKey<String> K8S_NAMESPACE_PHASE = stringKey("k8s.namespace.phase");
@@ -366,7 +487,11 @@ public final class K8sIncubatingAttributes {
    *   <li>An annotation {@code data} with empty string value SHOULD be recorded as the {@code
    *       k8s.node.annotation.data} attribute with value {@code ""}.
    * </ul>
+   *
+   * @deprecated deprecated in favor of stable {@link
+   *     io.opentelemetry.semconv.K8sAttributes#K8S_NODE_ANNOTATION} attribute.
    */
+  @Deprecated
   public static final AttributeKeyTemplate<String> K8S_NODE_ANNOTATION =
       stringKeyTemplate("k8s.node.annotation");
 
@@ -376,7 +501,7 @@ public final class K8sIncubatingAttributes {
    * <p>Notes:
    *
    * <p>This attribute aligns with the {@code status} field of the <a
-   * href="https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#nodecondition-v1-core">NodeCondition</a>
+   * href="https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.34/#nodecondition-v1-core">NodeCondition</a>
    */
   public static final AttributeKey<String> K8S_NODE_CONDITION_STATUS =
       stringKey("k8s.node.condition.status");
@@ -387,11 +512,10 @@ public final class K8sIncubatingAttributes {
    * <p>Notes:
    *
    * <p>K8s Node conditions as described by <a
-   * href="https://v1-32.docs.kubernetes.io/docs/reference/node/node-status/#condition">K8s
-   * documentation</a>.
+   * href="https://kubernetes.io/docs/reference/node/node-status/#condition">K8s documentation</a>.
    *
    * <p>This attribute aligns with the {@code type} field of the <a
-   * href="https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#nodecondition-v1-core">NodeCondition</a>
+   * href="https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.34/#nodecondition-v1-core">NodeCondition</a>
    *
    * <p>The set of possible values is not limited to those listed here. Managed Kubernetes
    * environments, or custom controllers MAY introduce additional node condition types. When this
@@ -414,19 +538,33 @@ public final class K8sIncubatingAttributes {
    *   <li>A label {@code data} with empty string value SHOULD be recorded as the {@code
    *       k8s.node.label.data} attribute with value {@code ""}.
    * </ul>
+   *
+   * @deprecated deprecated in favor of stable {@link
+   *     io.opentelemetry.semconv.K8sAttributes#K8S_NODE_LABEL} attribute.
    */
+  @Deprecated
   public static final AttributeKeyTemplate<String> K8S_NODE_LABEL =
       stringKeyTemplate("k8s.node.label");
 
-  /** The name of the Node. */
-  public static final AttributeKey<String> K8S_NODE_NAME = stringKey("k8s.node.name");
+  /**
+   * The name of the Node.
+   *
+   * @deprecated deprecated in favor of stable {@link
+   *     io.opentelemetry.semconv.K8sAttributes#K8S_NODE_NAME} attribute.
+   */
+  @Deprecated public static final AttributeKey<String> K8S_NODE_NAME = stringKey("k8s.node.name");
 
   /** The name of the system container running on the K8s Node. */
   public static final AttributeKey<String> K8S_NODE_SYSTEM_CONTAINER_NAME =
       stringKey("k8s.node.system_container.name");
 
-  /** The UID of the Node. */
-  public static final AttributeKey<String> K8S_NODE_UID = stringKey("k8s.node.uid");
+  /**
+   * The UID of the Node.
+   *
+   * @deprecated deprecated in favor of stable {@link
+   *     io.opentelemetry.semconv.K8sAttributes#K8S_NODE_UID} attribute.
+   */
+  @Deprecated public static final AttributeKey<String> K8S_NODE_UID = stringKey("k8s.node.uid");
 
   /**
    * The annotation placed on the PersistentVolume, the {@code <key>} being the annotation name, the
@@ -574,7 +712,11 @@ public final class K8sIncubatingAttributes {
    *   <li>An annotation {@code data} with empty string value SHOULD be recorded as the {@code
    *       k8s.pod.annotation.data} attribute with value {@code ""}.
    * </ul>
+   *
+   * @deprecated deprecated in favor of stable {@link
+   *     io.opentelemetry.semconv.K8sAttributes#K8S_POD_ANNOTATION} attribute.
    */
+  @Deprecated
   public static final AttributeKeyTemplate<String> K8S_POD_ANNOTATION =
       stringKeyTemplate("k8s.pod.annotation");
 
@@ -591,7 +733,11 @@ public final class K8sIncubatingAttributes {
    * <p>This attribute aligns with the {@code hostname} field of the <a
    * href="https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.34/#podspec-v1-core">K8s
    * PodSpec</a>.
+   *
+   * @deprecated deprecated in favor of stable {@link
+   *     io.opentelemetry.semconv.K8sAttributes#K8S_POD_HOSTNAME} attribute.
    */
+  @Deprecated
   public static final AttributeKey<String> K8S_POD_HOSTNAME = stringKey("k8s.pod.hostname");
 
   /**
@@ -602,8 +748,11 @@ public final class K8sIncubatingAttributes {
    * <p>This attribute aligns with the {@code podIP} field of the <a
    * href="https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.34/#podstatus-v1-core">K8s
    * PodStatus</a>.
+   *
+   * @deprecated deprecated in favor of stable {@link
+   *     io.opentelemetry.semconv.K8sAttributes#K8S_POD_IP} attribute.
    */
-  public static final AttributeKey<String> K8S_POD_IP = stringKey("k8s.pod.ip");
+  @Deprecated public static final AttributeKey<String> K8S_POD_IP = stringKey("k8s.pod.ip");
 
   /**
    * The label placed on the Pod, the {@code <key>} being the label name, the value being the label
@@ -621,7 +770,11 @@ public final class K8sIncubatingAttributes {
    *   <li>A label {@code data} with empty string value SHOULD be recorded as the {@code
    *       k8s.pod.label.data} attribute with value {@code ""}.
    * </ul>
+   *
+   * @deprecated deprecated in favor of stable {@link
+   *     io.opentelemetry.semconv.K8sAttributes#K8S_POD_LABEL} attribute.
    */
+  @Deprecated
   public static final AttributeKeyTemplate<String> K8S_POD_LABEL =
       stringKeyTemplate("k8s.pod.label");
 
@@ -634,8 +787,13 @@ public final class K8sIncubatingAttributes {
   public static final AttributeKeyTemplate<String> K8S_POD_LABELS =
       stringKeyTemplate("k8s.pod.labels");
 
-  /** The name of the Pod. */
-  public static final AttributeKey<String> K8S_POD_NAME = stringKey("k8s.pod.name");
+  /**
+   * The name of the Pod.
+   *
+   * @deprecated deprecated in favor of stable {@link
+   *     io.opentelemetry.semconv.K8sAttributes#K8S_POD_NAME} attribute.
+   */
+  @Deprecated public static final AttributeKey<String> K8S_POD_NAME = stringKey("k8s.pod.name");
 
   /**
    * The start timestamp of the Pod.
@@ -648,7 +806,11 @@ public final class K8sIncubatingAttributes {
    * <p>This attribute aligns with the {@code startTime} field of the <a
    * href="https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.34/#podstatus-v1-core">K8s
    * PodStatus</a>, in ISO 8601 (RFC 3339 compatible) format.
+   *
+   * @deprecated deprecated in favor of stable {@link
+   *     io.opentelemetry.semconv.K8sAttributes#K8S_POD_START_TIME} attribute.
    */
+  @Deprecated
   public static final AttributeKey<String> K8S_POD_START_TIME = stringKey("k8s.pod.start_time");
 
   /**
@@ -666,8 +828,13 @@ public final class K8sIncubatingAttributes {
   public static final AttributeKey<String> K8S_POD_STATUS_REASON =
       stringKey("k8s.pod.status.reason");
 
-  /** The UID of the Pod. */
-  public static final AttributeKey<String> K8S_POD_UID = stringKey("k8s.pod.uid");
+  /**
+   * The UID of the Pod.
+   *
+   * @deprecated deprecated in favor of stable {@link
+   *     io.opentelemetry.semconv.K8sAttributes#K8S_POD_UID} attribute.
+   */
+  @Deprecated public static final AttributeKey<String> K8S_POD_UID = stringKey("k8s.pod.uid");
 
   /**
    * The annotation placed on the ReplicaSet, the {@code <key>} being the annotation name, the value
@@ -683,7 +850,11 @@ public final class K8sIncubatingAttributes {
    *   <li>A label {@code data} with empty string value SHOULD be recorded as the {@code
    *       k8s.replicaset.annotation.data} attribute with value {@code ""}.
    * </ul>
+   *
+   * @deprecated deprecated in favor of stable {@link
+   *     io.opentelemetry.semconv.K8sAttributes#K8S_REPLICASET_ANNOTATION} attribute.
    */
+  @Deprecated
   public static final AttributeKeyTemplate<String> K8S_REPLICASET_ANNOTATION =
       stringKeyTemplate("k8s.replicaset.annotation");
 
@@ -701,14 +872,30 @@ public final class K8sIncubatingAttributes {
    *   <li>A label {@code injected} with empty string value SHOULD be recorded as the {@code
    *       k8s.replicaset.label.injected} attribute with value {@code ""}.
    * </ul>
+   *
+   * @deprecated deprecated in favor of stable {@link
+   *     io.opentelemetry.semconv.K8sAttributes#K8S_REPLICASET_LABEL} attribute.
    */
+  @Deprecated
   public static final AttributeKeyTemplate<String> K8S_REPLICASET_LABEL =
       stringKeyTemplate("k8s.replicaset.label");
 
-  /** The name of the ReplicaSet. */
+  /**
+   * The name of the ReplicaSet.
+   *
+   * @deprecated deprecated in favor of stable {@link
+   *     io.opentelemetry.semconv.K8sAttributes#K8S_REPLICASET_NAME} attribute.
+   */
+  @Deprecated
   public static final AttributeKey<String> K8S_REPLICASET_NAME = stringKey("k8s.replicaset.name");
 
-  /** The UID of the ReplicaSet. */
+  /**
+   * The UID of the ReplicaSet.
+   *
+   * @deprecated deprecated in favor of stable {@link
+   *     io.opentelemetry.semconv.K8sAttributes#K8S_REPLICASET_UID} attribute.
+   */
+  @Deprecated
   public static final AttributeKey<String> K8S_REPLICASET_UID = stringKey("k8s.replicaset.uid");
 
   /** The name of the replication controller. */
@@ -909,7 +1096,11 @@ public final class K8sIncubatingAttributes {
    *   <li>A label {@code data} with empty string value SHOULD be recorded as the {@code
    *       k8s.statefulset.annotation.data} attribute with value {@code ""}.
    * </ul>
+   *
+   * @deprecated deprecated in favor of stable {@link
+   *     io.opentelemetry.semconv.K8sAttributes#K8S_STATEFULSET_ANNOTATION} attribute.
    */
+  @Deprecated
   public static final AttributeKeyTemplate<String> K8S_STATEFULSET_ANNOTATION =
       stringKeyTemplate("k8s.statefulset.annotation");
 
@@ -927,19 +1118,35 @@ public final class K8sIncubatingAttributes {
    *   <li>A label {@code injected} with empty string value SHOULD be recorded as the {@code
    *       k8s.statefulset.label.injected} attribute with value {@code ""}.
    * </ul>
+   *
+   * @deprecated deprecated in favor of stable {@link
+   *     io.opentelemetry.semconv.K8sAttributes#K8S_STATEFULSET_LABEL} attribute.
    */
+  @Deprecated
   public static final AttributeKeyTemplate<String> K8S_STATEFULSET_LABEL =
       stringKeyTemplate("k8s.statefulset.label");
 
-  /** The name of the StatefulSet. */
+  /**
+   * The name of the StatefulSet.
+   *
+   * @deprecated deprecated in favor of stable {@link
+   *     io.opentelemetry.semconv.K8sAttributes#K8S_STATEFULSET_NAME} attribute.
+   */
+  @Deprecated
   public static final AttributeKey<String> K8S_STATEFULSET_NAME = stringKey("k8s.statefulset.name");
 
-  /** The UID of the StatefulSet. */
+  /**
+   * The UID of the StatefulSet.
+   *
+   * @deprecated deprecated in favor of stable {@link
+   *     io.opentelemetry.semconv.K8sAttributes#K8S_STATEFULSET_UID} attribute.
+   */
+  @Deprecated
   public static final AttributeKey<String> K8S_STATEFULSET_UID = stringKey("k8s.statefulset.uid");
 
   /**
    * The name of K8s <a
-   * href="https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#storageclass-v1-storage-k8s-io">StorageClass</a>
+   * href="https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.34/#storageclass-v1-storage-k8s-io">StorageClass</a>
    * object.
    */
   public static final AttributeKey<String> K8S_STORAGECLASS_NAME =
@@ -952,6 +1159,17 @@ public final class K8sIncubatingAttributes {
   public static final AttributeKey<String> K8S_VOLUME_TYPE = stringKey("k8s.volume.type");
 
   // Enum definitions
+
+  /** Values for {@link #K8S_CONTAINER_EPHEMERAL_STORAGE_FS_TYPE}. */
+  public static final class K8sContainerEphemeralStorageFsTypeIncubatingValues {
+    /** For the container's writable layer usage. */
+    public static final String ROOTFS = "rootfs";
+
+    /** For the container's log files usage (stdout/stderr). */
+    public static final String LOGS = "logs";
+
+    private K8sContainerEphemeralStorageFsTypeIncubatingValues() {}
+  }
 
   /** Values for {@link #K8S_CONTAINER_STATUS_REASON}. */
   public static final class K8sContainerStatusReasonIncubatingValues {
@@ -1209,42 +1427,33 @@ public final class K8sIncubatingAttributes {
   public static final class K8sVolumeTypeIncubatingValues {
     /**
      * A <a
-     * href="https://v1-30.docs.kubernetes.io/docs/concepts/storage/volumes/#persistentvolumeclaim">persistentVolumeClaim</a>
+     * href="https://kubernetes.io/docs/concepts/storage/volumes/#persistentvolumeclaim">persistentVolumeClaim</a>
      * volume
      */
     public static final String PERSISTENT_VOLUME_CLAIM = "persistentVolumeClaim";
 
     /**
-     * A <a
-     * href="https://v1-30.docs.kubernetes.io/docs/concepts/storage/volumes/#configmap">configMap</a>
+     * A <a href="https://kubernetes.io/docs/concepts/storage/volumes/#configmap">configMap</a>
      * volume
      */
     public static final String CONFIG_MAP = "configMap";
 
     /**
-     * A <a
-     * href="https://v1-30.docs.kubernetes.io/docs/concepts/storage/volumes/#downwardapi">downwardAPI</a>
+     * A <a href="https://kubernetes.io/docs/concepts/storage/volumes/#downwardapi">downwardAPI</a>
      * volume
      */
     public static final String DOWNWARD_API = "downwardAPI";
 
     /**
-     * An <a
-     * href="https://v1-30.docs.kubernetes.io/docs/concepts/storage/volumes/#emptydir">emptyDir</a>
+     * An <a href="https://kubernetes.io/docs/concepts/storage/volumes/#emptydir">emptyDir</a>
      * volume
      */
     public static final String EMPTY_DIR = "emptyDir";
 
-    /**
-     * A <a href="https://v1-30.docs.kubernetes.io/docs/concepts/storage/volumes/#secret">secret</a>
-     * volume
-     */
+    /** A <a href="https://kubernetes.io/docs/concepts/storage/volumes/#secret">secret</a> volume */
     public static final String SECRET = "secret";
 
-    /**
-     * A <a href="https://v1-30.docs.kubernetes.io/docs/concepts/storage/volumes/#local">local</a>
-     * volume
-     */
+    /** A <a href="https://kubernetes.io/docs/concepts/storage/volumes/#local">local</a> volume */
     public static final String LOCAL = "local";
 
     private K8sVolumeTypeIncubatingValues() {}
