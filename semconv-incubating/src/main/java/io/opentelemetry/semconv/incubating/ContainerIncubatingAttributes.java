@@ -72,8 +72,11 @@ public final class ContainerIncubatingAttributes {
    * Container ID. Usually a UUID, as for example used to <a
    * href="https://docs.docker.com/engine/containers/run/#container-identification">identify Docker
    * containers</a>. The UUID might be abbreviated.
+   *
+   * @deprecated deprecated in favor of stable {@link
+   *     io.opentelemetry.semconv.ContainerAttributes#CONTAINER_ID} attribute.
    */
-  public static final AttributeKey<String> CONTAINER_ID = stringKey("container.id");
+  @Deprecated public static final AttributeKey<String> CONTAINER_ID = stringKey("container.id");
 
   /**
    * Runtime specific image identifier. Usually a hash algorithm followed by a UUID.
@@ -92,7 +95,13 @@ public final class ContainerIncubatingAttributes {
    */
   public static final AttributeKey<String> CONTAINER_IMAGE_ID = stringKey("container.image.id");
 
-  /** Name of the image the container was built on. */
+  /**
+   * Name of the image the container was built on.
+   *
+   * @deprecated deprecated in favor of stable {@link
+   *     io.opentelemetry.semconv.ContainerAttributes#CONTAINER_IMAGE_NAME} attribute.
+   */
+  @Deprecated
   public static final AttributeKey<String> CONTAINER_IMAGE_NAME = stringKey("container.image.name");
 
   /**
@@ -105,7 +114,11 @@ public final class ContainerIncubatingAttributes {
    * and <a
    * href="https://github.com/kubernetes/cri-api/blob/c75ef5b473bbe2d0a4fc92f82235efd665ea8e9f/pkg/apis/runtime/v1/api.proto#L1237-L1238">CRI</a>
    * report those under the {@code RepoDigests} field.
+   *
+   * @deprecated deprecated in favor of stable {@link
+   *     io.opentelemetry.semconv.ContainerAttributes#CONTAINER_IMAGE_REPO_DIGESTS} attribute.
    */
+  @Deprecated
   public static final AttributeKey<List<String>> CONTAINER_IMAGE_REPO_DIGESTS =
       stringArrayKey("container.image.repo_digests");
 
@@ -114,7 +127,11 @@ public final class ContainerIncubatingAttributes {
    * href="https://docs.docker.com/reference/api/engine/version/v1.52/#tag/Image/operation/ImageInspect">Docker
    * Image Inspect</a>. Should be only the {@code <tag>} section of the full name for example from
    * {@code registry.example.com/my-org/my-image:<tag>}.
+   *
+   * @deprecated deprecated in favor of stable {@link
+   *     io.opentelemetry.semconv.ContainerAttributes#CONTAINER_IMAGE_TAGS} attribute.
    */
+  @Deprecated
   public static final AttributeKey<List<String>> CONTAINER_IMAGE_TAGS =
       stringArrayKey("container.image.tags");
 
