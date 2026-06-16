@@ -100,6 +100,25 @@ public final class FileIncubatingAttributes {
   /** Inode representing the file in the filesystem. */
   public static final AttributeKey<String> FILE_INODE = stringKey("file.inode");
 
+  /**
+   * The lock mechanism such as noted by <a
+   * href="https://pubs.opengroup.org/onlinepubs/9699919799/functions/fcntl.html">POSIX</a>
+   */
+  public static final AttributeKey<String> FILE_LOCK_MECHANISM = stringKey("file.lock.mechanism");
+
+  /**
+   * Mode of lock or operation such as documented by <a
+   * href="https://pubs.opengroup.org/onlinepubs/9699919799/functions/fcntl.html">POSIX</a>
+   */
+  public static final AttributeKey<String> FILE_LOCK_MODE = stringKey("file.lock.mode");
+
+  /**
+   * The lock type as represented by i.e. <a
+   * href="https://pubs.opengroup.org/onlinepubs/9699919799/functions/fcntl.html">POSIX</a>'s
+   * l_type.
+   */
+  public static final AttributeKey<String> FILE_LOCK_TYPE = stringKey("file.lock.type");
+
   /** Mode of the file in octal representation. */
   public static final AttributeKey<String> FILE_MODE = stringKey("file.mode");
 
@@ -135,6 +154,17 @@ public final class FileIncubatingAttributes {
       stringKey("file.symbolic_link.target_path");
 
   // Enum definitions
+
+  /** Values for {@link #FILE_LOCK_TYPE}. */
+  public static final class FileLockTypeIncubatingValues {
+    /** read. */
+    public static final String READ = "read";
+
+    /** write. */
+    public static final String WRITE = "write";
+
+    private FileLockTypeIncubatingValues() {}
+  }
 
   private FileIncubatingAttributes() {}
 }

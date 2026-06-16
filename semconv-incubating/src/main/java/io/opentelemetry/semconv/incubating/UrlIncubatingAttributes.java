@@ -71,11 +71,14 @@ public final class UrlIncubatingAttributes {
    *
    * <ul>
    *   <li><a
-   *       href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/RESTAuthentication.html#RESTAuthenticationQueryStringAuth">{@code
-   *       AWSAccessKeyId}</a>
+   *       href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_sigv-authentication-methods.html">{@code
+   *       X-Amz-Signature}</a>
    *   <li><a
-   *       href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/RESTAuthentication.html#RESTAuthenticationQueryStringAuth">{@code
-   *       Signature}</a>
+   *       href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_sigv-authentication-methods.html">{@code
+   *       X-Amz-Credential}</a>
+   *   <li><a
+   *       href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_sigv-authentication-methods.html">{@code
+   *       X-Amz-Security-Token}</a>
    *   <li><a
    *       href="https://learn.microsoft.com/azure/storage/common/storage-sas-overview#sas-token">{@code
    *       sig}</a>
@@ -143,11 +146,14 @@ public final class UrlIncubatingAttributes {
    *
    * <ul>
    *   <li><a
-   *       href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/RESTAuthentication.html#RESTAuthenticationQueryStringAuth">{@code
-   *       AWSAccessKeyId}</a>
+   *       href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_sigv-authentication-methods.html">{@code
+   *       X-Amz-Signature}</a>
    *   <li><a
-   *       href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/RESTAuthentication.html#RESTAuthenticationQueryStringAuth">{@code
-   *       Signature}</a>
+   *       href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_sigv-authentication-methods.html">{@code
+   *       X-Amz-Credential}</a>
+   *   <li><a
+   *       href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_sigv-authentication-methods.html">{@code
+   *       X-Amz-Security-Token}</a>
    *   <li><a
    *       href="https://learn.microsoft.com/azure/storage/common/storage-sas-overview#sas-token">{@code
    *       sig}</a>

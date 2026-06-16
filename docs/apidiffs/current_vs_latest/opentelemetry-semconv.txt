@@ -1,2 +1,56 @@
-Comparing source compatibility of opentelemetry-semconv-1.41.1-SNAPSHOT.jar against opentelemetry-semconv-1.41.1.jar
-No changes.
+Comparing source compatibility of opentelemetry-semconv-1.42.0-SNAPSHOT.jar against opentelemetry-semconv-1.41.1.jar
++++  NEW CLASS: PUBLIC(+) FINAL(+) io.opentelemetry.semconv.ContainerAttributes  (not serializable)
+	+++  CLASS FILE FORMAT VERSION: 52.0 <- n.a.
+	+++  NEW SUPERCLASS: java.lang.Object
+	+++  NEW FIELD: PUBLIC(+) STATIC(+) FINAL(+) io.opentelemetry.api.common.AttributeKey<java.lang.String> CONTAINER_IMAGE_NAME
+	+++  NEW FIELD: PUBLIC(+) STATIC(+) FINAL(+) io.opentelemetry.api.common.AttributeKey<java.util.List<java.lang.String>> CONTAINER_IMAGE_TAGS
+	+++  NEW FIELD: PUBLIC(+) STATIC(+) FINAL(+) io.opentelemetry.api.common.AttributeKey<java.util.List<java.lang.String>> CONTAINER_IMAGE_REPO_DIGESTS
+	+++  NEW FIELD: PUBLIC(+) STATIC(+) FINAL(+) io.opentelemetry.api.common.AttributeKey<java.lang.String> CONTAINER_ID
++++  NEW CLASS: PUBLIC(+) FINAL(+) io.opentelemetry.semconv.K8sAttributes  (not serializable)
+	+++  CLASS FILE FORMAT VERSION: 52.0 <- n.a.
+	+++  NEW SUPERCLASS: java.lang.Object
+	+++  NEW FIELD: PUBLIC(+) STATIC(+) FINAL(+) io.opentelemetry.api.common.AttributeKey<java.lang.String> K8S_CONTAINER_NAME
+	+++  NEW FIELD: PUBLIC(+) STATIC(+) FINAL(+) io.opentelemetry.api.common.AttributeKey<java.lang.String> K8S_POD_UID
+	+++  NEW FIELD: PUBLIC(+) STATIC(+) FINAL(+) io.opentelemetry.api.common.AttributeKey<java.lang.String> K8S_REPLICASET_UID
+	+++  NEW FIELD: PUBLIC(+) STATIC(+) FINAL(+) io.opentelemetry.api.common.AttributeKey<java.lang.String> K8S_POD_NAME
+	+++  NEW FIELD: PUBLIC(+) STATIC(+) FINAL(+) io.opentelemetry.semconv.AttributeKeyTemplate<java.lang.String> K8S_CRONJOB_LABEL
+	+++  NEW FIELD: PUBLIC(+) STATIC(+) FINAL(+) io.opentelemetry.semconv.AttributeKeyTemplate<java.lang.String> K8S_DAEMONSET_ANNOTATION
+	+++  NEW FIELD: PUBLIC(+) STATIC(+) FINAL(+) io.opentelemetry.semconv.AttributeKeyTemplate<java.lang.String> K8S_JOB_ANNOTATION
+	+++  NEW FIELD: PUBLIC(+) STATIC(+) FINAL(+) io.opentelemetry.semconv.AttributeKeyTemplate<java.lang.String> K8S_REPLICASET_ANNOTATION
+	+++  NEW FIELD: PUBLIC(+) STATIC(+) FINAL(+) io.opentelemetry.semconv.AttributeKeyTemplate<java.lang.String> K8S_STATEFULSET_LABEL
+	+++  NEW FIELD: PUBLIC(+) STATIC(+) FINAL(+) io.opentelemetry.api.common.AttributeKey<java.lang.String> K8S_DEPLOYMENT_UID
+	+++  NEW FIELD: PUBLIC(+) STATIC(+) FINAL(+) io.opentelemetry.api.common.AttributeKey<java.lang.String> K8S_NAMESPACE_NAME
+	+++  NEW FIELD: PUBLIC(+) STATIC(+) FINAL(+) io.opentelemetry.api.common.AttributeKey<java.lang.String> K8S_JOB_UID
+	+++  NEW FIELD: PUBLIC(+) STATIC(+) FINAL(+) io.opentelemetry.api.common.AttributeKey<java.lang.String> K8S_NODE_NAME
+	+++  NEW FIELD: PUBLIC(+) STATIC(+) FINAL(+) io.opentelemetry.api.common.AttributeKey<java.lang.String> K8S_POD_HOSTNAME
+	+++  NEW FIELD: PUBLIC(+) STATIC(+) FINAL(+) io.opentelemetry.api.common.AttributeKey<java.lang.String> K8S_JOB_NAME
+	+++  NEW FIELD: PUBLIC(+) STATIC(+) FINAL(+) io.opentelemetry.semconv.AttributeKeyTemplate<java.lang.String> K8S_DAEMONSET_LABEL
+	+++  NEW FIELD: PUBLIC(+) STATIC(+) FINAL(+) io.opentelemetry.api.common.AttributeKey<java.lang.String> K8S_POD_IP
+	+++  NEW FIELD: PUBLIC(+) STATIC(+) FINAL(+) io.opentelemetry.semconv.AttributeKeyTemplate<java.lang.String> K8S_DEPLOYMENT_LABEL
+	+++  NEW FIELD: PUBLIC(+) STATIC(+) FINAL(+) io.opentelemetry.api.common.AttributeKey<java.lang.String> K8S_CRONJOB_NAME
+	+++  NEW FIELD: PUBLIC(+) STATIC(+) FINAL(+) io.opentelemetry.api.common.AttributeKey<java.lang.String> K8S_NODE_UID
+	+++  NEW FIELD: PUBLIC(+) STATIC(+) FINAL(+) io.opentelemetry.api.common.AttributeKey<java.lang.String> K8S_CRONJOB_UID
+	+++  NEW FIELD: PUBLIC(+) STATIC(+) FINAL(+) io.opentelemetry.semconv.AttributeKeyTemplate<java.lang.String> K8S_POD_ANNOTATION
+	+++  NEW FIELD: PUBLIC(+) STATIC(+) FINAL(+) io.opentelemetry.api.common.AttributeKey<java.lang.String> K8S_CLUSTER_UID
+	+++  NEW FIELD: PUBLIC(+) STATIC(+) FINAL(+) io.opentelemetry.semconv.AttributeKeyTemplate<java.lang.String> K8S_CRONJOB_ANNOTATION
+	+++  NEW FIELD: PUBLIC(+) STATIC(+) FINAL(+) io.opentelemetry.api.common.AttributeKey<java.lang.String> K8S_DAEMONSET_NAME
+	+++  NEW FIELD: PUBLIC(+) STATIC(+) FINAL(+) io.opentelemetry.semconv.AttributeKeyTemplate<java.lang.String> K8S_DEPLOYMENT_ANNOTATION
+	+++  NEW FIELD: PUBLIC(+) STATIC(+) FINAL(+) io.opentelemetry.semconv.AttributeKeyTemplate<java.lang.String> K8S_NODE_ANNOTATION
+	+++  NEW FIELD: PUBLIC(+) STATIC(+) FINAL(+) io.opentelemetry.api.common.AttributeKey<java.lang.String> K8S_DEPLOYMENT_NAME
+	+++  NEW FIELD: PUBLIC(+) STATIC(+) FINAL(+) io.opentelemetry.semconv.AttributeKeyTemplate<java.lang.String> K8S_JOB_LABEL
+	+++  NEW FIELD: PUBLIC(+) STATIC(+) FINAL(+) io.opentelemetry.semconv.AttributeKeyTemplate<java.lang.String> K8S_NAMESPACE_LABEL
+	+++  NEW FIELD: PUBLIC(+) STATIC(+) FINAL(+) io.opentelemetry.semconv.AttributeKeyTemplate<java.lang.String> K8S_REPLICASET_LABEL
+	+++  NEW FIELD: PUBLIC(+) STATIC(+) FINAL(+) io.opentelemetry.api.common.AttributeKey<java.lang.String> K8S_STATEFULSET_NAME
+	+++  NEW FIELD: PUBLIC(+) STATIC(+) FINAL(+) io.opentelemetry.api.common.AttributeKey<java.lang.String> K8S_POD_START_TIME
+	+++  NEW FIELD: PUBLIC(+) STATIC(+) FINAL(+) io.opentelemetry.semconv.AttributeKeyTemplate<java.lang.String> K8S_NODE_LABEL
+	+++  NEW FIELD: PUBLIC(+) STATIC(+) FINAL(+) io.opentelemetry.semconv.AttributeKeyTemplate<java.lang.String> K8S_STATEFULSET_ANNOTATION
+	+++  NEW FIELD: PUBLIC(+) STATIC(+) FINAL(+) io.opentelemetry.api.common.AttributeKey<java.lang.String> K8S_STATEFULSET_UID
+	+++  NEW FIELD: PUBLIC(+) STATIC(+) FINAL(+) io.opentelemetry.semconv.AttributeKeyTemplate<java.lang.String> K8S_NAMESPACE_ANNOTATION
+	+++  NEW FIELD: PUBLIC(+) STATIC(+) FINAL(+) io.opentelemetry.semconv.AttributeKeyTemplate<java.lang.String> K8S_POD_LABEL
+	+++  NEW FIELD: PUBLIC(+) STATIC(+) FINAL(+) io.opentelemetry.api.common.AttributeKey<java.lang.String> K8S_REPLICASET_NAME
+	+++  NEW FIELD: PUBLIC(+) STATIC(+) FINAL(+) io.opentelemetry.api.common.AttributeKey<java.lang.String> K8S_DAEMONSET_UID
+	+++  NEW FIELD: PUBLIC(+) STATIC(+) FINAL(+) io.opentelemetry.api.common.AttributeKey<java.lang.Long> K8S_CONTAINER_RESTART_COUNT
+	+++  NEW FIELD: PUBLIC(+) STATIC(+) FINAL(+) io.opentelemetry.api.common.AttributeKey<java.lang.String> K8S_CLUSTER_NAME
+***  MODIFIED CLASS: PUBLIC FINAL io.opentelemetry.semconv.SchemaUrls  (not serializable)
+	===  CLASS FILE FORMAT VERSION: 52.0 <- 52.0
+	+++  NEW FIELD: PUBLIC(+) STATIC(+) FINAL(+) java.lang.String V1_42_0
