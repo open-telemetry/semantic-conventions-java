@@ -9,7 +9,6 @@ package io.opentelemetry.semconv.incubating;
 // buildscripts/templates/registry/incubating_java/IncubatingSemanticMetrics.java.j2
 @SuppressWarnings("unused")
 public final class DnsIncubatingMetrics {
-
   /** Name of the {@code dns.lookup.duration} metric. */
   public static final String DNS_LOOKUP_DURATION_NAME = "dns.lookup.duration";
 

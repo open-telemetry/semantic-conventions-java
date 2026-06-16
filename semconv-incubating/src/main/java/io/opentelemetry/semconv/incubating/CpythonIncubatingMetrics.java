@@ -9,7 +9,6 @@ package io.opentelemetry.semconv.incubating;
 // buildscripts/templates/registry/incubating_java/IncubatingSemanticMetrics.java.j2
 @SuppressWarnings("unused")
 public final class CpythonIncubatingMetrics {
-
   /** Name of the {@code cpython.gc.collected_objects} metric. */
   public static final String CPYTHON_GC_COLLECTED_OBJECTS_NAME = "cpython.gc.collected_objects";
 

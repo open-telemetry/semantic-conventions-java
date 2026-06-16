@@ -9,7 +9,6 @@ package io.opentelemetry.semconv.incubating;
 // buildscripts/templates/registry/incubating_java/IncubatingSemanticMetrics.java.j2
 @SuppressWarnings("unused")
 public final class GoIncubatingMetrics {
-
   /** Name of the {@code go.config.gogc} metric. */
   public static final String GO_CONFIG_GOGC_NAME = "go.config.gogc";
 

@@ -9,35 +9,70 @@ package io.opentelemetry.semconv.incubating;
 // buildscripts/templates/registry/incubating_java/IncubatingSemanticMetrics.java.j2
 @SuppressWarnings("unused")
 public final class CpuIncubatingMetrics {
-
-  /** Name of the {@code cpu.frequency} metric. */
+  /**
+   * Name of the {@code cpu.frequency} metric.
+   *
+   * @deprecated Replaced by {@code system.cpu.frequency}.
+   */
   @Deprecated public static final String CPU_FREQUENCY_NAME = "cpu.frequency";
 
-  /** Unit of the {@code cpu.frequency} metric. */
+  /**
+   * Unit of the {@code cpu.frequency} metric.
+   *
+   * @deprecated Replaced by {@code system.cpu.frequency}.
+   */
   @Deprecated public static final String CPU_FREQUENCY_UNIT = "{Hz}";
 
-  /** Description of the {@code cpu.frequency} metric. */
+  /**
+   * Description of the {@code cpu.frequency} metric.
+   *
+   * @deprecated Replaced by {@code system.cpu.frequency}.
+   */
   @Deprecated
   public static final String CPU_FREQUENCY_DESCRIPTION =
       "Deprecated. Use `system.cpu.frequency` instead.";
 
-  /** Name of the {@code cpu.time} metric. */
+  /**
+   * Name of the {@code cpu.time} metric.
+   *
+   * @deprecated Replaced by {@code system.cpu.time}.
+   */
   @Deprecated public static final String CPU_TIME_NAME = "cpu.time";
 
-  /** Unit of the {@code cpu.time} metric. */
+  /**
+   * Unit of the {@code cpu.time} metric.
+   *
+   * @deprecated Replaced by {@code system.cpu.time}.
+   */
   @Deprecated public static final String CPU_TIME_UNIT = "s";
 
-  /** Description of the {@code cpu.time} metric. */
+  /**
+   * Description of the {@code cpu.time} metric.
+   *
+   * @deprecated Replaced by {@code system.cpu.time}.
+   */
   @Deprecated
   public static final String CPU_TIME_DESCRIPTION = "Deprecated. Use `system.cpu.time` instead.";
 
-  /** Name of the {@code cpu.utilization} metric. */
+  /**
+   * Name of the {@code cpu.utilization} metric.
+   *
+   * @deprecated Replaced by {@code system.cpu.utilization}.
+   */
   @Deprecated public static final String CPU_UTILIZATION_NAME = "cpu.utilization";
 
-  /** Unit of the {@code cpu.utilization} metric. */
+  /**
+   * Unit of the {@code cpu.utilization} metric.
+   *
+   * @deprecated Replaced by {@code system.cpu.utilization}.
+   */
   @Deprecated public static final String CPU_UTILIZATION_UNIT = "1";
 
-  /** Description of the {@code cpu.utilization} metric. */
+  /**
+   * Description of the {@code cpu.utilization} metric.
+   *
+   * @deprecated Replaced by {@code system.cpu.utilization}.
+   */
   @Deprecated
   public static final String CPU_UTILIZATION_DESCRIPTION =
       "Deprecated. Use `system.cpu.utilization` instead.";

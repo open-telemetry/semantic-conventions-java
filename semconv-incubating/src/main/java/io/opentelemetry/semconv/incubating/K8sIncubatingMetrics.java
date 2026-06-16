@@ -9,14 +9,25 @@ package io.opentelemetry.semconv.incubating;
 // buildscripts/templates/registry/incubating_java/IncubatingSemanticMetrics.java.j2
 @SuppressWarnings("unused")
 public final class K8sIncubatingMetrics {
-
-  /** Name of the {@code k8s.container.cpu.limit} metric. */
+  /**
+   * Name of the {@code k8s.container.cpu.limit} metric.
+   *
+   * @deprecated Replaced by {@code k8s.container.cpu.limit.desired}.
+   */
   @Deprecated public static final String K8S_CONTAINER_CPU_LIMIT_NAME = "k8s.container.cpu.limit";
 
-  /** Unit of the {@code k8s.container.cpu.limit} metric. */
+  /**
+   * Unit of the {@code k8s.container.cpu.limit} metric.
+   *
+   * @deprecated Replaced by {@code k8s.container.cpu.limit.desired}.
+   */
   @Deprecated public static final String K8S_CONTAINER_CPU_LIMIT_UNIT = "{cpu}";
 
-  /** Description of the {@code k8s.container.cpu.limit} metric. */
+  /**
+   * Description of the {@code k8s.container.cpu.limit} metric.
+   *
+   * @deprecated Replaced by {@code k8s.container.cpu.limit.desired}.
+   */
   @Deprecated
   public static final String K8S_CONTAINER_CPU_LIMIT_DESCRIPTION =
       "Deprecated, use `k8s.container.cpu.limit.desired` and `k8s.container.cpu.limit.current` instead.";
@@ -54,14 +65,26 @@ public final class K8sIncubatingMetrics {
   public static final String K8S_CONTAINER_CPU_LIMIT_UTILIZATION_DESCRIPTION =
       "The ratio of container CPU usage to its current CPU limit.";
 
-  /** Name of the {@code k8s.container.cpu.request} metric. */
+  /**
+   * Name of the {@code k8s.container.cpu.request} metric.
+   *
+   * @deprecated Replaced by {@code k8s.container.cpu.request.desired}.
+   */
   @Deprecated
   public static final String K8S_CONTAINER_CPU_REQUEST_NAME = "k8s.container.cpu.request";
 
-  /** Unit of the {@code k8s.container.cpu.request} metric. */
+  /**
+   * Unit of the {@code k8s.container.cpu.request} metric.
+   *
+   * @deprecated Replaced by {@code k8s.container.cpu.request.desired}.
+   */
   @Deprecated public static final String K8S_CONTAINER_CPU_REQUEST_UNIT = "{cpu}";
 
-  /** Description of the {@code k8s.container.cpu.request} metric. */
+  /**
+   * Description of the {@code k8s.container.cpu.request} metric.
+   *
+   * @deprecated Replaced by {@code k8s.container.cpu.request.desired}.
+   */
   @Deprecated
   public static final String K8S_CONTAINER_CPU_REQUEST_DESCRIPTION =
       "Deprecated, use `k8s.container.cpu.request.desired` and `k8s.container.cpu.request.current` instead.";
@@ -132,14 +155,26 @@ public final class K8sIncubatingMetrics {
   public static final String K8S_CONTAINER_EPHEMERAL_STORAGE_USAGE_DESCRIPTION =
       "The ephemeral storage used by a container.";
 
-  /** Name of the {@code k8s.container.memory.limit} metric. */
+  /**
+   * Name of the {@code k8s.container.memory.limit} metric.
+   *
+   * @deprecated Replaced by {@code k8s.container.memory.limit.desired}.
+   */
   @Deprecated
   public static final String K8S_CONTAINER_MEMORY_LIMIT_NAME = "k8s.container.memory.limit";
 
-  /** Unit of the {@code k8s.container.memory.limit} metric. */
+  /**
+   * Unit of the {@code k8s.container.memory.limit} metric.
+   *
+   * @deprecated Replaced by {@code k8s.container.memory.limit.desired}.
+   */
   @Deprecated public static final String K8S_CONTAINER_MEMORY_LIMIT_UNIT = "By";
 
-  /** Description of the {@code k8s.container.memory.limit} metric. */
+  /**
+   * Description of the {@code k8s.container.memory.limit} metric.
+   *
+   * @deprecated Replaced by {@code k8s.container.memory.limit.desired}.
+   */
   @Deprecated
   public static final String K8S_CONTAINER_MEMORY_LIMIT_DESCRIPTION =
       "Deprecated, use `k8s.container.memory.limit.desired` and `k8s.container.memory.limit.current` instead.";
@@ -166,14 +201,26 @@ public final class K8sIncubatingMetrics {
   public static final String K8S_CONTAINER_MEMORY_LIMIT_DESIRED_DESCRIPTION =
       "Maximum memory resource limit as defined by the container spec.";
 
-  /** Name of the {@code k8s.container.memory.request} metric. */
+  /**
+   * Name of the {@code k8s.container.memory.request} metric.
+   *
+   * @deprecated Replaced by {@code k8s.container.memory.request.desired}.
+   */
   @Deprecated
   public static final String K8S_CONTAINER_MEMORY_REQUEST_NAME = "k8s.container.memory.request";
 
-  /** Unit of the {@code k8s.container.memory.request} metric. */
+  /**
+   * Unit of the {@code k8s.container.memory.request} metric.
+   *
+   * @deprecated Replaced by {@code k8s.container.memory.request.desired}.
+   */
   @Deprecated public static final String K8S_CONTAINER_MEMORY_REQUEST_UNIT = "By";
 
-  /** Description of the {@code k8s.container.memory.request} metric. */
+  /**
+   * Description of the {@code k8s.container.memory.request} metric.
+   *
+   * @deprecated Replaced by {@code k8s.container.memory.request.desired}.
+   */
   @Deprecated
   public static final String K8S_CONTAINER_MEMORY_REQUEST_DESCRIPTION =
       "Deprecated, use `k8s.container.memory.request.desired` and `k8s.container.memory.request.current` instead.";
@@ -260,13 +307,25 @@ public final class K8sIncubatingMetrics {
   public static final String K8S_CONTAINER_STORAGE_REQUEST_DESCRIPTION =
       "Storage resource requested for the container.";
 
-  /** Name of the {@code k8s.cronjob.active_jobs} metric. */
+  /**
+   * Name of the {@code k8s.cronjob.active_jobs} metric.
+   *
+   * @deprecated Replaced by {@code k8s.cronjob.job.active}.
+   */
   @Deprecated public static final String K8S_CRONJOB_ACTIVE_JOBS_NAME = "k8s.cronjob.active_jobs";
 
-  /** Unit of the {@code k8s.cronjob.active_jobs} metric. */
+  /**
+   * Unit of the {@code k8s.cronjob.active_jobs} metric.
+   *
+   * @deprecated Replaced by {@code k8s.cronjob.job.active}.
+   */
   @Deprecated public static final String K8S_CRONJOB_ACTIVE_JOBS_UNIT = "{job}";
 
-  /** Description of the {@code k8s.cronjob.active_jobs} metric. */
+  /**
+   * Description of the {@code k8s.cronjob.active_jobs} metric.
+   *
+   * @deprecated Replaced by {@code k8s.cronjob.job.active}.
+   */
   @Deprecated
   public static final String K8S_CRONJOB_ACTIVE_JOBS_DESCRIPTION =
       "Deprecated, use `k8s.cronjob.job.active` instead.";
@@ -281,41 +340,77 @@ public final class K8sIncubatingMetrics {
   public static final String K8S_CRONJOB_JOB_ACTIVE_DESCRIPTION =
       "The number of actively running jobs for a cronjob.";
 
-  /** Name of the {@code k8s.daemonset.current_scheduled_nodes} metric. */
+  /**
+   * Name of the {@code k8s.daemonset.current_scheduled_nodes} metric.
+   *
+   * @deprecated Replaced by {@code k8s.daemonset.node.current_scheduled}.
+   */
   @Deprecated
   public static final String K8S_DAEMONSET_CURRENT_SCHEDULED_NODES_NAME =
       "k8s.daemonset.current_scheduled_nodes";
 
-  /** Unit of the {@code k8s.daemonset.current_scheduled_nodes} metric. */
+  /**
+   * Unit of the {@code k8s.daemonset.current_scheduled_nodes} metric.
+   *
+   * @deprecated Replaced by {@code k8s.daemonset.node.current_scheduled}.
+   */
   @Deprecated public static final String K8S_DAEMONSET_CURRENT_SCHEDULED_NODES_UNIT = "{node}";
 
-  /** Description of the {@code k8s.daemonset.current_scheduled_nodes} metric. */
+  /**
+   * Description of the {@code k8s.daemonset.current_scheduled_nodes} metric.
+   *
+   * @deprecated Replaced by {@code k8s.daemonset.node.current_scheduled}.
+   */
   @Deprecated
   public static final String K8S_DAEMONSET_CURRENT_SCHEDULED_NODES_DESCRIPTION =
       "Deprecated, use `k8s.daemonset.node.current_scheduled` instead.";
 
-  /** Name of the {@code k8s.daemonset.desired_scheduled_nodes} metric. */
+  /**
+   * Name of the {@code k8s.daemonset.desired_scheduled_nodes} metric.
+   *
+   * @deprecated Replaced by {@code k8s.daemonset.node.desired_scheduled}.
+   */
   @Deprecated
   public static final String K8S_DAEMONSET_DESIRED_SCHEDULED_NODES_NAME =
       "k8s.daemonset.desired_scheduled_nodes";
 
-  /** Unit of the {@code k8s.daemonset.desired_scheduled_nodes} metric. */
+  /**
+   * Unit of the {@code k8s.daemonset.desired_scheduled_nodes} metric.
+   *
+   * @deprecated Replaced by {@code k8s.daemonset.node.desired_scheduled}.
+   */
   @Deprecated public static final String K8S_DAEMONSET_DESIRED_SCHEDULED_NODES_UNIT = "{node}";
 
-  /** Description of the {@code k8s.daemonset.desired_scheduled_nodes} metric. */
+  /**
+   * Description of the {@code k8s.daemonset.desired_scheduled_nodes} metric.
+   *
+   * @deprecated Replaced by {@code k8s.daemonset.node.desired_scheduled}.
+   */
   @Deprecated
   public static final String K8S_DAEMONSET_DESIRED_SCHEDULED_NODES_DESCRIPTION =
       "Deprecated, use `k8s.daemonset.node.desired_scheduled` instead.";
 
-  /** Name of the {@code k8s.daemonset.misscheduled_nodes} metric. */
+  /**
+   * Name of the {@code k8s.daemonset.misscheduled_nodes} metric.
+   *
+   * @deprecated Replaced by {@code k8s.daemonset.node.misscheduled}.
+   */
   @Deprecated
   public static final String K8S_DAEMONSET_MISSCHEDULED_NODES_NAME =
       "k8s.daemonset.misscheduled_nodes";
 
-  /** Unit of the {@code k8s.daemonset.misscheduled_nodes} metric. */
+  /**
+   * Unit of the {@code k8s.daemonset.misscheduled_nodes} metric.
+   *
+   * @deprecated Replaced by {@code k8s.daemonset.node.misscheduled}.
+   */
   @Deprecated public static final String K8S_DAEMONSET_MISSCHEDULED_NODES_UNIT = "{node}";
 
-  /** Description of the {@code k8s.daemonset.misscheduled_nodes} metric. */
+  /**
+   * Description of the {@code k8s.daemonset.misscheduled_nodes} metric.
+   *
+   * @deprecated Replaced by {@code k8s.daemonset.node.misscheduled}.
+   */
   @Deprecated
   public static final String K8S_DAEMONSET_MISSCHEDULED_NODES_DESCRIPTION =
       "Deprecated, use `k8s.daemonset.node.misscheduled` instead.";
@@ -363,38 +458,74 @@ public final class K8sIncubatingMetrics {
   public static final String K8S_DAEMONSET_NODE_READY_DESCRIPTION =
       "Number of nodes that should be running the daemon pod and have one or more of the daemon pod running and ready.";
 
-  /** Name of the {@code k8s.daemonset.ready_nodes} metric. */
+  /**
+   * Name of the {@code k8s.daemonset.ready_nodes} metric.
+   *
+   * @deprecated Replaced by {@code k8s.daemonset.node.ready}.
+   */
   @Deprecated
   public static final String K8S_DAEMONSET_READY_NODES_NAME = "k8s.daemonset.ready_nodes";
 
-  /** Unit of the {@code k8s.daemonset.ready_nodes} metric. */
+  /**
+   * Unit of the {@code k8s.daemonset.ready_nodes} metric.
+   *
+   * @deprecated Replaced by {@code k8s.daemonset.node.ready}.
+   */
   @Deprecated public static final String K8S_DAEMONSET_READY_NODES_UNIT = "{node}";
 
-  /** Description of the {@code k8s.daemonset.ready_nodes} metric. */
+  /**
+   * Description of the {@code k8s.daemonset.ready_nodes} metric.
+   *
+   * @deprecated Replaced by {@code k8s.daemonset.node.ready}.
+   */
   @Deprecated
   public static final String K8S_DAEMONSET_READY_NODES_DESCRIPTION =
       "Deprecated, use `k8s.daemonset.node.ready` instead.";
 
-  /** Name of the {@code k8s.deployment.available_pods} metric. */
+  /**
+   * Name of the {@code k8s.deployment.available_pods} metric.
+   *
+   * @deprecated Replaced by {@code k8s.deployment.pod.available}.
+   */
   @Deprecated
   public static final String K8S_DEPLOYMENT_AVAILABLE_PODS_NAME = "k8s.deployment.available_pods";
 
-  /** Unit of the {@code k8s.deployment.available_pods} metric. */
+  /**
+   * Unit of the {@code k8s.deployment.available_pods} metric.
+   *
+   * @deprecated Replaced by {@code k8s.deployment.pod.available}.
+   */
   @Deprecated public static final String K8S_DEPLOYMENT_AVAILABLE_PODS_UNIT = "{pod}";
 
-  /** Description of the {@code k8s.deployment.available_pods} metric. */
+  /**
+   * Description of the {@code k8s.deployment.available_pods} metric.
+   *
+   * @deprecated Replaced by {@code k8s.deployment.pod.available}.
+   */
   @Deprecated
   public static final String K8S_DEPLOYMENT_AVAILABLE_PODS_DESCRIPTION =
       "Deprecated, use `k8s.deployment.pod.available` instead.";
 
-  /** Name of the {@code k8s.deployment.desired_pods} metric. */
+  /**
+   * Name of the {@code k8s.deployment.desired_pods} metric.
+   *
+   * @deprecated Replaced by {@code k8s.deployment.pod.desired}.
+   */
   @Deprecated
   public static final String K8S_DEPLOYMENT_DESIRED_PODS_NAME = "k8s.deployment.desired_pods";
 
-  /** Unit of the {@code k8s.deployment.desired_pods} metric. */
+  /**
+   * Unit of the {@code k8s.deployment.desired_pods} metric.
+   *
+   * @deprecated Replaced by {@code k8s.deployment.pod.desired}.
+   */
   @Deprecated public static final String K8S_DEPLOYMENT_DESIRED_PODS_UNIT = "{pod}";
 
-  /** Description of the {@code k8s.deployment.desired_pods} metric. */
+  /**
+   * Description of the {@code k8s.deployment.desired_pods} metric.
+   *
+   * @deprecated Replaced by {@code k8s.deployment.pod.desired}.
+   */
   @Deprecated
   public static final String K8S_DEPLOYMENT_DESIRED_PODS_DESCRIPTION =
       "Deprecated, use `k8s.deployment.pod.desired` instead.";
@@ -419,35 +550,71 @@ public final class K8sIncubatingMetrics {
   public static final String K8S_DEPLOYMENT_POD_DESIRED_DESCRIPTION =
       "Number of desired replica pods in this deployment.";
 
-  /** Name of the {@code k8s.hpa.current_pods} metric. */
+  /**
+   * Name of the {@code k8s.hpa.current_pods} metric.
+   *
+   * @deprecated Replaced by {@code k8s.hpa.pod.current}.
+   */
   @Deprecated public static final String K8S_HPA_CURRENT_PODS_NAME = "k8s.hpa.current_pods";
 
-  /** Unit of the {@code k8s.hpa.current_pods} metric. */
+  /**
+   * Unit of the {@code k8s.hpa.current_pods} metric.
+   *
+   * @deprecated Replaced by {@code k8s.hpa.pod.current}.
+   */
   @Deprecated public static final String K8S_HPA_CURRENT_PODS_UNIT = "{pod}";
 
-  /** Description of the {@code k8s.hpa.current_pods} metric. */
+  /**
+   * Description of the {@code k8s.hpa.current_pods} metric.
+   *
+   * @deprecated Replaced by {@code k8s.hpa.pod.current}.
+   */
   @Deprecated
   public static final String K8S_HPA_CURRENT_PODS_DESCRIPTION =
       "Deprecated, use `k8s.hpa.pod.current` instead.";
 
-  /** Name of the {@code k8s.hpa.desired_pods} metric. */
+  /**
+   * Name of the {@code k8s.hpa.desired_pods} metric.
+   *
+   * @deprecated Replaced by {@code k8s.hpa.pod.desired}.
+   */
   @Deprecated public static final String K8S_HPA_DESIRED_PODS_NAME = "k8s.hpa.desired_pods";
 
-  /** Unit of the {@code k8s.hpa.desired_pods} metric. */
+  /**
+   * Unit of the {@code k8s.hpa.desired_pods} metric.
+   *
+   * @deprecated Replaced by {@code k8s.hpa.pod.desired}.
+   */
   @Deprecated public static final String K8S_HPA_DESIRED_PODS_UNIT = "{pod}";
 
-  /** Description of the {@code k8s.hpa.desired_pods} metric. */
+  /**
+   * Description of the {@code k8s.hpa.desired_pods} metric.
+   *
+   * @deprecated Replaced by {@code k8s.hpa.pod.desired}.
+   */
   @Deprecated
   public static final String K8S_HPA_DESIRED_PODS_DESCRIPTION =
       "Deprecated, use `k8s.hpa.pod.desired` instead.";
 
-  /** Name of the {@code k8s.hpa.max_pods} metric. */
+  /**
+   * Name of the {@code k8s.hpa.max_pods} metric.
+   *
+   * @deprecated Replaced by {@code k8s.hpa.pod.max}.
+   */
   @Deprecated public static final String K8S_HPA_MAX_PODS_NAME = "k8s.hpa.max_pods";
 
-  /** Unit of the {@code k8s.hpa.max_pods} metric. */
+  /**
+   * Unit of the {@code k8s.hpa.max_pods} metric.
+   *
+   * @deprecated Replaced by {@code k8s.hpa.pod.max}.
+   */
   @Deprecated public static final String K8S_HPA_MAX_PODS_UNIT = "{pod}";
 
-  /** Description of the {@code k8s.hpa.max_pods} metric. */
+  /**
+   * Description of the {@code k8s.hpa.max_pods} metric.
+   *
+   * @deprecated Replaced by {@code k8s.hpa.pod.max}.
+   */
   @Deprecated
   public static final String K8S_HPA_MAX_PODS_DESCRIPTION =
       "Deprecated, use `k8s.hpa.pod.max` instead.";
@@ -485,13 +652,25 @@ public final class K8sIncubatingMetrics {
   public static final String K8S_HPA_METRIC_TARGET_CPU_VALUE_DESCRIPTION =
       "Target value for CPU resource in HPA config.";
 
-  /** Name of the {@code k8s.hpa.min_pods} metric. */
+  /**
+   * Name of the {@code k8s.hpa.min_pods} metric.
+   *
+   * @deprecated Replaced by {@code k8s.hpa.pod.min}.
+   */
   @Deprecated public static final String K8S_HPA_MIN_PODS_NAME = "k8s.hpa.min_pods";
 
-  /** Unit of the {@code k8s.hpa.min_pods} metric. */
+  /**
+   * Unit of the {@code k8s.hpa.min_pods} metric.
+   *
+   * @deprecated Replaced by {@code k8s.hpa.pod.min}.
+   */
   @Deprecated public static final String K8S_HPA_MIN_PODS_UNIT = "{pod}";
 
-  /** Description of the {@code k8s.hpa.min_pods} metric. */
+  /**
+   * Description of the {@code k8s.hpa.min_pods} metric.
+   *
+   * @deprecated Replaced by {@code k8s.hpa.pod.min}.
+   */
   @Deprecated
   public static final String K8S_HPA_MIN_PODS_DESCRIPTION =
       "Deprecated, use `k8s.hpa.pod.min` instead.";
@@ -536,49 +715,97 @@ public final class K8sIncubatingMetrics {
   public static final String K8S_HPA_POD_MIN_DESCRIPTION =
       "The lower limit for the number of replica pods to which the autoscaler can scale down.";
 
-  /** Name of the {@code k8s.job.active_pods} metric. */
+  /**
+   * Name of the {@code k8s.job.active_pods} metric.
+   *
+   * @deprecated Replaced by {@code k8s.job.pod.active}.
+   */
   @Deprecated public static final String K8S_JOB_ACTIVE_PODS_NAME = "k8s.job.active_pods";
 
-  /** Unit of the {@code k8s.job.active_pods} metric. */
+  /**
+   * Unit of the {@code k8s.job.active_pods} metric.
+   *
+   * @deprecated Replaced by {@code k8s.job.pod.active}.
+   */
   @Deprecated public static final String K8S_JOB_ACTIVE_PODS_UNIT = "{pod}";
 
-  /** Description of the {@code k8s.job.active_pods} metric. */
+  /**
+   * Description of the {@code k8s.job.active_pods} metric.
+   *
+   * @deprecated Replaced by {@code k8s.job.pod.active}.
+   */
   @Deprecated
   public static final String K8S_JOB_ACTIVE_PODS_DESCRIPTION =
       "Deprecated, use `k8s.job.pod.active` instead.";
 
-  /** Name of the {@code k8s.job.desired_successful_pods} metric. */
+  /**
+   * Name of the {@code k8s.job.desired_successful_pods} metric.
+   *
+   * @deprecated Replaced by {@code k8s.job.pod.desired_successful}.
+   */
   @Deprecated
   public static final String K8S_JOB_DESIRED_SUCCESSFUL_PODS_NAME =
       "k8s.job.desired_successful_pods";
 
-  /** Unit of the {@code k8s.job.desired_successful_pods} metric. */
+  /**
+   * Unit of the {@code k8s.job.desired_successful_pods} metric.
+   *
+   * @deprecated Replaced by {@code k8s.job.pod.desired_successful}.
+   */
   @Deprecated public static final String K8S_JOB_DESIRED_SUCCESSFUL_PODS_UNIT = "{pod}";
 
-  /** Description of the {@code k8s.job.desired_successful_pods} metric. */
+  /**
+   * Description of the {@code k8s.job.desired_successful_pods} metric.
+   *
+   * @deprecated Replaced by {@code k8s.job.pod.desired_successful}.
+   */
   @Deprecated
   public static final String K8S_JOB_DESIRED_SUCCESSFUL_PODS_DESCRIPTION =
       "Deprecated, use `k8s.job.pod.desired_successful` instead.";
 
-  /** Name of the {@code k8s.job.failed_pods} metric. */
+  /**
+   * Name of the {@code k8s.job.failed_pods} metric.
+   *
+   * @deprecated Replaced by {@code k8s.job.pod.failed}.
+   */
   @Deprecated public static final String K8S_JOB_FAILED_PODS_NAME = "k8s.job.failed_pods";
 
-  /** Unit of the {@code k8s.job.failed_pods} metric. */
+  /**
+   * Unit of the {@code k8s.job.failed_pods} metric.
+   *
+   * @deprecated Replaced by {@code k8s.job.pod.failed}.
+   */
   @Deprecated public static final String K8S_JOB_FAILED_PODS_UNIT = "{pod}";
 
-  /** Description of the {@code k8s.job.failed_pods} metric. */
+  /**
+   * Description of the {@code k8s.job.failed_pods} metric.
+   *
+   * @deprecated Replaced by {@code k8s.job.pod.failed}.
+   */
   @Deprecated
   public static final String K8S_JOB_FAILED_PODS_DESCRIPTION =
       "Deprecated, use `k8s.job.pod.failed` instead.";
 
-  /** Name of the {@code k8s.job.max_parallel_pods} metric. */
+  /**
+   * Name of the {@code k8s.job.max_parallel_pods} metric.
+   *
+   * @deprecated Replaced by {@code k8s.job.pod.max_parallel}.
+   */
   @Deprecated
   public static final String K8S_JOB_MAX_PARALLEL_PODS_NAME = "k8s.job.max_parallel_pods";
 
-  /** Unit of the {@code k8s.job.max_parallel_pods} metric. */
+  /**
+   * Unit of the {@code k8s.job.max_parallel_pods} metric.
+   *
+   * @deprecated Replaced by {@code k8s.job.pod.max_parallel}.
+   */
   @Deprecated public static final String K8S_JOB_MAX_PARALLEL_PODS_UNIT = "{pod}";
 
-  /** Description of the {@code k8s.job.max_parallel_pods} metric. */
+  /**
+   * Description of the {@code k8s.job.max_parallel_pods} metric.
+   *
+   * @deprecated Replaced by {@code k8s.job.pod.max_parallel}.
+   */
   @Deprecated
   public static final String K8S_JOB_MAX_PARALLEL_PODS_DESCRIPTION =
       "Deprecated, use `k8s.job.pod.max_parallel` instead.";
@@ -633,13 +860,25 @@ public final class K8sIncubatingMetrics {
   public static final String K8S_JOB_POD_SUCCESSFUL_DESCRIPTION =
       "The number of pods which reached phase Succeeded for a job.";
 
-  /** Name of the {@code k8s.job.successful_pods} metric. */
+  /**
+   * Name of the {@code k8s.job.successful_pods} metric.
+   *
+   * @deprecated Replaced by {@code k8s.job.pod.successful}.
+   */
   @Deprecated public static final String K8S_JOB_SUCCESSFUL_PODS_NAME = "k8s.job.successful_pods";
 
-  /** Unit of the {@code k8s.job.successful_pods} metric. */
+  /**
+   * Unit of the {@code k8s.job.successful_pods} metric.
+   *
+   * @deprecated Replaced by {@code k8s.job.pod.successful}.
+   */
   @Deprecated public static final String K8S_JOB_SUCCESSFUL_PODS_UNIT = "{pod}";
 
-  /** Description of the {@code k8s.job.successful_pods} metric. */
+  /**
+   * Description of the {@code k8s.job.successful_pods} metric.
+   *
+   * @deprecated Replaced by {@code k8s.job.pod.successful}.
+   */
   @Deprecated
   public static final String K8S_JOB_SUCCESSFUL_PODS_DESCRIPTION =
       "Deprecated, use `k8s.job.pod.successful` instead.";
@@ -654,50 +893,98 @@ public final class K8sIncubatingMetrics {
   public static final String K8S_NAMESPACE_PHASE_DESCRIPTION =
       "Describes number of K8s namespaces that are currently in a given phase.";
 
-  /** Name of the {@code k8s.node.allocatable.cpu} metric. */
+  /**
+   * Name of the {@code k8s.node.allocatable.cpu} metric.
+   *
+   * @deprecated Replaced by {@code k8s.node.cpu.allocatable}.
+   */
   @Deprecated public static final String K8S_NODE_ALLOCATABLE_CPU_NAME = "k8s.node.allocatable.cpu";
 
-  /** Unit of the {@code k8s.node.allocatable.cpu} metric. */
+  /**
+   * Unit of the {@code k8s.node.allocatable.cpu} metric.
+   *
+   * @deprecated Replaced by {@code k8s.node.cpu.allocatable}.
+   */
   @Deprecated public static final String K8S_NODE_ALLOCATABLE_CPU_UNIT = "{cpu}";
 
-  /** Description of the {@code k8s.node.allocatable.cpu} metric. */
+  /**
+   * Description of the {@code k8s.node.allocatable.cpu} metric.
+   *
+   * @deprecated Replaced by {@code k8s.node.cpu.allocatable}.
+   */
   @Deprecated
   public static final String K8S_NODE_ALLOCATABLE_CPU_DESCRIPTION =
       "Deprecated, use `k8s.node.cpu.allocatable` instead.";
 
-  /** Name of the {@code k8s.node.allocatable.ephemeral_storage} metric. */
+  /**
+   * Name of the {@code k8s.node.allocatable.ephemeral_storage} metric.
+   *
+   * @deprecated Replaced by {@code k8s.node.ephemeral_storage.allocatable}.
+   */
   @Deprecated
   public static final String K8S_NODE_ALLOCATABLE_EPHEMERAL_STORAGE_NAME =
       "k8s.node.allocatable.ephemeral_storage";
 
-  /** Unit of the {@code k8s.node.allocatable.ephemeral_storage} metric. */
+  /**
+   * Unit of the {@code k8s.node.allocatable.ephemeral_storage} metric.
+   *
+   * @deprecated Replaced by {@code k8s.node.ephemeral_storage.allocatable}.
+   */
   @Deprecated public static final String K8S_NODE_ALLOCATABLE_EPHEMERAL_STORAGE_UNIT = "By";
 
-  /** Description of the {@code k8s.node.allocatable.ephemeral_storage} metric. */
+  /**
+   * Description of the {@code k8s.node.allocatable.ephemeral_storage} metric.
+   *
+   * @deprecated Replaced by {@code k8s.node.ephemeral_storage.allocatable}.
+   */
   @Deprecated
   public static final String K8S_NODE_ALLOCATABLE_EPHEMERAL_STORAGE_DESCRIPTION =
       "Deprecated, use `k8s.node.ephemeral_storage.allocatable` instead.";
 
-  /** Name of the {@code k8s.node.allocatable.memory} metric. */
+  /**
+   * Name of the {@code k8s.node.allocatable.memory} metric.
+   *
+   * @deprecated Replaced by {@code k8s.node.memory.allocatable}.
+   */
   @Deprecated
   public static final String K8S_NODE_ALLOCATABLE_MEMORY_NAME = "k8s.node.allocatable.memory";
 
-  /** Unit of the {@code k8s.node.allocatable.memory} metric. */
+  /**
+   * Unit of the {@code k8s.node.allocatable.memory} metric.
+   *
+   * @deprecated Replaced by {@code k8s.node.memory.allocatable}.
+   */
   @Deprecated public static final String K8S_NODE_ALLOCATABLE_MEMORY_UNIT = "By";
 
-  /** Description of the {@code k8s.node.allocatable.memory} metric. */
+  /**
+   * Description of the {@code k8s.node.allocatable.memory} metric.
+   *
+   * @deprecated Replaced by {@code k8s.node.memory.allocatable}.
+   */
   @Deprecated
   public static final String K8S_NODE_ALLOCATABLE_MEMORY_DESCRIPTION =
       "Deprecated, use `k8s.node.memory.allocatable` instead.";
 
-  /** Name of the {@code k8s.node.allocatable.pods} metric. */
+  /**
+   * Name of the {@code k8s.node.allocatable.pods} metric.
+   *
+   * @deprecated Replaced by {@code k8s.node.pod.allocatable}.
+   */
   @Deprecated
   public static final String K8S_NODE_ALLOCATABLE_PODS_NAME = "k8s.node.allocatable.pods";
 
-  /** Unit of the {@code k8s.node.allocatable.pods} metric. */
+  /**
+   * Unit of the {@code k8s.node.allocatable.pods} metric.
+   *
+   * @deprecated Replaced by {@code k8s.node.pod.allocatable}.
+   */
   @Deprecated public static final String K8S_NODE_ALLOCATABLE_PODS_UNIT = "{pod}";
 
-  /** Description of the {@code k8s.node.allocatable.pods} metric. */
+  /**
+   * Description of the {@code k8s.node.allocatable.pods} metric.
+   *
+   * @deprecated Replaced by {@code k8s.node.pod.allocatable}.
+   */
   @Deprecated
   public static final String K8S_NODE_ALLOCATABLE_PODS_DESCRIPTION =
       "Deprecated, use `k8s.node.pod.allocatable` instead.";
@@ -1170,26 +1457,50 @@ public final class K8sIncubatingMetrics {
   /** Description of the {@code k8s.pod.volume.usage} metric. */
   public static final String K8S_POD_VOLUME_USAGE_DESCRIPTION = "Pod volume usage.";
 
-  /** Name of the {@code k8s.replicaset.available_pods} metric. */
+  /**
+   * Name of the {@code k8s.replicaset.available_pods} metric.
+   *
+   * @deprecated Replaced by {@code k8s.replicaset.pod.available}.
+   */
   @Deprecated
   public static final String K8S_REPLICASET_AVAILABLE_PODS_NAME = "k8s.replicaset.available_pods";
 
-  /** Unit of the {@code k8s.replicaset.available_pods} metric. */
+  /**
+   * Unit of the {@code k8s.replicaset.available_pods} metric.
+   *
+   * @deprecated Replaced by {@code k8s.replicaset.pod.available}.
+   */
   @Deprecated public static final String K8S_REPLICASET_AVAILABLE_PODS_UNIT = "{pod}";
 
-  /** Description of the {@code k8s.replicaset.available_pods} metric. */
+  /**
+   * Description of the {@code k8s.replicaset.available_pods} metric.
+   *
+   * @deprecated Replaced by {@code k8s.replicaset.pod.available}.
+   */
   @Deprecated
   public static final String K8S_REPLICASET_AVAILABLE_PODS_DESCRIPTION =
       "Deprecated, use `k8s.replicaset.pod.available` instead.";
 
-  /** Name of the {@code k8s.replicaset.desired_pods} metric. */
+  /**
+   * Name of the {@code k8s.replicaset.desired_pods} metric.
+   *
+   * @deprecated Replaced by {@code k8s.replicaset.pod.desired}.
+   */
   @Deprecated
   public static final String K8S_REPLICASET_DESIRED_PODS_NAME = "k8s.replicaset.desired_pods";
 
-  /** Unit of the {@code k8s.replicaset.desired_pods} metric. */
+  /**
+   * Unit of the {@code k8s.replicaset.desired_pods} metric.
+   *
+   * @deprecated Replaced by {@code k8s.replicaset.pod.desired}.
+   */
   @Deprecated public static final String K8S_REPLICASET_DESIRED_PODS_UNIT = "{pod}";
 
-  /** Description of the {@code k8s.replicaset.desired_pods} metric. */
+  /**
+   * Description of the {@code k8s.replicaset.desired_pods} metric.
+   *
+   * @deprecated Replaced by {@code k8s.replicaset.pod.desired}.
+   */
   @Deprecated
   public static final String K8S_REPLICASET_DESIRED_PODS_DESCRIPTION =
       "Deprecated, use `k8s.replicaset.pod.desired` instead.";
@@ -1214,54 +1525,102 @@ public final class K8sIncubatingMetrics {
   public static final String K8S_REPLICASET_POD_DESIRED_DESCRIPTION =
       "Number of desired replica pods in this replicaset.";
 
-  /** Name of the {@code k8s.replication_controller.available_pods} metric. */
+  /**
+   * Name of the {@code k8s.replication_controller.available_pods} metric.
+   *
+   * @deprecated Replaced by {@code k8s.replicationcontroller.pod.available}.
+   */
   @Deprecated
   public static final String K8S_REPLICATION_CONTROLLER_AVAILABLE_PODS_NAME =
       "k8s.replication_controller.available_pods";
 
-  /** Unit of the {@code k8s.replication_controller.available_pods} metric. */
+  /**
+   * Unit of the {@code k8s.replication_controller.available_pods} metric.
+   *
+   * @deprecated Replaced by {@code k8s.replicationcontroller.pod.available}.
+   */
   @Deprecated public static final String K8S_REPLICATION_CONTROLLER_AVAILABLE_PODS_UNIT = "{pod}";
 
-  /** Description of the {@code k8s.replication_controller.available_pods} metric. */
+  /**
+   * Description of the {@code k8s.replication_controller.available_pods} metric.
+   *
+   * @deprecated Replaced by {@code k8s.replicationcontroller.pod.available}.
+   */
   @Deprecated
   public static final String K8S_REPLICATION_CONTROLLER_AVAILABLE_PODS_DESCRIPTION =
       "Deprecated, use `k8s.replicationcontroller.pod.available` instead.";
 
-  /** Name of the {@code k8s.replication_controller.desired_pods} metric. */
+  /**
+   * Name of the {@code k8s.replication_controller.desired_pods} metric.
+   *
+   * @deprecated Replaced by {@code k8s.replicationcontroller.pod.desired}.
+   */
   @Deprecated
   public static final String K8S_REPLICATION_CONTROLLER_DESIRED_PODS_NAME =
       "k8s.replication_controller.desired_pods";
 
-  /** Unit of the {@code k8s.replication_controller.desired_pods} metric. */
+  /**
+   * Unit of the {@code k8s.replication_controller.desired_pods} metric.
+   *
+   * @deprecated Replaced by {@code k8s.replicationcontroller.pod.desired}.
+   */
   @Deprecated public static final String K8S_REPLICATION_CONTROLLER_DESIRED_PODS_UNIT = "{pod}";
 
-  /** Description of the {@code k8s.replication_controller.desired_pods} metric. */
+  /**
+   * Description of the {@code k8s.replication_controller.desired_pods} metric.
+   *
+   * @deprecated Replaced by {@code k8s.replicationcontroller.pod.desired}.
+   */
   @Deprecated
   public static final String K8S_REPLICATION_CONTROLLER_DESIRED_PODS_DESCRIPTION =
       "Deprecated, use `k8s.replicationcontroller.pod.desired` instead.";
 
-  /** Name of the {@code k8s.replicationcontroller.available_pods} metric. */
+  /**
+   * Name of the {@code k8s.replicationcontroller.available_pods} metric.
+   *
+   * @deprecated Replaced by {@code k8s.replicationcontroller.pod.available}.
+   */
   @Deprecated
   public static final String K8S_REPLICATIONCONTROLLER_AVAILABLE_PODS_NAME =
       "k8s.replicationcontroller.available_pods";
 
-  /** Unit of the {@code k8s.replicationcontroller.available_pods} metric. */
+  /**
+   * Unit of the {@code k8s.replicationcontroller.available_pods} metric.
+   *
+   * @deprecated Replaced by {@code k8s.replicationcontroller.pod.available}.
+   */
   @Deprecated public static final String K8S_REPLICATIONCONTROLLER_AVAILABLE_PODS_UNIT = "{pod}";
 
-  /** Description of the {@code k8s.replicationcontroller.available_pods} metric. */
+  /**
+   * Description of the {@code k8s.replicationcontroller.available_pods} metric.
+   *
+   * @deprecated Replaced by {@code k8s.replicationcontroller.pod.available}.
+   */
   @Deprecated
   public static final String K8S_REPLICATIONCONTROLLER_AVAILABLE_PODS_DESCRIPTION =
       "Deprecated, use `k8s.replicationcontroller.pod.available` instead.";
 
-  /** Name of the {@code k8s.replicationcontroller.desired_pods} metric. */
+  /**
+   * Name of the {@code k8s.replicationcontroller.desired_pods} metric.
+   *
+   * @deprecated Replaced by {@code k8s.replicationcontroller.pod.desired}.
+   */
   @Deprecated
   public static final String K8S_REPLICATIONCONTROLLER_DESIRED_PODS_NAME =
       "k8s.replicationcontroller.desired_pods";
 
-  /** Unit of the {@code k8s.replicationcontroller.desired_pods} metric. */
+  /**
+   * Unit of the {@code k8s.replicationcontroller.desired_pods} metric.
+   *
+   * @deprecated Replaced by {@code k8s.replicationcontroller.pod.desired}.
+   */
   @Deprecated public static final String K8S_REPLICATIONCONTROLLER_DESIRED_PODS_UNIT = "{pod}";
 
-  /** Description of the {@code k8s.replicationcontroller.desired_pods} metric. */
+  /**
+   * Description of the {@code k8s.replicationcontroller.desired_pods} metric.
+   *
+   * @deprecated Replaced by {@code k8s.replicationcontroller.pod.desired}.
+   */
   @Deprecated
   public static final String K8S_REPLICATIONCONTROLLER_DESIRED_PODS_DESCRIPTION =
       "Deprecated, use `k8s.replicationcontroller.pod.desired` instead.";
@@ -1531,26 +1890,50 @@ public final class K8sIncubatingMetrics {
   public static final String K8S_SERVICE_LOAD_BALANCER_INGRESS_COUNT_DESCRIPTION =
       "Number of load balancer ingress points (external IPs/hostnames) assigned to the service.";
 
-  /** Name of the {@code k8s.statefulset.current_pods} metric. */
+  /**
+   * Name of the {@code k8s.statefulset.current_pods} metric.
+   *
+   * @deprecated Replaced by {@code k8s.statefulset.pod.current}.
+   */
   @Deprecated
   public static final String K8S_STATEFULSET_CURRENT_PODS_NAME = "k8s.statefulset.current_pods";
 
-  /** Unit of the {@code k8s.statefulset.current_pods} metric. */
+  /**
+   * Unit of the {@code k8s.statefulset.current_pods} metric.
+   *
+   * @deprecated Replaced by {@code k8s.statefulset.pod.current}.
+   */
   @Deprecated public static final String K8S_STATEFULSET_CURRENT_PODS_UNIT = "{pod}";
 
-  /** Description of the {@code k8s.statefulset.current_pods} metric. */
+  /**
+   * Description of the {@code k8s.statefulset.current_pods} metric.
+   *
+   * @deprecated Replaced by {@code k8s.statefulset.pod.current}.
+   */
   @Deprecated
   public static final String K8S_STATEFULSET_CURRENT_PODS_DESCRIPTION =
       "Deprecated, use `k8s.statefulset.pod.current` instead.";
 
-  /** Name of the {@code k8s.statefulset.desired_pods} metric. */
+  /**
+   * Name of the {@code k8s.statefulset.desired_pods} metric.
+   *
+   * @deprecated Replaced by {@code k8s.statefulset.pod.desired}.
+   */
   @Deprecated
   public static final String K8S_STATEFULSET_DESIRED_PODS_NAME = "k8s.statefulset.desired_pods";
 
-  /** Unit of the {@code k8s.statefulset.desired_pods} metric. */
+  /**
+   * Unit of the {@code k8s.statefulset.desired_pods} metric.
+   *
+   * @deprecated Replaced by {@code k8s.statefulset.pod.desired}.
+   */
   @Deprecated public static final String K8S_STATEFULSET_DESIRED_PODS_UNIT = "{pod}";
 
-  /** Description of the {@code k8s.statefulset.desired_pods} metric. */
+  /**
+   * Description of the {@code k8s.statefulset.desired_pods} metric.
+   *
+   * @deprecated Replaced by {@code k8s.statefulset.pod.desired}.
+   */
   @Deprecated
   public static final String K8S_STATEFULSET_DESIRED_PODS_DESCRIPTION =
       "Deprecated, use `k8s.statefulset.pod.desired` instead.";
@@ -1595,26 +1978,50 @@ public final class K8sIncubatingMetrics {
   public static final String K8S_STATEFULSET_POD_UPDATED_DESCRIPTION =
       "Number of replica pods created by the statefulset controller from the statefulset version indicated by updateRevision.";
 
-  /** Name of the {@code k8s.statefulset.ready_pods} metric. */
+  /**
+   * Name of the {@code k8s.statefulset.ready_pods} metric.
+   *
+   * @deprecated Replaced by {@code k8s.statefulset.pod.ready}.
+   */
   @Deprecated
   public static final String K8S_STATEFULSET_READY_PODS_NAME = "k8s.statefulset.ready_pods";
 
-  /** Unit of the {@code k8s.statefulset.ready_pods} metric. */
+  /**
+   * Unit of the {@code k8s.statefulset.ready_pods} metric.
+   *
+   * @deprecated Replaced by {@code k8s.statefulset.pod.ready}.
+   */
   @Deprecated public static final String K8S_STATEFULSET_READY_PODS_UNIT = "{pod}";
 
-  /** Description of the {@code k8s.statefulset.ready_pods} metric. */
+  /**
+   * Description of the {@code k8s.statefulset.ready_pods} metric.
+   *
+   * @deprecated Replaced by {@code k8s.statefulset.pod.ready}.
+   */
   @Deprecated
   public static final String K8S_STATEFULSET_READY_PODS_DESCRIPTION =
       "Deprecated, use `k8s.statefulset.pod.ready` instead.";
 
-  /** Name of the {@code k8s.statefulset.updated_pods} metric. */
+  /**
+   * Name of the {@code k8s.statefulset.updated_pods} metric.
+   *
+   * @deprecated Replaced by {@code k8s.statefulset.pod.updated}.
+   */
   @Deprecated
   public static final String K8S_STATEFULSET_UPDATED_PODS_NAME = "k8s.statefulset.updated_pods";
 
-  /** Unit of the {@code k8s.statefulset.updated_pods} metric. */
+  /**
+   * Unit of the {@code k8s.statefulset.updated_pods} metric.
+   *
+   * @deprecated Replaced by {@code k8s.statefulset.pod.updated}.
+   */
   @Deprecated public static final String K8S_STATEFULSET_UPDATED_PODS_UNIT = "{pod}";
 
-  /** Description of the {@code k8s.statefulset.updated_pods} metric. */
+  /**
+   * Description of the {@code k8s.statefulset.updated_pods} metric.
+   *
+   * @deprecated Replaced by {@code k8s.statefulset.pod.updated}.
+   */
   @Deprecated
   public static final String K8S_STATEFULSET_UPDATED_PODS_DESCRIPTION =
       "Deprecated, use `k8s.statefulset.pod.updated` instead.";

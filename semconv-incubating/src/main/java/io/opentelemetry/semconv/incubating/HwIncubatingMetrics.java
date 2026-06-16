@@ -9,7 +9,6 @@ package io.opentelemetry.semconv.incubating;
 // buildscripts/templates/registry/incubating_java/IncubatingSemanticMetrics.java.j2
 @SuppressWarnings("unused")
 public final class HwIncubatingMetrics {
-
   /** Name of the {@code hw.battery.charge} metric. */
   public static final String HW_BATTERY_CHARGE_NAME = "hw.battery.charge";
 

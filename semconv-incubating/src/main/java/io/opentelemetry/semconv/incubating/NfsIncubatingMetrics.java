@@ -9,7 +9,6 @@ package io.opentelemetry.semconv.incubating;
 // buildscripts/templates/registry/incubating_java/IncubatingSemanticMetrics.java.j2
 @SuppressWarnings("unused")
 public final class NfsIncubatingMetrics {
-
   /** Name of the {@code nfs.client.net.count} metric. */
   public static final String NFS_CLIENT_NET_COUNT_NAME = "nfs.client.net.count";
 

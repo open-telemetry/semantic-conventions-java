@@ -9,7 +9,6 @@ package io.opentelemetry.semconv.incubating;
 // buildscripts/templates/registry/incubating_java/IncubatingSemanticMetrics.java.j2
 @SuppressWarnings("unused")
 public final class ContainerIncubatingMetrics {
-
   /** Name of the {@code container.cpu.time} metric. */
   public static final String CONTAINER_CPU_TIME_NAME = "container.cpu.time";
 

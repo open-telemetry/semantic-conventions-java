@@ -9,7 +9,6 @@ package io.opentelemetry.semconv.incubating;
 // buildscripts/templates/registry/incubating_java/IncubatingSemanticMetrics.java.j2
 @SuppressWarnings("unused")
 public final class CicdIncubatingMetrics {
-
   /** Name of the {@code cicd.pipeline.run.active} metric. */
   public static final String CICD_PIPELINE_RUN_ACTIVE_NAME = "cicd.pipeline.run.active";
 

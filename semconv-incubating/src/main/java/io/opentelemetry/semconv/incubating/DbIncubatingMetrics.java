@@ -9,7 +9,6 @@ package io.opentelemetry.semconv.incubating;
 // buildscripts/templates/registry/incubating_java/IncubatingSemanticMetrics.java.j2
 @SuppressWarnings("unused")
 public final class DbIncubatingMetrics {
-
   /** Name of the {@code db.client.connection.count} metric. */
   public static final String DB_CLIENT_CONNECTION_COUNT_NAME = "db.client.connection.count";
 
@@ -102,152 +101,301 @@ public final class DbIncubatingMetrics {
   public static final String DB_CLIENT_CONNECTION_WAIT_TIME_DESCRIPTION =
       "The time it took to obtain an open connection from the pool.";
 
-  /** Name of the {@code db.client.connections.create_time} metric. */
+  /**
+   * Name of the {@code db.client.connections.create_time} metric.
+   *
+   * @deprecated Replaced by {@code db.client.connection.create_time} with unit {@code s}.
+   */
   @Deprecated
   public static final String DB_CLIENT_CONNECTIONS_CREATE_TIME_NAME =
       "db.client.connections.create_time";
 
-  /** Unit of the {@code db.client.connections.create_time} metric. */
+  /**
+   * Unit of the {@code db.client.connections.create_time} metric.
+   *
+   * @deprecated Replaced by {@code db.client.connection.create_time} with unit {@code s}.
+   */
   @Deprecated public static final String DB_CLIENT_CONNECTIONS_CREATE_TIME_UNIT = "ms";
 
-  /** Description of the {@code db.client.connections.create_time} metric. */
+  /**
+   * Description of the {@code db.client.connections.create_time} metric.
+   *
+   * @deprecated Replaced by {@code db.client.connection.create_time} with unit {@code s}.
+   */
   @Deprecated
   public static final String DB_CLIENT_CONNECTIONS_CREATE_TIME_DESCRIPTION =
       "Deprecated, use `db.client.connection.create_time` instead. Note: the unit also changed from `ms` to `s`.";
 
-  /** Name of the {@code db.client.connections.idle.max} metric. */
+  /**
+   * Name of the {@code db.client.connections.idle.max} metric.
+   *
+   * @deprecated Replaced by {@code db.client.connection.idle.max}.
+   */
   @Deprecated
   public static final String DB_CLIENT_CONNECTIONS_IDLE_MAX_NAME = "db.client.connections.idle.max";
 
-  /** Unit of the {@code db.client.connections.idle.max} metric. */
+  /**
+   * Unit of the {@code db.client.connections.idle.max} metric.
+   *
+   * @deprecated Replaced by {@code db.client.connection.idle.max}.
+   */
   @Deprecated public static final String DB_CLIENT_CONNECTIONS_IDLE_MAX_UNIT = "{connection}";
 
-  /** Description of the {@code db.client.connections.idle.max} metric. */
+  /**
+   * Description of the {@code db.client.connections.idle.max} metric.
+   *
+   * @deprecated Replaced by {@code db.client.connection.idle.max}.
+   */
   @Deprecated
   public static final String DB_CLIENT_CONNECTIONS_IDLE_MAX_DESCRIPTION =
       "Deprecated, use `db.client.connection.idle.max` instead.";
 
-  /** Name of the {@code db.client.connections.idle.min} metric. */
+  /**
+   * Name of the {@code db.client.connections.idle.min} metric.
+   *
+   * @deprecated Replaced by {@code db.client.connection.idle.min}.
+   */
   @Deprecated
   public static final String DB_CLIENT_CONNECTIONS_IDLE_MIN_NAME = "db.client.connections.idle.min";
 
-  /** Unit of the {@code db.client.connections.idle.min} metric. */
+  /**
+   * Unit of the {@code db.client.connections.idle.min} metric.
+   *
+   * @deprecated Replaced by {@code db.client.connection.idle.min}.
+   */
   @Deprecated public static final String DB_CLIENT_CONNECTIONS_IDLE_MIN_UNIT = "{connection}";
 
-  /** Description of the {@code db.client.connections.idle.min} metric. */
+  /**
+   * Description of the {@code db.client.connections.idle.min} metric.
+   *
+   * @deprecated Replaced by {@code db.client.connection.idle.min}.
+   */
   @Deprecated
   public static final String DB_CLIENT_CONNECTIONS_IDLE_MIN_DESCRIPTION =
       "Deprecated, use `db.client.connection.idle.min` instead.";
 
-  /** Name of the {@code db.client.connections.max} metric. */
+  /**
+   * Name of the {@code db.client.connections.max} metric.
+   *
+   * @deprecated Replaced by {@code db.client.connection.max}.
+   */
   @Deprecated
   public static final String DB_CLIENT_CONNECTIONS_MAX_NAME = "db.client.connections.max";
 
-  /** Unit of the {@code db.client.connections.max} metric. */
+  /**
+   * Unit of the {@code db.client.connections.max} metric.
+   *
+   * @deprecated Replaced by {@code db.client.connection.max}.
+   */
   @Deprecated public static final String DB_CLIENT_CONNECTIONS_MAX_UNIT = "{connection}";
 
-  /** Description of the {@code db.client.connections.max} metric. */
+  /**
+   * Description of the {@code db.client.connections.max} metric.
+   *
+   * @deprecated Replaced by {@code db.client.connection.max}.
+   */
   @Deprecated
   public static final String DB_CLIENT_CONNECTIONS_MAX_DESCRIPTION =
       "Deprecated, use `db.client.connection.max` instead.";
 
-  /** Name of the {@code db.client.connections.pending_requests} metric. */
+  /**
+   * Name of the {@code db.client.connections.pending_requests} metric.
+   *
+   * @deprecated Replaced by {@code db.client.connection.pending_requests}.
+   */
   @Deprecated
   public static final String DB_CLIENT_CONNECTIONS_PENDING_REQUESTS_NAME =
       "db.client.connections.pending_requests";
 
-  /** Unit of the {@code db.client.connections.pending_requests} metric. */
+  /**
+   * Unit of the {@code db.client.connections.pending_requests} metric.
+   *
+   * @deprecated Replaced by {@code db.client.connection.pending_requests}.
+   */
   @Deprecated public static final String DB_CLIENT_CONNECTIONS_PENDING_REQUESTS_UNIT = "{request}";
 
-  /** Description of the {@code db.client.connections.pending_requests} metric. */
+  /**
+   * Description of the {@code db.client.connections.pending_requests} metric.
+   *
+   * @deprecated Replaced by {@code db.client.connection.pending_requests}.
+   */
   @Deprecated
   public static final String DB_CLIENT_CONNECTIONS_PENDING_REQUESTS_DESCRIPTION =
       "Deprecated, use `db.client.connection.pending_requests` instead.";
 
-  /** Name of the {@code db.client.connections.timeouts} metric. */
+  /**
+   * Name of the {@code db.client.connections.timeouts} metric.
+   *
+   * @deprecated Replaced by {@code db.client.connection.timeouts}.
+   */
   @Deprecated
   public static final String DB_CLIENT_CONNECTIONS_TIMEOUTS_NAME = "db.client.connections.timeouts";
 
-  /** Unit of the {@code db.client.connections.timeouts} metric. */
+  /**
+   * Unit of the {@code db.client.connections.timeouts} metric.
+   *
+   * @deprecated Replaced by {@code db.client.connection.timeouts}.
+   */
   @Deprecated public static final String DB_CLIENT_CONNECTIONS_TIMEOUTS_UNIT = "{timeout}";
 
-  /** Description of the {@code db.client.connections.timeouts} metric. */
+  /**
+   * Description of the {@code db.client.connections.timeouts} metric.
+   *
+   * @deprecated Replaced by {@code db.client.connection.timeouts}.
+   */
   @Deprecated
   public static final String DB_CLIENT_CONNECTIONS_TIMEOUTS_DESCRIPTION =
       "Deprecated, use `db.client.connection.timeouts` instead.";
 
-  /** Name of the {@code db.client.connections.usage} metric. */
+  /**
+   * Name of the {@code db.client.connections.usage} metric.
+   *
+   * @deprecated Replaced by {@code db.client.connection.count}.
+   */
   @Deprecated
   public static final String DB_CLIENT_CONNECTIONS_USAGE_NAME = "db.client.connections.usage";
 
-  /** Unit of the {@code db.client.connections.usage} metric. */
+  /**
+   * Unit of the {@code db.client.connections.usage} metric.
+   *
+   * @deprecated Replaced by {@code db.client.connection.count}.
+   */
   @Deprecated public static final String DB_CLIENT_CONNECTIONS_USAGE_UNIT = "{connection}";
 
-  /** Description of the {@code db.client.connections.usage} metric. */
+  /**
+   * Description of the {@code db.client.connections.usage} metric.
+   *
+   * @deprecated Replaced by {@code db.client.connection.count}.
+   */
   @Deprecated
   public static final String DB_CLIENT_CONNECTIONS_USAGE_DESCRIPTION =
       "Deprecated, use `db.client.connection.count` instead.";
 
-  /** Name of the {@code db.client.connections.use_time} metric. */
+  /**
+   * Name of the {@code db.client.connections.use_time} metric.
+   *
+   * @deprecated Replaced by {@code db.client.connection.use_time} with unit {@code s}.
+   */
   @Deprecated
   public static final String DB_CLIENT_CONNECTIONS_USE_TIME_NAME = "db.client.connections.use_time";
 
-  /** Unit of the {@code db.client.connections.use_time} metric. */
+  /**
+   * Unit of the {@code db.client.connections.use_time} metric.
+   *
+   * @deprecated Replaced by {@code db.client.connection.use_time} with unit {@code s}.
+   */
   @Deprecated public static final String DB_CLIENT_CONNECTIONS_USE_TIME_UNIT = "ms";
 
-  /** Description of the {@code db.client.connections.use_time} metric. */
+  /**
+   * Description of the {@code db.client.connections.use_time} metric.
+   *
+   * @deprecated Replaced by {@code db.client.connection.use_time} with unit {@code s}.
+   */
   @Deprecated
   public static final String DB_CLIENT_CONNECTIONS_USE_TIME_DESCRIPTION =
       "Deprecated, use `db.client.connection.use_time` instead. Note: the unit also changed from `ms` to `s`.";
 
-  /** Name of the {@code db.client.connections.wait_time} metric. */
+  /**
+   * Name of the {@code db.client.connections.wait_time} metric.
+   *
+   * @deprecated Replaced by {@code db.client.connection.wait_time} with unit {@code s}.
+   */
   @Deprecated
   public static final String DB_CLIENT_CONNECTIONS_WAIT_TIME_NAME =
       "db.client.connections.wait_time";
 
-  /** Unit of the {@code db.client.connections.wait_time} metric. */
+  /**
+   * Unit of the {@code db.client.connections.wait_time} metric.
+   *
+   * @deprecated Replaced by {@code db.client.connection.wait_time} with unit {@code s}.
+   */
   @Deprecated public static final String DB_CLIENT_CONNECTIONS_WAIT_TIME_UNIT = "ms";
 
-  /** Description of the {@code db.client.connections.wait_time} metric. */
+  /**
+   * Description of the {@code db.client.connections.wait_time} metric.
+   *
+   * @deprecated Replaced by {@code db.client.connection.wait_time} with unit {@code s}.
+   */
   @Deprecated
   public static final String DB_CLIENT_CONNECTIONS_WAIT_TIME_DESCRIPTION =
       "Deprecated, use `db.client.connection.wait_time` instead. Note: the unit also changed from `ms` to `s`.";
 
-  /** Name of the {@code db.client.cosmosdb.active_instance.count} metric. */
+  /**
+   * Name of the {@code db.client.cosmosdb.active_instance.count} metric.
+   *
+   * @deprecated Replaced by {@code azure.cosmosdb.client.active_instance.count}.
+   */
   @Deprecated
   public static final String DB_CLIENT_COSMOSDB_ACTIVE_INSTANCE_COUNT_NAME =
       "db.client.cosmosdb.active_instance.count";
 
-  /** Unit of the {@code db.client.cosmosdb.active_instance.count} metric. */
+  /**
+   * Unit of the {@code db.client.cosmosdb.active_instance.count} metric.
+   *
+   * @deprecated Replaced by {@code azure.cosmosdb.client.active_instance.count}.
+   */
   @Deprecated
   public static final String DB_CLIENT_COSMOSDB_ACTIVE_INSTANCE_COUNT_UNIT = "{instance}";
 
-  /** Description of the {@code db.client.cosmosdb.active_instance.count} metric. */
+  /**
+   * Description of the {@code db.client.cosmosdb.active_instance.count} metric.
+   *
+   * @deprecated Replaced by {@code azure.cosmosdb.client.active_instance.count}.
+   */
   @Deprecated
   public static final String DB_CLIENT_COSMOSDB_ACTIVE_INSTANCE_COUNT_DESCRIPTION =
       "Deprecated, use `azure.cosmosdb.client.active_instance.count` instead.";
 
-  /** Name of the {@code db.client.cosmosdb.operation.request_charge} metric. */
+  /**
+   * Name of the {@code db.client.cosmosdb.operation.request_charge} metric.
+   *
+   * @deprecated Replaced by {@code azure.cosmosdb.client.operation.request_charge}.
+   */
   @Deprecated
   public static final String DB_CLIENT_COSMOSDB_OPERATION_REQUEST_CHARGE_NAME =
       "db.client.cosmosdb.operation.request_charge";
 
-  /** Unit of the {@code db.client.cosmosdb.operation.request_charge} metric. */
+  /**
+   * Unit of the {@code db.client.cosmosdb.operation.request_charge} metric.
+   *
+   * @deprecated Replaced by {@code azure.cosmosdb.client.operation.request_charge}.
+   */
   @Deprecated
   public static final String DB_CLIENT_COSMOSDB_OPERATION_REQUEST_CHARGE_UNIT = "{request_unit}";
 
-  /** Description of the {@code db.client.cosmosdb.operation.request_charge} metric. */
+  /**
+   * Description of the {@code db.client.cosmosdb.operation.request_charge} metric.
+   *
+   * @deprecated Replaced by {@code azure.cosmosdb.client.operation.request_charge}.
+   */
   @Deprecated
   public static final String DB_CLIENT_COSMOSDB_OPERATION_REQUEST_CHARGE_DESCRIPTION =
       "Deprecated, use `azure.cosmosdb.client.operation.request_charge` instead.";
 
-  /** Name of the {@code db.client.operation.duration} metric. */
+  /**
+   * Name of the {@code db.client.operation.duration} metric.
+   *
+   * @deprecated deprecated in favor of stable {@link
+   *     io.opentelemetry.semconv.DbMetrics#DB_CLIENT_OPERATION_DURATION_NAME} constant.
+   */
+  @Deprecated
   public static final String DB_CLIENT_OPERATION_DURATION_NAME = "db.client.operation.duration";
 
-  /** Unit of the {@code db.client.operation.duration} metric. */
-  public static final String DB_CLIENT_OPERATION_DURATION_UNIT = "s";
+  /**
+   * Unit of the {@code db.client.operation.duration} metric.
+   *
+   * @deprecated deprecated in favor of stable {@link
+   *     io.opentelemetry.semconv.DbMetrics#DB_CLIENT_OPERATION_DURATION_UNIT} constant.
+   */
+  @Deprecated public static final String DB_CLIENT_OPERATION_DURATION_UNIT = "s";
 
-  /** Description of the {@code db.client.operation.duration} metric. */
+  /**
+   * Description of the {@code db.client.operation.duration} metric.
+   *
+   * @deprecated deprecated in favor of stable {@link
+   *     io.opentelemetry.semconv.DbMetrics#DB_CLIENT_OPERATION_DURATION_DESCRIPTION} constant.
+   */
+  @Deprecated
   public static final String DB_CLIENT_OPERATION_DURATION_DESCRIPTION =
       "Duration of database client operations.";
 

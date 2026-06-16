@@ -9,7 +9,6 @@ package io.opentelemetry.semconv.incubating;
 // buildscripts/templates/registry/incubating_java/IncubatingSemanticMetrics.java.j2
 @SuppressWarnings("unused")
 public final class VcsIncubatingMetrics {
-
   /** Name of the {@code vcs.change.count} metric. */
   public static final String VCS_CHANGE_COUNT_NAME = "vcs.change.count";
 

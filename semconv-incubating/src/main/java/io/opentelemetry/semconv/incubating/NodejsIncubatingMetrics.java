@@ -9,7 +9,6 @@ package io.opentelemetry.semconv.incubating;
 // buildscripts/templates/registry/incubating_java/IncubatingSemanticMetrics.java.j2
 @SuppressWarnings("unused")
 public final class NodejsIncubatingMetrics {
-
   /** Name of the {@code nodejs.eventloop.delay.max} metric. */
   public static final String NODEJS_EVENTLOOP_DELAY_MAX_NAME = "nodejs.eventloop.delay.max";
 

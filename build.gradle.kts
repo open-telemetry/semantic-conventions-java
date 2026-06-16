@@ -80,6 +80,8 @@ val semanticConventionsRepoZip = "https://github.com/open-telemetry/semantic-con
 val schemaUrl = "https://opentelemetry.io/schemas/$semanticConventionsVersion"
 
 val downloadSemanticConventions by tasks.registering(Download::class) {
+  println(semanticConventionsVersion)
+  println(semanticConventionsRepoZip)
   src(semanticConventionsRepoZip)
   dest(layout.buildDirectory.file("semantic-conventions-${semanticConventionsVersion}/semantic-conventions.zip"))
   overwrite(false)

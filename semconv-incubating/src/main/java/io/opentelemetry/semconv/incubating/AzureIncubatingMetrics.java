@@ -9,7 +9,6 @@ package io.opentelemetry.semconv.incubating;
 // buildscripts/templates/registry/incubating_java/IncubatingSemanticMetrics.java.j2
 @SuppressWarnings("unused")
 public final class AzureIncubatingMetrics {
-
   /** Name of the {@code azure.cosmosdb.client.active_instance.count} metric. */
   public static final String AZURE_COSMOSDB_CLIENT_ACTIVE_INSTANCE_COUNT_NAME =
       "azure.cosmosdb.client.active_instance.count";

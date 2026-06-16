@@ -9,7 +9,6 @@ package io.opentelemetry.semconv.incubating;
 // buildscripts/templates/registry/incubating_java/IncubatingSemanticMetrics.java.j2
 @SuppressWarnings("unused")
 public final class OtelIncubatingMetrics {
-
   /** Name of the {@code otel.sdk.exporter.log.exported} metric. */
   public static final String OTEL_SDK_EXPORTER_LOG_EXPORTED_NAME = "otel.sdk.exporter.log.exported";
 
@@ -74,15 +73,27 @@ public final class OtelIncubatingMetrics {
   public static final String OTEL_SDK_EXPORTER_SPAN_EXPORTED_DESCRIPTION =
       "The number of spans for which the export has finished, either successful or failed.";
 
-  /** Name of the {@code otel.sdk.exporter.span.exported.count} metric. */
+  /**
+   * Name of the {@code otel.sdk.exporter.span.exported.count} metric.
+   *
+   * @deprecated Replaced by {@code otel.sdk.exporter.span.exported}.
+   */
   @Deprecated
   public static final String OTEL_SDK_EXPORTER_SPAN_EXPORTED_COUNT_NAME =
       "otel.sdk.exporter.span.exported.count";
 
-  /** Unit of the {@code otel.sdk.exporter.span.exported.count} metric. */
+  /**
+   * Unit of the {@code otel.sdk.exporter.span.exported.count} metric.
+   *
+   * @deprecated Replaced by {@code otel.sdk.exporter.span.exported}.
+   */
   @Deprecated public static final String OTEL_SDK_EXPORTER_SPAN_EXPORTED_COUNT_UNIT = "{span}";
 
-  /** Description of the {@code otel.sdk.exporter.span.exported.count} metric. */
+  /**
+   * Description of the {@code otel.sdk.exporter.span.exported.count} metric.
+   *
+   * @deprecated Replaced by {@code otel.sdk.exporter.span.exported}.
+   */
   @Deprecated
   public static final String OTEL_SDK_EXPORTER_SPAN_EXPORTED_COUNT_DESCRIPTION =
       "Deprecated, use `otel.sdk.exporter.span.exported` instead.";
@@ -98,15 +109,27 @@ public final class OtelIncubatingMetrics {
   public static final String OTEL_SDK_EXPORTER_SPAN_INFLIGHT_DESCRIPTION =
       "The number of spans which were passed to the exporter, but that have not been exported yet (neither successful, nor failed).";
 
-  /** Name of the {@code otel.sdk.exporter.span.inflight.count} metric. */
+  /**
+   * Name of the {@code otel.sdk.exporter.span.inflight.count} metric.
+   *
+   * @deprecated Replaced by {@code otel.sdk.exporter.span.inflight}.
+   */
   @Deprecated
   public static final String OTEL_SDK_EXPORTER_SPAN_INFLIGHT_COUNT_NAME =
       "otel.sdk.exporter.span.inflight.count";
 
-  /** Unit of the {@code otel.sdk.exporter.span.inflight.count} metric. */
+  /**
+   * Unit of the {@code otel.sdk.exporter.span.inflight.count} metric.
+   *
+   * @deprecated Replaced by {@code otel.sdk.exporter.span.inflight}.
+   */
   @Deprecated public static final String OTEL_SDK_EXPORTER_SPAN_INFLIGHT_COUNT_UNIT = "{span}";
 
-  /** Description of the {@code otel.sdk.exporter.span.inflight.count} metric. */
+  /**
+   * Description of the {@code otel.sdk.exporter.span.inflight.count} metric.
+   *
+   * @deprecated Replaced by {@code otel.sdk.exporter.span.inflight}.
+   */
   @Deprecated
   public static final String OTEL_SDK_EXPORTER_SPAN_INFLIGHT_COUNT_DESCRIPTION =
       "Deprecated, use `otel.sdk.exporter.span.inflight` instead.";
@@ -176,15 +199,27 @@ public final class OtelIncubatingMetrics {
   public static final String OTEL_SDK_PROCESSOR_SPAN_PROCESSED_DESCRIPTION =
       "The number of spans for which the processing has finished, either successful or failed.";
 
-  /** Name of the {@code otel.sdk.processor.span.processed.count} metric. */
+  /**
+   * Name of the {@code otel.sdk.processor.span.processed.count} metric.
+   *
+   * @deprecated Replaced by {@code otel.sdk.processor.span.processed}.
+   */
   @Deprecated
   public static final String OTEL_SDK_PROCESSOR_SPAN_PROCESSED_COUNT_NAME =
       "otel.sdk.processor.span.processed.count";
 
-  /** Unit of the {@code otel.sdk.processor.span.processed.count} metric. */
+  /**
+   * Unit of the {@code otel.sdk.processor.span.processed.count} metric.
+   *
+   * @deprecated Replaced by {@code otel.sdk.processor.span.processed}.
+   */
   @Deprecated public static final String OTEL_SDK_PROCESSOR_SPAN_PROCESSED_COUNT_UNIT = "{span}";
 
-  /** Description of the {@code otel.sdk.processor.span.processed.count} metric. */
+  /**
+   * Description of the {@code otel.sdk.processor.span.processed.count} metric.
+   *
+   * @deprecated Replaced by {@code otel.sdk.processor.span.processed}.
+   */
   @Deprecated
   public static final String OTEL_SDK_PROCESSOR_SPAN_PROCESSED_COUNT_DESCRIPTION =
       "Deprecated, use `otel.sdk.processor.span.processed` instead.";
@@ -211,25 +246,49 @@ public final class OtelIncubatingMetrics {
   public static final String OTEL_SDK_PROCESSOR_SPAN_QUEUE_SIZE_DESCRIPTION =
       "The number of spans in the queue of a given instance of an SDK span processor.";
 
-  /** Name of the {@code otel.sdk.span.ended} metric. */
+  /**
+   * Name of the {@code otel.sdk.span.ended} metric.
+   *
+   * @deprecated Obsoleted.
+   */
   @Deprecated public static final String OTEL_SDK_SPAN_ENDED_NAME = "otel.sdk.span.ended";
 
-  /** Unit of the {@code otel.sdk.span.ended} metric. */
+  /**
+   * Unit of the {@code otel.sdk.span.ended} metric.
+   *
+   * @deprecated Obsoleted.
+   */
   @Deprecated public static final String OTEL_SDK_SPAN_ENDED_UNIT = "{span}";
 
-  /** Description of the {@code otel.sdk.span.ended} metric. */
+  /**
+   * Description of the {@code otel.sdk.span.ended} metric.
+   *
+   * @deprecated Obsoleted.
+   */
   @Deprecated
   public static final String OTEL_SDK_SPAN_ENDED_DESCRIPTION =
       "Use `otel.sdk.span.started` minus `otel.sdk.span.live` to derive this value.";
 
-  /** Name of the {@code otel.sdk.span.ended.count} metric. */
+  /**
+   * Name of the {@code otel.sdk.span.ended.count} metric.
+   *
+   * @deprecated Obsoleted.
+   */
   @Deprecated
   public static final String OTEL_SDK_SPAN_ENDED_COUNT_NAME = "otel.sdk.span.ended.count";
 
-  /** Unit of the {@code otel.sdk.span.ended.count} metric. */
+  /**
+   * Unit of the {@code otel.sdk.span.ended.count} metric.
+   *
+   * @deprecated Obsoleted.
+   */
   @Deprecated public static final String OTEL_SDK_SPAN_ENDED_COUNT_UNIT = "{span}";
 
-  /** Description of the {@code otel.sdk.span.ended.count} metric. */
+  /**
+   * Description of the {@code otel.sdk.span.ended.count} metric.
+   *
+   * @deprecated Obsoleted.
+   */
   @Deprecated
   public static final String OTEL_SDK_SPAN_ENDED_COUNT_DESCRIPTION =
       "Use `otel.sdk.span.started` minus `otel.sdk.span.live` to derive this value.";
@@ -244,13 +303,25 @@ public final class OtelIncubatingMetrics {
   public static final String OTEL_SDK_SPAN_LIVE_DESCRIPTION =
       "The number of created spans with `recording=true` for which the end operation has not been called yet.";
 
-  /** Name of the {@code otel.sdk.span.live.count} metric. */
+  /**
+   * Name of the {@code otel.sdk.span.live.count} metric.
+   *
+   * @deprecated Replaced by {@code otel.sdk.span.live}.
+   */
   @Deprecated public static final String OTEL_SDK_SPAN_LIVE_COUNT_NAME = "otel.sdk.span.live.count";
 
-  /** Unit of the {@code otel.sdk.span.live.count} metric. */
+  /**
+   * Unit of the {@code otel.sdk.span.live.count} metric.
+   *
+   * @deprecated Replaced by {@code otel.sdk.span.live}.
+   */
   @Deprecated public static final String OTEL_SDK_SPAN_LIVE_COUNT_UNIT = "{span}";
 
-  /** Description of the {@code otel.sdk.span.live.count} metric. */
+  /**
+   * Description of the {@code otel.sdk.span.live.count} metric.
+   *
+   * @deprecated Replaced by {@code otel.sdk.span.live}.
+   */
   @Deprecated
   public static final String OTEL_SDK_SPAN_LIVE_COUNT_DESCRIPTION =
       "Deprecated, use `otel.sdk.span.live` instead.";

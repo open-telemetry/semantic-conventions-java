@@ -9,7 +9,6 @@ package io.opentelemetry.semconv.incubating;
 // buildscripts/templates/registry/incubating_java/IncubatingSemanticMetrics.java.j2
 @SuppressWarnings("unused")
 public final class ProcessIncubatingMetrics {
-
   /** Name of the {@code process.context_switches} metric. */
   public static final String PROCESS_CONTEXT_SWITCHES_NAME = "process.context_switches";
 
@@ -78,16 +77,28 @@ public final class ProcessIncubatingMetrics {
   /** Description of the {@code process.network.io} metric. */
   public static final String PROCESS_NETWORK_IO_DESCRIPTION = "Network bytes transferred.";
 
-  /** Name of the {@code process.open_file_descriptor.count} metric. */
+  /**
+   * Name of the {@code process.open_file_descriptor.count} metric.
+   *
+   * @deprecated Replaced by {@code process.unix.file_descriptor.count}.
+   */
   @Deprecated
   public static final String PROCESS_OPEN_FILE_DESCRIPTOR_COUNT_NAME =
       "process.open_file_descriptor.count";
 
-  /** Unit of the {@code process.open_file_descriptor.count} metric. */
+  /**
+   * Unit of the {@code process.open_file_descriptor.count} metric.
+   *
+   * @deprecated Replaced by {@code process.unix.file_descriptor.count}.
+   */
   @Deprecated
   public static final String PROCESS_OPEN_FILE_DESCRIPTOR_COUNT_UNIT = "{file_descriptor}";
 
-  /** Description of the {@code process.open_file_descriptor.count} metric. */
+  /**
+   * Description of the {@code process.open_file_descriptor.count} metric.
+   *
+   * @deprecated Replaced by {@code process.unix.file_descriptor.count}.
+   */
   @Deprecated
   public static final String PROCESS_OPEN_FILE_DESCRIPTOR_COUNT_DESCRIPTION =
       "Deprecated, use `process.unix.file_descriptor.count` instead.";

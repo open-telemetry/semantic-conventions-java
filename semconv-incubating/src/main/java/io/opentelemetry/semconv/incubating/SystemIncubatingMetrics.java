@@ -9,7 +9,6 @@ package io.opentelemetry.semconv.incubating;
 // buildscripts/templates/registry/incubating_java/IncubatingSemanticMetrics.java.j2
 @SuppressWarnings("unused")
 public final class SystemIncubatingMetrics {
-
   /** Name of the {@code system.cpu.frequency} metric. */
   public static final String SYSTEM_CPU_FREQUENCY_NAME = "system.cpu.frequency";
 
@@ -156,26 +155,50 @@ public final class SystemIncubatingMetrics {
   public static final String SYSTEM_FILESYSTEM_UTILIZATION_DESCRIPTION =
       "Fraction of filesystem bytes used.";
 
-  /** Name of the {@code system.linux.memory.available} metric. */
+  /**
+   * Name of the {@code system.linux.memory.available} metric.
+   *
+   * @deprecated Replaced by {@code system.memory.linux.available}.
+   */
   @Deprecated
   public static final String SYSTEM_LINUX_MEMORY_AVAILABLE_NAME = "system.linux.memory.available";
 
-  /** Unit of the {@code system.linux.memory.available} metric. */
+  /**
+   * Unit of the {@code system.linux.memory.available} metric.
+   *
+   * @deprecated Replaced by {@code system.memory.linux.available}.
+   */
   @Deprecated public static final String SYSTEM_LINUX_MEMORY_AVAILABLE_UNIT = "{packet}";
 
-  /** Description of the {@code system.linux.memory.available} metric. */
+  /**
+   * Description of the {@code system.linux.memory.available} metric.
+   *
+   * @deprecated Replaced by {@code system.memory.linux.available}.
+   */
   @Deprecated
   public static final String SYSTEM_LINUX_MEMORY_AVAILABLE_DESCRIPTION =
       "The number of packets transferred.";
 
-  /** Name of the {@code system.linux.memory.slab.usage} metric. */
+  /**
+   * Name of the {@code system.linux.memory.slab.usage} metric.
+   *
+   * @deprecated Replaced by {@code system.memory.linux.slab.usage}.
+   */
   @Deprecated
   public static final String SYSTEM_LINUX_MEMORY_SLAB_USAGE_NAME = "system.linux.memory.slab.usage";
 
-  /** Unit of the {@code system.linux.memory.slab.usage} metric. */
+  /**
+   * Unit of the {@code system.linux.memory.slab.usage} metric.
+   *
+   * @deprecated Replaced by {@code system.memory.linux.slab.usage}.
+   */
   @Deprecated public static final String SYSTEM_LINUX_MEMORY_SLAB_USAGE_UNIT = "{packet}";
 
-  /** Description of the {@code system.linux.memory.slab.usage} metric. */
+  /**
+   * Description of the {@code system.linux.memory.slab.usage} metric.
+   *
+   * @deprecated Replaced by {@code system.memory.linux.slab.usage}.
+   */
   @Deprecated
   public static final String SYSTEM_LINUX_MEMORY_SLAB_USAGE_DESCRIPTION =
       "The number of packets transferred.";
@@ -286,13 +309,25 @@ public final class SystemIncubatingMetrics {
   public static final String SYSTEM_MEMORY_LINUX_SLAB_USAGE_DESCRIPTION =
       "Reports the memory used by the Linux kernel for managing caches of frequently used objects.";
 
-  /** Name of the {@code system.memory.shared} metric. */
+  /**
+   * Name of the {@code system.memory.shared} metric.
+   *
+   * @deprecated Replaced by {@code system.memory.linux.shared}.
+   */
   @Deprecated public static final String SYSTEM_MEMORY_SHARED_NAME = "system.memory.shared";
 
-  /** Unit of the {@code system.memory.shared} metric. */
+  /**
+   * Unit of the {@code system.memory.shared} metric.
+   *
+   * @deprecated Replaced by {@code system.memory.linux.shared}.
+   */
   @Deprecated public static final String SYSTEM_MEMORY_SHARED_UNIT = "By";
 
-  /** Description of the {@code system.memory.shared} metric. */
+  /**
+   * Description of the {@code system.memory.shared} metric.
+   *
+   * @deprecated Replaced by {@code system.memory.linux.shared}.
+   */
   @Deprecated
   public static final String SYSTEM_MEMORY_SHARED_DESCRIPTION =
       "Deprecated, use `system.memory.linux.shared` instead.";
@@ -327,25 +362,49 @@ public final class SystemIncubatingMetrics {
   public static final String SYSTEM_NETWORK_CONNECTION_COUNT_DESCRIPTION =
       "The number of connections.";
 
-  /** Name of the {@code system.network.connections} metric. */
+  /**
+   * Name of the {@code system.network.connections} metric.
+   *
+   * @deprecated Replaced by {@code system.network.connection.count}.
+   */
   @Deprecated
   public static final String SYSTEM_NETWORK_CONNECTIONS_NAME = "system.network.connections";
 
-  /** Unit of the {@code system.network.connections} metric. */
+  /**
+   * Unit of the {@code system.network.connections} metric.
+   *
+   * @deprecated Replaced by {@code system.network.connection.count}.
+   */
   @Deprecated public static final String SYSTEM_NETWORK_CONNECTIONS_UNIT = "{connection}";
 
-  /** Description of the {@code system.network.connections} metric. */
+  /**
+   * Description of the {@code system.network.connections} metric.
+   *
+   * @deprecated Replaced by {@code system.network.connection.count}.
+   */
   @Deprecated
   public static final String SYSTEM_NETWORK_CONNECTIONS_DESCRIPTION =
       "Deprecated, use `system.network.connection.count` instead.";
 
-  /** Name of the {@code system.network.dropped} metric. */
+  /**
+   * Name of the {@code system.network.dropped} metric.
+   *
+   * @deprecated Replaced by {@code system.network.packet.dropped}.
+   */
   @Deprecated public static final String SYSTEM_NETWORK_DROPPED_NAME = "system.network.dropped";
 
-  /** Unit of the {@code system.network.dropped} metric. */
+  /**
+   * Unit of the {@code system.network.dropped} metric.
+   *
+   * @deprecated Replaced by {@code system.network.packet.dropped}.
+   */
   @Deprecated public static final String SYSTEM_NETWORK_DROPPED_UNIT = "{packet}";
 
-  /** Description of the {@code system.network.dropped} metric. */
+  /**
+   * Description of the {@code system.network.dropped} metric.
+   *
+   * @deprecated Replaced by {@code system.network.packet.dropped}.
+   */
   @Deprecated
   public static final String SYSTEM_NETWORK_DROPPED_DESCRIPTION =
       "Count of packets that are dropped or discarded even though there was no error.";
@@ -390,13 +449,25 @@ public final class SystemIncubatingMetrics {
   public static final String SYSTEM_NETWORK_PACKET_DROPPED_DESCRIPTION =
       "Count of packets that are dropped or discarded even though there was no error.";
 
-  /** Name of the {@code system.network.packets} metric. */
+  /**
+   * Name of the {@code system.network.packets} metric.
+   *
+   * @deprecated Replaced by {@code system.network.packet.count}.
+   */
   @Deprecated public static final String SYSTEM_NETWORK_PACKETS_NAME = "system.network.packets";
 
-  /** Unit of the {@code system.network.packets} metric. */
+  /**
+   * Unit of the {@code system.network.packets} metric.
+   *
+   * @deprecated Replaced by {@code system.network.packet.count}.
+   */
   @Deprecated public static final String SYSTEM_NETWORK_PACKETS_UNIT = "{packet}";
 
-  /** Description of the {@code system.network.packets} metric. */
+  /**
+   * Description of the {@code system.network.packets} metric.
+   *
+   * @deprecated Replaced by {@code system.network.packet.count}.
+   */
   @Deprecated
   public static final String SYSTEM_NETWORK_PACKETS_DESCRIPTION =
       "The number of packets transferred.";

@@ -9,7 +9,6 @@ package io.opentelemetry.semconv.incubating;
 // buildscripts/templates/registry/incubating_java/IncubatingSemanticMetrics.java.j2
 @SuppressWarnings("unused")
 public final class OpenshiftIncubatingMetrics {
-
   /** Name of the {@code openshift.clusterquota.cpu.limit.hard} metric. */
   public static final String OPENSHIFT_CLUSTERQUOTA_CPU_LIMIT_HARD_NAME =
       "openshift.clusterquota.cpu.limit.hard";

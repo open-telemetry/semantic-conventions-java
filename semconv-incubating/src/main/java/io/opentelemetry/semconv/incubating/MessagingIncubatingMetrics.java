@@ -9,7 +9,6 @@ package io.opentelemetry.semconv.incubating;
 // buildscripts/templates/registry/incubating_java/IncubatingSemanticMetrics.java.j2
 @SuppressWarnings("unused")
 public final class MessagingIncubatingMetrics {
-
   /** Name of the {@code messaging.client.consumed.messages} metric. */
   public static final String MESSAGING_CLIENT_CONSUMED_MESSAGES_NAME =
       "messaging.client.consumed.messages";
@@ -32,15 +31,27 @@ public final class MessagingIncubatingMetrics {
   public static final String MESSAGING_CLIENT_OPERATION_DURATION_DESCRIPTION =
       "Duration of messaging operation initiated by a producer or consumer client.";
 
-  /** Name of the {@code messaging.client.published.messages} metric. */
+  /**
+   * Name of the {@code messaging.client.published.messages} metric.
+   *
+   * @deprecated Replaced by {@code messaging.client.sent.messages}.
+   */
   @Deprecated
   public static final String MESSAGING_CLIENT_PUBLISHED_MESSAGES_NAME =
       "messaging.client.published.messages";
 
-  /** Unit of the {@code messaging.client.published.messages} metric. */
+  /**
+   * Unit of the {@code messaging.client.published.messages} metric.
+   *
+   * @deprecated Replaced by {@code messaging.client.sent.messages}.
+   */
   @Deprecated public static final String MESSAGING_CLIENT_PUBLISHED_MESSAGES_UNIT = "{message}";
 
-  /** Description of the {@code messaging.client.published.messages} metric. */
+  /**
+   * Description of the {@code messaging.client.published.messages} metric.
+   *
+   * @deprecated Replaced by {@code messaging.client.sent.messages}.
+   */
   @Deprecated
   public static final String MESSAGING_CLIENT_PUBLISHED_MESSAGES_DESCRIPTION =
       "Deprecated. Use `messaging.client.sent.messages` instead.";
@@ -65,62 +76,122 @@ public final class MessagingIncubatingMetrics {
   public static final String MESSAGING_PROCESS_DURATION_DESCRIPTION =
       "Duration of processing operation.";
 
-  /** Name of the {@code messaging.process.messages} metric. */
+  /**
+   * Name of the {@code messaging.process.messages} metric.
+   *
+   * @deprecated Replaced by {@code messaging.client.consumed.messages}.
+   */
   @Deprecated
   public static final String MESSAGING_PROCESS_MESSAGES_NAME = "messaging.process.messages";
 
-  /** Unit of the {@code messaging.process.messages} metric. */
+  /**
+   * Unit of the {@code messaging.process.messages} metric.
+   *
+   * @deprecated Replaced by {@code messaging.client.consumed.messages}.
+   */
   @Deprecated public static final String MESSAGING_PROCESS_MESSAGES_UNIT = "{message}";
 
-  /** Description of the {@code messaging.process.messages} metric. */
+  /**
+   * Description of the {@code messaging.process.messages} metric.
+   *
+   * @deprecated Replaced by {@code messaging.client.consumed.messages}.
+   */
   @Deprecated
   public static final String MESSAGING_PROCESS_MESSAGES_DESCRIPTION =
       "Deprecated. Use `messaging.client.consumed.messages` instead.";
 
-  /** Name of the {@code messaging.publish.duration} metric. */
+  /**
+   * Name of the {@code messaging.publish.duration} metric.
+   *
+   * @deprecated Replaced by {@code messaging.client.operation.duration}.
+   */
   @Deprecated
   public static final String MESSAGING_PUBLISH_DURATION_NAME = "messaging.publish.duration";
 
-  /** Unit of the {@code messaging.publish.duration} metric. */
+  /**
+   * Unit of the {@code messaging.publish.duration} metric.
+   *
+   * @deprecated Replaced by {@code messaging.client.operation.duration}.
+   */
   @Deprecated public static final String MESSAGING_PUBLISH_DURATION_UNIT = "s";
 
-  /** Description of the {@code messaging.publish.duration} metric. */
+  /**
+   * Description of the {@code messaging.publish.duration} metric.
+   *
+   * @deprecated Replaced by {@code messaging.client.operation.duration}.
+   */
   @Deprecated
   public static final String MESSAGING_PUBLISH_DURATION_DESCRIPTION =
       "Deprecated. Use `messaging.client.operation.duration` instead.";
 
-  /** Name of the {@code messaging.publish.messages} metric. */
+  /**
+   * Name of the {@code messaging.publish.messages} metric.
+   *
+   * @deprecated Replaced by {@code messaging.client.sent.messages}.
+   */
   @Deprecated
   public static final String MESSAGING_PUBLISH_MESSAGES_NAME = "messaging.publish.messages";
 
-  /** Unit of the {@code messaging.publish.messages} metric. */
+  /**
+   * Unit of the {@code messaging.publish.messages} metric.
+   *
+   * @deprecated Replaced by {@code messaging.client.sent.messages}.
+   */
   @Deprecated public static final String MESSAGING_PUBLISH_MESSAGES_UNIT = "{message}";
 
-  /** Description of the {@code messaging.publish.messages} metric. */
+  /**
+   * Description of the {@code messaging.publish.messages} metric.
+   *
+   * @deprecated Replaced by {@code messaging.client.sent.messages}.
+   */
   @Deprecated
   public static final String MESSAGING_PUBLISH_MESSAGES_DESCRIPTION =
       "Deprecated. Use `messaging.client.sent.messages` instead.";
 
-  /** Name of the {@code messaging.receive.duration} metric. */
+  /**
+   * Name of the {@code messaging.receive.duration} metric.
+   *
+   * @deprecated Replaced by {@code messaging.client.operation.duration}.
+   */
   @Deprecated
   public static final String MESSAGING_RECEIVE_DURATION_NAME = "messaging.receive.duration";
 
-  /** Unit of the {@code messaging.receive.duration} metric. */
+  /**
+   * Unit of the {@code messaging.receive.duration} metric.
+   *
+   * @deprecated Replaced by {@code messaging.client.operation.duration}.
+   */
   @Deprecated public static final String MESSAGING_RECEIVE_DURATION_UNIT = "s";
 
-  /** Description of the {@code messaging.receive.duration} metric. */
+  /**
+   * Description of the {@code messaging.receive.duration} metric.
+   *
+   * @deprecated Replaced by {@code messaging.client.operation.duration}.
+   */
   @Deprecated
   public static final String MESSAGING_RECEIVE_DURATION_DESCRIPTION =
       "Deprecated. Use `messaging.client.operation.duration` instead.";
 
-  /** Name of the {@code messaging.receive.messages} metric. */
+  /**
+   * Name of the {@code messaging.receive.messages} metric.
+   *
+   * @deprecated Replaced by {@code messaging.client.consumed.messages}.
+   */
   @Deprecated
   public static final String MESSAGING_RECEIVE_MESSAGES_NAME = "messaging.receive.messages";
 
-  /** Unit of the {@code messaging.receive.messages} metric. */
+  /**
+   * Unit of the {@code messaging.receive.messages} metric.
+   *
+   * @deprecated Replaced by {@code messaging.client.consumed.messages}.
+   */
   @Deprecated public static final String MESSAGING_RECEIVE_MESSAGES_UNIT = "{message}";
 
-  /** Description of the {@code messaging.receive.messages} metric. */
+  /**
+   * Description of the {@code messaging.receive.messages} metric.
+   *
+   * @deprecated Replaced by {@code messaging.client.consumed.messages}.
+   */
   @Deprecated
   public static final String MESSAGING_RECEIVE_MESSAGES_DESCRIPTION =
       "Deprecated. Use `messaging.client.consumed.messages` instead.";

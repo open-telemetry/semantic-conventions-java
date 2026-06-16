@@ -9,7 +9,6 @@ package io.opentelemetry.semconv.incubating;
 // buildscripts/templates/registry/incubating_java/IncubatingSemanticMetrics.java.j2
 @SuppressWarnings("unused")
 public final class FaasIncubatingMetrics {
-
   /** Name of the {@code faas.coldstarts} metric. */
   public static final String FAAS_COLDSTARTS_NAME = "faas.coldstarts";
 
