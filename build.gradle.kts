@@ -4,6 +4,7 @@ import java.time.Duration
 plugins {
   id("de.undercouch.download")
   id("io.github.gradle-nexus.publish-plugin")
+  base
 }
 
 // start - updated by ./.github/workflows/prepare-release-branch.yml
@@ -159,7 +160,7 @@ val generateSemanticConventions by tasks.registering {
   dependsOn(tasks.getByName("checkSchemaUrls"))
 }
 
-tasks.register("build") {
+tasks.named("build") {
   dependsOn(tasks.getByName("checkSchemaUrls"))
 }
 
