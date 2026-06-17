@@ -44,14 +44,15 @@ public final class V8jsIncubatingMetrics {
       "Deprecated, use `v8js.memory.heap.space.physical_size` instead.";
 
   /** Name of the {@code v8js.memory.heap.limit} metric. */
-  public static final String V8JS_MEMORY_HEAP_LIMIT_NAME = "v8js.memory.heap.limit";
+  @Deprecated public static final String V8JS_MEMORY_HEAP_LIMIT_NAME = "v8js.memory.heap.limit";
 
   /** Unit of the {@code v8js.memory.heap.limit} metric. */
-  public static final String V8JS_MEMORY_HEAP_LIMIT_UNIT = "By";
+  @Deprecated public static final String V8JS_MEMORY_HEAP_LIMIT_UNIT = "By";
 
   /** Description of the {@code v8js.memory.heap.limit} metric. */
+  @Deprecated
   public static final String V8JS_MEMORY_HEAP_LIMIT_DESCRIPTION =
-      "Total heap memory size pre-allocated.";
+      "Deprecated, use `v8js.memory.heap.space.size` instead.";
 
   /** Name of the {@code v8js.memory.heap.space.available_size} metric. */
   public static final String V8JS_MEMORY_HEAP_SPACE_AVAILABLE_SIZE_NAME =
@@ -74,6 +75,16 @@ public final class V8jsIncubatingMetrics {
   /** Description of the {@code v8js.memory.heap.space.physical_size} metric. */
   public static final String V8JS_MEMORY_HEAP_SPACE_PHYSICAL_SIZE_DESCRIPTION =
       "Committed size of a heap space.";
+
+  /** Name of the {@code v8js.memory.heap.space.size} metric. */
+  public static final String V8JS_MEMORY_HEAP_SPACE_SIZE_NAME = "v8js.memory.heap.space.size";
+
+  /** Unit of the {@code v8js.memory.heap.space.size} metric. */
+  public static final String V8JS_MEMORY_HEAP_SPACE_SIZE_UNIT = "By";
+
+  /** Description of the {@code v8js.memory.heap.space.size} metric. */
+  public static final String V8JS_MEMORY_HEAP_SPACE_SIZE_DESCRIPTION =
+      "Total heap memory size pre-allocated for a heap space.";
 
   /** Name of the {@code v8js.memory.heap.used} metric. */
   public static final String V8JS_MEMORY_HEAP_USED_NAME = "v8js.memory.heap.used";

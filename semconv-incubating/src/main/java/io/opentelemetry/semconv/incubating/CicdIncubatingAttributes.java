@@ -73,17 +73,17 @@ public final class CicdIncubatingAttributes {
   public static final AttributeKey<String> CICD_PIPELINE_TASK_TYPE =
       stringKey("cicd.pipeline.task.type");
 
-  /** The name of a component of the CICD system. */
+  /** The name of a component of the CI/CD system. */
   public static final AttributeKey<String> CICD_SYSTEM_COMPONENT =
       stringKey("cicd.system.component");
 
-  /** The unique identifier of a worker within a CICD system. */
+  /** The unique identifier of a worker within a CI/CD system. */
   public static final AttributeKey<String> CICD_WORKER_ID = stringKey("cicd.worker.id");
 
-  /** The name of a worker within a CICD system. */
+  /** The name of a worker within a CI/CD system. */
   public static final AttributeKey<String> CICD_WORKER_NAME = stringKey("cicd.worker.name");
 
-  /** The state of a CICD worker / agent. */
+  /** The state of a CI/CD worker / agent. */
   public static final AttributeKey<String> CICD_WORKER_STATE = stringKey("cicd.worker.state");
 
   /**
@@ -121,7 +121,7 @@ public final class CicdIncubatingAttributes {
     public static final String FAILURE = "failure";
 
     /**
-     * The pipeline run failed due to an error in the CICD system, eg. due to the worker being
+     * The pipeline run failed due to an error in the CI/CD system, eg. due to the worker being
      * killed.
      */
     public static final String ERROR = "error";
@@ -170,7 +170,7 @@ public final class CicdIncubatingAttributes {
     public static final String FAILURE = "failure";
 
     /**
-     * The task run failed due to an error in the CICD system, eg. due to the worker being killed.
+     * The task run failed due to an error in the CI/CD system, eg. due to the worker being killed.
      */
     public static final String ERROR = "error";
 
@@ -203,15 +203,15 @@ public final class CicdIncubatingAttributes {
   /** Values for {@link #CICD_WORKER_STATE}. */
   public static final class CicdWorkerStateIncubatingValues {
     /**
-     * The worker is not performing work for the CICD system. It is available to the CICD system to
-     * perform work on (online / idle).
+     * The worker is not performing work for the CI/CD system. It is available to the CI/CD system
+     * to perform work on (online / idle).
      */
     public static final String AVAILABLE = "available";
 
-    /** The worker is performing work for the CICD system. */
+    /** The worker is performing work for the CI/CD system. */
     public static final String BUSY = "busy";
 
-    /** The worker is not available to the CICD system (disconnected / down). */
+    /** The worker is not available to the CI/CD system (disconnected / down). */
     public static final String OFFLINE = "offline";
 
     private CicdWorkerStateIncubatingValues() {}

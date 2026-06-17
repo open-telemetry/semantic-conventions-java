@@ -17,7 +17,7 @@ public final class ContainerIncubatingMetrics {
   public static final String CONTAINER_CPU_TIME_UNIT = "s";
 
   /** Description of the {@code container.cpu.time} metric. */
-  public static final String CONTAINER_CPU_TIME_DESCRIPTION = "Total CPU time consumed.";
+  public static final String CONTAINER_CPU_TIME_DESCRIPTION = "CPU time consumed.";
 
   /** Name of the {@code container.cpu.usage} metric. */
   public static final String CONTAINER_CPU_USAGE_NAME = "container.cpu.usage";

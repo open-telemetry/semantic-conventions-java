@@ -48,7 +48,7 @@ public final class CicdIncubatingMetrics {
 
   /** Description of the {@code cicd.system.errors} metric. */
   public static final String CICD_SYSTEM_ERRORS_DESCRIPTION =
-      "The number of errors in a component of the CICD system (eg. controller, scheduler, agent).";
+      "The number of errors in a component of the CI/CD system (eg. controller, scheduler, agent).";
 
   /** Name of the {@code cicd.worker.count} metric. */
   public static final String CICD_WORKER_COUNT_NAME = "cicd.worker.count";
@@ -58,7 +58,7 @@ public final class CicdIncubatingMetrics {
 
   /** Description of the {@code cicd.worker.count} metric. */
   public static final String CICD_WORKER_COUNT_DESCRIPTION =
-      "The number of workers on the CICD system by state.";
+      "The number of workers on the CI/CD system by state.";
 
   private CicdIncubatingMetrics() {}
 }

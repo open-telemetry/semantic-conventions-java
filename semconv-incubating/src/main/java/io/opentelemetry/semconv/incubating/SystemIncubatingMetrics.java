@@ -127,6 +127,15 @@ public final class SystemIncubatingMetrics {
   public static final String SYSTEM_FILESYSTEM_LIMIT_DESCRIPTION =
       "The total storage capacity of the filesystem.";
 
+  /** Name of the {@code system.filesystem.lock.count} metric. */
+  public static final String SYSTEM_FILESYSTEM_LOCK_COUNT_NAME = "system.filesystem.lock.count";
+
+  /** Unit of the {@code system.filesystem.lock.count} metric. */
+  public static final String SYSTEM_FILESYSTEM_LOCK_COUNT_UNIT = "{lock}";
+
+  /** Description of the {@code system.filesystem.lock.count} metric. */
+  public static final String SYSTEM_FILESYSTEM_LOCK_COUNT_DESCRIPTION = "Filesystem lock counts.";
+
   /** Name of the {@code system.filesystem.usage} metric. */
   public static final String SYSTEM_FILESYSTEM_USAGE_NAME = "system.filesystem.usage";
 

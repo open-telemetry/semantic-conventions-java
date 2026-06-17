@@ -121,6 +121,17 @@ public final class K8sIncubatingMetrics {
   public static final String K8S_CONTAINER_EPHEMERAL_STORAGE_REQUEST_DESCRIPTION =
       "Ephemeral storage resource requested for the container.";
 
+  /** Name of the {@code k8s.container.ephemeral_storage.usage} metric. */
+  public static final String K8S_CONTAINER_EPHEMERAL_STORAGE_USAGE_NAME =
+      "k8s.container.ephemeral_storage.usage";
+
+  /** Unit of the {@code k8s.container.ephemeral_storage.usage} metric. */
+  public static final String K8S_CONTAINER_EPHEMERAL_STORAGE_USAGE_UNIT = "By";
+
+  /** Description of the {@code k8s.container.ephemeral_storage.usage} metric. */
+  public static final String K8S_CONTAINER_EPHEMERAL_STORAGE_USAGE_DESCRIPTION =
+      "The ephemeral storage used by a container.";
+
   /** Name of the {@code k8s.container.memory.limit} metric. */
   @Deprecated
   public static final String K8S_CONTAINER_MEMORY_LIMIT_NAME = "k8s.container.memory.limit";

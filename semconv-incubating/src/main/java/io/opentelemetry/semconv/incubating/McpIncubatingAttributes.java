@@ -13,13 +13,25 @@ import io.opentelemetry.api.common.AttributeKey;
 // buildscripts/templates/registry/incubating_java/IncubatingSemanticAttributes.java.j2
 @SuppressWarnings("unused")
 public final class McpIncubatingAttributes {
-  /** The name of the request or notification method. */
+  /**
+   * The name of the request or notification method.
+   *
+   * @deprecated Moved to the <a
+   *     href="https://github.com/open-telemetry/semantic-conventions-genai">OpenTelemetry GenAI
+   *     semantic conventions repository</a>.
+   */
+  @Deprecated
   public static final AttributeKey<String> MCP_METHOD_NAME = stringKey("mcp.method.name");
 
   /**
    * The <a href="https://modelcontextprotocol.io/specification/versioning">version</a> of the Model
    * Context Protocol used.
+   *
+   * @deprecated Moved to the <a
+   *     href="https://github.com/open-telemetry/semantic-conventions-genai">OpenTelemetry GenAI
+   *     semantic conventions repository</a>.
    */
+  @Deprecated
   public static final AttributeKey<String> MCP_PROTOCOL_VERSION = stringKey("mcp.protocol.version");
 
   /**
@@ -30,19 +42,35 @@ public final class McpIncubatingAttributes {
    * <p>This is a URI of the resource provided in the following requests or notifications: {@code
    * resources/read}, {@code resources/subscribe}, {@code resources/unsubscribe}, or {@code
    * notifications/resources/updated}.
+   *
+   * @deprecated Moved to the <a
+   *     href="https://github.com/open-telemetry/semantic-conventions-genai">OpenTelemetry GenAI
+   *     semantic conventions repository</a>.
    */
+  @Deprecated
   public static final AttributeKey<String> MCP_RESOURCE_URI = stringKey("mcp.resource.uri");
 
   /**
    * Identifies <a
    * href="https://modelcontextprotocol.io/specification/2025-06-18/basic/transports#session-management">MCP
    * session</a>.
+   *
+   * @deprecated Moved to the <a
+   *     href="https://github.com/open-telemetry/semantic-conventions-genai">OpenTelemetry GenAI
+   *     semantic conventions repository</a>.
    */
-  public static final AttributeKey<String> MCP_SESSION_ID = stringKey("mcp.session.id");
+  @Deprecated public static final AttributeKey<String> MCP_SESSION_ID = stringKey("mcp.session.id");
 
   // Enum definitions
 
-  /** Values for {@link #MCP_METHOD_NAME}. */
+  /**
+   * Values for {@link #MCP_METHOD_NAME}
+   *
+   * @deprecated Moved to the <a
+   *     href="https://github.com/open-telemetry/semantic-conventions-genai">OpenTelemetry GenAI
+   *     semantic conventions repository</a>.
+   */
+  @Deprecated
   public static final class McpMethodNameIncubatingValues {
     /** Notification cancelling a previously-issued request. */
     public static final String NOTIFICATIONS_CANCELLED = "notifications/cancelled";
