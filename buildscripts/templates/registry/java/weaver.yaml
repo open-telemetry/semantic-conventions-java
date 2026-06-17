@@ -29,6 +29,19 @@ templates:
       })
     application_mode: each
     file_name: "{{ctx.root_namespace | pascal_case}}Attributes.java"
+  # - pattern: SemanticEvents.java.j2
+  #   filter: >
+  #     semconv_signal("event"; {
+  #       "exclude_root_namespace": $excluded_namespaces,
+  #       "exclude_stability": ["experimental", "deprecated"]
+  #     })
+  #     | group_by(.root_namespace)
+  #     | map({
+  #         root_namespace: .[0].root_namespace,
+  #         events: sort_by(.name)
+  #     })
+  #   application_mode: each
+  #   file_name: "{{ctx.root_namespace | pascal_case}}Events.java"
   # - pattern: SemanticMetrics.java.j2
   #   filter: >
   #     semconv_grouped_metrics({

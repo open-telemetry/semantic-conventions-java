@@ -93,6 +93,24 @@ public class IncubatingAvailabilityTest {
     isValidClass("io.opentelemetry.semconv.SchemaUrls");
   }
 
+  @Test
+  void availableEvents() {
+    isValidClass("io.opentelemetry.semconv.incubating.AppIncubatingEvents");
+    isValidClass("io.opentelemetry.semconv.incubating.AzIncubatingEvents");
+    isValidClass("io.opentelemetry.semconv.incubating.AzureIncubatingEvents");
+    isValidClass("io.opentelemetry.semconv.incubating.BrowserIncubatingEvents");
+    isValidClass("io.opentelemetry.semconv.incubating.DbIncubatingEvents");
+    isValidClass("io.opentelemetry.semconv.incubating.DeviceIncubatingEvents");
+    isValidClass("io.opentelemetry.semconv.incubating.ExceptionIncubatingEvents");
+    isValidClass("io.opentelemetry.semconv.incubating.FaasIncubatingEvents");
+    isValidClass("io.opentelemetry.semconv.incubating.FeatureFlagIncubatingEvents");
+    isValidClass("io.opentelemetry.semconv.incubating.GenAiIncubatingEvents");
+    isValidClass("io.opentelemetry.semconv.incubating.HttpIncubatingEvents");
+    isValidClass("io.opentelemetry.semconv.incubating.MessagingIncubatingEvents");
+    isValidClass("io.opentelemetry.semconv.incubating.RpcIncubatingEvents");
+    isValidClass("io.opentelemetry.semconv.incubating.SessionIncubatingEvents");
+  }
+
   private static void isValidClass(String fqcn) {
     Class<?> clazz = null;
     try {
