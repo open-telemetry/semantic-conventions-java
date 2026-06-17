@@ -1,0 +1,31 @@
+{%- set my_class_name = ctx.root_namespace | pascal_case ~ "Events" -%}
+
+/*
+ * Copyright The OpenTelemetry Authors
+ * SPDX-License-Identifier: Apache-2.0
+ */
+package io.opentelemetry.semconv;
+
+// DO NOT EDIT, this is an Auto-generated file from buildscripts/templates/registry/java/SemanticEvents.java.j2
+@SuppressWarnings("unused")
+public final class {{ my_class_name }} {
+  {%- for event in ctx.events -%}
+    {%- if event is stable -%}
+      {%- if event is deprecated -%}
+        {%- if event.deprecated.note == "Uncategorized." -%}
+          {%- set deprecated_javadoc = "@deprecated" -%}
+        {%- else -%}
+          {%- set deprecated_javadoc = "@deprecated " ~ event.deprecated.note -%}
+        {%- endif -%}
+      {%- else -%}
+        {%- set deprecated_javadoc = "" -%}
+      {%- endif -%}
+      {{ [event.brief, concat_if("\n\nNotes:\n\n", event.note), deprecated_javadoc] | comment }}
+      {%- if event is deprecated -%}
+        @Deprecated
+      {%- endif %} public static final String {{ event.name | screaming_snake_case }} = "{{ event.name }}";
+    {%- endif -%}
+  {%- endfor %}
+
+  private {{ my_class_name }}() {}
+}
