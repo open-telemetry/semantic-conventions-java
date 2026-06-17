@@ -1,7 +1,5 @@
 {%- set my_class_name = ctx.root_namespace | pascal_case ~ "IncubatingEvents" -%}
-{# Uncomment when stable event constants are enabled in buildscripts/templates/registry/java/weaver.yaml:
 {%- set stable_class_name = ctx.root_namespace | pascal_case ~ "Events" -%}
-#}
 
 /*
  * Copyright The OpenTelemetry Authors
@@ -13,9 +11,7 @@ package io.opentelemetry.semconv.incubating;
 @SuppressWarnings("unused")
 public final class {{ my_class_name }} {
   {%- for event in ctx.events -%}
-    {# When stable event constants are enabled, change `event is experimental or event is stable`
-       to `event is experimental` and uncomment the elif block below. #}
-    {%- if event is experimental or event is stable -%}
+    {%- if event is experimental -%}
       {%- if event is deprecated -%}
         {%- if event.deprecated.note == "Uncategorized." -%}
           {%- set deprecated_javadoc = "@deprecated" -%}
@@ -30,12 +26,10 @@ public final class {{ my_class_name }} {
         @Deprecated
       {% endif %}
       public static final String {{ event.name | screaming_snake_case }} = "{{ event.name }}";
-    {# Uncomment when stable event constants are enabled in buildscripts/templates/registry/java/weaver.yaml:
     {% elif event is stable %}
       {%- set stable_class_link = "io.opentelemetry.semconv." ~ stable_class_name ~ "#" ~ (event.name | screaming_snake_case) -%}
       {{ [event.brief, concat_if("\n\nNotes:\n\n", event.note), "@deprecated deprecated in favor of stable {@link " ~ stable_class_link ~ "} event."] | comment }}
       @Deprecated public static final String {{ event.name | screaming_snake_case }} = "{{ event.name }}";
-    #}
     {% endif %}
   {% endfor %}
 
