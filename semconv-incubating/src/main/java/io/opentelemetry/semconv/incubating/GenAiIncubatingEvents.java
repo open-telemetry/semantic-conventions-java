@@ -32,7 +32,12 @@ public final class GenAiIncubatingEvents {
    *
    * <p>This event is opt-in and could be used to store input and output details independently from
    * traces.
+   *
+   * @deprecated Moved to the <a
+   *     href="https://github.com/open-telemetry/semantic-conventions-genai">OpenTelemetry GenAI
+   *     semantic conventions repository</a>.
    */
+  @Deprecated
   public static final String GEN_AI_CLIENT_INFERENCE_OPERATION_DETAILS =
       "gen_ai.client.inference.operation.details";
 
@@ -47,7 +52,12 @@ public final class GenAiIncubatingEvents {
    * operations. Instrumentations SHOULD set the severity to WARN (severity number 13) when
    * recording this event. Instrumentations MAY provide a configuration option to populate exception
    * events with the attributes captured on the corresponding Generative AI client span.
+   *
+   * @deprecated Moved to the <a
+   *     href="https://github.com/open-telemetry/semantic-conventions-genai">OpenTelemetry GenAI
+   *     semantic conventions repository</a>.
    */
+  @Deprecated
   public static final String GEN_AI_CLIENT_OPERATION_EXCEPTION =
       "gen_ai.client.operation.exception";
 
@@ -55,8 +65,12 @@ public final class GenAiIncubatingEvents {
    * This event captures the result of evaluating GenAI output for quality, accuracy, or other
    * characteristics. This event SHOULD be parented to GenAI operation span being evaluated when
    * possible or set {@code gen_ai.response.id} when span id is not available.
+   *
+   * @deprecated Moved to the <a
+   *     href="https://github.com/open-telemetry/semantic-conventions-genai">OpenTelemetry GenAI
+   *     semantic conventions repository</a>.
    */
-  public static final String GEN_AI_EVALUATION_RESULT = "gen_ai.evaluation.result";
+  @Deprecated public static final String GEN_AI_EVALUATION_RESULT = "gen_ai.evaluation.result";
 
   /**
    * This event describes the system instructions passed to the GenAI model.

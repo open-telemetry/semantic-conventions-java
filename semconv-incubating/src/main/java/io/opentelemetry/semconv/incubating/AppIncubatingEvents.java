@@ -10,6 +10,25 @@ package io.opentelemetry.semconv.incubating;
 @SuppressWarnings("unused")
 public final class AppIncubatingEvents {
   /**
+   * This event represents a termination of a user-facing application due to unrecoverable
+   * programming errors such as exceptions or signals that indicate an error has happened at a lower
+   * level.
+   *
+   * <p>Notes:
+   *
+   * <p>Crash events can be produced asynchronously by an OTel SDK instance that is not running in
+   * the application instance in which the crash happened. For example, the instrumentation may
+   * report crashes from previous app instances based on information found in tombstones on disk. If
+   * the reporter of the crash is not the crashing application instance itself, relevant resource
+   * attributes that identify the application instance that crashed MUST be provided as event
+   * attributes so that the corresponding attributes from the reporter's resource aren't used
+   * instead. How the instrumentation will determine whether an instance of a crash has already been
+   * reported and how the necessary data will be retrieved is left up to the instrumentation.
+   * Providing enough data to dedupe is NOT REQUIRED.
+   */
+  public static final String APP_CRASH = "app.crash";
+
+  /**
    * This event indicates that the application has detected substandard UI rendering performance.
    *
    * <p>Notes:

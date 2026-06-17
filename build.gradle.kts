@@ -4,6 +4,7 @@ import java.time.Duration
 plugins {
   id("de.undercouch.download")
   id("io.github.gradle-nexus.publish-plugin")
+  base
 }
 
 // start - updated by ./.github/workflows/prepare-release-branch.yml
@@ -11,9 +12,10 @@ val snapshot = true
 // end
 
 // The release version of https://github.com/open-telemetry/semantic-conventions used to generate classes
-var semanticConventionsVersion = "1.41.1"
+var semanticConventionsVersion = "1.42.0"
 val schemaUrlVersions = listOf(
     semanticConventionsVersion,
+    "1.41.1",
     "1.41.0",
     "1.40.0",
     "1.39.0",
@@ -79,6 +81,8 @@ val semanticConventionsRepoZip = "https://github.com/open-telemetry/semantic-con
 val schemaUrl = "https://opentelemetry.io/schemas/$semanticConventionsVersion"
 
 val downloadSemanticConventions by tasks.registering(Download::class) {
+  println(semanticConventionsVersion)
+  println(semanticConventionsRepoZip)
   src(semanticConventionsRepoZip)
   dest(layout.buildDirectory.file("semantic-conventions-${semanticConventionsVersion}/semantic-conventions.zip"))
   overwrite(false)
@@ -158,7 +162,7 @@ val generateSemanticConventions by tasks.registering {
   dependsOn(tasks.getByName("checkSchemaUrls"))
 }
 
-tasks.register("build") {
+tasks.named("build") {
   dependsOn(tasks.getByName("checkSchemaUrls"))
 }
 
