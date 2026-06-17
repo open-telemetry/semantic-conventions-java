@@ -1,7 +1,5 @@
 {%- set my_class_name = ctx.root_namespace | pascal_case ~ "IncubatingMetrics" -%}
-{# Uncomment when stable metric constants are enabled in buildscripts/templates/registry/java/weaver.yaml:
 {%- set stable_class_name = ctx.root_namespace | pascal_case ~ "Metrics" -%}
-#}
 
 /*
  * Copyright The OpenTelemetry Authors
@@ -13,9 +11,7 @@ package io.opentelemetry.semconv.incubating;
 @SuppressWarnings("unused")
 public final class {{ my_class_name }} {
   {%- for metric in ctx.metrics -%}
-    {# When stable metric constants are enabled, change `metric is experimental or metric is stable`
-       to `metric is experimental` and uncomment the elif block below. #}
-    {%- if metric is experimental or metric is stable -%}
+    {%- if metric is experimental -%}
       {%- if metric is deprecated -%}
         {%- if metric.deprecated.note == "Uncategorized." -%}
           {%- set deprecated_javadoc = "@deprecated" -%}
@@ -40,7 +36,6 @@ public final class {{ my_class_name }} {
         @Deprecated
       {% endif %}
       public static final String {{ metric.metric_name | replace(".", "_") | screaming_snake_case }}_DESCRIPTION = "{{ metric.brief | replace('\n', ' ') | replace('"', '\\"') }}";
-    {# Uncomment when stable metric constants are enabled in buildscripts/templates/registry/java/weaver.yaml:
     {%- elif metric is stable -%}
       {%- set field_prefix = metric.metric_name | replace(".", "_") | screaming_snake_case -%}
       {%- set stable_link = "io.opentelemetry.semconv." ~ stable_class_name ~ "#" -%}
@@ -50,7 +45,6 @@ public final class {{ my_class_name }} {
       @Deprecated public static final String {{ field_prefix }}_UNIT = "{{ metric.unit }}";
       {{ ["Description of the {@code " ~ metric.metric_name ~ "} metric.", "@deprecated deprecated in favor of stable {@link " ~ stable_link ~ field_prefix ~ "_DESCRIPTION} constant."] | comment }}
       @Deprecated public static final String {{ field_prefix }}_DESCRIPTION = "{{ metric.brief | replace('\n', ' ') | replace('"', '\\"') }}";
-    #}
     {%- endif %}
   {%- endfor %}
 
