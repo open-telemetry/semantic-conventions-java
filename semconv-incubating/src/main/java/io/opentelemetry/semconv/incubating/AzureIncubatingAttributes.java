@@ -58,6 +58,14 @@ public final class AzureIncubatingAttributes {
       longKey("azure.cosmosdb.response.sub_status_code");
 
   /**
+   * The name of the Azure <a
+   * href="https://learn.microsoft.com/azure/azure-resource-manager/management/manage-resource-groups-portal">resource
+   * group</a> the resource belongs to.
+   */
+  public static final AttributeKey<String> AZURE_RESOURCE_GROUP_NAME =
+      stringKey("azure.resource_group.name");
+
+  /**
    * <a
    * href="https://learn.microsoft.com/azure/azure-resource-manager/management/azure-services-resource-providers">Azure
    * Resource Provider Namespace</a> as recognized by the client.
