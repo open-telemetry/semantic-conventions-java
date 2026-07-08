@@ -12,9 +12,10 @@ val snapshot = true
 // end
 
 // The release version of https://github.com/open-telemetry/semantic-conventions used to generate classes
-var semanticConventionsVersion = "1.42.0"
+var semanticConventionsVersion = "1.43.0"
 val schemaUrlVersions = listOf(
     semanticConventionsVersion,
+    "1.42.0",
     "1.41.1",
     "1.41.0",
     "1.40.0",

@@ -111,9 +111,9 @@ public final class K8sAttributes {
    * <p>Examples:
    *
    * <ul>
-   *   <li>A label {@code replicas} with value {@code 1} SHOULD be recorded as the {@code
+   *   <li>An annotation {@code replicas} with value {@code 1} SHOULD be recorded as the {@code
    *       k8s.daemonset.annotation.replicas} attribute with value {@code "1"}.
-   *   <li>A label {@code data} with empty string value SHOULD be recorded as the {@code
+   *   <li>An annotation {@code data} with empty string value SHOULD be recorded as the {@code
    *       k8s.daemonset.annotation.data} attribute with value {@code ""}.
    * </ul>
    */
@@ -131,7 +131,7 @@ public final class K8sAttributes {
    * <ul>
    *   <li>A label {@code app} with value {@code guestbook} SHOULD be recorded as the {@code
    *       k8s.daemonset.label.app} attribute with value {@code "guestbook"}.
-   *   <li>A label {@code data} with empty string value SHOULD be recorded as the {@code
+   *   <li>A label {@code injected} with empty string value SHOULD be recorded as the {@code
    *       k8s.daemonset.label.injected} attribute with value {@code ""}.
    * </ul>
    */
@@ -153,9 +153,9 @@ public final class K8sAttributes {
    * <p>Examples:
    *
    * <ul>
-   *   <li>A label {@code replicas} with value {@code 1} SHOULD be recorded as the {@code
+   *   <li>An annotation {@code replicas} with value {@code 1} SHOULD be recorded as the {@code
    *       k8s.deployment.annotation.replicas} attribute with value {@code "1"}.
-   *   <li>A label {@code data} with empty string value SHOULD be recorded as the {@code
+   *   <li>An annotation {@code data} with empty string value SHOULD be recorded as the {@code
    *       k8s.deployment.annotation.data} attribute with value {@code ""}.
    * </ul>
    */
@@ -171,7 +171,7 @@ public final class K8sAttributes {
    * <p>Examples:
    *
    * <ul>
-   *   <li>A label {@code replicas} with value {@code 0} SHOULD be recorded as the {@code
+   *   <li>A label {@code app} with value {@code guestbook} SHOULD be recorded as the {@code
    *       k8s.deployment.label.app} attribute with value {@code "guestbook"}.
    *   <li>A label {@code injected} with empty string value SHOULD be recorded as the {@code
    *       k8s.deployment.label.injected} attribute with value {@code ""}.
@@ -195,9 +195,9 @@ public final class K8sAttributes {
    * <p>Examples:
    *
    * <ul>
-   *   <li>A label {@code number} with value {@code 1} SHOULD be recorded as the {@code
+   *   <li>An annotation {@code number} with value {@code 1} SHOULD be recorded as the {@code
    *       k8s.job.annotation.number} attribute with value {@code "1"}.
-   *   <li>A label {@code data} with empty string value SHOULD be recorded as the {@code
+   *   <li>An annotation {@code data} with empty string value SHOULD be recorded as the {@code
    *       k8s.job.annotation.data} attribute with value {@code ""}.
    * </ul>
    */
@@ -215,7 +215,7 @@ public final class K8sAttributes {
    * <ul>
    *   <li>A label {@code jobtype} with value {@code ci} SHOULD be recorded as the {@code
    *       k8s.job.label.jobtype} attribute with value {@code "ci"}.
-   *   <li>A label {@code data} with empty string value SHOULD be recorded as the {@code
+   *   <li>A label {@code automated} with empty string value SHOULD be recorded as the {@code
    *       k8s.job.label.automated} attribute with value {@code ""}.
    * </ul>
    */
@@ -237,9 +237,9 @@ public final class K8sAttributes {
    * <p>Examples:
    *
    * <ul>
-   *   <li>A label {@code ttl} with value {@code 0} SHOULD be recorded as the {@code
+   *   <li>An annotation {@code ttl} with value {@code 0} SHOULD be recorded as the {@code
    *       k8s.namespace.annotation.ttl} attribute with value {@code "0"}.
-   *   <li>A label {@code data} with empty string value SHOULD be recorded as the {@code
+   *   <li>An annotation {@code data} with empty string value SHOULD be recorded as the {@code
    *       k8s.namespace.annotation.data} attribute with value {@code ""}.
    * </ul>
    */
@@ -409,9 +409,9 @@ public final class K8sAttributes {
    * <p>Examples:
    *
    * <ul>
-   *   <li>A label {@code replicas} with value {@code 0} SHOULD be recorded as the {@code
+   *   <li>An annotation {@code replicas} with value {@code 0} SHOULD be recorded as the {@code
    *       k8s.replicaset.annotation.replicas} attribute with value {@code "0"}.
-   *   <li>A label {@code data} with empty string value SHOULD be recorded as the {@code
+   *   <li>An annotation {@code data} with empty string value SHOULD be recorded as the {@code
    *       k8s.replicaset.annotation.data} attribute with value {@code ""}.
    * </ul>
    */
@@ -451,9 +451,9 @@ public final class K8sAttributes {
    * <p>Examples:
    *
    * <ul>
-   *   <li>A label {@code replicas} with value {@code 1} SHOULD be recorded as the {@code
+   *   <li>An annotation {@code replicas} with value {@code 1} SHOULD be recorded as the {@code
    *       k8s.statefulset.annotation.replicas} attribute with value {@code "1"}.
-   *   <li>A label {@code data} with empty string value SHOULD be recorded as the {@code
+   *   <li>An annotation {@code data} with empty string value SHOULD be recorded as the {@code
    *       k8s.statefulset.annotation.data} attribute with value {@code ""}.
    * </ul>
    */
@@ -469,7 +469,7 @@ public final class K8sAttributes {
    * <p>Examples:
    *
    * <ul>
-   *   <li>A label {@code replicas} with value {@code 0} SHOULD be recorded as the {@code
+   *   <li>A label {@code app} with value {@code guestbook} SHOULD be recorded as the {@code
    *       k8s.statefulset.label.app} attribute with value {@code "guestbook"}.
    *   <li>A label {@code injected} with empty string value SHOULD be recorded as the {@code
    *       k8s.statefulset.label.injected} attribute with value {@code ""}.

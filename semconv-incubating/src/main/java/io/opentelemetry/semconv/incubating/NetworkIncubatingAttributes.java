@@ -52,7 +52,11 @@ public final class NetworkIncubatingAttributes {
   public static final AttributeKey<String> NETWORK_INTERFACE_NAME =
       stringKey("network.interface.name");
 
-  /** The network IO operation direction. */
+  /**
+   * The direction of traffic from the perspective of the observing host's physical or virtual
+   * network interface. It should not be used to represent the logical direction of a stateful
+   * connection or network flow.
+   */
   public static final AttributeKey<String> NETWORK_IO_DIRECTION = stringKey("network.io.direction");
 
   /**

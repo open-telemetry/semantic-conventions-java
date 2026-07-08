@@ -53,7 +53,7 @@ public final class CicdIncubatingMetrics {
   public static final String CICD_WORKER_COUNT_NAME = "cicd.worker.count";
 
   /** Unit of the {@code cicd.worker.count} metric. */
-  public static final String CICD_WORKER_COUNT_UNIT = "{count}";
+  public static final String CICD_WORKER_COUNT_UNIT = "{worker}";
 
   /** Description of the {@code cicd.worker.count} metric. */
   public static final String CICD_WORKER_COUNT_DESCRIPTION =

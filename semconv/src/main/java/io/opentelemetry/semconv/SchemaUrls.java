@@ -6,6 +6,7 @@
 package io.opentelemetry.semconv;
 
 public final class SchemaUrls {
+  public static final String V1_43_0 = "https://opentelemetry.io/schemas/1.43.0";
   public static final String V1_42_0 = "https://opentelemetry.io/schemas/1.42.0";
   public static final String V1_41_1 = "https://opentelemetry.io/schemas/1.41.1";
   public static final String V1_41_0 = "https://opentelemetry.io/schemas/1.41.0";

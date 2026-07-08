@@ -102,6 +102,9 @@ public final class TelemetryIncubatingAttributes {
     /** java. */
     public static final String JAVA = "java";
 
+    /** kotlin. */
+    public static final String KOTLIN = "kotlin";
+
     /** nodejs. */
     public static final String NODEJS = "nodejs";
 
