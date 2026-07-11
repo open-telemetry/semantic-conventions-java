@@ -188,8 +188,11 @@ jobs:
           DEVELOCITY_ACCESS_KEY: ${{ secrets.DEVELOCITY_ACCESS_KEY }}
         run: |
           ./gradlew japicmp -PapiBaseVersion=$PRIOR_VERSION -PapiNewVersion=$VERSION
+          # Pin the apidiff baseline to the just-released version.
+          sed -i "s/^val apidiffBaselineVersion = .*/val apidiffBaselineVersion = \"$VERSION\"/" build.gradle.kts
           ./gradlew --refresh-dependencies japicmp
           git add docs/apidiffs
+          git add build.gradle.kts
 
       - name: Use CLA approved bot
         run: .github/scripts/use-cla-approved-bot.sh
