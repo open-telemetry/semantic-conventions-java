@@ -10,6 +10,7 @@ plugins {
 // start - updated by ./.github/workflows/prepare-release-branch.yml
 val snapshot = true
 // end
+val apidiffBaselineVersion = "1.43.0"
 
 // The release version of https://github.com/open-telemetry/semantic-conventions used to generate classes
 var semanticConventionsVersion = "1.43.0"
@@ -51,6 +52,7 @@ allprojects {
     ver += "-SNAPSHOT"
   }
   version = ver
+  extra["apidiffBaselineVersion"] = apidiffBaselineVersion
 }
 
 nexusPublishing {
