@@ -2,7 +2,9 @@ name: Zizmor
 
 on:
   push:
-    branches: [main]
+    branches:
+      - main
+      - release/*
   pull_request:
   schedule:
     - cron: '53 6 * * 4' # weekly at 06:53 UTC on Thursday
