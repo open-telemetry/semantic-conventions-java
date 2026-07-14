@@ -115,3 +115,18 @@ jobs:
           git add CHANGELOG.md
           git commit -m "Update changelog PR link"
           git push
+
+  workflow-notification:
+    permissions:
+      issues: write
+    needs:
+      - check-versions
+      - update-semconv
+    if: always()
+    uses: open-telemetry/shared-workflows/.github/workflows/workflow-failure-issue.yml@7c49790392da7de86fdb4bb968446f9cb8461eb8 # v0.3.1
+    with:
+      success: >-
+        ${{
+          needs.check-versions.result == 'success' &&
+          (needs.update-semconv.result == 'success' || needs.update-semconv.result == 'skipped')
+        }}
