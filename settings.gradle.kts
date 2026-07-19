@@ -60,3 +60,4 @@ rootProject.name = "semantic-conventions-java"
 include(":dependencyManagement")
 include(":semconv-incubating")
 include(":semconv")
+include(":osgi-test")
