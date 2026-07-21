@@ -29,6 +29,8 @@ jobs:
           fi
 
       - uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
+        with:
+          persist-credentials: false
 
       - uses: actions/setup-java@0f481fcb613427c0f801b606911222b5b6f3083a # v5.5.0
         with:
@@ -76,6 +78,7 @@ jobs:
       - uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
         with:
           ref: main
+          persist-credentials: false
 
       - name: Check that change log update was merged to main
         run: |
@@ -89,6 +92,7 @@ jobs:
         with:
           # tags are needed for the generate-release-contributors.sh script
           fetch-depth: 0
+          persist-credentials: false
 
       - name: Generate release notes
         env:
@@ -138,6 +142,8 @@ jobs:
       # add change log sync (if any) into this PR since the apidiff update
       # is required before any other PR can be merged anyway
       - uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
+        with:
+          persist-credentials: false
 
       - name: Copy change log section from release branch
         env:
@@ -149,6 +155,7 @@ jobs:
       - uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
         with:
           ref: main
+          persist-credentials: false
 
       - name: Merge change log to main
         env:

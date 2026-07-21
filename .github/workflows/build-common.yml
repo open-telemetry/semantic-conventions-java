@@ -56,6 +56,8 @@ jobs:
 
     steps:
       - uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
+        with:
+          persist-credentials: false
 
       - id: setup-java-test
         name: Set up Java ${{ matrix.test-java-version }} for tests
@@ -78,9 +80,11 @@ jobs:
           ./gradlew
           build
           -PtestJavaVersion=${{ matrix.test-java-version }}
-          "-Porg.gradle.java.installations.paths=${{ steps.setup-java-test.outputs.path }},${{ steps.setup-java.outputs.path }}"
+          "-Porg.gradle.java.installations.paths=${STEPS_SETUP_JAVA_TEST_OUTPUTS_PATH},${STEPS_SETUP_JAVA_OUTPUTS_PATH}"
         env:
           DEVELOCITY_ACCESS_KEY: ${{ secrets.DEVELOCITY_ACCESS_KEY }}
+          STEPS_SETUP_JAVA_TEST_OUTPUTS_PATH: ${{ steps.setup-java-test.outputs.path }}
+          STEPS_SETUP_JAVA_OUTPUTS_PATH: ${{ steps.setup-java.outputs.path }}
       - name: generate
         # Skip running on macos-latest which doesn't have docker
         if: matrix.os == 'ubuntu-latest'
