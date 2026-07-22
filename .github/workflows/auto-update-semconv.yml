@@ -65,7 +65,8 @@ jobs:
         with:
           # using custom token so the changelog PR link update push triggers workflows
           token: ${{ steps.otelbot-token.outputs.token }}
-          persist-credentials: false
+          # zizmor: ignore[artipacked] App credentials are required by the branch pushes below.
+          persist-credentials: true
 
       - name: Update version
         env:
@@ -99,7 +100,6 @@ jobs:
           # not using secrets.GITHUB_TOKEN since pull requests from that token do not run workflows
           GH_TOKEN: ${{ steps.otelbot-token.outputs.token }}
         run: |
-          gh auth setup-git
           message="Update the semantic conventions version to $VERSION"
           body="Update the semantic conventions version to \`$VERSION\`."
           branch="otelbot/update-semconv-to-${VERSION}"
