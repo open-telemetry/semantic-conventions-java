@@ -8,9 +8,6 @@ plugins {
 
 description = "OpenTelemetry Semantic Conventions OSGi Integration Tests"
 otelJava.moduleName.set("io.opentelemetry.semconv.integration.tests.osgi")
-// This module runs OSGi tests against the published semconv bundles; it does not publish an OSGi
-// bundle itself.
-otelJava.osgiEnabled.set(false)
 
 // The semconv bundles Import-Package io.opentelemetry.api.common, so resolution needs an
 // opentelemetry-api that is itself a proper OSGi bundle. OSGi metadata was added to the core

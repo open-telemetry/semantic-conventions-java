@@ -13,8 +13,6 @@ plugins {
 }
 
 val otelJava = extensions.create<OtelJavaExtension>("otelJava")
-otelJava.osgiEnabled.convention(true)
-otelJava.osgiOptionalPackages.convention(emptyList())
 
 java {
   toolchain {
@@ -95,27 +93,10 @@ tasks {
     }
   }
 
-  afterEvaluate {
-    if (otelJava.osgiEnabled.get()) {
-      named<Jar>("jar") {
-        // Configure OSGi metadata. semconv has no SPI / ServiceLoader needs, so this is the
-        // trimmed form of opentelemetry-java's otel.java-conventions OSGi config.
-        bundle {
-          // Modules may declare optional imports (typically compileOnly deps). The trailing
-          // "*" lets BND auto-import everything else (e.g. io.opentelemetry.api.*).
-          val optionalPackages = otelJava.osgiOptionalPackages.get()
-          val optionalImports =
-            optionalPackages.joinToString(",") { "$it.*;resolution:=optional;version=\"\${@}\"" }
-          val importPackages = if (optionalImports.isEmpty()) "*" else "$optionalImports,*"
-
-          bnd(
-            mapOf(
-              "-exportcontents" to "io.opentelemetry.*",
-              "Import-Package" to importPackages,
-            ),
-          )
-        }
-      }
+  named<Jar>("jar") {
+    // Configure OSGi metadata; BND auto-detects the imports.
+    bundle {
+      bnd(mapOf("-exportcontents" to "io.opentelemetry.*"))
     }
   }
 
