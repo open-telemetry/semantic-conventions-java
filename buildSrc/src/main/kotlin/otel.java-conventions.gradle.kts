@@ -1,4 +1,5 @@
 import io.opentelemetry.gradle.OtelJavaExtension
+import io.opentelemetry.gradle.OtelVersions
 import org.gradle.api.tasks.testing.logging.TestExceptionFormat
 
 plugins {
@@ -95,14 +96,14 @@ tasks {
 
   named<Jar>("jar") {
     // Configure OSGi metadata. BND auto-detects imports, but can't infer a version range for
-    // io.opentelemetry.api.* because the pinned compileOnly opentelemetry-api (1.33.0) isn't a bnd
+    // io.opentelemetry.api.* because the pinned compileOnly opentelemetry-api baseline isn't a bnd
     // bundle, so it would import with no range and wire to any version (incl. a future 2.x). Pin it
-    // to the [1.33,2) baseline that :dependencyManagement already requires.
+    // to the range derived from the baseline that :dependencyManagement already requires.
     bundle {
       bnd(
         mapOf(
           "-exportcontents" to "io.opentelemetry.*",
-          "Import-Package" to "io.opentelemetry.api.*;version=\"[1.33,2)\",*",
+          "Import-Package" to "io.opentelemetry.api.*;version=\"${OtelVersions.OTEL_API_OSGI_RANGE}\",*",
         ),
       )
     }
