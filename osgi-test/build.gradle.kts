@@ -13,7 +13,7 @@ otelJava.moduleName.set("io.opentelemetry.semconv.integration.tests.osgi")
 // opentelemetry-api that is itself a proper OSGi bundle. OSGi metadata was added to the core
 // artifacts in opentelemetry-java#8417, well after the 1.33.0 compileOnly baseline pinned in
 // :dependencyManagement, so we force a recent version on this test module's classpath only.
-val osgiOtelApiVersion = "1.63.0"
+val osgiOtelApiVersion = "1.64.0"
 
 configurations.configureEach {
   resolutionStrategy {
