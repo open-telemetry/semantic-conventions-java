@@ -1,3 +1,5 @@
+import io.opentelemetry.gradle.OtelVersions
+
 plugins {
   `java-platform`
 }
@@ -14,7 +16,9 @@ dependencies {
 
   constraints {
     // pinned to: avoid churn, for conservative api version requirement,
-    // and because opentelemetry-api is a compileOnly dependency
-    api("io.opentelemetry:opentelemetry-api:1.33.0")
+    // and because opentelemetry-api is a compileOnly dependency.
+    // OtelVersions.OTEL_API_BASELINE is the single source of truth: otel.java-conventions derives
+    // the OSGi Import-Package range for io.opentelemetry.api.* from the same value.
+    api("io.opentelemetry:opentelemetry-api:${OtelVersions.OTEL_API_BASELINE}")
   }
 }

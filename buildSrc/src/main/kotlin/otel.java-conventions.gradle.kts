@@ -1,4 +1,5 @@
 import io.opentelemetry.gradle.OtelJavaExtension
+import io.opentelemetry.gradle.OtelVersions
 import org.gradle.api.tasks.testing.logging.TestExceptionFormat
 
 plugins {
@@ -8,6 +9,7 @@ plugins {
   eclipse
   idea
 
+  id("biz.aQute.bnd.builder")
   id("otel.spotless-conventions")
 }
 
@@ -27,6 +29,13 @@ checkstyle {
   toolVersion = "13.9.0"
   isIgnoreFailures = false
   configProperties["rootDir"] = rootDir
+}
+
+// normalize timestamps and file ordering in jars, making the outputs (including OSGi
+// manifests) reproducible. see open-telemetry/opentelemetry-java#4488
+tasks.withType<AbstractArchiveTask>().configureEach {
+  isPreserveFileTimestamps = false
+  isReproducibleFileOrder = true
 }
 
 val testJavaVersion = gradle.startParameter.projectProperties.get("testJavaVersion")?.let(JavaVersion::toVersion)
@@ -82,6 +91,21 @@ tasks {
       addBooleanOption("Xdoclint:all,-missing", true)
       // non-standard option to fail on warnings, see https://bugs.openjdk.java.net/browse/JDK-8200363
       addStringOption("Xwerror", "-quiet")
+    }
+  }
+
+  named<Jar>("jar") {
+    // Configure OSGi metadata. BND auto-detects imports, but can't infer a version range for
+    // io.opentelemetry.api.* because the pinned compileOnly opentelemetry-api baseline isn't a bnd
+    // bundle, so it would import with no range and wire to any version (incl. a future 2.x). Pin it
+    // to the range derived from the baseline that :dependencyManagement already requires.
+    bundle {
+      bnd(
+        mapOf(
+          "-exportcontents" to "io.opentelemetry.*",
+          "Import-Package" to "io.opentelemetry.api.*;version=\"${OtelVersions.OTEL_API_OSGI_RANGE}\",*",
+        ),
+      )
     }
   }
 
