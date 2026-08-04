@@ -83,7 +83,7 @@ public final class ContainerIncubatingAttributes {
    *
    * <p>Notes:
    *
-   * <p>Docker defines a sha256 of the image id; {@code container.image.id} corresponds to the
+   * <p>Docker defines a sha256 of the image ID; {@code container.image.id} corresponds to the
    * {@code Image} field from the Docker container inspect <a
    * href="https://docs.docker.com/reference/api/engine/version/v1.52/#tag/Container/operation/ContainerInspect">API</a>
    * endpoint. K8s defines a link to the container registry repository with digest {@code "imageID":
@@ -105,7 +105,7 @@ public final class ContainerIncubatingAttributes {
   public static final AttributeKey<String> CONTAINER_IMAGE_NAME = stringKey("container.image.name");
 
   /**
-   * Repo digests of the container image as provided by the container runtime.
+   * Repository digests of the container image as provided by the container runtime.
    *
    * <p>Notes:
    *
@@ -140,7 +140,7 @@ public final class ContainerIncubatingAttributes {
    *
    * <p>Notes:
    *
-   * <p>For example, a docker container label {@code app} with value {@code nginx} SHOULD be
+   * <p>For example, a Docker container label {@code app} with value {@code nginx} SHOULD be
    * recorded as the {@code container.label.app} attribute with value {@code "nginx"}.
    */
   public static final AttributeKeyTemplate<String> CONTAINER_LABEL =

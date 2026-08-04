@@ -19,7 +19,7 @@ public final class AppIncubatingAttributes {
   public static final AttributeKey<String> APP_BUILD_ID = stringKey("app.build_id");
 
   /**
-   * A unique identifier representing an instance of an end-user facing app crash.
+   * A unique identifier representing an instance of an end user facing app crash.
    *
    * <p>Notes:
    *

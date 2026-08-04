@@ -195,10 +195,10 @@ public final class TlsIncubatingAttributes {
 
   /** Values for {@link #TLS_PROTOCOL_NAME}. */
   public static final class TlsProtocolNameIncubatingValues {
-    /** ssl. */
+    /** SSL */
     public static final String SSL = "ssl";
 
-    /** tls. */
+    /** TLS */
     public static final String TLS = "tls";
 
     private TlsProtocolNameIncubatingValues() {}

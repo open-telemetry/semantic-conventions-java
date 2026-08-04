@@ -15,7 +15,7 @@ import io.opentelemetry.api.common.AttributeKey;
 @SuppressWarnings("unused")
 public final class ServerIncubatingAttributes {
   /**
-   * Server domain name if available without reverse DNS lookup; otherwise, IP address or Unix
+   * Server domain name if available without reverse DNS lookup; otherwise, IP address or UNIX
    * domain socket name.
    *
    * <p>Notes:

@@ -145,7 +145,7 @@ public final class NetIncubatingAttributes {
     /** IPv6 address */
     public static final String INET6 = "inet6";
 
-    /** Unix domain socket path */
+    /** UNIX domain socket path */
     public static final String UNIX = "unix";
 
     private NetSockFamilyIncubatingValues() {}
