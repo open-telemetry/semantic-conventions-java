@@ -56,9 +56,8 @@ public final class MessagingIncubatingAttributes {
    *
    * <p>Notes:
    *
-   * <p>Destination name SHOULD uniquely identify a specific queue, topic or other entity within the
-   * broker. If the broker doesn't have such notion, the destination name SHOULD uniquely identify
-   * the broker.
+   * <p>SHOULD uniquely identify a specific queue, topic or other entity within the broker. If the
+   * broker doesn't have such notion, it SHOULD uniquely identify the broker.
    */
   public static final AttributeKey<String> MESSAGING_DESTINATION_NAME =
       stringKey("messaging.destination.name");
@@ -88,7 +87,7 @@ public final class MessagingIncubatingAttributes {
    * <p>Notes:
    *
    * <p>Destination names could be constructed from templates. An example would be a destination
-   * name involving a user name or product id. Although the destination name in this case is of high
+   * name involving a username or product ID. Although the destination name in this case is of high
    * cardinality, the underlying template is of low cardinality and can be effectively used for
    * grouping and aggregation.
    */
@@ -137,7 +136,7 @@ public final class MessagingIncubatingAttributes {
   public static final AttributeKey<Long> MESSAGING_GCP_PUBSUB_MESSAGE_ACK_DEADLINE =
       longKey("messaging.gcp_pubsub.message.ack_deadline");
 
-  /** The ack id for a given message. */
+  /** The ack ID for a given message. */
   public static final AttributeKey<String> MESSAGING_GCP_PUBSUB_MESSAGE_ACK_ID =
       stringKey("messaging.gcp_pubsub.message.ack_id");
 
@@ -153,6 +152,19 @@ public final class MessagingIncubatingAttributes {
       stringKey("messaging.gcp_pubsub.message.ordering_key");
 
   /**
+   * The Kafka cluster ID, obtained from the broker metadata exposed through the Kafka client (or
+   * AdminClient) API.
+   *
+   * <p>Notes:
+   *
+   * <p>The cluster ID is a unique identifier reported by the Kafka broker. It identifies the
+   * cluster independently of the individual brokers the client is configured to connect to, and
+   * remains stable even if broker hostnames, IP addresses, or ports change.
+   */
+  public static final AttributeKey<String> MESSAGING_KAFKA_CLUSTER_ID =
+      stringKey("messaging.kafka.cluster.id");
+
+  /**
    * Deprecated, use {@code messaging.consumer.group.name} instead.
    *
    * @deprecated Replaced by {@code messaging.consumer.group.name}.
@@ -164,7 +176,7 @@ public final class MessagingIncubatingAttributes {
   /**
    * Deprecated, use {@code messaging.destination.partition.id} instead.
    *
-   * @deprecated Record string representation of the partition id in {@code
+   * @deprecated Record string representation of the partition ID in {@code
    *     messaging.destination.partition.id} attribute.
    */
   @Deprecated
@@ -295,7 +307,7 @@ public final class MessagingIncubatingAttributes {
   public static final AttributeKey<String> MESSAGING_ROCKETMQ_MESSAGE_GROUP =
       stringKey("messaging.rocketmq.message.group");
 
-  /** Key(s) of message, another way to mark message besides message id. */
+  /** Key(s) of message, another way to mark message besides message ID. */
   public static final AttributeKey<List<String>> MESSAGING_ROCKETMQ_MESSAGE_KEYS =
       stringArrayKey("messaging.rocketmq.message.keys");
 

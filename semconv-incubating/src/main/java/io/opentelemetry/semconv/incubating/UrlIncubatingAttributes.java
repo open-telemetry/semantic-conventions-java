@@ -32,8 +32,8 @@ public final class UrlIncubatingAttributes {
    *
    * <p>Notes:
    *
-   * <p>The file extension is only set if it exists, as not every url has a file extension. When the
-   * file name has multiple extensions {@code example.tar.gz}, only the last one should be captured
+   * <p>The file extension is only set if it exists, as not every URL has a file extension. When the
+   * filename has multiple extensions {@code example.tar.gz}, only the last one should be captured
    * {@code gz}, not {@code tar.gz}.
    */
   public static final AttributeKey<String> URL_EXTENSION = stringKey("url.extension");
@@ -180,7 +180,7 @@ public final class UrlIncubatingAttributes {
   @Deprecated public static final AttributeKey<String> URL_QUERY = stringKey("url.query");
 
   /**
-   * The highest registered url domain, stripped of the subdomain.
+   * The highest registered URL domain, stripped of the subdomain.
    *
    * <p>Notes:
    *
@@ -203,7 +203,7 @@ public final class UrlIncubatingAttributes {
 
   /**
    * The subdomain portion of a fully qualified domain name includes all of the names except the
-   * host name under the registered_domain. In a partially qualified domain, or if the qualification
+   * hostname under the registered_domain. In a partially qualified domain, or if the qualification
    * level of the full name cannot be determined, subdomain contains all of the names below the
    * registered domain.
    *

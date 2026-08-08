@@ -90,7 +90,7 @@ public final class HostIncubatingAttributes {
   public static final AttributeKey<List<String>> HOST_MAC = stringArrayKey("host.mac");
 
   /**
-   * Name of the host. On Unix systems, it may contain what the hostname command returns, or the
+   * Name of the host. On UNIX systems, it may contain what the hostname command returns, or the
    * fully qualified hostname, or another name specified by the user.
    */
   public static final AttributeKey<String> HOST_NAME = stringKey("host.name");

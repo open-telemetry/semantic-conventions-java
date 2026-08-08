@@ -48,6 +48,16 @@ public final class ProcessIncubatingMetrics {
   /** Description of the {@code process.disk.io} metric. */
   public static final String PROCESS_DISK_IO_DESCRIPTION = "Disk bytes transferred.";
 
+  /** Name of the {@code process.disk.operations} metric. */
+  public static final String PROCESS_DISK_OPERATIONS_NAME = "process.disk.operations";
+
+  /** Unit of the {@code process.disk.operations} metric. */
+  public static final String PROCESS_DISK_OPERATIONS_UNIT = "{operation}";
+
+  /** Description of the {@code process.disk.operations} metric. */
+  public static final String PROCESS_DISK_OPERATIONS_DESCRIPTION =
+      "Number of disk operations performed by the process.";
+
   /** Name of the {@code process.memory.usage} metric. */
   public static final String PROCESS_MEMORY_USAGE_NAME = "process.memory.usage";
 
@@ -57,6 +67,16 @@ public final class ProcessIncubatingMetrics {
   /** Description of the {@code process.memory.usage} metric. */
   public static final String PROCESS_MEMORY_USAGE_DESCRIPTION =
       "The amount of physical memory in use.";
+
+  /** Name of the {@code process.memory.utilization} metric. */
+  public static final String PROCESS_MEMORY_UTILIZATION_NAME = "process.memory.utilization";
+
+  /** Unit of the {@code process.memory.utilization} metric. */
+  public static final String PROCESS_MEMORY_UTILIZATION_UNIT = "1";
+
+  /** Description of the {@code process.memory.utilization} metric. */
+  public static final String PROCESS_MEMORY_UTILIZATION_DESCRIPTION =
+      "Percentage of total physical memory that is used by the process.";
 
   /** Name of the {@code process.memory.virtual} metric. */
   public static final String PROCESS_MEMORY_VIRTUAL_NAME = "process.memory.virtual";
@@ -113,6 +133,16 @@ public final class ProcessIncubatingMetrics {
   public static final String PROCESS_PAGING_FAULTS_DESCRIPTION =
       "Number of page faults the process has made.";
 
+  /** Name of the {@code process.signals_pending} metric. */
+  public static final String PROCESS_SIGNALS_PENDING_NAME = "process.signals_pending";
+
+  /** Unit of the {@code process.signals_pending} metric. */
+  public static final String PROCESS_SIGNALS_PENDING_UNIT = "{signal}";
+
+  /** Description of the {@code process.signals_pending} metric. */
+  public static final String PROCESS_SIGNALS_PENDING_DESCRIPTION =
+      "Number of pending signals for the process.";
+
   /** Name of the {@code process.thread.count} metric. */
   public static final String PROCESS_THREAD_COUNT_NAME = "process.thread.count";
 
@@ -131,7 +161,7 @@ public final class ProcessIncubatingMetrics {
 
   /** Description of the {@code process.unix.file_descriptor.count} metric. */
   public static final String PROCESS_UNIX_FILE_DESCRIPTOR_COUNT_DESCRIPTION =
-      "Number of unix file descriptors in use by the process.";
+      "Number of UNIX file descriptors in use by the process.";
 
   /** Name of the {@code process.uptime} metric. */
   public static final String PROCESS_UPTIME_NAME = "process.uptime";

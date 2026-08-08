@@ -39,7 +39,7 @@ public final class NetworkIncubatingAttributes {
 
   /**
    * This describes more details regarding the connection.type. It may be the type of cell
-   * technology connection, but it could be used for describing details about a wifi connection.
+   * technology connection, but it could be used for describing details about a Wi-Fi connection.
    */
   public static final AttributeKey<String> NETWORK_CONNECTION_SUBTYPE =
       stringKey("network.connection.subtype");
@@ -60,7 +60,7 @@ public final class NetworkIncubatingAttributes {
   public static final AttributeKey<String> NETWORK_IO_DIRECTION = stringKey("network.io.direction");
 
   /**
-   * Local address of the network connection - IP address or Unix domain socket name.
+   * Local address of the network connection - IP address or UNIX domain socket name.
    *
    * @deprecated deprecated in favor of stable {@link
    *     io.opentelemetry.semconv.NetworkAttributes#NETWORK_LOCAL_ADDRESS} attribute.
@@ -79,7 +79,7 @@ public final class NetworkIncubatingAttributes {
   public static final AttributeKey<Long> NETWORK_LOCAL_PORT = longKey("network.local.port");
 
   /**
-   * Peer address of the network connection - IP address or Unix domain socket name.
+   * Peer address of the network connection - IP address or UNIX domain socket name.
    *
    * @deprecated deprecated in favor of stable {@link
    *     io.opentelemetry.semconv.NetworkAttributes#NETWORK_PEER_ADDRESS} attribute.
@@ -269,7 +269,7 @@ public final class NetworkIncubatingAttributes {
 
   /** Values for {@link #NETWORK_CONNECTION_TYPE}. */
   public static final class NetworkConnectionTypeIncubatingValues {
-    /** wifi. */
+    /** Wi-Fi */
     public static final String WIFI = "wifi";
 
     /** wired. */
@@ -315,7 +315,7 @@ public final class NetworkIncubatingAttributes {
     /** Named or anonymous pipe. */
     public static final String PIPE = "pipe";
 
-    /** Unix domain socket */
+    /** UNIX domain socket */
     public static final String UNIX = "unix";
 
     /** QUIC */

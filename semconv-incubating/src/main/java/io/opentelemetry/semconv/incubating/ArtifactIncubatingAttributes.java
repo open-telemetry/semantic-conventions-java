@@ -31,17 +31,17 @@ public final class ArtifactIncubatingAttributes {
   public static final AttributeKey<String> ARTIFACT_ATTESTATION_HASH =
       stringKey("artifact.attestation.hash");
 
-  /** The id of the build <a href="https://slsa.dev/attestation-model">software attestation</a>. */
+  /** The ID of the build <a href="https://slsa.dev/attestation-model">software attestation</a>. */
   public static final AttributeKey<String> ARTIFACT_ATTESTATION_ID =
       stringKey("artifact.attestation.id");
 
   /**
-   * The human readable file name of the artifact, typically generated during build and release
-   * processes. Often includes the package name and version in the file name.
+   * The human readable filename of the artifact, typically generated during build and release
+   * processes. Often includes the package name and version in the filename.
    *
    * <p>Notes:
    *
-   * <p>This file name can also act as the <a
+   * <p>This filename can also act as the <a
    * href="https://slsa.dev/spec/v1.0/terminology#package-model">Package Name</a> in cases where the
    * package ecosystem maps accordingly. Additionally, the artifact <a
    * href="https://slsa.dev/spec/v1.0/terminology#software-supply-chain">can be published</a> for

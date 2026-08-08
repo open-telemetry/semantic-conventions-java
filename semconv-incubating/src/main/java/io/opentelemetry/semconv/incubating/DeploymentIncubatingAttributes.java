@@ -45,7 +45,7 @@ public final class DeploymentIncubatingAttributes {
   public static final AttributeKey<String> DEPLOYMENT_ENVIRONMENT_NAME =
       stringKey("deployment.environment.name");
 
-  /** The id of the deployment. */
+  /** The ID of the deployment. */
   public static final AttributeKey<String> DEPLOYMENT_ID = stringKey("deployment.id");
 
   /** The name of the deployment. */

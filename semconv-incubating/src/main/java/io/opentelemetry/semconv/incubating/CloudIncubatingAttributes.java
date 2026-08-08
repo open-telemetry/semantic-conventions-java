@@ -191,6 +191,9 @@ public final class CloudIncubatingAttributes {
     /** Kubernetes Engine (OKE) on Oracle Cloud Infrastructure (OCI) */
     public static final String ORACLE_CLOUD_OKE = "oracle_cloud_oke";
 
+    /** Compute on Scaleway Cloud */
+    public static final String SCALEWAY_CLOUD_COMPUTE = "scaleway_cloud_compute";
+
     /** Tencent Cloud Cloud Virtual Machine (CVM) */
     public static final String TENCENT_CLOUD_CVM = "tencent_cloud_cvm";
 
@@ -234,6 +237,9 @@ public final class CloudIncubatingAttributes {
 
     /** Oracle Cloud Infrastructure (OCI) */
     public static final String ORACLE_CLOUD = "oracle_cloud";
+
+    /** Scaleway Cloud */
+    public static final String SCALEWAY_CLOUD = "scaleway_cloud";
 
     /** Tencent Cloud */
     public static final String TENCENT_CLOUD = "tencent_cloud";

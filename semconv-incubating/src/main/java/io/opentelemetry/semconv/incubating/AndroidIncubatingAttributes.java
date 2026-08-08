@@ -26,7 +26,7 @@ public final class AndroidIncubatingAttributes {
 
   /**
    * Uniquely identifies the framework API revision offered by a version ({@code os.version}) of the
-   * android operating system. More information can be found in the <a
+   * Android operating system. More information can be found in the <a
    * href="https://developer.android.com/guide/topics/manifest/uses-sdk-element#ApiLevels">Android
    * API levels documentation</a>.
    */

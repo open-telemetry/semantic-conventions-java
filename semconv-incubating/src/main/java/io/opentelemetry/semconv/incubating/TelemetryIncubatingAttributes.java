@@ -87,43 +87,43 @@ public final class TelemetryIncubatingAttributes {
    */
   @Deprecated
   public static final class TelemetrySdkLanguageIncubatingValues {
-    /** cpp. */
+    /** <a href="https://opentelemetry.io/docs/languages/cpp/">C++</a> */
     public static final String CPP = "cpp";
 
-    /** dotnet. */
+    /** <a href="https://opentelemetry.io/docs/languages/dotnet/">.NET</a> */
     public static final String DOTNET = "dotnet";
 
-    /** erlang. */
+    /** <a href="https://opentelemetry.io/docs/languages/erlang/">Erlang/Elixir</a> */
     public static final String ERLANG = "erlang";
 
-    /** go. */
+    /** <a href="https://opentelemetry.io/docs/languages/go/">Go</a> */
     public static final String GO = "go";
 
-    /** java. */
+    /** <a href="https://opentelemetry.io/docs/languages/java/">Java</a> */
     public static final String JAVA = "java";
 
-    /** kotlin. */
+    /** <a href="https://opentelemetry.io/docs/languages/kotlin/">Kotlin</a> */
     public static final String KOTLIN = "kotlin";
 
-    /** nodejs. */
+    /** <a href="https://opentelemetry.io/docs/languages/js/">Node.js</a> */
     public static final String NODEJS = "nodejs";
 
-    /** php. */
+    /** <a href="https://opentelemetry.io/docs/languages/php/">PHP</a> */
     public static final String PHP = "php";
 
-    /** python. */
+    /** <a href="https://opentelemetry.io/docs/languages/python/">Python</a> */
     public static final String PYTHON = "python";
 
-    /** ruby. */
+    /** <a href="https://opentelemetry.io/docs/languages/ruby/">Ruby</a> */
     public static final String RUBY = "ruby";
 
-    /** rust. */
+    /** <a href="https://opentelemetry.io/docs/languages/rust/">Rust</a> */
     public static final String RUST = "rust";
 
-    /** swift. */
+    /** <a href="https://opentelemetry.io/docs/languages/swift/">Swift</a> */
     public static final String SWIFT = "swift";
 
-    /** webjs. */
+    /** <a href="https://opentelemetry.io/docs/languages/js/">Browser</a> */
     public static final String WEBJS = "webjs";
 
     private TelemetrySdkLanguageIncubatingValues() {}

@@ -64,7 +64,7 @@ public final class GenAiIncubatingEvents {
   /**
    * This event captures the result of evaluating GenAI output for quality, accuracy, or other
    * characteristics. This event SHOULD be parented to GenAI operation span being evaluated when
-   * possible or set {@code gen_ai.response.id} when span id is not available.
+   * possible or set {@code gen_ai.response.id} when span ID is not available.
    *
    * @deprecated Moved to the <a
    *     href="https://github.com/open-telemetry/semantic-conventions-genai">OpenTelemetry GenAI

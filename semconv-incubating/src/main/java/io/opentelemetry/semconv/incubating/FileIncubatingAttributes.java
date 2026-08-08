@@ -69,7 +69,7 @@ public final class FileIncubatingAttributes {
    *
    * <p>Notes:
    *
-   * <p>When the file name has multiple extensions (example.tar.gz), only the last one should be
+   * <p>When the filename has multiple extensions (example.tar.gz), only the last one should be
    * captured ("gz", not "tar.gz").
    */
   public static final AttributeKey<String> FILE_EXTENSION = stringKey("file.extension");
@@ -83,7 +83,7 @@ public final class FileIncubatingAttributes {
    * always has at least one fork for the data portion, and additional forks may exist. On NTFS,
    * this is analogous to an Alternate Data Stream (ADS), and the default data stream for a file is
    * just called $DATA. Zone.Identifier is commonly used by Windows to track contents downloaded
-   * from the Internet. An ADS is typically of the form:
+   * from the internet. An ADS is typically of the form:
    * C:\path\to\filename.extension:some_fork_name, and some_fork_name is the value that should
    * populate {@code fork_name}. {@code filename.extension} should populate {@code file.name}, and
    * {@code extension} should populate {@code file.extension}. The full path, {@code file.path},
@@ -135,7 +135,7 @@ public final class FileIncubatingAttributes {
   public static final AttributeKey<String> FILE_OWNER_NAME = stringKey("file.owner.name");
 
   /**
-   * Full path to the file, including the file name. It should include the drive letter, when
+   * Full path to the file, including the filename. It should include the drive letter, when
    * appropriate.
    */
   public static final AttributeKey<String> FILE_PATH = stringKey("file.path");

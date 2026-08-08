@@ -499,7 +499,7 @@ public final class SystemIncubatingMetrics {
 
   /** Description of the {@code system.paging.usage} metric. */
   public static final String SYSTEM_PAGING_USAGE_DESCRIPTION =
-      "Unix swap or windows pagefile usage.";
+      "UNIX swap or windows pagefile usage.";
 
   /** Name of the {@code system.paging.utilization} metric. */
   public static final String SYSTEM_PAGING_UTILIZATION_NAME = "system.paging.utilization";
@@ -509,7 +509,7 @@ public final class SystemIncubatingMetrics {
 
   /** Description of the {@code system.paging.utilization} metric. */
   public static final String SYSTEM_PAGING_UTILIZATION_DESCRIPTION =
-      "Swap (unix) or pagefile (windows) utilization.";
+      "Swap (UNIX) or pagefile (windows) utilization.";
 
   /** Name of the {@code system.process.count} metric. */
   public static final String SYSTEM_PROCESS_COUNT_NAME = "system.process.count";
@@ -530,6 +530,16 @@ public final class SystemIncubatingMetrics {
   /** Description of the {@code system.process.created} metric. */
   public static final String SYSTEM_PROCESS_CREATED_DESCRIPTION =
       "Total number of processes created over uptime of the host.";
+
+  /** Name of the {@code system.process.limit} metric. */
+  public static final String SYSTEM_PROCESS_LIMIT_NAME = "system.process.limit";
+
+  /** Unit of the {@code system.process.limit} metric. */
+  public static final String SYSTEM_PROCESS_LIMIT_UNIT = "{thread}";
+
+  /** Description of the {@code system.process.limit} metric. */
+  public static final String SYSTEM_PROCESS_LIMIT_DESCRIPTION =
+      "The maximum number of concurrent processes/tasks allowed by the operating system.";
 
   /** Name of the {@code system.uptime} metric. */
   public static final String SYSTEM_UPTIME_NAME = "system.uptime";

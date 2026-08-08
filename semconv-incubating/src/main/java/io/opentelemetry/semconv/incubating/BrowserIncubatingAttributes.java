@@ -6,6 +6,7 @@
 package io.opentelemetry.semconv.incubating;
 
 import static io.opentelemetry.api.common.AttributeKey.booleanKey;
+import static io.opentelemetry.api.common.AttributeKey.doubleKey;
 import static io.opentelemetry.api.common.AttributeKey.stringArrayKey;
 import static io.opentelemetry.api.common.AttributeKey.stringKey;
 
@@ -72,7 +73,108 @@ public final class BrowserIncubatingAttributes {
    */
   public static final AttributeKey<String> BROWSER_PLATFORM = stringKey("browser.platform");
 
+  /**
+   * The delta between the current value and the last-reported value. See <a
+   * href="https://github.com/GoogleChrome/web-vitals?tab=readme-ov-file#report-only-the-delta-of-changes">delta</a>.
+   */
+  public static final AttributeKey<Double> BROWSER_WEB_VITAL_DELTA =
+      doubleKey("browser.web_vital.delta");
+
+  /** A unique ID representing this particular metric instance. */
+  public static final AttributeKey<String> BROWSER_WEB_VITAL_ID = stringKey("browser.web_vital.id");
+
+  /** Name of the web vital. */
+  public static final AttributeKey<String> BROWSER_WEB_VITAL_NAME =
+      stringKey("browser.web_vital.name");
+
+  /**
+   * The type of navigation, as reported by the <a
+   * href="https://developer.mozilla.org/docs/Web/API/PerformanceNavigationTiming/type">Navigation
+   * Timing API</a>, with additional values reported by the web-vitals library.
+   */
+  public static final AttributeKey<String> BROWSER_WEB_VITAL_NAVIGATION_TYPE =
+      stringKey("browser.web_vital.navigation_type");
+
+  /**
+   * The rating of the web vital value against the "good", "needs improvement", and "poor"
+   * thresholds defined for the metric.
+   */
+  public static final AttributeKey<String> BROWSER_WEB_VITAL_RATING =
+      stringKey("browser.web_vital.rating");
+
+  /** Value of the web vital. */
+  public static final AttributeKey<Double> BROWSER_WEB_VITAL_VALUE =
+      doubleKey("browser.web_vital.value");
+
   // Enum definitions
+
+  /** Values for {@link #BROWSER_WEB_VITAL_NAME}. */
+  public static final class BrowserWebVitalNameIncubatingValues {
+    /** Cumulative Layout Shift. See <a href="https://web.dev/articles/cls">cls</a>. */
+    public static final String CLS = "cls";
+
+    /** Largest Contentful Paint. See <a href="https://web.dev/articles/lcp">lcp</a>. */
+    public static final String LCP = "lcp";
+
+    /** First Contentful Paint. See <a href="https://web.dev/articles/fcp">fcp</a>. */
+    public static final String FCP = "fcp";
+
+    /** Interaction to Next Paint. See <a href="https://web.dev/articles/inp">inp</a>. */
+    public static final String INP = "inp";
+
+    /** Time to First Byte. See <a href="https://web.dev/articles/ttfb">ttfb</a>. */
+    public static final String TTFB = "ttfb";
+
+    /**
+     * First Input Delay. See <a href="https://web.dev/articles/fid">fid</a>.
+     *
+     * @deprecated Replaced by Interaction to Next Paint ({@code inp}), which became a Core Web
+     *     Vital in March 2024. See <a href="https://web.dev/articles/inp">inp</a>.
+     */
+    @Deprecated public static final String FID = "fid";
+
+    private BrowserWebVitalNameIncubatingValues() {}
+  }
+
+  /** Values for {@link #BROWSER_WEB_VITAL_NAVIGATION_TYPE}. */
+  public static final class BrowserWebVitalNavigationTypeIncubatingValues {
+    /**
+     * Navigation started by clicking a link, entering a URL, form submission, or a script
+     * operation.
+     */
+    public static final String NAVIGATE = "navigate";
+
+    /** Navigation through a reload operation or a {@code Location.reload()} call. */
+    public static final String RELOAD = "reload";
+
+    /** Navigation through the browser's history traversal (e.g. back/forward buttons). */
+    public static final String BACK_FORWARD = "back-forward";
+
+    /** Navigation restoring a page from the back/forward cache (bfcache). */
+    public static final String BACK_FORWARD_CACHE = "back-forward-cache";
+
+    /** Navigation to a page that was prerendered. */
+    public static final String PRERENDER = "prerender";
+
+    /** Navigation restoring a page that was previously discarded by the browser. */
+    public static final String RESTORE = "restore";
+
+    private BrowserWebVitalNavigationTypeIncubatingValues() {}
+  }
+
+  /** Values for {@link #BROWSER_WEB_VITAL_RATING}. */
+  public static final class BrowserWebVitalRatingIncubatingValues {
+    /** The metric value is within the "good" threshold. */
+    public static final String GOOD = "good";
+
+    /** The metric value is within the "needs improvement" threshold. */
+    public static final String NEEDS_IMPROVEMENT = "needs-improvement";
+
+    /** The metric value is within the "poor" threshold. */
+    public static final String POOR = "poor";
+
+    private BrowserWebVitalRatingIncubatingValues() {}
+  }
 
   private BrowserIncubatingAttributes() {}
 }

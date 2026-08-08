@@ -144,7 +144,7 @@ public final class CloudfoundryIncubatingAttributes {
    *
    * <p>CloudFoundry defines the {@code instance_id} in the <a
    * href="https://github.com/cloudfoundry/loggregator-api#v2-envelope">Loggregator v2 envelope</a>.
-   * It is used for logs and metrics emitted by CloudFoundry. It is supposed to contain the vm id
+   * It is used for logs and metrics emitted by CloudFoundry. It is supposed to contain the vm ID
    * for CloudFoundry components.
    *
    * <p>When system components are instrumented, values from the <a

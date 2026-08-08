@@ -1007,7 +1007,7 @@ public final class K8sIncubatingMetrics {
 
   /** Description of the {@code k8s.node.cpu.allocatable} metric. */
   public static final String K8S_NODE_CPU_ALLOCATABLE_DESCRIPTION =
-      "Amount of cpu allocatable on the node.";
+      "Amount of CPU allocatable on the node.";
 
   /** Name of the {@code k8s.node.cpu.time} metric. */
   public static final String K8S_NODE_CPU_TIME_NAME = "k8s.node.cpu.time";
@@ -1026,7 +1026,7 @@ public final class K8sIncubatingMetrics {
 
   /** Description of the {@code k8s.node.cpu.usage} metric. */
   public static final String K8S_NODE_CPU_USAGE_DESCRIPTION =
-      "Node's CPU usage, measured in cpus. Range from 0 to the number of allocatable CPUs.";
+      "Node's CPU usage, measured in CPUs. Range from 0 to the number of allocatable CPUs.";
 
   /** Name of the {@code k8s.node.ephemeral_storage.allocatable} metric. */
   public static final String K8S_NODE_EPHEMERAL_STORAGE_ALLOCATABLE_NAME =
@@ -1058,6 +1058,27 @@ public final class K8sIncubatingMetrics {
   /** Description of the {@code k8s.node.filesystem.capacity} metric. */
   public static final String K8S_NODE_FILESYSTEM_CAPACITY_DESCRIPTION = "Node filesystem capacity.";
 
+  /** Name of the {@code k8s.node.filesystem.inode.count} metric. */
+  public static final String K8S_NODE_FILESYSTEM_INODE_COUNT_NAME =
+      "k8s.node.filesystem.inode.count";
+
+  /** Unit of the {@code k8s.node.filesystem.inode.count} metric. */
+  public static final String K8S_NODE_FILESYSTEM_INODE_COUNT_UNIT = "{inode}";
+
+  /** Description of the {@code k8s.node.filesystem.inode.count} metric. */
+  public static final String K8S_NODE_FILESYSTEM_INODE_COUNT_DESCRIPTION =
+      "The total inodes in the node's root filesystem.";
+
+  /** Name of the {@code k8s.node.filesystem.inode.free} metric. */
+  public static final String K8S_NODE_FILESYSTEM_INODE_FREE_NAME = "k8s.node.filesystem.inode.free";
+
+  /** Unit of the {@code k8s.node.filesystem.inode.free} metric. */
+  public static final String K8S_NODE_FILESYSTEM_INODE_FREE_UNIT = "{inode}";
+
+  /** Description of the {@code k8s.node.filesystem.inode.free} metric. */
+  public static final String K8S_NODE_FILESYSTEM_INODE_FREE_DESCRIPTION =
+      "The free inodes in the node's root filesystem.";
+
   /** Name of the {@code k8s.node.filesystem.usage} metric. */
   public static final String K8S_NODE_FILESYSTEM_USAGE_NAME = "k8s.node.filesystem.usage";
 
@@ -1086,15 +1107,29 @@ public final class K8sIncubatingMetrics {
   /** Description of the {@code k8s.node.memory.available} metric. */
   public static final String K8S_NODE_MEMORY_AVAILABLE_DESCRIPTION = "Node memory available.";
 
-  /** Name of the {@code k8s.node.memory.paging.faults} metric. */
+  /**
+   * Name of the {@code k8s.node.memory.paging.faults} metric.
+   *
+   * @deprecated Replaced by {@code k8s.node.paging.faults}.
+   */
+  @Deprecated
   public static final String K8S_NODE_MEMORY_PAGING_FAULTS_NAME = "k8s.node.memory.paging.faults";
 
-  /** Unit of the {@code k8s.node.memory.paging.faults} metric. */
-  public static final String K8S_NODE_MEMORY_PAGING_FAULTS_UNIT = "{fault}";
+  /**
+   * Unit of the {@code k8s.node.memory.paging.faults} metric.
+   *
+   * @deprecated Replaced by {@code k8s.node.paging.faults}.
+   */
+  @Deprecated public static final String K8S_NODE_MEMORY_PAGING_FAULTS_UNIT = "{fault}";
 
-  /** Description of the {@code k8s.node.memory.paging.faults} metric. */
+  /**
+   * Description of the {@code k8s.node.memory.paging.faults} metric.
+   *
+   * @deprecated Replaced by {@code k8s.node.paging.faults}.
+   */
+  @Deprecated
   public static final String K8S_NODE_MEMORY_PAGING_FAULTS_DESCRIPTION =
-      "Node memory paging faults.";
+      "Deprecated, use `k8s.node.paging.faults` instead.";
 
   /** Name of the {@code k8s.node.memory.rss} metric. */
   public static final String K8S_NODE_MEMORY_RSS_NAME = "k8s.node.memory.rss";
@@ -1141,6 +1176,15 @@ public final class K8sIncubatingMetrics {
   /** Description of the {@code k8s.node.network.io} metric. */
   public static final String K8S_NODE_NETWORK_IO_DESCRIPTION = "Network bytes for the Node.";
 
+  /** Name of the {@code k8s.node.paging.faults} metric. */
+  public static final String K8S_NODE_PAGING_FAULTS_NAME = "k8s.node.paging.faults";
+
+  /** Unit of the {@code k8s.node.paging.faults} metric. */
+  public static final String K8S_NODE_PAGING_FAULTS_UNIT = "{fault}";
+
+  /** Description of the {@code k8s.node.paging.faults} metric. */
+  public static final String K8S_NODE_PAGING_FAULTS_DESCRIPTION = "Node memory paging faults.";
+
   /** Name of the {@code k8s.node.pod.allocatable} metric. */
   public static final String K8S_NODE_POD_ALLOCATABLE_NAME = "k8s.node.pod.allocatable";
 
@@ -1171,7 +1215,7 @@ public final class K8sIncubatingMetrics {
 
   /** Description of the {@code k8s.node.system_container.cpu.usage} metric. */
   public static final String K8S_NODE_SYSTEM_CONTAINER_CPU_USAGE_DESCRIPTION =
-      "Node's system container CPU usage, measured in cpus.";
+      "Node's system container CPU usage, measured in CPUs.";
 
   /** Name of the {@code k8s.node.system_container.memory.usage} metric. */
   public static final String K8S_NODE_SYSTEM_CONTAINER_MEMORY_USAGE_NAME =
@@ -1277,7 +1321,7 @@ public final class K8sIncubatingMetrics {
 
   /** Description of the {@code k8s.pod.cpu.usage} metric. */
   public static final String K8S_POD_CPU_USAGE_DESCRIPTION =
-      "Pod's CPU usage, measured in cpus. Range from 0 to the number of allocatable CPUs.";
+      "Pod's CPU usage, measured in CPUs. Range from 0 to the number of allocatable CPUs.";
 
   /** Name of the {@code k8s.pod.filesystem.available} metric. */
   public static final String K8S_POD_FILESYSTEM_AVAILABLE_NAME = "k8s.pod.filesystem.available";
@@ -1316,14 +1360,29 @@ public final class K8sIncubatingMetrics {
   /** Description of the {@code k8s.pod.memory.available} metric. */
   public static final String K8S_POD_MEMORY_AVAILABLE_DESCRIPTION = "Pod memory available.";
 
-  /** Name of the {@code k8s.pod.memory.paging.faults} metric. */
+  /**
+   * Name of the {@code k8s.pod.memory.paging.faults} metric.
+   *
+   * @deprecated Replaced by {@code k8s.pod.paging.faults}.
+   */
+  @Deprecated
   public static final String K8S_POD_MEMORY_PAGING_FAULTS_NAME = "k8s.pod.memory.paging.faults";
 
-  /** Unit of the {@code k8s.pod.memory.paging.faults} metric. */
-  public static final String K8S_POD_MEMORY_PAGING_FAULTS_UNIT = "{fault}";
+  /**
+   * Unit of the {@code k8s.pod.memory.paging.faults} metric.
+   *
+   * @deprecated Replaced by {@code k8s.pod.paging.faults}.
+   */
+  @Deprecated public static final String K8S_POD_MEMORY_PAGING_FAULTS_UNIT = "{fault}";
 
-  /** Description of the {@code k8s.pod.memory.paging.faults} metric. */
-  public static final String K8S_POD_MEMORY_PAGING_FAULTS_DESCRIPTION = "Pod memory paging faults.";
+  /**
+   * Description of the {@code k8s.pod.memory.paging.faults} metric.
+   *
+   * @deprecated Replaced by {@code k8s.pod.paging.faults}.
+   */
+  @Deprecated
+  public static final String K8S_POD_MEMORY_PAGING_FAULTS_DESCRIPTION =
+      "Deprecated, use `k8s.pod.paging.faults` instead.";
 
   /** Name of the {@code k8s.pod.memory.rss} metric. */
   public static final String K8S_POD_MEMORY_RSS_NAME = "k8s.pod.memory.rss";
@@ -1369,6 +1428,15 @@ public final class K8sIncubatingMetrics {
 
   /** Description of the {@code k8s.pod.network.io} metric. */
   public static final String K8S_POD_NETWORK_IO_DESCRIPTION = "Network bytes for the Pod.";
+
+  /** Name of the {@code k8s.pod.paging.faults} metric. */
+  public static final String K8S_POD_PAGING_FAULTS_NAME = "k8s.pod.paging.faults";
+
+  /** Unit of the {@code k8s.pod.paging.faults} metric. */
+  public static final String K8S_POD_PAGING_FAULTS_UNIT = "{fault}";
+
+  /** Description of the {@code k8s.pod.paging.faults} metric. */
+  public static final String K8S_POD_PAGING_FAULTS_DESCRIPTION = "Pod memory paging faults.";
 
   /** Name of the {@code k8s.pod.status.phase} metric. */
   public static final String K8S_POD_STATUS_PHASE_NAME = "k8s.pod.status.phase";

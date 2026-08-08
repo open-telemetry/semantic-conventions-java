@@ -16,7 +16,7 @@ import io.opentelemetry.api.common.AttributeKey;
 public final class ClientIncubatingAttributes {
   /**
    * Client address - domain name if available without reverse DNS lookup; otherwise, IP address or
-   * Unix domain socket name.
+   * UNIX domain socket name.
    *
    * <p>Notes:
    *
