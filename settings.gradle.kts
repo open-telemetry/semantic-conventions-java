@@ -22,6 +22,9 @@ dependencyResolutionManagement {
 val develocityServer = "https://develocity.opentelemetry.io"
 val isCI = System.getenv("CI") != null
 val develocityAccessKey = System.getenv("DEVELOCITY_ACCESS_KEY") ?: ""
+val isRemoteBuildCachePushEnabled = isCI && develocityAccessKey.isNotEmpty()
+val shouldDisableLocalBuildCache =
+  isRemoteBuildCachePushEnabled && System.getenv("GITHUB_REF_NAME") == "main"
 
 // if develocity access key is not given and we are in CI, then we publish to scans.gradle.com
 val useScansGradleCom = isCI && develocityAccessKey.isEmpty()
@@ -50,8 +53,14 @@ develocity {
 
 if (!useScansGradleCom) {
   buildCache {
+    // A task loaded from the local build cache is never pushed to the remote build cache. Disable
+    // the local cache for authenticated main builds so executed tasks populate Develocity.
+    local {
+      isEnabled = !shouldDisableLocalBuildCache
+    }
+
     remote(develocity.buildCache) {
-      isPush = isCI && develocityAccessKey.isNotEmpty()
+      isPush = isRemoteBuildCachePushEnabled
     }
   }
 }
