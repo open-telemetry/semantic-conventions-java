@@ -11,4 +11,5 @@ include_fragments = "full"
 
 exclude = [
   "^https://github.com/.*#discussion_r.*$",
+  "^https://cloud-native\\.slack\\.com/", # slack requires auth
 ]
