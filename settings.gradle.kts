@@ -19,7 +19,7 @@ dependencyResolutionManagement {
   }
 }
 
-val develocityServer = "https://develocity.opentelemetry.io"
+val develocityServer = "https://community.develocity.cloud"
 val isCI = System.getenv("CI") != null
 val develocityAccessKey = System.getenv("DEVELOCITY_ACCESS_KEY") ?: ""
 val isRemoteBuildCachePushEnabled = isCI && develocityAccessKey.isNotEmpty()
@@ -37,6 +37,7 @@ develocity {
     }
   } else {
     server = develocityServer
+    projectId = "OpenTelemetry"
     buildScan {
       publishing.onlyIf { it.isAuthenticated }
     }
