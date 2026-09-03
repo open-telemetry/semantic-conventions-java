@@ -46,7 +46,7 @@ templates:
         "exclude_stability": []
       }) | map({
           root_namespace: .root_namespace,
-          metrics: [.metrics[] | select(.id == ("metric." + .metric_name))]
+          metrics: .metrics
       })
     application_mode: each
     file_name: "{{ctx.root_namespace | pascal_case}}IncubatingMetrics.java"
