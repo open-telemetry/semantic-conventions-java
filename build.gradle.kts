@@ -8,7 +8,7 @@ plugins {
 }
 
 // start - updated by ./.github/workflows/prepare-release-branch.yml
-val snapshot = true
+val snapshot = false
 // end
 val apidiffBaselineVersion = "1.43.0"
 

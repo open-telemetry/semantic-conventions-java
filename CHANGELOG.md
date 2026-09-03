@@ -1,6 +1,6 @@
 # Changelog
 
-## Unreleased
+## Version 1.44.0 (2026-09-03)
 
 * Bump to semconv v1.44.0
   ([#549](https://github.com/open-telemetry/semantic-conventions-java/pull/549))
