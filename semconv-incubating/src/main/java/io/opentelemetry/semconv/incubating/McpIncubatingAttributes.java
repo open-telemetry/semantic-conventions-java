@@ -35,7 +35,7 @@ public final class McpIncubatingAttributes {
   public static final AttributeKey<String> MCP_PROTOCOL_VERSION = stringKey("mcp.protocol.version");
 
   /**
-   * The value of the resource uri.
+   * The value of the resource URI.
    *
    * <p>Notes:
    *

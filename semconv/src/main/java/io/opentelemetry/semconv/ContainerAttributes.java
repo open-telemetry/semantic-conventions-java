@@ -26,7 +26,7 @@ public final class ContainerAttributes {
   public static final AttributeKey<String> CONTAINER_IMAGE_NAME = stringKey("container.image.name");
 
   /**
-   * Repo digests of the container image as provided by the container runtime.
+   * Repository digests of the container image as provided by the container runtime.
    *
    * <p>Notes:
    *

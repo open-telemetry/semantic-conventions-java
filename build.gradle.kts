@@ -13,9 +13,10 @@ val snapshot = true
 val apidiffBaselineVersion = "1.43.0"
 
 // The release version of https://github.com/open-telemetry/semantic-conventions used to generate classes
-var semanticConventionsVersion = "1.43.0"
+var semanticConventionsVersion = "1.44.0"
 val schemaUrlVersions = listOf(
     semanticConventionsVersion,
+    "1.43.0",
     "1.42.0",
     "1.41.1",
     "1.41.0",

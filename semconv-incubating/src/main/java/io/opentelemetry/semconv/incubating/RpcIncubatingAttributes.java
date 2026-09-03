@@ -159,9 +159,7 @@ public final class RpcIncubatingAttributes {
    *
    * <p>When the method is not recognized, for example, when the server receives a request for a
    * method that is not predefined on the server, or when instrumentation is not able to reliably
-   * detect if the method is predefined, the attribute MUST be set to {@code _OTHER}. In such cases,
-   * tracing instrumentations MUST also set {@code rpc.method_original} attribute to the original
-   * method value.
+   * detect if the method is predefined, the attribute MUST be set to {@code _OTHER}.
    *
    * <p>If the RPC instrumentation could end up converting valid RPC methods to {@code _OTHER}, then
    * it SHOULD provide a way to configure the list of recognized RPC methods.

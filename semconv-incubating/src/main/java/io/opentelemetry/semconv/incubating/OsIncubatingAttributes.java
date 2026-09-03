@@ -59,7 +59,7 @@ public final class OsIncubatingAttributes {
     /** DragonFly BSD */
     public static final String DRAGONFLYBSD = "dragonflybsd";
 
-    /** HP-UX (Hewlett Packard Unix) */
+    /** HP-UX (Hewlett Packard UNIX) */
     public static final String HPUX = "hpux";
 
     /** AIX (Advanced Interactive eXecutive) */

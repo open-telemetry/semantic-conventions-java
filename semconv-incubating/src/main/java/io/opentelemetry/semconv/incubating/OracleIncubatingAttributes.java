@@ -67,7 +67,7 @@ public final class OracleIncubatingAttributes {
    * <p>Notes:
    *
    * <p>The effective service name for a connection can change during its lifetime, for example
-   * after executing sql, {@code ALTER SESSION}. If an instrumentation cannot reliably obtain the
+   * after executing SQL, {@code ALTER SESSION}. If an instrumentation cannot reliably obtain the
    * current service name for each operation without issuing an additional query (such as {@code
    * SELECT SYS_CONTEXT}), it is RECOMMENDED to fall back to the service name originally provided at
    * connection establishment.

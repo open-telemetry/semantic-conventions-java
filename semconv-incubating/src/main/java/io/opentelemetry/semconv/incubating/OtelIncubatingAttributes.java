@@ -139,16 +139,16 @@ public final class OtelIncubatingAttributes {
 
   /** Values for {@link #OTEL_COMPONENT_TYPE}. */
   public static final class OtelComponentTypeIncubatingValues {
-    /** The builtin SDK batching span processor */
+    /** The built-in SDK batching span processor */
     public static final String BATCHING_SPAN_PROCESSOR = "batching_span_processor";
 
-    /** The builtin SDK simple span processor */
+    /** The built-in SDK simple span processor */
     public static final String SIMPLE_SPAN_PROCESSOR = "simple_span_processor";
 
-    /** The builtin SDK batching log record processor */
+    /** The built-in SDK batching log record processor */
     public static final String BATCHING_LOG_PROCESSOR = "batching_log_processor";
 
-    /** The builtin SDK simple log record processor */
+    /** The built-in SDK simple log record processor */
     public static final String SIMPLE_LOG_PROCESSOR = "simple_log_processor";
 
     /** OTLP span exporter over gRPC with protobuf serialization */
@@ -172,7 +172,7 @@ public final class OtelIncubatingAttributes {
     /** OTLP log record exporter over HTTP with JSON serialization */
     public static final String OTLP_HTTP_JSON_LOG_EXPORTER = "otlp_http_json_log_exporter";
 
-    /** The builtin SDK periodically exporting metric reader */
+    /** The built-in SDK periodically exporting metric reader */
     public static final String PERIODIC_METRIC_READER = "periodic_metric_reader";
 
     /** OTLP metric exporter over gRPC with protobuf serialization */

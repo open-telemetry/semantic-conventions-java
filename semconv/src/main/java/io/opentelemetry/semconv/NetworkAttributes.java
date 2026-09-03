@@ -14,14 +14,14 @@ import io.opentelemetry.api.common.AttributeKey;
 // buildscripts/templates/registry/java/SemanticAttributes.java.j2
 @SuppressWarnings("unused")
 public final class NetworkAttributes {
-  /** Local address of the network connection - IP address or Unix domain socket name. */
+  /** Local address of the network connection - IP address or UNIX domain socket name. */
   public static final AttributeKey<String> NETWORK_LOCAL_ADDRESS =
       stringKey("network.local.address");
 
   /** Local port number of the network connection. */
   public static final AttributeKey<Long> NETWORK_LOCAL_PORT = longKey("network.local.port");
 
-  /** Peer address of the network connection - IP address or Unix domain socket name. */
+  /** Peer address of the network connection - IP address or UNIX domain socket name. */
   public static final AttributeKey<String> NETWORK_PEER_ADDRESS = stringKey("network.peer.address");
 
   /** Peer port number of the network connection. */
@@ -87,7 +87,7 @@ public final class NetworkAttributes {
     /** Named or anonymous pipe. */
     public static final String PIPE = "pipe";
 
-    /** Unix domain socket */
+    /** UNIX domain socket */
     public static final String UNIX = "unix";
 
     /** QUIC */
