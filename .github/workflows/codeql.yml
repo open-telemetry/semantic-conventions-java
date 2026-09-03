@@ -35,7 +35,7 @@ jobs:
 
       - name: Set up Java 21
         if: matrix.language == 'java'
-        uses: actions/setup-java@b6effb05e454b25005698d916606bdc6ffcbf961 # v5.7.0
+        uses: actions/setup-java@dd06d9cba3e5552c54d9f8ea23572deb30010f7c # v6.0.0
         with:
           distribution: temurin
           java-version: 21
@@ -45,9 +45,11 @@ jobs:
         # but does not build or publish release artifacts.
         if: matrix.language == 'java'
         uses: gradle/actions/setup-gradle@9c971963bec38e04b3d30dcc455b5382be2fdbfb # v6.3.0
+        with:
+          cache-read-only: true
 
       - name: Initialize CodeQL
-        uses: github/codeql-action/init@d1ba80a13dd99fba24a470575428917156a28b43 # v4.37.5
+        uses: github/codeql-action/init@cdf488f595d80d6e07e03d4674febd5ab45fa938 # v4.37.9
         with:
           languages: ${{ matrix.language }}
           # using "linked" helps to keep up with the latest Kotlin support
@@ -64,7 +66,7 @@ jobs:
           DEVELOCITY_ACCESS_KEY: ${{ secrets.DEVELOCITY_ACCESS_KEY }}
 
       - name: Perform CodeQL analysis
-        uses: github/codeql-action/analyze@d1ba80a13dd99fba24a470575428917156a28b43 # v4.37.5
+        uses: github/codeql-action/analyze@cdf488f595d80d6e07e03d4674febd5ab45fa938 # v4.37.9
         with:
           category: "/language:${{matrix.language}}"
 
@@ -74,6 +76,6 @@ jobs:
     needs:
       - analyze
     if: always() && github.event_name == 'schedule'
-    uses: open-telemetry/shared-workflows/.github/workflows/workflow-failure-issue.yml@62d5939b47144252763c5ff9fffe8c20d76cd806 # v0.4.0
+    uses: open-telemetry/shared-workflows/.github/workflows/workflow-failure-issue.yml@dde3047a8f219c296772c17936b9d02bb7447af5 # v0.12.0
     with:
       success: ${{ needs.analyze.result == 'success' }}

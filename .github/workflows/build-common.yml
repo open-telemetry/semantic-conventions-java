@@ -61,19 +61,41 @@ jobs:
 
       - id: setup-java-test
         name: Set up Java ${{ matrix.test-java-version }} for tests
-        uses: actions/setup-java@b6effb05e454b25005698d916606bdc6ffcbf961 # v5.7.0
+        uses: actions/setup-java@dd06d9cba3e5552c54d9f8ea23572deb30010f7c # v6.0.0
         with:
           distribution: temurin
           java-version: ${{ matrix.test-java-version }}
 
       - id: setup-java
         name: Set up Java for build
-        uses: actions/setup-java@b6effb05e454b25005698d916606bdc6ffcbf961 # v5.7.0
+        uses: actions/setup-java@dd06d9cba3e5552c54d9f8ea23572deb30010f7c # v6.0.0
         with:
           distribution: temurin
           java-version: 21
 
       - uses: gradle/actions/setup-gradle@9c971963bec38e04b3d30dcc455b5382be2fdbfb # v6.3.0
+        with:
+          cache-read-only: >-
+            ${{
+              inputs.cache-read-only ||
+              secrets.DEVELOCITY_ACCESS_KEY == '' ||
+              github.ref_name != github.event.repository.default_branch ||
+              (matrix.os == 'ubuntu-latest' && matrix.test-java-version != 21) ||
+              (matrix.os == 'macos-latest' && matrix.test-java-version != 25) ||
+              (matrix.os == 'windows-latest' && matrix.test-java-version != 25)
+            }}
+          gradle-home-cache-excludes: >-
+            ${{
+              secrets.DEVELOCITY_ACCESS_KEY != '' &&
+              github.ref_name == github.event.repository.default_branch &&
+              (
+                (matrix.os == 'ubuntu-latest' && matrix.test-java-version == 21) ||
+                (matrix.os == 'macos-latest' && matrix.test-java-version == 25) ||
+                (matrix.os == 'windows-latest' && matrix.test-java-version == 25)
+              ) &&
+              'caches/build-cache-1' ||
+              ''
+            }}
 
       - name: build
         shell: bash
@@ -127,4 +149,3 @@ jobs:
             echo $(git diff --cached)
             exit 1
           fi
-
