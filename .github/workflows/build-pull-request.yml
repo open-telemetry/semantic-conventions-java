@@ -12,12 +12,12 @@ concurrency:
 
 jobs:
   common:
-    uses: ./.github/workflows/build-common.yml
+    uses: $/.github/workflows/build-common.yml
     with:
       cache-read-only: true
 
   lint:
-    uses: ./.github/workflows/reusable-lint-check.yml
+    uses: $/.github/workflows/reusable-lint-check.yml
 
   required-status-check:
     if: always()

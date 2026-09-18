@@ -7,7 +7,7 @@ permissions:
 
 jobs:
   build:
-    uses: ./.github/workflows/build-common.yml
+    uses: $/.github/workflows/build-common.yml
     with:
       cache-read-only: true
     secrets:
