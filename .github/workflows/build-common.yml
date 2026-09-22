@@ -37,7 +37,7 @@ jobs:
           # Tracks the newest feature release. When it becomes LTS, retain it and manually
           # add the next feature release as the marked row.
           - os: ubuntu-latest
-            test-java-version: 26 # renovate(java-version)
+            test-java-version: 27 # renovate(java-version)
           - os: macos-latest # testing limited to latest Java LTS
             test-java-version: 25
           - os: windows-latest # testing limited to latest Java LTS
