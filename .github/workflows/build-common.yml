@@ -34,8 +34,6 @@ jobs:
             test-java-version: 21
           - os: ubuntu-latest
             test-java-version: 25
-            coverage: true
-            jmh-based-tests: true
           # Tracks the newest feature release. When it becomes LTS, retain it and manually
           # add the next feature release as the marked row.
           - os: ubuntu-latest
