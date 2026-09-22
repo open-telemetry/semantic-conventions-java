@@ -32,7 +32,10 @@ jobs:
           - 11
           - 17
           - 21
-          - 25 # renovate(java-version)
+          - 25
+          # Tracks the newest feature release. When it becomes LTS, retain it and manually
+          # add the next feature release as the marked row.
+          - 26 # renovate(java-version)
         exclude:
           - os: macos-latest
             test-java-version: 8
@@ -42,6 +45,8 @@ jobs:
             test-java-version: 17
           - os: macos-latest
             test-java-version: 21
+          - os: macos-latest
+            test-java-version: 26
           - os: windows-latest
             test-java-version: 8
           - os: windows-latest
@@ -50,6 +55,8 @@ jobs:
             test-java-version: 17
           - os: windows-latest
             test-java-version: 21
+          - os: windows-latest
+            test-java-version: 26
     defaults:
       run:
         shell: bash # Use bash shell on all OSes for consistency
@@ -60,18 +67,18 @@ jobs:
           persist-credentials: false
 
       - id: setup-java-test
-        name: Set up Java ${{ matrix.test-java-version }} for tests
+        name: Set up Java
         uses: actions/setup-java@de7274f081f381c8f8158605e0321c36c376e2e6 # v6.0.1
         with:
-          distribution: temurin
+          distribution: zulu
           java-version: ${{ matrix.test-java-version }}
 
       - id: setup-java
-        name: Set up Java for build
+        name: Set up Java
         uses: actions/setup-java@de7274f081f381c8f8158605e0321c36c376e2e6 # v6.0.1
         with:
           distribution: temurin
-          java-version: 21
+          java-version: '25'
 
       - uses: gradle/actions/setup-gradle@9c971963bec38e04b3d30dcc455b5382be2fdbfb # v6.3.0
         with:
@@ -80,7 +87,7 @@ jobs:
               inputs.cache-read-only ||
               secrets.DEVELOCITY_ACCESS_KEY == '' ||
               github.ref_name != github.event.repository.default_branch ||
-              (matrix.os == 'ubuntu-latest' && matrix.test-java-version != 21) ||
+              (matrix.os == 'ubuntu-latest' && matrix.test-java-version != 25) ||
               (matrix.os == 'macos-latest' && matrix.test-java-version != 25) ||
               (matrix.os == 'windows-latest' && matrix.test-java-version != 25)
             }}
@@ -89,7 +96,7 @@ jobs:
               secrets.DEVELOCITY_ACCESS_KEY != '' &&
               github.ref_name == github.event.repository.default_branch &&
               (
-                (matrix.os == 'ubuntu-latest' && matrix.test-java-version == 21) ||
+                (matrix.os == 'ubuntu-latest' && matrix.test-java-version == 25) ||
                 (matrix.os == 'macos-latest' && matrix.test-java-version == 25) ||
                 (matrix.os == 'windows-latest' && matrix.test-java-version == 25)
               ) &&
