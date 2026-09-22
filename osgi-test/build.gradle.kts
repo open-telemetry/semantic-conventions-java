@@ -36,7 +36,7 @@ dependencies {
   // opentelemetry-common (pulled in transitively by opentelemetry-api) declares
   // Require-Capability: osgi.extender=osgi.serviceloader.processor, so the container needs Aries
   // SPI Fly to resolve even though semconv itself has no ServiceLoader providers.
-  testRuntimeOnly("org.apache.aries.spifly:org.apache.aries.spifly.dynamic.bundle:1.3.7")
+  testRuntimeOnly("org.apache.aries.spifly:org.apache.aries.spifly.dynamic.bundle:1.3.8")
 }
 
 // The testing bundle (our JUnit tests + Test-Cases header) is booted inside a real Felix container
