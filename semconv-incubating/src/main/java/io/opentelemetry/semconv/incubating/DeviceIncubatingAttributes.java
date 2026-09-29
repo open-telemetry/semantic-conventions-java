@@ -28,7 +28,6 @@ public final class DeviceIncubatingAttributes {
    * guide</a>.
    *
    * <blockquote>
-   *
    * [!WARNING]
    *
    * <p>This attribute may contain sensitive (PII) information. Caution should be taken when storing
@@ -43,7 +42,6 @@ public final class DeviceIncubatingAttributes {
    *
    * <p>See <a href="/docs/registry/attributes/app.md#app-installation-id">{@code
    * app.installation.id}</a> for a more privacy-preserving alternative.
-   *
    * </blockquote>
    */
   public static final AttributeKey<String> DEVICE_ID = stringKey("device.id");

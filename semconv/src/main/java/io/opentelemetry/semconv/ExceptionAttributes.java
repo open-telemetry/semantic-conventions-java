@@ -19,11 +19,9 @@ public final class ExceptionAttributes {
    * <p>Notes:
    *
    * <blockquote>
-   *
    * [!WARNING]
    *
    * <p>This attribute may contain sensitive information.
-   *
    * </blockquote>
    */
   public static final AttributeKey<String> EXCEPTION_MESSAGE = stringKey("exception.message");
