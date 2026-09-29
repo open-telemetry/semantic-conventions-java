@@ -19,11 +19,9 @@ public final class ExceptionIncubatingAttributes {
    * <p>Notes:
    *
    * <blockquote>
-   *
    * [!WARNING]
    *
    * <p>This attribute may contain sensitive information.
-   *
    * </blockquote>
    *
    * @deprecated deprecated in favor of stable {@link

@@ -485,9 +485,7 @@ public final class GenAiIncubatingAttributes {
    * <p>Notes:
    *
    * <blockquote>
-   *
    * [!Warning] This attribute may contain sensitive information.
-   *
    * </blockquote>
    *
    * @deprecated Moved to the <a

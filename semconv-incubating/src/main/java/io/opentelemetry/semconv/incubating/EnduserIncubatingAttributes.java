@@ -22,9 +22,7 @@ public final class EnduserIncubatingAttributes {
    * <p>Unique identifier of an end user in the system.
    *
    * <blockquote>
-   *
    * [!Warning] This field contains sensitive (PII) information.
-   *
    * </blockquote>
    */
   public static final AttributeKey<String> ENDUSER_ID = stringKey("enduser.id");
@@ -38,9 +36,7 @@ public final class EnduserIncubatingAttributes {
    * <p>Pseudonymous identifier of an end user.
    *
    * <blockquote>
-   *
    * [!Warning] This field contains sensitive (linkable PII) information.
-   *
    * </blockquote>
    */
   public static final AttributeKey<String> ENDUSER_PSEUDO_ID = stringKey("enduser.pseudo.id");
