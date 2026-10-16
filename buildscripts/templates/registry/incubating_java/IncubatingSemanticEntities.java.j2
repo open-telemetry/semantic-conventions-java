@@ -1,0 +1,36 @@
+{%- set my_class_name = ctx.root_namespace | pascal_case ~ "IncubatingEntities" -%}
+
+/*
+ * Copyright The OpenTelemetry Authors
+ * SPDX-License-Identifier: Apache-2.0
+ */
+package io.opentelemetry.semconv.incubating;
+
+// DO NOT EDIT, this is an Auto-generated file from buildscripts/templates/registry/incubating_java/IncubatingSemanticEntities.java.j2
+@SuppressWarnings("unused")
+public final class {{ my_class_name }} {
+  {%- for entity in ctx.entities -%}
+    {%- if entity is experimental or entity is stable -%}
+      {%- if entity is deprecated -%}
+        {%- if entity.deprecated.note == "Uncategorized." -%}
+          {%- set deprecated_javadoc = "@deprecated" -%}
+        {%- else -%}
+          {%- set deprecated_javadoc = "@deprecated " ~ entity.deprecated.note -%}
+        {%- endif -%}
+      {%- else -%}
+        {%- set deprecated_javadoc = "" -%}
+      {%- endif -%}
+      {%- set brief = entity.brief | trim -%}
+      {%- if not brief.endswith(".") -%}
+        {%- set brief = brief ~ "." -%}
+      {%- endif -%}
+      {{ [brief, concat_if("\n\nNotes:\n\n", entity.note), deprecated_javadoc] | comment }}
+      {%- if entity is deprecated -%}
+        @Deprecated
+      {% endif %}
+      public static final String {{ entity.name | screaming_snake_case }}_TYPE = "{{ entity.name }}";
+    {% endif %}
+  {% endfor %}
+
+  private {{ my_class_name }}() {}
+}

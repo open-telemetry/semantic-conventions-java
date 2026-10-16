@@ -27,6 +27,18 @@ templates:
       })
     application_mode: each
     file_name: "{{ctx.root_namespace | pascal_case}}IncubatingAttributes.java"
+  - pattern: IncubatingSemanticEntities.java.j2
+    filter: >
+      semconv_signal("entity"; {
+        "exclude_root_namespace": $excluded_namespaces
+      })
+      | group_by(.root_namespace)
+      | map({
+          root_namespace: .[0].root_namespace,
+          entities: sort_by(.name)
+        })
+    application_mode: each
+    file_name: "{{ctx.root_namespace | pascal_case}}IncubatingEntities.java"
   - pattern: IncubatingSemanticEvents.java.j2
     filter: >
       semconv_signal("event"; {

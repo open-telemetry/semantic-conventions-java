@@ -94,6 +94,34 @@ public class IncubatingAvailabilityTest {
   }
 
   @Test
+  void availableEntities() {
+    isValidClass("io.opentelemetry.semconv.incubating.AndroidIncubatingEntities");
+    isValidClass("io.opentelemetry.semconv.incubating.AppIncubatingEntities");
+    isValidClass("io.opentelemetry.semconv.incubating.AwsIncubatingEntities");
+    isValidClass("io.opentelemetry.semconv.incubating.BrowserIncubatingEntities");
+    isValidClass("io.opentelemetry.semconv.incubating.CicdIncubatingEntities");
+    isValidClass("io.opentelemetry.semconv.incubating.CloudIncubatingEntities");
+    isValidClass("io.opentelemetry.semconv.incubating.CloudfoundryIncubatingEntities");
+    isValidClass("io.opentelemetry.semconv.incubating.ContainerIncubatingEntities");
+    isValidClass("io.opentelemetry.semconv.incubating.DeploymentIncubatingEntities");
+    isValidClass("io.opentelemetry.semconv.incubating.DeviceIncubatingEntities");
+    isValidClass("io.opentelemetry.semconv.incubating.FaasIncubatingEntities");
+    isValidClass("io.opentelemetry.semconv.incubating.GcpIncubatingEntities");
+    isValidClass("io.opentelemetry.semconv.incubating.HerokuIncubatingEntities");
+    isValidClass("io.opentelemetry.semconv.incubating.HostIncubatingEntities");
+    isValidClass("io.opentelemetry.semconv.incubating.K8sIncubatingEntities");
+    isValidClass("io.opentelemetry.semconv.incubating.OpenshiftIncubatingEntities");
+    isValidClass("io.opentelemetry.semconv.incubating.OsIncubatingEntities");
+    isValidClass("io.opentelemetry.semconv.incubating.OtelIncubatingEntities");
+    isValidClass("io.opentelemetry.semconv.incubating.ProcessIncubatingEntities");
+    isValidClass("io.opentelemetry.semconv.incubating.ServiceIncubatingEntities");
+    isValidClass("io.opentelemetry.semconv.incubating.TelemetryIncubatingEntities");
+    isValidClass("io.opentelemetry.semconv.incubating.VcsIncubatingEntities");
+    isValidClass("io.opentelemetry.semconv.incubating.WebengineIncubatingEntities");
+    isValidClass("io.opentelemetry.semconv.incubating.ZosIncubatingEntities");
+  }
+
+  @Test
   void availableEvents() {
     isValidClass("io.opentelemetry.semconv.incubating.AppIncubatingEvents");
     isValidClass("io.opentelemetry.semconv.incubating.AzIncubatingEvents");
