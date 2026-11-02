@@ -1,16 +1,2 @@
-Comparing source compatibility of opentelemetry-semconv-1.45.0-SNAPSHOT.jar against opentelemetry-semconv-1.44.0.jar
-+++  NEW CLASS: PUBLIC(+) FINAL(+) io.opentelemetry.semconv.RpcAttributes  (not serializable)
-	+++  CLASS FILE FORMAT VERSION: 52.0 <- n.a.
-	+++  NEW SUPERCLASS: java.lang.Object
-	+++  NEW FIELD: PUBLIC(+) STATIC(+) FINAL(+) io.opentelemetry.api.common.AttributeKey<java.lang.String> RPC_SYSTEM_NAME
-	+++  NEW FIELD: PUBLIC(+) STATIC(+) FINAL(+) io.opentelemetry.api.common.AttributeKey<java.lang.String> RPC_METHOD
-	+++  NEW FIELD: PUBLIC(+) STATIC(+) FINAL(+) io.opentelemetry.api.common.AttributeKey<java.lang.String> RPC_METHOD_ORIGINAL
-	+++  NEW FIELD: PUBLIC(+) STATIC(+) FINAL(+) io.opentelemetry.api.common.AttributeKey<java.lang.String> RPC_STATUS_CODE
-+++  NEW CLASS: PUBLIC(+) STATIC(+) FINAL(+) io.opentelemetry.semconv.RpcAttributes$RpcSystemNameValues  (not serializable)
-	+++  CLASS FILE FORMAT VERSION: 52.0 <- n.a.
-	+++  NEW SUPERCLASS: java.lang.Object
-	+++  NEW FIELD: PUBLIC(+) STATIC(+) FINAL(+) java.lang.String DUBBO
-	+++  NEW FIELD: PUBLIC(+) STATIC(+) FINAL(+) java.lang.String GRPC
-***  MODIFIED CLASS: PUBLIC FINAL io.opentelemetry.semconv.SchemaUrls  (not serializable)
-	===  CLASS FILE FORMAT VERSION: 52.0 <- 52.0
-	+++  NEW FIELD: PUBLIC(+) STATIC(+) FINAL(+) java.lang.String V1_45_0
+Comparing source compatibility of opentelemetry-semconv-1.45.0-SNAPSHOT.jar against opentelemetry-semconv-1.45.0.jar
+No changes.
