@@ -201,6 +201,17 @@ public final class K8sIncubatingMetrics {
   public static final String K8S_CONTAINER_MEMORY_LIMIT_DESIRED_DESCRIPTION =
       "Maximum memory resource limit as defined by the container spec.";
 
+  /** Name of the {@code k8s.container.memory.limit.utilization} metric. */
+  public static final String K8S_CONTAINER_MEMORY_LIMIT_UTILIZATION_NAME =
+      "k8s.container.memory.limit.utilization";
+
+  /** Unit of the {@code k8s.container.memory.limit.utilization} metric. */
+  public static final String K8S_CONTAINER_MEMORY_LIMIT_UTILIZATION_UNIT = "1";
+
+  /** Description of the {@code k8s.container.memory.limit.utilization} metric. */
+  public static final String K8S_CONTAINER_MEMORY_LIMIT_UTILIZATION_DESCRIPTION =
+      "The ratio of container memory working set to its current memory limit.";
+
   /**
    * Name of the {@code k8s.container.memory.request} metric.
    *
@@ -246,6 +257,17 @@ public final class K8sIncubatingMetrics {
   /** Description of the {@code k8s.container.memory.request.desired} metric. */
   public static final String K8S_CONTAINER_MEMORY_REQUEST_DESIRED_DESCRIPTION =
       "Memory resource requested as defined by the container spec.";
+
+  /** Name of the {@code k8s.container.memory.request.utilization} metric. */
+  public static final String K8S_CONTAINER_MEMORY_REQUEST_UTILIZATION_NAME =
+      "k8s.container.memory.request.utilization";
+
+  /** Unit of the {@code k8s.container.memory.request.utilization} metric. */
+  public static final String K8S_CONTAINER_MEMORY_REQUEST_UTILIZATION_UNIT = "1";
+
+  /** Description of the {@code k8s.container.memory.request.utilization} metric. */
+  public static final String K8S_CONTAINER_MEMORY_REQUEST_UTILIZATION_DESCRIPTION =
+      "The ratio of container memory working set to its current memory request.";
 
   /** Name of the {@code k8s.container.ready} metric. */
   public static final String K8S_CONTAINER_READY_NAME = "k8s.container.ready";
@@ -1185,6 +1207,26 @@ public final class K8sIncubatingMetrics {
   /** Description of the {@code k8s.node.paging.faults} metric. */
   public static final String K8S_NODE_PAGING_FAULTS_DESCRIPTION = "Node memory paging faults.";
 
+  /** Name of the {@code k8s.node.pid.limit} metric. */
+  public static final String K8S_NODE_PID_LIMIT_NAME = "k8s.node.pid.limit";
+
+  /** Unit of the {@code k8s.node.pid.limit} metric. */
+  public static final String K8S_NODE_PID_LIMIT_UNIT = "{thread}";
+
+  /** Description of the {@code k8s.node.pid.limit} metric. */
+  public static final String K8S_NODE_PID_LIMIT_DESCRIPTION =
+      "Total number of processes/threads allowed by the operating system on the node.";
+
+  /** Name of the {@code k8s.node.pid.usage} metric. */
+  public static final String K8S_NODE_PID_USAGE_NAME = "k8s.node.pid.usage";
+
+  /** Unit of the {@code k8s.node.pid.usage} metric. */
+  public static final String K8S_NODE_PID_USAGE_UNIT = "{thread}";
+
+  /** Description of the {@code k8s.node.pid.usage} metric. */
+  public static final String K8S_NODE_PID_USAGE_DESCRIPTION =
+      "Total number of existing processes and threads on the node.";
+
   /** Name of the {@code k8s.node.pod.allocatable} metric. */
   public static final String K8S_NODE_POD_ALLOCATABLE_NAME = "k8s.node.pod.allocatable";
 
@@ -1304,6 +1346,67 @@ public final class K8sIncubatingMetrics {
   public static final String K8S_PERSISTENTVOLUMECLAIM_STORAGE_REQUEST_DESCRIPTION =
       "The storage requested by the PersistentVolumeClaim.";
 
+  /** Name of the {@code k8s.pod.cpu.limit.current} metric. */
+  public static final String K8S_POD_CPU_LIMIT_CURRENT_NAME = "k8s.pod.cpu.limit.current";
+
+  /** Unit of the {@code k8s.pod.cpu.limit.current} metric. */
+  public static final String K8S_POD_CPU_LIMIT_CURRENT_UNIT = "{cpu}";
+
+  /** Description of the {@code k8s.pod.cpu.limit.current} metric. */
+  public static final String K8S_POD_CPU_LIMIT_CURRENT_DESCRIPTION =
+      "Maximum CPU resource limit currently configured for a running Pod.";
+
+  /** Name of the {@code k8s.pod.cpu.limit.desired} metric. */
+  public static final String K8S_POD_CPU_LIMIT_DESIRED_NAME = "k8s.pod.cpu.limit.desired";
+
+  /** Unit of the {@code k8s.pod.cpu.limit.desired} metric. */
+  public static final String K8S_POD_CPU_LIMIT_DESIRED_UNIT = "{cpu}";
+
+  /** Description of the {@code k8s.pod.cpu.limit.desired} metric. */
+  public static final String K8S_POD_CPU_LIMIT_DESIRED_DESCRIPTION =
+      "Maximum CPU resource limit as defined by the Pod spec.";
+
+  /** Name of the {@code k8s.pod.cpu.limit.utilization} metric. */
+  public static final String K8S_POD_CPU_LIMIT_UTILIZATION_NAME = "k8s.pod.cpu.limit.utilization";
+
+  /** Unit of the {@code k8s.pod.cpu.limit.utilization} metric. */
+  public static final String K8S_POD_CPU_LIMIT_UTILIZATION_UNIT = "1";
+
+  /** Description of the {@code k8s.pod.cpu.limit.utilization} metric. */
+  public static final String K8S_POD_CPU_LIMIT_UTILIZATION_DESCRIPTION =
+      "The ratio of Pod CPU usage to its current CPU limit.";
+
+  /** Name of the {@code k8s.pod.cpu.request.current} metric. */
+  public static final String K8S_POD_CPU_REQUEST_CURRENT_NAME = "k8s.pod.cpu.request.current";
+
+  /** Unit of the {@code k8s.pod.cpu.request.current} metric. */
+  public static final String K8S_POD_CPU_REQUEST_CURRENT_UNIT = "{cpu}";
+
+  /** Description of the {@code k8s.pod.cpu.request.current} metric. */
+  public static final String K8S_POD_CPU_REQUEST_CURRENT_DESCRIPTION =
+      "CPU resource requested currently configured for a running Pod.";
+
+  /** Name of the {@code k8s.pod.cpu.request.desired} metric. */
+  public static final String K8S_POD_CPU_REQUEST_DESIRED_NAME = "k8s.pod.cpu.request.desired";
+
+  /** Unit of the {@code k8s.pod.cpu.request.desired} metric. */
+  public static final String K8S_POD_CPU_REQUEST_DESIRED_UNIT = "{cpu}";
+
+  /** Description of the {@code k8s.pod.cpu.request.desired} metric. */
+  public static final String K8S_POD_CPU_REQUEST_DESIRED_DESCRIPTION =
+      "CPU resource requested as defined by the Pod spec.";
+
+  /** Name of the {@code k8s.pod.cpu.request.utilization} metric. */
+  public static final String K8S_POD_CPU_REQUEST_UTILIZATION_NAME =
+      "k8s.pod.cpu.request.utilization";
+
+  /** Unit of the {@code k8s.pod.cpu.request.utilization} metric. */
+  public static final String K8S_POD_CPU_REQUEST_UTILIZATION_UNIT = "1";
+
+  /** Description of the {@code k8s.pod.cpu.request.utilization} metric. */
+  public static final String K8S_POD_CPU_REQUEST_UTILIZATION_DESCRIPTION =
+      "The ratio of Pod CPU usage to its current CPU request.";
+
   /** Name of the {@code k8s.pod.cpu.time} metric. */
   public static final String K8S_POD_CPU_TIME_NAME = "k8s.pod.cpu.time";
 
@@ -1360,6 +1463,37 @@ public final class K8sIncubatingMetrics {
   /** Description of the {@code k8s.pod.memory.available} metric. */
   public static final String K8S_POD_MEMORY_AVAILABLE_DESCRIPTION = "Pod memory available.";
 
+  /** Name of the {@code k8s.pod.memory.limit.current} metric. */
+  public static final String K8S_POD_MEMORY_LIMIT_CURRENT_NAME = "k8s.pod.memory.limit.current";
+
+  /** Unit of the {@code k8s.pod.memory.limit.current} metric. */
+  public static final String K8S_POD_MEMORY_LIMIT_CURRENT_UNIT = "By";
+
+  /** Description of the {@code k8s.pod.memory.limit.current} metric. */
+  public static final String K8S_POD_MEMORY_LIMIT_CURRENT_DESCRIPTION =
+      "Maximum memory resource limit currently configured for a running Pod.";
+
+  /** Name of the {@code k8s.pod.memory.limit.desired} metric. */
+  public static final String K8S_POD_MEMORY_LIMIT_DESIRED_NAME = "k8s.pod.memory.limit.desired";
+
+  /** Unit of the {@code k8s.pod.memory.limit.desired} metric. */
+  public static final String K8S_POD_MEMORY_LIMIT_DESIRED_UNIT = "By";
+
+  /** Description of the {@code k8s.pod.memory.limit.desired} metric. */
+  public static final String K8S_POD_MEMORY_LIMIT_DESIRED_DESCRIPTION =
+      "Maximum memory resource limit as defined by the Pod spec.";
+
+  /** Name of the {@code k8s.pod.memory.limit.utilization} metric. */
+  public static final String K8S_POD_MEMORY_LIMIT_UTILIZATION_NAME =
+      "k8s.pod.memory.limit.utilization";
+
+  /** Unit of the {@code k8s.pod.memory.limit.utilization} metric. */
+  public static final String K8S_POD_MEMORY_LIMIT_UTILIZATION_UNIT = "1";
+
+  /** Description of the {@code k8s.pod.memory.limit.utilization} metric. */
+  public static final String K8S_POD_MEMORY_LIMIT_UTILIZATION_DESCRIPTION =
+      "The ratio of Pod memory working set to its current memory limit.";
+
   /**
    * Name of the {@code k8s.pod.memory.paging.faults} metric.
    *
@@ -1383,6 +1517,37 @@ public final class K8sIncubatingMetrics {
   @Deprecated
   public static final String K8S_POD_MEMORY_PAGING_FAULTS_DESCRIPTION =
       "Deprecated, use `k8s.pod.paging.faults` instead.";
+
+  /** Name of the {@code k8s.pod.memory.request.current} metric. */
+  public static final String K8S_POD_MEMORY_REQUEST_CURRENT_NAME = "k8s.pod.memory.request.current";
+
+  /** Unit of the {@code k8s.pod.memory.request.current} metric. */
+  public static final String K8S_POD_MEMORY_REQUEST_CURRENT_UNIT = "By";
+
+  /** Description of the {@code k8s.pod.memory.request.current} metric. */
+  public static final String K8S_POD_MEMORY_REQUEST_CURRENT_DESCRIPTION =
+      "Memory resource request currently configured for a running Pod.";
+
+  /** Name of the {@code k8s.pod.memory.request.desired} metric. */
+  public static final String K8S_POD_MEMORY_REQUEST_DESIRED_NAME = "k8s.pod.memory.request.desired";
+
+  /** Unit of the {@code k8s.pod.memory.request.desired} metric. */
+  public static final String K8S_POD_MEMORY_REQUEST_DESIRED_UNIT = "By";
+
+  /** Description of the {@code k8s.pod.memory.request.desired} metric. */
+  public static final String K8S_POD_MEMORY_REQUEST_DESIRED_DESCRIPTION =
+      "Memory resource requested as defined by the Pod spec.";
+
+  /** Name of the {@code k8s.pod.memory.request.utilization} metric. */
+  public static final String K8S_POD_MEMORY_REQUEST_UTILIZATION_NAME =
+      "k8s.pod.memory.request.utilization";
+
+  /** Unit of the {@code k8s.pod.memory.request.utilization} metric. */
+  public static final String K8S_POD_MEMORY_REQUEST_UTILIZATION_UNIT = "1";
+
+  /** Description of the {@code k8s.pod.memory.request.utilization} metric. */
+  public static final String K8S_POD_MEMORY_REQUEST_UTILIZATION_DESCRIPTION =
+      "The ratio of Pod memory working set to its current memory request.";
 
   /** Name of the {@code k8s.pod.memory.rss} metric. */
   public static final String K8S_POD_MEMORY_RSS_NAME = "k8s.pod.memory.rss";
@@ -2005,6 +2170,16 @@ public final class K8sIncubatingMetrics {
   @Deprecated
   public static final String K8S_STATEFULSET_DESIRED_PODS_DESCRIPTION =
       "Deprecated, use `k8s.statefulset.pod.desired` instead.";
+
+  /** Name of the {@code k8s.statefulset.pod.available} metric. */
+  public static final String K8S_STATEFULSET_POD_AVAILABLE_NAME = "k8s.statefulset.pod.available";
+
+  /** Unit of the {@code k8s.statefulset.pod.available} metric. */
+  public static final String K8S_STATEFULSET_POD_AVAILABLE_UNIT = "{pod}";
+
+  /** Description of the {@code k8s.statefulset.pod.available} metric. */
+  public static final String K8S_STATEFULSET_POD_AVAILABLE_DESCRIPTION =
+      "Total number of available replica pods (ready for at least minReadySeconds) targeted by this statefulset.";
 
   /** Name of the {@code k8s.statefulset.pod.current} metric. */
   public static final String K8S_STATEFULSET_POD_CURRENT_NAME = "k8s.statefulset.pod.current";

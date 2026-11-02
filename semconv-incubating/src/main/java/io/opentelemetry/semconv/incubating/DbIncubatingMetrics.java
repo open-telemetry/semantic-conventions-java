@@ -50,15 +50,38 @@ public final class DbIncubatingMetrics {
   public static final String DB_CLIENT_CONNECTION_IDLE_MIN_DESCRIPTION =
       "The minimum number of idle open connections allowed.";
 
-  /** Name of the {@code db.client.connection.max} metric. */
-  public static final String DB_CLIENT_CONNECTION_MAX_NAME = "db.client.connection.max";
+  /** Name of the {@code db.client.connection.limit} metric. */
+  public static final String DB_CLIENT_CONNECTION_LIMIT_NAME = "db.client.connection.limit";
 
-  /** Unit of the {@code db.client.connection.max} metric. */
-  public static final String DB_CLIENT_CONNECTION_MAX_UNIT = "{connection}";
+  /** Unit of the {@code db.client.connection.limit} metric. */
+  public static final String DB_CLIENT_CONNECTION_LIMIT_UNIT = "{connection}";
 
-  /** Description of the {@code db.client.connection.max} metric. */
-  public static final String DB_CLIENT_CONNECTION_MAX_DESCRIPTION =
+  /** Description of the {@code db.client.connection.limit} metric. */
+  public static final String DB_CLIENT_CONNECTION_LIMIT_DESCRIPTION =
       "The maximum number of open connections allowed.";
+
+  /**
+   * Name of the {@code db.client.connection.max} metric.
+   *
+   * @deprecated Replaced by {@code db.client.connection.limit}.
+   */
+  @Deprecated public static final String DB_CLIENT_CONNECTION_MAX_NAME = "db.client.connection.max";
+
+  /**
+   * Unit of the {@code db.client.connection.max} metric.
+   *
+   * @deprecated Replaced by {@code db.client.connection.limit}.
+   */
+  @Deprecated public static final String DB_CLIENT_CONNECTION_MAX_UNIT = "{connection}";
+
+  /**
+   * Description of the {@code db.client.connection.max} metric.
+   *
+   * @deprecated Replaced by {@code db.client.connection.limit}.
+   */
+  @Deprecated
+  public static final String DB_CLIENT_CONNECTION_MAX_DESCRIPTION =
+      "Deprecated, use `db.client.connection.limit` instead.";
 
   /** Name of the {@code db.client.connection.pending_requests} metric. */
   public static final String DB_CLIENT_CONNECTION_PENDING_REQUESTS_NAME =
@@ -177,7 +200,7 @@ public final class DbIncubatingMetrics {
   /**
    * Name of the {@code db.client.connections.max} metric.
    *
-   * @deprecated Replaced by {@code db.client.connection.max}.
+   * @deprecated Replaced by {@code db.client.connection.limit}.
    */
   @Deprecated
   public static final String DB_CLIENT_CONNECTIONS_MAX_NAME = "db.client.connections.max";
@@ -185,18 +208,18 @@ public final class DbIncubatingMetrics {
   /**
    * Unit of the {@code db.client.connections.max} metric.
    *
-   * @deprecated Replaced by {@code db.client.connection.max}.
+   * @deprecated Replaced by {@code db.client.connection.limit}.
    */
   @Deprecated public static final String DB_CLIENT_CONNECTIONS_MAX_UNIT = "{connection}";
 
   /**
    * Description of the {@code db.client.connections.max} metric.
    *
-   * @deprecated Replaced by {@code db.client.connection.max}.
+   * @deprecated Replaced by {@code db.client.connection.limit}.
    */
   @Deprecated
   public static final String DB_CLIENT_CONNECTIONS_MAX_DESCRIPTION =
-      "Deprecated, use `db.client.connection.max` instead.";
+      "Deprecated, use `db.client.connection.limit` instead.";
 
   /**
    * Name of the {@code db.client.connections.pending_requests} metric.

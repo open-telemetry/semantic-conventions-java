@@ -18,65 +18,65 @@ import java.util.List;
 @SuppressWarnings("unused")
 public final class RpcIncubatingAttributes {
   /**
-   * Deprecated, use {@code rpc.response.status_code} attribute instead.
+   * Deprecated, use {@code rpc.status_code} attribute instead.
    *
-   * @deprecated Replaced by {@code rpc.response.status_code}.
+   * @deprecated Replaced by {@code rpc.status_code}.
    */
   @Deprecated
   public static final AttributeKey<String> RPC_CONNECT_RPC_ERROR_CODE =
       stringKey("rpc.connect_rpc.error_code");
 
   /**
-   * Deprecated, use {@code rpc.request.metadata} instead.
+   * Deprecated, use {@code rpc.request.header} instead.
    *
-   * @deprecated Replaced by {@code rpc.request.metadata}.
+   * @deprecated Replaced by {@code rpc.request.header}.
    */
   @Deprecated
   public static final AttributeKeyTemplate<List<String>> RPC_CONNECT_RPC_REQUEST_METADATA =
       stringArrayKeyTemplate("rpc.connect_rpc.request.metadata");
 
   /**
-   * Deprecated, use {@code rpc.response.metadata} instead.
+   * Deprecated, use {@code rpc.response.header} and {@code rpc.response.trailer}.
    *
-   * @deprecated Replaced by {@code rpc.response.metadata}.
+   * @deprecated Split to {@code rpc.response.header} for metadata sent before the response payload
+   *     and {@code rpc.response.trailer} for metadata sent after it.
    */
   @Deprecated
   public static final AttributeKeyTemplate<List<String>> RPC_CONNECT_RPC_RESPONSE_METADATA =
       stringArrayKeyTemplate("rpc.connect_rpc.response.metadata");
 
   /**
-   * Deprecated, use {@code rpc.request.metadata} instead.
+   * Deprecated, use {@code rpc.request.header} instead.
    *
-   * @deprecated Replaced by {@code rpc.request.metadata}.
+   * @deprecated Replaced by {@code rpc.request.header}.
    */
   @Deprecated
   public static final AttributeKeyTemplate<List<String>> RPC_GRPC_REQUEST_METADATA =
       stringArrayKeyTemplate("rpc.grpc.request.metadata");
 
   /**
-   * Deprecated, use {@code rpc.response.metadata} instead.
+   * Deprecated, use {@code rpc.response.header} and {@code rpc.response.trailer}.
    *
-   * @deprecated Replaced by {@code rpc.response.metadata}.
+   * @deprecated Split to {@code rpc.response.header} for metadata sent before the response payload
+   *     and {@code rpc.response.trailer} for metadata sent after it.
    */
   @Deprecated
   public static final AttributeKeyTemplate<List<String>> RPC_GRPC_RESPONSE_METADATA =
       stringArrayKeyTemplate("rpc.grpc.response.metadata");
 
   /**
-   * Deprecated, use string representation on the {@code rpc.response.status_code} attribute
-   * instead.
+   * Deprecated, use string representation on the {@code rpc.status_code} attribute instead.
    *
-   * @deprecated Use string representation of the gRPC status code on the {@code
-   *     rpc.response.status_code} attribute.
+   * @deprecated Use string representation of the gRPC status code on the {@code rpc.status_code}
+   *     attribute.
    */
   @Deprecated
   public static final AttributeKey<Long> RPC_GRPC_STATUS_CODE = longKey("rpc.grpc.status_code");
 
   /**
-   * Deprecated, use string representation on the {@code rpc.response.status_code} attribute
-   * instead.
+   * Deprecated, use string representation on the {@code rpc.status_code} attribute instead.
    *
-   * @deprecated Use string representation of the error code on the {@code rpc.response.status_code}
+   * @deprecated Use string representation of the error code on the {@code rpc.status_code}
    *     attribute.
    */
   @Deprecated
@@ -168,58 +168,120 @@ public final class RpcIncubatingAttributes {
    * The {@code code.function.name} attribute may be used to record the fully-qualified method
    * actually executing the call on the server side, or the RPC client stub method on the client
    * side.
+   *
+   * @deprecated deprecated in favor of stable {@link
+   *     io.opentelemetry.semconv.RpcAttributes#RPC_METHOD} attribute.
    */
-  public static final AttributeKey<String> RPC_METHOD = stringKey("rpc.method");
+  @Deprecated public static final AttributeKey<String> RPC_METHOD = stringKey("rpc.method");
 
-  /** The original name of the method used by the client. */
+  /**
+   * The original name of the method used by the client.
+   *
+   * @deprecated deprecated in favor of stable {@link
+   *     io.opentelemetry.semconv.RpcAttributes#RPC_METHOD_ORIGINAL} attribute.
+   */
+  @Deprecated
   public static final AttributeKey<String> RPC_METHOD_ORIGINAL = stringKey("rpc.method_original");
 
   /**
-   * RPC request metadata, {@code <key>} being the normalized RPC metadata key (lowercase), the
-   * value being the metadata values.
+   * RPC request headers or metadata, {@code <key>} being the normalized header name (lowercase),
+   * the value being the header values.
    *
    * <p>Notes:
    *
-   * <p>Instrumentations SHOULD require an explicit configuration of which metadata values are to be
-   * captured. Including all request metadata values can be a security risk - explicit configuration
-   * helps avoid leaking sensitive information.
+   * <p>Instrumentations SHOULD require an explicit configuration of which headers are to be
+   * captured. Including all request headers can be a security risk - explicit configuration helps
+   * avoid leaking sensitive information.
    *
-   * <p>For example, a property {@code my-custom-key} with value {@code ["1.2.3.4", "1.2.3.5"]}
-   * SHOULD be recorded as {@code rpc.request.metadata.my-custom-key} attribute with value {@code
+   * <p>For example, a header {@code my-custom-key} with value {@code ["1.2.3.4", "1.2.3.5"]} SHOULD
+   * be recorded as the {@code rpc.request.header.my-custom-key} attribute with value {@code
    * ["1.2.3.4", "1.2.3.5"]}
+   *
+   * <p>The attribute value MUST consist of either multiple header values as an array of strings or
+   * a single-item array containing a possibly comma-concatenated string, depending on the way the
+   * RPC library provides access to headers.
+   *
+   * <p>Values that the RPC system exposes as binary data, or that are otherwise not valid UTF-8
+   * strings, SHOULD be base64-encoded when recorded.
    */
+  public static final AttributeKeyTemplate<List<String>> RPC_REQUEST_HEADER =
+      stringArrayKeyTemplate("rpc.request.header");
+
+  /**
+   * Deprecated, use {@code rpc.request.header} instead.
+   *
+   * @deprecated Replaced by {@code rpc.request.header}.
+   */
+  @Deprecated
   public static final AttributeKeyTemplate<List<String>> RPC_REQUEST_METADATA =
       stringArrayKeyTemplate("rpc.request.metadata");
 
   /**
-   * RPC response metadata, {@code <key>} being the normalized RPC metadata key (lowercase), the
-   * value being the metadata values.
+   * RPC response headers or metadata sent before the response payload, {@code <key>} being the
+   * normalized header name (lowercase), the value being the header values.
    *
    * <p>Notes:
    *
-   * <p>Instrumentations SHOULD require an explicit configuration of which metadata values are to be
-   * captured. Including all response metadata values can be a security risk - explicit
-   * configuration helps avoid leaking sensitive information.
+   * <p>Instrumentations SHOULD require an explicit configuration of which headers are to be
+   * captured. Including all response headers can be a security risk - explicit configuration helps
+   * avoid leaking sensitive information.
    *
-   * <p>For example, a property {@code my-custom-key} with value {@code ["attribute_value"]} SHOULD
-   * be recorded as the {@code rpc.response.metadata.my-custom-key} attribute with value {@code
+   * <p>For example, a header {@code my-custom-key} with value {@code ["attribute_value"]} SHOULD be
+   * recorded as the {@code rpc.response.header.my-custom-key} attribute with value {@code
    * ["attribute_value"]}
+   *
+   * <p>The attribute value MUST consist of either multiple header values as an array of strings or
+   * a single-item array containing a possibly comma-concatenated string, depending on the way the
+   * RPC library provides access to headers.
+   *
+   * <p>Values that the RPC system exposes as binary data, or that are otherwise not valid UTF-8
+   * strings, SHOULD be base64-encoded when recorded.
    */
+  public static final AttributeKeyTemplate<List<String>> RPC_RESPONSE_HEADER =
+      stringArrayKeyTemplate("rpc.response.header");
+
+  /**
+   * Deprecated, use {@code rpc.response.header} and {@code rpc.response.trailer}.
+   *
+   * @deprecated Split to {@code rpc.response.header} for metadata sent before the response payload
+   *     and {@code rpc.response.trailer} for metadata sent after it.
+   */
+  @Deprecated
   public static final AttributeKeyTemplate<List<String>> RPC_RESPONSE_METADATA =
       stringArrayKeyTemplate("rpc.response.metadata");
 
   /**
-   * Status code of the RPC returned by the RPC server or generated by the client
+   * Deprecated, use {@code rpc.status_code} instead.
+   *
+   * @deprecated Replaced by {@code rpc.status_code}.
+   */
+  @Deprecated
+  public static final AttributeKey<String> RPC_RESPONSE_STATUS_CODE =
+      stringKey("rpc.response.status_code");
+
+  /**
+   * RPC response trailers or metadata sent after the response payload, {@code <key>} being the
+   * normalized trailer name (lowercase), the value being the trailer values.
    *
    * <p>Notes:
    *
-   * <p>Usually it represents an error code, but may also represent partial success, warning, or
-   * differentiate between various types of successful outcomes. Semantic conventions for individual
-   * RPC frameworks SHOULD document what {@code rpc.response.status_code} means in the context of
-   * that system and which values are considered to represent errors.
+   * <p>Instrumentations SHOULD require an explicit configuration of which trailers are to be
+   * captured. Including all response trailers can be a security risk - explicit configuration helps
+   * avoid leaking sensitive information.
+   *
+   * <p>For example, a trailer {@code my-custom-key} with value {@code ["attribute_value"]} SHOULD
+   * be recorded as the {@code rpc.response.trailer.my-custom-key} attribute with value {@code
+   * ["attribute_value"]}
+   *
+   * <p>The attribute value MUST consist of either multiple trailer values as an array of strings or
+   * a single-item array containing a possibly comma-concatenated string, depending on the way the
+   * RPC library provides access to trailers.
+   *
+   * <p>Values that the RPC system exposes as binary data, or that are otherwise not valid UTF-8
+   * strings, SHOULD be base64-encoded when recorded.
    */
-  public static final AttributeKey<String> RPC_RESPONSE_STATUS_CODE =
-      stringKey("rpc.response.status_code");
+  public static final AttributeKeyTemplate<List<String>> RPC_RESPONSE_TRAILER =
+      stringArrayKeyTemplate("rpc.response.trailer");
 
   /**
    * Deprecated, use fully-qualified {@code rpc.method} instead.
@@ -228,6 +290,25 @@ public final class RpcIncubatingAttributes {
    *     fully-qualified name.
    */
   @Deprecated public static final AttributeKey<String> RPC_SERVICE = stringKey("rpc.service");
+
+  /**
+   * Status code of the RPC returned by the RPC server or generated by the client
+   *
+   * <p>Notes:
+   *
+   * <p>Usually it represents an error code, but may also represent partial success, warning, or
+   * differentiate between various types of successful outcomes. The value MAY use a standardized
+   * string representation of a numeric status code, if one exists, instead of the numeric code. The
+   * value MAY be a synthetic status provided by the client library rather than returned by the
+   * remote service. Semantic conventions for individual RPC frameworks SHOULD document what {@code
+   * rpc.status_code} means in the context of that system and which values are considered to
+   * represent errors.
+   *
+   * @deprecated deprecated in favor of stable {@link
+   *     io.opentelemetry.semconv.RpcAttributes#RPC_STATUS_CODE} attribute.
+   */
+  @Deprecated
+  public static final AttributeKey<String> RPC_STATUS_CODE = stringKey("rpc.status_code");
 
   /**
    * Deprecated, use {@code rpc.system.name} attribute instead.
@@ -244,7 +325,11 @@ public final class RpcIncubatingAttributes {
    * <p>The client and server RPC systems may differ for the same RPC interaction. For example, a
    * client may use Apache Dubbo or Connect RPC to communicate with a server that uses gRPC since
    * both protocols provide compatibility with gRPC.
+   *
+   * @deprecated deprecated in favor of stable {@link
+   *     io.opentelemetry.semconv.RpcAttributes#RPC_SYSTEM_NAME} attribute.
    */
+  @Deprecated
   public static final AttributeKey<String> RPC_SYSTEM_NAME = stringKey("rpc.system.name");
 
   // Enum definitions
@@ -252,7 +337,7 @@ public final class RpcIncubatingAttributes {
   /**
    * Values for {@link #RPC_CONNECT_RPC_ERROR_CODE}
    *
-   * @deprecated Replaced by {@code rpc.response.status_code}.
+   * @deprecated Replaced by {@code rpc.status_code}.
    */
   @Deprecated
   public static final class RpcConnectRpcErrorCodeIncubatingValues {
@@ -310,8 +395,8 @@ public final class RpcIncubatingAttributes {
   /**
    * Values for {@link #RPC_GRPC_STATUS_CODE}
    *
-   * @deprecated Use string representation of the gRPC status code on the {@code
-   *     rpc.response.status_code} attribute.
+   * @deprecated Use string representation of the gRPC status code on the {@code rpc.status_code}
+   *     attribute.
    */
   @Deprecated
   public static final class RpcGrpcStatusCodeIncubatingValues {
@@ -418,11 +503,21 @@ public final class RpcIncubatingAttributes {
 
   /** Values for {@link #RPC_SYSTEM_NAME}. */
   public static final class RpcSystemNameIncubatingValues {
-    /** <a href="https://grpc.io/">gRPC</a> */
-    public static final String GRPC = "grpc";
+    /**
+     * <a href="https://grpc.io/">gRPC</a>
+     *
+     * @deprecated deprecated in favor of stable {@link
+     *     io.opentelemetry.semconv.RpcAttributes.RpcSystemNameValues#GRPC} value.
+     */
+    @Deprecated public static final String GRPC = "grpc";
 
-    /** <a href="https://dubbo.apache.org/">Apache Dubbo</a> */
-    public static final String DUBBO = "dubbo";
+    /**
+     * <a href="https://dubbo.apache.org/">Apache Dubbo</a>
+     *
+     * @deprecated deprecated in favor of stable {@link
+     *     io.opentelemetry.semconv.RpcAttributes.RpcSystemNameValues#DUBBO} value.
+     */
+    @Deprecated public static final String DUBBO = "dubbo";
 
     /** <a href="https://connectrpc.com/">Connect RPC</a> */
     public static final String CONNECTRPC = "connectrpc";

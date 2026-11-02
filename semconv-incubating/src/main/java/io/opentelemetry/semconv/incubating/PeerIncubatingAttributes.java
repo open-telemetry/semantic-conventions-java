@@ -29,7 +29,8 @@ public final class PeerIncubatingAttributes {
    *       peer.service="AuthService"}.
    * </ul>
    *
-   * @deprecated Replaced by {@code service.peer.name}.
+   * @deprecated Use {@code server.service.name} on the client side or {@code client.service.name}
+   *     on the server side.
    */
   @Deprecated public static final AttributeKey<String> PEER_SERVICE = stringKey("peer.service");
 

@@ -13,21 +13,21 @@ import io.opentelemetry.api.common.AttributeKey;
 // buildscripts/templates/registry/incubating_java/IncubatingSemanticAttributes.java.j2
 @SuppressWarnings("unused")
 public final class LogIncubatingAttributes {
-  /** The basename of the file. */
+  /** The basename of the file to which the log record was emitted. */
   public static final AttributeKey<String> LOG_FILE_NAME = stringKey("log.file.name");
 
-  /** The basename of the file, with symlinks resolved. */
+  /** The basename of the file to which the log record was emitted, with symlinks resolved. */
   public static final AttributeKey<String> LOG_FILE_NAME_RESOLVED =
       stringKey("log.file.name_resolved");
 
-  /** The full path to the file. */
+  /** The full path to the file to which the log record was emitted. */
   public static final AttributeKey<String> LOG_FILE_PATH = stringKey("log.file.path");
 
-  /** The full path to the file, with symlinks resolved. */
+  /** The full path to the file to which the log record was emitted, with symlinks resolved. */
   public static final AttributeKey<String> LOG_FILE_PATH_RESOLVED =
       stringKey("log.file.path_resolved");
 
-  /** The stream associated with the log. See below for a list of well-known values. */
+  /** The stream the log record was emitted to. */
   public static final AttributeKey<String> LOG_IOSTREAM = stringKey("log.iostream");
 
   /**

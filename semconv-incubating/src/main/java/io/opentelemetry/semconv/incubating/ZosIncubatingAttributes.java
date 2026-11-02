@@ -14,12 +14,23 @@ import io.opentelemetry.api.common.AttributeKey;
 @SuppressWarnings("unused")
 public final class ZosIncubatingAttributes {
   /**
-   * The System Management Facility (SMF) Identifier uniquely identified a z/OS system within a
-   * SYSPLEX or mainframe environment and is used for system and performance analysis.
+   * The System Management Facility (SMF) identifier that uniquely identifies a z/OS system within a
+   * sysplex or mainframe environment and is used for system and performance analysis.
+   *
+   * @deprecated Moved to the <a
+   *     href="https://github.com/open-telemetry/semantic-conventions-mainframe">OpenTelemetry
+   *     Mainframe semantic conventions repository</a>.
    */
-  public static final AttributeKey<String> ZOS_SMF_ID = stringKey("zos.smf.id");
+  @Deprecated public static final AttributeKey<String> ZOS_SMF_ID = stringKey("zos.smf.id");
 
-  /** The name of the SYSPLEX to which the z/OS system belongs too. */
+  /**
+   * The name of the sysplex to which the z/OS system belongs.
+   *
+   * @deprecated Moved to the <a
+   *     href="https://github.com/open-telemetry/semantic-conventions-mainframe">OpenTelemetry
+   *     Mainframe semantic conventions repository</a>.
+   */
+  @Deprecated
   public static final AttributeKey<String> ZOS_SYSPLEX_NAME = stringKey("zos.sysplex.name");
 
   // Enum definitions

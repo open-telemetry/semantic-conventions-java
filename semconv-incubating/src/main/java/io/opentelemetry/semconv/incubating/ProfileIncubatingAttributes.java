@@ -66,6 +66,9 @@ public final class ProfileIncubatingAttributes {
     /** <a href="https://en.wikipedia.org/wiki/LuaJIT">LuaJIT</a> */
     public static final String LUAJIT = "luajit";
 
+    /** <a href="https://wikipedia.org/wiki/CUDA">CUDA</a> */
+    public static final String CUDA = "cuda";
+
     private ProfileFrameTypeIncubatingValues() {}
   }
 

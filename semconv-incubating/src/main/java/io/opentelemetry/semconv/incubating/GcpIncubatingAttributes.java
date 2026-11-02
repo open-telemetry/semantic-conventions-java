@@ -208,6 +208,25 @@ public final class GcpIncubatingAttributes {
   public static final AttributeKey<String> GCP_GCE_INSTANCE_GROUP_MANAGER_ZONE =
       stringKey("gcp.gce.instance_group_manager.zone");
 
+  /** The ack deadline in seconds set for the modify ack deadline request. */
+  public static final AttributeKey<Long> GCP_PUBSUB_MESSAGE_ACK_DEADLINE =
+      longKey("gcp.pubsub.message.ack_deadline");
+
+  /** The ack ID for a given message. */
+  public static final AttributeKey<String> GCP_PUBSUB_MESSAGE_ACK_ID =
+      stringKey("gcp.pubsub.message.ack_id");
+
+  /** The delivery attempt for a given message. */
+  public static final AttributeKey<Long> GCP_PUBSUB_MESSAGE_DELIVERY_ATTEMPT =
+      longKey("gcp.pubsub.message.delivery_attempt");
+
+  /**
+   * The ordering key for a given message. If the attribute is not present, the message does not
+   * have an ordering key.
+   */
+  public static final AttributeKey<String> GCP_PUBSUB_MESSAGE_ORDERING_KEY =
+      stringKey("gcp.pubsub.message.ordering_key");
+
   // Enum definitions
 
   /** Values for {@link #GCP_APPHUB_SERVICE_CRITICALITY_TYPE}. */

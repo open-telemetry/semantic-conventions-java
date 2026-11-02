@@ -142,7 +142,7 @@ public final class OtelIncubatingMetrics {
 
   /** Description of the {@code otel.sdk.log.created} metric. */
   public static final String OTEL_SDK_LOG_CREATED_DESCRIPTION =
-      "The number of logs submitted to enabled SDK Loggers.";
+      "The number of log records submitted to an enabled `Logger`.";
 
   /** Name of the {@code otel.sdk.metric_reader.collection.duration} metric. */
   public static final String OTEL_SDK_METRIC_READER_COLLECTION_DURATION_NAME =

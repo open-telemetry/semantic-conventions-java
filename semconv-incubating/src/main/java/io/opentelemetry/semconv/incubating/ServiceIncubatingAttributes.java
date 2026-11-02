@@ -25,6 +25,29 @@ public final class ServiceIncubatingAttributes {
   public static final AttributeKey<String> SERVICE_CRITICALITY = stringKey("service.criticality");
 
   /**
+   * Identifier of the cost center associated with the service instance.
+   *
+   * <p>Notes:
+   *
+   * <p>The cost center identifier enables tracking and attribution of service resource costs to
+   * organizational units, billing accounts, or teams. It is typically a string identifier such as a
+   * billing account ID, cost allocation code, or internal accounting ID.
+   */
+  public static final AttributeKey<String> SERVICE_INSTANCE_COST_CENTER_ID =
+      stringKey("service.instance.cost_center.id");
+
+  /**
+   * Name of the cost center associated with the service instance.
+   *
+   * <p>Notes:
+   *
+   * <p>A human-readable name of the cost center, department, or organizational unit responsible for
+   * the service instance costs.
+   */
+  public static final AttributeKey<String> SERVICE_INSTANCE_COST_CENTER_NAME =
+      stringKey("service.instance.cost_center.name");
+
+  /**
    * The string ID of the service instance.
    *
    * <p>Notes:
@@ -104,14 +127,22 @@ public final class ServiceIncubatingAttributes {
    * Logical name of the service on the other side of the connection. SHOULD be equal to the actual
    * <a href="/docs/resource/README.md#service">{@code service.name}</a> resource attribute of the
    * remote service if any.
+   *
+   * @deprecated Use {@code server.service.name} on the client side or {@code client.service.name}
+   *     on the server side.
    */
+  @Deprecated
   public static final AttributeKey<String> SERVICE_PEER_NAME = stringKey("service.peer.name");
 
   /**
    * Logical namespace of the service on the other side of the connection. SHOULD be equal to the
    * actual <a href="/docs/resource/README.md#service">{@code service.namespace}</a> resource
    * attribute of the remote service if any.
+   *
+   * @deprecated Use {@code server.service.namespace} on the client side or {@code
+   *     client.service.namespace} on the server side.
    */
+  @Deprecated
   public static final AttributeKey<String> SERVICE_PEER_NAMESPACE =
       stringKey("service.peer.namespace");
 

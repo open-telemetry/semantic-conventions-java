@@ -31,8 +31,15 @@ public final class SystemIncubatingAttributes {
   @Deprecated
   public static final AttributeKey<String> SYSTEM_CPU_STATE = stringKey("system.cpu.state");
 
-  /** The device identifier */
-  public static final AttributeKey<String> SYSTEM_DEVICE = stringKey("system.device");
+  /**
+   * Deprecated, use {@code system.device.name} instead.
+   *
+   * @deprecated Replaced by {@code system.device.name}.
+   */
+  @Deprecated public static final AttributeKey<String> SYSTEM_DEVICE = stringKey("system.device");
+
+  /** The OS level identifier for a device, such as disk, partition or network interface. */
+  public static final AttributeKey<String> SYSTEM_DEVICE_NAME = stringKey("system.device.name");
 
   /** The filesystem mode */
   public static final AttributeKey<String> SYSTEM_FILESYSTEM_MODE =
@@ -203,8 +210,19 @@ public final class SystemIncubatingAttributes {
     /** Actual used virtual memory in bytes. */
     public static final String USED = "used";
 
-    /** free. */
-    public static final String FREE = "free";
+    /**
+     * An estimate of how much memory is available for starting new applications, without causing
+     * swapping.
+     */
+    public static final String AVAILABLE = "available";
+
+    /**
+     * free.
+     *
+     * @deprecated Removed, report memory usage with the {@code used} and {@code available} states
+     *     instead.
+     */
+    @Deprecated public static final String FREE = "free";
 
     /**
      * shared.
@@ -214,11 +232,21 @@ public final class SystemIncubatingAttributes {
      */
     @Deprecated public static final String SHARED = "shared";
 
-    /** buffers. */
-    public static final String BUFFERS = "buffers";
+    /**
+     * buffers.
+     *
+     * @deprecated Removed, report memory usage with the {@code used} and {@code available} states
+     *     instead.
+     */
+    @Deprecated public static final String BUFFERS = "buffers";
 
-    /** cached. */
-    public static final String CACHED = "cached";
+    /**
+     * cached.
+     *
+     * @deprecated Removed, report memory usage with the {@code used} and {@code available} states
+     *     instead.
+     */
+    @Deprecated public static final String CACHED = "cached";
 
     private SystemMemoryStateIncubatingValues() {}
   }

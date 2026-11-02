@@ -65,7 +65,15 @@ public final class FaasIncubatingAttributes {
   public static final AttributeKey<String> FAAS_INSTANCE = stringKey("faas.instance");
 
   /** The invocation ID of the current function invocation. */
-  public static final AttributeKey<String> FAAS_INVOCATION_ID = stringKey("faas.invocation_id");
+  public static final AttributeKey<String> FAAS_INVOCATION_ID = stringKey("faas.invocation.id");
+
+  /**
+   * A string containing the function invocation time in the <a
+   * href="https://www.iso.org/iso-8601-date-and-time-format.html">ISO 8601</a> format expressed in
+   * <a href="https://www.w3.org/TR/NOTE-datetime">UTC</a>.
+   */
+  public static final AttributeKey<String> FAAS_INVOCATION_START_TIME =
+      stringKey("faas.invocation.start_time");
 
   /**
    * The name of the invoked function.
@@ -135,8 +143,10 @@ public final class FaasIncubatingAttributes {
    * A string containing the function invocation time in the <a
    * href="https://www.iso.org/iso-8601-date-and-time-format.html">ISO 8601</a> format expressed in
    * <a href="https://www.w3.org/TR/NOTE-datetime">UTC</a>.
+   *
+   * @deprecated Replaced by {@code faas.invocation.start_time}.
    */
-  public static final AttributeKey<String> FAAS_TIME = stringKey("faas.time");
+  @Deprecated public static final AttributeKey<String> FAAS_TIME = stringKey("faas.time");
 
   /** Type of the trigger which caused this function invocation. */
   public static final AttributeKey<String> FAAS_TRIGGER = stringKey("faas.trigger");

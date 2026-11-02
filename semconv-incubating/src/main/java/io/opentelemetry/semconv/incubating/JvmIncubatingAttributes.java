@@ -25,6 +25,49 @@ public final class JvmIncubatingAttributes {
   public static final AttributeKey<String> JVM_BUFFER_POOL_NAME = stringKey("jvm.buffer.pool.name");
 
   /**
+   * Name of the executor.
+   *
+   * <p>Notes:
+   *
+   * <p>The executor name SHOULD be low-cardinality. If {@code jvm.executor.owner.name} is present,
+   * the combination of {@code jvm.executor.owner.name} and {@code jvm.executor.name} SHOULD be
+   * unique within the instrumented application; otherwise, {@code jvm.executor.name} SHOULD be
+   * unique when an executor-specific name is available. If the executor implementation does not
+   * provide an explicit name, instrumentation SHOULD derive a name from available
+   * implementation-specific metadata, such as a normalized worker thread name. If no
+   * executor-specific name or metadata is available, instrumentation MAY use {@code unknown}. The
+   * {@code unknown} value does not identify an executor, and metrics from multiple executors using
+   * this value MAY be aggregated. Users requiring per-executor metric series SHOULD configure a
+   * distinct name through the executor's {@code ThreadFactory}. Instrumentations SHOULD document
+   * how the name is derived and how users can configure it. Once metric series registration for an
+   * executor has started, {@code jvm.executor.name} and {@code jvm.executor.owner.name} MUST remain
+   * stable for the lifetime of that registration. Instrumentations SHOULD determine these
+   * attributes before the first worker is registered. Instrumentations MUST NOT re-register
+   * cumulative metrics under a new attribute set or replay prior cumulative values under new
+   * attributes.
+   */
+  public static final AttributeKey<String> JVM_EXECUTOR_NAME = stringKey("jvm.executor.name");
+
+  /**
+   * Name of the logical component that owns the executor.
+   *
+   * <p>Notes:
+   *
+   * <p>The executor owner name SHOULD be a low-cardinality identifier for the component that
+   * creates and configures the executor. It is neither the executor implementation type nor an
+   * OpenTelemetry instrumentation scope.
+   */
+  public static final AttributeKey<String> JVM_EXECUTOR_OWNER_NAME =
+      stringKey("jvm.executor.owner.name");
+
+  /** State of an executor thread. */
+  public static final AttributeKey<String> JVM_EXECUTOR_THREAD_STATE =
+      stringKey("jvm.executor.thread.state");
+
+  /** The fully qualified class name of the executor implementation. */
+  public static final AttributeKey<String> JVM_EXECUTOR_TYPE = stringKey("jvm.executor.type");
+
+  /**
    * Name of the garbage collector action.
    *
    * <p>Notes:
@@ -102,6 +145,17 @@ public final class JvmIncubatingAttributes {
   public static final AttributeKey<String> JVM_THREAD_STATE = stringKey("jvm.thread.state");
 
   // Enum definitions
+
+  /** Values for {@link #JVM_EXECUTOR_THREAD_STATE}. */
+  public static final class JvmExecutorThreadStateIncubatingValues {
+    /** The thread is currently executing a task. */
+    public static final String ACTIVE = "active";
+
+    /** The thread currently exists but is not executing a task. */
+    public static final String IDLE = "idle";
+
+    private JvmExecutorThreadStateIncubatingValues() {}
+  }
 
   /**
    * Values for {@link #JVM_MEMORY_TYPE}.

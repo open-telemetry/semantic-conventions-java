@@ -24,8 +24,12 @@ public final class EnduserIncubatingAttributes {
    * <blockquote>
    * [!Warning] This field contains sensitive (PII) information.
    * </blockquote>
+   *
+   * @deprecated Moved to the <a
+   *     href="https://github.com/open-telemetry/semantic-conventions-client-side">OpenTelemetry
+   *     Client-Side semantic conventions repository</a>.
    */
-  public static final AttributeKey<String> ENDUSER_ID = stringKey("enduser.id");
+  @Deprecated public static final AttributeKey<String> ENDUSER_ID = stringKey("enduser.id");
 
   /**
    * Pseudonymous identifier of an end user. This identifier should be a random value that is not
@@ -38,7 +42,12 @@ public final class EnduserIncubatingAttributes {
    * <blockquote>
    * [!Warning] This field contains sensitive (linkable PII) information.
    * </blockquote>
+   *
+   * @deprecated Moved to the <a
+   *     href="https://github.com/open-telemetry/semantic-conventions-client-side">OpenTelemetry
+   *     Client-Side semantic conventions repository</a>.
    */
+  @Deprecated
   public static final AttributeKey<String> ENDUSER_PSEUDO_ID = stringKey("enduser.pseudo.id");
 
   /**

@@ -120,6 +120,76 @@ public final class JvmIncubatingMetrics {
   public static final String JVM_CPU_TIME_DESCRIPTION =
       "CPU time used by the process as reported by the JVM.";
 
+  /** Name of the {@code jvm.executor.queue.capacity} metric. */
+  public static final String JVM_EXECUTOR_QUEUE_CAPACITY_NAME = "jvm.executor.queue.capacity";
+
+  /** Unit of the {@code jvm.executor.queue.capacity} metric. */
+  public static final String JVM_EXECUTOR_QUEUE_CAPACITY_UNIT = "{task}";
+
+  /** Description of the {@code jvm.executor.queue.capacity} metric. */
+  public static final String JVM_EXECUTOR_QUEUE_CAPACITY_DESCRIPTION =
+      "The maximum number of tasks the executor queue can hold.";
+
+  /** Name of the {@code jvm.executor.queue.size} metric. */
+  public static final String JVM_EXECUTOR_QUEUE_SIZE_NAME = "jvm.executor.queue.size";
+
+  /** Unit of the {@code jvm.executor.queue.size} metric. */
+  public static final String JVM_EXECUTOR_QUEUE_SIZE_UNIT = "{task}";
+
+  /** Description of the {@code jvm.executor.queue.size} metric. */
+  public static final String JVM_EXECUTOR_QUEUE_SIZE_DESCRIPTION =
+      "The number of tasks currently queued for execution.";
+
+  /** Name of the {@code jvm.executor.task.completed} metric. */
+  public static final String JVM_EXECUTOR_TASK_COMPLETED_NAME = "jvm.executor.task.completed";
+
+  /** Unit of the {@code jvm.executor.task.completed} metric. */
+  public static final String JVM_EXECUTOR_TASK_COMPLETED_UNIT = "{task}";
+
+  /** Description of the {@code jvm.executor.task.completed} metric. */
+  public static final String JVM_EXECUTOR_TASK_COMPLETED_DESCRIPTION =
+      "The number of tasks completed by the executor.";
+
+  /** Name of the {@code jvm.executor.task.rejected} metric. */
+  public static final String JVM_EXECUTOR_TASK_REJECTED_NAME = "jvm.executor.task.rejected";
+
+  /** Unit of the {@code jvm.executor.task.rejected} metric. */
+  public static final String JVM_EXECUTOR_TASK_REJECTED_UNIT = "{task}";
+
+  /** Description of the {@code jvm.executor.task.rejected} metric. */
+  public static final String JVM_EXECUTOR_TASK_REJECTED_DESCRIPTION =
+      "The number of task submissions rejected by the executor.";
+
+  /** Name of the {@code jvm.executor.thread.core} metric. */
+  public static final String JVM_EXECUTOR_THREAD_CORE_NAME = "jvm.executor.thread.core";
+
+  /** Unit of the {@code jvm.executor.thread.core} metric. */
+  public static final String JVM_EXECUTOR_THREAD_CORE_UNIT = "{thread}";
+
+  /** Description of the {@code jvm.executor.thread.core} metric. */
+  public static final String JVM_EXECUTOR_THREAD_CORE_DESCRIPTION =
+      "The number of core threads configured for the executor.";
+
+  /** Name of the {@code jvm.executor.thread.count} metric. */
+  public static final String JVM_EXECUTOR_THREAD_COUNT_NAME = "jvm.executor.thread.count";
+
+  /** Unit of the {@code jvm.executor.thread.count} metric. */
+  public static final String JVM_EXECUTOR_THREAD_COUNT_UNIT = "{thread}";
+
+  /** Description of the {@code jvm.executor.thread.count} metric. */
+  public static final String JVM_EXECUTOR_THREAD_COUNT_DESCRIPTION =
+      "The number of executor threads that are currently in the state described by the `jvm.executor.thread.state` attribute. ";
+
+  /** Name of the {@code jvm.executor.thread.limit} metric. */
+  public static final String JVM_EXECUTOR_THREAD_LIMIT_NAME = "jvm.executor.thread.limit";
+
+  /** Unit of the {@code jvm.executor.thread.limit} metric. */
+  public static final String JVM_EXECUTOR_THREAD_LIMIT_UNIT = "{thread}";
+
+  /** Description of the {@code jvm.executor.thread.limit} metric. */
+  public static final String JVM_EXECUTOR_THREAD_LIMIT_DESCRIPTION =
+      "The maximum number of threads allowed for the executor.";
+
   /** Name of the {@code jvm.file_descriptor.count} metric. */
   public static final String JVM_FILE_DESCRIPTOR_COUNT_NAME = "jvm.file_descriptor.count";
 

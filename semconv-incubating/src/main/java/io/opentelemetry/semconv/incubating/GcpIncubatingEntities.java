@@ -27,11 +27,11 @@ public final class GcpIncubatingEntities {
    */
   public static final String GCP_APPHUB_WORKLOAD_TYPE = "gcp.apphub.workload";
 
-  /** Resource used by Google Cloud Run. */
-  public static final String GCP_CLOUD_RUN_TYPE = "gcp.cloud_run";
+  /** A task within a Google Cloud Run job execution. */
+  public static final String GCP_CLOUD_RUN_JOB_TASK_TYPE = "gcp.cloud_run.job.task";
 
-  /** Resources used by Google Compute Engine (GCE). */
-  public static final String GCP_GCE_TYPE = "gcp.gce";
+  /** A Google Compute Engine (GCE) instance. */
+  public static final String GCP_GCE_INSTANCE_TYPE = "gcp.gce.instance";
 
   /** A GCE instance group manager. */
   public static final String GCP_GCE_INSTANCE_GROUP_MANAGER_TYPE = "gcp.gce.instance_group_manager";

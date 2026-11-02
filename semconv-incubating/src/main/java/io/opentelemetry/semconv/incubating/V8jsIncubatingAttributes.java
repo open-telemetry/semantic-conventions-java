@@ -23,7 +23,8 @@ public final class V8jsIncubatingAttributes {
    *
    * <p>Value can be retrieved from value {@code space_name} of <a
    * href="https://nodejs.org/api/v8.html#v8getheapspacestatistics">{@code
-   * v8.getHeapSpaceStatistics()}</a>
+   * v8.getHeapSpaceStatistics()}</a>. The set of reported spaces depends on the V8 version the
+   * runtime embeds.
    */
   public static final AttributeKey<String> V8JS_HEAP_SPACE_NAME = stringKey("v8js.heap.space.name");
 
@@ -65,6 +66,34 @@ public final class V8jsIncubatingAttributes {
 
     /** Large object memory space. */
     public static final String LARGE_OBJECT_SPACE = "large_object_space";
+
+    /** Read-only memory space, holding immutable objects created at startup. */
+    public static final String READ_ONLY_SPACE = "read_only_space";
+
+    /** Memory space for objects shared across isolates (e.g. shared strings and structs). */
+    public static final String SHARED_SPACE = "shared_space";
+
+    /** Memory space for trusted objects kept outside the V8 sandbox (e.g. bytecode). */
+    public static final String TRUSTED_SPACE = "trusted_space";
+
+    /** Shared variant of the trusted memory space. */
+    public static final String SHARED_TRUSTED_SPACE = "shared_trusted_space";
+
+    /** Large object space for young-generation objects. */
+    public static final String NEW_LARGE_OBJECT_SPACE = "new_large_object_space";
+
+    /** Large object space for code objects. */
+    public static final String CODE_LARGE_OBJECT_SPACE = "code_large_object_space";
+
+    /** Large object space for shared objects. */
+    public static final String SHARED_LARGE_OBJECT_SPACE = "shared_large_object_space";
+
+    /** Large object space for shared trusted objects. */
+    public static final String SHARED_TRUSTED_LARGE_OBJECT_SPACE =
+        "shared_trusted_large_object_space";
+
+    /** Large object space for trusted objects. */
+    public static final String TRUSTED_LARGE_OBJECT_SPACE = "trusted_large_object_space";
 
     private V8jsHeapSpaceNameIncubatingValues() {}
   }
