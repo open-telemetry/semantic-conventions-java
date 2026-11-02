@@ -57,6 +57,10 @@ public final class AzureIncubatingAttributes {
   public static final AttributeKey<Long> AZURE_COSMOSDB_RESPONSE_SUB_STATUS_CODE =
       longKey("azure.cosmosdb.response.sub_status_code");
 
+  /** The UTC epoch seconds at which the message has been accepted and stored in the entity. */
+  public static final AttributeKey<Long> AZURE_EVENTHUBS_MESSAGE_ENQUEUED_TIME =
+      longKey("azure.eventhubs.message.enqueued_time");
+
   /**
    * The name of the Azure <a
    * href="https://learn.microsoft.com/azure/azure-resource-manager/management/manage-resource-groups-portal">resource
@@ -79,6 +83,22 @@ public final class AzureIncubatingAttributes {
    */
   public static final AttributeKey<String> AZURE_SERVICE_REQUEST_ID =
       stringKey("azure.service.request.id");
+
+  /**
+   * Describes the <a
+   * href="https://learn.microsoft.com/azure/service-bus-messaging/message-transfers-locks-settlement#peeklock">settlement
+   * type</a>.
+   */
+  public static final AttributeKey<String> AZURE_SERVICEBUS_DISPOSITION_STATUS =
+      stringKey("azure.servicebus.disposition_status");
+
+  /** Number of deliveries that have been attempted for this message. */
+  public static final AttributeKey<Long> AZURE_SERVICEBUS_MESSAGE_DELIVERY_COUNT =
+      longKey("azure.servicebus.message.delivery_count");
+
+  /** The UTC epoch seconds at which the message has been accepted and stored in the entity. */
+  public static final AttributeKey<Long> AZURE_SERVICEBUS_MESSAGE_ENQUEUED_TIME =
+      longKey("azure.servicebus.message.enqueued_time");
 
   // Enum definitions
 
@@ -111,6 +131,23 @@ public final class AzureIncubatingAttributes {
     public static final String CONSISTENT_PREFIX = "ConsistentPrefix";
 
     private AzureCosmosdbConsistencyLevelIncubatingValues() {}
+  }
+
+  /** Values for {@link #AZURE_SERVICEBUS_DISPOSITION_STATUS}. */
+  public static final class AzureServicebusDispositionStatusIncubatingValues {
+    /** Message is completed */
+    public static final String COMPLETE = "complete";
+
+    /** Message is abandoned */
+    public static final String ABANDON = "abandon";
+
+    /** Message is sent to dead letter queue */
+    public static final String DEAD_LETTER = "dead_letter";
+
+    /** Message is deferred */
+    public static final String DEFER = "defer";
+
+    private AzureServicebusDispositionStatusIncubatingValues() {}
   }
 
   private AzureIncubatingAttributes() {}

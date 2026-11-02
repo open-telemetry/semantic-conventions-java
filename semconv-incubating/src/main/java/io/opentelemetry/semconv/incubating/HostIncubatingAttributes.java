@@ -49,9 +49,72 @@ public final class HostIncubatingAttributes {
   public static final AttributeKey<String> HOST_CPU_VENDOR_ID = stringKey("host.cpu.vendor.id");
 
   /**
-   * Unique host ID. For Cloud, this must be the instance_id assigned by the cloud provider. For
-   * non-containerized systems, this should be the {@code machine-id}. See the table below for the
-   * sources to use to determine the {@code machine-id} based on operating system.
+   * Unique host ID, determined by the first matching source in the priority order.
+   *
+   * <p>Notes:
+   *
+   * <p>SHOULD be determined using the first available source from the following priority tiers:
+   *
+   * <ol>
+   *   <li>Known cloud vendors - cloud instance ID
+   *   <li>Known VM vendors - provider VM ID
+   *   <li>OS-dependent machine ID
+   *   <li>User-provided value
+   * </ol>
+   *
+   * <p>The value SHOULD conform to the following properties:
+   *
+   * <ul>
+   *   <li><strong>Unique</strong> within a given context;
+   *   <li><strong><a
+   *       href="https://opentelemetry.io/docs/specs/otel/entities/data-model/#repeatable-identity">Repeatable</a></strong>
+   *       - multiple observers on the same host come up with the same value;
+   *   <li><strong>Persistent</strong> - survives host restarts and software updates.
+   * </ul>
+   *
+   * <p><strong>Collecting {@code host.id} From Known Environments:</strong> When {@code host.id} is
+   * derived from a cloud vendor instance ID, the resource SHOULD also carry the corresponding
+   * {@code cloud.provider} and {@code cloud.platform} attributes so that the source of the {@code
+   * host.id} value can be unambiguously determined.
+   *
+   * <p>The following cloud environments are currently recognized:
+   *
+   * <p>| Environment | {@code host.id} source | {@code cloud.provider} | {@code cloud.platform} | |
+   * --- | --- | --- | --- | | AWS EC2 | EC2 instance ID | {@code aws} | {@code aws_ec2} | | AWS EKS
+   * (node) | EC2 instance ID | {@code aws} | {@code aws_eks} | | Azure VM | {@code vmId} | {@code
+   * azure} | {@code azure.vm} | | GCP Compute Engine | GCE instance ID | {@code gcp} | {@code
+   * gcp_compute_engine} | | GCP GKE (node) | GCE instance ID | {@code gcp} | {@code
+   * gcp_kubernetes_engine} |
+   *
+   * <p>The listed {@code cloud.provider}/{@code cloud.platform} values are for example only. Refer
+   * to the <a href="/docs/registry/attributes/cloud.md">{@code cloud}</a> attribute definitions for
+   * the relevant set of values.
+   *
+   * <p><strong>Non-privileged Machine ID Lookup:</strong> When collecting {@code host.id} for
+   * non-containerized systems, non-privileged lookups of the machine ID are preferred. SDK detector
+   * implementations MUST use the sources listed below to obtain the machine ID.
+   *
+   * <p>| OS | Primary | Fallback | | --- | --- | --- | | Linux | contents of {@code
+   * /etc/machine-id} | contents of {@code /var/lib/dbus/machine-id} | | BSD | contents of {@code
+   * /etc/hostid} | output of {@code /bin/kenv -q smbios.system.uuid} | | macOS | {@code
+   * IOPlatformUUID} line from the output of {@code /usr/sbin/ioreg -rd1 -c
+   * "IOPlatformExpertDevice"} | - | | Windows | {@code MachineGuid} from registry {@code
+   * HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Cryptography} | - |
+   *
+   * <p><strong>Privileged Machine ID Lookup:</strong> The {@code host.id} can be looked up using
+   * privileged sources. For example, Linux systems can use the output of {@code dmidecode -t
+   * system}, {@code dmidecode -t baseboard}, {@code dmidecode -t chassis}, or read the
+   * corresponding data from the filesystem (e.g. {@code cat
+   * /sys/devices/virtual/dmi/id/product_id}, {@code cat /sys/devices/virtual/dmi/id/product_uuid},
+   * etc), however, SDK resource detector implementations MUST NOT collect {@code host.id} from
+   * privileged sources. If privileged lookup of {@code host.id} is required, the value SHOULD be
+   * injected via the {@code OTEL_RESOURCE_ATTRIBUTES} environment variable.
+   *
+   * <p><strong>Collecting {@code host.id} From User Configuration:</strong> If none of the above
+   * sources yields a non-empty value, the implementation MAY be unable to determine {@code host.id}
+   * automatically and SHOULD omit the attribute. In that case, the {@code host.id} can only be
+   * provided through user configuration or other available manual options. Users SHOULD ensure that
+   * the {@code host.id} value conforms to the properties stated above.
    */
   public static final AttributeKey<String> HOST_ID = stringKey("host.id");
 

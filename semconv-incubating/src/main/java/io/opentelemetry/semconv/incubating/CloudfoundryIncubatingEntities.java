@@ -24,5 +24,8 @@ public final class CloudfoundryIncubatingEntities {
   /** The system component which is monitored. */
   public static final String CLOUDFOUNDRY_SYSTEM_TYPE = "cloudfoundry.system";
 
+  /** A concrete instance of the system component which is monitored. */
+  public static final String CLOUDFOUNDRY_SYSTEM_INSTANCE_TYPE = "cloudfoundry.system.instance";
+
   private CloudfoundryIncubatingEntities() {}
 }

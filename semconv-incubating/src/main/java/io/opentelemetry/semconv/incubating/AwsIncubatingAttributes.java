@@ -131,8 +131,8 @@ public final class AwsIncubatingAttributes {
 
   /**
    * The Amazon Resource Name (ARN) of an <a
-   * href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ECS_instances.html">ECS
-   * container instance</a>.
+   * href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-metadata-endpoint-v4-response.html">ECS
+   * container</a>.
    */
   public static final AttributeKey<String> AWS_ECS_CONTAINER_ARN =
       stringKey("aws.ecs.container.arn");

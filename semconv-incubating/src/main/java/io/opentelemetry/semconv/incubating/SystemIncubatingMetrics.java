@@ -339,7 +339,7 @@ public final class SystemIncubatingMetrics {
   public static final String SYSTEM_MEMORY_USAGE_UNIT = "By";
 
   /** Description of the {@code system.memory.usage} metric. */
-  public static final String SYSTEM_MEMORY_USAGE_DESCRIPTION = "Reports memory in use by state.";
+  public static final String SYSTEM_MEMORY_USAGE_DESCRIPTION = "Reports memory by state.";
 
   /** Name of the {@code system.memory.utilization} metric. */
   public static final String SYSTEM_MEMORY_UTILIZATION_NAME = "system.memory.utilization";
@@ -349,7 +349,7 @@ public final class SystemIncubatingMetrics {
 
   /** Description of the {@code system.memory.utilization} metric. */
   public static final String SYSTEM_MEMORY_UTILIZATION_DESCRIPTION =
-      "Percentage of memory bytes in use.";
+      "Fraction of memory bytes by state.";
 
   /** Name of the {@code system.network.connection.count} metric. */
   public static final String SYSTEM_NETWORK_CONNECTION_COUNT_NAME =

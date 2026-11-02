@@ -9,14 +9,17 @@ package io.opentelemetry.semconv.incubating;
 // buildscripts/templates/registry/incubating_java/IncubatingSemanticEntities.java.j2
 @SuppressWarnings("unused")
 public final class AwsIncubatingEntities {
-  /** Entities used by AWS Elastic Container Service (ECS). */
-  public static final String AWS_ECS_TYPE = "aws.ecs";
+  /** An AWS Elastic Container Service (ECS) cluster. */
+  public static final String AWS_ECS_CLUSTER_TYPE = "aws.ecs.cluster";
+
+  /** An application container running in an AWS Elastic Container Service (ECS) task. */
+  public static final String AWS_ECS_CONTAINER_TYPE = "aws.ecs.container";
+
+  /** A running AWS Elastic Container Service (ECS) task. */
+  public static final String AWS_ECS_TASK_TYPE = "aws.ecs.task";
 
   /** Entities used by AWS Elastic Kubernetes Service (EKS). */
   public static final String AWS_EKS_TYPE = "aws.eks";
-
-  /** Entities specific to Amazon Web Services. */
-  public static final String AWS_LOG_TYPE = "aws.log";
 
   private AwsIncubatingEntities() {}
 }

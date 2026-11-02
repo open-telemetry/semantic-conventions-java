@@ -14,7 +14,16 @@ import io.opentelemetry.api.common.AttributeKey;
 // buildscripts/templates/registry/incubating_java/IncubatingSemanticAttributes.java.j2
 @SuppressWarnings("unused")
 public final class CpuIncubatingAttributes {
-  /** The logical CPU number [0..n-1] */
+  /**
+   * The identifier of a logical execution target (CPU) as seen by the operating system, in the
+   * range [0..n-1].
+   *
+   * <p>Notes:
+   *
+   * <p>On systems with simultaneous multithreading (SMT) enabled — such as Intel Hyper-Threading or
+   * AMD SMT — this value will usually differ from the physical core number, because each core
+   * presents multiple logical CPUs for the system to use.
+   */
   public static final AttributeKey<Long> CPU_LOGICAL_NUMBER = longKey("cpu.logical_number");
 
   /** The mode of the CPU */
