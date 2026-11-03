@@ -32,7 +32,7 @@ dependencies {
   testCompileOnly("org.osgi:osgi.core:8.0.0")
 
   testRuntimeOnly("org.junit.platform:junit-platform-launcher")
-  testRuntimeOnly("org.apache.felix:org.apache.felix.framework:7.0.5")
+  testRuntimeOnly("org.apache.felix:org.apache.felix.framework:8.0.0")
   // opentelemetry-common (pulled in transitively by opentelemetry-api) declares
   // Require-Capability: osgi.extender=osgi.serviceloader.processor, so the container needs Aries
   // SPI Fly to resolve even though semconv itself has no ServiceLoader providers.
